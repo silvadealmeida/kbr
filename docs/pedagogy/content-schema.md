@@ -1,6 +1,6 @@
 # Schema de conteúdo — módulo Hangul
 
-**Status:** especificação concluída; implementação pendente (Fase 3B).
+**Status:** especificação concluída; implementação concluída na Fase 3B.5 (`h01`–`h25` + `c1`–`c4`). A revisão humana do conteúdo continua pendente.
 **Objetivo:** definir os tipos TypeScript, a separação entre conteúdo estático e dados do usuário, a compatibilidade com o código existente e as invariantes que impedem conteúdo inválido.
 **Princípio:** **nenhuma migração de banco, nenhuma mudança em auth, sync, RLS ou `Progress` v1.**
 
@@ -681,6 +681,8 @@ export function assertCurriculum(curriculum: Curriculum): void;
 ---
 
 ## 9. Ordem de implementação da Fase 3B
+
+**Checklist histórico:** os passos 1–10 foram concluídos na Fase 3B.5; o passo 11 (revisão humana) segue pendente.
 
 1. **Tipos e jamo:** criar `src/content/hangul/types.ts` e `jamo.ts` com os 40 jamo; validar com teste.
 2. **Funções puras:** adicionar `decomposeSyllable`, `isHangulText`, `normalizeHangul` em `src/lib/hangul`; testes de round-trip.

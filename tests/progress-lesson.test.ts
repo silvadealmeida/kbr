@@ -99,11 +99,14 @@ describe("progresso de lição", () => {
     expect(nextLessonAfter(LESSONS, "h01")?.id).toBe("h02");
     expect(nextLessonAfter(LESSONS, "h03")?.id).toBe("h04");
     expect(nextLessonAfter(LESSONS, "h10")?.id).toBe("h11");
-    expect(nextLessonAfter(LESSONS, "h15")).toBeUndefined();
+    expect(nextLessonAfter(LESSONS, "h15")?.id).toBe("h16");
+    expect(nextLessonAfter(LESSONS, "h20")).toBeUndefined();
     expect(nextCourseStepAfter(LESSONS, CHECKPOINTS, "h10")?.id).toBe("c1");
     expect(nextCourseStepAfter(LESSONS, CHECKPOINTS, "c1")?.id).toBe("h11");
     expect(nextCourseStepAfter(LESSONS, CHECKPOINTS, "h15")?.id).toBe("c2");
-    expect(nextCourseStepAfter(LESSONS, CHECKPOINTS, "c2")).toBeUndefined();
+    expect(nextCourseStepAfter(LESSONS, CHECKPOINTS, "c2")?.id).toBe("h16");
+    expect(nextCourseStepAfter(LESSONS, CHECKPOINTS, "h20")?.id).toBe("c3");
+    expect(nextCourseStepAfter(LESSONS, CHECKPOINTS, "c3")).toBeUndefined();
   });
 
   test("calcula o mínimo de acertos sem reprovar 19 de 24 por arredondamento", () => {
@@ -381,5 +384,144 @@ describe("checkpoint c2 — inventário completo de vogais", () => {
     for (const vowel of HANGUL_CURRICULUM.jamo.filter((jamo) => jamo.kind === "vowel")) {
       expect(cards.has(`h:jamo:v:${vowel.symbol}`)).toBe(true);
     }
+  });
+});
+
+function c3Answers(correctIds: readonly string[]) {
+  const checkpoint = CHECKPOINTS.find((item) => item.id === "c3")!;
+  return Object.fromEntries(
+    checkpoint.exercises.map((exercise) => [
+      exercise.id,
+      { correct: correctIds.includes(exercise.id) },
+    ]),
+  );
+}
+
+describe("checkpoint c3 — batchim simples e duplos", () => {
+  test("só abre com h16–h20 concluídas", () => {
+    const c3 = CHECKPOINTS.find((checkpoint) => checkpoint.id === "c3")!;
+    const empty = createEmptyProgress(NOW);
+    expect(isCheckpointUnlocked(empty, c3)).toBe(false);
+
+    const upToH19: Progress = {
+      ...empty,
+      lessons: Object.fromEntries(
+        LESSONS.filter((lesson) => lesson.id !== "h20").map((lesson) => [
+          lesson.id,
+          { done: true, score: 100 },
+        ]),
+      ),
+    };
+    expect(isCheckpointUnlocked(upToH19, c3)).toBe(false);
+    expect(isCheckpointUnlocked(progressWithAllLessons(), c3)).toBe(true);
+  });
+
+  test("aprova com 19 de 24 e reprova com 18", () => {
+    const c3 = CHECKPOINTS.find((checkpoint) => checkpoint.id === "c3")!;
+    const ids = c3.exercises.map((exercise) => exercise.id);
+
+    const pass = evaluateCheckpoint(c3, c3Answers(ids.slice(0, 19)));
+    expect(pass).toMatchObject({ correct: 19, total: 24, score: 79, passed: true });
+
+    const fail = evaluateCheckpoint(c3, c3Answers(ids.slice(0, 18)));
+    expect(fail).toMatchObject({ correct: 18, total: 24, score: 75, passed: false });
+  });
+
+  test("mantém conclusão e maior score em retentativas", () => {
+    const c3 = CHECKPOINTS.find((checkpoint) => checkpoint.id === "c3")!;
+    const ids = c3.exercises.map((exercise) => exercise.id);
+
+    const first = completeCheckpoint(
+      progressWithAllLessons(),
+      c3,
+      c3Answers(ids),
+      NOW,
+    );
+    expect(first.progress.lessons.c3).toEqual({ done: true, score: 100 });
+
+    const retry = completeCheckpoint(
+      first.progress,
+      c3,
+      c3Answers(ids.slice(0, 10)),
+      NOW,
+    );
+    expect(retry.progress.lessons.c3).toEqual({ done: true, score: 100 });
+    expect(retry.result.passed).toBe(false);
+  });
+
+  test("refazer abaixo da nota não cria conclusão falsa", () => {
+    const c3 = CHECKPOINTS.find((checkpoint) => checkpoint.id === "c3")!;
+    const ids = c3.exercises.map((exercise) => exercise.id);
+    const result = completeCheckpoint(
+      progressWithAllLessons(),
+      c3,
+      c3Answers(ids.slice(0, 18)),
+      NOW,
+    );
+    expect(result.progress.lessons.c3).toEqual({ done: false, score: 75 });
+  });
+
+  test("diagnóstico separa batchim simples e duplo", () => {
+    const c3 = CHECKPOINTS.find((checkpoint) => checkpoint.id === "c3")!;
+    const ids = c3.exercises.map((exercise) => exercise.id);
+    const result = evaluateCheckpoint(
+      c3,
+      c3Answers(ids.filter((id) => id !== "c3-e01" && id !== "c3-e09")),
+    );
+    expect(result.missedExerciseIds).toEqual(["c3-e01", "c3-e09"]);
+    expect(
+      result.diagnostics.find((category) => category.id === "batchim-simple")?.missed,
+    ).toBe(1);
+    expect(
+      result.diagnostics.find((category) => category.id === "batchim-double")?.missed,
+    ).toBe(1);
+  });
+
+  test("os finais duplos usam cartões de sílaba/palavra, nunca jamo isolado", () => {
+    const doubles = ["ㄳ", "ㄵ", "ㄶ", "ㄺ", "ㄻ", "ㄼ", "ㄽ", "ㄾ", "ㄿ", "ㅀ", "ㅄ"];
+    const cards = new Set(
+      [...LESSONS, ...CHECKPOINTS].flatMap((item) =>
+        item.exercises.flatMap((exercise) => exercise.srsCards ?? []),
+      ),
+    );
+    for (const symbol of doubles) {
+      expect(cards.has(`h:jamo:c:${symbol}`)).toBe(false);
+      expect(cards.has(`h:jamo:v:${symbol}`)).toBe(false);
+    }
+    expect(cards.has("h:syl:닭")).toBe(true);
+    expect(cards.has("h:word:삶")).toBe(true);
+  });
+});
+
+describe("lições h16–h20 — critérios e limites", () => {
+  test("h16 passa com 10 de 12 e reprova com 9", () => {
+    const h16 = LESSONS.find((lesson) => lesson.id === "h16")!;
+    const ids = h16.exercises.map((exercise) => exercise.id);
+    expect(evaluateLesson(h16, answers("h16", ids.slice(0, 10))).passed).toBe(true);
+    expect(evaluateLesson(h16, answers("h16", ids.slice(0, 9))).passed).toBe(false);
+  });
+
+  test("h18 registra a regra dos cinco itens de som final já vistos", () => {
+    const h18 = LESSONS.find((lesson) => lesson.id === "h18")!;
+    const ids = h18.exercises.map((exercise) => exercise.id);
+    const withoutTable = ids.filter((id) => id !== "h18-e14");
+    const result = evaluateLesson(h18, answers("h18", withoutTable));
+    expect(result.rules.find((rule) => rule.id === "h18-seen-sounds")?.met).toBe(true);
+
+    const withoutSounds = ids.filter(
+      (id) => !["h18-e01", "h18-e02", "h18-e03", "h18-e04", "h18-e05"].includes(id),
+    );
+    const failed = evaluateLesson(h18, answers("h18", withoutSounds));
+    expect(failed.rules.find((rule) => rule.id === "h18-seen-sounds")?.met).toBe(false);
+  });
+
+  test("h20 reprova sem a exceção de 밟다 mesmo com nota suficiente", () => {
+    const h20 = LESSONS.find((lesson) => lesson.id === "h20")!;
+    const ids = h20.exercises.map((exercise) => exercise.id);
+    const withoutException = ids.filter((id) => id !== "h20-e09");
+    const result = evaluateLesson(h20, answers("h20", withoutException));
+    expect(result.score).toBeGreaterThanOrEqual(h20.completion.minScore);
+    expect(result.rules.find((rule) => rule.id === "h20-exception")?.met).toBe(false);
+    expect(result.passed).toBe(false);
   });
 });

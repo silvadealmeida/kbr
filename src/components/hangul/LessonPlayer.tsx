@@ -9,7 +9,14 @@ import {
   type DetailedCheckResult,
   type ExerciseAnswer,
 } from "@/lib/exercises";
-import { isLessonUnlocked, completeLesson, evaluateLesson, recordAttempt, type LessonResult } from "@/lib/progress/lesson";
+import {
+  isLessonUnlocked,
+  completeLesson,
+  evaluateLesson,
+  lessonRequiredCorrect,
+  recordAttempt,
+  type LessonResult,
+} from "@/lib/progress/lesson";
 import { scheduleMissedReview } from "@/lib/srs";
 import { type Progress } from "@/lib/storage";
 import { DiagnosticsList } from "./DiagnosticsList";
@@ -68,6 +75,7 @@ export function LessonPlayer({
 
   const exercise = lesson.exercises[index];
   const total = lesson.exercises.length;
+  const requiredCorrect = lessonRequiredCorrect(lesson);
 
   const submit = () => {
     if (!exercise || !draft || result) return;
@@ -208,7 +216,8 @@ export function LessonPlayer({
             Começar a prática
           </button>
           <p className="mt-2 text-sm text-muted">
-            {total} itens. Para concluir, acerte pelo menos {lesson.completion.minScore}%.
+            {total} itens. Para concluir, acerte pelo menos {requiredCorrect} de {total}{" "}
+            ({lesson.completion.minScore}% documentado).
           </p>
           {lesson.completion.rules?.length ? (
             <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-muted">
@@ -241,7 +250,7 @@ export function LessonPlayer({
             {lessonResult.passed
               ? "Seu progresso foi registrado e a próxima etapa foi liberada."
               : "Esta lição pede " +
-                `${lesson.completion.minScore}% e os critérios adicionais. ` +
+                `${requiredCorrect} de ${total} acertos (${lesson.completion.minScore}% documentado) e os critérios adicionais. ` +
                 "Você pode refazer quando quiser; o app guarda o seu melhor resultado."}
           </p>
           {!lessonResult.requiredMet ? (

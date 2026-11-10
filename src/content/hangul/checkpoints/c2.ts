@@ -431,6 +431,7 @@ export const C2: Checkpoint = {
     },
   ],
   passingScore: 80,
+  minCorrect: 19,
   diagnosticTags: ["diag:vowel-compound", "diag:vowel", "diag:reading"],
   estimatedMinutes: 20,
   review: {

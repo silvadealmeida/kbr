@@ -78,9 +78,9 @@
     "semantic_hash": ""
   },
   "tests/routes.test.ts": {
-    "mtime": 1794314752.0956483,
-    "seen": 1794315074.4476602,
-    "ast_hash": "73da32fc3cc1e5f46edff6ec15b9e394",
+    "mtime": 1794328633.7869637,
+    "seen": 1794328933.1499658,
+    "ast_hash": "612d049abdaff4430a6a8d97d4ab42c1",
     "semantic_hash": ""
   },
   "tsconfig.json": {
@@ -108,9 +108,9 @@
     "semantic_hash": ""
   },
   "docs/architecture.md": {
-    "mtime": 1794327547.4708068,
-    "seen": 1794327662.8742733,
-    "ast_hash": "0ca7082d01a29d4a2a69591c7acec57f",
+    "mtime": 1794328845.3966272,
+    "seen": 1794328933.1499739,
+    "ast_hash": "9a2ce262cc2f8fe49bbc2a3b6bedd946",
     "semantic_hash": ""
   },
   "docs/research.md": {
@@ -120,9 +120,9 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794327657.5869954,
-    "seen": 1794327662.874279,
-    "ast_hash": "804950965a890bc8ae89aafaaf83bb23",
+    "mtime": 1794328802.3329508,
+    "seen": 1794328933.1499789,
+    "ast_hash": "bbfe7ce1b714564f35efa3ef1830faaf",
     "semantic_hash": ""
   },
   "src/lib/hangul/index.ts": {
@@ -132,9 +132,9 @@
     "semantic_hash": ""
   },
   "tests/hangul.test.ts": {
-    "mtime": 1794318696.1153615,
-    "seen": 1794318985.0749164,
-    "ast_hash": "c33e7772eb18abf1b738cd08bb318806",
+    "mtime": 1794328627.7115655,
+    "seen": 1794328933.1499634,
+    "ast_hash": "6dd9be3cabaf6c0f734f892162770723",
     "semantic_hash": ""
   },
   "src/app/manifest.ts": {
@@ -198,9 +198,9 @@
     "semantic_hash": ""
   },
   "tests/srs.test.ts": {
-    "mtime": 1794327573.0600767,
-    "seen": 1794327662.874267,
-    "ast_hash": "1c1b1ba7a02acc53ccfe11591c23e505",
+    "mtime": 1794328620.7028363,
+    "seen": 1794328933.1499677,
+    "ast_hash": "0a38320d1cb5840ed9d6d6b8102dd1be",
     "semantic_hash": ""
   },
   "src/lib/storage/index.ts": {
@@ -516,9 +516,9 @@
     "semantic_hash": ""
   },
   "e2e/hangul.spec.ts": {
-    "mtime": 1794327521.7505553,
-    "seen": 1794327662.8741813,
-    "ast_hash": "6b04e73d1c3ae08ee153fa2f5f30fc37",
+    "mtime": 1794328724.5432434,
+    "seen": 1794328933.149876,
+    "ast_hash": "a61a209a742ea68a1e91378d664556fd",
     "semantic_hash": ""
   },
   "e2e/mock-supabase.mjs": {
@@ -540,15 +540,15 @@
     "semantic_hash": ""
   },
   "src/components/hangul/HangulCourse.tsx": {
-    "mtime": 1794321016.5547206,
-    "seen": 1794327662.8742166,
-    "ast_hash": "ad74dce45345768fe9b28671f1e79c5a",
+    "mtime": 1794328464.2075832,
+    "seen": 1794328933.1499124,
+    "ast_hash": "5bafbf447808c3dfe52cac3ea38918f4",
     "semantic_hash": ""
   },
   "src/components/hangul/LessonPlayer.tsx": {
-    "mtime": 1794320057.6334388,
-    "seen": 1794320374.0457966,
-    "ast_hash": "e6f745bd2cb384cf7844ba312faab0ba",
+    "mtime": 1794328422.7859678,
+    "seen": 1794328933.149913,
+    "ast_hash": "9e660b0e8cfff0a3d17f177b599da0e3",
     "semantic_hash": ""
   },
   "src/content/hangul/index.ts": {
@@ -582,51 +582,51 @@
     "semantic_hash": ""
   },
   "src/content/hangul/lessons/index.ts": {
-    "mtime": 1794320975.6953442,
-    "seen": 1794327662.8742402,
-    "ast_hash": "86277ee20345fedd497dbea85673a201",
+    "mtime": 1794328395.8513212,
+    "seen": 1794328933.1499407,
+    "ast_hash": "8df09ba8dcbdec909d1525025754da9c",
     "semantic_hash": ""
   },
   "src/content/hangul/outline.ts": {
-    "mtime": 1794321016.5547206,
-    "seen": 1794327662.874241,
-    "ast_hash": "0f8165852f6cc74d898b44149be9ed44",
+    "mtime": 1794328464.2075832,
+    "seen": 1794328933.1499412,
+    "ast_hash": "941470a8a2de755aa7400f389ccebcaf",
     "semantic_hash": ""
   },
   "src/content/hangul/syllables.ts": {
-    "mtime": 1794320857.6709285,
-    "seen": 1794327662.8742416,
-    "ast_hash": "0a8cd879f87d48370fc756e15ae044e0",
+    "mtime": 1794328391.795813,
+    "seen": 1794328933.1499417,
+    "ast_hash": "98ba217f48711b5cb91fc3a0edf1f85f",
     "semantic_hash": ""
   },
   "src/content/hangul/types.ts": {
-    "mtime": 1794319571.9781256,
-    "seen": 1794320374.0458148,
-    "ast_hash": "1fc40b5a7738ebef5be5a59bb1bb78d3",
+    "mtime": 1794328080.1376739,
+    "seen": 1794328933.1499426,
+    "ast_hash": "80dd45d4c27e2a63322df274139a7854",
     "semantic_hash": ""
   },
   "src/content/hangul/validate.ts": {
-    "mtime": 1794327372.758792,
-    "seen": 1794327662.8742428,
-    "ast_hash": "b4dddc7f86a613670ac7fbe0d214eb22",
+    "mtime": 1794328476.6669984,
+    "seen": 1794328933.149943,
+    "ast_hash": "f8995773eba571b6b2bdb276b4720534",
     "semantic_hash": ""
   },
   "src/lib/progress/lesson.ts": {
-    "mtime": 1794321011.1170135,
-    "seen": 1794327662.874248,
-    "ast_hash": "8ae46acee6796a0c405f6bb604266ea1",
+    "mtime": 1794328084.7279131,
+    "seen": 1794328933.1499484,
+    "ast_hash": "45120f3d6650d4d91b67da5b77e503cc",
     "semantic_hash": ""
   },
   "tests/content/hangul.test.ts": {
-    "mtime": 1794327647.246399,
-    "seen": 1794327662.8742611,
-    "ast_hash": "b27d28486dfa1724717f9a018873e07d",
+    "mtime": 1794328521.7743754,
+    "seen": 1794328933.149962,
+    "ast_hash": "862a1befa04f77e9a6b627bb624d7119",
     "semantic_hash": ""
   },
   "tests/progress-lesson.test.ts": {
-    "mtime": 1794327419.3467982,
-    "seen": 1794327662.8742638,
-    "ast_hash": "d206a2e4dae5d6fe69193165f66fe16d",
+    "mtime": 1794328554.9650447,
+    "seen": 1794328933.1499648,
+    "ast_hash": "dd1f2c70ece35326be94f28cf617de9a",
     "semantic_hash": ""
   },
   "pendenteDesign.md": {
@@ -636,9 +636,9 @@
     "semantic_hash": ""
   },
   "src/components/hangul/CheckpointPlayer.tsx": {
-    "mtime": 1794320069.0895758,
-    "seen": 1794320374.045794,
-    "ast_hash": "019d39fde4a6c53878a7d89637ad8365",
+    "mtime": 1794328422.7859678,
+    "seen": 1794328933.1499104,
+    "ast_hash": "38233904bb0ede31a524101ad8ac2be2",
     "semantic_hash": ""
   },
   "src/components/hangul/DiagnosticsList.tsx": {
@@ -654,15 +654,15 @@
     "semantic_hash": ""
   },
   "src/content/hangul/checkpoints/c1.ts": {
-    "mtime": 1794319976.004013,
-    "seen": 1794320374.0458038,
-    "ast_hash": "ecb6e0888fa7a7c572b10402cce725f4",
+    "mtime": 1794328455.0295696,
+    "seen": 1794328933.1499214,
+    "ast_hash": "d45a4d54b2b50e54ae70161f7d146a00",
     "semantic_hash": ""
   },
   "src/content/hangul/checkpoints/index.ts": {
-    "mtime": 1794320975.6953442,
-    "seen": 1794327662.874228,
-    "ast_hash": "d07cf59035665851b3da33af39bc3ffc",
+    "mtime": 1794328457.655756,
+    "seen": 1794328933.1499248,
+    "ast_hash": "1befeea3222af12ab0fdf96721c8aaf7",
     "semantic_hash": ""
   },
   "src/content/hangul/lessons/h04.ts": {
@@ -708,9 +708,9 @@
     "semantic_hash": ""
   },
   "src/lib/progress/diagnostics.ts": {
-    "mtime": 1794320993.070142,
-    "seen": 1794327662.874247,
-    "ast_hash": "d55b3549eee5aef114ef33829a8240a3",
+    "mtime": 1794328142.5848024,
+    "seen": 1794328933.1499476,
+    "ast_hash": "65cffeb6ab32da12f4f5c47dd93c96fc",
     "semantic_hash": ""
   },
   "src/lib/srs/cards.ts": {
@@ -720,9 +720,9 @@
     "semantic_hash": ""
   },
   "src/content/hangul/checkpoints/c2.ts": {
-    "mtime": 1794320971.4915845,
-    "seen": 1794327662.8742266,
-    "ast_hash": "0564ec82625425409e9865183a57292c",
+    "mtime": 1794328455.0295696,
+    "seen": 1794328933.1499228,
+    "ast_hash": "48a426ff9c8386ffad76d08ecbdac06c",
     "semantic_hash": ""
   },
   "src/content/hangul/lessons/h11.ts": {
@@ -753,6 +753,42 @@
     "mtime": 1794320943.9376545,
     "seen": 1794327662.8742394,
     "ast_hash": "32b5489da42b9e92e8b95591bf7612ee",
+    "semantic_hash": ""
+  },
+  "src/content/hangul/checkpoints/c3.ts": {
+    "mtime": 1794328455.0295696,
+    "seen": 1794328933.1499238,
+    "ast_hash": "9e30dee25cca5082e11d802a724b7db5",
+    "semantic_hash": ""
+  },
+  "src/content/hangul/lessons/h16.ts": {
+    "mtime": 1794328164.701759,
+    "seen": 1794328933.1499372,
+    "ast_hash": "0e6b0c79e1224dd251ef01a0d19449db",
+    "semantic_hash": ""
+  },
+  "src/content/hangul/lessons/h17.ts": {
+    "mtime": 1794328187.9755807,
+    "seen": 1794328933.1499379,
+    "ast_hash": "a547cb1375231139ded653e1ce205494",
+    "semantic_hash": ""
+  },
+  "src/content/hangul/lessons/h18.ts": {
+    "mtime": 1794328476.6669984,
+    "seen": 1794328933.149939,
+    "ast_hash": "3d345a5f659cfc9b035807d91537614a",
+    "semantic_hash": ""
+  },
+  "src/content/hangul/lessons/h19.ts": {
+    "mtime": 1794328244.3880043,
+    "seen": 1794328933.1499395,
+    "ast_hash": "a8f3a749fa0b96df5400915ab2523a3a",
+    "semantic_hash": ""
+  },
+  "src/content/hangul/lessons/h20.ts": {
+    "mtime": 1794328271.4544573,
+    "seen": 1794328933.14994,
+    "ast_hash": "d2e0af2952a15bd36604800a82627a53",
     "semantic_hash": ""
   },
   "package-lock.json": {

@@ -5,6 +5,8 @@ export type DiagnosticCategoryId =
   | "vowel-compound"
   | "consonant-basic"
   | "consonant-tense"
+  | "batchim-simple"
+  | "batchim-double"
   | "reading"
   | "structure";
 
@@ -35,6 +37,8 @@ const CATEGORY_ORDER: readonly DiagnosticCategoryId[] = [
   "vowel-compound",
   "consonant-basic",
   "consonant-tense",
+  "batchim-simple",
+  "batchim-double",
   "reading",
   "structure",
 ];
@@ -68,19 +72,33 @@ const CATEGORIES: Record<DiagnosticCategoryId, DiagnosticCategory> = {
       "Pratique o contraste simples × aspirada × tensa sem sopro. Escute primeiro, produza depois.",
     lessonIds: ["h09", "h10"],
   },
+  "batchim-simple": {
+    id: "batchim-simple",
+    label: "Batchim simples",
+    advice:
+      "Volte aos finais ㅇ, ㄴ, ㅁ, ㄱ, ㄷ, ㄹ, ㅂ e às suas famílias. O batchim fecha a sílaba; não acrescente vogal depois. Para ㄱ/ㄷ/ㅂ, segure o som sem soltar o ar.",
+    lessonIds: ["h17", "h18", "h19"],
+  },
+  "batchim-double": {
+    id: "batchim-double",
+    label: "Batchim duplos",
+    advice:
+      "Reveja os 11 finais duplos: em geral só um componente sobrevive. Separe ㄳ–ㄻ de ㄼ–ㅄ e lembre a exceção de 밟다.",
+    lessonIds: ["h20"],
+  },
   reading: {
     id: "reading",
-    label: "Leitura de sílabas C+V",
+    label: "Leitura de sílabas",
     advice:
       "Leia bloco por bloco: inicial, vogal e, quando houver, final. Use as palavras já estudadas para conferir o sentido.",
-    lessonIds: ["h04", "h05", "h06", "h07", "h08", "h09", "h10"],
+    lessonIds: ["h04", "h05", "h06", "h07", "h08", "h09", "h10", "h17", "h18", "h19", "h20"],
   },
   structure: {
     id: "structure",
     label: "Blocos e posições",
     advice:
-      "Reveja como o bloco silábico se organiza: inicial, medial e final não são lidos em fila como no português.",
-    lessonIds: ["h01"],
+      "Reveja como o bloco silábico se organiza: inicial, medial e final não são lidos em fila como no português. Em h16, treine montar e decompor sílabas C+V.",
+    lessonIds: ["h01", "h16"],
   },
 };
 

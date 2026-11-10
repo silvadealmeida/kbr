@@ -39,8 +39,8 @@ export function HangulCourse() {
   return (
     <div className="flex flex-col gap-6">
       <p className="rounded-2xl border border-border bg-surface p-4 text-sm text-muted">
-        Conteúdo coreano em revisão por falante nativo. As lições h01–h15 e os
-        checkpoints c1 e c2 já podem ser feitos; o restante do curso está em
+        Conteúdo coreano em revisão por falante nativo. As lições h01–h20 e os
+        checkpoints c1, c2 e c3 já podem ser feitos; o restante do curso está em
         desenvolvimento.
       </p>
 

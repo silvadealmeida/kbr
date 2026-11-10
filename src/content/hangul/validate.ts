@@ -1,4 +1,12 @@
-import { composeSyllable, decomposeSyllable, isHangulSyllable, isInitial, isMedial } from "@/lib/hangul";
+import {
+  FINALS,
+  composeSyllable,
+  decomposeSyllable,
+  isFinal,
+  isHangulSyllable,
+  isInitial,
+  isMedial,
+} from "@/lib/hangul";
 import { parseSrsCardKey } from "@/lib/srs";
 import type {
   Curriculum,
@@ -158,7 +166,11 @@ function courseOrder(curriculum: Curriculum): Map<string, number> {
   return lessonPositions;
 }
 
-/** Verifica se todo jamo usado em `text` já foi ensinado até `maxOrder`. */
+/**
+ * Verifica se todo jamo usado em `text` já foi ensinado até `maxOrder`.
+ * Iniciais e mediais vêm do registro de jamo; finais (batchim) vêm de
+ * `newFinals`, porque o mesmo símbolo já foi ensinado como inicial.
+ */
 function checkTaughtText(
   issues: ContentIssue[],
   path: string,
@@ -167,6 +179,7 @@ function checkTaughtText(
   label: string,
   order: Map<string, number>,
   jamoBySymbol: Map<string, JamoRecord>,
+  finalIntroducedIn: Map<string, string>,
 ) {
   checkNfc(issues, path, text);
   for (const char of text) {
@@ -178,7 +191,7 @@ function checkTaughtText(
       }
       continue;
     }
-    const used = [parts.initial, parts.medial, ...(parts.final ? [parts.final] : [])];
+    const used = [parts.initial, parts.medial];
     for (const symbol of used) {
       const record = jamoBySymbol.get(symbol);
       if (!record) {
@@ -192,6 +205,22 @@ function checkTaughtText(
           "example-uses-untaught-jamo",
           path,
           `"${text}" usa ${symbol}, ensinado em ${record.introducedIn}, depois de ${label}.`,
+        );
+      }
+    }
+    if (parts.final) {
+      const introducedIn = finalIntroducedIn.get(parts.final);
+      if (!introducedIn) {
+        error(issues, "unknown-final", path, `O final "${parts.final}" não foi introduzido em nenhuma lição.`);
+        continue;
+      }
+      const introduced = order.get(introducedIn);
+      if (introduced === undefined || introduced > maxOrder) {
+        error(
+          issues,
+          "batchim-before-introduction",
+          path,
+          `"${text}" usa o batchim ${parts.final}, ensinado em ${introducedIn}, depois de ${label}.`,
         );
       }
     }
@@ -211,6 +240,7 @@ function checkExercise(
   scope: ExerciseScope,
   order: Map<string, number>,
   jamoBySymbol: Map<string, JamoRecord>,
+  finalIntroducedIn: Map<string, string>,
   syllableByText: Map<string, SyllableRecord>,
   wordByKo: Map<string, WordRecord>,
 ) {
@@ -285,8 +315,19 @@ function checkExercise(
       if (exercise.finalOptions && !exercise.finalOptions.includes(exercise.final ?? "")) {
         error(issues, "build-option", `${idPath}.finalOptions`, "O final correto não está nas opções.");
       }
-      if (exercise.final && scope.maxOrder < (order.get("h17") ?? Number.POSITIVE_INFINITY)) {
-        error(issues, "batchim-before-h17", `${idPath}.final`, "Batchim só entra a partir de h17.");
+      if (exercise.final) {
+        const introducedIn = finalIntroducedIn.get(exercise.final);
+        const introducedOrder = introducedIn ? order.get(introducedIn) : undefined;
+        if (introducedOrder === undefined) {
+          error(issues, "unknown-final", `${idPath}.final`, `O final ${exercise.final} não foi introduzido.`);
+        } else if (introducedOrder > scope.maxOrder) {
+          error(
+            issues,
+            "batchim-before-introduction",
+            `${idPath}.final`,
+            `O final ${exercise.final} só entra em ${introducedIn}.`,
+          );
+        }
       }
       break;
     }
@@ -304,7 +345,7 @@ function checkExercise(
       if (!exercise.fallback.trim()) {
         error(issues, "audio-fallback", `${idPath}.fallback`, "Item de áudio precisa de fallback textual.");
       }
-      checkTaughtText(issues, `${idPath}.audioText`, exercise.audioText, scope.maxOrder, scope.label, order, jamoBySymbol);
+      checkTaughtText(issues, `${idPath}.audioText`, exercise.audioText, scope.maxOrder, scope.label, order, jamoBySymbol, finalIntroducedIn);
       break;
     }
     case "char-to-audio": {
@@ -319,7 +360,7 @@ function checkExercise(
       if (!exercise.options.every((option) => option.label.trim())) {
         error(issues, "option-label", `${idPath}.options`, "Toda alternativa precisa de descrição textual.");
       }
-      checkTaughtText(issues, `${idPath}.text`, exercise.text, scope.maxOrder, scope.label, order, jamoBySymbol);
+      checkTaughtText(issues, `${idPath}.text`, exercise.text, scope.maxOrder, scope.label, order, jamoBySymbol, finalIntroducedIn);
       break;
     }
     case "minimal-pair": {
@@ -334,12 +375,12 @@ function checkExercise(
         if (!exercise.fallback?.trim()) {
           error(issues, "audio-fallback", `${idPath}.fallback`, "Apresentação em áudio exige fallback.");
         }
-        checkTaughtText(issues, `${idPath}.audioText`, exercise.audioText ?? "", scope.maxOrder, scope.label, order, jamoBySymbol);
+        checkTaughtText(issues, `${idPath}.audioText`, exercise.audioText ?? "", scope.maxOrder, scope.label, order, jamoBySymbol, finalIntroducedIn);
       } else {
         if (!exercise.text?.trim()) {
           error(issues, "pair-text", `${idPath}.text`, "Apresentação em texto exige `text`.");
         }
-        checkTaughtText(issues, `${idPath}.text`, exercise.text ?? "", scope.maxOrder, scope.label, order, jamoBySymbol);
+        checkTaughtText(issues, `${idPath}.text`, exercise.text ?? "", scope.maxOrder, scope.label, order, jamoBySymbol, finalIntroducedIn);
       }
       if (!exercise.contrast.feature || !exercise.contrast.a || !exercise.contrast.b) {
         error(issues, "pair-contrast", `${idPath}.contrast`, "Descreva o contraste entre os dois sons.");
@@ -347,7 +388,7 @@ function checkExercise(
       break;
     }
     case "reading": {
-      checkTaughtText(issues, `${idPath}.text`, exercise.text, scope.maxOrder, scope.label, order, jamoBySymbol);
+      checkTaughtText(issues, `${idPath}.text`, exercise.text, scope.maxOrder, scope.label, order, jamoBySymbol, finalIntroducedIn);
       if (exercise.mode === "mcq") {
         if (!exercise.question?.trim()) {
           error(issues, "reading-question", `${idPath}.question`, "Leitura com MCQ exige pergunta.");
@@ -410,6 +451,19 @@ export function validateCurriculum(curriculum: Curriculum): ContentIssue[] {
     }
     if (lesson.completion.minScore < 0 || lesson.completion.minScore > 100) {
       error(issues, "completion-score", `${path}.completion.minScore`, "A nota mínima precisa ficar entre 0 e 100.");
+    }
+    if (
+      lesson.completion.minCorrect !== undefined &&
+      (!Number.isInteger(lesson.completion.minCorrect) ||
+        lesson.completion.minCorrect < 1 ||
+        lesson.completion.minCorrect > lesson.exercises.length)
+    ) {
+      error(
+        issues,
+        "completion-min-correct",
+        `${path}.completion.minCorrect`,
+        "O mínimo de acertos precisa ser inteiro e caber na quantidade de exercícios.",
+      );
     }
     if (lesson.objectives.length === 0) {
       error(issues, "lesson-objectives", `${path}.objectives`, "Liste ao menos um objetivo de aprendizagem.");
@@ -514,6 +568,27 @@ export function validateCurriculum(curriculum: Curriculum): ContentIssue[] {
     }
   }
 
+  const finalIntroducedIn = new Map<string, string>();
+  for (const lesson of curriculum.lessons) {
+    for (const final of lesson.newFinals) {
+      if (!isFinal(final)) {
+        error(issues, "unknown-final", `lessons[${lesson.id}].newFinals`, `Final inválido: ${String(final)}.`);
+        continue;
+      }
+      const previous = finalIntroducedIn.get(final);
+      if (previous) {
+        error(issues, "reintroduced-final", `lessons[${lesson.id}].newFinals`, `${final} já foi introduzido em ${previous}.`);
+      }
+      finalIntroducedIn.set(final, lesson.id);
+    }
+  }
+  for (const final of FINALS) {
+    if (final === "") continue;
+    if (!finalIntroducedIn.has(final)) {
+      error(issues, "final-not-introduced", "lessons.newFinals", `O final ${final} não aparece em nenhuma lição.`);
+    }
+  }
+
   const syllableByText = new Map<string, SyllableRecord>();
   for (const [index, syllable] of curriculum.syllables.entries()) {
     const path = `syllables[${index}]`;
@@ -562,6 +637,7 @@ export function validateCurriculum(curriculum: Curriculum): ContentIssue[] {
         { idPrefix: `${lesson.id}-e`, maxOrder, label: lesson.id },
         order,
         jamoBySymbol,
+        finalIntroducedIn,
         syllableByText,
         wordByKo,
       );
@@ -579,6 +655,7 @@ export function validateCurriculum(curriculum: Curriculum): ContentIssue[] {
         word.introducedIn,
         order,
         jamoBySymbol,
+        finalIntroducedIn,
       );
     }
   }
@@ -600,6 +677,19 @@ export function validateCurriculum(curriculum: Curriculum): ContentIssue[] {
     }
     if (checkpoint.passingScore < 0 || checkpoint.passingScore > 100) {
       error(issues, "checkpoint-score", `${path}.passingScore`, "A nota do checkpoint precisa ficar entre 0 e 100.");
+    }
+    if (
+      checkpoint.minCorrect !== undefined &&
+      (!Number.isInteger(checkpoint.minCorrect) ||
+        checkpoint.minCorrect < 1 ||
+        checkpoint.minCorrect > checkpoint.exercises.length)
+    ) {
+      error(
+        issues,
+        "checkpoint-min-correct",
+        `${path}.minCorrect`,
+        "O mínimo de acertos precisa ser inteiro e caber na quantidade de itens.",
+      );
     }
     if (
       !Number.isInteger(checkpoint.estimatedMinutes) ||
@@ -638,6 +728,7 @@ export function validateCurriculum(curriculum: Curriculum): ContentIssue[] {
         { idPrefix: `${checkpoint.id}-e`, maxOrder, label: checkpoint.id },
         order,
         jamoBySymbol,
+        finalIntroducedIn,
         syllableByText,
         wordByKo,
       );

@@ -6,6 +6,7 @@ import type { Checkpoint } from "@/content/hangul/types";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { checkAnswer, type DetailedCheckResult, type ExerciseAnswer } from "@/lib/exercises";
 import {
+  checkpointRequiredCorrect,
   completeCheckpoint,
   evaluateCheckpoint,
   isCheckpointUnlocked,
@@ -70,6 +71,7 @@ export function CheckpointPlayer({
 
   const exercise = checkpoint.exercises[index];
   const total = checkpoint.exercises.length;
+  const requiredCorrect = checkpointRequiredCorrect(checkpoint);
 
   const submit = () => {
     if (!exercise || !draft || result) return;
@@ -204,7 +206,8 @@ export function CheckpointPlayer({
             Começar checkpoint
           </button>
           <p className="mt-2 text-sm text-muted">
-            {total} itens. Aprovação com pelo menos {checkpoint.passingScore}%.
+            {total} itens. Aprovação com pelo menos {requiredCorrect} de {total}{" "}
+            ({checkpoint.passingScore}% documentado).
           </p>
         </div>
       </article>
@@ -230,7 +233,7 @@ export function CheckpointPlayer({
           <p className="mt-2 text-muted">
             {done
               ? "Seu resultado foi registrado. O app guarda o maior score entre as tentativas."
-              : `Este checkpoint pede ${checkpoint.passingScore}%. Refaça quando quiser: seu melhor resultado não é perdido.`}
+              : `Este checkpoint pede ${requiredCorrect} de ${total} acertos (${checkpoint.passingScore}% documentado). Refaça quando quiser: seu melhor resultado não é perdido.`}
           </p>
           {saveWarning ? (
             <p role="status" className="mt-3 rounded-xl bg-soft p-3 text-sm">

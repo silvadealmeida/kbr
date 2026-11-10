@@ -38,14 +38,24 @@ describe("decomposição e texto Hangul", () => {
     for (const syllable of ["가", "한", "힣", "아", "이", "오이"]) {
       for (const char of syllable) {
         const parts = decomposeSyllable(char)!;
-        expect(composeSyllable(parts.initial, parts.medial, parts.final)).toBe(char);
+        expect(composeSyllable(parts.initial, parts.medial, parts.final)).toBe(
+          char,
+        );
       }
     }
   });
 
   test("decompõe uma sílaba simples", () => {
-    expect(decomposeSyllable("아")).toEqual({ initial: "ㅇ", medial: "ㅏ", final: "" });
-    expect(decomposeSyllable("한")).toEqual({ initial: "ㅎ", medial: "ㅏ", final: "ㄴ" });
+    expect(decomposeSyllable("아")).toEqual({
+      initial: "ㅇ",
+      medial: "ㅏ",
+      final: "",
+    });
+    expect(decomposeSyllable("한")).toEqual({
+      initial: "ㅎ",
+      medial: "ㅏ",
+      final: "ㄴ",
+    });
   });
 
   test("rejeita texto que não é uma sílaba única", () => {
@@ -67,5 +77,77 @@ describe("decomposição e texto Hangul", () => {
     const decomposed = "아".normalize("NFD");
     expect(normalizeHangul(decomposed)).toBe("아");
     expect(normalizeHangul(" 한글 ")).toBe(" 한글 ");
+  });
+});
+
+describe("batchim simples e duplos", () => {
+  test("compõe e decompõe cada final simples e duplo", () => {
+    const finals = [
+      "ㄱ",
+      "ㄲ",
+      "ㄳ",
+      "ㄴ",
+      "ㄵ",
+      "ㄶ",
+      "ㄷ",
+      "ㄹ",
+      "ㄺ",
+      "ㄻ",
+      "ㄼ",
+      "ㄽ",
+      "ㄾ",
+      "ㄿ",
+      "ㅀ",
+      "ㅁ",
+      "ㅂ",
+      "ㅄ",
+      "ㅅ",
+      "ㅆ",
+      "ㅇ",
+      "ㅈ",
+      "ㅊ",
+      "ㅋ",
+      "ㅌ",
+      "ㅍ",
+      "ㅎ",
+    ] as const;
+
+    for (const final of finals) {
+      const syllable = composeSyllable("ㄱ", "ㅏ", final);
+      expect(decomposeSyllable(syllable)).toEqual({
+        initial: "ㄱ",
+        medial: "ㅏ",
+        final,
+      });
+    }
+  });
+
+  test("rejeita jamo inválido na posição final", () => {
+    expect(() => composeSyllable("ㄱ", "ㅏ", "ㄸ")).toThrow(RangeError);
+    expect(() => composeSyllable("ㄱ", "ㅏ", "ㅏ")).toThrow(RangeError);
+    expect(() => composeSyllable("ㄳ", "ㅏ", "")).toThrow(RangeError);
+  });
+
+  test("texto com batchim duplo permanece NFC", () => {
+    for (const text of [
+      "닭",
+      "삶",
+      "값",
+      "없다",
+      "많다",
+      "앉다",
+      "핥다",
+      "싫다",
+      "밟다",
+      "젊다",
+      "넓다",
+      "읊다",
+      "훑다",
+      "몫",
+      "곬",
+    ]) {
+      expect(normalizeHangul(text)).toBe(text);
+      expect(normalizeHangul(text.normalize("NFD"))).toBe(text);
+    }
   });
 });

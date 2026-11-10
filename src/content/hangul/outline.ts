@@ -1,8 +1,8 @@
 import type { UnitOutline } from "./types";
 
 /**
- * Metadados do curso completo para a navegação. Apenas `h01`–`h15` e os
- * checkpoints `c1` e `c2` têm conteúdo implementado nesta fase; o restante
+ * Metadados do curso completo para a navegação. Apenas `h01`–`h20` e os
+ * checkpoints `c1`, `c2` e `c3` têm conteúdo implementado nesta fase; o restante
  * aparece como "em breve".
  */
 export const COURSE_OUTLINE: readonly UnitOutline[] = [

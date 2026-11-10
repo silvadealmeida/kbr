@@ -14,6 +14,7 @@ test.each([
   ["/dashboard/", true],
   ["/hangul", true],
   ["/hangul/vogais", true],
+  ["/hangul/c3", true],
   ["/licoes", true],
   ["/vocabulario?tag=casa", true],
   ["/revisao", true],

@@ -346,6 +346,7 @@ export const C1: Checkpoint = {
     },
   ],
   passingScore: 80,
+  minCorrect: 16,
   diagnosticTags: [
     "diag:vowel",
     "diag:consonant-basic",

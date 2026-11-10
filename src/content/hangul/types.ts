@@ -82,6 +82,11 @@ export type Lesson = {
   estimatedMinutes: number;
   completion: {
     minScore: number;
+    /**
+     * Critério autoritativo em número de acertos, quando o currículo documenta
+     * uma fração que não coincide com a porcentagem arredondada (ex.: 19/24).
+     */
+    minCorrect?: number;
     requiredExerciseIds?: readonly string[];
     rules?: readonly CompletionRule[];
   };
@@ -107,6 +112,12 @@ export type Checkpoint = {
   lessonIds: readonly string[];
   exercises: readonly ExerciseSpec[];
   passingScore: number;
+  /**
+   * Critério autoritativo em número de acertos. `passingScore` continua sendo
+   * a porcentagem documentada; o número explícito evita depender do
+   * arredondamento exibido (ex.: 19/24 aparece como 79%, mas aprova).
+   */
+  minCorrect?: number;
   diagnosticTags: readonly string[];
   estimatedMinutes: number;
   review: ReviewMeta;

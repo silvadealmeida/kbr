@@ -21,13 +21,13 @@ const ALL_EXERCISES = [
   ...CHECKPOINTS.flatMap((checkpoint) => checkpoint.exercises),
 ];
 
-describe("conteúdo Hangul — fatia h01–h15 + c1/c2", () => {
+describe("conteúdo Hangul — fatia h01–h20 + c1/c2/c3", () => {
   test("o currículo implementado passa na validação sem erros", () => {
     const issues = validateCurriculum(HANGUL_CURRICULUM);
     expect(issues.filter((issue) => issue.severity === "error")).toEqual([]);
   });
 
-  test("implementa as quinze primeiras lições e os checkpoints c1 e c2", () => {
+  test("implementa as vinte primeiras lições e os checkpoints c1, c2 e c3", () => {
     expect(LESSONS.map((lesson) => lesson.id)).toEqual([
       "h01",
       "h02",
@@ -44,11 +44,17 @@ describe("conteúdo Hangul — fatia h01–h15 + c1/c2", () => {
       "h13",
       "h14",
       "h15",
+      "h16",
+      "h17",
+      "h18",
+      "h19",
+      "h20",
     ]);
     expect([...IMPLEMENTED_LESSON_IDS]).toEqual(LESSONS.map((lesson) => lesson.id));
-    expect(CHECKPOINTS.map((checkpoint) => checkpoint.id)).toEqual(["c1", "c2"]);
+    expect(CHECKPOINTS.map((checkpoint) => checkpoint.id)).toEqual(["c1", "c2", "c3"]);
     expect(CHECKPOINTS[0]!.lessonIds).toEqual(LESSONS.slice(0, 10).map((lesson) => lesson.id));
-    expect(CHECKPOINTS[1]!.lessonIds).toEqual(LESSONS.map((lesson) => lesson.id));
+    expect(CHECKPOINTS[1]!.lessonIds).toEqual(LESSONS.slice(0, 15).map((lesson) => lesson.id));
+    expect(CHECKPOINTS[2]!.lessonIds).toEqual(LESSONS.slice(15, 20).map((lesson) => lesson.id));
   });
 
   test("cada lição tem a quantidade de prática definida no currículo", () => {
@@ -68,9 +74,15 @@ describe("conteúdo Hangul — fatia h01–h15 + c1/c2", () => {
       ["h13", 12],
       ["h14", 12],
       ["h15", 14],
+      ["h16", 12],
+      ["h17", 12],
+      ["h18", 14],
+      ["h19", 12],
+      ["h20", 14],
     ]);
     expect(CHECKPOINTS[0]!.exercises).toHaveLength(20);
     expect(CHECKPOINTS[1]!.exercises).toHaveLength(24);
+    expect(CHECKPOINTS[2]!.exercises).toHaveLength(24);
   });
 
   test("todo conteúdo coreano está marcado como in-review", () => {
@@ -99,7 +111,9 @@ describe("conteúdo Hangul — fatia h01–h15 + c1/c2", () => {
       h09: ["ㄲ", "ㄸ", "ㅃ"],
       h10: ["ㅆ", "ㅉ"],
     });
-    for (const lesson of LESSONS) expect(lesson.newFinals).toEqual([]);
+    for (const lesson of LESSONS.filter((item) => item.unit === 3 || item.unit === 4)) {
+      expect(lesson.newFinals).toEqual([]);
+    }
   });
 
   test("h11–h15 completam as 21 vogais na ordem curricular", () => {
@@ -155,6 +169,46 @@ describe("conteúdo Hangul — fatia h01–h15 + c1/c2", () => {
     expect(CHECKPOINTS[1]!.lessonIds).toEqual(
       LESSONS.slice(0, 15).map((lesson) => lesson.id),
     );
+  });
+
+  test("h16–h20 introduzem os batchim simples e duplos e seguem os pré-requisitos", () => {
+    const byId = new Map(LESSONS.map((lesson) => [lesson.id, lesson]));
+    expect(byId.get("h16")!.prerequisites).toEqual(["c2"]);
+    expect(byId.get("h17")!.prerequisites).toEqual(["h16"]);
+    expect(byId.get("h18")!.prerequisites).toEqual(["h17"]);
+    expect(byId.get("h19")!.prerequisites).toEqual(["h18"]);
+    expect(byId.get("h20")!.prerequisites).toEqual(["h19"]);
+
+    expect(byId.get("h16")!.newFinals).toEqual([]);
+    expect(byId.get("h17")!.newFinals).toEqual(["ㅇ", "ㄴ", "ㅁ"]);
+    expect(byId.get("h18")!.newFinals).toEqual([
+      "ㄱ",
+      "ㄲ",
+      "ㄷ",
+      "ㅂ",
+      "ㅅ",
+      "ㅆ",
+      "ㅈ",
+      "ㅊ",
+      "ㅋ",
+      "ㅌ",
+      "ㅍ",
+      "ㅎ",
+    ]);
+    expect(byId.get("h19")!.newFinals).toEqual(["ㄹ"]);
+    expect(byId.get("h20")!.newFinals).toEqual([
+      "ㄳ",
+      "ㄵ",
+      "ㄶ",
+      "ㄺ",
+      "ㄻ",
+      "ㄼ",
+      "ㄽ",
+      "ㄾ",
+      "ㄿ",
+      "ㅀ",
+      "ㅄ",
+    ]);
   });
 
   test("rejeita lição cujo pré-requisito é um checkpoint ausente", () => {
@@ -229,12 +283,14 @@ describe("conteúdo Hangul — fatia h01–h15 + c1/c2", () => {
     }
   });
 
-  test("os itens novos de h11–h15/c2 aceitam a resposta certa e rejeitam a errada", () => {
+  test("os itens novos de h11–h20/c2/c3 aceitam a resposta certa e rejeitam a errada", () => {
     const newExercises = [
-      ...LESSONS.filter((lesson) => lesson.unit === 5).flatMap((lesson) => lesson.exercises),
-      ...CHECKPOINTS.filter((checkpoint) => checkpoint.id === "c2").flatMap(
-        (checkpoint) => checkpoint.exercises,
+      ...LESSONS.filter((lesson) => lesson.unit === 5 || lesson.unit === 6).flatMap(
+        (lesson) => lesson.exercises,
       ),
+      ...CHECKPOINTS.filter(
+        (checkpoint) => checkpoint.id === "c2" || checkpoint.id === "c3",
+      ).flatMap((checkpoint) => checkpoint.exercises),
     ];
 
     const correctAnswer = (exercise: ExerciseSpec): ExerciseAnswer => {
@@ -314,6 +370,32 @@ describe("conteúdo Hangul — fatia h01–h15 + c1/c2", () => {
     expect(rules("h07").find((rule) => rule.id === "h07-aspiration")?.minCorrect).toBe(3);
     expect(rules("h09").find((rule) => rule.id === "h09-tenses")?.minCorrect).toBe(4);
     expect(rules("h10").filter((rule) => rule.id.startsWith("h10-contrast-"))).toHaveLength(5);
+  });
+
+  test("os mínimos autoritativos de acertos estão declarados", () => {
+    expect(CHECKPOINTS.find((item) => item.id === "c1")!.minCorrect).toBe(16);
+    expect(CHECKPOINTS.find((item) => item.id === "c2")!.minCorrect).toBe(19);
+    expect(CHECKPOINTS.find((item) => item.id === "c3")!.minCorrect).toBe(19);
+
+    const expected: Record<string, number> = {
+      h16: 10,
+      h17: 10,
+      h18: 11,
+      h19: 10,
+      h20: 11,
+    };
+    for (const [id, minCorrect] of Object.entries(expected)) {
+      expect(LESSONS.find((lesson) => lesson.id === id)!.completion.minCorrect).toBe(minCorrect);
+    }
+  });
+
+  test("os finais com batchim são introduzidos uma única vez", () => {
+    const finals = LESSONS.flatMap((lesson) =>
+      lesson.newFinals.map((final) => ({ final, lesson: lesson.id })),
+    );
+    expect(new Set(finals.map((item) => item.final)).size).toBe(27);
+    expect(finals).toHaveLength(27);
+    expect(finals.map((item) => item.final)).not.toContain("");
   });
 
   test("rejeita jamo duplicado", () => {

@@ -46,6 +46,18 @@ export function requiredCorrect(total: number, minScore: number): number {
   return Math.min(total, Math.round((total * minScore) / 100));
 }
 
+/** Número mínimo de acertos de uma lição, priorizando o critério explícito. */
+export function lessonRequiredCorrect(lesson: Lesson): number {
+  const total = lesson.exercises.length;
+  return Math.min(total, lesson.completion.minCorrect ?? requiredCorrect(total, lesson.completion.minScore));
+}
+
+/** Número mínimo de acertos de um checkpoint, priorizando o critério explícito. */
+export function checkpointRequiredCorrect(checkpoint: Checkpoint): number {
+  const total = checkpoint.exercises.length;
+  return Math.min(total, checkpoint.minCorrect ?? requiredCorrect(total, checkpoint.passingScore));
+}
+
 /**
  * Calcula o resultado da lição a partir da primeira tentativa de cada item.
  * Itens com `scored: false` não entram no denominador.
@@ -77,8 +89,7 @@ export function evaluateLesson(
     correct,
     total,
     score,
-    passed:
-      correct >= requiredCorrect(total, lesson.completion.minScore) && requiredMet,
+    passed: correct >= lessonRequiredCorrect(lesson) && requiredMet,
     requiredMet,
     passedLessonIds: scored
       .filter((exercise) => answers[exercise.id]?.correct)
@@ -108,7 +119,7 @@ export function evaluateCheckpoint(
     correct,
     total,
     score,
-    passed: correct >= requiredCorrect(total, checkpoint.passingScore),
+    passed: correct >= checkpointRequiredCorrect(checkpoint),
     diagnostics: summary.categories,
     missedExerciseIds: summary.missedExerciseIds,
   };

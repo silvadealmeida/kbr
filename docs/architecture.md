@@ -39,7 +39,7 @@ docs/
 - `Progress { v: 1, lessons: Record<id,{done,score}>, cards: Record<id, SrsState>, history: Attempt[], streak, dailyGoal, lastActive }`
 
 ## Interfaces de troca futura
-- `ProgressStore { load(); save(p); }` → hoje `localStorage` (chave `kbr:v1`, versão + migração, try/catch); depois Supabase/sync sem tocar nas telas.
+- `ProgressStore { async load(); async save(p); }` → implementações para `localStorage` e Supabase sem acoplar telas. PostgreSQL mantém um snapshot JSONB v1 por `auth.users.id`; a PK elimina linhas duplicadas e RLS restringe todas as operações ao dono.
 - `Scheduler { review(state, grade, now) → state; due(states, now) }` → hoje Leitner (caixas 1,2,4,8,16 dias; erro volta à caixa 1); `SrsState` é opaco (`{due, ...}`) para acomodar FSRS (stability/difficulty) via `ts-fsrs`. `now` injetado → testável.
 - Conteúdo isolado em `content/` → pode virar JSON/CMS/API depois.
 
@@ -63,4 +63,5 @@ Composição por Unicode: `0xAC00 + (L*21 + V)*28 + T` — sem tabela de sílaba
 ## Decisões/limites
 - PWA limitada à instalação standalone; sem service worker ou cache offline.
 - Google OAuth é delegado ao Supabase; só URL e chave publicável chegam ao app. Client secret do Google fica no painel Supabase e service-role key não é usada pelo KBR.
+- Progresso remoto é um snapshot atômico porque o modelo local já é versionado. `cards` contém vocabulário e agenda de revisão; `lessons`, `history`, `streak` e `dailyGoal` permanecem no mesmo documento.
 - Dados só locais: limpar o navegador apaga progresso (avisar na UI e oferecer exportar/importar JSON como possível item do roadmap).

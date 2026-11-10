@@ -21,11 +21,11 @@ class MemoryStorage implements StorageLike {
 }
 
 describe("persistência local", () => {
-  test("cria progresso vazio com relógio injetado", () => {
+  test("cria progresso vazio com relógio injetado", async () => {
     const storage = new MemoryStorage();
     const store = createLocalStorageStore(storage, () => NOW);
 
-    expect(store.load()).toEqual({
+    await expect(store.load()).resolves.toEqual({
       v: 1,
       lessons: {},
       cards: {},
@@ -36,7 +36,7 @@ describe("persistência local", () => {
     });
   });
 
-  test("salva e carrega progresso válido", () => {
+  test("salva e carrega progresso válido", async () => {
     const storage = new MemoryStorage();
     const store = createLocalStorageStore(storage, () => NOW);
     const progress = createEmptyProgress(NOW);
@@ -44,22 +44,22 @@ describe("persistência local", () => {
     progress.cards.card1 = { box: 2, due: "2026-11-12T12:00:00.000Z" };
     progress.history.push({ exerciseId: "ex1", correct: true, at: NOW.toISOString() });
 
-    expect(store.save(progress)).toBe(true);
-    expect(store.load()).toEqual(progress);
+    await expect(store.save(progress)).resolves.toBe(true);
+    await expect(store.load()).resolves.toEqual(progress);
   });
 
   test.each([
     "não é JSON",
     JSON.stringify({ v: 1, lessons: {}, cards: { bad: { box: 9, due: "ontem" } } }),
-  ])("recupera de dados inválidos sem sobrescrevê-los", (raw) => {
+  ])("recupera de dados inválidos sem sobrescrevê-los", async (raw) => {
     const storage = new MemoryStorage();
     storage.setItem(PROGRESS_STORAGE_KEY, raw);
 
-    expect(createLocalStorageStore(storage, () => NOW).load()).toEqual(createEmptyProgress(NOW));
+    await expect(createLocalStorageStore(storage, () => NOW).load()).resolves.toEqual(createEmptyProgress(NOW));
     expect(storage.getItem(PROGRESS_STORAGE_KEY)).toBe(raw);
   });
 
-  test("migra v0 para v1 e acrescenta a meta diária", () => {
+  test("migra v0 para v1 e acrescenta a meta diária", async () => {
     const storage = new MemoryStorage();
     storage.setItem(
       PROGRESS_STORAGE_KEY,
@@ -73,13 +73,13 @@ describe("persistência local", () => {
       }),
     );
 
-    const progress = createLocalStorageStore(storage, () => NOW).load();
+    const progress = await createLocalStorageStore(storage, () => NOW).load();
 
     expect(progress).toMatchObject({ v: 1, streak: 2, dailyGoal: 10 });
     expect(JSON.parse(storage.getItem(PROGRESS_STORAGE_KEY) ?? "null")).toEqual(progress);
   });
 
-  test("trata falhas de acesso e escrita do navegador", () => {
+  test("trata falhas de acesso e escrita do navegador", async () => {
     const blocked: StorageLike = {
       getItem() {
         throw new Error("bloqueado");
@@ -90,7 +90,7 @@ describe("persistência local", () => {
     };
     const store = createLocalStorageStore(blocked, () => NOW);
 
-    expect(store.load()).toEqual(createEmptyProgress(NOW));
-    expect(store.save(createEmptyProgress(NOW))).toBe(false);
+    await expect(store.load()).resolves.toEqual(createEmptyProgress(NOW));
+    await expect(store.save(createEmptyProgress(NOW))).resolves.toBe(false);
   });
 });

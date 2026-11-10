@@ -24,10 +24,11 @@ export type Progress = {
 };
 
 export interface ProgressStore {
-  load(): Progress;
-  save(progress: Progress): boolean;
+  load(): Promise<Progress>;
+  save(progress: Progress): Promise<boolean>;
 }
 
 export type StorageLike = Pick<Storage, "getItem" | "setItem">;
 
 export { createEmptyProgress, createLocalStorageStore, isProgress } from "./localStorageStore";
+export { createSupabaseProgressStore } from "./supabaseProgressStore";

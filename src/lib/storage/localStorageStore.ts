@@ -92,7 +92,7 @@ export function createLocalStorageStore(
   now: () => Date = () => new Date(),
 ): ProgressStore {
   return {
-    load() {
+    async load() {
       const empty = () => createEmptyProgress(now());
 
       try {
@@ -116,7 +116,7 @@ export function createLocalStorageStore(
       }
     },
 
-    save(progress) {
+    async save(progress) {
       if (!isProgress(progress)) return false;
 
       try {

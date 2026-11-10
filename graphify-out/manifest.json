@@ -138,9 +138,9 @@
     "semantic_hash": ""
   },
   "docs/architecture.md": {
-    "mtime": 1794307505.7722166,
-    "seen": 1794307529.151216,
-    "ast_hash": "80a45ba26864360a4e20608785a4207b",
+    "mtime": 1794307613.1153893,
+    "seen": 1794307645.7617593,
+    "ast_hash": "f9811f9921e2cc2d86aa8d3b0ea5ad5a",
     "semantic_hash": ""
   },
   "docs/research.md": {
@@ -150,9 +150,9 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794307505.7722166,
-    "seen": 1794307529.1512175,
-    "ast_hash": "3ca8725714c23780fcf839b1da4d33c2",
+    "mtime": 1794307613.1153893,
+    "seen": 1794307645.761778,
+    "ast_hash": "247765695114d2e78268230b4532c96e",
     "semantic_hash": ""
   },
   "src/lib/hangul/index.ts": {
@@ -234,21 +234,21 @@
     "semantic_hash": ""
   },
   "src/lib/storage/index.ts": {
-    "mtime": 1794307006.3085475,
-    "seen": 1794307027.327385,
-    "ast_hash": "a74f785b74ebc83ba4d6ddb76eb89721",
+    "mtime": 1794307613.1073933,
+    "seen": 1794307645.761508,
+    "ast_hash": "5449ac1698fe6485d51cac9e7863191b",
     "semantic_hash": ""
   },
   "src/lib/storage/localStorageStore.ts": {
-    "mtime": 1794307006.3085475,
-    "seen": 1794307027.3273861,
-    "ast_hash": "68b40608b1a8701f8d8a07349d16dfc3",
+    "mtime": 1794307613.1113913,
+    "seen": 1794307645.7615101,
+    "ast_hash": "25dbf8124bd38304319ac1afebe1076f",
     "semantic_hash": ""
   },
   "tests/storage.test.ts": {
-    "mtime": 1794307006.3085475,
-    "seen": 1794307027.3273914,
-    "ast_hash": "ec394cdd2e2c8d251131ae0e3783c35a",
+    "mtime": 1794307613.1153893,
+    "seen": 1794307645.761696,
+    "ast_hash": "278daa3654279746770e733d43ef41c5",
     "semantic_hash": ""
   },
   "proxy.ts": {
@@ -315,6 +315,24 @@
     "mtime": 1794307505.7682152,
     "seen": 1794307529.151208,
     "ast_hash": "d3ed1a34cd24816ae8d6d50f2f1283b3",
+    "semantic_hash": ""
+  },
+  "src/lib/storage/supabaseProgressStore.ts": {
+    "mtime": 1794307613.1113913,
+    "seen": 1794307645.7615116,
+    "ast_hash": "92484acfaf71dc236b883709c8dcb5e1",
+    "semantic_hash": ""
+  },
+  "tests/security.test.ts": {
+    "mtime": 1794307628.261156,
+    "seen": 1794307645.7616782,
+    "ast_hash": "7fa582ec05380d82c12f9dda72b90585",
+    "semantic_hash": ""
+  },
+  "tests/supabase-storage.test.ts": {
+    "mtime": 1794307613.1153893,
+    "seen": 1794307645.7616968,
+    "ast_hash": "91c1d72dfda4c9584c2f06dd57c7ee19",
     "semantic_hash": ""
   },
   "package-lock.json": {

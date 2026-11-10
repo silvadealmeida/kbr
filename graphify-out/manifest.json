@@ -126,9 +126,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1794305984.6892617,
-    "seen": 1794305985.2744687,
-    "ast_hash": "b303e4d93fc7a4e47957dd18dee74216",
+    "mtime": 1794307045.5027812,
+    "seen": 1794307046.0133553,
+    "ast_hash": "44ad7568aadb785a15fff9037326f33b",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -138,9 +138,9 @@
     "semantic_hash": ""
   },
   "docs/architecture.md": {
-    "mtime": 1794303208.3745925,
-    "seen": 1794305686.7124872,
-    "ast_hash": "ed55ad3aac51efc007fb1f95cc238cd9",
+    "mtime": 1794307045.5027812,
+    "seen": 1794307046.0133572,
+    "ast_hash": "9d6bcbf2df52b9cf67672c76f21eda07",
     "semantic_hash": ""
   },
   "docs/research.md": {
@@ -150,9 +150,9 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794307006.3085475,
-    "seen": 1794307027.3273966,
-    "ast_hash": "fe74fdb7dbee7c72a7302d8e99df85d9",
+    "mtime": 1794307045.506782,
+    "seen": 1794307046.0133586,
+    "ast_hash": "b4acc8e7304f68f3b1817a44f13328e5",
     "semantic_hash": ""
   },
   "src/lib/hangul/index.ts": {

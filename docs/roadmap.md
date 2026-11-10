@@ -29,7 +29,7 @@ Fases pequenas, cada uma com commit(s) próprio e `npm test` verde antes de avan
 - Perda de progresso (localStorage) → aviso/exportação.
 
 ## Pós-MVP (não implementar agora)
-FSRS (`ts-fsrs`), sync em nuvem, auth, PWA/offline, notificações, exercícios com IA, empacotamento nativo.
+FSRS (`ts-fsrs`), sync em nuvem, auth, cache/offline via service worker, notificações, exercícios com IA, empacotamento nativo.
 
 ## Status Fase 1 (real)
 Feito: Next 16 + React 19 + TS 5.9 + Tailwind 4; Vitest (1 teste); Playwright (Chromium, 375/390/768/1280; 28 testes); shell com nav inferior (mobile) e lateral (≥md); tema claro/escuro persistido; Noto Sans KR; safe-area; 5 rotas com estados vazios "Em desenvolvimento".

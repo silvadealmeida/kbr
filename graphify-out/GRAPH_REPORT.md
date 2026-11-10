@@ -1,17 +1,17 @@
 # Graph Report - kbr  (2026-11-10)
 
 ## Corpus Check
-- 38 files · ~6,046 words
+- 38 files · ~6,081 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 3 file(s) not represented in the graph (top: (none) 2, .css 1)
 
 ## Summary
-- 371 nodes · 458 edges · 23 communities (19 shown, 4 thin omitted)
-- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
+- 371 nodes · 460 edges · 23 communities (19 shown, 4 thin omitted)
+- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 2 edges (avg confidence: 0.95)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `27930afd`
+- Built from commit: `6657af90`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -26,7 +26,7 @@
 - compilerOptions
 - Tracing
 - layout.tsx
-- KBR — Arquitetura
+- scripts
 - Video Recording
 - exercises/index.ts
 - KBR — Pesquisa
@@ -44,22 +44,22 @@
 4. `Commands` - 12 edges
 5. `PageHeader()` - 11 edges
 6. `next` - 11 edges
-7. `EmptyState()` - 10 edges
-8. `KBR — Arquitetura` - 10 edges
+7. `KBR — Arquitetura` - 10 edges
+8. `EmptyState()` - 10 edges
 9. `Browser Session Management` - 10 edges
 10. `vitest` - 9 edges
 
 ## Surprising Connections (you probably didn't know these)
+- `Modelo de dados (TS)` --references--> `ExerciseSpec`  [INFERRED]
+  docs/architecture.md → src/lib/exercises/index.ts
+- `Interfaces de troca futura` --references--> `SrsState`  [INFERRED]
+  docs/architecture.md → src/lib/srs/index.ts
 - `MemoryStorage` --implements--> `StorageLike`  [EXTRACTED]
   tests/storage.test.ts → src/lib/storage/index.ts
 - `check()` --calls--> `composeSyllable()`  [EXTRACTED]
   src/lib/exercises/index.ts → src/lib/hangul/index.ts
 - `Page()` --calls--> `EmptyState()`  [EXTRACTED]
   src/app/hangul/page.tsx → src/components/ui/EmptyState.tsx
-- `Page()` --calls--> `PageHeader()`  [EXTRACTED]
-  src/app/hangul/page.tsx → src/components/ui/PageHeader.tsx
-- `Page()` --calls--> `EmptyState()`  [EXTRACTED]
-  src/app/licoes/page.tsx → src/components/ui/EmptyState.tsx
 
 ## Import Cycles
 - 2-file cycle: `src/lib/srs/index.ts -> src/lib/srs/leitner.ts -> src/lib/srs/index.ts`
@@ -72,8 +72,8 @@ Cohesion: 0.07
 Nodes (22): Examples, Inspecting Element Attributes, Debugging Playwright Tests, Running Playwright Tests, Attaching Screenshots and Videos to Pull Requests, From a local session, From CI, Limits (+14 more)
 
 ### Community 1 - "package.json"
-Cohesion: 0.07
-Nodes (31): routes, dependencies, next@^16.4.6, @playwright/test@^1.65.0, react@^19.3.1, react-dom@^19.3.1, tailwindcss@^4.3.5, @tailwindcss/postcss@^4.3.5 (+23 more)
+Cohesion: 0.08
+Nodes (27): routes, dependencies, next@^16.4.6, @playwright/test@^1.65.0, react@^19.3.1, react-dom@^19.3.1, tailwindcss@^4.3.5, @tailwindcss/postcss@^4.3.5 (+19 more)
 
 ### Community 2 - "Local Storage"
 Cohesion: 0.06
@@ -107,17 +107,17 @@ Nodes (16): 1. Start Tracing Before the Problem, 2. Clean Up Old Traces, Analyzi
 Cohesion: 0.23
 Nodes (7): kr, metadata, RootLayout(), viewport, Nav(), ThemeToggle(), ROUTES
 
-### Community 10 - "KBR — Arquitetura"
-Cohesion: 0.18
-Nodes (10): Decisões/limites, Estrutura, Hangul, Interfaces de troca futura, KBR — Arquitetura, Modelo de dados (TS), Stack, Testes (+2 more)
+### Community 10 - "scripts"
+Cohesion: 0.29
+Nodes (7): scripts, build, dev, e2e, start, test, typecheck
 
 ### Community 11 - "Video Recording"
 Cohesion: 0.20
 Nodes (10): 1. Use Descriptive Filenames, 2. Record entire hero scripts., 3. Attach the recording to the pull request, Basic Recording, Best Practices, Cursor, Target Highlight and Click Point, Limitations, Overlay API Summary (+2 more)
 
 ### Community 12 - "exercises/index.ts"
-Cohesion: 0.09
-Nodes (25): vitest@^4.1.12, vitest, manifest(), BuildSyllableExercise, check(), CheckResult, ClozeExercise, ExerciseBase (+17 more)
+Cohesion: 0.12
+Nodes (22): BuildSyllableExercise, check(), CheckResult, ClozeExercise, ExerciseBase, ExerciseSpec, ListenExercise, MultipleChoiceExercise (+14 more)
 
 ### Community 13 - "KBR — Pesquisa"
 Cohesion: 0.25
@@ -132,8 +132,8 @@ Cohesion: 0.15
 Nodes (14): Attempt, LessonProgress, Progress, PROGRESS_STORAGE_KEY, ProgressStore, StorageLike, createEmptyProgress(), createLocalStorageStore() (+6 more)
 
 ### Community 16 - "vitest"
-Cohesion: 0.23
-Nodes (7): LeitnerBox, ReviewGrade, Scheduler, SrsState, INTERVAL_DAYS, leitner, NOW
+Cohesion: 0.11
+Nodes (17): Decisões/limites, Estrutura, Hangul, Interfaces de troca futura, KBR — Arquitetura, Modelo de dados (TS), Stack, Testes (+9 more)
 
 ### Community 17 - "KBR — Roadmap"
 Cohesion: 0.29
@@ -149,14 +149,14 @@ Nodes (8): Advanced Mocking with run-code, CLI Route Commands, Conditional Respo
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `vitest` connect `exercises/index.ts` to `vitest`, `package.json`, `layout.tsx`, `storage/index.ts`?**
-  _High betweenness centrality (0.086) - this node is a cross-community bridge._
+- **Why does `vitest` connect `package.json` to `vitest`, `layout.tsx`, `exercises/index.ts`, `storage/index.ts`?**
+  _High betweenness centrality (0.099) - this node is a cross-community bridge._
 - **Should `Running Custom Playwright Code` be split into smaller, more focused modules?**
   _Cohesion score 0.07311827956989247 - nodes in this community are weakly interconnected._
 - **Why does `Browser Automation with playwright-cli` connect `Browser Automation with playwright-cli` to `Running Custom Playwright Code`?**
   _High betweenness centrality (0.059) - this node is a cross-community bridge._
 - **Should `package.json` be split into smaller, more focused modules?**
-  _Cohesion score 0.0748663101604278 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08143939393939394 - nodes in this community are weakly interconnected._
 - **Should `Local Storage` be split into smaller, more focused modules?**
   _Cohesion score 0.05555555555555555 - nodes in this community are weakly interconnected._
 - **Should `Browser Automation with playwright-cli` be split into smaller, more focused modules?**

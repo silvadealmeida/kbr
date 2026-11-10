@@ -1,7 +1,7 @@
 # KBR — Arquitetura
 
 ## Stack
-Next.js (App Router) + React + TypeScript + Tailwind; Vitest (unit); Playwright (e2e/responsivo). Sem backend, auth, Supabase ou IA paga. Deploy: `next build` estático/Node simples; **todas as páginas interativas são client components** que leem `localStorage` após montagem (evitar mismatch de hidratação).
+Next.js (App Router) + React + TypeScript + Tailwind; Vitest (unit); Playwright (e2e/responsivo). Sem backend, auth, Supabase ou IA paga. PWA mínima instalável (manifesto, ícones e modo standalone), sem service worker ou cache offline. Deploy: `next build` estático/Node simples; **todas as páginas interativas são client components** que leem `localStorage` após montagem (evitar mismatch de hidratação).
 
 ## Estrutura
 ```
@@ -59,5 +59,5 @@ Composição por Unicode: `0xAC00 + (L*21 + V)*28 + T` — sem tabela de sílaba
 - Playwright: fluxo completo (lição → exercício → revisão → persistência após reload) em 375, 390, 768, 1280px; projetos Chromium e WebKit. iPhone real/Chrome iOS: **não testável aqui**; documentar como verificação manual.
 
 ## Decisões/limites
-- Sem PWA/offline/auth/sync agora; estrutura permite (store/scheduler/content separados; sem acesso direto a `localStorage` fora de `lib/storage`).
+- PWA limitada à instalação standalone; sem service worker, cache offline, auth ou sync. A estrutura permite evolução posterior (store/scheduler/content separados; sem acesso direto a `localStorage` fora de `lib/storage`).
 - Dados só locais: limpar o navegador apaga progresso (avisar na UI e oferecer exportar/importar JSON como possível item do roadmap).

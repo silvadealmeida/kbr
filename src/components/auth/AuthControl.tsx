@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useAuth } from "./AuthProvider";
 
 export function AuthControl({ compact = false }: { compact?: boolean }) {
-  const { user, status, signInWithGoogle, signOut } = useAuth();
+  const { user, status, syncStatus, signInWithGoogle, signOut } = useAuth();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -26,9 +26,12 @@ export function AuthControl({ compact = false }: { compact?: boolean }) {
   return (
     <div className={compact ? "flex items-center" : "space-y-2"}>
       {user && !compact ? (
-        <p className="truncate text-xs text-muted" title={user.email}>
-          {user.email}
-        </p>
+        <>
+          <p className="truncate text-xs text-muted" title={user.email}>{user.email}</p>
+          <p className="text-xs text-muted" aria-live="polite">
+            {syncStatus === "syncing" ? "Sincronizando…" : syncStatus === "synced" ? "Progresso sincronizado" : syncStatus === "offline" ? "Salvo neste dispositivo" : ""}
+          </p>
+        </>
       ) : null}
       <button
         type="button"

@@ -1,6 +1,7 @@
 import type { SrsState } from "@/lib/srs";
 
 export const PROGRESS_STORAGE_KEY = "kbr:v1";
+export const progressStorageKeyForUser = (userId: string) => `kbr:user:${userId}:v1`;
 
 export type LessonProgress = {
   done: boolean;
@@ -32,3 +33,6 @@ export type StorageLike = Pick<Storage, "getItem" | "setItem">;
 
 export { createEmptyProgress, createLocalStorageStore, isProgress } from "./localStorageStore";
 export { createSupabaseProgressStore } from "./supabaseProgressStore";
+export { createSyncedProgressStore } from "./syncedProgressStore";
+export { mergeProgress } from "./mergeProgress";
+export { syncProgressForUser, type SyncResult, type SyncStatus } from "./syncProgress";

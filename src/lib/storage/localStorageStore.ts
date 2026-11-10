@@ -90,13 +90,14 @@ export function createEmptyProgress(now: Date): Progress {
 export function createLocalStorageStore(
   storage: StorageLike,
   now: () => Date = () => new Date(),
+  key = PROGRESS_STORAGE_KEY,
 ): ProgressStore {
   return {
     async load() {
       const empty = () => createEmptyProgress(now());
 
       try {
-        const raw = storage.getItem(PROGRESS_STORAGE_KEY);
+        const raw = storage.getItem(key);
         if (raw === null) return empty();
 
         const parsed: unknown = JSON.parse(raw);
@@ -105,7 +106,7 @@ export function createLocalStorageStore(
 
         if (isRecord(parsed) && parsed.v === 0) {
           try {
-            storage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(progress));
+            storage.setItem(key, JSON.stringify(progress));
           } catch {
             // A migração continua válida em memória mesmo se o navegador bloquear a escrita.
           }
@@ -120,7 +121,7 @@ export function createLocalStorageStore(
       if (!isProgress(progress)) return false;
 
       try {
-        storage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(progress));
+        storage.setItem(key, JSON.stringify(progress));
         return true;
       } catch {
         return false;

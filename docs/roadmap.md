@@ -2,8 +2,8 @@
 
 ## Estado atual (atualize a cada commit — é o ponto de retomada entre agentes)
 - **Fase concluída:** 2 (Núcleo puro).
-- **Em andamento:** Conta e sincronização — OAuth/sessão e PostgreSQL/RLS/`ProgressStore` remoto implementados; merge resiliente, migração convidado e restauração automática pendentes.
-- **Próximo passo:** implementar merge idempotente e coordenação local/remota após login.
+- **Em andamento:** Conta e sincronização — OAuth, RLS e sync local-first implementados, incluindo merge idempotente, migração convidado e restauração automática; documentação/configuração manual e validação responsiva pendentes.
+- **Próximo passo:** documentar setup Google/Supabase, validar estados de UI e executar gates finais.
 - **Bloqueios / decisões pendentes:** nenhum.
 - **Último agente:** Codex.
 

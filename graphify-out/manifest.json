@@ -138,9 +138,9 @@
     "semantic_hash": ""
   },
   "docs/architecture.md": {
-    "mtime": 1794307613.1153893,
-    "seen": 1794307645.7617593,
-    "ast_hash": "f9811f9921e2cc2d86aa8d3b0ea5ad5a",
+    "mtime": 1794307742.5466406,
+    "seen": 1794307804.09075,
+    "ast_hash": "b11d89c4339fe1e75e0090e5b9478c18",
     "semantic_hash": ""
   },
   "docs/research.md": {
@@ -150,9 +150,9 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794307613.1153893,
-    "seen": 1794307645.761778,
-    "ast_hash": "247765695114d2e78268230b4532c96e",
+    "mtime": 1794307742.5466406,
+    "seen": 1794307804.0907671,
+    "ast_hash": "d368e52636bf7da987ac6e1ccfd04e95",
     "semantic_hash": ""
   },
   "src/lib/hangul/index.ts": {
@@ -234,15 +234,15 @@
     "semantic_hash": ""
   },
   "src/lib/storage/index.ts": {
-    "mtime": 1794307613.1073933,
-    "seen": 1794307645.761508,
-    "ast_hash": "5449ac1698fe6485d51cac9e7863191b",
+    "mtime": 1794307742.5426397,
+    "seen": 1794307804.0904627,
+    "ast_hash": "b95adfc27bb814077f42470b6f3cf612",
     "semantic_hash": ""
   },
   "src/lib/storage/localStorageStore.ts": {
-    "mtime": 1794307613.1113913,
-    "seen": 1794307645.7615101,
-    "ast_hash": "25dbf8124bd38304319ac1afebe1076f",
+    "mtime": 1794307742.5466406,
+    "seen": 1794307804.0904634,
+    "ast_hash": "cd23e3ea011317892593e8f2faaf3db6",
     "semantic_hash": ""
   },
   "tests/storage.test.ts": {
@@ -270,15 +270,15 @@
     "semantic_hash": ""
   },
   "src/components/auth/AuthControl.tsx": {
-    "mtime": 1794307505.7682152,
-    "seen": 1794307529.1511948,
-    "ast_hash": "02d866e874942fb47dab225d185a7849",
+    "mtime": 1794307742.5466406,
+    "seen": 1794307804.0902581,
+    "ast_hash": "b0b3f92238e6d18c27e7ee63fc9e7749",
     "semantic_hash": ""
   },
   "src/components/auth/AuthProvider.tsx": {
-    "mtime": 1794307505.7682152,
-    "seen": 1794307529.1511953,
-    "ast_hash": "1d468d7c7b0241d440c0bbee6a87c740",
+    "mtime": 1794307790.0952644,
+    "seen": 1794307804.0902593,
+    "ast_hash": "771f7c3ad32f9a40c5fdb50db952837b",
     "semantic_hash": ""
   },
   "src/lib/auth/redirect.ts": {
@@ -333,6 +333,30 @@
     "mtime": 1794307613.1153893,
     "seen": 1794307645.7616968,
     "ast_hash": "91c1d72dfda4c9584c2f06dd57c7ee19",
+    "semantic_hash": ""
+  },
+  "src/lib/storage/mergeProgress.ts": {
+    "mtime": 1794307790.0952644,
+    "seen": 1794307804.090465,
+    "ast_hash": "35eeff7772f3a6cdb4334ecc0ffa8729",
+    "semantic_hash": ""
+  },
+  "src/lib/storage/syncProgress.ts": {
+    "mtime": 1794307790.0952644,
+    "seen": 1794307804.090486,
+    "ast_hash": "51c904978b39839e37a69a9c50f7bd62",
+    "semantic_hash": ""
+  },
+  "src/lib/storage/syncedProgressStore.ts": {
+    "mtime": 1794307790.0952644,
+    "seen": 1794307804.0904872,
+    "ast_hash": "4bb11bf2676844cc86ea9366626834e3",
+    "semantic_hash": ""
+  },
+  "tests/progress-sync.test.ts": {
+    "mtime": 1794307790.0952644,
+    "seen": 1794307804.0906193,
+    "ast_hash": "5fdf51d46562c9744ad99cc6ab66d790",
     "semantic_hash": ""
   },
   "package-lock.json": {

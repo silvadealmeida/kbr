@@ -3,6 +3,7 @@ import { expect, test } from "@playwright/test";
 const protectedRoutes = [
   ["/dashboard", "%2Fdashboard"],
   ["/hangul", "%2Fhangul"],
+  ["/hangul/h01", "%2Fhangul%2Fh01"],
   ["/vocabulario", "%2Fvocabulario"],
   ["/licoes", "%2Flicoes"],
   ["/revisao", "%2Frevisao"],

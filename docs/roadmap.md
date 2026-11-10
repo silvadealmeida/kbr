@@ -1,10 +1,10 @@
 # KBR — Roadmap
 
 ## Estado atual (atualize a cada commit — é o ponto de retomada entre agentes)
-- **Fase concluída:** 3A (currículo, pesquisa pedagógica e especificação do módulo Hangul).
-- **Em andamento:** nada. A Fase 3B (implementação do módulo Hangul) **não foi iniciada** e só começa com pedido explícito.
-- **Próximo passo:** Fase 3B — implementar `src/content/hangul`, os nove tipos de exercício, o player e os checkpoints conforme `docs/pedagogy/`.
-- **Bloqueios / decisões pendentes:** revisão de todo o conteúdo coreano por falante nativo/professor (status `in-review`); revisão jurídica da política/Impressum (faltam identidade do controlador, contato, prazos de retenção, região Supabase e DPAs); executar `supabase test db` contra a stack local; testar o fluxo completo em iPhone/Chrome iOS real (manual); validar o login real com Google no deploy após a mudança do destino pós-login para cookie.
+- **Fase concluída:** 3B.1 — fatia vertical do Hangul com `h01`–`h03`, player, progresso e navegação autenticada.
+- **Em andamento:** nada. A Fase 3B.2 (`h04`–`h10` + checkpoint `c1`) **não foi iniciada** e só começa com pedido explícito.
+- **Próximo passo:** Fase 3B.2 — implementar o restante da Unidade 3 e `c1`, ampliando os tipos de exercício só quando o conteúdo exigir; depois SRS, áudio com fallback dedicado e conteúdo restante.
+- **Bloqueios / decisões pendentes:** revisão de todo o conteúdo coreano por falante nativo/professor (status `in-review`); ausência de voz `ko-KR` em alguns navegadores (fallback textual); fluxo autenticado validado só contra Supabase mock, não contra o projeto real; revisão jurídica da política/Impressum; executar `supabase test db` contra a stack local; testar o fluxo completo em iPhone/Chrome iOS real (manual).
 - **Último agente:** OpenCode.
 
 Fases pequenas, cada uma com commit(s) próprio e `npm test` verde antes de avançar.
@@ -17,7 +17,9 @@ Fases pequenas, cada uma com commit(s) próprio e `npm test` verde antes de avan
 | 2A | Conta e sincronização (**feita no código; configuração externa pendente**) | Google OAuth, sessão SSR, guest mode, PostgreSQL/RLS, migração e sync resiliente | Vitest + Supabase DB tests |
 | 2B | Landing, rotas protegidas e privacidade (**feita; revisão jurídica pendente**) | landing pública original, shell público, `/dashboard` autenticado, proteção de rotas, `/privacidade`, `/impressum`, auditoria de cookies/localStorage/terceiros | Vitest + Playwright |
 | 3A | Currículo e arquitetura do Hangul (**feita**) | 5 documentos em `docs/pedagogy/`: currículo de 25 lições + 4 checkpoints, referência de Hangul, pronúncia para brasileiros, design de 9 tipos de exercício e schema de conteúdo | typecheck + test + build |
-| 3B | Módulo Hangul (implementação) | `src/content/hangul`, extensão compatível de `ExerciseSpec`/`checkAnswer`, player de lição, construtor de sílabas, áudio com fallback, SRS, checkpoints | Vitest + e2e |
+| 3B.1 | Fatia vertical do Hangul (**feita**) | `src/content/hangul` (`h01`–`h03` + validação), `checkAnswer` e 4 tipos novos, player `/hangul/[lessonId]`, navegação disponível/bloqueada/em breve, progresso em `Progress` v1 | typecheck + 123 Vitest + build + 56 Playwright |
+| 3B.2 | Unidade 3 e checkpoint `c1` | `h04`–`h10` com ㄱ…ㅎ, `c1`, exercícios e testes de conteúdo; revisar tipos antes de ampliar | Vitest + e2e |
+| 3B | Módulo Hangul completo | conteúdo restante, construtor de sílabas, áudio dedicado, SRS, checkpoints `c2`–`c4` | Vitest + e2e |
 | 4 | Lições 1–3 | 3 lições originais (diálogo, vocabulário, nota de gramática, exercícios): ex. cumprimentos/apresentação (이에요/예요), objetos/lugares (은/는, 이/가), rotina/comida (을/를, -아요/어요) | e2e fluxo |
 | 5 | Vocabulário | frases com lacuna, tradução, escuta | e2e |
 | 6 | Revisão + Dashboard | cartões vencidos, histórico, estatísticas reais, streak, meta diária, "continuar" | Vitest + e2e |
@@ -66,4 +68,17 @@ Decisões pedagógicas: 25 lições de 5–8 minutos + 4 checkpoints; todas as 1
 
 Validação: `npm run typecheck`; `npm test` (12 arquivos, 93 testes); `npm run build`. Nenhuma alteração de código, dependência, migração ou configuração nesta fase.
 
-Pendente: revisão de todo o conteúdo coreano por falante nativo/professor (tudo marcado `in-review`; nenhum item `reviewed`); validar IPA, exemplos, áudios TTS e naturalidade das frases; implementar a Fase 3B somente com pedido explícito, seguindo a ordem de `docs/pedagogy/content-schema.md` (§9).
+Pendente: revisão de todo o conteúdo coreano por falante nativo/professor (tudo marcado `in-review`; nenhum item `reviewed`); validar IPA, exemplos, áudios TTS e naturalidade das frases; a implementação começou pela fatia vertical 3B.1 (`h01`–`h03`), seguindo a ordem de `docs/pedagogy/content-schema.md` (§9).
+
+## Status Fase 3B.1 (real)
+Feito: conteúdo original e validado de `h01`–`h03` em `src/content/hangul/` — tipos, registro de ㅇ + seis vogais, sílabas 아/어/오/우/이/으, palavras 아우/아이/오이, telas de apresentação, objetivos e 26 exercícios no total (6 em h01, 10 em h02 e 10 em h03). Todo item está `in-review`. `validateCurriculum`/`assertCurriculum` checam IDs, DAG de pré-requisitos, cobertura de jamo, NFC/composição, jamo não ensinado, batchim antes de `h17`, revisão sem revisor e ambiguidade de alternativas.
+
+Exercícios: `mcq` e `build-syllable` existentes + `audio-to-char`, `char-to-audio`, `minimal-pair` e `reading`. `checkAnswer(spec, ExerciseAnswer)` devolve erro controlado para tipo incompatível; `check(spec, string)` continua com o formato exato anterior. Funções puras novas: `decomposeSyllable`, `isHangulText`, `normalizeHangul`.
+
+Player: `/hangul` agora lista unidades, lições disponíveis, bloqueadas por pré-requisito e “em breve” sem links quebrados; `/hangul/[lessonId]` resolve apenas `h01`–`h03` (404 para o resto). Fluxo com introdução, objetivos, prática item a item, feedback imediato, barra de progresso, foco no “Continuar”, alvos ≥44 px e `aria-live`. Áudio sob demanda via `speechSynthesis` (`ko-KR`) com dica textual de som; sem arquivos de áudio.
+
+Progresso: `Progress` v1 intacto. Cada primeira resposta grava `Attempt` em `history`; concluir grava `lessons[id] = { done, score }` com o maior score e sem rebaixar conclusão anterior. Sair no meio não salva score. Nenhuma migração, tabela, coluna, RLS ou auth alterados. SRS ainda não é criado nesta fatia.
+
+Testes: `npm run typecheck`; `npm test` (14 arquivos, 123 testes); `npm run build`; `npm run e2e` (56 testes, 375/390/768/1280). E2E autenticado usa Supabase mock local (`e2e/mock-supabase.mjs`, porta 54321, cookie de sessão de teste) para cobrir lição completa por teclado, feedback de erro, persistência após reload, liberação de `h02` e proteção de `/hangul/h01` sem sessão. O mock não substitui integração com o Supabase real.
+
+Limitações conhecidas: voz coreana depende do navegador/SO; revisão nativa pendente; a regra “repetir o item de contraste uma vez” de h02 e o critério “≥1 acerto em ㅡ e ㅣ” de h03 foram aproximados por `minScore` + itens obrigatórios; não há retomada de sessão no meio, SRS, checkpoints, `h04`–`h25`, exportação/importação, nem teste real de login Google/sync no deploy. iPhone/Chrome iOS real continua manual.

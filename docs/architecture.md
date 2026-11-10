@@ -14,21 +14,21 @@ src/
     auth/callback/route.ts  # route handler do OAuth (público)
   components/
     ui/                     # Button, Card, ProgressBar, Feedback
-    exercises/              # MultipleChoice, Cloze, SyllableBuilder, Listen, Match
+    hangul/                 # catálogo do curso e player de lição (client)
     auth/                   # AuthProvider, AuthControl, ProtectedArea, AccountCard
     site/                   # header/footer públicos e CTA de login
   content/                  # DADOS originais (TS tipado, sem lógica)
-    hangul.ts  lessons/*.ts  vocab.ts
+    hangul/                 # types, jamo, sílabas, palavras, lições h01–h03, outline, validate
   lib/
     auth/                   # redirect seguro, estados de acesso
     supabase/               # clientes browser/server, sessão no proxy
     srs/                    # interface Scheduler + leitner.ts (trocável por fsrs.ts)
     storage/                # interface ProgressStore + localStorageStore.ts (versionado)
-    speech/                 # detecção, escolha de voz ko, fallback
-    exercises/              # geração e validação de respostas (funções puras)
-    hangul/                 # composição de sílabas (Unicode), puro
+    exercises/              # tipos + check/checkAnswer (funções puras)
+    hangul/                 # composição/decomposição de sílabas (Unicode), puro
+    progress/               # score de lição, tentativas e desbloqueio (puro)
   types/
-tests/  (vitest)   e2e/ (playwright)
+tests/  (vitest)   e2e/ (playwright; Supabase mock para fluxo autenticado)
 docs/
 supabase/                    # migrations e testes pgTAP de RLS
 ```
@@ -36,8 +36,8 @@ supabase/                    # migrations e testes pgTAP de RLS
 ## Modelo de dados (TS)
 - `Card { id, ko, pt, romanization?, audioText, tags, sentenceId? }`
 - `Lesson { id, title, objectives, dialogue: Line[], vocab: Card[], grammar: Note[], exercises: ExerciseSpec[] }`
-- `ExerciseSpec` = união discriminada (`mcq | cloze | build-syllable | listen | translate`); validação por função pura `check(spec, answer) → {correct, expected, explanation}`.
-- `Progress { v: 1, lessons: Record<id,{done,score}>, cards: Record<id, SrsState>, history: Attempt[], streak, dailyGoal, lastActive }`
+- `ExerciseSpec` = união discriminada (`mcq | cloze | build-syllable | listen | translate | audio-to-char | char-to-audio | minimal-pair | reading`); `check(spec, answer)` mantém o contrato antigo e `checkAnswer(spec, ExerciseAnswer)` devolve resultado detalhado (`errorTags`, `scored`).
+- `Progress { v: 1, lessons: Record<id,{done,score}>, cards: Record<id, SrsState>, history: Attempt[], streak, dailyGoal, lastActive }`. `lib/progress/lesson` calcula score/desbloqueio e grava tentativas sem alterar esse formato.
 
 ## Interfaces de troca futura
 - `ProgressStore { async load(); async save(p); }` → implementações para `localStorage` e Supabase sem acoplar telas. PostgreSQL mantém um snapshot JSONB v1 por `auth.users.id`; a PK elimina linhas duplicadas e RLS restringe todas as operações ao dono.
@@ -54,11 +54,20 @@ supabase/                    # migrations e testes pgTAP de RLS
 - `AuthProvider` mantém a sessão e o `ProgressStore` do convidado; a proteção de rotas não removeu o modo convidado nem a migração de progresso. O dashboard e os controles de conta leem o usuário apenas no cliente.
 
 ## Hangul
-Composição por Unicode: `0xAC00 + (L*21 + V)*28 + T` — sem tabela de sílabas; testes unitários. Cards de letras: nome, som aproximado em pt-BR, grupo, exemplo.
-Currículo, referência histórica/fonética, pronúncia para brasileiros, design dos exercícios e schema de conteúdo da Fase 3A: `docs/pedagogy/`. A implementação da Fase 3B deve reutilizar `lib/hangul`, manter `Progress` v1 e não alterar auth, sync, banco ou RLS.
+Composição por Unicode: `0xAC00 + (L*21 + V)*28 + T` — sem tabela de sílabas; testes unitários. `decomposeSyllable`, `isHangulText` e `normalizeHangul` completam as funções puras (round-trip e NFC).
+
+Currículo e especificação pedagógica: `docs/pedagogy/`. A Fase 3B.1 implementa a fatia `h01`–`h03`:
+
+- `src/content/hangul/` contém tipos, registro de jamo (ㅇ + 6 vogais), sílabas, palavras, as três lições e `validateCurriculum`/`assertCurriculum`. Todo conteúdo está `in-review`; o validador rejeita jamo não ensinado, composição inconsistente, IDs repetidos, revisão sem revisor e exercícios ambíguos.
+- `src/lib/exercises` ganhou `audio-to-char`, `char-to-audio`, `minimal-pair` e `reading`, além de `checkAnswer(spec, answer)` com resposta tipada e erro controlado. `check(spec, string)` mantém exatamente o formato antigo.
+- O player fica em `components/hangul/LessonPlayer.tsx` e a rota é `/hangul/[lessonId]`. Só IDs implementados resolvem; os demais dão 404. A introdução mostra objetivos e telas de apresentação; a prática tem feedback imediato, progresso, foco no botão de continuar e alvos ≥44 px.
+- `/hangul` lista as lições disponíveis, bloqueadas (pré-requisito pendente) e futuras, sem links quebrados.
+- Progresso reutiliza `Progress` v1: cada primeira resposta acrescenta um `Attempt`; ao concluir, `lessons[id]` recebe o maior `score` e `done` quando atinge a nota mínima. Não há tabela, migração ou campo novo. Sair no meio não salva score.
+- Áudio usa `speechSynthesis` com `lang="ko-KR"` e fallback textual descritivo; não há arquivos de áudio nem avaliação de pronúncia. Em navegador sem voz coreana, a dica de som sustenta o exercício.
+- SRS e checkpoints continuam fora desta fatia.
 
 ## Voz
-`speech/`: `isSupported()`, `getKoVoice()` (aguarda `voiceschanged`, timeout ~1s), `speak(text)` com `lang='ko-KR'`, rate ~0.8. Se sem voz: UI mostra aviso claro e esconde "ouvir" nos exercícios de escuta (substituídos por leitura). Sem avaliação de pronúncia.
+O player usa `window.speechSynthesis` com `lang="ko-KR"`, rate 0.85, sob demanda (sem autoplay). Como a disponibilidade de voz coreana varia por sistema, todo item de escuta exibe uma dica textual (`fallback`) que descreve o som sem entregar a resposta escrita. Não há arquivos de áudio, avaliação de pronúncia nem módulo próprio de voz nesta fase.
 
 ## UI/UX
 - Mobile-first: nav inferior fixa, alvos ≥48px, safe-area (`env(safe-area-inset-*)`), `100dvh`.
@@ -74,9 +83,11 @@ Currículo, referência histórica/fonética, pronúncia para brasileiros, desig
 - Política pública em `/privacidade`; aviso legal/Impressum em `/impressum` com pendências explícitas, sem inventar identidade, endereço ou prazos.
 
 ## Testes
-- Vitest: composição Hangul, validação de exercícios, scheduler, store (migração/corrupção).
+- Vitest: composição/decomposição Hangul, validação de exercícios (`check` e `checkAnswer`), validação do currículo `h01`–`h03`, score/conclusão/desbloqueio de lição, scheduler, store (migração/corrupção) e persistência após recarga.
 - Auth/sync: redirecionamento fechado, config pública, stores local/remoto, merge/migração/offline, classificação de rotas, estados de acesso, conteúdo da política/auditoria e inspeção estrutural da migration.
-- Playwright: landing pública, links legais, bloqueio de rotas privadas sem sessão, retorno seguro via `next`, sessão inválida, callback sem código indo para `/auth/error`, ausência de vazamento no HTML, navegação mobile/desktop em 375, 390, 768 e 1280px. Projetos Chromium e WebKit; iPhone real/Chrome iOS não testável aqui.
+- Playwright (Chromium, 375/390/768/1280): landing pública, links legais, bloqueio de rotas privadas sem sessão (incluindo `/hangul/h01`), retorno seguro via `next`, sessão inválida, callback sem código indo para `/auth/error`, ausência de vazamento no HTML, navegação mobile/desktop e tema.
+- O fluxo autenticado de Hangul é testado contra um Supabase mock local (`e2e/mock-supabase.mjs`, porta 54321) com cookie de sessão de teste: lição completa por teclado, feedback de erro, persistência após reload e liberação da próxima lição. O mock não substitui um teste de integração com o Supabase real; login Google real e sync remoto continuam manuais.
+- iPhone real/Chrome iOS não é testável aqui.
 
 ## Decisões/limites
 - PWA limitada à instalação standalone; sem service worker ou cache offline.

@@ -50,3 +50,39 @@ export function isHangulSyllable(value: string): boolean {
   const codePoint = value.codePointAt(0);
   return codePoint !== undefined && codePoint >= HANGUL_BASE && codePoint <= 0xd7a3;
 }
+
+export type SyllableParts = {
+  initial: Initial;
+  medial: Medial;
+  final: Final;
+};
+
+/** Decompõe uma sílaba Hangul pré-composta; retorna `null` para qualquer outro texto. */
+export function decomposeSyllable(value: string): SyllableParts | null {
+  if (!isHangulSyllable(value)) return null;
+
+  const offset = value.codePointAt(0)! - HANGUL_BASE;
+  const initialIndex = Math.floor(offset / (MEDIAL_COUNT * FINAL_COUNT));
+  const medialIndex = Math.floor((offset % (MEDIAL_COUNT * FINAL_COUNT)) / FINAL_COUNT);
+  const finalIndex = offset % FINAL_COUNT;
+
+  return {
+    initial: INITIALS[initialIndex]!,
+    medial: MEDIALS[medialIndex]!,
+    final: FINALS[finalIndex]!,
+  };
+}
+
+/** Normaliza texto coreano para NFC sem alterar espaços ou caixa. */
+export function normalizeHangul(value: string): string {
+  return value.normalize("NFC");
+}
+
+/**
+ * Verdadeiro quando o texto contém apenas sílabas Hangul pré-compostas e espaços.
+ * Jamo solto, conjoining jamo, hanja e latim são rejeitados.
+ */
+export function isHangulText(value: string): boolean {
+  if (value.length === 0) return false;
+  return [...value].every((char) => char === " " || isHangulSyllable(char));
+}

@@ -1,8 +1,8 @@
 {
   "e2e/smoke.spec.ts": {
-    "mtime": 1794316046.7338285,
-    "seen": 1794316189.631423,
-    "ast_hash": "37e0f9b8347fd1d7a2f0eb511d40439f",
+    "mtime": 1794318813.863274,
+    "seen": 1794318985.074829,
+    "ast_hash": "92799086e325c2132fda635cc78d00f3",
     "semantic_hash": ""
   },
   "next.config.mjs": {
@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "playwright.config.ts": {
-    "mtime": 1794303494.0366986,
-    "seen": 1794305686.712467,
-    "ast_hash": "3053a43f7faaff019d09eaa9179c8185",
+    "mtime": 1794318802.422051,
+    "seen": 1794318985.0748355,
+    "ast_hash": "f9494c2f0138919ef2011ebb0cafd504",
     "semantic_hash": ""
   },
   "postcss.config.mjs": {
@@ -96,9 +96,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1794317862.1240537,
-    "seen": 1794317983.8835247,
-    "ast_hash": "f46d237d9b33cbd31453fd3e66427a44",
+    "mtime": 1794318924.212322,
+    "seen": 1794318985.074926,
+    "ast_hash": "acca9c5ce2ea28b905773a8a0a649712",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -108,9 +108,9 @@
     "semantic_hash": ""
   },
   "docs/architecture.md": {
-    "mtime": 1794317852.7775807,
-    "seen": 1794317983.8835273,
-    "ast_hash": "92a694744c12f7224fb12b06157adfcf",
+    "mtime": 1794318919.2063131,
+    "seen": 1794318985.0749278,
+    "ast_hash": "cb8f75e76204961708c4b7e4d1793381",
     "semantic_hash": ""
   },
   "docs/research.md": {
@@ -120,21 +120,21 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794317848.7288566,
-    "seen": 1794317983.883537,
-    "ast_hash": "4d6994d73e6de2375407dcc9a21393b1",
+    "mtime": 1794319023.1710205,
+    "seen": 1794319038.0270379,
+    "ast_hash": "a56dca89b936dfd6e5f33795132c5d15",
     "semantic_hash": ""
   },
   "src/lib/hangul/index.ts": {
-    "mtime": 1794306336.371928,
-    "seen": 1794306350.6533182,
-    "ast_hash": "a76d2f61a30f650ad5aa9ab1f3dfb6a9",
+    "mtime": 1794318394.7855928,
+    "seen": 1794318985.0749004,
+    "ast_hash": "98fbc03f5ade9cf47c0d35a0f629f611",
     "semantic_hash": ""
   },
   "tests/hangul.test.ts": {
-    "mtime": 1794306336.371928,
-    "seen": 1794306350.6533208,
-    "ast_hash": "d6bc7b30f847d815667bcce2908dd04c",
+    "mtime": 1794318696.1153615,
+    "seen": 1794318985.0749164,
+    "ast_hash": "c33e7772eb18abf1b738cd08bb318806",
     "semantic_hash": ""
   },
   "src/app/manifest.ts": {
@@ -174,15 +174,15 @@
     "semantic_hash": ""
   },
   "src/lib/exercises/index.ts": {
-    "mtime": 1794306876.8652298,
-    "seen": 1794306889.4810195,
-    "ast_hash": "e739a4c59d1b20186a7a464f2b8f93dc",
+    "mtime": 1794318404.1846588,
+    "seen": 1794318985.0748997,
+    "ast_hash": "21e04cac79f0bc3f85282364bf93e0ad",
     "semantic_hash": ""
   },
   "tests/exercises.test.ts": {
-    "mtime": 1794306876.8652298,
-    "seen": 1794306889.4810224,
-    "ast_hash": "3e405063c08b1b54721a916149e6b8c0",
+    "mtime": 1794318669.1741478,
+    "seen": 1794318985.074916,
+    "ast_hash": "72a00239097cc2f2ba56066fd945f51b",
     "semantic_hash": ""
   },
   "src/lib/srs/index.ts": {
@@ -336,9 +336,9 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1794315009.521595,
-    "seen": 1794315074.4476671,
-    "ast_hash": "4cc9e435d2663a9c8200f61a8909cb15",
+    "mtime": 1794318448.5381656,
+    "seen": 1794318985.074927,
+    "ast_hash": "dd76709c58b3fb7e0b1cd4bbe75db4b1",
     "semantic_hash": ""
   },
   "src/app/(app)/dashboard/page.tsx": {
@@ -348,9 +348,9 @@
     "semantic_hash": ""
   },
   "src/app/(app)/hangul/page.tsx": {
-    "mtime": 1794303494.0447,
-    "seen": 1794315074.447619,
-    "ast_hash": "6ac523819ac6129b6b359fd73107b7d3",
+    "mtime": 1794318620.8453338,
+    "seen": 1794318985.0748398,
+    "ast_hash": "89c77e7eee325b57a3c68365f431d207",
     "semantic_hash": ""
   },
   "src/app/(app)/layout.tsx": {
@@ -467,12 +467,6 @@
     "ast_hash": "b55782f2ffd5f2a01c74032b1291e98c",
     "semantic_hash": ""
   },
-  "pendenteIgo.md": {
-    "mtime": 1794316166.7176871,
-    "seen": 1794316189.6314936,
-    "ast_hash": "f227429ccea9efa36d64ab81eeb487b0",
-    "semantic_hash": ""
-  },
   "src/components/site/LandingRedirect.tsx": {
     "mtime": 1794316013.2285137,
     "seen": 1794316189.6314557,
@@ -519,6 +513,126 @@
     "mtime": 1794317775.7487462,
     "seen": 1794317983.8835347,
     "ast_hash": "e080c21ad475461f2933ae1f11b0c790",
+    "semantic_hash": ""
+  },
+  "e2e/hangul.spec.ts": {
+    "mtime": 1794318852.5645216,
+    "seen": 1794318985.0748198,
+    "ast_hash": "e31ca176bd7cec21e7620b15e2a315d3",
+    "semantic_hash": ""
+  },
+  "e2e/mock-supabase.mjs": {
+    "mtime": 1794318778.198874,
+    "seen": 1794318985.074825,
+    "ast_hash": "c14119e16288f7a597f6a48dd5a9d489",
+    "semantic_hash": ""
+  },
+  "e2e/run-e2e-server.mjs": {
+    "mtime": 1794318791.4741607,
+    "seen": 1794318985.0748267,
+    "ast_hash": "70e4c4749151c2311f143c09ed66e1b6",
+    "semantic_hash": ""
+  },
+  "src/app/(app)/hangul/[lessonId]/page.tsx": {
+    "mtime": 1794318610.1043067,
+    "seen": 1794318985.074839,
+    "ast_hash": "f736756ca13628cd41e3b5fdcabadaf5",
+    "semantic_hash": ""
+  },
+  "src/components/hangul/HangulCourse.tsx": {
+    "mtime": 1794318620.8413374,
+    "seen": 1794318985.0748549,
+    "ast_hash": "263b4482f7e03980ebc316412a76132b",
+    "semantic_hash": ""
+  },
+  "src/components/hangul/LessonPlayer.tsx": {
+    "mtime": 1794318605.6117969,
+    "seen": 1794318985.0748556,
+    "ast_hash": "aa90b33325dad7c8a0d24195c59e8043",
+    "semantic_hash": ""
+  },
+  "src/content/hangul/index.ts": {
+    "mtime": 1794318487.1588945,
+    "seen": 1794318985.0748868,
+    "ast_hash": "89b78e2f26f6a50e33d9199a3733a378",
+    "semantic_hash": ""
+  },
+  "src/content/hangul/jamo.ts": {
+    "mtime": 1794318417.7851393,
+    "seen": 1794318985.0748894,
+    "ast_hash": "4fccf2d2a43b9a4da9ce57ae2fe18a23",
+    "semantic_hash": ""
+  },
+  "src/content/hangul/lessons/h01.ts": {
+    "mtime": 1794318438.6536386,
+    "seen": 1794318985.0748906,
+    "ast_hash": "fb518fe2f97c03ca8a0398fbcb32ea8c",
+    "semantic_hash": ""
+  },
+  "src/content/hangul/lessons/h02.ts": {
+    "mtime": 1794318457.7114532,
+    "seen": 1794318985.0748913,
+    "ast_hash": "dcd397c1a185eccaf4d5f7ea17ed4e9a",
+    "semantic_hash": ""
+  },
+  "src/content/hangul/lessons/h03.ts": {
+    "mtime": 1794318470.671995,
+    "seen": 1794318985.0748918,
+    "ast_hash": "f9ddbe4d8dc97d225475fe148002e523",
+    "semantic_hash": ""
+  },
+  "src/content/hangul/lessons/index.ts": {
+    "mtime": 1794318487.1588945,
+    "seen": 1794318985.0748925,
+    "ast_hash": "f314588791d27801232af35ddebf16d4",
+    "semantic_hash": ""
+  },
+  "src/content/hangul/outline.ts": {
+    "mtime": 1794318482.718443,
+    "seen": 1794318985.074893,
+    "ast_hash": "d0dbf9d729135b8a3510c6cd808f21a4",
+    "semantic_hash": ""
+  },
+  "src/content/hangul/syllables.ts": {
+    "mtime": 1794318422.8861945,
+    "seen": 1794318985.0748935,
+    "ast_hash": "9ae84de89215fab9668cc37fd75ad1ba",
+    "semantic_hash": ""
+  },
+  "src/content/hangul/types.ts": {
+    "mtime": 1794318409.524175,
+    "seen": 1794318985.0748944,
+    "ast_hash": "da10c1390b935093d8566429bd8bb125",
+    "semantic_hash": ""
+  },
+  "src/content/hangul/validate.ts": {
+    "mtime": 1794318525.4426324,
+    "seen": 1794318985.0748951,
+    "ast_hash": "8424e5dce664b1f502ce7ae6b2d16eed",
+    "semantic_hash": ""
+  },
+  "src/lib/progress/lesson.ts": {
+    "mtime": 1794318533.0588639,
+    "seen": 1794318985.0749016,
+    "ast_hash": "d8000cbdf921200c8eb7291bb52a7232",
+    "semantic_hash": ""
+  },
+  "tests/content/hangul.test.ts": {
+    "mtime": 1794318654.3857467,
+    "seen": 1794318985.0749152,
+    "ast_hash": "58abc4c9a72912b28f104be849afb954",
+    "semantic_hash": ""
+  },
+  "tests/progress-lesson.test.ts": {
+    "mtime": 1794318687.2181783,
+    "seen": 1794318985.0749176,
+    "ast_hash": "deb4eef6e7b388764b67e8633bd5b3ea",
+    "semantic_hash": ""
+  },
+  "pendenteDesign.md": {
+    "mtime": 1794316166.7176871,
+    "seen": 1794318985.0749345,
+    "ast_hash": "f227429ccea9efa36d64ab81eeb487b0",
     "semantic_hash": ""
   },
   "package-lock.json": {

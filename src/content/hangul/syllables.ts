@@ -1,0 +1,103 @@
+import type { ReviewMeta, SyllableRecord, WordRecord } from "./types";
+
+const review: ReviewMeta = {
+  status: "in-review",
+  notes: "Aguardando revisão de falante nativo ou professor de coreano.",
+};
+
+export const SYLLABLES: readonly SyllableRecord[] = [
+  {
+    id: "syl:아",
+    text: "아",
+    initial: "ㅇ",
+    medial: "ㅏ",
+    final: "",
+    introducedIn: "h02",
+    audioText: "아",
+    review,
+  },
+  {
+    id: "syl:어",
+    text: "어",
+    initial: "ㅇ",
+    medial: "ㅓ",
+    final: "",
+    introducedIn: "h02",
+    audioText: "어",
+    review,
+  },
+  {
+    id: "syl:오",
+    text: "오",
+    initial: "ㅇ",
+    medial: "ㅗ",
+    final: "",
+    introducedIn: "h02",
+    audioText: "오",
+    review,
+  },
+  {
+    id: "syl:우",
+    text: "우",
+    initial: "ㅇ",
+    medial: "ㅜ",
+    final: "",
+    introducedIn: "h02",
+    audioText: "우",
+    review,
+  },
+  {
+    id: "syl:이",
+    text: "이",
+    initial: "ㅇ",
+    medial: "ㅣ",
+    final: "",
+    introducedIn: "h03",
+    audioText: "이",
+    review,
+  },
+  {
+    id: "syl:으",
+    text: "으",
+    initial: "ㅇ",
+    medial: "ㅡ",
+    final: "",
+    introducedIn: "h03",
+    audioText: "으",
+    review,
+  },
+];
+
+export const WORDS: readonly WordRecord[] = [
+  {
+    id: "word:아우",
+    ko: "아우",
+    pt: "irmão mais novo (dito por quem é mais velho)",
+    syllables: ["아", "우"],
+    introducedIn: "h02",
+    tags: ["noun", "family", "reading"],
+    audioText: "아우",
+    notes: "Palavra real usada aqui apenas para praticar a leitura de dois blocos.",
+    review,
+  },
+  {
+    id: "word:아이",
+    ko: "아이",
+    pt: "criança",
+    syllables: ["아", "이"],
+    introducedIn: "h03",
+    tags: ["noun", "people", "reading"],
+    audioText: "아이",
+    review,
+  },
+  {
+    id: "word:오이",
+    ko: "오이",
+    pt: "pepino",
+    syllables: ["오", "이"],
+    introducedIn: "h03",
+    tags: ["noun", "food", "reading"],
+    audioText: "오이",
+    review,
+  },
+];

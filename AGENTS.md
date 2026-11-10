@@ -4,7 +4,7 @@ App web de estudo de coreano para brasileiros (mobile-first, Chrome no Windows/i
 Fontes de verdade: `docs/architecture.md` (stack, estrutura, modelo de dados, interfaces), `docs/research.md` (pedagogia, limites de conteúdo), `docs/roadmap.md` (fases e status). **Leia-os antes de mexer; não repita a pesquisa e não duplique o conteúdo deles aqui.**
 
 ## Fase atual
-**Fase 3A — Currículo, pesquisa pedagógica e especificação do Hangul** concluída em `docs/pedagogy/` (25 micro-lições + 4 checkpoints, 9 tipos de exercício, schema de conteúdo e guia de pronúncia para brasileiros). A **Fase 3B (implementação do módulo Hangul) não foi iniciada**; só comece com pedido explícito. Status real e pendências: `docs/roadmap.md` e `docs/privacy-audit.md`.
+**Fase 3B.1 — fatia vertical `h01`–`h03` do módulo Hangul** concluída: conteúdo tipado e validado, player mobile-first, progresso em `Progress` v1 e navegação autenticada. A **Fase 3B.2 (`h04`–`h10` + `c1`) não foi iniciada**; só comece com pedido explícito. Status real, limitações e pendências: `docs/roadmap.md`, `docs/architecture.md` (§Hangul/Testes) e `docs/privacy-audit.md`.
 O Proxy do Next 16 fica em `src/proxy.ts` (o App Router está em `src/app`); não recrie `proxy.ts` na raiz.
 
 ## Regras

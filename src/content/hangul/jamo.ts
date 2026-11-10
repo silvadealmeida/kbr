@@ -1,0 +1,88 @@
+import type { JamoRecord, ReviewMeta } from "./types";
+
+/** Conteúdo coreano original, ainda sem revisão de falante nativo. */
+export const CONTENT_IN_REVIEW: ReviewMeta = {
+  status: "in-review",
+  notes: "Aguardando revisão de falante nativo ou professor de coreano.",
+};
+
+export const JAMO: readonly JamoRecord[] = [
+  {
+    symbol: "ㅇ",
+    kind: "consonant",
+    nameKo: "이응",
+    namePt: "ieung",
+    ipa: ["[∅]", "[ŋ]"],
+    introducedIn: "h02",
+    tags: ["silent-initial", "velar", "final-later"],
+    notes:
+      "No início da sílaba é mudo e só ocupa o lugar da consoante. Como final (batchim), será estudado em h17, com som [ŋ].",
+    review: CONTENT_IN_REVIEW,
+  },
+  {
+    symbol: "ㅏ",
+    kind: "vowel",
+    nameKo: "아",
+    namePt: "a",
+    ipa: ["[a]"],
+    introducedIn: "h02",
+    tags: ["simple", "open", "central"],
+    notes: "Aberta e não arredondada, próxima do 'a' de casa.",
+    review: CONTENT_IN_REVIEW,
+  },
+  {
+    symbol: "ㅓ",
+    kind: "vowel",
+    nameKo: "어",
+    namePt: "eo",
+    ipa: ["[ʌ]", "[ə]"],
+    introducedIn: "h02",
+    tags: ["simple", "open", "back-unrounded"],
+    notes: "Língua recuada e lábios sem arredondar; não é o 'ó' de avó.",
+    review: CONTENT_IN_REVIEW,
+  },
+  {
+    symbol: "ㅗ",
+    kind: "vowel",
+    nameKo: "오",
+    namePt: "o",
+    ipa: ["[o]"],
+    introducedIn: "h02",
+    tags: ["simple", "back-rounded"],
+    notes: "Lábios arredondados, como o 'ô' de avô.",
+    review: CONTENT_IN_REVIEW,
+  },
+  {
+    symbol: "ㅜ",
+    kind: "vowel",
+    nameKo: "우",
+    namePt: "u",
+    ipa: ["[u]"],
+    introducedIn: "h02",
+    tags: ["simple", "back-rounded", "close"],
+    notes: "Como o 'u' de uva, sem prolongar.",
+    review: CONTENT_IN_REVIEW,
+  },
+  {
+    symbol: "ㅡ",
+    kind: "vowel",
+    nameKo: "으",
+    namePt: "eu",
+    ipa: ["[ɯ]"],
+    introducedIn: "h03",
+    tags: ["simple", "central-unrounded", "close"],
+    notes: "Entre 'i' e 'u', com lábios esticados e sem arredondar.",
+    review: CONTENT_IN_REVIEW,
+  },
+  {
+    symbol: "ㅣ",
+    kind: "vowel",
+    nameKo: "이",
+    namePt: "i",
+    ipa: ["[i]"],
+    introducedIn: "h03",
+    tags: ["simple", "front", "close"],
+    notes: "Como o 'i' de ilha.",
+    review: CONTENT_IN_REVIEW,
+  },
+];

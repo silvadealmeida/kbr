@@ -28,6 +28,16 @@ export type LessonResult = {
   diagnostics: DiagnosticBreakdown[];
 };
 
+export type CourseStepKind = "lesson" | "checkpoint";
+
+export type CourseStep = {
+  id: string;
+  kind: CourseStepKind;
+  title: string;
+  estimatedMinutes: number;
+  prerequisites: readonly string[];
+};
+
 export type CheckpointResult = {
   correct: number;
   total: number;
@@ -211,6 +221,77 @@ export function nextLessonAfter(
 }
 
 /**
+ * Ordem intercalada de lições e checkpoints, com os pré-requisitos usados para
+ * desbloqueio. O checkpoint ocupa a posição imediatamente depois do último
+ * conteúdo do seu escopo, então `h10` é seguido por `c1`, `c1` por `h11` e
+ * `c3` por `h21`.
+ */
+export function buildCourseSteps(
+  lessons: readonly Lesson[],
+  checkpoints: readonly Checkpoint[],
+): CourseStep[] {
+  const lessonPosition = new Map(lessons.map((lesson, index) => [lesson.id, index * 2]));
+  const entries: { step: CourseStep; position: number; order: number }[] = lessons.map(
+    (lesson, index) => ({
+      step: {
+        id: lesson.id,
+        kind: "lesson",
+        title: lesson.title,
+        estimatedMinutes: lesson.estimatedMinutes,
+        prerequisites: lesson.prerequisites,
+      },
+      position: index * 2,
+      order: index,
+    }),
+  );
+
+  checkpoints.forEach((checkpoint, index) => {
+    const scope = checkpoint.lessonIds
+      .map((id) => lessonPosition.get(id))
+      .filter((position): position is number => position !== undefined);
+    const base = scope.length > 0 ? Math.max(...scope) : lessons.length * 2 + index * 2;
+    entries.push({
+      step: {
+        id: checkpoint.id,
+        kind: "checkpoint",
+        title: checkpoint.title,
+        estimatedMinutes: checkpoint.estimatedMinutes,
+        prerequisites: checkpoint.lessonIds,
+      },
+      position: base + 1,
+      order: lessons.length + index,
+    });
+  });
+
+  return entries
+    .sort((a, b) => a.position - b.position || a.order - b.order)
+    .map((entry) => entry.step);
+}
+
+export function isCourseStepDone(progress: Progress, step: CourseStep): boolean {
+  return progress.lessons[step.id]?.done === true;
+}
+
+/** Um passo só abre quando todos os pré-requisitos curriculares estão concluídos. */
+export function isCourseStepUnlocked(progress: Progress, step: CourseStep): boolean {
+  return step.prerequisites.every((id) => progress.lessons[id]?.done === true);
+}
+
+/**
+ * Primeiro passo ainda não concluído cujos pré-requisitos estão satisfeitos.
+ * Retorna `undefined` quando o curso terminou ou quando só restam passos
+ * bloqueados (dados inconsistentes/legados); nunca recomenda conteúdo fechado.
+ */
+export function nextRecommendedCourseStep(
+  progress: Progress,
+  steps: readonly CourseStep[],
+): CourseStep | undefined {
+  return steps.find(
+    (step) => !isCourseStepDone(progress, step) && isCourseStepUnlocked(progress, step),
+  );
+}
+
+/**
  * Próximo passo do curso na ordem intercalada de lições e checkpoints.
  * O checkpoint ocupa a posição imediatamente depois do último conteúdo do seu
  * escopo, então `h10` é seguido por `c1`, `c1` por `h11` e `h15` por `c2`.
@@ -220,22 +301,7 @@ export function nextCourseStepAfter(
   checkpoints: readonly Checkpoint[],
   stepId: string,
 ): { id: string; title: string } | undefined {
-  const lessonPosition = new Map(lessons.map((lesson, index) => [lesson.id, index * 2]));
-  const steps = [
-    ...lessons.map((lesson, index) => ({
-      id: lesson.id,
-      title: lesson.title,
-      position: index * 2,
-    })),
-    ...checkpoints.map((checkpoint, index) => {
-      const scope = checkpoint.lessonIds
-        .map((id) => lessonPosition.get(id))
-        .filter((position): position is number => position !== undefined);
-      const base = scope.length > 0 ? Math.max(...scope) : lessons.length * 2 + index * 2;
-      return { id: checkpoint.id, title: checkpoint.title, position: base + 1 };
-    }),
-  ].sort((a, b) => a.position - b.position);
-
+  const steps = buildCourseSteps(lessons, checkpoints);
   const index = steps.findIndex((step) => step.id === stepId);
   if (index < 0) return undefined;
   const next = steps[index + 1];

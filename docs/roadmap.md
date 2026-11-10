@@ -2,7 +2,7 @@
 
 ## Estado atual (atualize a cada commit — é o ponto de retomada entre agentes)
 - **Fase concluída:** 1 (Scaffold).
-- **Em andamento:** Fase 2 — composição e validação de Hangul implementadas; exercícios, SRS e storage pendentes.
+- **Em andamento:** Fase 2 — composição e validação de Hangul implementadas; exercícios, SRS e storage pendentes. PWA mínima instalada no código.
 - **Próximo passo:** implementar `lib/exercises` com tipos e validação pura de respostas.
 - **Bloqueios / decisões pendentes:** nenhum.
 - **Último agente:** Codex.
@@ -34,3 +34,7 @@ FSRS (`ts-fsrs`), sync em nuvem, auth, PWA/offline, notificações, exercícios 
 ## Status Fase 1 (real)
 Feito: Next 16 + React 19 + TS 5.9 + Tailwind 4; Vitest (1 teste); Playwright (Chromium, 375/390/768/1280; 28 testes); shell com nav inferior (mobile) e lateral (≥md); tema claro/escuro persistido; Noto Sans KR; safe-area; 5 rotas com estados vazios "Em desenvolvimento".
 Pendente: projeto WebKit do Playwright (fase 8); verificação manual em iPhone/Chrome iOS; contraste AA verificado só por escolha de tokens, sem axe; `next/font` baixa a fonte no build (precisa de rede).
+
+## Status PWA mínima (real)
+Feito: manifesto web, ícones 192/512 (incluindo ícone `maskable`), ícone Apple 180, metadados de instalação e modo `standalone`, cores de tema claro/escuro e suporte a safe-area já existente.
+Limites: sem service worker, cache ou funcionamento offline; instalação e apresentação em iPhone/Chrome iOS reais exigem verificação manual fora deste ambiente.

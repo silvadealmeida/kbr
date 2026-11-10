@@ -36,9 +36,9 @@
     "semantic_hash": ""
   },
   "src/app/layout.tsx": {
-    "mtime": 1794305440.0427442,
-    "seen": 1794305686.7124684,
-    "ast_hash": "cdd70c9f17c88c8b6c0d947513e03bcf",
+    "mtime": 1794306735.6088505,
+    "seen": 1794306830.207707,
+    "ast_hash": "ddc985d8b42fb38e87ee2909d8d30907",
     "semantic_hash": ""
   },
   "src/app/licoes/page.tsx": {
@@ -150,9 +150,9 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794306336.371928,
-    "seen": 1794306350.65333,
-    "ast_hash": "2e31bfc5adcfcb3171082c5b2d0ffa2b",
+    "mtime": 1794306782.9196386,
+    "seen": 1794306830.2077258,
+    "ast_hash": "d4345f0e8d18054911187ba4e7413130",
     "semantic_hash": ""
   },
   "src/lib/hangul/index.ts": {
@@ -165,6 +165,42 @@
     "mtime": 1794306336.371928,
     "seen": 1794306350.6533208,
     "ast_hash": "d6bc7b30f847d815667bcce2908dd04c",
+    "semantic_hash": ""
+  },
+  "src/app/manifest.ts": {
+    "mtime": 1794306782.9196386,
+    "seen": 1794306830.2077096,
+    "ast_hash": "0f29a308e95eef3865329f576f78d217",
+    "semantic_hash": ""
+  },
+  "tests/manifest.test.ts": {
+    "mtime": 1794306782.9196386,
+    "seen": 1794306830.2077196,
+    "ast_hash": "31568de87b4ef51d3d8a12293b6707d2",
+    "semantic_hash": ""
+  },
+  "public/icons/apple-touch-icon.png": {
+    "mtime": 1794306746.2248635,
+    "seen": 1794306830.2077265,
+    "ast_hash": "163e431160ecf7833f2e72d83811a869",
+    "semantic_hash": ""
+  },
+  "public/icons/icon-192.png": {
+    "mtime": 1794306746.2248635,
+    "seen": 1794306830.2077277,
+    "ast_hash": "cfa02cfd8d600755c8ce78b65a9cef07",
+    "semantic_hash": ""
+  },
+  "public/icons/icon-512.png": {
+    "mtime": 1794306746.2328622,
+    "seen": 1794306830.2077286,
+    "ast_hash": "24218608093bfb51bec59caff7d8bfd1",
+    "semantic_hash": ""
+  },
+  "public/icons/icon.svg": {
+    "mtime": 1794306746.1648731,
+    "seen": 1794306830.2077293,
+    "ast_hash": "0b710b18f8cccc1c97ec931d68f4831c",
     "semantic_hash": ""
   },
   "package-lock.json": {

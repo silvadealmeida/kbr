@@ -5,8 +5,29 @@ import { Nav } from "@/components/Nav";
 
 const kr = Noto_Sans_KR({ subsets: ["latin"], variable: "--font-kr", display: "swap" });
 
-export const metadata: Metadata = { title: { default: "KBR — Coreano para brasileiros", template: "%s · KBR" }, description: "Aprenda coreano em português, passo a passo." };
-export const viewport: Viewport = { width: "device-width", initialScale: 1, viewportFit: "cover" };
+export const metadata: Metadata = {
+  title: { default: "KBR — Coreano para brasileiros", template: "%s · KBR" },
+  description: "Aprenda coreano em português, passo a passo.",
+  applicationName: "KBR",
+  manifest: "/manifest.webmanifest",
+  icons: {
+    icon: [
+      { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icons/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: "/icons/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
+  appleWebApp: { capable: true, statusBarStyle: "default", title: "KBR" },
+};
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#fafaf7" },
+    { media: "(prefers-color-scheme: dark)", color: "#121413" },
+  ],
+};
 
 // Aplica o tema salvo antes da hidratação para evitar flash.
 const themeScript = `try{var t=localStorage.getItem("kbr:theme");if(t==="dark"||(!t&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.classList.add("dark")}catch(e){}`;

@@ -96,9 +96,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1794331623.7727625,
-    "seen": 1794331823.4350626,
-    "ast_hash": "6c4dc8d7f2a4f2b585c014c314ae52f5",
+    "mtime": 1794333153.542361,
+    "seen": 1794333296.1497633,
+    "ast_hash": "8d34a9fc59f7c8024ce55e1247820b77",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -108,9 +108,9 @@
     "semantic_hash": ""
   },
   "docs/architecture.md": {
-    "mtime": 1794331744.2309694,
-    "seen": 1794331823.4350646,
-    "ast_hash": "08af48fa811ebb57e8eb737983d5b082",
+    "mtime": 1794333335.5651715,
+    "seen": 1794333344.0454621,
+    "ast_hash": "564ef3e043ac4621ddb0e2f94580c754",
     "semantic_hash": ""
   },
   "docs/research.md": {
@@ -120,9 +120,9 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794331670.6445594,
-    "seen": 1794331823.43507,
-    "ast_hash": "3b4e4f7d2382c90422d2466beb3d3a91",
+    "mtime": 1794333335.5651715,
+    "seen": 1794333344.0454683,
+    "ast_hash": "7bf93bb4a090c2864a1b3fda50f959b5",
     "semantic_hash": ""
   },
   "src/lib/hangul/index.ts": {
@@ -366,9 +366,9 @@
     "semantic_hash": ""
   },
   "src/app/(app)/revisao/page.tsx": {
-    "mtime": 1794303494.0487006,
-    "seen": 1794315074.4476216,
-    "ast_hash": "38679afa5db6b9013285c1d796378e76",
+    "mtime": 1794332807.5972989,
+    "seen": 1794333296.1496823,
+    "ast_hash": "9656251c0070bdee44efd1a99fd932ff",
     "semantic_hash": ""
   },
   "src/app/(app)/vocabulario/page.tsx": {
@@ -498,9 +498,9 @@
     "semantic_hash": ""
   },
   "docs/pedagogy/exercise-design.md": {
-    "mtime": 1794317737.283345,
-    "seen": 1794317983.883531,
-    "ast_hash": "3c80babe220f42999a3f37dbe9b80b47",
+    "mtime": 1794333274.8215225,
+    "seen": 1794333296.1497676,
+    "ast_hash": "58c648c6ae0459ac0932b30f7685f487",
     "semantic_hash": ""
   },
   "docs/pedagogy/hangul.md": {
@@ -516,9 +516,9 @@
     "semantic_hash": ""
   },
   "e2e/hangul.spec.ts": {
-    "mtime": 1794331972.3437722,
-    "seen": 1794332123.3396509,
-    "ast_hash": "c49660bc37931bab0be633bbed62968e",
+    "mtime": 1794333120.1299427,
+    "seen": 1794333296.14966,
+    "ast_hash": "25bb29c8b278b982f67324231a11d1e7",
     "semantic_hash": ""
   },
   "e2e/mock-supabase.mjs": {
@@ -648,9 +648,9 @@
     "semantic_hash": ""
   },
   "src/components/hangul/exercise-ui.tsx": {
-    "mtime": 1794330540.899625,
-    "seen": 1794331823.4349973,
-    "ast_hash": "dca4af9442e321c520ad9eb8bc28519c",
+    "mtime": 1794333020.948523,
+    "seen": 1794333296.1496983,
+    "ast_hash": "d02d67db2ea2717161277d615ce9aeee",
     "semantic_hash": ""
   },
   "src/content/hangul/checkpoints/c1.ts": {
@@ -843,6 +843,30 @@
     "mtime": 1794330171.9818308,
     "seen": 1794331823.4350557,
     "ast_hash": "d35c4070798f99747e927d4aa4bf315c",
+    "semantic_hash": ""
+  },
+  "e2e/review.spec.ts": {
+    "mtime": 1794333108.3280084,
+    "seen": 1794333296.149669,
+    "ast_hash": "43b4445a1146f605c026031eeca0bd91",
+    "semantic_hash": ""
+  },
+  "src/components/review/ReviewArea.tsx": {
+    "mtime": 1794333119.3696282,
+    "seen": 1794333296.1496992,
+    "ast_hash": "7a563b0567ba5d356bbb645c8a2838f6",
+    "semantic_hash": ""
+  },
+  "src/lib/review/index.ts": {
+    "mtime": 1794332757.1952689,
+    "seen": 1794333296.1497393,
+    "ast_hash": "1c27c8f6a548277fe737892532f0583c",
+    "semantic_hash": ""
+  },
+  "tests/review.test.ts": {
+    "mtime": 1794333319.443623,
+    "seen": 1794333344.0454519,
+    "ast_hash": "9cc76a697e2ef5437df972d3422a9b94",
     "semantic_hash": ""
   },
   "package-lock.json": {

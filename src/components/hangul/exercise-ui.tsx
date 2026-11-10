@@ -349,6 +349,7 @@ export function ExerciseView({
   onContinue,
   isLast,
   lastLabel = "Concluir lição",
+  progressLabel = "prática",
   footer,
 }: {
   exercise: ExerciseSpec;
@@ -361,6 +362,8 @@ export function ExerciseView({
   onContinue(): void;
   isLast: boolean;
   lastLabel?: string;
+  /** Nome da atividade no progresso (lições/checkpoints usam "prática"). */
+  progressLabel?: string;
   footer?: React.ReactNode;
 }) {
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -376,11 +379,11 @@ export function ExerciseView({
         <span>
           Item {index + 1} de {total}
         </span>
-        <span>{Math.round((index / total) * 100)}% da prática</span>
+        <span>{Math.round((index / total) * 100)}% da {progressLabel}</span>
       </div>
       <div
         role="progressbar"
-        aria-label="Progresso da prática"
+        aria-label={`Progresso da ${progressLabel}`}
         aria-valuemin={0}
         aria-valuemax={total}
         aria-valuenow={index}

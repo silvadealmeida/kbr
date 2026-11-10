@@ -175,31 +175,36 @@ async function seedCompletedLessons(
   page: import("@playwright/test").Page,
   lessonIds: readonly string[] = COMPLETED_LESSONS,
 ) {
-  await page.goto("/hangul");
-  // Espera a sincronização inicial terminar; um save remoto atrasado poderia
-  // sobrescrever o progresso semeado antes do reload.
-  await page.waitForLoadState("networkidle");
-  await page.evaluate(
-    ({ key, lessonIds: ids }) => {
-      const lessons = Object.fromEntries(
-        ids.map((id) => [id, { done: true, score: 100 }]),
-      );
-      window.localStorage.setItem(
-        key,
-        JSON.stringify({
-          v: 1,
-          lessons,
-          cards: {},
-          history: [],
-          streak: 0,
-          dailyGoal: 10,
-          lastActive: "2026-11-10T12:00:00.000Z",
-        }),
-      );
+  // O init script roda antes do app carregar: o progresso semeado já está no
+  // localStorage quando a sincronização inicial começa. O marcador de sessão
+  // evita sobrescrever o progresso em navegações e reloads seguintes.
+  await page.addInitScript(
+    ({ key, ids }) => {
+      try {
+        if (window.sessionStorage.getItem("kbr:e2e:hangul-seeded") === "1") return;
+        const lessons = Object.fromEntries(
+          ids.map((id) => [id, { done: true, score: 100 }]),
+        );
+        window.localStorage.setItem(
+          key,
+          JSON.stringify({
+            v: 1,
+            lessons,
+            cards: {},
+            history: [],
+            streak: 0,
+            dailyGoal: 10,
+            lastActive: "2026-11-10T12:00:00.000Z",
+          }),
+        );
+        window.sessionStorage.setItem("kbr:e2e:hangul-seeded", "1");
+      } catch {
+        /* documento sem origem utilizável (about:blank) */
+      }
     },
-    { key: `kbr:user:${TEST_USER.id}:v1`, lessonIds },
+    { key: `kbr:user:${TEST_USER.id}:v1`, ids: lessonIds },
   );
-  await page.reload();
+  await page.goto("/hangul");
 }
 
 type CheckpointStep =

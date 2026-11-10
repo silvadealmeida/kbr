@@ -46,7 +46,10 @@ export function mergeProgress(left: Progress, right: Progress): Progress {
     lessons,
     cards,
     history,
-    streak: recent === "tie" ? Math.max(left.streak, right.streak) : preferRight ? right.streak : left.streak,
+    // O streak é cumulativo e não pode regredir no merge: um dispositivo que
+    // ficou atrás pode ter lastActive mais recente com um streak menor. Sem
+    // histórico diário, preservar o maior valor evita perder progresso válido.
+    streak: Math.max(left.streak, right.streak),
     dailyGoal: recent === "tie" ? Math.max(left.dailyGoal, right.dailyGoal) : preferRight ? right.dailyGoal : left.dailyGoal,
     lastActive: preferRight ? right.lastActive : left.lastActive,
   };

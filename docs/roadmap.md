@@ -2,10 +2,10 @@
 
 ## Estado atual (atualize a cada commit — é o ponto de retomada entre agentes)
 - **Fase concluída:** 2A (Conta e sincronização).
-- **Em andamento:** nada. PWA mínima preservada; Google OAuth e sync estão implementados.
+- **Em andamento:** nada. Correções de segurança do redirect, status de sync e merge de streak aplicadas.
 - **Próximo passo:** Fase 3 (Hangul interativo) — só iniciar quando o usuário pedir.
-- **Bloqueios / decisões pendentes:** aplicar a migration e habilitar Google no projeto Supabase; testar login real em Chrome/PWA após essa configuração externa.
-- **Último agente:** Codex.
+- **Bloqueios / decisões pendentes:** executar `supabase test db` contra a stack local; testar o fluxo completo em iPhone/Chrome iOS real (manual).
+- **Último agente:** OpenCode.
 
 Fases pequenas, cada uma com commit(s) próprio e `npm test` verde antes de avançar.
 
@@ -42,5 +42,6 @@ Limites: sem service worker, cache ou funcionamento offline; instalação e apre
 
 ## Status conta e sincronização (real)
 Feito: Google OAuth PKCE; login/logout; cookies SSR renovados pelo Proxy do Next 16; cache isolado por conta; guest mode; merge idempotente; migração do convidado; restauração após login; gravação local-first; tabela PostgreSQL com PK por usuário; RLS separado para SELECT/INSERT/UPDATE/DELETE; testes Vitest e pgTAP; setup em `docs/supabase-setup.md`.
-Validado: typecheck, 41 testes Vitest, build e 28 testes Playwright; estado convidado renderizado em 393×659 e 1280×800, alvo de login 152×44 px, sem overflow horizontal ou erros de console.
-Pendente externo: aplicar migration, configurar provider/redirects Google, executar `supabase test db` contra stack local e testar OAuth completo em Chrome desktop/PWA móvel. iPhone/Chrome iOS real continua manual.
+Correções: `safeNextPath` rejeita backslash, caracteres de controle e separadores percent-encoded; status de sync volta a “offline” após falha remota e a “synced” ao recuperar; merge preserva o maior streak entre dispositivos; testes de regressão cobrem os três casos.
+Validado: typecheck, 51 testes Vitest, build e 28 testes Playwright; estado convidado renderizado em 393×659 e 1280×800, alvo de login 152×44 px, sem overflow horizontal ou erros de console. Google OAuth e tabela/RLS validados na Vercel (informado pelo usuário).
+Pendente externo: executar `supabase test db` contra a stack local e testar o fluxo completo em Chrome desktop/PWA móvel; iPhone/Chrome iOS real continua manual.

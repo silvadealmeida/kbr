@@ -6,8 +6,14 @@ describe("autenticação", () => {
   test.each([
     ["/", "/"],
     ["/revisao?origem=login", "/revisao?origem=login"],
+    ["/revisao?origem=login#topo", "/revisao?origem=login#topo"],
     ["https://evil.example", "/"],
     ["//evil.example", "/"],
+    ["/\\evil.example", "/"],
+    ["/%5Cevil.example", "/"],
+    ["/%5cevil.example", "/"],
+    ["/%2F%2Fevil.example", "/"],
+    ["/\t/evil.example", "/"],
     [null, "/"],
   ])("limita o redirecionamento OAuth ao próprio site", (input, expected) => {
     expect(safeNextPath(input)).toBe(expected);

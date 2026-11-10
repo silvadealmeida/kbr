@@ -28,11 +28,11 @@ function memoryStore(progress: Progress, saveResult = true): ProgressStore & { s
   };
 }
 
-function supabaseClient(remote: Progress | null, error: unknown = null) {
-  const maybeSingle = vi.fn().mockResolvedValue({ data: remote ? { progress: remote } : null, error });
+function supabaseClient(remote: Progress | null, loadError: unknown = null, saveError: unknown = loadError) {
+  const maybeSingle = vi.fn().mockResolvedValue({ data: remote ? { progress: remote } : null, error: loadError });
   const eq = vi.fn(() => ({ maybeSingle }));
   const select = vi.fn(() => ({ eq }));
-  const upsert = vi.fn().mockResolvedValue({ error });
+  const upsert = vi.fn().mockResolvedValue({ error: saveError });
   const from = vi.fn(() => ({ select, upsert }));
   return { client: { from } as unknown as SupabaseClient, maybeSingle, upsert };
 }
@@ -57,6 +57,50 @@ describe("sincronização de progresso", () => {
     remote.streak = 4;
 
     expect(mergeProgress(empty, remote).streak).toBe(4);
+  });
+
+  test("merge entre dispositivos preserva o maior streak válido", () => {
+    const older = createEmptyProgress(new Date("2026-11-09T12:00:00.000Z"));
+    older.streak = 7;
+    older.lessons.hangul = { done: true, score: 90 };
+    const newer = createEmptyProgress(NOW);
+    newer.streak = 2;
+    newer.cards.card1 = { box: 1, due: "2026-11-12T12:00:00.000Z" };
+
+    const merged = mergeProgress(older, newer);
+
+    expect(merged.streak).toBe(7);
+    expect(merged.lastActive).toBe(newer.lastActive);
+    expect(merged.cards.card1).toEqual(newer.cards.card1);
+    expect(mergeProgress(newer, older).streak).toBe(7);
+  });
+
+  test("store sincronizado informa offline após falha remota e synced ao recuperar", async () => {
+    const progress = createEmptyProgress(NOW);
+    const local = memoryStore(progress);
+    const remote = memoryStore(progress, false);
+    remote.save.mockResolvedValueOnce(false).mockResolvedValueOnce(true);
+    const statuses: string[] = [];
+    const store = createSyncedProgressStore(local, remote, (status) => statuses.push(status));
+
+    await expect(store.save(progress)).resolves.toBe(false);
+    await expect(store.save(progress)).resolves.toBe(true);
+
+    expect(statuses).toEqual(["syncing", "offline", "syncing", "synced"]);
+  });
+
+  test("store sincronizado informa offline quando a leitura remota falha", async () => {
+    const progress = createEmptyProgress(NOW);
+    const local = memoryStore(progress);
+    const remote: ProgressStore = {
+      load: vi.fn().mockRejectedValue(new Error("offline")),
+      save: vi.fn().mockResolvedValue(true),
+    };
+    const statuses: string[] = [];
+    const store = createSyncedProgressStore(local, remote, (status) => statuses.push(status));
+
+    await expect(store.load()).resolves.toEqual(progress);
+    expect(statuses).toEqual(["syncing", "offline"]);
   });
 
   test("store sincronizado salva local antes do remoto e tolera offline", async () => {
@@ -99,6 +143,23 @@ describe("sincronização de progresso", () => {
 
     expect(result).toMatchObject({ status: "offline", migratedGuest: false });
     expect(JSON.parse(storage.getItem(progressStorageKeyForUser(USER_ID)) ?? "null").streak).toBe(3);
+  });
+
+  test("falha só na gravação remota mantém status offline e preserva o merge", async () => {
+    const storage = new MemoryStorage();
+    const account = createEmptyProgress(NOW);
+    account.lessons.hangul = { done: true, score: 80 };
+    storage.setItem(progressStorageKeyForUser(USER_ID), JSON.stringify(account));
+    const remote = createEmptyProgress(NOW);
+    remote.streak = 4;
+    const supabase = supabaseClient(remote, null, new Error("offline"));
+
+    const result = await syncProgressForUser(supabase.client, storage, USER_ID, () => NOW);
+
+    expect(result).toMatchObject({ status: "offline", migratedGuest: false });
+    expect(result.progress.lessons.hangul.done).toBe(true);
+    expect(result.progress.streak).toBe(4);
+    expect(JSON.parse(storage.getItem(progressStorageKeyForUser(USER_ID)) ?? "null")).toEqual(result.progress);
   });
 
   test("deduplica sincronizações simultâneas do mesmo usuário", async () => {

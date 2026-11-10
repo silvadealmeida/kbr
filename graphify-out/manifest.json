@@ -138,9 +138,9 @@
     "semantic_hash": ""
   },
   "docs/architecture.md": {
-    "mtime": 1794307929.358859,
-    "seen": 1794307959.8258257,
-    "ast_hash": "ee8de816a79f96ff6e7208642d0f261a",
+    "mtime": 1794314146.6644294,
+    "seen": 1794314200.344641,
+    "ast_hash": "689b67e70b09e2eb8072973f5348cfef",
     "semantic_hash": ""
   },
   "docs/research.md": {
@@ -150,9 +150,9 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794307959.321366,
-    "seen": 1794307959.8258274,
-    "ast_hash": "d0fef30998b57815b920b9391b2c0ad0",
+    "mtime": 1794314164.327998,
+    "seen": 1794314200.3446426,
+    "ast_hash": "b50ba3de6c574f742fa33d5269295567",
     "semantic_hash": ""
   },
   "src/lib/hangul/index.ts": {
@@ -276,15 +276,15 @@
     "semantic_hash": ""
   },
   "src/components/auth/AuthProvider.tsx": {
-    "mtime": 1794307790.0952644,
-    "seen": 1794307804.0902593,
-    "ast_hash": "771f7c3ad32f9a40c5fdb50db952837b",
+    "mtime": 1794314091.0259864,
+    "seen": 1794314200.3446128,
+    "ast_hash": "3efb5644c50511b030b7b484610abaa9",
     "semantic_hash": ""
   },
   "src/lib/auth/redirect.ts": {
-    "mtime": 1794307505.7682152,
-    "seen": 1794307529.1511993,
-    "ast_hash": "aca35c302bd6b941e185efeb5512ffee",
+    "mtime": 1794314071.512055,
+    "seen": 1794314200.3446164,
+    "ast_hash": "0ad31d10aa57d69440bb7a9efc006d0a",
     "semantic_hash": ""
   },
   "src/lib/supabase/client.ts": {
@@ -312,9 +312,9 @@
     "semantic_hash": ""
   },
   "tests/auth.test.ts": {
-    "mtime": 1794307505.7682152,
-    "seen": 1794307529.151208,
-    "ast_hash": "d3ed1a34cd24816ae8d6d50f2f1283b3",
+    "mtime": 1794314104.2161198,
+    "seen": 1794314200.3446305,
+    "ast_hash": "0ef5c10c05fdb138d480000bce97127d",
     "semantic_hash": ""
   },
   "src/lib/storage/supabaseProgressStore.ts": {
@@ -336,39 +336,39 @@
     "semantic_hash": ""
   },
   "src/lib/storage/mergeProgress.ts": {
-    "mtime": 1794307790.0952644,
-    "seen": 1794307804.090465,
-    "ast_hash": "35eeff7772f3a6cdb4334ecc0ffa8729",
+    "mtime": 1794314075.0090382,
+    "seen": 1794314200.344623,
+    "ast_hash": "9c744cbe373f220a59cc9155c34c7a6d",
     "semantic_hash": ""
   },
   "src/lib/storage/syncProgress.ts": {
-    "mtime": 1794307790.0952644,
-    "seen": 1794307804.090486,
-    "ast_hash": "51c904978b39839e37a69a9c50f7bd62",
+    "mtime": 1794314084.2117348,
+    "seen": 1794314200.3446252,
+    "ast_hash": "0e11bf8e59013b5595ffbcd9221c1d62",
     "semantic_hash": ""
   },
   "src/lib/storage/syncedProgressStore.ts": {
-    "mtime": 1794307790.0952644,
-    "seen": 1794307804.0904872,
-    "ast_hash": "4bb11bf2676844cc86ea9366626834e3",
+    "mtime": 1794314078.1459582,
+    "seen": 1794314200.344626,
+    "ast_hash": "ee5a732e426de2a34902a713636f981c",
     "semantic_hash": ""
   },
   "tests/progress-sync.test.ts": {
-    "mtime": 1794307790.0952644,
-    "seen": 1794307804.0906193,
-    "ast_hash": "5fdf51d46562c9744ad99cc6ab66d790",
+    "mtime": 1794314127.6191041,
+    "seen": 1794314200.3446333,
+    "ast_hash": "4b511967b53d40a5e94f5dc38026c9a3",
     "semantic_hash": ""
   },
   "supabase/migrations/20261110120000_create_user_progress.sql": {
     "mtime": 1794307613.1113913,
-    "seen": 1794307804.5889103,
-    "ast_hash": "",
+    "seen": 1794313363.6849346,
+    "ast_hash": "b6c73ece2803ac68d4afbb9bcbf3adb1",
     "semantic_hash": ""
   },
   "supabase/tests/user_progress_rls.test.sql": {
     "mtime": 1794307628.261156,
-    "seen": 1794307804.5889115,
-    "ast_hash": "",
+    "seen": 1794313363.6849356,
+    "ast_hash": "54c660b727a6e7d93693694b00ec2cf1",
     "semantic_hash": ""
   },
   "docs/supabase-setup.md": {
@@ -378,9 +378,9 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1794312518.3907769,
-    "seen": 1794312524.1145642,
-    "ast_hash": "790f43496cd6025441260eab2f0ab1ec",
+    "mtime": 1794313269.7767417,
+    "seen": 1794313363.6849465,
+    "ast_hash": "2f994a682a05194f9a2e3c2d220193fb",
     "semantic_hash": ""
   },
   "package-lock.json": {

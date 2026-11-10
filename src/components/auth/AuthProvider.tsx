@@ -77,7 +77,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     let active = true;
     void syncProgressForUser(supabase, window.localStorage, user.id).then((result) => {
       if (active) {
-        setProgressStore(createSyncedProgressStore(local, remote));
+        setProgressStore(createSyncedProgressStore(local, remote, (nextStatus) => {
+          if (active) setSyncStatus(nextStatus);
+        }));
         setSyncStatus(result.status);
       }
     });

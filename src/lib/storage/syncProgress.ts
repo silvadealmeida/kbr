@@ -49,19 +49,27 @@ export function syncProgressForUser(
       readMarker(storage, migrationKey(userId)) !== guestSnapshot;
     const local = shouldMigrateGuest ? mergeProgress(account, guest) : account;
 
+    let remote: Progress;
     try {
-      const remote = await remoteStore.load();
-      const merged = mergeProgress(local, remote);
-      await accountStore.save(merged);
-      const savedRemotely = await remoteStore.save(merged);
-      if (!savedRemotely) return { progress: merged, status: "offline", migratedGuest: false };
-
-      if (shouldMigrateGuest) writeMarker(storage, migrationKey(userId), guestSnapshot);
-      return { progress: merged, status: "synced", migratedGuest: shouldMigrateGuest };
+      remote = await remoteStore.load();
     } catch {
       await accountStore.save(local);
       return { progress: local, status: "offline", migratedGuest: false };
     }
+
+    const merged = mergeProgress(local, remote);
+    await accountStore.save(merged);
+
+    let savedRemotely = false;
+    try {
+      savedRemotely = await remoteStore.save(merged);
+    } catch {
+      savedRemotely = false;
+    }
+    if (!savedRemotely) return { progress: merged, status: "offline", migratedGuest: false };
+
+    if (shouldMigrateGuest) writeMarker(storage, migrationKey(userId), guestSnapshot);
+    return { progress: merged, status: "synced", migratedGuest: shouldMigrateGuest };
   })().finally(() => activeSyncs.delete(userId));
 
   activeSyncs.set(userId, operation);

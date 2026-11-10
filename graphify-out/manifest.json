@@ -362,19 +362,25 @@
   "supabase/migrations/20261110120000_create_user_progress.sql": {
     "mtime": 1794307613.1113913,
     "seen": 1794307804.5889103,
-    "ast_hash": "b6c73ece2803ac68d4afbb9bcbf3adb1",
+    "ast_hash": "",
     "semantic_hash": ""
   },
   "supabase/tests/user_progress_rls.test.sql": {
     "mtime": 1794307628.261156,
     "seen": 1794307804.5889115,
-    "ast_hash": "54c660b727a6e7d93693694b00ec2cf1",
+    "ast_hash": "",
     "semantic_hash": ""
   },
   "docs/supabase-setup.md": {
     "mtime": 1794307929.358859,
     "seen": 1794307959.8258283,
     "ast_hash": "560f2c40fc56f64736a7d315a9bb09b6",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1794312518.3907769,
+    "seen": 1794312524.1145642,
+    "ast_hash": "790f43496cd6025441260eab2f0ab1ec",
     "semantic_hash": ""
   },
   "package-lock.json": {

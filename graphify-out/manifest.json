@@ -396,9 +396,9 @@
     "semantic_hash": ""
   },
   "src/app/(site)/page.tsx": {
-    "mtime": 1794314662.471046,
-    "seen": 1794315074.4476252,
-    "ast_hash": "bdff24b100eddc44747a2d64c0651eb7",
+    "mtime": 1794315115.196231,
+    "seen": 1794315118.9613497,
+    "ast_hash": "afca9f33e6df05f14fb72c9dbd94b2eb",
     "semantic_hash": ""
   },
   "src/app/(site)/privacidade/page.tsx": {

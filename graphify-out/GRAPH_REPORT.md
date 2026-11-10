@@ -1,17 +1,17 @@
 # Graph Report - kbr  (2026-11-10)
 
 ## Corpus Check
-- 26 files · ~3,971 words
+- 28 files · ~4,317 words
 - Verdict: corpus is large enough that graph structure adds value.
-- Unclassified: 2 file(s) not represented in the graph (top: (none) 1, .css 1)
+- Unclassified: 3 file(s) not represented in the graph (top: (none) 2, .css 1)
 
 ## Summary
-- 305 nodes · 352 edges · 22 communities (18 shown, 4 thin omitted)
+- 318 nodes · 370 edges · 22 communities (18 shown, 4 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `f347905f`
+- Built from commit: `7d0910d0`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -28,11 +28,11 @@
 - layout.tsx
 - KBR — Arquitetura
 - Video Recording
-- Running Custom Playwright Code
+- index.ts
 - KBR — Pesquisa
 - KBR — instruções para agentes (Codex, OpenCode, Claude Code)
 - scripts
-- Advanced Mocking with run-code
+- Cookies
 - KBR — Roadmap
 - CLAUDE.md
 
@@ -66,16 +66,16 @@
 ## Communities (22 total, 4 thin omitted)
 
 ### Community 0 - "Running Custom Playwright Code"
-Cohesion: 0.14
-Nodes (9): Examples, Inspecting Element Attributes, Debugging Playwright Tests, Running Playwright Tests, Attaching Screenshots and Videos to Pull Requests, From a local session, From CI, Limits (+1 more)
+Cohesion: 0.06
+Nodes (30): Examples, Inspecting Element Attributes, Debugging Playwright Tests, Running Playwright Tests, Attaching Screenshots and Videos to Pull Requests, From a local session, From CI, Limits (+22 more)
 
 ### Community 1 - "package.json"
 Cohesion: 0.09
 Nodes (26): routes, dependencies, next@^16.4.6, @playwright/test@^1.65.0, react@^19.3.1, react-dom@^19.3.1, tailwindcss@^4.3.5, @tailwindcss/postcss@^4.3.5 (+18 more)
 
 ### Community 2 - "Local Storage"
-Cohesion: 0.06
-Nodes (35): Advanced: Multiple Cookies or Custom Options, Advanced: Multiple Operations, Authentication State Reuse, Clear All Cookies, Clear All localStorage, Clear sessionStorage, Common Patterns, Cookies (+27 more)
+Cohesion: 0.07
+Nodes (26): Advanced: Multiple Operations, Authentication State Reuse, Clear All localStorage, Clear sessionStorage, Common Patterns, Delete Database, Delete Single Item, Delete Single Item (+18 more)
 
 ### Community 3 - "Browser Automation with playwright-cli"
 Cohesion: 0.07
@@ -113,9 +113,9 @@ Nodes (10): Decisões/limites, Estrutura, Hangul, Interfaces de troca futura, KB
 Cohesion: 0.20
 Nodes (10): 1. Use Descriptive Filenames, 2. Record entire hero scripts., 3. Attach the recording to the pull request, Basic Recording, Best Practices, Cursor, Target Highlight and Click Point, Limitations, Overlay API Summary (+2 more)
 
-### Community 12 - "Running Custom Playwright Code"
-Cohesion: 0.15
-Nodes (13): Clipboard, Complex Workflows, Error Handling, File Downloads, Frames and Iframes, Geolocation, JavaScript Execution, Media Emulation (+5 more)
+### Community 12 - "index.ts"
+Cohesion: 0.22
+Nodes (11): composeSyllable(), Final, FINALS, Initial, INITIALS, isFinal(), isHangulSyllable(), isInitial() (+3 more)
 
 ### Community 13 - "KBR — Pesquisa"
 Cohesion: 0.25
@@ -129,9 +129,9 @@ Nodes (6): Comandos, Fase atual, graphify, KBR — instruções para agentes (Co
 Cohesion: 0.29
 Nodes (7): scripts, build, dev, e2e, start, test, typecheck
 
-### Community 16 - "Advanced Mocking with run-code"
-Cohesion: 0.25
-Nodes (8): Advanced Mocking with run-code, CLI Route Commands, Conditional Response Based on Request, Delayed Response, Modify Real Response, Request Mocking, Simulate Network Failures, URL Patterns
+### Community 16 - "Cookies"
+Cohesion: 0.22
+Nodes (9): Advanced: Multiple Cookies or Custom Options, Clear All Cookies, Cookies, Delete a Cookie, Filter Cookies by Domain, Filter Cookies by Path, Get Specific Cookie, List All Cookies (+1 more)
 
 ### Community 17 - "KBR — Roadmap"
 Cohesion: 0.33
@@ -143,17 +143,17 @@ Nodes (5): Estado atual (atualize a cada commit — é o ponto de retomada entre
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Browser Automation with playwright-cli` connect `Browser Automation with playwright-cli` to `Running Custom Playwright Code`?**
-  _High betweenness centrality (0.087) - this node is a cross-community bridge._
+- **Why does `Storage Management` connect `Local Storage` to `Cookies`?**
+  _High betweenness centrality (0.102) - this node is a cross-community bridge._
 - **Should `Running Custom Playwright Code` be split into smaller, more focused modules?**
-  _Cohesion score 0.13725490196078433 - nodes in this community are weakly interconnected._
-- **Why does `Test generation (plan → generate → heal)` connect `3. Heal` to `Running Custom Playwright Code`?**
-  _High betweenness centrality (0.075) - this node is a cross-community bridge._
+  _Cohesion score 0.05668016194331984 - nodes in this community are weakly interconnected._
+- **Why does `Browser Automation with playwright-cli` connect `Browser Automation with playwright-cli` to `Running Custom Playwright Code`?**
+  _High betweenness centrality (0.080) - this node is a cross-community bridge._
 - **Should `package.json` be split into smaller, more focused modules?**
   _Cohesion score 0.0896551724137931 - nodes in this community are weakly interconnected._
+- **Why does `Test generation (plan → generate → heal)` connect `3. Heal` to `Running Custom Playwright Code`?**
+  _High betweenness centrality (0.069) - this node is a cross-community bridge._
 - **Should `Local Storage` be split into smaller, more focused modules?**
-  _Cohesion score 0.05555555555555555 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07407407407407407 - nodes in this community are weakly interconnected._
 - **Should `Browser Automation with playwright-cli` be split into smaller, more focused modules?**
   _Cohesion score 0.07407407407407407 - nodes in this community are weakly interconnected._
-- **Should `3. Heal` be split into smaller, more focused modules?**
-  _Cohesion score 0.08695652173913043 - nodes in this community are weakly interconnected._

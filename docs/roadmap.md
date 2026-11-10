@@ -2,10 +2,10 @@
 
 ## Estado atual (atualize a cada commit — é o ponto de retomada entre agentes)
 - **Fase concluída:** 1 (Scaffold).
-- **Em andamento:** nada.
-- **Próximo passo:** Fase 2 (núcleo puro: `lib/hangul`, `lib/exercises`, `lib/srs`, `lib/storage` + Vitest) — só iniciar quando o usuário pedir.
+- **Em andamento:** Fase 2 — composição e validação de Hangul implementadas; exercícios, SRS e storage pendentes.
+- **Próximo passo:** implementar `lib/exercises` com tipos e validação pura de respostas.
 - **Bloqueios / decisões pendentes:** nenhum.
-- **Último agente:** Claude Code.
+- **Último agente:** Codex.
 
 Fases pequenas, cada uma com commit(s) próprio e `npm test` verde antes de avançar.
 

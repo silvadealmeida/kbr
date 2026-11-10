@@ -150,9 +150,21 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794305959.9512448,
-    "seen": 1794305985.274472,
-    "ast_hash": "951b580f4a465b185f73adc41f2cad93",
+    "mtime": 1794306336.371928,
+    "seen": 1794306350.65333,
+    "ast_hash": "2e31bfc5adcfcb3171082c5b2d0ffa2b",
+    "semantic_hash": ""
+  },
+  "src/lib/hangul/index.ts": {
+    "mtime": 1794306336.371928,
+    "seen": 1794306350.6533182,
+    "ast_hash": "a76d2f61a30f650ad5aa9ab1f3dfb6a9",
+    "semantic_hash": ""
+  },
+  "tests/hangul.test.ts": {
+    "mtime": 1794306336.371928,
+    "seen": 1794306350.6533208,
+    "ast_hash": "d6bc7b30f847d815667bcce2908dd04c",
     "semantic_hash": ""
   },
   "package-lock.json": {

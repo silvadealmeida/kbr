@@ -150,9 +150,9 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794306782.9196386,
-    "seen": 1794306830.2077258,
-    "ast_hash": "d4345f0e8d18054911187ba4e7413130",
+    "mtime": 1794306876.8652298,
+    "seen": 1794306889.48103,
+    "ast_hash": "fba9acb56eb697eaf061f194b572b7b1",
     "semantic_hash": ""
   },
   "src/lib/hangul/index.ts": {
@@ -201,6 +201,18 @@
     "mtime": 1794306746.1648731,
     "seen": 1794306830.2077293,
     "ast_hash": "0b710b18f8cccc1c97ec931d68f4831c",
+    "semantic_hash": ""
+  },
+  "src/lib/exercises/index.ts": {
+    "mtime": 1794306876.8652298,
+    "seen": 1794306889.4810195,
+    "ast_hash": "e739a4c59d1b20186a7a464f2b8f93dc",
+    "semantic_hash": ""
+  },
+  "tests/exercises.test.ts": {
+    "mtime": 1794306876.8652298,
+    "seen": 1794306889.4810224,
+    "ast_hash": "3e405063c08b1b54721a916149e6b8c0",
     "semantic_hash": ""
   },
   "package-lock.json": {

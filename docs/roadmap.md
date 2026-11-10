@@ -2,8 +2,8 @@
 
 ## Estado atual (atualize a cada commit — é o ponto de retomada entre agentes)
 - **Fase concluída:** 1 (Scaffold).
-- **Em andamento:** Fase 2 — composição e validação de Hangul implementadas; exercícios, SRS e storage pendentes. PWA mínima instalada no código.
-- **Próximo passo:** implementar `lib/exercises` com tipos e validação pura de respostas.
+- **Em andamento:** Fase 2 — Hangul e exercícios implementados; SRS e storage pendentes. PWA mínima instalada no código.
+- **Próximo passo:** implementar `lib/srs` com Leitner e relógio injetável.
 - **Bloqueios / decisões pendentes:** nenhum.
 - **Último agente:** Codex.
 

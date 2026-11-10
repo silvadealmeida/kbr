@@ -971,6 +971,24 @@
     "ast_hash": "c499c35a7cc544075092c0d6d2c06ac4",
     "semantic_hash": ""
   },
+  "supabase/migrations/20261110180000_add_save_user_progress_rpc.sql": {
+    "mtime": 1794342744.0068913,
+    "seen": 1794344505.4195495,
+    "ast_hash": "c9b6f848e6f2e7af9901943ab5c3fd3f",
+    "semantic_hash": ""
+  },
+  "supabase/tests/local/bootstrap.sql": {
+    "mtime": 1794342684.7452528,
+    "seen": 1794344505.4195511,
+    "ast_hash": "0d630d1da3bd24a1749a6654f08ff21c",
+    "semantic_hash": ""
+  },
+  "supabase/tests/save_user_progress_rpc.test.sql": {
+    "mtime": 1794342744.0068913,
+    "seen": 1794344505.419554,
+    "ast_hash": "259488a75d55ac0bcba256c36b04465d",
+    "semantic_hash": ""
+  },
   "package-lock.json": {
     "mtime": 1794307416.0085785,
     "seen": 1794307529.151221,

@@ -2,8 +2,8 @@
 
 ## Estado atual (atualize a cada commit — é o ponto de retomada entre agentes)
 - **Fase concluída:** 1 (Scaffold).
-- **Em andamento:** Fase 2 — Hangul e exercícios implementados; SRS e storage pendentes. PWA mínima instalada no código.
-- **Próximo passo:** implementar `lib/srs` com Leitner e relógio injetável.
+- **Em andamento:** Fase 2 — Hangul, exercícios e SRS Leitner implementados; storage pendente. PWA mínima instalada no código.
+- **Próximo passo:** implementar `lib/storage` versionado, com recuperação de dados inválidos e migração.
 - **Bloqueios / decisões pendentes:** nenhum.
 - **Último agente:** Codex.
 

@@ -1,17 +1,17 @@
 # Graph Report - kbr  (2026-11-10)
 
 ## Corpus Check
-- 32 files · ~4,966 words
+- 35 files · ~5,327 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 3 file(s) not represented in the graph (top: (none) 2, .css 1)
 
 ## Summary
-- 335 nodes · 398 edges · 23 communities (19 shown, 4 thin omitted)
+- 348 nodes · 417 edges · 24 communities (20 shown, 4 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `4c19202f`
+- Built from commit: `c6cc5185`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -32,10 +32,11 @@
 - KBR — Pesquisa
 - KBR — instruções para agentes (Codex, OpenCode, Claude Code)
 - scripts
-- Cookies
+- vitest
 - KBR — Roadmap
 - CLAUDE.md
-- Advanced Mocking with run-code
+- Running Custom Playwright Code
+- Local Storage
 
 ## God Nodes (most connected - your core abstractions)
 1. `Browser Automation with playwright-cli` - 16 edges
@@ -62,21 +63,21 @@
   src/app/licoes/page.tsx → src/components/ui/PageHeader.tsx
 
 ## Import Cycles
-- None detected.
+- 2-file cycle: `src/lib/srs/index.ts -> src/lib/srs/leitner.ts -> src/lib/srs/index.ts`
 
-## Communities (23 total, 4 thin omitted)
+## Communities (24 total, 4 thin omitted)
 
 ### Community 0 - "Running Custom Playwright Code"
-Cohesion: 0.07
-Nodes (22): Examples, Inspecting Element Attributes, Debugging Playwright Tests, Running Playwright Tests, Attaching Screenshots and Videos to Pull Requests, From a local session, From CI, Limits (+14 more)
+Cohesion: 0.09
+Nodes (17): Examples, Inspecting Element Attributes, Debugging Playwright Tests, Running Playwright Tests, Attaching Screenshots and Videos to Pull Requests, From a local session, From CI, Limits (+9 more)
 
 ### Community 1 - "package.json"
-Cohesion: 0.08
-Nodes (27): routes, dependencies, next@^16.4.6, @playwright/test@^1.65.0, react@^19.3.1, react-dom@^19.3.1, tailwindcss@^4.3.5, @tailwindcss/postcss@^4.3.5 (+19 more)
+Cohesion: 0.10
+Nodes (24): routes, dependencies, next@^16.4.6, @playwright/test@^1.65.0, react@^19.3.1, react-dom@^19.3.1, tailwindcss@^4.3.5, @tailwindcss/postcss@^4.3.5 (+16 more)
 
 ### Community 2 - "Local Storage"
 Cohesion: 0.07
-Nodes (26): Advanced: Multiple Operations, Authentication State Reuse, Clear All localStorage, Clear sessionStorage, Common Patterns, Delete Database, Delete Single Item, Delete Single Item (+18 more)
+Nodes (27): Advanced: Multiple Cookies or Custom Options, Authentication State Reuse, Clear All Cookies, Clear sessionStorage, Common Patterns, Cookies, Delete a Cookie, Delete Database (+19 more)
 
 ### Community 3 - "Browser Automation with playwright-cli"
 Cohesion: 0.07
@@ -130,17 +131,21 @@ Nodes (6): Comandos, Fase atual, graphify, KBR — instruções para agentes (Co
 Cohesion: 0.29
 Nodes (7): scripts, build, dev, e2e, start, test, typecheck
 
-### Community 16 - "Cookies"
-Cohesion: 0.22
-Nodes (9): Advanced: Multiple Cookies or Custom Options, Clear All Cookies, Cookies, Delete a Cookie, Filter Cookies by Domain, Filter Cookies by Path, Get Specific Cookie, List All Cookies (+1 more)
+### Community 16 - "vitest"
+Cohesion: 0.15
+Nodes (10): vitest@^4.1.12, vitest, manifest(), LeitnerBox, ReviewGrade, Scheduler, SrsState, INTERVAL_DAYS (+2 more)
 
 ### Community 17 - "KBR — Roadmap"
 Cohesion: 0.29
 Nodes (6): Estado atual (atualize a cada commit — é o ponto de retomada entre agentes), KBR — Roadmap, Pós-MVP (não implementar agora), Riscos, Status Fase 1 (real), Status PWA mínima (real)
 
-### Community 22 - "Advanced Mocking with run-code"
+### Community 22 - "Running Custom Playwright Code"
+Cohesion: 0.15
+Nodes (13): Clipboard, Complex Workflows, Error Handling, File Downloads, Frames and Iframes, Geolocation, JavaScript Execution, Media Emulation (+5 more)
+
+### Community 23 - "Local Storage"
 Cohesion: 0.25
-Nodes (8): Advanced Mocking with run-code, CLI Route Commands, Conditional Response Based on Request, Delayed Response, Modify Real Response, Request Mocking, Simulate Network Failures, URL Patterns
+Nodes (8): Advanced: Multiple Operations, Clear All localStorage, Delete Single Item, Get Single Value, List All localStorage Items, Local Storage, Set JSON Value, Set Value
 
 ## Knowledge Gaps
 - **4 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
@@ -148,17 +153,17 @@ Nodes (8): Advanced Mocking with run-code, CLI Route Commands, Conditional Respo
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Storage Management` connect `Local Storage` to `Cookies`?**
-  _High betweenness centrality (0.092) - this node is a cross-community bridge._
+- **Why does `Storage Management` connect `Local Storage` to `Local Storage`?**
+  _High betweenness centrality (0.085) - this node is a cross-community bridge._
 - **Should `Running Custom Playwright Code` be split into smaller, more focused modules?**
-  _Cohesion score 0.07311827956989247 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08923076923076922 - nodes in this community are weakly interconnected._
 - **Why does `Browser Automation with playwright-cli` connect `Browser Automation with playwright-cli` to `Running Custom Playwright Code`?**
-  _High betweenness centrality (0.072) - this node is a cross-community bridge._
+  _High betweenness centrality (0.067) - this node is a cross-community bridge._
 - **Should `package.json` be split into smaller, more focused modules?**
-  _Cohesion score 0.08143939393939394 - nodes in this community are weakly interconnected._
-- **Why does `Test generation (plan → generate → heal)` connect `3. Heal` to `Running Custom Playwright Code`?**
-  _High betweenness centrality (0.062) - this node is a cross-community bridge._
+  _Cohesion score 0.09971509971509972 - nodes in this community are weakly interconnected._
+- **Why does `vitest` connect `vitest` to `package.json`, `exercises/index.ts`, `layout.tsx`?**
+  _High betweenness centrality (0.059) - this node is a cross-community bridge._
 - **Should `Local Storage` be split into smaller, more focused modules?**
-  _Cohesion score 0.07407407407407407 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07142857142857142 - nodes in this community are weakly interconnected._
 - **Should `Browser Automation with playwright-cli` be split into smaller, more focused modules?**
   _Cohesion score 0.07407407407407407 - nodes in this community are weakly interconnected._

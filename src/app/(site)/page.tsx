@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LandingAuth } from "@/components/site/LandingAuth";
-import { safeNextPath } from "@/lib/auth/redirect";
+import { LandingRedirect } from "@/components/site/LandingRedirect";
+import { postLoginPath } from "@/lib/auth/redirect";
 
 export const metadata: Metadata = {
   title: "Coreano para brasileiros",
@@ -66,13 +67,14 @@ function first(value: string | string[] | undefined) {
 
 export default async function LandingPage({ searchParams }: { searchParams: SearchParams }) {
   const params = await searchParams;
-  const nextPath = safeNextPath(first(params.next), "/dashboard");
+  const nextPath = postLoginPath(first(params.next));
   const reason = first(params.motivo);
   const target = targetLabels[nextPath.split("?")[0]] ?? "a página anterior";
   const continuing = nextPath !== "/dashboard";
 
   return (
     <>
+      <LandingRedirect next={nextPath} />
       <section className="relative overflow-hidden border-b border-border">
         <div
           aria-hidden

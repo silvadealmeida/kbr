@@ -25,6 +25,13 @@ const storageRows = [
     lifetime: "Curto; removido ao concluir ou falhar a entrada.",
   },
   {
+    name: "kbr_auth_next",
+    type: "Cookie temporário",
+    purpose:
+      "Guarda o destino interno seguro (o painel por padrão) para retomar depois da entrada com Google.",
+    lifetime: "Até 10 minutos; apagado ao concluir o redirecionamento.",
+  },
+  {
     name: "kbr:theme",
     type: "localStorage",
     purpose: "Guarda sua preferência de tema claro ou escuro.",

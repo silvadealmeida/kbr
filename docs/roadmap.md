@@ -2,9 +2,9 @@
 
 ## Estado atual (atualize a cada commit — é o ponto de retomada entre agentes)
 - **Fase concluída:** 2B (Landing pública, rotas protegidas e privacidade).
-- **Em andamento:** nada. Fase 2B concluída; não iniciar a Fase 3 sem pedido explícito.
+- **Em andamento:** nada. Correção da navegação pós-login concluída dentro da Fase 2B; não iniciar a Fase 3 sem pedido explícito.
 - **Próximo passo:** Fase 3 (Hangul interativo) — só iniciar quando o usuário pedir.
-- **Bloqueios / decisões pendentes:** revisão jurídica da política/Impressum (faltam identidade do controlador, contato, prazos de retenção, região Supabase e DPAs); executar `supabase test db` contra a stack local; testar o fluxo completo em iPhone/Chrome iOS real (manual); validar o OAuth real após a mudança do Proxy para `src/proxy.ts`.
+- **Bloqueios / decisões pendentes:** revisão jurídica da política/Impressum (faltam identidade do controlador, contato, prazos de retenção, região Supabase e DPAs); executar `supabase test db` contra a stack local; testar o fluxo completo em iPhone/Chrome iOS real (manual); validar o login real com Google no deploy após a mudança do destino pós-login para cookie.
 - **Último agente:** OpenCode.
 
 Fases pequenas, cada uma com commit(s) próprio e `npm test` verde antes de avançar.
@@ -54,4 +54,6 @@ Feito: landing pública original em `/` com branding, apresentação, recursos (
 Rotas privadas: `/dashboard`, `/hangul`, `/licoes`, `/vocabulario`, `/revisao`; `src/proxy.ts` valida `getClaims()` e redireciona para `/?next=...`; layout `(app)` revalida no servidor; `ProtectedArea` trata sessão expirada no cliente; `safeNextPath` preserva retorno interno e rejeita destinos externos; callback e `/auth/error` continuam públicos; OAuth/Supabase e `ProgressStore` de convidado preservados.
 Privacidade: `/privacidade` em pt-BR com dados do Google, snapshot no Supabase, cookies/localStorage reais, Vercel/Supabase/Google, finalidade e base legal, retenção/exclusão, direitos e contato pendente; `/impressum` com avaliação da DDG/MStV e lista de informações ausentes; auditoria em `docs/privacy-audit.md`. Sem banner de consentimento (não há rastreamento não essencial) e sem dados legais inventados.
 Validado: `npm run typecheck`; 78 testes Vitest; `npm run build`; 40 testes Playwright (375/390/768/1280) cobrindo landing, bloqueio de rotas, ausência de vazamento no HTML, deep link seguro, sessão inválida, privacidade, Impressum, erro de auth, navegação mobile/desktop e tema. Teste e2e de login real com Google não é automatizado (exige conta externa): verificação manual.
+Correção pós-login: login com Google passa a cair em `/dashboard` por padrão; usuário autenticado em `/` é redirecionado para `/dashboard` (ou para o `next` interno validado) pelo proxy; o destino do deep link viaja no cookie `kbr_auth_next` porque o Supabase pode descartar query params do `redirectTo`, com fallback de cliente (`LandingRedirect`) quando a sessão é trocada direto na Site URL; falhas continuam indo para `/auth/error`.
+Validado de novo: `npm run typecheck`; 92 testes Vitest (proxy de sessão + cookie de destino); `npm run build`; 44 testes Playwright (inclui callback sem código). Login real com Google segue manual.
 Pendente: preencher controlador/contato/prazos e concluir a revisão jurídica; confirmar cookies e logs efetivos da Vercel/Supabase; testar login real e expiração no deploy; iPhone/Chrome iOS manual.

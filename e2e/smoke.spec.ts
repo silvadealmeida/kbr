@@ -111,6 +111,15 @@ test("aviso legal e erro de autenticação continuam acessíveis", async ({ page
   await expect(page.getByRole("link", { name: "Tentar entrar novamente" })).toBeVisible();
 });
 
+test("callback sem código falha sem entrar em rota privada", async ({ page }) => {
+  await page.goto("/auth/callback");
+  await expect(page).toHaveURL(/\/auth\/error$/);
+  await expect(
+    page.getByRole("heading", { level: 1, name: "Não foi possível entrar" }),
+  ).toBeVisible();
+  expect(new URL(page.url()).pathname).toBe("/auth/error");
+});
+
 test("navegação pública se adapta a mobile e desktop", async ({ page, viewport }) => {
   await page.goto("/");
   const siteNav = page.getByRole("navigation", { name: "Site" });

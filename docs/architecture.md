@@ -47,9 +47,10 @@ supabase/                    # migrations e testes pgTAP de RLS
 ## Rotas e autenticação
 - Públicas: `/` (landing), `/privacidade`, `/impressum`, `/auth/error` e `/auth/callback`. O callback e a página de erro continuam acessíveis sem sessão.
 - Privadas: `/dashboard`, `/hangul`, `/licoes`, `/vocabulario`, `/revisao` (e subrotas). A lista canônica está em `lib/routes.ts` (`PROTECTED_PATHS` / `isProtectedPath`).
-- `src/proxy.ts` valida a sessão com `supabase.auth.getClaims()` antes de renderizar. Sem sessão, redireciona para `/?next=<caminho interno validado>`; se havia cookie de sessão inválido, acrescenta `motivo=sessao-expirada`. Sem configuração do Supabase, rotas privadas vão para `/?motivo=indisponivel`.
-- O layout de `(app)` repete a verificação no servidor como defesa em profundidade. `ProtectedArea` (client) nunca renderiza conteúdo para `guest` e, se a sessão expirar após o carregamento, redireciona com `motivo=sessao-expirada`. Não há laço: a landing é pública e não redireciona por conta própria.
-- `safeNextPath` aceita apenas caminhos internos, rejeita `//`, barra invertida, controles e separadores percent-encoded. É aplicado na landing, no `redirectTo` do OAuth e na callback.
+- `src/proxy.ts` valida a sessão com `supabase.auth.getClaims()` antes de renderizar. Com sessão, `/` redireciona para `/dashboard` (ou para o `next` interno validado), então o retorno do login nunca para na landing. Sem sessão, rotas privadas vão para `/?next=<caminho interno validado>`; se havia cookie de sessão inválido, acrescenta `motivo=sessao-expirada`. Sem configuração do Supabase, rotas privadas vão para `/?motivo=indisponivel`.
+- O layout de `(app)` repete a verificação no servidor como defesa em profundidade. `ProtectedArea` (client) nunca renderiza conteúdo para `guest` e, se a sessão expirar após o carregamento, redireciona com `motivo=sessao-expirada`. Não há laço: o proxy só sai de `/` com sessão válida e `postLoginPath` nunca devolve a própria landing.
+- `safeNextPath` aceita apenas caminhos internos, rejeita `//`, barra invertida, controles e separadores percent-encoded. `postLoginPath` aplica a mesma validação e troca a landing pelo painel.
+- Login: o `redirectTo` aponta para `/auth/callback` sem query params, porque o Supabase pode descartá-los ao validar a lista de URLs permitidas. O destino seguro (`/dashboard` por padrão ou rota profunda) viaja no cookie `kbr_auth_next` (10 min), que a callback lê, valida e apaga; `?next=` continua aceito por compatibilidade. Se o Supabase devolver o `code` direto para `/` (Site URL), o cliente troca a sessão e `LandingRedirect` retoma o cookie. Qualquer falha na troca vai para `/auth/error`, nunca para rota privada.
 - `AuthProvider` mantém a sessão e o `ProgressStore` do convidado; a proteção de rotas não removeu o modo convidado nem a migração de progresso. O dashboard e os controles de conta leem o usuário apenas no cliente.
 
 ## Hangul
@@ -64,7 +65,7 @@ Composição por Unicode: `0xAC00 + (L*21 + V)*28 + T` — sem tabela de sílaba
 - Dark mode: `prefers-color-scheme` + toggle; tokens CSS via Tailwind; contraste AA.
 - Feedback: cor + ícone + texto (não só cor); `aria-live` para resultado; `prefers-reduced-motion` respeitado.
 - `lang="pt-BR"` no html, `lang="ko"` nos spans coreanos.
-- Landing pública original: tipografia grande, cartão ilustrativo de estudo, seções de recursos/método, CTA Google e links de privacidade/Impressum. Usuários autenticados veem "Continuar no painel".
+- Landing pública original: tipografia grande, cartão ilustrativo de estudo, seções de recursos/método, CTA Google e links de privacidade/Impressum. Usuários autenticados são levados ao painel pelo proxy; a landing não é destino final do login.
 
 ## Privacidade
 - Inventário real de cookies, `localStorage`, analytics e terceiros: `docs/privacy-audit.md`.
@@ -74,7 +75,7 @@ Composição por Unicode: `0xAC00 + (L*21 + V)*28 + T` — sem tabela de sílaba
 ## Testes
 - Vitest: composição Hangul, validação de exercícios, scheduler, store (migração/corrupção).
 - Auth/sync: redirecionamento fechado, config pública, stores local/remoto, merge/migração/offline, classificação de rotas, estados de acesso, conteúdo da política/auditoria e inspeção estrutural da migration.
-- Playwright: landing pública, links legais, bloqueio de rotas privadas sem sessão, retorno seguro via `next`, sessão inválida, ausência de vazamento no HTML, navegação mobile/desktop em 375, 390, 768 e 1280px. Projetos Chromium e WebKit; iPhone real/Chrome iOS não testável aqui.
+- Playwright: landing pública, links legais, bloqueio de rotas privadas sem sessão, retorno seguro via `next`, sessão inválida, callback sem código indo para `/auth/error`, ausência de vazamento no HTML, navegação mobile/desktop em 375, 390, 768 e 1280px. Projetos Chromium e WebKit; iPhone real/Chrome iOS não testável aqui.
 
 ## Decisões/limites
 - PWA limitada à instalação standalone; sem service worker ou cache offline.

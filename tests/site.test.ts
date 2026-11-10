@@ -13,6 +13,8 @@ const impressum = read("app/(site)/impressum/page.tsx");
 const appLayout = read("app/(app)/layout.tsx");
 const protectedArea = read("components/auth/ProtectedArea.tsx");
 const proxy = read("lib/supabase/proxy.ts");
+const callback = read("app/auth/callback/route.ts");
+const landingRedirect = read("components/site/LandingRedirect.tsx");
 
 describe("landing pública", () => {
   test("apresenta a proposta e o CTA principal", () => {
@@ -48,6 +50,20 @@ describe("proteção de rotas", () => {
     expect(protectedArea).toContain("protectedView");
     expect(proxy).toContain("isProtectedPath");
     expect(proxy).toContain("getClaims");
+  });
+
+  test("usuário autenticado sai da landing para o painel", () => {
+    expect(proxy).toContain("postLoginPath");
+    expect(proxy).toContain('request.nextUrl.pathname === "/"');
+    expect(landing).toContain("LandingRedirect");
+    expect(landingRedirect).toContain("postLoginPath");
+    expect(landingRedirect).toContain("router.replace");
+  });
+
+  test("a callback retoma o destino guardado e falha para /auth/error", () => {
+    expect(callback).toContain("AUTH_NEXT_COOKIE");
+    expect(callback).toContain("callbackDestination");
+    expect(callback).toContain("/auth/error");
   });
 });
 

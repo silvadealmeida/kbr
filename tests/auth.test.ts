@@ -1,8 +1,15 @@
 import { describe, expect, test, vi } from "vitest";
 import { protectedView } from "@/lib/auth/access";
 import {
+  AUTH_NEXT_COOKIE,
+  callbackDestination,
+  decodeNextCookie,
+  nextCookieValue,
+} from "@/lib/auth/next-cookie";
+import {
   loginRedirectPath,
   oauthCallbackPath,
+  postLoginPath,
   safeNextPath,
 } from "@/lib/auth/redirect";
 import { getSupabasePublicConfig } from "@/lib/supabase/config";
@@ -56,11 +63,58 @@ describe("autenticação", () => {
     );
   });
 
-  test("a callback OAuth aponta para o painel por padrão", () => {
-    expect(oauthCallbackPath("/hangul")).toBe("/auth/callback?next=%2Fhangul");
-    expect(oauthCallbackPath(null)).toBe("/auth/callback?next=%2Fdashboard");
-    expect(oauthCallbackPath("https://evil.example")).toBe(
-      "/auth/callback?next=%2Fdashboard",
+  test("a callback OAuth não depende de query params", () => {
+    expect(oauthCallbackPath()).toBe("/auth/callback");
+  });
+
+  test("o destino pós-login padrão é o painel", () => {
+    expect(postLoginPath(null)).toBe("/dashboard");
+    expect(postLoginPath("/hangul")).toBe("/hangul");
+    expect(postLoginPath("/revisao?filtro=hoje")).toBe("/revisao?filtro=hoje");
+    expect(postLoginPath("https://evil.example")).toBe("/dashboard");
+    expect(postLoginPath("//evil.example")).toBe("/dashboard");
+    expect(postLoginPath(null, "/hangul")).toBe("/hangul");
+  });
+
+  test("nunca usa a landing como destino pós-login", () => {
+    expect(postLoginPath("/")).toBe("/dashboard");
+    expect(postLoginPath("/?motivo=sessao-expirada")).toBe("/dashboard");
+    expect(postLoginPath("/", "/revisao")).toBe("/revisao");
+  });
+
+  test("guarda e valida o destino no cookie de login", () => {
+    expect(nextCookieValue("/hangul")).toBe("%2Fhangul");
+    expect(decodeNextCookie(nextCookieValue("/hangul"))).toBe("/hangul");
+    expect(decodeNextCookie(nextCookieValue("/revisao?filtro=hoje"))).toBe(
+      "/revisao?filtro=hoje",
+    );
+    expect(decodeNextCookie(nextCookieValue(null))).toBe("/dashboard");
+    expect(decodeNextCookie(nextCookieValue("https://evil.example"))).toBe(
+      "/dashboard",
+    );
+    expect(decodeNextCookie(nextCookieValue("/"))).toBe("/dashboard");
+  });
+
+  test("ignora cookie de destino ausente ou adulterado", () => {
+    expect(decodeNextCookie(null)).toBeNull();
+    expect(decodeNextCookie("")).toBeNull();
+    expect(decodeNextCookie("%E0%A4%A")).toBeNull();
+    expect(decodeNextCookie(encodeURIComponent("https://evil.example"))).toBeNull();
+    expect(decodeNextCookie(encodeURIComponent("//evil.example"))).toBeNull();
+    expect(decodeNextCookie(encodeURIComponent("/\\evil.example"))).toBeNull();
+  });
+
+  test("a callback prioriza ?next= e usa o cookie como retorno", () => {
+    expect(AUTH_NEXT_COOKIE).toBe("kbr_auth_next");
+    expect(callbackDestination(null, nextCookieValue("/hangul"))).toBe("/hangul");
+    expect(callbackDestination("/revisao", nextCookieValue("/hangul"))).toBe("/revisao");
+    expect(callbackDestination(null, null)).toBe("/dashboard");
+    expect(callbackDestination("https://evil.example", nextCookieValue("/hangul"))).toBe(
+      "/hangul",
+    );
+    expect(callbackDestination("/", nextCookieValue("/hangul"))).toBe("/hangul");
+    expect(callbackDestination(null, encodeURIComponent("https://evil.example"))).toBe(
+      "/dashboard",
     );
   });
 

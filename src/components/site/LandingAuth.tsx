@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { safeNextPath } from "@/lib/auth/redirect";
 import { useAuth } from "@/components/auth/AuthProvider";
+import { postLoginPath } from "@/lib/auth/redirect";
 import { GoogleMark } from "./GoogleMark";
 
 type Variant = "hero" | "header" | "footer";
@@ -50,7 +50,7 @@ export function LandingAuth({ variant = "hero" }: { variant?: Variant }) {
     setBusy(true);
     setError(null);
     const fromUrl = new URLSearchParams(window.location.search).get("next");
-    const message = await signInWithGoogle(safeNextPath(fromUrl, "/dashboard"));
+    const message = await signInWithGoogle(postLoginPath(fromUrl));
     setError(message);
     setBusy(false);
   }

@@ -14,10 +14,11 @@ Os cookies de autenticação são criados por `@supabase/ssr` (versão 0.12.0), 
 |---|---|---|---|
 | `sb-<project-ref>-auth-token` (com partes `.0`, `.1`…) | Supabase Auth | Sessão e refresh token; mantém o usuário conectado | `Path=/`, `SameSite=Lax`, `HttpOnly=false`, `Max-Age` padrão de 400 dias |
 | `sb-<project-ref>-auth-token-code-verifier` | Supabase Auth | Verificador PKCE durante o login Google | Temporário; removido ao concluir ou falhar o fluxo |
+| `kbr_auth_next` | KBR (`lib/auth/next-cookie`) | Destino interno seguro para retomar após o login (padrão `/dashboard` ou rota profunda) | `Path=/`, `SameSite=Lax`, `HttpOnly=false`, `Max-Age=600` (10 min); apagado pela callback |
 
 Observações:
 
-- `HttpOnly=false` é o padrão do SDK: o cliente no navegador precisa ler o cookie para renovar a sessão. Não há cookie de sessão próprio do KBR.
+- `HttpOnly=false` é o padrão do SDK: o cliente no navegador precisa ler o cookie para renovar a sessão. Não há cookie de sessão próprio do KBR; `kbr_auth_next` guarda apenas um caminho interno e expira em minutos.
 - O `Max-Age` de 400 dias é o padrão do SDK (`DEFAULT_COOKIE_OPTIONS`). A configuração do projeto Supabase pode alterar validade e rotação; o valor efetivo deve ser confirmado no painel antes do lançamento.
 - Não há cookies de analytics, publicidade, personalização ou rastreamento entre sites no código da aplicação.
 - Vercel pode usar cookies próprios em deploys de preview/proteção de deployment, fora do fluxo do visitante em produção. Isso deve ser confirmado nas configurações do projeto Vercel.
@@ -51,7 +52,7 @@ O teste `tests/site.test.ts` varre `src/` e falha se um rastreador conhecido, ba
 
 ## 4. Avaliação de consentimento
 
-Situação atual: apenas cookies estritamente necessários (sessão/autenticação) e armazenamento local necessário ao funcionamento e à preferência de tema. Não há rastreamento não essencial.
+Situação atual: apenas cookies estritamente necessários (sessão/autenticação e retorno do login) e armazenamento local necessário ao funcionamento e à preferência de tema. Não há rastreamento não essencial.
 
 Conclusão: **não implementar banner de consentimento agora**. Um banner sem opção real de recusa seria ruído e não melhoraria a conformidade.
 

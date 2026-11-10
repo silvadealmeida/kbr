@@ -6,25 +6,38 @@ function safeFallback(value: string): string {
     : "/";
 }
 
-export function safeNextPath(value: string | null, fallback = "/"): string {
-  const destination = safeFallback(fallback);
-  if (typeof value !== "string" || !value.startsWith("/")) return destination;
-  if (value.startsWith("//") || value.includes("\\")) return destination;
+/** Normaliza um destino interno ou devolve `null` quando ele não é seguro. */
+export function normalizeNextPath(value: string | null): string | null {
+  if (typeof value !== "string" || !value.startsWith("/")) return null;
+  if (value.startsWith("//") || value.includes("\\")) return null;
   // Controles são removidos pelo parser de URL e podem transformar "/\t/evil"
   // em um destino externo ("//evil"). Separadores percent-encoded também são
   // rejeitados por defesa em profundidade contra decodificação em outra camada.
   if (/[\u0000-\u001F\u007F]/.test(value) || /%(?:2f|5c)/i.test(value)) {
-    return destination;
+    return null;
   }
 
   try {
     const url = new URL(value, SAFE_ORIGIN);
-    if (url.origin !== SAFE_ORIGIN) return destination;
+    if (url.origin !== SAFE_ORIGIN) return null;
     const path = `${url.pathname}${url.search}${url.hash}`;
-    return path.startsWith("/") && !path.startsWith("//") ? path : destination;
+    return path.startsWith("/") && !path.startsWith("//") ? path : null;
   } catch {
-    return destination;
+    return null;
   }
+}
+
+export function safeNextPath(value: string | null, fallback = "/"): string {
+  return normalizeNextPath(value) ?? safeFallback(fallback);
+}
+
+/**
+ * Destino depois do login. A própria landing nunca é destino final: quem já
+ * está autenticado segue para o painel ou para a rota profunda pedida.
+ */
+export function postLoginPath(value: string | null, fallback = "/dashboard"): string {
+  const destination = safeNextPath(value, fallback);
+  return destination.split(/[?#]/)[0] === "/" ? safeFallback(fallback) : destination;
 }
 
 export type LoginReason = "sessao-expirada" | "indisponivel";
@@ -39,8 +52,11 @@ export function loginRedirectPath(path: string, reason?: LoginReason): string {
   return query ? `/?${query}` : "/";
 }
 
-/** Caminho da callback OAuth com o retorno seguro já validado. */
-export function oauthCallbackPath(next: string | null): string {
-  const destination = safeNextPath(next, "/dashboard");
-  return `/auth/callback?next=${encodeURIComponent(destination)}`;
+/**
+ * Caminho da callback OAuth. O destino viaja em um cookie de curta duração
+ * (`kbr_auth_next`): o Supabase pode descartar query params do `redirectTo`
+ * ao validar a lista de URLs permitidas, devolvendo o usuário para a landing.
+ */
+export function oauthCallbackPath(): string {
+  return "/auth/callback";
 }

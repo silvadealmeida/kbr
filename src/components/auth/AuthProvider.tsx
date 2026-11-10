@@ -3,6 +3,7 @@
 import type { User } from "@supabase/supabase-js";
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import type { AuthStatus } from "@/lib/auth/access";
+import { clearAuthNextCookie, writeAuthNextCookie } from "@/lib/auth/next-cookie";
 import { oauthCallbackPath } from "@/lib/auth/redirect";
 import { getBrowserSupabaseClient } from "@/lib/supabase/client";
 import {
@@ -93,10 +94,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const supabase = getBrowserSupabaseClient();
     if (!supabase) return "Login não configurado.";
 
+    writeAuthNextCookie(next ?? null);
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
-      options: { redirectTo: `${window.location.origin}${oauthCallbackPath(next ?? null)}` },
+      options: { redirectTo: `${window.location.origin}${oauthCallbackPath()}` },
     });
+    if (error) clearAuthNextCookie();
     return error?.message ?? null;
   }, []);
 

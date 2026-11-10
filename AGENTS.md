@@ -30,7 +30,7 @@ Antes de concluir qualquer tarefa: typecheck + test + build verdes. iPhone/Chrom
 ## Preservar trabalho entre agentes
 1. Comece com `git status` e `git log --oneline -10`; continue o que existe, não recomece.
 2. Termine cada unidade de trabalho com commit; nunca deixe árvore suja ao parar.
-3. Atualize `docs/roadmap.md` com o que foi realmente feito (e limitações) no mesmo commit.
+3. Atualize `docs/roadmap.md` no mesmo commit: bloco "Estado atual" (fase, em andamento, próximo passo, bloqueios, último agente) e o status real da fase. O limite de créditos pode cortar a sessão a qualquer momento: marque o progresso **antes** de começar a tarefa seguinte e commite em passos pequenos.
 4. Decisão arquitetural nova → registre em `docs/architecture.md`; não em chats.
 5. Não apague nem reescreva trabalho de outro agente sem motivo registrado no commit.
 

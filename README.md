@@ -6,7 +6,7 @@ KBR is an open-source Korean language learning project focused on accessible, st
 
 The goal is to combine contextual vocabulary learning, progressive dialogues, Hangul literacy and spaced repetition into a modern, mobile-first learning experience.
 
-**Live website:** `[Add Vercel production URL]`
+**Live website:** `[kbr-amber.vercel.app]`
 
 **Status:** Early development — not yet a complete Korean course.
 

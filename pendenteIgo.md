@@ -355,3 +355,390 @@ Se quiser pesquisar referências desse estilo no Pinterest, Behance ou Awwwards,
 Architectural Editorial Illustration + Pencil Hatching + Technical Drawing + Interactive Motion Design
 
 Essa combinação descreve muito bem o que chamou sua atenção no Heron AI.
+
+
+---
+
+# ADDITIONAL RESEARCH — Cinematic Motion, Interactive Illustrations & Creative Development for KBR
+
+## 8. Cinematic Motion Design and Interactive Storytelling
+
+Expand the original research to investigate how cinematic motion graphics, visual storytelling, and sophisticated animated sequences can be implemented as interactive web experiences.
+
+The goal is not to create prerecorded videos, but to build a website that feels as visually polished as a motion graphics production while remaining responsive to user input.
+
+Research the following techniques:
+
+- Kinetic typography
+- Scroll-driven storytelling (scrollytelling)
+- Scroll-linked animation timelines
+- Pinned and sticky scroll sections
+- Parallax and depth effects
+- SVG path drawing animations
+- SVG morphing and shape transitions
+- Exploded-view animations
+- Layered 2D/3D illustrations
+- Technical drawing animations
+- Interactive diagrams
+- Cinematic page transitions
+- Animated masks and reveals
+- Smooth scrolling and scroll snapping
+- Interactive particle systems
+- Procedural animations
+- Shader-based effects
+- Microinteractions and animated feedback
+
+For every technique, explain:
+
+1. How the animation works.
+2. What makes it visually effective.
+3. Whether it requires JavaScript, SVG, Canvas, WebGL or another rendering technology.
+4. How to implement it within Next.js and React.
+5. Its performance impact on mobile devices.
+6. Its accessibility implications.
+7. Whether it improves the KBR learning experience.
+
+Distinguish visual sophistication from unnecessary technical complexity.
+
+## 9. Architectural Illustration and Editorial Drawing Styles
+
+Study the illustration language used by Heron AI and investigate related artistic techniques.
+
+Focus on:
+
+- Architectural Pencil Sketch
+- Architectural Editorial Illustration
+- Technical Drawing
+- Blueprint Aesthetic
+- Cross-Hatching
+- Engraving Illustration
+- Ink Linework
+- Graphite and Charcoal Textures
+- Exploded Axonometric Diagrams
+- Isometric Technical Illustrations
+- Geometric Editorial Composition
+
+Analyze:
+
+- Line weight and stroke variation
+- Texture and shading
+- Hatching density
+- Perspective and depth
+- Grid systems
+- Paper-like backgrounds
+- Color accents
+- Composition and negative space
+- Integration with typography
+- Techniques for animating illustrations
+
+Investigate whether similar original illustrations could be created using SVG, procedural graphics, Canvas, CSS or vector illustration software.
+
+Explain the difference between static illustrated assets and genuinely interactive vector illustrations.
+
+The objective is not to imitate architectural drawings literally. It is to adapt their precision, visual sophistication and technical aesthetics to Korean writing and language learning.
+
+## 10. Hangul as an Interactive Visual System
+
+Explore how the Korean writing system itself can become the foundation of KBR's visual identity.
+
+Hangul is particularly suitable for geometric visual storytelling because syllable blocks are composed from smaller consonant and vowel elements.
+
+Investigate the following concepts.
+
+### A. Animated Hangul Construction
+
+Demonstrate how individual Jamo combine into complete syllable blocks.
+
+Example:
+
+ㅎ + ㅏ + ㄴ → 한
+
+Potential interactions:
+
+- Characters enter from different directions.
+- Components align within a syllable grid.
+- The syllable assembles progressively.
+- Users can drag individual Jamo into position.
+- Incorrect combinations produce subtle educational feedback.
+- Correct combinations transition into the completed character.
+
+Ensure the animation reflects actual Hangul composition rules rather than arbitrary visual positioning.
+
+### B. Animated Stroke Order
+
+Investigate how to teach Korean letter formation using:
+
+- SVG path drawing
+- Directional arrows
+- Animated stroke sequences
+- Touch-based tracing
+- Adjustable playback speed
+- Stroke-by-stroke replay
+- Visual feedback on writing direction
+
+Compare the feasibility of SVG tracing with Canvas-based handwriting input.
+
+### C. Exploded-View Hangul Animations
+
+Explore technical exploded-view diagrams adapted to Korean syllables.
+
+For example:
+
+1. Display a completed syllable.
+2. Separate its constituent Jamo.
+3. Highlight each component.
+4. Explain its phonetic role in Brazilian Portuguese.
+5. Animate the reconstruction.
+6. Allow the learner to repeat the process interactively.
+
+Investigate how this concept could combine technical drawing aesthetics, kinetic typography and educational interaction.
+
+### D. Interactive Pronunciation Visualization
+
+Research visual ways to explain Korean pronunciation.
+
+Possible approaches:
+
+- Animated mouth-position diagrams
+- Articulation illustrations
+- Visual comparison of similar Korean consonants
+- Syllable highlighting synchronized with audio
+- Audio playback with visual feedback
+
+Do not imply that prerecorded audio or browser TTS can accurately evaluate a learner's pronunciation.
+
+Distinguish visualization, audio playback and actual speech assessment.
+
+### E. Educational Motion Principles
+
+Define how animations should support:
+
+- Attention
+- Comprehension
+- Retention
+- Error recognition
+- Learning progression
+- Positive feedback
+
+Avoid distracting movement, excessive delays and animations that make repeated practice slower.
+
+## 11. Advanced Animation Technologies
+
+Evaluate the following technologies in the context of KBR.
+
+### CSS and Native Browser APIs
+
+Investigate:
+
+- CSS transitions and keyframes
+- CSS scroll-driven animations
+- Web Animations API
+- IntersectionObserver
+- View Transitions API
+
+### SVG
+
+Investigate:
+
+- Stroke animations
+- Path interpolation
+- Morphing
+- Masks and clipping
+- Animated diagrams
+- Interactive vector illustrations
+
+### Motion for React
+
+Evaluate:
+
+- Component transitions
+- Layout animations
+- Gesture interactions
+- Animated educational feedback
+
+### GSAP and ScrollTrigger
+
+Evaluate:
+
+- Timeline orchestration
+- Scroll synchronization
+- Pinned sequences
+- Complex animated storytelling
+- SVG transformations
+
+Check current licensing and commercial-use conditions before making recommendations.
+
+### Rive and Lottie
+
+Compare:
+
+- Interactive state-machine animations
+- Exported motion graphics
+- File sizes
+- Runtime performance
+- Accessibility
+- Authoring workflow
+- Free versus paid capabilities
+
+### WebGL and Three.js
+
+Research:
+
+- Interactive 3D illustrations
+- Extruded Hangul characters
+- Procedural geometry
+- Shaders
+- Particle effects
+- Camera animations
+- React Three Fiber integration
+
+Evaluate whether these technologies are actually necessary.
+
+Do not recommend WebGL simply because a reference website looks visually sophisticated.
+
+Prefer SVG and lightweight 2D animations when they offer the same educational value with less complexity.
+
+## 12. Prototype Concepts — Research Only
+
+Propose detailed concepts for five future KBR interactions.
+
+**Concept 1 — Cinematic Hangul Introduction**
+
+An interactive landing-page sequence in which Korean letterforms appear progressively, transform and combine into recognizable syllables.
+
+**Concept 2 — Hangul Exploded View**
+
+A syllable separates into its constituent Jamo and reconstructs itself in response to scrolling, dragging or tapping.
+
+**Concept 3 — Interactive Stroke Drawing**
+
+The learner watches stroke-order animations and practices tracing Hangul characters on a touchscreen.
+
+**Concept 4 — Animated Vocabulary Cards**
+
+Vocabulary cards reveal pronunciation, meaning and example sentences through elegant, lightweight transitions.
+
+**Concept 5 — Learning Journey Visualization**
+
+A progress interface that communicates completed lessons, new achievements and review milestones through meaningful animation.
+
+For each concept, provide:
+
+- Visual description
+- User interaction
+- Educational objective
+- Animation timeline
+- Suggested technology
+- Implementation complexity
+- Mobile compatibility
+- Performance considerations
+- Accessibility requirements
+- Reduced-motion alternative
+
+These are specifications and concepts only.
+
+Do not implement the prototypes yet.
+
+## 13. Art Direction Exploration
+
+Propose three original visual directions for KBR.
+
+### Direction A — Editorial Korean Minimalism
+
+Sophisticated typography, generous whitespace, geometric Hangul compositions and subtle motion.
+
+### Direction B — Technical Hangul Atelier
+
+Illustrations inspired by architectural sketches, technical drawings, hatching, precise grids and exploded diagrams.
+
+### Direction C — Cinematic Interactive Learning
+
+Immersive typography, narrative transitions, animated compositions and highly polished microinteractions.
+
+For each direction, propose:
+
+- A short creative rationale
+- Color palette with HEX codes
+- Typography recommendations supporting Korean and Portuguese
+- Illustration language
+- Navigation style
+- Motion language
+- Example landing-page composition
+- Example learning screen
+- Mobile adaptation
+- Advantages and tradeoffs
+
+Evaluate whether elements from these directions could form one coherent design system.
+
+Avoid direct copying of Heron AI's visual identity.
+
+## 14. Performance and Accessibility Requirements
+
+All recommendations must consider the real constraints of an educational mobile-first application.
+
+Evaluate:
+
+- Low-powered smartphones
+- iPhone Safari and Chrome iOS
+- Touch interactions
+- Battery consumption
+- GPU and memory usage
+- Bundle size
+- Loading performance
+- Reduced-motion preferences
+- Keyboard navigation
+- Screen readers
+- Color contrast
+- Focus visibility
+- Motion sensitivity
+- Progressive enhancement
+
+Aim for smooth animation where appropriate without assuming that every device can maintain 60 FPS.
+
+Specify fallback behavior when animation APIs or hardware acceleration are unavailable.
+
+Avoid unnecessary animation dependencies.
+
+## 15. Additional Deliverables
+
+Extend the original design report with:
+
+1. A cinematic motion design reference catalog.
+2. An analysis of technical illustration aesthetics.
+3. A Hangul-specific interactive animation strategy.
+4. Five detailed interaction specifications.
+5. Three original visual directions for KBR.
+6. A technology decision matrix.
+7. An accessibility and performance checklist.
+8. A phased creative-development implementation roadmap.
+9. References and technical sources for major recommendations.
+10. A prioritized shortlist of animations that provide genuine educational value.
+
+Where repository documentation access is available, organize the additional findings under:
+
+- `docs/design/creative-motion-research.md`
+- `docs/design/hangul-animation-concepts.md`
+- `docs/design/visual-directions.md`
+
+These should complement the documentation files requested in the original prompt.
+
+## Final Constraints
+
+This remains a research-only assignment.
+
+Do not:
+
+- Implement components.
+- Modify application code.
+- Install libraries.
+- Create commits.
+- Push changes.
+- Change authentication or backend logic.
+- Interfere with ongoing development.
+- Generate finished marketing videos instead of researching interactive motion.
+
+Clearly distinguish verified technology usage from speculation.
+
+Write the final research and recommendations in Brazilian Portuguese.
+
+The ultimate goal is for KBR to become a visually exceptional Korean learning platform where interaction, illustration and animation actively improve language acquisition rather than merely decorate the interface.

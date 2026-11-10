@@ -2,11 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { useAuth } from "@/components/auth/AuthProvider";
+import { CourseCompletionPanel } from "@/components/hangul/CourseCompletionPanel";
 import { ButtonLink } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { ProgressBar } from "@/components/ui/ProgressBar";
 import { CHECKPOINTS } from "@/content/hangul/checkpoints";
 import { LESSONS } from "@/content/hangul/lessons";
+import { buildCourseCompletionReport, type CourseCompletionReport } from "@/lib/progress/completion";
 import {
   buildDashboardSummary,
   type DashboardActivity,
@@ -131,6 +133,7 @@ function ActivityList({ items }: { items: readonly DashboardActivity[] }) {
 export function DashboardArea() {
   const { user, status, syncStatus, progressStore } = useAuth();
   const [summary, setSummary] = useState<DashboardSummary | null>(null);
+  const [completion, setCompletion] = useState<CourseCompletionReport | null>(null);
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState(false);
   const [reloadKey, setReloadKey] = useState(0);
@@ -146,12 +149,20 @@ export function DashboardArea() {
       .load()
       .then((progress) => {
         if (!active) return;
-        setSummary(
-          buildDashboardSummary(progress, {
-            now: new Date(),
-            lessons: LESSONS,
-            checkpoints: CHECKPOINTS,
-          }),
+        const nextSummary = buildDashboardSummary(progress, {
+          now: new Date(),
+          lessons: LESSONS,
+          checkpoints: CHECKPOINTS,
+        });
+        setSummary(nextSummary);
+        setCompletion(
+          nextSummary.course.complete
+            ? buildCourseCompletionReport(progress, {
+                now: new Date(),
+                lessons: LESSONS,
+                checkpoints: CHECKPOINTS,
+              })
+            : null,
         );
         setLoading(false);
       })
@@ -247,22 +258,12 @@ export function DashboardArea() {
         </dl>
       </Card>
 
-      {course.complete ? (
-        <Card className="border-2 border-brand/40">
-          <p className="text-sm font-semibold text-brand">Curso concluído</p>
-          <h2 className="mt-1 text-xl font-semibold">Módulo Hangul concluído</h2>
-          <p className="mt-1 text-muted">
-            Você concluiu as 25 lições e os quatro checkpoints. Isso registra a conclusão
-            do módulo, não uma certificação de proficiência. O próximo módulo (CEFR A1)
-            ainda não está disponível.
-          </p>
-          <div className="mt-4 flex flex-col gap-3 sm:flex-row">
-            <ButtonLink href="/revisao">Revisar cartões</ButtonLink>
-            <ButtonLink href="/hangul" variant="ghost">
-              Ver o curso
-            </ButtonLink>
-          </div>
-        </Card>
+      {completion ? (
+        <CourseCompletionPanel
+          report={completion}
+          compact
+          showDashboardLink={false}
+        />
       ) : course.nextStep ? (
         <Card>
           <p className="text-sm font-semibold text-brand">
@@ -285,8 +286,9 @@ export function DashboardArea() {
         <Card>
           <h2 className="text-xl font-semibold">Próximo passo indisponível</h2>
           <p className="mt-1 text-muted">
-            Há passos bloqueados por pré-requisitos não concluídos. Abra o curso para ver
-            o que falta.
+            {course.complete
+              ? "O módulo Hangul está concluído; o próximo módulo ainda não está disponível."
+              : "Há passos bloqueados por pré-requisitos não concluídos. Abra o curso para ver o que falta."}
           </p>
           <ButtonLink href="/hangul">Abrir Hangul</ButtonLink>
         </Card>

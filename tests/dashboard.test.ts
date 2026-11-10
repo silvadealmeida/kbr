@@ -110,7 +110,12 @@ describe("ordem e recomendação do curso", () => {
     expect(steps.find((step) => step.id === "c1")?.prerequisites).toEqual(
       LESSONS.slice(0, 10).map((lesson) => lesson.id),
     );
-    expect(steps.find((step) => step.id === "c4")?.prerequisites).toEqual(ALL_LESSON_IDS);
+    expect(steps.find((step) => step.id === "c4")?.prerequisites).toEqual([
+      ...ALL_LESSON_IDS,
+      "c1",
+      "c2",
+      "c3",
+    ]);
   });
 
   test("recomenda o primeiro passo incompleto e desbloqueado", () => {

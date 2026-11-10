@@ -149,7 +149,10 @@ export function LessonPlayer({
     );
   }
 
-  if (!isLessonUnlocked(progress, lesson)) {
+  const record = progress.lessons[lesson.id];
+  const alreadyDone = record?.done === true;
+
+  if (!alreadyDone && !isLessonUnlocked(progress, lesson)) {
     return (
       <div className="rounded-2xl border border-border bg-surface p-6">
         <p className="text-sm font-semibold text-brand">Lição bloqueada</p>
@@ -166,6 +169,52 @@ export function LessonPlayer({
           Ver lições disponíveis
         </Link>
       </div>
+    );
+  }
+
+  if (phase === "intro" && alreadyDone) {
+    return (
+      <article aria-labelledby="lesson-title" className="pb-4">
+        <Link href="/hangul" className="text-sm font-semibold text-brand">
+          ← Hangul
+        </Link>
+        <p className="mt-4 text-sm font-semibold text-brand">Lição concluída</p>
+        <h1 id="lesson-title" className="mt-1 text-3xl font-bold tracking-tight">
+          {lesson.title}
+        </h1>
+        <div className="mt-4 rounded-2xl border border-border bg-surface p-5">
+          <p className="text-lg">
+            Seu melhor resultado registrado é <strong>{record?.score ?? 0}%</strong>.
+          </p>
+          <p className="mt-2 text-muted">
+            Você já concluiu esta lição. Pode seguir para a próxima etapa ou refazer a
+            prática; o app mantém o maior score e não apaga o histórico.
+          </p>
+        </div>
+        <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+          {nextStep ? (
+            <Link
+              href={`/hangul/${nextStep.id}`}
+              className="inline-flex min-h-12 items-center justify-center rounded-xl bg-brand px-5 font-semibold text-brand-fg"
+            >
+              Próximo: {nextStep.id} · {nextStep.title}
+            </Link>
+          ) : null}
+          <button
+            type="button"
+            onClick={restart}
+            className="inline-flex min-h-12 items-center justify-center rounded-xl border border-border px-5 font-semibold hover:bg-soft"
+          >
+            Refazer lição
+          </button>
+          <Link
+            href="/hangul"
+            className="inline-flex min-h-12 items-center justify-center rounded-xl border border-border px-5 font-semibold hover:bg-soft"
+          >
+            Voltar para Hangul
+          </Link>
+        </div>
+      </article>
     );
   }
 
@@ -302,7 +351,7 @@ export function LessonPlayer({
               href={`/hangul/${nextStep.id}`}
               className="inline-flex min-h-12 items-center justify-center rounded-xl bg-brand px-5 font-semibold text-brand-fg"
             >
-              Próximo: {nextStep.title}
+              Próximo: {nextStep.id} · {nextStep.title}
             </Link>
           ) : null}
           {!lessonResult.passed ? (

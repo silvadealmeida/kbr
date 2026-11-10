@@ -135,9 +135,38 @@ export function evaluateCheckpoint(
   };
 }
 
-/** O checkpoint só abre com todas as lições do seu escopo concluídas. */
-export function isCheckpointUnlocked(progress: Progress, checkpoint: Checkpoint): boolean {
-  return checkpoint.lessonIds.every((id) => progress.lessons[id]?.done === true);
+/**
+ * Checkpoints anteriores ao informado, na ordem curricular. Como a lista de
+ * checkpoints é ordenada, `c2` depende de `c1`, `c3` de `c1`–`c2` e `c4` de
+ * `c1`–`c3`, mesmo que um snapshot inconsistente já tenha lições posteriores
+ * marcadas como concluídas.
+ */
+export function checkpointPrerequisiteIds(
+  checkpoints: readonly Checkpoint[],
+  checkpointId: string,
+): string[] {
+  const index = checkpoints.findIndex((checkpoint) => checkpoint.id === checkpointId);
+  return index <= 0
+    ? []
+    : checkpoints.slice(0, index).map((checkpoint) => checkpoint.id);
+}
+
+/**
+ * O checkpoint só abre com todas as lições do seu escopo e todos os
+ * checkpoints anteriores concluídos. `checkpoints` precisa vir na ordem
+ * curricular; a UI e o dashboard passam `CHECKPOINTS`.
+ */
+export function isCheckpointUnlocked(
+  progress: Progress,
+  checkpoint: Checkpoint,
+  checkpoints: readonly Checkpoint[],
+): boolean {
+  return (
+    checkpoint.lessonIds.every((id) => progress.lessons[id]?.done === true) &&
+    checkpointPrerequisiteIds(checkpoints, checkpoint.id).every(
+      (id) => progress.lessons[id]?.done === true,
+    )
+  );
 }
 
 /** Registra o checkpoint na mesma estrutura de `LessonProgress`, com o maior score. */
@@ -250,13 +279,16 @@ export function buildCourseSteps(
       .map((id) => lessonPosition.get(id))
       .filter((position): position is number => position !== undefined);
     const base = scope.length > 0 ? Math.max(...scope) : lessons.length * 2 + index * 2;
+    const previousCheckpoints = checkpoints
+      .slice(0, index)
+      .map((item) => item.id);
     entries.push({
       step: {
         id: checkpoint.id,
         kind: "checkpoint",
         title: checkpoint.title,
         estimatedMinutes: checkpoint.estimatedMinutes,
-        prerequisites: checkpoint.lessonIds,
+        prerequisites: [...checkpoint.lessonIds, ...previousCheckpoints],
       },
       position: base + 1,
       order: lessons.length + index,

@@ -6,12 +6,14 @@ import { COURSE_OUTLINE } from "@/content/hangul/outline";
 import { CHECKPOINTS, getCheckpoint } from "@/content/hangul/checkpoints";
 import { getLesson, LESSONS } from "@/content/hangul/lessons";
 import { useAuth } from "@/components/auth/AuthProvider";
+import { buildCourseCompletionReport } from "@/lib/progress/completion";
 import {
   isCheckpointUnlocked,
   isCourseComplete,
   isLessonUnlocked,
 } from "@/lib/progress/lesson";
 import type { Progress } from "@/lib/storage";
+import { CourseCompletionPanel } from "./CourseCompletionPanel";
 
 function StatusBadge({ children, tone = "muted" }: { children: React.ReactNode; tone?: "muted" | "brand" }) {
   return (
@@ -43,6 +45,14 @@ export function HangulCourse() {
   const courseComplete = progress
     ? isCourseComplete(progress, LESSONS, CHECKPOINTS)
     : false;
+  const completion =
+    progress && courseComplete
+      ? buildCourseCompletionReport(progress, {
+          now: new Date(),
+          lessons: LESSONS,
+          checkpoints: CHECKPOINTS,
+        })
+      : null;
 
   return (
     <div className="flex flex-col gap-6">
@@ -51,20 +61,8 @@ export function HangulCourse() {
         checkpoints c1–c4 estão disponíveis.
       </p>
 
-      {courseComplete ? (
-        <section
-          aria-labelledby="course-complete"
-          className="rounded-2xl border-2 border-brand/40 bg-surface p-5"
-        >
-          <h2 id="course-complete" className="text-lg font-semibold text-brand">
-            Módulo Hangul concluído
-          </h2>
-          <p className="mt-2 text-muted">
-            Você concluiu as 25 lições e os quatro checkpoints. Isso registra a
-            conclusão do módulo, não uma certificação de proficiência. O próximo
-            módulo (CEFR A1) ainda não está disponível.
-          </p>
-        </section>
+      {completion ? (
+        <CourseCompletionPanel report={completion} />
       ) : null}
 
       {COURSE_OUTLINE.map((unit) => {
@@ -149,7 +147,7 @@ export function HangulCourse() {
                   {(() => {
                     const record = progress?.lessons[checkpoint.id];
                     const unlocked = progress
-                      ? isCheckpointUnlocked(progress, checkpoint)
+                      ? isCheckpointUnlocked(progress, checkpoint, CHECKPOINTS)
                       : false;
                     const body = (
                       <>

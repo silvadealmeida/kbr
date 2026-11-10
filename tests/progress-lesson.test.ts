@@ -173,6 +173,16 @@ function progressWithAllLessons(): Progress {
   };
 }
 
+function withCompletedCheckpoints(progress: Progress, ids: readonly string[]): Progress {
+  return {
+    ...progress,
+    lessons: {
+      ...progress.lessons,
+      ...Object.fromEntries(ids.map((id) => [id, { done: true, score: 100 }])),
+    },
+  };
+}
+
 describe("progresso de lição — critérios adicionais", () => {
   test("h07 reprova quem atinge a nota mas acerta só 2 dos 4 contrastes", () => {
     const h07 = LESSONS.find((lesson) => lesson.id === "h07")!;
@@ -222,7 +232,7 @@ describe("progresso de checkpoint", () => {
   test("só abre com todas as lições do escopo concluídas", () => {
     const c1 = CHECKPOINTS[0]!;
     const empty = createEmptyProgress(NOW);
-    expect(isCheckpointUnlocked(empty, c1)).toBe(false);
+    expect(isCheckpointUnlocked(empty, c1, CHECKPOINTS)).toBe(false);
 
     const partial: Progress = {
       ...empty,
@@ -230,8 +240,8 @@ describe("progresso de checkpoint", () => {
         LESSONS.slice(0, 9).map((lesson) => [lesson.id, { done: true, score: 100 }]),
       ),
     };
-    expect(isCheckpointUnlocked(partial, c1)).toBe(false);
-    expect(isCheckpointUnlocked(progressWithAllLessons(), c1)).toBe(true);
+    expect(isCheckpointUnlocked(partial, c1, CHECKPOINTS)).toBe(false);
+    expect(isCheckpointUnlocked(progressWithAllLessons(), c1, CHECKPOINTS)).toBe(true);
   });
 
   test("aprova com 16 de 20 e reprova com 15", () => {
@@ -303,10 +313,10 @@ function c2Answers(correctIds: readonly string[]) {
 }
 
 describe("checkpoint c2 — inventário completo de vogais", () => {
-  test("só abre com h01–h15 concluídas", () => {
+  test("só abre com h01–h15 e o checkpoint c1 concluídos", () => {
     const c2 = CHECKPOINTS.find((checkpoint) => checkpoint.id === "c2")!;
     const empty = createEmptyProgress(NOW);
-    expect(isCheckpointUnlocked(empty, c2)).toBe(false);
+    expect(isCheckpointUnlocked(empty, c2, CHECKPOINTS)).toBe(false);
 
     const upToH14: Progress = {
       ...empty,
@@ -317,8 +327,14 @@ describe("checkpoint c2 — inventário completo de vogais", () => {
         ]),
       ),
     };
-    expect(isCheckpointUnlocked(upToH14, c2)).toBe(false);
-    expect(isCheckpointUnlocked(progressWithAllLessons(), c2)).toBe(true);
+    expect(isCheckpointUnlocked(upToH14, c2, CHECKPOINTS)).toBe(false);
+    expect(
+      isCheckpointUnlocked(withCompletedCheckpoints(progressWithAllLessons(), ["c1"]), c2, CHECKPOINTS),
+    ).toBe(true);
+    expect(
+      isCheckpointUnlocked(progressWithAllLessons(), c2, CHECKPOINTS),
+      "lições posteriores não podem pular c1",
+    ).toBe(false);
   });
 
   test("aprova com 19 de 24 e reprova com 18", () => {
@@ -403,10 +419,10 @@ function c3Answers(correctIds: readonly string[]) {
 }
 
 describe("checkpoint c3 — batchim simples e duplos", () => {
-  test("só abre com h16–h20 concluídas", () => {
+  test("só abre com h16–h20 e os checkpoints c1–c2 concluídos", () => {
     const c3 = CHECKPOINTS.find((checkpoint) => checkpoint.id === "c3")!;
     const empty = createEmptyProgress(NOW);
-    expect(isCheckpointUnlocked(empty, c3)).toBe(false);
+    expect(isCheckpointUnlocked(empty, c3, CHECKPOINTS)).toBe(false);
 
     const upToH19: Progress = {
       ...empty,
@@ -417,8 +433,22 @@ describe("checkpoint c3 — batchim simples e duplos", () => {
         ]),
       ),
     };
-    expect(isCheckpointUnlocked(upToH19, c3)).toBe(false);
-    expect(isCheckpointUnlocked(progressWithAllLessons(), c3)).toBe(true);
+    expect(isCheckpointUnlocked(upToH19, c3, CHECKPOINTS)).toBe(false);
+    expect(
+      isCheckpointUnlocked(
+        withCompletedCheckpoints(progressWithAllLessons(), ["c1", "c2"]),
+        c3,
+        CHECKPOINTS,
+      ),
+    ).toBe(true);
+    expect(
+      isCheckpointUnlocked(
+        withCompletedCheckpoints(progressWithAllLessons(), ["c1"]),
+        c3,
+        CHECKPOINTS,
+      ),
+      "c2 é pré-requisito de c3",
+    ).toBe(false);
   });
 
   test("aprova com 19 de 24 e reprova com 18", () => {
@@ -509,10 +539,10 @@ function c4Answers(correctIds: readonly string[]) {
 }
 
 describe("checkpoint c4 — leitura integrada", () => {
-  test("só abre com todas as 25 lições concluídas", () => {
+  test("só abre com todas as 25 lições e c1–c3 concluídos", () => {
     const c4 = CHECKPOINTS.find((checkpoint) => checkpoint.id === "c4")!;
     const empty = createEmptyProgress(NOW);
-    expect(isCheckpointUnlocked(empty, c4)).toBe(false);
+    expect(isCheckpointUnlocked(empty, c4, CHECKPOINTS)).toBe(false);
 
     const withoutH25: Progress = {
       ...empty,
@@ -523,8 +553,22 @@ describe("checkpoint c4 — leitura integrada", () => {
         ]),
       ),
     };
-    expect(isCheckpointUnlocked(withoutH25, c4)).toBe(false);
-    expect(isCheckpointUnlocked(progressWithAllLessons(), c4)).toBe(true);
+    expect(isCheckpointUnlocked(withoutH25, c4, CHECKPOINTS)).toBe(false);
+    expect(
+      isCheckpointUnlocked(
+        withCompletedCheckpoints(progressWithAllLessons(), ["c1", "c2", "c3"]),
+        c4,
+        CHECKPOINTS,
+      ),
+    ).toBe(true);
+    expect(
+      isCheckpointUnlocked(
+        withCompletedCheckpoints(progressWithAllLessons(), ["c1", "c2"]),
+        c4,
+        CHECKPOINTS,
+      ),
+      "c3 é pré-requisito de c4",
+    ).toBe(false);
   });
 
   test("aprova com 24 de 30 e reprova com 23", () => {

@@ -7,7 +7,9 @@ import { CHECKPOINTS } from "@/content/hangul/checkpoints";
 import { LESSONS } from "@/content/hangul/lessons";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { checkAnswer, type DetailedCheckResult, type ExerciseAnswer } from "@/lib/exercises";
+import { buildCourseCompletionReport } from "@/lib/progress/completion";
 import {
+  checkpointPrerequisiteIds,
   checkpointRequiredCorrect,
   completeCheckpoint,
   evaluateCheckpoint,
@@ -18,6 +20,7 @@ import {
 } from "@/lib/progress/lesson";
 import { scheduleMissedReview } from "@/lib/srs";
 import type { Progress } from "@/lib/storage";
+import { CourseCompletionPanel } from "./CourseCompletionPanel";
 import { DiagnosticsList } from "./DiagnosticsList";
 import { BilingualText, ExerciseView } from "./exercise-ui";
 
@@ -148,16 +151,49 @@ export function CheckpointPlayer({
     );
   }
 
-  if (!isCheckpointUnlocked(progress, checkpoint)) {
-    const pending = checkpoint.lessonIds.filter((id) => progress.lessons[id]?.done !== true);
+  const record = progress.lessons[checkpoint.id];
+  const alreadyDone = record?.done === true;
+  const isFinalCheckpoint = checkpoint.id === "c4";
+  const courseComplete = isCourseComplete(progress, LESSONS, CHECKPOINTS);
+  const completion =
+    isFinalCheckpoint && courseComplete
+      ? buildCourseCompletionReport(progress, {
+          now: new Date(),
+          lessons: LESSONS,
+          checkpoints: CHECKPOINTS,
+          finalCheckpoint: checkpoint,
+          finalResult: checkpointResult ?? undefined,
+        })
+      : null;
+
+  if (!alreadyDone && !isCheckpointUnlocked(progress, checkpoint, CHECKPOINTS)) {
+    const missingLessons = checkpoint.lessonIds.filter(
+      (id) => progress.lessons[id]?.done !== true,
+    );
+    const missingCheckpoints = checkpointPrerequisiteIds(CHECKPOINTS, checkpoint.id).filter(
+      (id) => progress.lessons[id]?.done !== true,
+    );
     return (
       <div className="rounded-2xl border border-border bg-surface p-6">
         <p className="text-sm font-semibold text-brand">Checkpoint bloqueado</p>
         <h1 className="mt-1 text-2xl font-bold">{checkpoint.title}</h1>
         <p className="mt-2 text-muted">
-          Conclua todas as lições do escopo antes de fazer esta avaliação.
+          Conclua as lições do escopo e os checkpoints anteriores antes de fazer esta
+          avaliação.
         </p>
-        <p className="mt-2 text-sm text-muted">Pendentes: {pending.join(", ")}.</p>
+        <p className="mt-2 text-sm text-muted">
+          Pendentes: {[...missingCheckpoints, ...missingLessons].join(", ")}.
+        </p>
+        {missingCheckpoints.length > 0 ? (
+          <p className="mt-1 text-sm text-muted">
+            Checkpoints anteriores: {missingCheckpoints.join(", ")}.
+          </p>
+        ) : null}
+        {missingLessons.length > 0 ? (
+          <p className="mt-1 text-sm text-muted">
+            Lições do escopo: {missingLessons.join(", ")}.
+          </p>
+        ) : null}
         <Link
           href="/hangul"
           className="mt-4 inline-flex min-h-12 items-center justify-center rounded-xl bg-brand px-5 font-semibold text-brand-fg"
@@ -165,6 +201,100 @@ export function CheckpointPlayer({
           Ver lições disponíveis
         </Link>
       </div>
+    );
+  }
+
+  const courseCompletionPage = completion ? (
+    <article aria-labelledby="checkpoint-completion-title" className="pb-4">
+      <Link href="/hangul" className="text-sm font-semibold text-brand">
+        ← Hangul
+      </Link>
+      <p className="mt-4 text-sm font-semibold text-brand">Fim do checkpoint</p>
+      <h1 id="checkpoint-completion-title" className="mt-1 text-3xl font-bold tracking-tight">
+        Módulo Hangul concluído
+      </h1>
+      {saveWarning ? (
+        <p role="status" className="mt-3 rounded-xl bg-soft p-3 text-sm">
+          O progresso foi salvo neste dispositivo, mas a sincronização com a conta pode
+          estar pendente. Isso não apaga o que você fez.
+        </p>
+      ) : null}
+      <div className="mt-4">
+        <CourseCompletionPanel report={completion} />
+      </div>
+      <div className="mt-4 flex flex-col gap-3 sm:flex-row">
+        <button
+          type="button"
+          onClick={restart}
+          className="inline-flex min-h-12 items-center justify-center rounded-xl border border-border px-5 font-semibold hover:bg-soft"
+        >
+          Refazer checkpoint
+        </button>
+        <Link
+          href="/hangul"
+          className="inline-flex min-h-12 items-center justify-center rounded-xl border border-border px-5 font-semibold hover:bg-soft"
+        >
+          Voltar para Hangul
+        </Link>
+      </div>
+    </article>
+  ) : null;
+
+  if (phase === "intro" && alreadyDone && courseCompletionPage) {
+    return courseCompletionPage;
+  }
+
+  if (phase === "intro" && alreadyDone) {
+    return (
+      <article aria-labelledby="checkpoint-title" className="pb-4">
+        <Link href="/hangul" className="text-sm font-semibold text-brand">
+          ← Hangul
+        </Link>
+        <p className="mt-4 text-sm font-semibold text-brand">Checkpoint concluído</p>
+        <h1 id="checkpoint-title" className="mt-1 text-3xl font-bold tracking-tight">
+          {checkpoint.title}
+        </h1>
+        <div className="mt-4 rounded-2xl border border-border bg-surface p-5">
+          <p className="text-lg">
+            Seu melhor resultado registrado é <strong>{record?.score ?? 0}%</strong>.
+          </p>
+          <p className="mt-2 text-muted">
+            Você já concluiu este checkpoint. Pode seguir para a próxima etapa ou refazer
+            a avaliação; o app mantém o maior score e não apaga o histórico.
+          </p>
+        </div>
+        <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+          {nextStep ? (
+            <Link
+              href={`/hangul/${nextStep.id}`}
+              className="inline-flex min-h-12 items-center justify-center rounded-xl bg-brand px-5 font-semibold text-brand-fg"
+            >
+              Próximo: {nextStep.id} · {nextStep.title}
+            </Link>
+          ) : null}
+          {courseComplete ? (
+            <Link
+              href="/hangul/c4"
+              className="inline-flex min-h-12 items-center justify-center rounded-xl bg-brand px-5 font-semibold text-brand-fg"
+            >
+              Ver conclusão do curso
+            </Link>
+          ) : null}
+          <button
+            type="button"
+            onClick={restart}
+            className="inline-flex min-h-12 items-center justify-center rounded-xl border border-border px-5 font-semibold hover:bg-soft"
+          >
+            Refazer checkpoint
+          </button>
+          <Link
+            href="/hangul"
+            className="inline-flex min-h-12 items-center justify-center rounded-xl border border-border px-5 font-semibold hover:bg-soft"
+          >
+            Voltar para Hangul
+          </Link>
+        </div>
+      </article>
     );
   }
 
@@ -218,17 +348,16 @@ export function CheckpointPlayer({
   }
 
   if (phase === "done" && checkpointResult) {
+    if (courseCompletionPage) return courseCompletionPage;
+
     const done = progress.lessons[checkpoint.id]?.done === true;
-    const isFinalCheckpoint = checkpoint.id === "c4";
-    const courseComplete = isCourseComplete(progress, LESSONS, CHECKPOINTS);
     const pendingCheckpoints = CHECKPOINTS.filter(
       (item) => progress.lessons[item.id]?.done !== true,
     ).map((item) => item.id);
+    const incorrect = checkpointResult.total - checkpointResult.correct;
     const heading =
       done && isFinalCheckpoint
-        ? courseComplete
-          ? "Módulo Hangul concluído"
-          : "Checkpoint final concluído"
+        ? "Checkpoint final concluído"
         : done
           ? "Checkpoint concluído"
           : "Quase lá";
@@ -246,14 +375,16 @@ export function CheckpointPlayer({
             </strong>{" "}
             ({checkpointResult.score}%).
           </p>
+          <p className="mt-1 text-sm text-muted">
+            {checkpointResult.correct} corretos · {incorrect} incorretos. Aprovação com pelo
+            menos {requiredCorrect} de {total} ({checkpoint.passingScore}% documentado).
+          </p>
           <p className="mt-2 text-muted">
             {done
               ? isFinalCheckpoint
-                ? courseComplete
-                  ? "Você concluiu as 25 lições e os quatro checkpoints do módulo Hangul. Não há certificado de proficiência e nenhum conteúdo CEFR A1 é liberado automaticamente; o próximo módulo ainda está em desenvolvimento."
-                  : `Você concluiu o checkpoint final. Ainda faltam: ${pendingCheckpoints.join(", ")}. O módulo será marcado como concluído quando todas as lições e todos os checkpoints estiverem feitos.`
+                ? `Você concluiu o checkpoint final. Ainda faltam: ${pendingCheckpoints.join(", ")}. O módulo será marcado como concluído quando todas as lições e todos os checkpoints estiverem feitos.`
                 : "Seu resultado foi registrado. O app guarda o maior score entre as tentativas."
-              : `Este checkpoint pede ${requiredCorrect} de ${total} acertos (${checkpoint.passingScore}% documentado). Refaça quando quiser: seu melhor resultado não é perdido.`}
+              : `Refaça quando quiser: seu melhor resultado não é perdido.`}
           </p>
           {saveWarning ? (
             <p role="status" className="mt-3 rounded-xl bg-soft p-3 text-sm">
@@ -263,7 +394,11 @@ export function CheckpointPlayer({
           ) : null}
         </div>
 
-        <DiagnosticsList categories={checkpointResult.diagnostics} title="O que revisar antes de seguir" />
+        <DiagnosticsList
+          categories={checkpointResult.diagnostics}
+          title="O que revisar antes de seguir"
+          linkLessons
+        />
 
         <ul className="mt-4 flex flex-col gap-2 text-sm text-muted">
           {checkpoint.exercises.map((item) => {
@@ -280,13 +415,21 @@ export function CheckpointPlayer({
           })}
         </ul>
 
-        <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+        <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           {done && nextStep ? (
             <Link
               href={`/hangul/${nextStep.id}`}
               className="inline-flex min-h-12 items-center justify-center rounded-xl bg-brand px-5 font-semibold text-brand-fg"
             >
-              Próximo: {nextStep.title}
+              Próximo: {nextStep.id} · {nextStep.title}
+            </Link>
+          ) : null}
+          {incorrect > 0 ? (
+            <Link
+              href="/revisao"
+              className="inline-flex min-h-12 items-center justify-center rounded-xl border border-border px-5 font-semibold hover:bg-soft"
+            >
+              Revisar cartões
             </Link>
           ) : null}
           <button

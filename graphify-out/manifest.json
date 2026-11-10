@@ -96,9 +96,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1794337971.8714688,
-    "seen": 1794338046.3663201,
-    "ast_hash": "524356eacc3f39643702138c33208eeb",
+    "mtime": 1794339194.1578984,
+    "seen": 1794339249.2857451,
+    "ast_hash": "66b0793c054dbc2ac197854648c329ef",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -108,9 +108,9 @@
     "semantic_hash": ""
   },
   "docs/architecture.md": {
-    "mtime": 1794338030.458868,
-    "seen": 1794338046.3663223,
-    "ast_hash": "639e1a0ab72ca759514b70f1bb058461",
+    "mtime": 1794339232.210535,
+    "seen": 1794339249.2857473,
+    "ast_hash": "ba21620d0e5a0acac6015e7d3cd2b4b8",
     "semantic_hash": ""
   },
   "docs/research.md": {
@@ -120,9 +120,9 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794337992.061981,
-    "seen": 1794338046.3663278,
-    "ast_hash": "bc70c9b15ae4411423e6bd7da3709cf0",
+    "mtime": 1794339188.2719944,
+    "seen": 1794339249.2857525,
+    "ast_hash": "2616ab88ed3f29de511fb65668d146f6",
     "semantic_hash": ""
   },
   "src/lib/hangul/index.ts": {
@@ -516,9 +516,9 @@
     "semantic_hash": ""
   },
   "e2e/hangul.spec.ts": {
-    "mtime": 1794333120.1299427,
-    "seen": 1794333296.14966,
-    "ast_hash": "25bb29c8b278b982f67324231a11d1e7",
+    "mtime": 1794339055.7797182,
+    "seen": 1794339249.2856438,
+    "ast_hash": "cebd5074ff7f77e3d6d3e0fea889b16f",
     "semantic_hash": ""
   },
   "e2e/mock-supabase.mjs": {
@@ -540,15 +540,15 @@
     "semantic_hash": ""
   },
   "src/components/hangul/HangulCourse.tsx": {
-    "mtime": 1794331204.5497205,
-    "seen": 1794331823.4349954,
-    "ast_hash": "d1f45be02d014625c2542e6d2d4b59a4",
+    "mtime": 1794338575.8482246,
+    "seen": 1794339249.2856755,
+    "ast_hash": "49b7cf362c08420e765b9d382a31430c",
     "semantic_hash": ""
   },
   "src/components/hangul/LessonPlayer.tsx": {
-    "mtime": 1794328422.7859678,
-    "seen": 1794328933.149913,
-    "ast_hash": "9e660b0e8cfff0a3d17f177b599da0e3",
+    "mtime": 1794338944.2047057,
+    "seen": 1794339249.285676,
+    "ast_hash": "e5bdd0f1f42aaa596222da047ad9e19c",
     "semantic_hash": ""
   },
   "src/content/hangul/index.ts": {
@@ -612,9 +612,9 @@
     "semantic_hash": ""
   },
   "src/lib/progress/lesson.ts": {
-    "mtime": 1794337686.039327,
-    "seen": 1794338046.3662946,
-    "ast_hash": "ada165565cba2f3f7ec9c960a8e9c375",
+    "mtime": 1794338515.4082465,
+    "seen": 1794339249.2857184,
+    "ast_hash": "e9c53844d06314ad583dc9f43a66f864",
     "semantic_hash": ""
   },
   "tests/content/hangul.test.ts": {
@@ -624,9 +624,9 @@
     "semantic_hash": ""
   },
   "tests/progress-lesson.test.ts": {
-    "mtime": 1794331137.2749546,
-    "seen": 1794331823.4350543,
-    "ast_hash": "b7283a6151dd848fd9535ff5fb4c25e0",
+    "mtime": 1794338710.2309167,
+    "seen": 1794339249.2857368,
+    "ast_hash": "2aef60dcf9f19f7609b352ab69487398",
     "semantic_hash": ""
   },
   "pendenteDesign.md": {
@@ -636,15 +636,15 @@
     "semantic_hash": ""
   },
   "src/components/hangul/CheckpointPlayer.tsx": {
-    "mtime": 1794331220.0956192,
-    "seen": 1794331823.434994,
-    "ast_hash": "78285409f9780ee8a7d30096f3fe607d",
+    "mtime": 1794338948.9416337,
+    "seen": 1794339249.2856724,
+    "ast_hash": "82aec720c6a2a45a2611358fcf8ed2c9",
     "semantic_hash": ""
   },
   "src/components/hangul/DiagnosticsList.tsx": {
-    "mtime": 1794320041.509952,
-    "seen": 1794320374.045795,
-    "ast_hash": "bef605471ce77d6f6fec387aa1745c0d",
+    "mtime": 1794338541.2910876,
+    "seen": 1794339249.2856748,
+    "ast_hash": "d1ae8d00d0736b04a84541061b05290e",
     "semantic_hash": ""
   },
   "src/components/hangul/exercise-ui.tsx": {
@@ -876,9 +876,9 @@
     "semantic_hash": ""
   },
   "src/components/dashboard/DashboardArea.tsx": {
-    "mtime": 1794337760.302123,
-    "seen": 1794338046.3662496,
-    "ast_hash": "0f925766ab1a05f7fb7a53fc4ffd3eda",
+    "mtime": 1794338596.2892513,
+    "seen": 1794339249.2856712,
+    "ast_hash": "0409c84b935998e1d6fcf9929f143096",
     "semantic_hash": ""
   },
   "src/components/ui/ProgressBar.tsx": {
@@ -894,9 +894,27 @@
     "semantic_hash": ""
   },
   "tests/dashboard.test.ts": {
-    "mtime": 1794337866.4126694,
-    "seen": 1794338046.366309,
-    "ast_hash": "5f056812ce51ed6eaa51c1162553b8da",
+    "mtime": 1794338759.912505,
+    "seen": 1794339249.2857342,
+    "ast_hash": "1fc81ac8a1784a66813f7556c767a996",
+    "semantic_hash": ""
+  },
+  "src/components/hangul/CourseCompletionPanel.tsx": {
+    "mtime": 1794338865.0756068,
+    "seen": 1794339249.2856736,
+    "ast_hash": "1b5eaa19a092d97c09e1bc7a5148580b",
+    "semantic_hash": ""
+  },
+  "src/lib/progress/completion.ts": {
+    "mtime": 1794338537.3009286,
+    "seen": 1794339249.285716,
+    "ast_hash": "13d412a585d9c8363f684afcf24dca0a",
+    "semantic_hash": ""
+  },
+  "tests/completion.test.ts": {
+    "mtime": 1794338742.8821692,
+    "seen": 1794339249.2857323,
+    "ast_hash": "82fef10be7f70239001821f7ddce6b7b",
     "semantic_hash": ""
   },
   "package-lock.json": {

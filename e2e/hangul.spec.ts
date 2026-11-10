@@ -1,4 +1,4 @@
-import { expect, test, type BrowserContext } from "@playwright/test";
+import { expect, test, type BrowserContext, type Page } from "@playwright/test";
 import { TEST_USER, testAuthCookie } from "./mock-supabase.mjs";
 
 const BASE_URL = "http://localhost:3100";
@@ -106,9 +106,9 @@ test.describe("Hangul autenticado", () => {
     await expect(
       page.getByRole("heading", { level: 1, name: /Um alfabeto/ }),
     ).toBeVisible();
-    await expect(
-      page.getByRole("button", { name: "Começar a prática" }),
-    ).toBeVisible();
+    await expect(page.getByRole("button", { name: "Refazer lição" })).toBeVisible();
+    await expect(page.getByRole("link", { name: /Próximo: h02/ })).toBeVisible();
+    await expect(page.getByText("Seu melhor resultado registrado é 100%.")).toBeVisible();
 
     await page.goto("/hangul");
     await expect(page.getByText("Concluída · 100%")).toBeVisible();
@@ -248,7 +248,8 @@ test.describe("Checkpoint c1 autenticado", () => {
       page.getByRole("heading", { level: 1, name: /Checkpoint 1/ }),
     ).toBeVisible();
     await expect(page.getByText("Checkpoint bloqueado")).toBeVisible();
-    await expect(page.getByText(/Pendentes: h01/)).toBeVisible();
+    await expect(page.getByText(/Lições do escopo: h01/)).toBeVisible();
+    await expect(page.getByText(/Checkpoints anteriores:/)).toHaveCount(0);
   });
 
   test("c1 abre no ponto certo e registra 100% ao refazer", async ({
@@ -403,7 +404,8 @@ test.describe("Unidade 5 e checkpoint c2 autenticados", () => {
       page.getByRole("heading", { level: 1, name: /Checkpoint 2/ }),
     ).toBeVisible();
     await expect(page.getByText("Checkpoint bloqueado")).toBeVisible();
-    await expect(page.getByText(/Pendentes: h01/)).toBeVisible();
+    await expect(page.getByText(/Lições do escopo: h01/)).toBeVisible();
+    await expect(page.getByText(/Checkpoints anteriores: c1/)).toBeVisible();
   });
 
   test("c2 abre depois de h01–h15 e registra 100%", async ({ page }) => {
@@ -570,7 +572,8 @@ test.describe("Unidade 6 e checkpoint c3 autenticados", () => {
       page.getByRole("heading", { level: 1, name: /Checkpoint 3/ }),
     ).toBeVisible();
     await expect(page.getByText("Checkpoint bloqueado")).toBeVisible();
-    await expect(page.getByText(/Pendentes: h16/)).toBeVisible();
+    await expect(page.getByText(/Lições do escopo: h16/)).toBeVisible();
+    await expect(page.getByText(/Checkpoints anteriores: c1, c2/)).toBeVisible();
   });
 
   test("c3 abre depois de h16–h20, registra 100% e persiste ao recarregar", async ({
@@ -643,7 +646,7 @@ test.describe("Unidade 6 e checkpoint c3 autenticados", () => {
       page.getByRole("heading", { level: 1, name: /Checkpoint 3/ }),
     ).toBeVisible();
     await expect(
-      page.getByRole("button", { name: "Começar checkpoint" }),
+      page.getByRole("button", { name: "Refazer checkpoint" }),
     ).toBeVisible();
 
     await page.goto("/hangul");
@@ -708,6 +711,44 @@ const C4_STEPS: C4Step[] = [
   { kind: "choice", name: "Eu sou estudante." },
 ];
 
+async function playC4(page: Page, options: { wrongFirst?: boolean } = {}) {
+  for (const [index, step] of C4_STEPS.entries()) {
+    const wrong = options.wrongFirst === true && index === 0;
+    if (step.kind === "choice") {
+      await page
+        .getByRole("button", { name: wrong ? "ㄱ" : step.name, exact: true })
+        .first()
+        .click();
+    } else {
+      await page
+        .getByRole("group", { name: "Consoante inicial" })
+        .getByRole("button", { name: step.initial, exact: true })
+        .click();
+      await page
+        .getByRole("group", { name: "Vogal" })
+        .getByRole("button", { name: step.medial, exact: true })
+        .click();
+      if (step.final) {
+        await page
+          .getByRole("group", { name: "Consoante final" })
+          .getByRole("button", { name: step.final, exact: true })
+          .click();
+      }
+    }
+    await page.getByRole("button", { name: "Conferir" }).click();
+    await expect(
+      page
+        .getByRole("status")
+        .filter({ hasText: wrong ? "Ainda não." : "Correto." }),
+    ).toBeVisible();
+    await page
+      .getByRole("button", {
+        name: index === C4_STEPS.length - 1 ? "Concluir checkpoint" : "Continuar",
+      })
+      .click();
+  }
+}
+
 test.describe("Unidade 7 e checkpoint c4 autenticados", () => {
   test.beforeEach(async ({ context }) => {
     await authenticate(context);
@@ -747,7 +788,7 @@ test.describe("Unidade 7 e checkpoint c4 autenticados", () => {
   });
 
   test("c4 fica bloqueado até h21–h25 serem concluídas", async ({ page }) => {
-    await seedCompletedLessons(page, COMPLETED_THROUGH_H20);
+    await seedCompletedLessons(page, COMPLETED_THROUGH_C3);
 
     await page.goto("/hangul");
     await expect(page.getByText("Após h01–h25", { exact: true })).toBeVisible();
@@ -757,7 +798,17 @@ test.describe("Unidade 7 e checkpoint c4 autenticados", () => {
       page.getByRole("heading", { level: 1, name: /Checkpoint 4/ }),
     ).toBeVisible();
     await expect(page.getByText("Checkpoint bloqueado")).toBeVisible();
-    await expect(page.getByText(/Pendentes:.*h21/)).toBeVisible();
+    await expect(page.getByText(/Lições do escopo: h21, h22, h23, h24, h25/)).toBeVisible();
+    await expect(page.getByText(/Checkpoints anteriores:/)).toHaveCount(0);
+  });
+
+  test("c4 também exige os checkpoints anteriores", async ({ page }) => {
+    await seedCompletedLessons(page, COMPLETED_THROUGH_H20);
+
+    await page.goto("/hangul/c4");
+    await expect(page.getByText("Checkpoint bloqueado")).toBeVisible();
+    await expect(page.getByText("Checkpoints anteriores: c3.")).toBeVisible();
+    await expect(page.getByText(/Lições do escopo: h21/)).toBeVisible();
   });
 
   test("c4 abre com 25 lições, registra 100% e conclui o módulo", async ({
@@ -777,48 +828,29 @@ test.describe("Unidade 7 e checkpoint c4 autenticados", () => {
     await expect(page.getByText(/24 de 30/)).toBeVisible();
     await page.getByRole("button", { name: "Começar checkpoint" }).click();
 
-    for (const [index, step] of C4_STEPS.entries()) {
-      if (step.kind === "choice") {
-        await page
-          .getByRole("button", { name: step.name, exact: true })
-          .first()
-          .click();
-      } else {
-        await page
-          .getByRole("group", { name: "Consoante inicial" })
-          .getByRole("button", { name: step.initial, exact: true })
-          .click();
-        await page
-          .getByRole("group", { name: "Vogal" })
-          .getByRole("button", { name: step.medial, exact: true })
-          .click();
-        if (step.final) {
-          await page
-            .getByRole("group", { name: "Consoante final" })
-            .getByRole("button", { name: step.final, exact: true })
-            .click();
-        }
-      }
-      await page.getByRole("button", { name: "Conferir" }).click();
-      await expect(
-        page.getByRole("status").filter({ hasText: "Correto." }),
-      ).toBeVisible();
-      await page
-        .getByRole("button", {
-          name:
-            index === C4_STEPS.length - 1 ? "Concluir checkpoint" : "Continuar",
-        })
-        .click();
-    }
+    await playC4(page);
 
     await expect(
       page.getByRole("heading", { level: 1, name: "Módulo Hangul concluído" }),
     ).toBeVisible();
     await expect(page.getByText("Você acertou 30 de 30 (100%).")).toBeVisible();
+    await expect(page.getByText(/não uma certificação oficial de proficiência/)).toBeVisible();
     await expect(
-      page.getByText(/Não há certificado de proficiência/),
+      page.getByText(/O próximo módulo \(CEFR A1\) ainda não está disponível/),
     ).toBeVisible();
+    await expect(page.getByText("30 corretos · 0 incorretos.")).toBeVisible();
+    await expect(page.getByText("Nenhum item errado nesta tentativa.")).toBeVisible();
     await expect(page.getByRole("link", { name: /Próximo:/ })).toHaveCount(0);
+    await expect(page.getByRole("link", { name: "Revisar cartões" })).toHaveAttribute(
+      "href",
+      "/revisao",
+    );
+    await expect(page.getByRole("link", { name: "Ir para o painel" })).toHaveAttribute(
+      "href",
+      "/dashboard",
+    );
+    await expect(page.getByRole("link", { name: /h01/ }).first()).toBeVisible();
+    await expect(page.getByRole("link", { name: /c4.*Checkpoint 4/ })).toBeVisible();
 
     await expect
       .poll(async () =>
@@ -831,16 +863,77 @@ test.describe("Unidade 7 e checkpoint c4 autenticados", () => {
 
     await page.reload();
     await expect(
-      page.getByRole("heading", { level: 1, name: /Checkpoint 4/ }),
+      page.getByRole("heading", { level: 1, name: "Módulo Hangul concluído" }),
     ).toBeVisible();
-    await expect(
-      page.getByRole("button", { name: "Começar checkpoint" }),
-    ).toBeVisible();
+    await expect(page.getByRole("button", { name: "Refazer checkpoint" })).toBeVisible();
+    await expect(page.getByText(/Seu melhor score registrado no checkpoint final é 100%/)).toBeVisible();
 
     await page.goto("/hangul");
     await expect(
       page.getByRole("heading", { name: "Módulo Hangul concluído" }),
     ).toBeVisible();
     await expect(page.getByText("Em breve")).toHaveCount(0);
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= window.innerWidth,
+      ),
+    ).toBe(true);
+  });
+
+  test("c4 com um erro mostra contagem, áreas de estudo e link de revisão", async ({
+    page,
+  }) => {
+    await seedCompletedLessons(page, COMPLETED_ALL_LESSONS_AND_PREVIOUS_CHECKPOINTS);
+
+    await page.goto("/hangul/c4");
+    await page.getByRole("button", { name: "Começar checkpoint" }).click();
+    await playC4(page, { wrongFirst: true });
+
+    await expect(
+      page.getByRole("heading", { level: 1, name: "Módulo Hangul concluído" }),
+    ).toBeVisible();
+    await expect(page.getByText("Você acertou 29 de 30 (97%).")).toBeVisible();
+    await expect(page.getByText("29 corretos · 1 incorretos.")).toBeVisible();
+
+    const areas = page.getByRole("region", {
+      name: "Áreas para estudar antes de seguir",
+    });
+    await expect(areas).toBeVisible();
+    await expect(areas.getByRole("link", { name: "h04" })).toHaveAttribute(
+      "href",
+      "/hangul/h04",
+    );
+    await expect(areas.getByText(/consoantes básicas/i)).toBeVisible();
+
+    const feedbackLink = page.getByRole("link", {
+      name: "Rever pontos do checkpoint",
+    });
+    const feedbackBox = await feedbackLink.boundingBox();
+    expect(feedbackBox?.height ?? 0).toBeGreaterThanOrEqual(44);
+    await feedbackLink.focus();
+    await expect(feedbackLink).toBeFocused();
+    await page.keyboard.press("Enter");
+    await expect(page).toHaveURL(/#checkpoint-feedback$/);
+
+    await expect
+      .poll(async () =>
+        page.evaluate((key) => {
+          const raw = window.localStorage.getItem(key);
+          return raw ? JSON.parse(raw).lessons?.c4 : null;
+        }, `kbr:user:${TEST_USER.id}:v1`),
+      )
+      .toEqual({ done: true, score: 97 });
+
+    await page.reload();
+    await expect(
+      page.getByRole("heading", { level: 1, name: "Módulo Hangul concluído" }),
+    ).toBeVisible();
+    await expect(page.getByText(/Seu melhor score registrado no checkpoint final é 97%/)).toBeVisible();
+
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= window.innerWidth,
+      ),
+    ).toBe(true);
   });
 });

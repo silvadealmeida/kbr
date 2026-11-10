@@ -4,6 +4,7 @@ const protectedRoutes = [
   ["/dashboard", "%2Fdashboard"],
   ["/hangul", "%2Fhangul"],
   ["/hangul/h01", "%2Fhangul%2Fh01"],
+  ["/hangul/c1", "%2Fhangul%2Fc1"],
   ["/vocabulario", "%2Fvocabulario"],
   ["/licoes", "%2Flicoes"],
   ["/revisao", "%2Frevisao"],

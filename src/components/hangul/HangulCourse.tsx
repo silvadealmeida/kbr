@@ -3,9 +3,10 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { COURSE_OUTLINE } from "@/content/hangul/outline";
+import { getCheckpoint } from "@/content/hangul/checkpoints";
 import { getLesson } from "@/content/hangul/lessons";
 import { useAuth } from "@/components/auth/AuthProvider";
-import { isLessonUnlocked } from "@/lib/progress/lesson";
+import { isCheckpointUnlocked, isLessonUnlocked } from "@/lib/progress/lesson";
 import type { Progress } from "@/lib/storage";
 
 function StatusBadge({ children, tone = "muted" }: { children: React.ReactNode; tone?: "muted" | "brand" }) {
@@ -38,85 +39,138 @@ export function HangulCourse() {
   return (
     <div className="flex flex-col gap-6">
       <p className="rounded-2xl border border-border bg-surface p-4 text-sm text-muted">
-        Conteúdo coreano em revisão por falante nativo. As três primeiras lições já podem ser
-        feitas; o restante do curso está em desenvolvimento.
+        Conteúdo coreano em revisão por falante nativo. As lições h01–h10 e o checkpoint c1 já
+        podem ser feitos; o restante do curso está em desenvolvimento.
       </p>
 
-      {COURSE_OUTLINE.map((unit) => (
-        <section key={unit.unit} aria-labelledby={`unit-${unit.unit}`}>
-          <div className="mb-2 flex items-baseline justify-between gap-3">
-            <h2 id={`unit-${unit.unit}`} className="text-lg font-semibold">
-              Unidade {unit.unit} · {unit.title}
-            </h2>
-            {unit.checkpoint ? <StatusBadge>Checkpoint {unit.checkpoint} em breve</StatusBadge> : null}
-          </div>
+      {COURSE_OUTLINE.map((unit) => {
+        const checkpoint = unit.checkpoint ? getCheckpoint(unit.checkpoint) : undefined;
+        return (
+          <section key={unit.unit} aria-labelledby={`unit-${unit.unit}`}>
+            <div className="mb-2 flex items-baseline justify-between gap-3">
+              <h2 id={`unit-${unit.unit}`} className="text-lg font-semibold">
+                Unidade {unit.unit} · {unit.title}
+              </h2>
+              {unit.checkpoint && !checkpoint ? (
+                <StatusBadge>Checkpoint {unit.checkpoint} em breve</StatusBadge>
+              ) : null}
+            </div>
 
-          <ul className="flex flex-col gap-2">
-            {unit.lessons.map((outline) => {
-              const lesson = getLesson(outline.id);
-              if (!lesson) {
-                return (
-                  <li
-                    key={outline.id}
-                    className="flex min-h-14 items-center justify-between gap-3 rounded-xl border border-dashed border-border px-4 py-3"
-                  >
+            <ul className="flex flex-col gap-2">
+              {unit.lessons.map((outline) => {
+                const lesson = getLesson(outline.id);
+                if (!lesson) {
+                  return (
+                    <li
+                      key={outline.id}
+                      className="flex min-h-14 items-center justify-between gap-3 rounded-xl border border-dashed border-border px-4 py-3"
+                    >
+                      <span className="flex min-w-0 flex-col">
+                        <span className="text-xs font-semibold text-muted">{outline.id}</span>
+                        <span className="truncate text-muted">{outline.title}</span>
+                      </span>
+                      <StatusBadge>Em breve</StatusBadge>
+                    </li>
+                  );
+                }
+
+                const record = progress?.lessons[outline.id];
+                const unlocked = progress
+                  ? isLessonUnlocked(progress, lesson)
+                  : lesson.prerequisites.length === 0;
+
+                const body = (
+                  <>
                     <span className="flex min-w-0 flex-col">
-                      <span className="text-xs font-semibold text-muted">{outline.id}</span>
-                      <span className="truncate text-muted">{outline.title}</span>
+                      <span className="text-xs font-semibold text-muted">
+                        {outline.id} · {lesson.estimatedMinutes} min
+                      </span>
+                      <span className={`truncate font-medium ${unlocked ? "text-fg" : "text-muted"}`}>
+                        {outline.title}
+                      </span>
                     </span>
-                    <StatusBadge>Em breve</StatusBadge>
+                    {record?.done ? (
+                      <StatusBadge tone="brand">Concluída · {record.score}%</StatusBadge>
+                    ) : unlocked ? (
+                      <StatusBadge tone="brand">Disponível</StatusBadge>
+                    ) : (
+                      <StatusBadge>Após {lesson.prerequisites.join(", ")}</StatusBadge>
+                    )}
+                  </>
+                );
+
+                return (
+                  <li key={outline.id}>
+                    {unlocked ? (
+                      <Link
+                        href={`/hangul/${outline.id}`}
+                        className="flex min-h-14 items-center justify-between gap-3 rounded-xl border border-border bg-surface px-4 py-3 hover:bg-soft"
+                      >
+                        {body}
+                      </Link>
+                    ) : (
+                      <div
+                        aria-disabled="true"
+                        className="flex min-h-14 items-center justify-between gap-3 rounded-xl border border-border px-4 py-3 opacity-80"
+                      >
+                        {body}
+                      </div>
+                    )}
                   </li>
                 );
-              }
+              })}
 
-              const record = progress?.lessons[outline.id];
-              const unlocked = progress
-                ? isLessonUnlocked(progress, lesson)
-                : lesson.prerequisites.length === 0;
+              {checkpoint ? (
+                <li>
+                  {(() => {
+                    const record = progress?.lessons[checkpoint.id];
+                    const unlocked = progress
+                      ? isCheckpointUnlocked(progress, checkpoint)
+                      : false;
+                    const body = (
+                      <>
+                        <span className="flex min-w-0 flex-col">
+                          <span className="text-xs font-semibold text-muted">
+                            {checkpoint.id} · {checkpoint.estimatedMinutes} min · checkpoint
+                          </span>
+                          <span className={`truncate font-medium ${unlocked ? "text-fg" : "text-muted"}`}>
+                            {checkpoint.title}
+                          </span>
+                        </span>
+                        {record?.done ? (
+                          <StatusBadge tone="brand">Concluído · {record.score}%</StatusBadge>
+                        ) : unlocked ? (
+                          <StatusBadge tone="brand">Disponível</StatusBadge>
+                        ) : (
+                          <StatusBadge>
+                            Após {checkpoint.lessonIds[0]}–{checkpoint.lessonIds[checkpoint.lessonIds.length - 1]}
+                          </StatusBadge>
+                        )}
+                      </>
+                    );
 
-              const body = (
-                <>
-                  <span className="flex min-w-0 flex-col">
-                    <span className="text-xs font-semibold text-muted">
-                      {outline.id} · {lesson.estimatedMinutes} min
-                    </span>
-                    <span className={`truncate font-medium ${unlocked ? "text-fg" : "text-muted"}`}>
-                      {outline.title}
-                    </span>
-                  </span>
-                  {record?.done ? (
-                    <StatusBadge tone="brand">Concluída · {record.score}%</StatusBadge>
-                  ) : unlocked ? (
-                    <StatusBadge tone="brand">Disponível</StatusBadge>
-                  ) : (
-                    <StatusBadge>Após {lesson.prerequisites.join(", ")}</StatusBadge>
-                  )}
-                </>
-              );
-
-              return (
-                <li key={outline.id}>
-                  {unlocked ? (
-                    <Link
-                      href={`/hangul/${outline.id}`}
-                      className="flex min-h-14 items-center justify-between gap-3 rounded-xl border border-border bg-surface px-4 py-3 hover:bg-soft"
-                    >
-                      {body}
-                    </Link>
-                  ) : (
-                    <div
-                      aria-disabled="true"
-                      className="flex min-h-14 items-center justify-between gap-3 rounded-xl border border-border px-4 py-3 opacity-80"
-                    >
-                      {body}
-                    </div>
-                  )}
+                    return unlocked ? (
+                      <Link
+                        href={`/hangul/${checkpoint.id}`}
+                        className="flex min-h-14 items-center justify-between gap-3 rounded-xl border-2 border-brand/40 bg-surface px-4 py-3 hover:bg-soft"
+                      >
+                        {body}
+                      </Link>
+                    ) : (
+                      <div
+                        aria-disabled="true"
+                        className="flex min-h-14 items-center justify-between gap-3 rounded-xl border border-dashed border-border px-4 py-3 opacity-80"
+                      >
+                        {body}
+                      </div>
+                    );
+                  })()}
                 </li>
-              );
-            })}
-          </ul>
-        </section>
-      ))}
+              ) : null}
+            </ul>
+          </section>
+        );
+      })}
     </div>
   );
 }

@@ -35,7 +35,10 @@ Thumbs.db
 
 # Gerados / config local de agentes
 next-env.d.ts
-/graphify-out/
+/graphify-out/cache/
 /.claude/
 /.codex/
 /.opencode/
+/.agents/
+/.playwright/
+/graphify-out/.graphify_*

@@ -1,0 +1,254 @@
+{
+  ".claude/settings.json": {
+    "mtime": 1794305602.8885148,
+    "seen": 1794305686.7124572,
+    "ast_hash": "8eafe95f2f857d090df6c04324b234d1",
+    "semantic_hash": ""
+  },
+  ".codex/hooks.json": {
+    "mtime": 1794305602.9643834,
+    "seen": 1794305686.7124615,
+    "ast_hash": "376dae27403c2213247694fae9f66954",
+    "semantic_hash": ""
+  },
+  ".playwright/cli.config.json": {
+    "mtime": 1794304504.8294938,
+    "seen": 1794305686.7124631,
+    "ast_hash": "4e481842f3d0c9a34175cae0a55192d5",
+    "semantic_hash": ""
+  },
+  "e2e/smoke.spec.ts": {
+    "mtime": 1794303494.0487006,
+    "seen": 1794305686.712464,
+    "ast_hash": "f2e5734f28f9bc40aba877982da315dd",
+    "semantic_hash": ""
+  },
+  "next-env.d.ts": {
+    "mtime": 1794305484.0953646,
+    "seen": 1794305686.7124648,
+    "ast_hash": "aa94238a90e7d04b7a47ecc3145ba6a0",
+    "semantic_hash": ""
+  },
+  "next.config.mjs": {
+    "mtime": 1794303494.032698,
+    "seen": 1794305686.7124658,
+    "ast_hash": "e7e903292711dd5aeb5a8c50deb849a6",
+    "semantic_hash": ""
+  },
+  "package.json": {
+    "mtime": 1794305298.3280818,
+    "seen": 1794305686.7124665,
+    "ast_hash": "00393c8421791510a8b02f17d671bd15",
+    "semantic_hash": ""
+  },
+  "playwright.config.ts": {
+    "mtime": 1794303494.0366986,
+    "seen": 1794305686.712467,
+    "ast_hash": "3053a43f7faaff019d09eaa9179c8185",
+    "semantic_hash": ""
+  },
+  "postcss.config.mjs": {
+    "mtime": 1794303494.032698,
+    "seen": 1794305686.7124674,
+    "ast_hash": "2077692efeb6700dfe6ba644fb544790",
+    "semantic_hash": ""
+  },
+  "src/app/hangul/page.tsx": {
+    "mtime": 1794303494.0447,
+    "seen": 1794305686.712468,
+    "ast_hash": "6ac523819ac6129b6b359fd73107b7d3",
+    "semantic_hash": ""
+  },
+  "src/app/layout.tsx": {
+    "mtime": 1794305440.0427442,
+    "seen": 1794305686.7124684,
+    "ast_hash": "cdd70c9f17c88c8b6c0d947513e03bcf",
+    "semantic_hash": ""
+  },
+  "src/app/licoes/page.tsx": {
+    "mtime": 1794303494.0447,
+    "seen": 1794305686.7124693,
+    "ast_hash": "fd9406cc9aced4681fffb7a9fb7d3739",
+    "semantic_hash": ""
+  },
+  "src/app/page.tsx": {
+    "mtime": 1794303500.2027698,
+    "seen": 1794305686.71247,
+    "ast_hash": "b15515314993c198697d15f78d3a42ad",
+    "semantic_hash": ""
+  },
+  "src/app/revisao/page.tsx": {
+    "mtime": 1794303494.0487006,
+    "seen": 1794305686.712471,
+    "ast_hash": "38679afa5db6b9013285c1d796378e76",
+    "semantic_hash": ""
+  },
+  "src/app/vocabulario/page.tsx": {
+    "mtime": 1794303494.0447,
+    "seen": 1794305686.7124717,
+    "ast_hash": "ff9f135a2bf1d46910cf3f2eb0ad203d",
+    "semantic_hash": ""
+  },
+  "src/components/Nav.tsx": {
+    "mtime": 1794303500.1987693,
+    "seen": 1794305686.7124727,
+    "ast_hash": "b127daf9f1aebc0e9940e9a3dca8715f",
+    "semantic_hash": ""
+  },
+  "src/components/ThemeToggle.tsx": {
+    "mtime": 1794303494.0406992,
+    "seen": 1794305686.7124734,
+    "ast_hash": "5e4b5882ffe74fef9a176b46c43044a6",
+    "semantic_hash": ""
+  },
+  "src/components/ui/Button.tsx": {
+    "mtime": 1794303494.0406992,
+    "seen": 1794305686.7124739,
+    "ast_hash": "1b69727e22e6c75bd2be7fdb1ceb3012",
+    "semantic_hash": ""
+  },
+  "src/components/ui/Card.tsx": {
+    "mtime": 1794303494.0406992,
+    "seen": 1794305686.7124746,
+    "ast_hash": "23c96d299cc01ac34284a0eaa457e6f9",
+    "semantic_hash": ""
+  },
+  "src/components/ui/EmptyState.tsx": {
+    "mtime": 1794303494.0406992,
+    "seen": 1794305686.7124753,
+    "ast_hash": "f07bbadc533517f17359bf28a01b82d6",
+    "semantic_hash": ""
+  },
+  "src/components/ui/PageHeader.tsx": {
+    "mtime": 1794303494.0406992,
+    "seen": 1794305686.712476,
+    "ast_hash": "4009522389b1ffa4c198c2f5f18172c8",
+    "semantic_hash": ""
+  },
+  "src/lib/routes.ts": {
+    "mtime": 1794303500.1987693,
+    "seen": 1794305686.7124767,
+    "ast_hash": "5a54f42e0ea6cb36d0dd013a6f63e0df",
+    "semantic_hash": ""
+  },
+  "tests/routes.test.ts": {
+    "mtime": 1794303500.1987693,
+    "seen": 1794305686.7124774,
+    "ast_hash": "a570f539367cc7af1cf6f546a9530b63",
+    "semantic_hash": ""
+  },
+  "tsconfig.json": {
+    "mtime": 1794305353.468902,
+    "seen": 1794305686.712478,
+    "ast_hash": "773cfa09ee8d323ed048671c140ec06c",
+    "semantic_hash": ""
+  },
+  "vitest.config.ts": {
+    "mtime": 1794303494.032698,
+    "seen": 1794305686.7124784,
+    "ast_hash": "9f6502e0928f040a288b3077de99cdf1",
+    "semantic_hash": ""
+  },
+  ".agents/skills/playwright-cli/SKILL.md": {
+    "mtime": 1794304471.490021,
+    "seen": 1794305686.7124789,
+    "ast_hash": "b4c813d355059d18dd8c56ab7d78e5dd",
+    "semantic_hash": ""
+  },
+  ".agents/skills/playwright-cli/references/element-attributes.md": {
+    "mtime": 1794304471.490021,
+    "seen": 1794305686.7124798,
+    "ast_hash": "8b8ffc48e38a5b4a04baec18a2732cd7",
+    "semantic_hash": ""
+  },
+  ".agents/skills/playwright-cli/references/playwright-tests.md": {
+    "mtime": 1794304471.490021,
+    "seen": 1794305686.7124805,
+    "ast_hash": "99970dceff6228941c8f994e7dd71d27",
+    "semantic_hash": ""
+  },
+  ".agents/skills/playwright-cli/references/pr-attachments.md": {
+    "mtime": 1794304471.490021,
+    "seen": 1794305686.712481,
+    "ast_hash": "1177e18d35661616471a5dbc56d915b8",
+    "semantic_hash": ""
+  },
+  ".agents/skills/playwright-cli/references/request-mocking.md": {
+    "mtime": 1794304471.490021,
+    "seen": 1794305686.7124817,
+    "ast_hash": "3b74af1fc908062c9c7f2cef04be6a24",
+    "semantic_hash": ""
+  },
+  ".agents/skills/playwright-cli/references/running-code.md": {
+    "mtime": 1794304471.4860196,
+    "seen": 1794305686.7124822,
+    "ast_hash": "34af4a810e9d3b3b1f01801ba7bc0058",
+    "semantic_hash": ""
+  },
+  ".agents/skills/playwright-cli/references/session-management.md": {
+    "mtime": 1794304471.490021,
+    "seen": 1794305686.712483,
+    "ast_hash": "911dd3af00bd5e8c8fa4515970d90dc1",
+    "semantic_hash": ""
+  },
+  ".agents/skills/playwright-cli/references/storage-state.md": {
+    "mtime": 1794304471.490021,
+    "seen": 1794305686.7124836,
+    "ast_hash": "c08abef5555579182415cbf6fe38540b",
+    "semantic_hash": ""
+  },
+  ".agents/skills/playwright-cli/references/test-generation.md": {
+    "mtime": 1794304471.490021,
+    "seen": 1794305686.7124841,
+    "ast_hash": "beb47388c77b47110c94e3c34739357f",
+    "semantic_hash": ""
+  },
+  ".agents/skills/playwright-cli/references/tracing.md": {
+    "mtime": 1794304471.490021,
+    "seen": 1794305686.7124848,
+    "ast_hash": "fd0e9fbd229a8954b2ac86a53c79308e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/playwright-cli/references/video-recording.md": {
+    "mtime": 1794304471.4860196,
+    "seen": 1794305686.7124853,
+    "ast_hash": "839208845060c048ac8e23f114e11aab",
+    "semantic_hash": ""
+  },
+  "AGENTS.md": {
+    "mtime": 1794305602.9643834,
+    "seen": 1794305686.7124858,
+    "ast_hash": "f83fc8f709e125b1734834b7f7a366e6",
+    "semantic_hash": ""
+  },
+  "CLAUDE.md": {
+    "mtime": 1794305602.8885148,
+    "seen": 1794305686.7124867,
+    "ast_hash": "ffb31ba6167db159c640f1d3821e0501",
+    "semantic_hash": ""
+  },
+  "docs/architecture.md": {
+    "mtime": 1794303208.3745925,
+    "seen": 1794305686.7124872,
+    "ast_hash": "ed55ad3aac51efc007fb1f95cc238cd9",
+    "semantic_hash": ""
+  },
+  "docs/research.md": {
+    "mtime": 1794303208.3745925,
+    "seen": 1794305686.7124877,
+    "ast_hash": "a09812821175024e5accf0ccba82397a",
+    "semantic_hash": ""
+  },
+  "docs/roadmap.md": {
+    "mtime": 1794305455.7240279,
+    "seen": 1794305686.7124884,
+    "ast_hash": "3ab3bab894f9681908677893e635b419",
+    "semantic_hash": ""
+  },
+  "package-lock.json": {
+    "mtime": 1794305483.384207,
+    "seen": 1794305686.712489,
+    "ast_hash": "a9645e336d54f4c416393520de096258",
+    "semantic_hash": ""
+  }
+}

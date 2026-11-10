@@ -1,9 +1,9 @@
 # KBR — Roadmap
 
 ## Estado atual (atualize a cada commit — é o ponto de retomada entre agentes)
-- **Fase concluída:** 4A — revisão espaçada funcional em `/revisao`, sobre os cartões Leitner e o `Progress` v1 existentes; o módulo Hangul (`h01`–`h25`, `c1`–`c4`) permanece completo.
+- **Fase concluída:** 4B — painel `/dashboard` com progresso real, próximo passo desbloqueado, estatísticas derivadas do histórico, fila/Leitner e atividade recente; a Fase 4A (`/revisao`) e o módulo Hangul (`h01`–`h25`, `c1`–`c4`) permanecem funcionais.
 - **Em andamento:** nada.
-- **Próximo passo:** Fase 4B — primeira lição CEFR A1 (saudações/apresentação) com vocabulário, diálogo e exercícios integrados ao SRS, somente com pedido explícito.
+- **Próximo passo:** Fase 4C — primeira lição CEFR A1 (saudações/apresentação) com vocabulário, diálogo e exercícios integrados ao SRS, somente com pedido explícito.
 - **Bloqueios / decisões pendentes:** revisão de todo o conteúdo coreano por falante nativo/professor (status `in-review`, com atenção especial às transcrições didáticas de ligação/nasalização/aspiração — `한구거`, `일거요`, `안자요`, `임니다`, `한궁말`, `감사함니다`, `조타`, `추카`, `이팍`, `배콰점`, `구콰`, `전와` —, à naturalidade das frases de h24/h25/c4, a ㅐ/ㅔ, ㅚ/ㅙ/ㅞ, ㅟ, ㅢ, ㄹ final e aos 11 batchim duplos); a regra de h18 “5 dos 6 sons finais já vistos” é aproximada por `h18-seen-sounds` (ele não bloqueia sozinho porque `minCorrect` já exige a maioria dos itens); a tradução de `곬` (palavra rara) precisa de confirmação; execução de voz `ko-KR` varia por navegador (fallback textual); cartões de revisão só nascem de erros já registrados (não há cartões novos, importação nem revisão de vocabulário CEFR); fluxo autenticado e sincronização validados só contra Supabase mock, não contra o projeto real; revisão jurídica da política/Impressum; executar `supabase test db` contra a stack local; testar o fluxo completo em iPhone/Chrome iOS real (manual).
 - **Último agente:** OpenCode.
 
@@ -24,9 +24,11 @@ Fases pequenas, cada uma com commit(s) próprio e `npm test` verde antes de avan
 | 3B.5 | Unidade 7 e checkpoint `c4` (**feita**) | `h21`–`h25` (ligação, nasalização, aspiração, oficina de leitura, consolidação), regras tipadas, transformações puras de pronúncia, `c4` e conclusão do módulo | typecheck + 205 Vitest + build + 100 Playwright |
 | 3B | Módulo Hangul (**conteúdo completo; áudio dedicado e construtor livre pendentes**) | `h01`–`h25` + `c1`–`c4`, exercícios de montagem, SRS por erro e navegação completa | Vitest + e2e |
 | 4A | Revisão espaçada funcional (**feita**) | fila determinística de cartões vencidos, player reutilizando `ExerciseView`, atualização Leitner por acerto/erro, estado vazio/conclusão e persistência local-first | typecheck + 219 Vitest + build + 120 Playwright |
+| 4B | Painel de progresso real (**feita**) | `/dashboard` com próximo passo desbloqueado, progresso do curso, estatísticas do histórico, sequência por dia local, caixas Leitner, fila e atividade recente; sem novos campos persistentes | typecheck + 241 Vitest + build + 144 Playwright |
+| 4C | Primeira lição CEFR A1 (pendente) | saudação/apresentação com vocabulário, diálogo e exercícios integrados ao SRS | Vitest + e2e |
 | 4 | Lições 1–3 | 3 lições originais (diálogo, vocabulário, nota de gramática, exercícios): ex. cumprimentos/apresentação (이에요/예요), objetos/lugares (은/는, 이/가), rotina/comida (을/를, -아요/어요) | e2e fluxo |
 | 5 | Vocabulário | frases com lacuna, tradução, escuta | e2e |
-| 6 | Revisão + Dashboard | cartões vencidos, histórico, estatísticas reais, streak, meta diária, "continuar" | Vitest + e2e |
+| 6 | Revisão + Dashboard (**antecipada parcialmente por 4A/4B**; falta meta diária e evolução do painel) | cartões vencidos, histórico, estatísticas reais, streak, meta diária, "continuar" | Vitest + e2e |
 | 7 | Polimento | acessibilidade, dark mode, reduced motion, estados vazios, export/import JSON (opcional) | axe/manual |
 | 8 | Teste responsivo | 375/390/768/1280 em Chromium + WebKit; checklist manual iPhone/Chrome iOS | screenshots |
 | 9 | README | instruções locais, limitações | — |
@@ -164,4 +166,19 @@ Testes: `npm run typecheck`; `npm test` (16 arquivos, 219 testes); `npm run buil
 
 Limitações conhecidas: a fila só encontra cartões criados por erros anteriores; não há cartões novos, conteúdo CEFR, importação ou edição manual. A sessão é limitada a 20 cartões e não oferece pausa/retomada no meio. A proximidade de “vencido antes de hoje” usa o dia local do navegador. O snapshot remoto continua sendo gravado inteiro pelo store sincronizado, então duas sessões simultâneas em dispositivos diferentes podem sobrescrever a agenda uma da outra; o merge automático ocorre no login/carga, não durante a sessão. O fluxo autenticado segue validado contra Supabase mock; iPhone/Chrome iOS real continua manual.
 
-Próximo passo: Fase 4B — primeira lição CEFR A1 (saudações/apresentação) com vocabulário, diálogo e exercícios integrados ao SRS, somente com pedido explícito.
+Próximo passo após 4A: Fase 4B — painel de progresso real (concluída; ver abaixo).
+
+## Status Fase 4B (real)
+Feito: `/dashboard` deixou de ser um placeholder e passou a resumir o `Progress` v1 existente sem criar campos, migração ou formato novo. `src/lib/progress/dashboard.ts` é puro e determinístico (`progress`, `now` e conteúdo injetados): calcula progresso do curso (lições + checkpoints), estatísticas de tentativas, dias/sequências, contagens por caixa Leitner, fila de revisão e atividade recente. `buildDashboardSummary` não altera o progresso e lança `RangeError` para relógio inválido.
+
+Curso e próximo passo: `buildCourseSteps` intercala `h01`–`h10` → `c1` → `h11`–`h15` → `c2` → `h16`–`h20` → `c3` → `h21`–`h25` → `c4`; `isCourseStepUnlocked` respeita os pré-requisitos e `nextRecommendedCourseStep` só recomenda conteúdo implementado e desbloqueado. Com tudo concluído, o painel mostra “Módulo Hangul concluído”, afirma que não é certificação e não libera CEFR A1. Dados legados/inconsistentes não fazem o painel recomendar conteúdo bloqueado: ele mostra “Próximo passo indisponível”.
+
+Estatísticas: tentativas válidas do histórico são classificadas em lição, checkpoint, revisão (`review:<cardId>`) e “atividade anterior”; repetições contam como prática e exercícios únicos contam uma vez. Precisão usa `null`/“—” quando não há denominador. A sequência atual/maior sequência é derivada das datas locais do histórico, não do campo `Progress.streak` (que o código atual não mantém). Cartões Leitner só contam estado válido e chave reconhecida; chaves antigas sem conteúdo são contadas à parte e não entram na fila. A fila reutiliza `buildReviewQueue` (limite de 20 por sessão).
+
+UI e falhas: `DashboardArea` carrega pelo `ProgressStore`, preserva estados vazio/carregando/erro, usa `ProgressBar` acessível, listas semânticas e alvos ≥44 px. O aviso de sincronização só diz “Salvo neste dispositivo… pendente” quando o status é `offline` e “Sincronizando…” durante o envio; o painel nunca afirma que dados não sincronizados estão na nuvem.
+
+Testes: `npm run typecheck`; `npm test` (17 arquivos, 241 testes); `npm run build`; `npm run e2e` (144 testes, 375/390/768/1280). A cobertura nova inclui ordem/recomendação do curso, zero/parcial/conclusão, checkpoints, estatísticas e precisão, virada de dia/sequência, persistência após recarga, dados legados, caixas Leitner, fila vazia/limite, painel protegido, teclado, alvos de toque, ausência de overflow e falha de sincronização.
+
+Limitações conhecidas: o painel não cria meta diária editável, não exporta/importa dados e não mostra gráficos históricos. `Progress.streak` continua obsoleto; a fonte é o histórico. A sincronização remota continua sendo um snapshot inteiro com merge na carga/login, não durante a sessão: duas sessões simultâneas em dispositivos diferentes podem sobrescrever agenda/histórico uma da outra. O fluxo autenticado segue validado contra Supabase mock; iPhone/Chrome iOS real continua manual.
+
+Próximo passo: Fase 4C — primeira lição CEFR A1 (saudações/apresentação) com vocabulário, diálogo e exercícios integrados ao SRS, somente com pedido explícito.

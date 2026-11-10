@@ -4,7 +4,7 @@ App web de estudo de coreano para brasileiros (mobile-first, Chrome no Windows/i
 Fontes de verdade: `docs/architecture.md` (stack, estrutura, modelo de dados, interfaces), `docs/research.md` (pedagogia, limites de conteúdo), `docs/roadmap.md` (fases e status). **Leia-os antes de mexer; não repita a pesquisa e não duplique o conteúdo deles aqui.**
 
 ## Fase atual
-**Fase 4A — revisão espaçada funcional** concluída: `/revisao` agora seleciona cartões vencidos do Leitner existente, apresenta sessões interativas por teclado/toque, aplica acerto/erro ao mesmo cartão e persiste cada resposta no store local-first. O módulo Hangul continua completo (`h01`–`h25`, `c1`–`c4`). A **Fase 4B / CEFR A1 não foi iniciada**; só comece com pedido explícito. Status real, limitações e pendências: `docs/roadmap.md`, `docs/architecture.md` (§Revisão/Testes) e `docs/privacy-audit.md`.
+**Fase 4B — painel de progresso real** concluída: `/dashboard` resume o `Progress` v1 existente, recomenda o próximo passo desbloqueado do curso, mostra estatísticas derivadas do histórico, fila/Leitner e atividade recente, com estados vazios e aviso de sincronização pendente. A Fase 4A (`/revisao`) permanece funcional e o módulo Hangul continua completo (`h01`–`h25`, `c1`–`c4`). A **Fase 4C / CEFR A1 não foi iniciada**; só comece com pedido explícito. Status real, limitações e pendências: `docs/roadmap.md`, `docs/architecture.md` (§Painel/Revisão/Testes) e `docs/privacy-audit.md`.
 O Proxy do Next 16 fica em `src/proxy.ts` (o App Router está em `src/app`); não recrie `proxy.ts` na raiz.
 
 ## Regras

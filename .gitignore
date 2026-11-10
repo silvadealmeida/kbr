@@ -32,3 +32,10 @@ Thumbs.db
 .vscode/
 # Playwright CLI output (may contain credentials)
 .playwright-cli/
+
+# Gerados / config local de agentes
+next-env.d.ts
+/graphify-out/
+/.claude/
+/.codex/
+/.opencode/

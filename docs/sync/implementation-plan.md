@@ -1,7 +1,8 @@
 # KBR — Plano de implementação da sincronização confiável (Fase 4D.2)
 
-**Status:** proposta para a próxima fase. Nada aqui foi aplicado ao banco nem implementado na 4D.1.
+**Status:** implementado no código e verificado localmente na Fase 4D.2. A migração **não foi aplicada ao projeto Supabase real** e o deploy do cliente não foi feito. As seções de operação abaixo são o roteiro pendente para staging/produção.
 **Pré-requisitos:** `docs/sync/concurrency-audit.md` e `docs/sync/merge-invariants.md`.
+**Limite de verificação:** o RPC foi testado em PostgreSQL 14 local com `auth`/roles emulados e pgTAP, incluindo duas conexões reais; não houve acesso ao Supabase de produção. O mock de e2e prova o fluxo do cliente, não a atomicidade do banco.
 
 ## 1. Objetivo
 
@@ -17,9 +18,10 @@ Eliminar a perda silenciosa de progresso entre dispositivos e abas, mantendo:
 **CAS transacional no PostgreSQL + merge no cliente antes de toda escrita.**
 
 1. O cliente lê `progress` e `sync_id` do próprio usuário.
-2. Em cada gravação, envia ao RPC `save_user_progress(p_expected_sync_id, p_progress)`.
+2. Em cada gravação, envia ao RPC `save_user_progress(p_expected_user_id, p_expected_sync_id, p_progress)`.
 3. O RPC, em uma única transação:
    - exige `auth.uid()`;
+   - exige que `p_expected_user_id` seja exatamente `auth.uid()` (asserção de sessão, não seletor de linha);
    - insere a primeira linha se `p_expected_sync_id` for `null`;
    - bloqueia a linha com `SELECT ... FOR UPDATE`;
    - aplica somente se `sync_id` atual for igual ao token esperado;
@@ -48,15 +50,18 @@ Seria uma única chamada e resolveria o conflito sem retry, mas exigiria reimple
 
 A regra “cliente lê e depois faz upsert normal” não é CAS: entre a leitura e o upsert outra transação pode gravar. O RPC elimina essa janela com lock e comparação de token na mesma transação.
 
-## 4. Migração SQL proposta (não aplicar na 4D.1)
+## 4. Migração SQL implementada (não aplicada em produção)
+
+Arquivo: `supabase/migrations/20261110180000_add_save_user_progress_rpc.sql`.
 
 **Não é necessário adicionar coluna.** `sync_id uuid not null` já existe e é trocado a cada escrita; ele funciona como token opaco de versão. `updated_at` passa a ser gerado no servidor.
 
 ```sql
--- supabase/migrations/20261110HHMMSS_add_save_user_progress_rpc.sql
--- (nome exato definido na 4D.2; não aplicar em produção nesta fase)
+-- supabase/migrations/20261110180000_add_save_user_progress_rpc.sql
+-- Migração aditiva; não aplicar em produção sem o roteiro da §9.
 
 create or replace function public.save_user_progress(
+  p_expected_user_id uuid,
   p_expected_sync_id uuid,
   p_progress jsonb
 )
@@ -79,15 +84,24 @@ begin
     raise exception 'not authenticated' using errcode = '42501';
   end if;
 
+  -- Asserção de sessão: um store antigo reutilizado após troca de conta não
+  -- pode gravar o progresso do usuário anterior na conta nova.
+  if p_expected_user_id is null or p_expected_user_id is distinct from v_user_id then
+    raise exception 'session user mismatch' using errcode = '42501';
+  end if;
+
+  -- O envelope exige `v` como número JSON 1, não string. A validação profunda
+  -- continua no isProgress do cliente.
   if p_progress is null
-     or jsonb_typeof(p_progress) <> 'object'
+     or pg_catalog.jsonb_typeof(p_progress) is distinct from 'object'
+     or pg_catalog.jsonb_typeof(p_progress -> 'v') is distinct from 'number'
      or p_progress ->> 'v' is distinct from '1'
-     or jsonb_typeof(p_progress -> 'lessons') is distinct from 'object'
-     or jsonb_typeof(p_progress -> 'cards') is distinct from 'object'
-     or jsonb_typeof(p_progress -> 'history') is distinct from 'array'
-     or jsonb_typeof(p_progress -> 'streak') is distinct from 'number'
-     or jsonb_typeof(p_progress -> 'dailyGoal') is distinct from 'number'
-     or jsonb_typeof(p_progress -> 'lastActive') is distinct from 'string'
+     or pg_catalog.jsonb_typeof(p_progress -> 'lessons') is distinct from 'object'
+     or pg_catalog.jsonb_typeof(p_progress -> 'cards') is distinct from 'object'
+     or pg_catalog.jsonb_typeof(p_progress -> 'history') is distinct from 'array'
+     or pg_catalog.jsonb_typeof(p_progress -> 'streak') is distinct from 'number'
+     or pg_catalog.jsonb_typeof(p_progress -> 'dailyGoal') is distinct from 'number'
+     or pg_catalog.jsonb_typeof(p_progress -> 'lastActive') is distinct from 'string'
   then
     raise exception 'invalid progress payload' using errcode = '22023';
   end if;
@@ -97,7 +111,7 @@ begin
   -- de leitura/conflito abaixo.
   if p_expected_sync_id is null then
     insert into public.user_progress as up (user_id, progress, sync_id, updated_at)
-    values (v_user_id, p_progress, v_new_sync_id, now())
+    values (v_user_id, p_progress, v_new_sync_id, pg_catalog.now())
     on conflict (user_id) do nothing;
 
     get diagnostics v_inserted = row_count;
@@ -114,8 +128,7 @@ begin
    for update;
 
   if not found then
-    -- Linha inexistente com token não nulo (ex.: remoção externa). O cliente
-    -- deve reidratar e decidir; não inventamos um documento.
+    -- Linha removida externamente: o cliente reidrata e tenta a inserção.
     return query select false, null::jsonb, null::uuid;
     return;
   end if;
@@ -128,14 +141,21 @@ begin
   update public.user_progress as up
      set progress = p_progress,
          sync_id = v_new_sync_id,
-         updated_at = now()
+         updated_at = pg_catalog.now()
    where up.user_id = v_user_id
      and up.sync_id = p_expected_sync_id
   returning * into v_current;
 
   if not found then
     -- Defensivo; com FOR UPDATE não deve ocorrer.
-    select * into v_current from public.user_progress where user_id = v_user_id;
+    select * into v_current
+      from public.user_progress
+     where user_id = v_user_id;
+
+    if not found then
+      return query select false, null::jsonb, null::uuid;
+    end if;
+
     return query select false, v_current.progress, v_current.sync_id;
     return;
   end if;
@@ -144,22 +164,22 @@ begin
 end;
 $$;
 
-revoke all on function public.save_user_progress(uuid, jsonb) from public, anon;
-grant execute on function public.save_user_progress(uuid, jsonb) to authenticated;
+revoke all on function public.save_user_progress(uuid, uuid, jsonb) from public, anon;
+grant execute on function public.save_user_progress(uuid, uuid, jsonb) to authenticated;
 
-comment on function public.save_user_progress(uuid, jsonb)
-  is 'CAS save for the authenticated user Progress v1 snapshot';
+comment on function public.save_user_progress(uuid, uuid, jsonb)
+  is 'CAS save for the authenticated user Progress v1 snapshot; returns the winning snapshot on conflict';
 ```
 
 ### Segurança do RPC
 
 - **`SECURITY INVOKER`**: executa com os privilégios do usuário autenticado; RLS continua valendo. Não há bypass de RLS.
-- **Sem parâmetro `user_id`**: o dono é sempre `auth.uid()`. Um usuário não consegue gravar para outro.
+- **Sem seletor de `user_id`**: o dono da linha é sempre `auth.uid()`. `p_expected_user_id` não escolhe a linha; é uma asserção de que o store foi construído para a sessão atual. Um store atrasado após troca de conta recebe `42501` em vez de gravar na conta nova.
 - **`auth.uid()` nulo** → exceção; não há operação anônima.
-- **`set search_path = ''`** e todos os objetos qualificados (`public.user_progress`, `auth.uid()`, `pg_catalog.gen_random_uuid()`): sem sequestro por schema.
+- **`set search_path = ''`** e todos os objetos qualificados (`public.user_progress`, `auth.uid()`, `pg_catalog.gen_random_uuid()`, `pg_catalog.now()`): sem sequestro por schema.
 - **Sem SQL dinâmico, sem `EXECUTE`, sem `SECURITY DEFINER`**: não há escalada de privilégio.
 - **Grant mínimo**: `EXECUTE` só para `authenticated`; `PUBLIC` e `anon` revogados. Os grants atuais da tabela (SELECT/INSERT/UPDATE/DELETE) permanecem para permitir rollback do cliente antigo.
-- **Validação de forma**: evita gravar `{"v":1}` e deixar a conta com um remoto inválido. A validação profunda continua no `isProgress` do cliente.
+- **Validação de forma**: exige `v` como número JSON `1` (não string) e os tipos de `lessons`/`cards`/`history`/`streak`/`dailyGoal`/`lastActive`. Evita gravar `{"v":1}` e deixar a conta com um remoto inválido. A validação profunda continua no `isProgress` do cliente.
 - **`updated_at`/`sync_id`** são gerados no servidor; o cliente não os escolhe.
 - **Row lock**: `FOR UPDATE` serializa somente a linha do próprio usuário; não há lock global nem deadlock de múltiplas linhas.
 - **Privacidade**: o RPC não lê nem devolve dados de outro usuário; RLS + filtro explícito.
@@ -212,7 +232,7 @@ Novo contrato interno (o `ProgressStore` público continua `load/save`):
   7. `applied: false` sem `progress` (linha ausente) → `base = null`, `token = null`, retry como primeira inserção;
   8. erro de rede transitório → retry com backoff; erro de autorização/validação → `false`.
 - Serializar `load` e `save` em uma fila interna por instância para evitar corrida entre a leitura inicial e uma gravação.
-- Opções injetáveis para teste: `retryLimit`, `retryDelayMs`, `sleep`, `onMerged`, `now`, `randomUUID`.
+- Opções injetáveis para teste: `retryLimit`, `transientRetryLimit`, `retryDelayMs`, `sleep`, `onMerged`, `onError`, `now`.
 
 ### 5.4 `src/lib/storage/syncedProgressStore.ts`
 
@@ -234,8 +254,9 @@ Novo contrato interno (o `ProgressStore` público continua `load/save`):
 ### 5.6 `src/components/auth/AuthProvider.tsx`
 
 - Construir o `remote` com `onMerged` que grava no store local da conta.
-- Expor, se necessário, `lastSyncedAt`/`syncErrorKind` sem mudar a UI nesta fase. A UI atual só precisa de `syncing`/`synced`/`offline`.
+- Expor `syncErrorKind` sem mudar a UI nesta fase. A UI atual só precisa de `syncing`/`synced`/`offline`; `lastSyncedAt` não foi adicionado.
 - Não alterar OAuth, cookies ou redirect.
+- Guards de `active`/`user.id` impedem que um load/save assíncrono antigo atualize a sessão nova após logout, troca de conta ou refresh.
 
 ### 5.7 Componentes de lição/revisão/painel
 
@@ -255,6 +276,23 @@ Novo contrato interno (o `ProgressStore` público continua `load/save`):
 - O RPC é aditivo: clientes antigos continuam usando o upsert direto durante o rollout.
 - Rollback do cliente antigo funciona sem reverter o banco.
 
+### 6.1 Comportamento misto durante o rollout
+
+Há três versões convivendo na janela de deploy:
+
+| Versão | Leitura | Escrita | Risco |
+|---|---|---|---|
+| Cliente antigo | `select progress, sync_id` ou só `progress` | upsert direto na tabela | Ignora o token e pode sobrescrever uma escrita CAS feita por um cliente novo |
+| Cliente novo | `select progress, sync_id` | RPC CAS | Conflito devolve o vencedor, mescla e tenta de novo |
+| Banco novo + cliente antigo | tabela/RLS inalteradas | upsert direto continua permitido | É o caminho de rollback; não revogar DML nesta fase |
+
+Consequências práticas:
+
+- **Não há como o cliente novo impedir um upsert antigo** sem revogar `INSERT/UPDATE` da tabela. Por isso a janela de rollout deve ser curta e os usuários devem ser orientados a recarregar.
+- Um cliente antigo que gravar depois de um CAS pode apagar campos novos (`reviewedAt`, `Attempt.id`) do snapshot, porque envia o documento inteiro que tinha em memória. Os dados de lições/cartões/histórico continuam válidos; a inferência de revisão cobre cartões sem `reviewedAt`.
+- O cliente novo sempre relê e mescla antes de gravar; ao voltar a uma aba antiga, o próximo load recupera o que o servidor ainda tiver. Se o cliente antigo já sobrescreveu, o dado perdido não é reconstruível sem backup.
+- **Transição para hardening (4D.3+):** depois que a telemetria/logs e o teste manual mostrarem que não há clientes antigos ativos, revogar DML direto de `authenticated`/`anon` e manter apenas o RPC. Como o RPC atual é `SECURITY INVOKER`, isso exige migrá-lo para `SECURITY DEFINER` com owner dedicado (ou equivalente) e testar escalada, `search_path` e autorização. A decisão fica para a fase seguinte. **Não fazer isso na 4D.2**, porque quebraria o rollback.
+
 ## 7. Falhas e recuperação
 
 | Falha | Comportamento | Recuperação |
@@ -267,6 +305,7 @@ Novo contrato interno (o `ProgressStore` público continua `load/save`):
 | Remoto inválido | Load falha; `offline`; não sobrescreve | Corrigir/restaurar a linha; RPC reduz novos casos |
 | Linha ausente com token | RPC devolve `applied=false, progress=null` | Cliente reidrata como vazio e reinsere |
 | Não autenticado | RPC 42501; `offline`/erro | Login novamente |
+| Store de outra conta/sessão | `p_expected_user_id` divergente → 42501; nada é gravado | Recarregar a sessão; o store antigo é descartado |
 | Payload inválido | RPC 22023; `false`; local preservado | Corrigir cliente; não grava lixo |
 | Duas abas | CAS faz uma vencer; a outra mescla | Load na aba perdedora mostra o resultado |
 | Cliente antigo durante rollout | Pode sobrescrever sem CAS | Janela curta; recarregar; ver §9 |
@@ -275,7 +314,7 @@ Novo contrato interno (o `ProgressStore` público continua `load/save`):
 ## 8. Retry, backoff e limites
 
 - **Conflitos CAS:** até 3 tentativas totais (1 inicial + 2 retries).
-- **Backoff:** 250 ms e 750 ms (exponencial), com jitter opcional de 0–100 ms em produção; testes injetam 0.
+- **Backoff:** 250 ms e 750 ms; testes injetam `sleep`/delays determinísticos. Não há jitter implementado nesta fase.
 - **Erros de rede transitórios:** até 2 retries adicionais com o mesmo orçamento; não repetir 400/401/403/422.
 - **Sem retry infinito e sem loop em background.**
 - **Após esgotar:** salvar local, status `offline`, não trocar token, não fingir sucesso.
@@ -285,21 +324,90 @@ Novo contrato interno (o `ProgressStore` público continua `load/save`):
 
 ## 9. Ordem de deploy
 
-1. **Backup:** confirmar backup/PITR do projeto Supabase antes de qualquer deploy. Não há export/import na UI ainda; o backup é a rede de segurança.
-2. **Migração aditiva:** aplicar a função e os grants. Clientes antigos continuam funcionando (upsert direto). Não revogar DML da tabela.
-3. **Testes locais/staging:** pgTAP do RPC + testes Vitest + typecheck + build + e2e contra o mock atualizado.
-4. **Deploy do cliente novo** na Vercel.
-5. **Monitorar:** erros de RPC, proporção de `offline`, conflitos. Não há analytics; usar logs do Supabase/Vercel e testes manuais.
-6. **Janela de rollout:** clientes com abas antigas ainda podem fazer upsert sem CAS. Manter a janela curta; pedir reload; considerar um aviso na UI em 4D.3. Não revogar DML direto nesta fase para preservar o rollback.
-7. **Hardening futuro (4D.3+):** se necessário, migrar para RPC `SECURITY DEFINER` + revogar DML direto, com testes de escalada. Não fazer junto com a primeira mudança.
+### 9.1 Backup e pré-requisitos
+
+1. **Backup/PITR:** confirmar que o projeto Supabase tem backup ou PITR ativo e registrar a janela de restauração antes de tocar no banco. Fazer um ensaio de restauração em projeto descartável se possível. Não há export/import na UI; o backup é a única rede de segurança para um snapshot ruim.
+2. **Janela e responsáveis:** escolher uma janela curta, avisar que usuários com abas antigas devem recarregar e registrar o commit/migração implantados.
+3. **Nunca testar com dados de produção:** usar projeto staging e usuários de teste descartáveis.
+
+### 9.2 Staging e migração aditiva
+
+1. Aplicar todas as migrações do zero em staging e rodar `supabase/tests/local/run-local-sql-tests.sh` (PostgreSQL local) ou `supabase test db` quando a CLI estiver disponível.
+2. Rodar `npm run typecheck`, `npm test`, `npm run build` e `npm run e2e` no commit que será implantado.
+3. Aplicar em produção **somente** `20261110180000_add_save_user_progress_rpc.sql`: função + grants. É aditiva; clientes antigos continuam no upsert direto. Não revogar DML da tabela nesta fase.
+4. Confirmar que a migração não alterou dados: contar linhas de `public.user_progress` antes/depois e comparar alguns `sync_id`/`updated_at` (sem exportar `progress` para logs).
+
+### 9.3 Verificação do RPC após a migração
+
+Executar como owner/administrador no SQL editor de staging (nunca com service-role no cliente):
+
+```sql
+-- 1. Função existe, é SECURITY INVOKER e tem search_path vazio.
+select p.prosecdef,
+       p.proconfig,
+       pg_catalog.pg_get_function_identity_arguments(p.oid) as args
+  from pg_catalog.pg_proc p
+  join pg_catalog.pg_namespace n on n.oid = p.pronamespace
+ where n.nspname = 'public'
+   and p.proname = 'save_user_progress';
+
+-- 2. Privilégios: anon sem EXECUTE; authenticated com EXECUTE.
+select pg_catalog.has_function_privilege(
+  'anon', 'public.save_user_progress(uuid,uuid,jsonb)', 'execute'
+) as anon_execute;
+select pg_catalog.has_function_privilege(
+  'authenticated', 'public.save_user_progress(uuid,uuid,jsonb)', 'execute'
+) as authenticated_execute;
+```
+
+Smoke test com um usuário de staging e o JWT dele (via PostgREST/SQL emulando `auth.uid()`):
+
+- primeira chamada com `p_expected_sync_id = null` → `applied=true`, `sync_id` novo;
+- repetir o mesmo token → `applied=false`, documento atual;
+- token antigo → `applied=false`, sem mutação;
+- `p_expected_user_id` de outro usuário → `42501`;
+- `v` como string (`"1"`) ou envelope incompleto → `22023`;
+- `updated_at` avança e `sync_id` muda somente quando `applied=true`;
+- um usuário não lê nem altera a linha de outro (RLS).
+
+O harness local já cobre esses casos e duas conexões concorrentes; a verificação em staging confirma que a função, os grants e o PostgREST reais estão iguais.
+
+### 9.4 Deploy do cliente
+
+1. Deploy da Vercel com o cliente novo (RPC CAS).
+2. Abrir uma sessão autenticada e confirmar no Network que a escrita usa `POST /rest/v1/rpc/save_user_progress` e não `PATCH/POST /rest/v1/user_progress`.
+3. Teste seguro em dois dispositivos (ver §9.5).
+4. Manter a janela de rollout curta; clientes antigos ainda podem fazer upsert sem CAS (ver §6.1).
+
+### 9.5 Teste seguro em dispositivos
+
+- **Duas sessões reais:** dois perfis de navegador independentes (ou normal + janela privada) com a mesma conta Google. Não usar duas abas do mesmo perfil para concluir que há isolamento.
+- **Cartões diferentes:** revisar um cartão em A e outro em B; recarregar ambos e confirmar que os dois cartões e as duas tentativas aparecem.
+- **Mesmo cartão:** revisar o mesmo cartão quase ao mesmo tempo; confirmar que o histórico preserva as duas tentativas e que a agenda exibida é determinística. Não exigir ordem sequencial exata (ver §12.6).
+- **Offline/reconexão:** no DevTools, modo offline; revisar; confirmar “Salvo neste dispositivo… pendente”; voltar online, recarregar e confirmar a sincronização.
+- **Ciclo de conta:** logout, login de outra conta, voltar à primeira; confirmar que nenhum progresso foi enviado para a conta errada. A asserção `p_expected_user_id` deve transformar um store atrasado em `42501`, não em escrita cruzada.
+- **Mobile:** repetir o fluxo principal em 375/390 px e no PWA instalado; iPhone/Chrome iOS real continua manual.
+- **Relógio:** opcional, adiantar/atrasar o relógio de um dispositivo e confirmar que o cartão não é decidido por `lastActive` global; documentar o resultado.
+
+### 9.6 Monitoramento
+
+- Logs do Supabase/PostgREST: `42501` (sessão/troca de conta), `22023` (payload), `5xx` e timeouts do RPC.
+- Logs da Vercel: `console.warn("[kbr] falha de sincronização:", kind)` — só a categoria, sem PII.
+- Não há analytics nem métrica automática de `offline`/conflitos. A proporção é observada por relatos, logs e inspeção manual do localStorage; não inventar números.
+- Após a janela, confirmar que não há tráfego relevante de upsert direto antes de considerar o hardening.
+
+### 9.7 Hardening futuro (4D.3+)
+
+Migrar para RPC `SECURITY DEFINER` com owner dedicado e revogar DML direto, com testes de escalada, `search_path`, autorização e rollback. Não fazer junto com a primeira mudança.
 
 ## 10. Rollback
 
 - **Cliente:** reverter o deploy da Vercel para a versão anterior. O cliente antigo volta ao upsert direto na tabela, que continua com grants e RLS.
-- **Banco:** manter a função e os grants; não é necessário dropar. Se for preciso remover, fazer depois do rollback do cliente e confirmar que nenhum cliente novo está ativo.
-- **Dados:** nenhuma migração destrutiva; não há “down migration” de dados. Se uma versão com bug gravar um snapshot ruim, restaurar do backup/PITR é o único caminho; por isso o backup é pré-requisito.
-- **Progresso do usuário:** nunca é resetado pelo rollback. Caches locais continuam válidos.
+- **Banco:** manter a função e os grants; não é necessário dropar. Se for preciso remover, fazer depois do rollback do cliente e confirmar que nenhum cliente novo está ativo. `drop function` não apaga dados.
+- **Dados:** nenhuma migração destrutiva; não há “down migration” de dados. Se uma versão com bug gravar um snapshot ruim, restaurar do backup/PITR é o único caminho; por isso o backup é pré-requisito. Antes de restaurar, exportar/inspecionar a linha afetada para não perder atividade posterior.
+- **Progresso do usuário:** nunca é resetado pelo rollback. Caches locais continuam válidos e o próximo load mescla o que estiver no remoto.
 - **Migração de convidado:** o marcador pode permanecer; o retry é idempotente.
+- **Ordem segura:** (1) rollback do cliente; (2) confirmar que não há mais chamadas ao RPC; (3) opcionalmente remover a função; (4) restaurar dados somente se houver corrupção confirmada.
 
 ## 11. Estados observáveis
 
@@ -310,11 +418,12 @@ Manter o contrato atual `SyncStatus = "idle" | "syncing" | "synced" | "offline"`
 - `synced`: última escrita confirmada pelo RPC.
 - `offline`: load/save falhou ou retries esgotaram; o local está salvo.
 
-Adicionar internamente, sem alterar a UI nesta fase:
+Implementado internamente, sem alterar a UI nesta fase:
 
-- `lastSyncedAt?: string` no contexto;
-- `lastErrorKind?: "network" | "auth" | "validation" | "conflict" | "invalid-remote"`;
-- log `console.warn` sem PII em falha final (código do erro, não o documento).
+- `syncErrorKind: "network" | "auth" | "validation" | "invalid-remote" | "conflict" | "unexpected" | null` no contexto;
+- log `console.warn` sem PII em falha final (apenas a categoria, nunca o documento);
+- `lastMerged`/`lastErrorKind` no store remoto, usados por testes e pelo `onMerged`;
+- `lastSyncedAt` **não** foi adicionado.
 
 A UI deve continuar dizendo apenas o que é verdade: “Sincronizando…”, “Salvo neste dispositivo… pendente” e “Progresso sincronizado com sua conta”. Um conflito resolvido não precisa aparecer; um conflito esgotado aparece como `offline`.
 
@@ -322,14 +431,19 @@ A UI deve continuar dizendo apenas o que é verdade: “Sincronizando…”, “
 
 ### 12.1 Puros (Vitest)
 
+`npm test`: **20 arquivos, 290 testes**.
+
 - `mergeProgress`: I1–I14; comutatividade, associatividade, idempotência; permutações de dois/três documentos.
-- Cartões: mais novo vence; `due` isolado não vence; empate determinístico; cartão só de um lado preservado.
+- Cartões: mais novo vence; `due` isolado não vence; empate determinístico; cartão só de um lado preservado; inferência por `due - intervalo` para legado.
 - Histórico: união, dedup por `id`, fallback por tupla, repetição legítima, ordem canônica.
-- `progressEquals`: ordem de chaves e histórico canônico.
+- `progressEquals`: ordem de chaves e histórico canônico (não `JSON.stringify`).
 - Skew: `lastActive` adiantado não decide cartão.
-- Revisões concorrentes: última vence; histórico preservado; limitação documentada.
+- Revisões concorrentes: última vence; histórico preservado; limitação documentada em §12.6.
+- Os dois antigos `test.fails` (cartão vencido por lição posterior e por relógio adiantado) agora passam como testes normais.
 
 ### 12.2 Store com fake CAS
+
+`tests/helpers/fakeSupabaseCas.ts` simula linha por usuário, RLS de leitura, CAS, conflito, perda de resposta e falhas injetadas, com chamadas serializadas.
 
 - Sucesso na primeira tentativa.
 - Conflito → merge → retry → sucesso.
@@ -340,39 +454,52 @@ A UI deve continuar dizendo apenas o que é verdade: “Sincronizando…”, “
 - Erro de autorização/validação → sem retry.
 - Load e save concorrentes na mesma instância → serializados.
 - `syncProgressForUser` + convidado + remoto com lições diferentes.
-- Duas abas com o mesmo fake CAS: ambas convergem.
+- Duas abas/dispositivos com o mesmo fake CAS: ambas convergem.
+- Troca de conta/store atrasado: `p_expected_user_id` divergente não grava.
 
-### 12.3 Banco (pgTAP, quando houver stack local)
+### 12.3 Banco (PostgreSQL local + pgTAP)
+
+Executado com PostgreSQL 14 local, schema `auth`/roles emulados e pgTAP; **não** foi executado no Supabase real.
 
 - `anon` não executa o RPC.
-- `authenticated` executa só para o próprio `auth.uid()`.
+- `authenticated` executa só para o próprio `auth.uid()`; `p_expected_user_id` divergente → `42501`.
 - Primeira inserção com token nulo → `applied=true`.
 - Replay do mesmo token → `applied=false`, documento atual.
 - Token antigo → `applied=false`, sem mutação.
 - Token atual → `applied=true`, `sync_id` novo, `updated_at` do servidor.
 - Outro usuário não vê nem altera a linha.
-- Payload inválido → 22023.
-- Sem `user_id` no payload; tentativa de forjar outro usuário não compila.
-- Concorrência real: duas sessões/duas conexões; uma vence, a outra recebe conflito. Se o ambiente não permitir, documentar como não verificado.
-
-**Limitação atual:** não há Supabase CLI nem stack local neste ambiente; `supabase test db` não foi executado. Docker existe, mas o projeto não tem `supabase/config.toml` nem CLI instalada. Não apresentar teste de mock como prova de atomicidade do PostgreSQL.
+- Payload inválido → `22023`; `v` string também é rejeitado.
+- Concorrência real com duas conexões: token compartilhado e primeira inserção simultânea; uma vence, a outra recebe conflito.
+- Resultado: **35 asserções pgTAP** (RLS existente + RPC) e os cenários de concorrência passam. `supabase test db` não foi executado porque a CLI/stack Supabase não está instalada; o harness local é a evidência disponível.
 
 ### 12.4 E2E (Playwright + mock)
 
-- Atualizar `e2e/mock-supabase.mjs` para manter uma linha em memória e implementar o endpoint RPC (CAS) em vez de devolver sempre `[]`.
-- Dois contextos de navegador com o mesmo usuário: A conclui `h01`, B conclui `h02`, ambos recarregam e veem as duas.
-- Offline: abortar a rota remota, concluir uma lição, reconectar, recarregar e verificar persistência.
-- Conflito: forçar token antigo e verificar merge.
-- Migração de convidado: estudar como convidado, entrar, recarregar.
-- O mock continua sem provar RLS/atomicidade; esses testes ficam no pgTAP.
+`npm run e2e`: **164 testes** em 375/390/768/1280.
 
-### 12.5 Manual
+- `e2e/mock-supabase.mjs` mantém uma linha por usuário, autentica pelo `sub` do JWT, filtra GET por `user_id` e implementa o RPC CAS.
+- Dois contextos com o mesmo usuário: A revisa um cartão, B revisa outro; ambos recarregam e convergem com histórico preservado.
+- Offline (HTTP 500 na rota REST): revisão fica local, UI não anuncia sucesso; ao reconectar e recarregar, o remoto confirma e outro dispositivo recebe o cartão.
+- Migração de convidado: snapshot em `kbr:v1` é migrado para a conta no login e chega a outro dispositivo.
+- O mock não prova RLS/atomicidade; esses testes ficam no pgTAP/harness local.
 
-- Duas abas da mesma conta.
-- Chrome desktop + PWA/iPhone (quando disponível).
+### 12.5 Manual (pendente)
+
+- Dois perfis/dispositivos reais da mesma conta (ver §9.5).
+- Chrome desktop + PWA/iPhone real (quando disponível).
 - Avião/offline e reconexão.
 - Relógio adiantado/atrasado (opcional, documentar resultado).
-- Login/logout e migração de convidado.
+- Login/logout, troca de conta e migração de convidado.
+- Confirmar no Network que o cliente novo não faz DML direto.
+
+### 12.6 Limitação de revisões concorrentes no mesmo cartão
+
+O `Progress` v1 guarda o estado do cartão e uma lista de tentativas, mas **não** tem identidade/ordem de evento por revisão. Se dois dispositivos revisarem o mesmo cartão quase ao mesmo tempo:
+
+- o merge escolhe a revisão mais nova por `reviewedAt` (ou inferência `due - intervalo`) e desempata deterministicamente;
+- o histórico preserva as duas tentativas (IDs estáveis quando o cliente os gera);
+- **não é possível garantir a composição sequencial exata** das duas revisões (por exemplo, “acerto depois erro” vs. “erro depois acerto”) nem reconstruir a ordem real de eventos sem uma tabela append-only/event sourcing.
+
+Isso é aceitável para a 4D.2 e está documentado; a UI não promete ordem exata. A solução definitiva exigiria eventos imutáveis com identidade e projeção, fora do escopo atual.
 
 ## 13. Escopo exato da Fase 4D.2
 
@@ -395,28 +522,27 @@ A UI deve continuar dizendo apenas o que é verdade: “Sincronizando…”, “
 - Export/import JSON, meta diária editável, redesign de UI.
 - CEFR A1, novas lições, service worker/offline shell.
 - Alteração de OAuth/Google/Supabase Auth.
-- Migração de produção nesta fase de auditoria.
+- Aplicação da migração ou deploy do cliente em produção nesta sessão.
 
 ## 14. Critérios de aceite da 4D.2
 
-- [ ] Duas sessões que concluem lições diferentes mantêm as duas no remoto.
-- [ ] Duas sessões que revisam cartões diferentes mantêm os dois.
-- [ ] Duas sessões que revisam o mesmo cartão convergem deterministicamente; o histórico mantém as duas tentativas.
-- [ ] Um cartão com revisão mais nova não é sobrescrito por uma lição posterior.
-- [ ] Relógio adiantado não deixa uma atividade não relacionada decidir o cartão.
-- [ ] Retry após response perdido não duplica nem troca o token à toa.
-- [ ] Offline + reconexão preserva o local e mescla o remoto.
-- [ ] Migração de convidado é idempotente e não apaga a origem.
-- [ ] RPC rejeita `anon`, outro usuário e payload inválido.
-- [ ] Nenhum progresso existente é resetado.
-- [ ] `npm run typecheck`, `npm test`, `npm run build` e `npm run e2e` verdes.
-- [ ] pgTAP executado ou limitação registrada explicitamente.
+- [x] Duas sessões que concluem lições diferentes mantêm as duas no remoto (merge + fake CAS).
+- [x] Duas sessões que revisam cartões diferentes mantêm os dois (Vitest + e2e).
+- [x] Duas sessões que revisam o mesmo cartão convergem deterministicamente; o histórico mantém as duas tentativas — com a limitação de ordem exata em §12.6.
+- [x] Um cartão com revisão mais nova não é sobrescrito por uma lição posterior.
+- [x] Relógio adiantado não deixa uma atividade não relacionada decidir o cartão.
+- [x] Retry após response perdido não duplica nem troca o token à toa.
+- [x] Offline + reconexão preserva o local e mescla o remoto (Vitest + e2e).
+- [x] Migração de convidado é idempotente e não apaga a origem.
+- [x] RPC rejeita `anon`, outro usuário, `p_expected_user_id` divergente e payload inválido (pgTAP local).
+- [x] Nenhum progresso existente é resetado; migração é aditiva e não há backfill.
+- [x] `npm run typecheck`, `npm test` (290), `npm run build` e `npm run e2e` (164) verdes.
+- [x] pgTAP executado no PostgreSQL local; Supabase real não acessado (limitação registrada).
+- [ ] Migração aplicada em staging/produção e teste manual em dois dispositivos reais (pendente, §9).
 
-## 15. Commits sugeridos para a 4D.2
+## 15. Commits da 4D.2
 
-1. `test: cover merge invariants and sync conflicts` — merge puro + testes, sem banco.
-2. `feat: add compare-and-swap progress rpc` — migração, pgTAP e adapter CAS.
-3. `feat: retry sync conflicts and surface offline state` — store, AuthProvider, mock/e2e, observabilidade.
-4. `docs: record phase 4D.2 sync hardening` — arquitetura, roadmap, AGENTS e graphify.
+1. `feat: add reliable multi-device progress sync` — merge por cartão, `reviewedAt`/`Attempt.id`, RPC CAS, stores, AuthProvider, testes Vitest, pgTAP/harness local, mock/e2e multi-dispositivo e graphify.
+2. `docs: record phase 4D.2 sync implementation` — arquitetura, roadmap, AGENTS, este plano e setup do Supabase.
 
-Cada commit com typecheck/test/build verdes; o commit 2 não deve ir a produção sem o 3.
+Cada commit com typecheck/test/build verdes. O commit 1 contém a migração, mas **não** a aplica em produção; o deploy segue a ordem da §9 e não deve ir a produção sem o cliente novo e o teste manual.

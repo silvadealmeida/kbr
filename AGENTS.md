@@ -4,7 +4,7 @@ App web de estudo de coreano para brasileiros (mobile-first, Chrome no Windows/i
 Fontes de verdade: `docs/architecture.md` (stack, estrutura, modelo de dados, interfaces), `docs/research.md` (pedagogia, limites de conteúdo), `docs/roadmap.md` (fases e status). **Leia-os antes de mexer; não repita a pesquisa e não duplique o conteúdo deles aqui.**
 
 ## Fase atual
-**Fase 4D.1 — auditoria de concorrência e desenho da sincronização** concluída: documentos em `docs/sync/` (auditoria, invariantes de merge e plano da 4D.2) e testes puros de conflito. Nenhuma migração, mudança de schema ou implementação do redesenho foi feita. As Fases 4C (conclusão do Hangul), 4B (`/dashboard`), 4A (`/revisao`) e o módulo Hangul continuam funcionais. O **CEFR A1 não foi iniciado** e passou para a Fase 4E; só comece com pedido explícito. Próxima fase: **4D.2 — implementar CAS transacional + merge por cartão + retry/backoff** conforme `docs/sync/implementation-plan.md`. Status real, limitações e pendências: `docs/roadmap.md`, `docs/architecture.md` (§Painel/Revisão/Testes) e `docs/privacy-audit.md`.
+**Fase 4D.2 — sincronização confiável multi-dispositivo** implementada no código e testada localmente: RPC CAS `save_user_progress` (migração aditiva, sem coluna/índice/backfill), merge por cartão com `reviewedAt`/inferência e histórico canônico, `Attempt.id` opcional, retry/backoff limitado, estados de sync verdadeiros e testes Vitest/pgTAP/e2e. A migração **não foi aplicada ao Supabase real** e o cliente novo não foi implantado. As Fases 4C (conclusão do Hangul), 4B (`/dashboard`), 4A (`/revisao`) e o módulo Hangul continuam funcionais. O **CEFR A1 não foi iniciado** e passou para a Fase 4E; só comece com pedido explícito. Próximo passo: seguir a ordem de deploy/verificação/rollback de `docs/sync/implementation-plan.md` (§9–§10) em staging/produção e fazer o teste manual em dois dispositivos; hardening de DML direto/`SECURITY DEFINER` fica para 4D.3+. Status real, limitações e pendências: `docs/roadmap.md`, `docs/architecture.md` (§Sincronização multi-dispositivo/Testes) e `docs/privacy-audit.md`.
 O Proxy do Next 16 fica em `src/proxy.ts` (o App Router está em `src/app`); não recrie `proxy.ts` na raiz.
 
 ## Regras
@@ -25,6 +25,7 @@ npm run typecheck   # tsc --noEmit
 npm test            # Vitest (tests/)
 npm run build       # build de produção
 npm run e2e         # Playwright (e2e/, 375/390/768/1280; faz build e sobe na porta 3100)
+PGUSER=postgres ./supabase/tests/local/run-local-sql-tests.sh  # pgTAP + concorrência real (PostgreSQL local)
 ```
 Antes de concluir qualquer tarefa: typecheck + test + build verdes. iPhone/Chrome iOS reais não são testáveis aqui — verificação manual.
 

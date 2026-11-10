@@ -340,7 +340,7 @@ export default async function LandingPage({ searchParams }: { searchParams: Sear
               <LandingAuth variant="footer" />
             </div>
             <p className="mt-4 text-xs text-muted">
-              Ao entrar, você concorda com o tratamento descrito na{" "}
+              Saiba como tratamos seus dados na{" "}
               <Link href="/privacidade" className="underline underline-offset-2 hover:text-brand">
                 política de privacidade
               </Link>

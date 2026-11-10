@@ -1,32 +1,8 @@
 {
-  ".claude/settings.json": {
-    "mtime": 1794305602.8885148,
-    "seen": 1794305686.7124572,
-    "ast_hash": "8eafe95f2f857d090df6c04324b234d1",
-    "semantic_hash": ""
-  },
-  ".codex/hooks.json": {
-    "mtime": 1794305602.9643834,
-    "seen": 1794305686.7124615,
-    "ast_hash": "376dae27403c2213247694fae9f66954",
-    "semantic_hash": ""
-  },
-  ".playwright/cli.config.json": {
-    "mtime": 1794304504.8294938,
-    "seen": 1794305686.7124631,
-    "ast_hash": "4e481842f3d0c9a34175cae0a55192d5",
-    "semantic_hash": ""
-  },
   "e2e/smoke.spec.ts": {
     "mtime": 1794303494.0487006,
     "seen": 1794305686.712464,
     "ast_hash": "f2e5734f28f9bc40aba877982da315dd",
-    "semantic_hash": ""
-  },
-  "next-env.d.ts": {
-    "mtime": 1794305484.0953646,
-    "seen": 1794305686.7124648,
-    "ast_hash": "aa94238a90e7d04b7a47ecc3145ba6a0",
     "semantic_hash": ""
   },
   "next.config.mjs": {
@@ -149,76 +125,10 @@
     "ast_hash": "9f6502e0928f040a288b3077de99cdf1",
     "semantic_hash": ""
   },
-  ".agents/skills/playwright-cli/SKILL.md": {
-    "mtime": 1794304471.490021,
-    "seen": 1794305686.7124789,
-    "ast_hash": "b4c813d355059d18dd8c56ab7d78e5dd",
-    "semantic_hash": ""
-  },
-  ".agents/skills/playwright-cli/references/element-attributes.md": {
-    "mtime": 1794304471.490021,
-    "seen": 1794305686.7124798,
-    "ast_hash": "8b8ffc48e38a5b4a04baec18a2732cd7",
-    "semantic_hash": ""
-  },
-  ".agents/skills/playwright-cli/references/playwright-tests.md": {
-    "mtime": 1794304471.490021,
-    "seen": 1794305686.7124805,
-    "ast_hash": "99970dceff6228941c8f994e7dd71d27",
-    "semantic_hash": ""
-  },
-  ".agents/skills/playwright-cli/references/pr-attachments.md": {
-    "mtime": 1794304471.490021,
-    "seen": 1794305686.712481,
-    "ast_hash": "1177e18d35661616471a5dbc56d915b8",
-    "semantic_hash": ""
-  },
-  ".agents/skills/playwright-cli/references/request-mocking.md": {
-    "mtime": 1794304471.490021,
-    "seen": 1794305686.7124817,
-    "ast_hash": "3b74af1fc908062c9c7f2cef04be6a24",
-    "semantic_hash": ""
-  },
-  ".agents/skills/playwright-cli/references/running-code.md": {
-    "mtime": 1794304471.4860196,
-    "seen": 1794305686.7124822,
-    "ast_hash": "34af4a810e9d3b3b1f01801ba7bc0058",
-    "semantic_hash": ""
-  },
-  ".agents/skills/playwright-cli/references/session-management.md": {
-    "mtime": 1794304471.490021,
-    "seen": 1794305686.712483,
-    "ast_hash": "911dd3af00bd5e8c8fa4515970d90dc1",
-    "semantic_hash": ""
-  },
-  ".agents/skills/playwright-cli/references/storage-state.md": {
-    "mtime": 1794304471.490021,
-    "seen": 1794305686.7124836,
-    "ast_hash": "c08abef5555579182415cbf6fe38540b",
-    "semantic_hash": ""
-  },
-  ".agents/skills/playwright-cli/references/test-generation.md": {
-    "mtime": 1794304471.490021,
-    "seen": 1794305686.7124841,
-    "ast_hash": "beb47388c77b47110c94e3c34739357f",
-    "semantic_hash": ""
-  },
-  ".agents/skills/playwright-cli/references/tracing.md": {
-    "mtime": 1794304471.490021,
-    "seen": 1794305686.7124848,
-    "ast_hash": "fd0e9fbd229a8954b2ac86a53c79308e",
-    "semantic_hash": ""
-  },
-  ".agents/skills/playwright-cli/references/video-recording.md": {
-    "mtime": 1794304471.4860196,
-    "seen": 1794305686.7124853,
-    "ast_hash": "839208845060c048ac8e23f114e11aab",
-    "semantic_hash": ""
-  },
   "AGENTS.md": {
-    "mtime": 1794305602.9643834,
-    "seen": 1794305686.7124858,
-    "ast_hash": "f83fc8f709e125b1734834b7f7a366e6",
+    "mtime": 1794305984.6892617,
+    "seen": 1794305985.2744687,
+    "ast_hash": "b303e4d93fc7a4e47957dd18dee74216",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -240,9 +150,9 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794305455.7240279,
-    "seen": 1794305686.7124884,
-    "ast_hash": "3ab3bab894f9681908677893e635b419",
+    "mtime": 1794305959.9512448,
+    "seen": 1794305985.274472,
+    "ast_hash": "951b580f4a465b185f73adc41f2cad93",
     "semantic_hash": ""
   },
   "package-lock.json": {

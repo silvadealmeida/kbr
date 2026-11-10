@@ -28,8 +28,8 @@ npm run e2e         # Playwright (e2e/, 375/390/768/1280; faz build e sobe na po
 Antes de concluir qualquer tarefa: typecheck + test + build verdes. iPhone/Chrome iOS reais não são testáveis aqui — verificação manual.
 
 ## Preservar trabalho entre agentes
-1. Comece com `git status` e `git log --oneline -10`; continue o que existe, não recomece.
-2. Termine cada unidade de trabalho com commit; nunca deixe árvore suja ao parar.
+1. Comece com o bloco "Estado atual" de `docs/roadmap.md`, `git status` e `git log --oneline -10`; depois consulte o grafo (`graphify query "<pergunta>"`) em vez de varrer o código. Continue o que existe, não recomece.
+2. Antes de cada commit que altera código, rode `graphify update .` e inclua `graphify-out/` (assim o próximo agente herda um grafo atual). Termine cada unidade de trabalho com commit; nunca deixe árvore suja ao parar.
 3. Atualize `docs/roadmap.md` no mesmo commit: bloco "Estado atual" (fase, em andamento, próximo passo, bloqueios, último agente) e o status real da fase. O limite de créditos pode cortar a sessão a qualquer momento: marque o progresso **antes** de começar a tarefa seguinte e commite em passos pequenos.
 4. Decisão arquitetural nova → registre em `docs/architecture.md`; não em chats.
 5. Não apague nem reescreva trabalho de outro agente sem motivo registrado no commit.

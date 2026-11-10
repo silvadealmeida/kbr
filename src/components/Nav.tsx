@@ -1,15 +1,8 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { ROUTES } from "@/lib/routes";
 import { ThemeToggle } from "./ThemeToggle";
-
-export const ROUTES = [
-  { href: "/", label: "Início", icon: "⌂" },
-  { href: "/hangul", label: "Hangul", icon: "한" },
-  { href: "/vocabulario", label: "Vocabulário", icon: "Aa" },
-  { href: "/licoes", label: "Lições", icon: "▤" },
-  { href: "/revisao", label: "Revisão", icon: "↻" },
-];
 
 export function Nav() {
   const path = usePathname();

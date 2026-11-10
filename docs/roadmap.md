@@ -5,7 +5,7 @@ Fases pequenas, cada uma com commit(s) próprio e `npm test` verde antes de avan
 | # | Fase | Entrega | Verificação |
 |---|---|---|---|
 | 0 | Pesquisa e arquitetura (**feita**) | docs/* | — |
-| 1 | Scaffold | `git init`, Next+TS+Tailwind, Vitest, Playwright, fontes, shell com nav, tema claro/escuro | `npm run build`, smoke e2e |
+| 1 | Scaffold (**feita**, só Chromium; WebKit/iPhone pendentes) | `git init`, Next+TS+Tailwind, Vitest, Playwright, fontes, shell com nav, tema claro/escuro | `npm run build`, smoke e2e |
 | 2 | Núcleo puro | `lib/hangul`, `lib/exercises`, `lib/srs` (Leitner), `lib/storage` + testes | Vitest |
 | 3 | Módulo Hangul | cards de letras, TTS com fallback, construtor de sílabas, quiz de reconhecimento | Vitest + e2e |
 | 4 | Lições 1–3 | 3 lições originais (diálogo, vocabulário, nota de gramática, exercícios): ex. cumprimentos/apresentação (이에요/예요), objetos/lugares (은/는, 이/가), rotina/comida (을/를, -아요/어요) | e2e fluxo |
@@ -23,3 +23,7 @@ Fases pequenas, cada uma com commit(s) próprio e `npm test` verde antes de avan
 
 ## Pós-MVP (não implementar agora)
 FSRS (`ts-fsrs`), sync em nuvem, auth, PWA/offline, notificações, exercícios com IA, empacotamento nativo.
+
+## Status Fase 1 (real)
+Feito: Next 16 + React 19 + TS 5.9 + Tailwind 4; Vitest (1 teste); Playwright (Chromium, 375/390/768/1280; 28 testes); shell com nav inferior (mobile) e lateral (≥md); tema claro/escuro persistido; Noto Sans KR; safe-area; 5 rotas com estados vazios "Em desenvolvimento".
+Pendente: projeto WebKit do Playwright (fase 8); verificação manual em iPhone/Chrome iOS; contraste AA verificado só por escolha de tokens, sem axe; `next/font` baixa a fonte no build (precisa de rede).

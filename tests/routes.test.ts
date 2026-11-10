@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { ROUTES } from "@/components/Nav";
+import { ROUTES } from "@/lib/routes";
 
 test("cinco rotas únicas, todas começando com /", () => {
   expect(ROUTES).toHaveLength(5);

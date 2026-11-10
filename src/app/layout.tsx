@@ -17,7 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head><script dangerouslySetInnerHTML={{ __html: themeScript }} /></head>
       <body className="font-sans antialiased">
         <Nav />
-        <main className="mx-auto w-full max-w-3xl px-4 pt-6 pb-[calc(6rem+env(safe-area-inset-bottom))] md:ml-60 md:max-w-none md:px-10 md:pb-12 md:pt-10 [&>*]:md:max-w-3xl">
+        <main className="mx-auto max-w-3xl px-4 pt-6 pb-[calc(6rem+env(safe-area-inset-bottom))] md:ml-60 md:max-w-none md:px-10 md:pb-12 md:pt-10 [&>*]:md:max-w-3xl">
           {children}
         </main>
       </body>

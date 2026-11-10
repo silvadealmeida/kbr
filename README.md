@@ -55,15 +55,17 @@ All course content and application code are independently developed.
 
 The current development foundation includes:
 
-- Responsive mobile-first interface
+- Public, responsive mobile-first landing page
+- Responsive mobile-first learning interface protected by Google sign-in
 - Initial PWA configuration
 - Core Hangul utilities
 - Exercise validation
 - Leitner spaced repetition engine
 - Local progress persistence
 - Google OAuth and cloud synchronization code
+- Public privacy policy (`/privacidade`) and legal notice (`/impressum`)
 
-The cloud integration still requires external configuration and end-to-end validation.
+The cloud integration still requires external configuration and end-to-end validation. The privacy and legal pages are technically accurate but pending legal review (controller identity, contact and retention periods).
 
 The interactive learning content is under development.
 
@@ -110,6 +112,7 @@ For cloud authentication setup, see [Supabase Setup](docs/supabase-setup.md).
 - [System Architecture](docs/architecture.md)
 - [Development Roadmap](docs/roadmap.md)
 - [Supabase and Google OAuth Setup](docs/supabase-setup.md)
+- [Privacy and Legal Audit](docs/privacy-audit.md)
 
 ## Project philosophy
 

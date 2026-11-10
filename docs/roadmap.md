@@ -1,10 +1,10 @@
 # KBR — Roadmap
 
 ## Estado atual (atualize a cada commit — é o ponto de retomada entre agentes)
-- **Fase concluída:** 2A (Conta e sincronização).
-- **Em andamento:** nada. Correções de segurança do redirect, status de sync e merge de streak aplicadas.
+- **Fase concluída:** 2B (Landing pública, rotas protegidas e privacidade).
+- **Em andamento:** nada. Fase 2B concluída; não iniciar a Fase 3 sem pedido explícito.
 - **Próximo passo:** Fase 3 (Hangul interativo) — só iniciar quando o usuário pedir.
-- **Bloqueios / decisões pendentes:** executar `supabase test db` contra a stack local; testar o fluxo completo em iPhone/Chrome iOS real (manual).
+- **Bloqueios / decisões pendentes:** revisão jurídica da política/Impressum (faltam identidade do controlador, contato, prazos de retenção, região Supabase e DPAs); executar `supabase test db` contra a stack local; testar o fluxo completo em iPhone/Chrome iOS real (manual); validar o OAuth real após a mudança do Proxy para `src/proxy.ts`.
 - **Último agente:** OpenCode.
 
 Fases pequenas, cada uma com commit(s) próprio e `npm test` verde antes de avançar.
@@ -15,6 +15,7 @@ Fases pequenas, cada uma com commit(s) próprio e `npm test` verde antes de avan
 | 1 | Scaffold (**feita**, só Chromium; WebKit/iPhone pendentes) | `git init`, Next+TS+Tailwind, Vitest, Playwright, fontes, shell com nav, tema claro/escuro | `npm run build`, smoke e2e |
 | 2 | Núcleo puro (**feita**) | `lib/hangul`, `lib/exercises`, `lib/srs` (Leitner), `lib/storage` + testes | Vitest |
 | 2A | Conta e sincronização (**feita no código; configuração externa pendente**) | Google OAuth, sessão SSR, guest mode, PostgreSQL/RLS, migração e sync resiliente | Vitest + Supabase DB tests |
+| 2B | Landing, rotas protegidas e privacidade (**feita; revisão jurídica pendente**) | landing pública original, shell público, `/dashboard` autenticado, proteção de rotas, `/privacidade`, `/impressum`, auditoria de cookies/localStorage/terceiros | Vitest + Playwright |
 | 3 | Módulo Hangul | cards de letras, TTS com fallback, construtor de sílabas, quiz de reconhecimento | Vitest + e2e |
 | 4 | Lições 1–3 | 3 lições originais (diálogo, vocabulário, nota de gramática, exercícios): ex. cumprimentos/apresentação (이에요/예요), objetos/lugares (은/는, 이/가), rotina/comida (을/를, -아요/어요) | e2e fluxo |
 | 5 | Vocabulário | frases com lacuna, tradução, escuta | e2e |
@@ -28,6 +29,7 @@ Fases pequenas, cada uma com commit(s) próprio e `npm test` verde antes de avan
 - **TTS coreano ausente** em alguns dispositivos → fallback documentado.
 - **iPhone real**: não testável neste ambiente.
 - Perda de progresso (localStorage) → aviso/exportação.
+- **Privacidade/Impressum**: texto técnico sem validação jurídica; identidade, contato e retenção ainda ausentes. Ver `docs/privacy-audit.md`.
 
 ## Pós-MVP (não implementar agora)
 FSRS (`ts-fsrs`), cache/offline via service worker, notificações, exercícios com IA, empacotamento nativo.
@@ -42,6 +44,14 @@ Limites: sem service worker, cache ou funcionamento offline; instalação e apre
 
 ## Status conta e sincronização (real)
 Feito: Google OAuth PKCE; login/logout; cookies SSR renovados pelo Proxy do Next 16; cache isolado por conta; guest mode; merge idempotente; migração do convidado; restauração após login; gravação local-first; tabela PostgreSQL com PK por usuário; RLS separado para SELECT/INSERT/UPDATE/DELETE; testes Vitest e pgTAP; setup em `docs/supabase-setup.md`.
-Correções: `safeNextPath` rejeita backslash, caracteres de controle e separadores percent-encoded; status de sync volta a “offline” após falha remota e a “synced” ao recuperar; merge preserva o maior streak entre dispositivos; testes de regressão cobrem os três casos.
+Correções: `safeNextPath` rejeita backslash, caracteres de controle e separadores percent-encoded; status de sync volta a “offline” após falha remota e a “synced” ao recuperar; merge preserva o maior streak entre dispositivos.
+Correção da Fase 2B: o Proxy do Next 16 estava em `proxy.ts` na raiz e não era carregado (o App Router fica em `src/app`). Movido para `src/proxy.ts`; a proteção de rotas e a renovação de sessão agora são exercitadas pelo proxy. Revalidar o login real no deploy.
 Validado: typecheck, 51 testes Vitest, build e 28 testes Playwright; estado convidado renderizado em 393×659 e 1280×800, alvo de login 152×44 px, sem overflow horizontal ou erros de console. Google OAuth e tabela/RLS validados na Vercel (informado pelo usuário).
 Pendente externo: executar `supabase test db` contra a stack local e testar o fluxo completo em Chrome desktop/PWA móvel; iPhone/Chrome iOS real continua manual.
+
+## Status Fase 2B (real)
+Feito: landing pública original em `/` com branding, apresentação, recursos (Hangul, vocabulário contextual, diálogos progressivos, revisão espaçada), método, CTA “Entrar com Google”, entrada “Continuar no painel” para autenticados e links de privacidade/Impressum; shell público próprio (header/footer) separado do shell autenticado.
+Rotas privadas: `/dashboard`, `/hangul`, `/licoes`, `/vocabulario`, `/revisao`; `src/proxy.ts` valida `getClaims()` e redireciona para `/?next=...`; layout `(app)` revalida no servidor; `ProtectedArea` trata sessão expirada no cliente; `safeNextPath` preserva retorno interno e rejeita destinos externos; callback e `/auth/error` continuam públicos; OAuth/Supabase e `ProgressStore` de convidado preservados.
+Privacidade: `/privacidade` em pt-BR com dados do Google, snapshot no Supabase, cookies/localStorage reais, Vercel/Supabase/Google, finalidade e base legal, retenção/exclusão, direitos e contato pendente; `/impressum` com avaliação da DDG/MStV e lista de informações ausentes; auditoria em `docs/privacy-audit.md`. Sem banner de consentimento (não há rastreamento não essencial) e sem dados legais inventados.
+Validado: `npm run typecheck`; 78 testes Vitest; `npm run build`; 40 testes Playwright (375/390/768/1280) cobrindo landing, bloqueio de rotas, ausência de vazamento no HTML, deep link seguro, sessão inválida, privacidade, Impressum, erro de auth, navegação mobile/desktop e tema. Teste e2e de login real com Google não é automatizado (exige conta externa): verificação manual.
+Pendente: preencher controlador/contato/prazos e concluir a revisão jurídica; confirmar cookies e logs efetivos da Vercel/Supabase; testar login real e expiração no deploy; iPhone/Chrome iOS manual.

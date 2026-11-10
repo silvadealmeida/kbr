@@ -4,7 +4,8 @@ App web de estudo de coreano para brasileiros (mobile-first, Chrome no Windows/i
 Fontes de verdade: `docs/architecture.md` (stack, estrutura, modelo de dados, interfaces), `docs/research.md` (pedagogia, limites de conteúdo), `docs/roadmap.md` (fases e status). **Leia-os antes de mexer; não repita a pesquisa e não duplique o conteúdo deles aqui.**
 
 ## Fase atual
-**Fase 2A — Conta e sincronização** (Google OAuth, sessão SSR, Supabase/RLS, guest mode e sync local-first). Concluída a fase, pare: não inicie a seguinte sem pedido explícito. Status real: `docs/roadmap.md`.
+**Fase 2B — Landing, rotas protegidas e privacidade** concluída (landing pública, `/dashboard`, proteção de rotas via `src/proxy.ts`, `/privacidade` e `/impressum`). Concluída a fase, pare: não inicie a Fase 3 sem pedido explícito. Status real e pendências jurídicas: `docs/roadmap.md` e `docs/privacy-audit.md`.
+O Proxy do Next 16 fica em `src/proxy.ts` (o App Router está em `src/app`); não recrie `proxy.ts` na raiz.
 
 ## Regras
 - Interface em pt-BR; `lang="ko"` nos trechos coreanos (fonte Noto Sans KR).

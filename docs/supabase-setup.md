@@ -45,7 +45,7 @@ As duas variáveis são públicas por projeto. A proteção dos dados vem da ses
 
 ## 5. Deploy e verificação
 
-- Faça deploy como aplicação Next.js com runtime Node; `proxy.ts` renova os cookies de sessão.
+- Faça deploy como aplicação Next.js com runtime Node; `src/proxy.ts` renova os cookies de sessão e bloqueia as rotas privadas.
 - Entre com Google no Chrome desktop e na PWA mobile.
 - Confirme que um usuário cria somente uma linha em `user_progress` e que outro usuário não consegue lê-la no SQL/DB test.
 - Estude como convidado antes do primeiro login e confirme que lições, cartões/revisões e streak aparecem após entrar.

@@ -1,10 +1,10 @@
 # KBR — Roadmap
 
 ## Estado atual (atualize a cada commit — é o ponto de retomada entre agentes)
-- **Fase concluída:** 3B.2 — Unidade 3 (`h04`–`h10`), checkpoint `c1`, SRS de erros e diagnóstico por categoria.
-- **Em andamento:** nada. A Fase 3B.3 (`h11`–`h15` + `c2`) **não foi iniciada** e só começa com pedido explícito.
-- **Próximo passo:** Fase 3B.3 — implementar as vogais compostas de `h11`–`h15` e o checkpoint `c2`, mantendo `Progress` v1, o player compartilhado e a validação de conteúdo.
-- **Bloqueios / decisões pendentes:** revisão de todo o conteúdo coreano por falante nativo/professor (status `in-review`); ausência de voz `ko-KR` em alguns navegadores (fallback textual); fluxo autenticado validado só contra Supabase mock, não contra o projeto real; revisão jurídica da política/Impressum; executar `supabase test db` contra a stack local; testar o fluxo completo em iPhone/Chrome iOS real (manual).
+- **Fase concluída:** 3B.3 — Unidade 5 (`h11`–`h15`, vogais compostas) e checkpoint `c2`.
+- **Em andamento:** nada.
+- **Próximo passo:** Fase 3B.4 — Unidade 6 (`h16`–`h20`, sílabas e batchim) e checkpoint `c3`, somente com pedido explícito.
+- **Bloqueios / decisões pendentes:** revisão de todo o conteúdo coreano por falante nativo/professor (status `in-review`, com atenção especial a ㅐ/ㅔ, ㅚ/ㅙ/ㅞ, ㅟ e ㅢ); execução de voz `ko-KR` varia por navegador (fallback textual); fluxo autenticado validado só contra Supabase mock, não contra o projeto real; revisão jurídica da política/Impressum; executar `supabase test db` contra a stack local; testar o fluxo completo em iPhone/Chrome iOS real (manual).
 - **Último agente:** OpenCode.
 
 Fases pequenas, cada uma com commit(s) próprio e `npm test` verde antes de avançar.
@@ -19,8 +19,9 @@ Fases pequenas, cada uma com commit(s) próprio e `npm test` verde antes de avan
 | 3A | Currículo e arquitetura do Hangul (**feita**) | 5 documentos em `docs/pedagogy/`: currículo de 25 lições + 4 checkpoints, referência de Hangul, pronúncia para brasileiros, design de 9 tipos de exercício e schema de conteúdo | typecheck + test + build |
 | 3B.1 | Fatia vertical do Hangul (**feita**) | `src/content/hangul` (`h01`–`h03` + validação), `checkAnswer` e 4 tipos novos, player `/hangul/[lessonId]`, navegação disponível/bloqueada/em breve, progresso em `Progress` v1 | typecheck + 123 Vitest + build + 56 Playwright |
 | 3B.2 | Unidade 3 e checkpoint `c1` (**feita**) | `h04`–`h10` com ㄱ…ㅎ, `c1`, SRS de erros, diagnóstico por categoria e testes de conteúdo | typecheck + 141 Vitest + build + 64 Playwright |
-| 3B.3 | Unidade 5 e checkpoint `c2` | `h11`–`h15` com vogais compostas e `c2`; retomar a validação e o player compartilhado | Vitest + e2e |
-| 3B | Módulo Hangul completo | conteúdo restante, construtor de sílabas, áudio dedicado, SRS, checkpoints `c2`–`c4` | Vitest + e2e |
+| 3B.3 | Unidade 5 e checkpoint `c2` (**feita**) | `h11`–`h15` com as 15 vogais compostas, `c2`, navegação/SRS/diagnóstico e testes de ㅐ/ㅔ, ㅚ/ㅙ/ㅞ, ㅟ e ㅢ | typecheck + 157 Vitest + build + 76 Playwright |
+| 3B.4 | Unidade 6 e checkpoint `c3` (pendente) | `h16`–`h20` (sílabas C+V, batchim simples/duplo) e `c3`; retomar a validação e o player compartilhado | Vitest + e2e |
+| 3B | Módulo Hangul completo | conteúdo restante, construtor de sílabas, áudio dedicado, SRS, checkpoints `c3`–`c4` | Vitest + e2e |
 | 4 | Lições 1–3 | 3 lições originais (diálogo, vocabulário, nota de gramática, exercícios): ex. cumprimentos/apresentação (이에요/예요), objetos/lugares (은/는, 이/가), rotina/comida (을/를, -아요/어요) | e2e fluxo |
 | 5 | Vocabulário | frases com lacuna, tradução, escuta | e2e |
 | 6 | Revisão + Dashboard | cartões vencidos, histórico, estatísticas reais, streak, meta diária, "continuar" | Vitest + e2e |
@@ -99,4 +100,19 @@ Testes: `npm run typecheck`; `npm test` (14 arquivos, 141 testes); `npm run buil
 
 Limitações conhecidas: revisão de falante nativo pendente em todo o conteúdo; SRS só é criado pelo erro (não há fluxo completo de cartões vencidos em `/revisao`); a recomendação extra de `h08` para quem erra ㅎ mais de uma vez é aproximada pelo item obrigatório `h08-e01`; o áudio depende de voz `ko-KR` do navegador; `h11`–`h25`, `c2`–`c4`, batchim, exportação/importação e teste real de login Google/sync continuam pendentes; iPhone/Chrome iOS real segue manual.
 
-Próximo passo: Fase 3B.3 — `h11`–`h15` (vogais compostas) e checkpoint `c2`, somente com pedido explícito.
+## Status Fase 3B.3 (real)
+Feito: conteúdo original e validado de `h11`–`h15` e do checkpoint `c2`, completando as 15 vogais compostas. São 62 exercícios novos (12 em h11, 12 em h12, 12 em h13, 12 em h14 e 14 em h15) e 24 itens no `c2`; com as fatias anteriores, o curso tem 170 itens de lição + 44 de checkpoint. Todo conteúdo continua `in-review`. O registro ganhou 29 sílabas e 31 palavras novas.
+
+Vogais e pronúncia: `h11` cobre `ㅑ ㅕ ㅛ ㅠ` como glide palatal curto; `h12` cobre `ㅐ ㅔ ㅒ ㅖ` com foco em grafia, porque ㅐ/ㅔ e ㅒ/ㅖ estão em fusão na fala moderna de Seul; `h13` cobre `ㅘ ㅝ ㅟ` e aceita [wi]~[y] para ㅟ; `h14` cobre `ㅙ ㅞ ㅚ` como grafias distintas que convergem para [we]; `h15` cobre ㅢ e aceita [ɰi]/[i], com [e] na partícula possessiva. Nenhuma alternativa usa romanização como resposta correta e não há RR obrigatório. As tags `pronunciation:glide-palatal`, `pronunciation:merged-ae-e`, `pronunciation:merged-yae-ye`, `pronunciation:variation-wi`, `pronunciation:merged-oe-wae-we` e `pronunciation:variation-ui` documentam as decisões.
+
+Tipos e validação: o validador agora compartilha a ordem de lições e checkpoints, permitindo `h11` depender de `c1` e validando pré-requisitos contra ambos. `evaluateLesson` e `evaluateCheckpoint` passam a aprovar pelo número mínimo de acertos (`Math.round(total × nota / 100)`), então 19/24 é aprovado em `c2` mesmo com score arredondado para 79; os limiares anteriores (16/20 em `c1`, notas de h01–h10) foram preservados. `nextCourseStepAfter` percorre a ordem intercalada `h01…h10 → c1 → h11…h15 → c2`. O diagnóstico ganhou a categoria `vowel-compound`.
+
+Checkpoint `c2`: 24 itens em 20 minutos, aprovação com 19/24 (80%), escopo `h01`–`h15`. Blocos: identificação (6), contraste (6), leitura (6), montagem (4) e ortografia (2). Só abre com as 15 lições concluídas; fica em `Progress.lessons.c2`, com `done` pegajoso e maior score preservado. Erros em ㅢ, ㅚ/ㅙ/ㅞ e ㅐ/ㅔ geram cartões SRS, mas não bloqueiam sozinhos; erros de montagem aparecem no diagnóstico.
+
+SRS e navegação: os erros de h11–h15/c2 criam/atualizam cartões determinísticos de jamo, sílaba e palavra na caixa 1 do Leitner, sem duplicar chaves. `/hangul` mostra h11–h15 e c2 no ponto do currículo; h16–h25 e c3/c4 permanecem “em breve”, sem links quebrados. `h11` fica bloqueada até `c1`; `c2` até `h15`. Nenhuma migração, tabela, coluna, RLS, auth ou formato de `Progress` foi alterado.
+
+Testes: `npm run typecheck`; `npm test` (14 arquivos, 157 testes); `npm run build`; `npm run e2e` (76 testes, 375/390/768/1280). A cobertura nova inclui as 21 vogais, ordem de introdução, metadados de pronúncia, validação NFC/composição, critérios de h12/h14, 19/24 em c2, retentativas com maior score, SRS de vogal composta/ㅢ sem duplicação, bloqueio e liberação de h11/c2, fluxo completo de c2 com 24 itens e navegação por teclado/overflow.
+
+Limitações conhecidas: revisão de falante nativo pendente em todo o conteúdo; a distinção oral de ㅐ/ㅔ, ㅚ/ㅙ/ㅞ e ㅢ não é exigida (a avaliação é de leitura/ortografia); o player não aceita múltiplas respostas orais, então a tolerância é documentada no enunciado/feedback; voz `ko-KR` depende do navegador; `h16`–`h25`, `c3`/`c4`, batchim, tela de revisão SRS, exportação/importação e login Google/sync reais continuam pendentes; iPhone/Chrome iOS real segue manual.
+
+Próximo passo: Fase 3B.4 — `h16`–`h20` (bloco silábico e batchim) + `c3`, somente com pedido explícito.

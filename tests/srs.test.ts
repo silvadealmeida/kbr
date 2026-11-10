@@ -9,7 +9,7 @@ import {
   wordCardKey,
   type SrsState,
 } from "@/lib/srs";
-import { createEmptyProgress } from "@/lib/storage";
+import { createEmptyProgress, createLocalStorageStore } from "@/lib/storage";
 
 const NOW = new Date("2026-11-10T12:00:00.000Z");
 
@@ -108,11 +108,68 @@ describe("cartões SRS do Hangul", () => {
     expect(progress.cards["h:jamo:c:ㄴ"]!.box).toBe(4);
   });
 
+  test("erro em vogal composta cria cartões de jamo e sílaba sem duplicar", () => {
+    const exercise = LESSONS.find((lesson) => lesson.id === "h11")!.exercises[0]!;
+    const first = scheduleMissedReview(createEmptyProgress(NOW), exercise, NOW);
+
+    expect(Object.keys(first.cards)).toEqual(["h:jamo:v:ㅑ", "h:syl:야"]);
+    expect(first.cards["h:jamo:v:ㅑ"]).toEqual({
+      box: 1,
+      due: "2026-11-11T12:00:00.000Z",
+    });
+
+    const again = scheduleMissedReview(first, exercise, NOW);
+    expect(again.cards).toEqual(first.cards);
+    expect(exercise.srsCards).toEqual(["h:jamo:v:ㅑ", "h:syl:야"]);
+  });
+
+  test("erro em ㅢ agenda o cartão da vogal e a palavra da lição", () => {
+    const exercise = LESSONS.find((lesson) => lesson.id === "h15")!.exercises[0]!;
+    const next = scheduleMissedReview(createEmptyProgress(NOW), exercise, NOW);
+
+    expect(next.cards["h:jamo:v:ㅢ"]).toEqual({
+      box: 1,
+      due: "2026-11-11T12:00:00.000Z",
+    });
+    expect(next.cards["h:word:의사"]).toBeDefined();
+    expect(next.cards["h:syl:의"]).toBeDefined();
+  });
+
   test("item sem cartões não altera o progresso", () => {
     const exercise = LESSONS.find((lesson) => lesson.id === "h08")!.exercises.find(
       (item) => item.id === "h08-e06",
     )!;
     const progress = createEmptyProgress(NOW);
     expect(scheduleMissedReview(progress, exercise, NOW)).toBe(progress);
+  });
+
+  test("cartões de vogal composta persistem após recarga", async () => {
+    const memory = new Map<string, string>();
+    const storage = {
+      getItem: (key: string) => memory.get(key) ?? null,
+      setItem: (key: string, value: string) => {
+        memory.set(key, value);
+      },
+    };
+    const exercise = LESSONS.find((lesson) => lesson.id === "h15")!.exercises[0]!;
+    const progress = scheduleMissedReview(createEmptyProgress(NOW), exercise, NOW);
+
+    const saved = await createLocalStorageStore(
+      storage,
+      () => NOW,
+      "kbr:test:srs",
+    ).save(progress);
+    expect(saved).toBe(true);
+
+    const reloaded = await createLocalStorageStore(
+      storage,
+      () => NOW,
+      "kbr:test:srs",
+    ).load();
+    expect(reloaded.cards).toEqual(progress.cards);
+    expect(reloaded.cards["h:jamo:v:ㅢ"]).toEqual({
+      box: 1,
+      due: "2026-11-11T12:00:00.000Z",
+    });
   });
 });

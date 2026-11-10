@@ -136,6 +136,28 @@ function lessonOrder(curriculum: Curriculum): Map<string, number> {
   return new Map(curriculum.lessons.map((lesson, index) => [lesson.id, index]));
 }
 
+/**
+ * Ordem combinada de lições e checkpoints. Um checkpoint ocupa a posição
+ * imediatamente posterior ao último conteúdo do seu escopo, o que permite que
+ * uma lição declare um checkpoint como pré-requisito.
+ */
+function courseOrder(curriculum: Curriculum): Map<string, number> {
+  const lessonPositions = new Map(
+    curriculum.lessons.map((lesson, index) => [lesson.id, index * 2]),
+  );
+  for (const [index, checkpoint] of curriculum.checkpoints.entries()) {
+    const scope = checkpoint.lessonIds
+      .map((id) => lessonPositions.get(id))
+      .filter((position): position is number => position !== undefined);
+    const base =
+      scope.length > 0
+        ? Math.max(...scope)
+        : curriculum.lessons.length * 2 + index * 2;
+    lessonPositions.set(checkpoint.id, base + 1);
+  }
+  return lessonPositions;
+}
+
 /** Verifica se todo jamo usado em `text` já foi ensinado até `maxOrder`. */
 function checkTaughtText(
   issues: ContentIssue[],
@@ -354,6 +376,7 @@ function checkExercise(
 export function validateCurriculum(curriculum: Curriculum): ContentIssue[] {
   const issues: ContentIssue[] = [];
   const order = lessonOrder(curriculum);
+  const prerequisitesOrder = courseOrder(curriculum);
 
   if (curriculum.version !== 1) {
     error(issues, "version", "version", "A versão do conteúdo precisa ser 1.");
@@ -402,10 +425,11 @@ export function validateCurriculum(curriculum: Curriculum): ContentIssue[] {
     }
 
     for (const prerequisite of lesson.prerequisites) {
-      const prerequisiteOrder = order.get(prerequisite);
+      const prerequisiteOrder = prerequisitesOrder.get(prerequisite);
+      const currentStepOrder = prerequisitesOrder.get(lesson.id)!;
       if (prerequisiteOrder === undefined) {
         error(issues, "unknown-prerequisite", `${path}.prerequisites`, `Pré-requisito inexistente: ${prerequisite}.`);
-      } else if (prerequisiteOrder >= currentOrder) {
+      } else if (prerequisiteOrder >= currentStepOrder) {
         error(issues, "prerequisite-order", `${path}.prerequisites`, `O pré-requisito ${prerequisite} precisa vir antes de ${lesson.id}.`);
       }
     }

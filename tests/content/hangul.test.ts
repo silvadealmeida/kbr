@@ -11,6 +11,7 @@ import {
   type SyllableRecord,
 } from "@/content/hangul";
 import { parseSrsCardKey } from "@/lib/srs";
+import { checkAnswer, type ExerciseAnswer, type ExerciseSpec } from "@/lib/exercises";
 
 const codes = (curriculum: Curriculum) =>
   validateCurriculum(curriculum).map((issue) => issue.code);
@@ -20,13 +21,13 @@ const ALL_EXERCISES = [
   ...CHECKPOINTS.flatMap((checkpoint) => checkpoint.exercises),
 ];
 
-describe("conteúdo Hangul — fatia h01–h10 + c1", () => {
+describe("conteúdo Hangul — fatia h01–h15 + c1/c2", () => {
   test("o currículo implementado passa na validação sem erros", () => {
     const issues = validateCurriculum(HANGUL_CURRICULUM);
     expect(issues.filter((issue) => issue.severity === "error")).toEqual([]);
   });
 
-  test("implementa as dez primeiras lições e o checkpoint c1", () => {
+  test("implementa as quinze primeiras lições e os checkpoints c1 e c2", () => {
     expect(LESSONS.map((lesson) => lesson.id)).toEqual([
       "h01",
       "h02",
@@ -38,10 +39,16 @@ describe("conteúdo Hangul — fatia h01–h10 + c1", () => {
       "h08",
       "h09",
       "h10",
+      "h11",
+      "h12",
+      "h13",
+      "h14",
+      "h15",
     ]);
     expect([...IMPLEMENTED_LESSON_IDS]).toEqual(LESSONS.map((lesson) => lesson.id));
-    expect(CHECKPOINTS.map((checkpoint) => checkpoint.id)).toEqual(["c1"]);
-    expect(CHECKPOINTS[0]!.lessonIds).toEqual(LESSONS.map((lesson) => lesson.id));
+    expect(CHECKPOINTS.map((checkpoint) => checkpoint.id)).toEqual(["c1", "c2"]);
+    expect(CHECKPOINTS[0]!.lessonIds).toEqual(LESSONS.slice(0, 10).map((lesson) => lesson.id));
+    expect(CHECKPOINTS[1]!.lessonIds).toEqual(LESSONS.map((lesson) => lesson.id));
   });
 
   test("cada lição tem a quantidade de prática definida no currículo", () => {
@@ -56,8 +63,14 @@ describe("conteúdo Hangul — fatia h01–h10 + c1", () => {
       ["h08", 14],
       ["h09", 12],
       ["h10", 14],
+      ["h11", 12],
+      ["h12", 12],
+      ["h13", 12],
+      ["h14", 12],
+      ["h15", 14],
     ]);
     expect(CHECKPOINTS[0]!.exercises).toHaveLength(20);
+    expect(CHECKPOINTS[1]!.exercises).toHaveLength(24);
   });
 
   test("todo conteúdo coreano está marcado como in-review", () => {
@@ -72,7 +85,10 @@ describe("conteúdo Hangul — fatia h01–h10 + c1", () => {
 
   test("h04–h10 introduzem exatamente as consoantes da unidade 3 e 4", () => {
     const introductions = Object.fromEntries(
-      LESSONS.filter((lesson) => lesson.unit >= 3).map((lesson) => [lesson.id, lesson.newJamo]),
+      LESSONS.filter((lesson) => lesson.unit === 3 || lesson.unit === 4).map((lesson) => [
+        lesson.id,
+        lesson.newJamo,
+      ]),
     );
     expect(introductions).toEqual({
       h04: ["ㄱ", "ㄴ"],
@@ -84,6 +100,107 @@ describe("conteúdo Hangul — fatia h01–h10 + c1", () => {
       h10: ["ㅆ", "ㅉ"],
     });
     for (const lesson of LESSONS) expect(lesson.newFinals).toEqual([]);
+  });
+
+  test("h11–h15 completam as 21 vogais na ordem curricular", () => {
+    const introductions = Object.fromEntries(
+      LESSONS.filter((lesson) => lesson.unit === 5).map((lesson) => [
+        lesson.id,
+        lesson.newJamo,
+      ]),
+    );
+    expect(introductions).toEqual({
+      h11: ["ㅑ", "ㅕ", "ㅛ", "ㅠ"],
+      h12: ["ㅐ", "ㅔ", "ㅒ", "ㅖ"],
+      h13: ["ㅘ", "ㅝ", "ㅟ"],
+      h14: ["ㅙ", "ㅞ", "ㅚ"],
+      h15: ["ㅢ"],
+    });
+
+    const vowels = HANGUL_CURRICULUM.jamo.filter((jamo) => jamo.kind === "vowel");
+    expect(vowels.map((jamo) => jamo.symbol)).toEqual([
+      "ㅏ",
+      "ㅓ",
+      "ㅗ",
+      "ㅜ",
+      "ㅡ",
+      "ㅣ",
+      "ㅑ",
+      "ㅕ",
+      "ㅛ",
+      "ㅠ",
+      "ㅐ",
+      "ㅔ",
+      "ㅒ",
+      "ㅖ",
+      "ㅘ",
+      "ㅝ",
+      "ㅟ",
+      "ㅙ",
+      "ㅞ",
+      "ㅚ",
+      "ㅢ",
+    ]);
+    expect(vowels).toHaveLength(21);
+    expect(new Set(vowels.map((jamo) => jamo.symbol)).size).toBe(21);
+  });
+
+  test("h11 depende de c1 e a unidade 5 segue a ordem dos pré-requisitos", () => {
+    const byId = new Map(LESSONS.map((lesson) => [lesson.id, lesson]));
+    expect(byId.get("h11")!.prerequisites).toEqual(["c1"]);
+    expect(byId.get("h12")!.prerequisites).toEqual(["h11"]);
+    expect(byId.get("h13")!.prerequisites).toEqual(["h12"]);
+    expect(byId.get("h14")!.prerequisites).toEqual(["h13"]);
+    expect(byId.get("h15")!.prerequisites).toEqual(["h14"]);
+    expect(CHECKPOINTS[1]!.lessonIds).toEqual(
+      LESSONS.slice(0, 15).map((lesson) => lesson.id),
+    );
+  });
+
+  test("rejeita lição cujo pré-requisito é um checkpoint ausente", () => {
+    const broken: Curriculum = {
+      ...HANGUL_CURRICULUM,
+      checkpoints: CHECKPOINTS.filter((checkpoint) => checkpoint.id !== "c1"),
+    };
+    expect(codes(broken)).toContain("unknown-prerequisite");
+  });
+
+  test("as vogais compostas têm metadados de pronúncia e ficam em revisão", () => {
+    const compound = HANGUL_CURRICULUM.jamo.filter((jamo) =>
+      ["h11", "h12", "h13", "h14", "h15"].includes(jamo.introducedIn),
+    );
+    expect(compound).toHaveLength(15);
+    for (const jamo of compound) {
+      expect(jamo.notes?.trim()).toBeTruthy();
+      expect(jamo.review.status).toBe("in-review");
+      expect(jamo.ipa.length).toBeGreaterThan(0);
+    }
+
+    const tagsByLesson = new Map(
+      LESSONS.filter((lesson) => lesson.unit === 5).map((lesson) => [
+        lesson.id,
+        new Set(lesson.exercises.flatMap((exercise) => exercise.tags ?? [])),
+      ]),
+    );
+    expect(tagsByLesson.get("h11")!.has("pronunciation:glide-palatal")).toBe(true);
+    expect(tagsByLesson.get("h12")!.has("pronunciation:merged-ae-e")).toBe(true);
+    expect(tagsByLesson.get("h12")!.has("pronunciation:merged-yae-ye")).toBe(true);
+    expect(tagsByLesson.get("h13")!.has("pronunciation:variation-wi")).toBe(true);
+    expect(tagsByLesson.get("h14")!.has("pronunciation:merged-oe-wae-we")).toBe(true);
+    expect(tagsByLesson.get("h15")!.has("pronunciation:variation-ui")).toBe(true);
+  });
+
+  test("toda sílaba e palavra é Hangul válido e usa apenas jamo do inventário", () => {
+    const medial = new Set(
+      HANGUL_CURRICULUM.jamo.filter((jamo) => jamo.kind === "vowel").map((jamo) => jamo.symbol),
+    );
+    for (const syllable of HANGUL_CURRICULUM.syllables) {
+      expect(syllable.text.normalize("NFC")).toBe(syllable.text);
+      expect(medial.has(syllable.medial)).toBe(true);
+    }
+    for (const word of HANGUL_CURRICULUM.words) {
+      expect(word.ko.normalize("NFC")).toBe(word.ko);
+    }
   });
 
   test("as palavras usam apenas sílabas registradas e ensinadas", () => {
@@ -109,6 +226,76 @@ describe("conteúdo Hangul — fatia h01–h10 + c1", () => {
           exercise.options.length,
         );
       }
+    }
+  });
+
+  test("os itens novos de h11–h15/c2 aceitam a resposta certa e rejeitam a errada", () => {
+    const newExercises = [
+      ...LESSONS.filter((lesson) => lesson.unit === 5).flatMap((lesson) => lesson.exercises),
+      ...CHECKPOINTS.filter((checkpoint) => checkpoint.id === "c2").flatMap(
+        (checkpoint) => checkpoint.exercises,
+      ),
+    ];
+
+    const correctAnswer = (exercise: ExerciseSpec): ExerciseAnswer => {
+      switch (exercise.type) {
+        case "mcq":
+          return { kind: "text", value: exercise.correctAnswer };
+        case "cloze":
+          return { kind: "text", value: exercise.answer };
+        case "build-syllable":
+          return {
+            kind: "syllable",
+            initial: exercise.initial,
+            medial: exercise.medial,
+            final: exercise.final,
+          };
+        case "reading":
+          return { kind: "choice", optionId: exercise.correctOptionId! };
+        case "audio-to-char":
+        case "char-to-audio":
+        case "minimal-pair":
+          return { kind: "choice", optionId: exercise.correctOptionId };
+        case "listen":
+        case "translate":
+          throw new Error(`Tipo inesperado na fatia: ${exercise.type}`);
+      }
+    };
+
+    const wrongAnswer = (exercise: ExerciseSpec): ExerciseAnswer => {
+      switch (exercise.type) {
+        case "mcq":
+        case "cloze":
+          return { kind: "text", value: "__resposta_errada__" };
+        case "build-syllable":
+          return { kind: "text", value: "__resposta_errada__" };
+        case "reading": {
+          const wrong = exercise.options?.find(
+            (option) => option.id !== exercise.correctOptionId,
+          );
+          return wrong
+            ? { kind: "choice", optionId: wrong.id }
+            : { kind: "text", value: "__resposta_errada__" };
+        }
+        case "audio-to-char":
+        case "char-to-audio":
+        case "minimal-pair": {
+          const wrong = exercise.options.find(
+            (option) => option.id !== exercise.correctOptionId,
+          );
+          return wrong
+            ? { kind: "choice", optionId: wrong.id }
+            : { kind: "text", value: "__resposta_errada__" };
+        }
+        case "listen":
+        case "translate":
+          throw new Error(`Tipo inesperado na fatia: ${exercise.type}`);
+      }
+    };
+
+    for (const exercise of newExercises) {
+      expect(checkAnswer(exercise, correctAnswer(exercise)).correct).toBe(true);
+      expect(checkAnswer(exercise, wrongAnswer(exercise)).correct).toBe(false);
     }
   });
 
@@ -176,7 +363,7 @@ describe("conteúdo Hangul — fatia h01–h10 + c1", () => {
         },
       ],
     };
-    expect(codes(broken)).toContain("untaught-jamo");
+    expect(codes(broken)).toContain("example-uses-untaught-jamo");
   });
 
   test("rejeita revisão declarada sem revisor e data", () => {

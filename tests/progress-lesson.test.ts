@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { CHECKPOINTS, LESSONS } from "@/content/hangul";
+import { CHECKPOINTS, HANGUL_CURRICULUM, LESSONS } from "@/content/hangul";
 import {
   completeCheckpoint,
   completeLesson,
@@ -10,6 +10,7 @@ import {
   nextCourseStepAfter,
   nextLessonAfter,
   recordAttempt,
+  requiredCorrect,
 } from "@/lib/progress/lesson";
 import { createEmptyProgress, createLocalStorageStore, type Progress } from "@/lib/storage";
 
@@ -97,9 +98,20 @@ describe("progresso de lição", () => {
   test("aponta a próxima lição apenas quando existe", () => {
     expect(nextLessonAfter(LESSONS, "h01")?.id).toBe("h02");
     expect(nextLessonAfter(LESSONS, "h03")?.id).toBe("h04");
-    expect(nextLessonAfter(LESSONS, "h10")).toBeUndefined();
+    expect(nextLessonAfter(LESSONS, "h10")?.id).toBe("h11");
+    expect(nextLessonAfter(LESSONS, "h15")).toBeUndefined();
     expect(nextCourseStepAfter(LESSONS, CHECKPOINTS, "h10")?.id).toBe("c1");
-    expect(nextCourseStepAfter(LESSONS, CHECKPOINTS, "c1")).toBeUndefined();
+    expect(nextCourseStepAfter(LESSONS, CHECKPOINTS, "c1")?.id).toBe("h11");
+    expect(nextCourseStepAfter(LESSONS, CHECKPOINTS, "h15")?.id).toBe("c2");
+    expect(nextCourseStepAfter(LESSONS, CHECKPOINTS, "c2")).toBeUndefined();
+  });
+
+  test("calcula o mínimo de acertos sem reprovar 19 de 24 por arredondamento", () => {
+    expect(requiredCorrect(24, 80)).toBe(19);
+    expect(requiredCorrect(20, 80)).toBe(16);
+    expect(requiredCorrect(12, 83)).toBe(10);
+    expect(requiredCorrect(14, 79)).toBe(11);
+    expect(requiredCorrect(0, 80)).toBe(0);
   });
 
   test("persiste e recarrega o progresso do armazenamento local", async () => {
@@ -269,5 +281,105 @@ describe("progresso de checkpoint", () => {
     expect(result.missedExerciseIds).toEqual(["c1-e03", "c1-e10"]);
     expect(result.diagnostics.find((category) => category.id === "consonant-tense")?.missed).toBe(1);
     expect(result.diagnostics.find((category) => category.id === "reading")?.missed).toBe(1);
+  });
+});
+
+function c2Answers(correctIds: readonly string[]) {
+  const checkpoint = CHECKPOINTS.find((item) => item.id === "c2")!;
+  return Object.fromEntries(
+    checkpoint.exercises.map((exercise) => [
+      exercise.id,
+      { correct: correctIds.includes(exercise.id) },
+    ]),
+  );
+}
+
+describe("checkpoint c2 — inventário completo de vogais", () => {
+  test("só abre com h01–h15 concluídas", () => {
+    const c2 = CHECKPOINTS.find((checkpoint) => checkpoint.id === "c2")!;
+    const empty = createEmptyProgress(NOW);
+    expect(isCheckpointUnlocked(empty, c2)).toBe(false);
+
+    const upToH14: Progress = {
+      ...empty,
+      lessons: Object.fromEntries(
+        LESSONS.filter((lesson) => lesson.id !== "h15").map((lesson) => [
+          lesson.id,
+          { done: true, score: 100 },
+        ]),
+      ),
+    };
+    expect(isCheckpointUnlocked(upToH14, c2)).toBe(false);
+    expect(isCheckpointUnlocked(progressWithAllLessons(), c2)).toBe(true);
+  });
+
+  test("aprova com 19 de 24 e reprova com 18", () => {
+    const c2 = CHECKPOINTS.find((checkpoint) => checkpoint.id === "c2")!;
+    const ids = c2.exercises.map((exercise) => exercise.id);
+
+    const pass = evaluateCheckpoint(c2, c2Answers(ids.slice(0, 19)));
+    expect(pass).toMatchObject({ correct: 19, total: 24, score: 79, passed: true });
+
+    const fail = evaluateCheckpoint(c2, c2Answers(ids.slice(0, 18)));
+    expect(fail).toMatchObject({ correct: 18, total: 24, score: 75, passed: false });
+  });
+
+  test("mantém conclusão e maior score em retentativas", () => {
+    const c2 = CHECKPOINTS.find((checkpoint) => checkpoint.id === "c2")!;
+    const ids = c2.exercises.map((exercise) => exercise.id);
+
+    const first = completeCheckpoint(
+      progressWithAllLessons(),
+      c2,
+      c2Answers(ids),
+      NOW,
+    );
+    expect(first.progress.lessons.c2).toEqual({ done: true, score: 100 });
+
+    const retry = completeCheckpoint(
+      first.progress,
+      c2,
+      c2Answers(ids.slice(0, 10)),
+      NOW,
+    );
+    expect(retry.progress.lessons.c2).toEqual({ done: true, score: 100 });
+    expect(retry.result.passed).toBe(false);
+  });
+
+  test("refazer abaixo da nota não cria conclusão falsa", () => {
+    const c2 = CHECKPOINTS.find((checkpoint) => checkpoint.id === "c2")!;
+    const ids = c2.exercises.map((exercise) => exercise.id);
+    const result = completeCheckpoint(
+      progressWithAllLessons(),
+      c2,
+      c2Answers(ids.slice(0, 18)),
+      NOW,
+    );
+    expect(result.progress.lessons.c2).toEqual({ done: false, score: 75 });
+  });
+
+  test("diagnóstico agrupa erros de vogal composta e leitura", () => {
+    const c2 = CHECKPOINTS.find((checkpoint) => checkpoint.id === "c2")!;
+    const ids = c2.exercises.map((exercise) => exercise.id);
+    const result = evaluateCheckpoint(
+      c2,
+      c2Answers(ids.filter((id) => id !== "c2-e05" && id !== "c2-e16")),
+    );
+    expect(result.missedExerciseIds).toEqual(["c2-e05", "c2-e16"]);
+    expect(
+      result.diagnostics.find((category) => category.id === "vowel-compound")?.missed,
+    ).toBe(1);
+    expect(result.diagnostics.find((category) => category.id === "reading")?.missed).toBe(1);
+  });
+
+  test("as 21 vogais aparecem nos cartões SRS do curso", () => {
+    const cards = new Set(
+      [...LESSONS, ...CHECKPOINTS].flatMap((item) =>
+        item.exercises.flatMap((exercise) => exercise.srsCards ?? []),
+      ),
+    );
+    for (const vowel of HANGUL_CURRICULUM.jamo.filter((jamo) => jamo.kind === "vowel")) {
+      expect(cards.has(`h:jamo:v:${vowel.symbol}`)).toBe(true);
+    }
   });
 });

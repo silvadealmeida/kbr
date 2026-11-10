@@ -121,14 +121,20 @@ test.describe("Hangul autenticado", () => {
 });
 
 const COMPLETED_LESSONS = Array.from({ length: 10 }, (_, index) => `h${String(index + 1).padStart(2, "0")}`);
+const COMPLETED_THROUGH_C1 = [...COMPLETED_LESSONS, "c1"];
+const COMPLETED_THROUGH_H15 = [
+  ...Array.from({ length: 15 }, (_, index) => `h${String(index + 1).padStart(2, "0")}`),
+  "c1",
+];
 
-async function seedCompletedLessons(page: import("@playwright/test").Page) {
+async function seedCompletedLessons(
+  page: import("@playwright/test").Page,
+  lessonIds: readonly string[] = COMPLETED_LESSONS,
+) {
   await page.goto("/hangul");
   await page.evaluate(
-    ({ key, lessonIds }) => {
-      const lessons = Object.fromEntries(
-        lessonIds.map((id) => [id, { done: true, score: 100 }]),
-      );
+    ({ key, lessonIds: ids }) => {
+      const lessons = Object.fromEntries(ids.map((id) => [id, { done: true, score: 100 }]));
       window.localStorage.setItem(
         key,
         JSON.stringify({
@@ -142,7 +148,7 @@ async function seedCompletedLessons(page: import("@playwright/test").Page) {
         }),
       );
     },
-    { key: `kbr:user:${TEST_USER.id}:v1`, lessonIds: COMPLETED_LESSONS },
+    { key: `kbr:user:${TEST_USER.id}:v1`, lessonIds },
   );
 }
 
@@ -236,5 +242,133 @@ test.describe("Checkpoint c1 autenticado", () => {
 
     await page.goto("/hangul");
     await expect(page.getByText("Concluído · 100%")).toBeVisible();
+  });
+});
+
+type C2Step =
+  | { kind: "choice"; name: string }
+  | { kind: "build"; initial: string; medial: string };
+
+const C2_STEPS: C2Step[] = [
+  { kind: "choice", name: "야" },
+  { kind: "choice", name: "여" },
+  { kind: "choice", name: "과" },
+  { kind: "choice", name: "귀" },
+  { kind: "choice", name: "왜" },
+  { kind: "choice", name: "의" },
+  { kind: "choice", name: "거 (ㅓ)" },
+  { kind: "choice", name: "그 (ㅡ)" },
+  { kind: "choice", name: "새 (ㅐ)" },
+  { kind: "choice", name: "웨 (ㅞ)" },
+  { kind: "choice", name: "의 (ㅢ)" },
+  { kind: "choice", name: "야 (ㅑ)" },
+  { kind: "choice", name: "maçã; desculpa" },
+  { kind: "choice", name: "raposa" },
+  { kind: "choice", name: "relógio" },
+  { kind: "choice", name: "empresa" },
+  { kind: "choice", name: "médico; médica" },
+  { kind: "choice", name: "leite" },
+  { kind: "build", initial: "ㄱ", medial: "ㅘ" },
+  { kind: "build", initial: "ㅇ", medial: "ㅝ" },
+  { kind: "build", initial: "ㅇ", medial: "ㅚ" },
+  { kind: "build", initial: "ㅇ", medial: "ㅢ" },
+  { kind: "choice", name: "베개" },
+  { kind: "choice", name: "돼지" },
+];
+
+test.describe("Unidade 5 e checkpoint c2 autenticados", () => {
+  test.beforeEach(async ({ context }) => {
+    await authenticate(context);
+  });
+
+  test("h11 fica bloqueada até c1 e responde pelo teclado", async ({ page }) => {
+    await page.goto("/hangul");
+    await expect(page.getByText("Após c1", { exact: true })).toBeVisible();
+
+    await seedCompletedLessons(page, COMPLETED_THROUGH_C1);
+    await page.goto("/hangul");
+    const h11 = page.getByRole("link", { name: /h11.*ㅑ ㅕ ㅛ ㅠ/ });
+    await expect(h11).toBeVisible({ timeout: 15_000 });
+    const box = await h11.boundingBox();
+    expect(box?.height ?? 0).toBeGreaterThanOrEqual(44);
+    await h11.click();
+
+    await expect(
+      page.getByRole("heading", { level: 1, name: /ㅑ ㅕ ㅛ ㅠ/ }),
+    ).toBeVisible();
+    await page.getByRole("button", { name: "Começar a prática" }).click();
+
+    const option = page.getByRole("button", { name: "야", exact: true });
+    await option.focus();
+    await page.keyboard.press("Enter");
+    await expect(option).toHaveAttribute("aria-pressed", "true");
+    await page.getByRole("button", { name: "Conferir" }).focus();
+    await page.keyboard.press("Enter");
+    await expect(page.getByRole("status").filter({ hasText: "Correto." })).toBeVisible();
+    await expect(page.getByRole("button", { name: "Continuar" })).toBeVisible();
+
+    expect(
+      await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth),
+    ).toBe(true);
+  });
+
+  test("c2 fica bloqueado até h01–h15 serem concluídas", async ({ page }) => {
+    await page.goto("/hangul");
+    await expect(page.getByText("Após h01–h15")).toBeVisible();
+
+    await page.goto("/hangul/c2");
+    await expect(
+      page.getByRole("heading", { level: 1, name: /Checkpoint 2/ }),
+    ).toBeVisible();
+    await expect(page.getByText("Checkpoint bloqueado")).toBeVisible();
+    await expect(page.getByText(/Pendentes: h01/)).toBeVisible();
+  });
+
+  test("c2 abre depois de h01–h15 e registra 100%", async ({ page }) => {
+    await seedCompletedLessons(page, COMPLETED_THROUGH_H15);
+
+    await page.goto("/hangul");
+    await expect(page.getByRole("link", { name: /c2.*Checkpoint 2/ })).toBeVisible({
+      timeout: 15_000,
+    });
+
+    await page.goto("/hangul/c2");
+    await expect(
+      page.getByRole("heading", { level: 1, name: /Checkpoint 2/ }),
+    ).toBeVisible();
+    await page.getByRole("button", { name: "Começar checkpoint" }).click();
+
+    for (const [index, step] of C2_STEPS.entries()) {
+      if (step.kind === "choice") {
+        await page.getByRole("button", { name: step.name, exact: true }).first().click();
+      } else {
+        await page.getByRole("button", { name: step.initial, exact: true }).first().click();
+        await page.getByRole("button", { name: step.medial, exact: true }).first().click();
+      }
+      await page.getByRole("button", { name: "Conferir" }).click();
+      await expect(page.getByRole("status").filter({ hasText: "Correto." })).toBeVisible();
+      await page
+        .getByRole("button", {
+          name: index === C2_STEPS.length - 1 ? "Concluir checkpoint" : "Continuar",
+        })
+        .click();
+    }
+
+    await expect(
+      page.getByRole("heading", { level: 1, name: "Checkpoint concluído" }),
+    ).toBeVisible();
+    await expect(page.getByText("Você acertou 24 de 24 (100%).")).toBeVisible();
+
+    await expect
+      .poll(async () =>
+        page.evaluate((key) => {
+          const raw = window.localStorage.getItem(key);
+          return raw ? JSON.parse(raw).lessons?.c2 : null;
+        }, `kbr:user:${TEST_USER.id}:v1`),
+      )
+      .toEqual({ done: true, score: 100 });
+
+    await page.goto("/hangul");
+    await expect(page.getByText("Concluído · 100%").last()).toBeVisible();
   });
 });

@@ -38,6 +38,15 @@ export type CheckpointResult = {
 };
 
 /**
+ * Quantidade mínima de acertos para atingir uma nota percentual. Evita que
+ * 19/24 (79% arredondado) reprove um critério documentado como 80% (19/24).
+ */
+export function requiredCorrect(total: number, minScore: number): number {
+  if (total <= 0) return 0;
+  return Math.min(total, Math.round((total * minScore) / 100));
+}
+
+/**
  * Calcula o resultado da lição a partir da primeira tentativa de cada item.
  * Itens com `scored: false` não entram no denominador.
  */
@@ -68,7 +77,8 @@ export function evaluateLesson(
     correct,
     total,
     score,
-    passed: score >= lesson.completion.minScore && requiredMet,
+    passed:
+      correct >= requiredCorrect(total, lesson.completion.minScore) && requiredMet,
     requiredMet,
     passedLessonIds: scored
       .filter((exercise) => answers[exercise.id]?.correct)
@@ -98,7 +108,7 @@ export function evaluateCheckpoint(
     correct,
     total,
     score,
-    passed: score >= checkpoint.passingScore,
+    passed: correct >= requiredCorrect(total, checkpoint.passingScore),
     diagnostics: summary.categories,
     missedExerciseIds: summary.missedExerciseIds,
   };
@@ -190,22 +200,33 @@ export function nextLessonAfter(
 }
 
 /**
- * Próximo passo do curso: a próxima lição implementada ou, no fim do bloco,
- * o checkpoint cujo escopo termina nessa lição.
+ * Próximo passo do curso na ordem intercalada de lições e checkpoints.
+ * O checkpoint ocupa a posição imediatamente depois do último conteúdo do seu
+ * escopo, então `h10` é seguido por `c1`, `c1` por `h11` e `h15` por `c2`.
  */
 export function nextCourseStepAfter(
   lessons: readonly Lesson[],
   checkpoints: readonly Checkpoint[],
-  lessonId: string,
+  stepId: string,
 ): { id: string; title: string } | undefined {
-  const nextLesson = nextLessonAfter(lessons, lessonId);
-  if (nextLesson) return { id: nextLesson.id, title: nextLesson.title };
+  const lessonPosition = new Map(lessons.map((lesson, index) => [lesson.id, index * 2]));
+  const steps = [
+    ...lessons.map((lesson, index) => ({
+      id: lesson.id,
+      title: lesson.title,
+      position: index * 2,
+    })),
+    ...checkpoints.map((checkpoint, index) => {
+      const scope = checkpoint.lessonIds
+        .map((id) => lessonPosition.get(id))
+        .filter((position): position is number => position !== undefined);
+      const base = scope.length > 0 ? Math.max(...scope) : lessons.length * 2 + index * 2;
+      return { id: checkpoint.id, title: checkpoint.title, position: base + 1 };
+    }),
+  ].sort((a, b) => a.position - b.position);
 
-  const lessonOrder = new Map(lessons.map((lesson, index) => [lesson.id, index]));
-  const checkpoint = checkpoints.find((item) => {
-    if (!item.lessonIds.includes(lessonId)) return false;
-    return item.lessonIds.every((id) => lessonOrder.has(id));
-  });
-  if (!checkpoint) return undefined;
-  return { id: checkpoint.id, title: checkpoint.title };
+  const index = steps.findIndex((step) => step.id === stepId);
+  if (index < 0) return undefined;
+  const next = steps[index + 1];
+  return next ? { id: next.id, title: next.title } : undefined;
 }

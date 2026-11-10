@@ -13,7 +13,7 @@ export { SYLLABLES, WORDS } from "./syllables";
 export { assertCurriculum, validateCurriculum, type ContentIssue } from "./validate";
 
 /**
- * Fatia do currículo implementada na Fase 3B.2. As regras de fronteira
+ * Fatia do currículo implementada na Fase 3B.3. As regras de fronteira
  * entram em h21–h23; o formato já é o da especificação.
  */
 export const HANGUL_CURRICULUM: Curriculum = {

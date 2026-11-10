@@ -2,6 +2,7 @@ import type { ExerciseSpec } from "@/lib/exercises";
 
 export type DiagnosticCategoryId =
   | "vowel"
+  | "vowel-compound"
   | "consonant-basic"
   | "consonant-tense"
   | "reading"
@@ -31,6 +32,7 @@ export type DiagnosticSummary = {
 
 const CATEGORY_ORDER: readonly DiagnosticCategoryId[] = [
   "vowel",
+  "vowel-compound",
   "consonant-basic",
   "consonant-tense",
   "reading",
@@ -44,6 +46,13 @@ const CATEGORIES: Record<DiagnosticCategoryId, DiagnosticCategory> = {
     advice:
       "Reveja os contrastes de vogais (ㅏ/ㅓ, ㅗ/ㅜ, ㅡ/ㅜ) e a posição dos lábios antes de tentar de novo.",
     lessonIds: ["h02", "h03"],
+  },
+  "vowel-compound": {
+    id: "vowel-compound",
+    label: "Vogais compostas",
+    advice:
+      "Reveja as vogais com glide e as grafias que se fundiram na fala moderna (ㅐ/ㅔ, ㅚ/ㅙ/ㅞ, ㅢ). Priorize a leitura e a ortografia; a distinção oral varia.",
+    lessonIds: ["h11", "h12", "h13", "h14", "h15"],
   },
   "consonant-basic": {
     id: "consonant-basic",

@@ -1,6 +1,6 @@
 # Design de exercícios — módulo Hangul
 
-**Status:** especificação concluída; implementação pendente (Fase 3B).
+**Status:** especificação concluída; tipos implementados na Fase 3B e sessão SRS (`srs-session`) implementada na Fase 4A em `/revisao`.
 **Objetivo:** definir os nove tipos de exercício do módulo Hangul, como são validados, como dão feedback e como se integram ao player e ao SRS.
 **Compatibilidade:** os tipos existentes em `src/lib/exercises` (`mcq`, `cloze`, `build-syllable`, `listen`, `translate`) continuam válidos. Os novos tipos são aditivos; `check(spec, string)` continua funcionando para os antigos.
 
@@ -674,10 +674,12 @@ type ReviewSession = {
 ### 11.3 Seleção
 
 1. Buscar cartões vencidos em `Progress.cards` (`due <= now`).
-2. Ordenar por `due` ascendente e embaralhar Empates.
+2. Deduplicar chaves e ordenar por `due` ascendente; no empate, usar a chave estável do cartão (determinístico e testável).
 3. Limitar a 20.
-4. Se houver menos de 5, incluir cartões novos até 5, respeitando o limite de 6 novos por lição.
-5. Intercalar tipos: não mostrar 5 jamo isolados seguidos; alternar jamo, sílaba, palavra, regra.
+4. Não criar cartões novos na Fase 4A: a sessão usa apenas cartões já criados por erros anteriores.
+5. Na Fase 4A a fila respeita estritamente o vencimento, sem intercalar tipos. A alternância pedagógica fica para uma fase futura, quando houver inventário de cartões novos.
+
+**Implementação da Fase 4A:** os passos 1–4 estão ativos; o passo 5 não reordena por tipo. A sessão é limitada a 20 cartões e não reapresenta o mesmo cartão na mesma sessão.
 
 ### 11.4 Validação e nota
 
@@ -685,7 +687,7 @@ type ReviewSession = {
 - `correct` → `leitner.review(state, "correct", now)`.
 - `again` → `leitner.review(state, "again", now)`.
 - O resultado da sessão é agregado, mas não altera `Progress.lessons`.
-- Cartões errados voltam para a caixa 1 e podem reaparecer na mesma sessão se houver tempo; no MVP, no máximo uma reapresentação.
+- Cartões errados voltam para a caixa 1; na Fase 4A não são reapresentados na mesma sessão e entram na próxima fila quando vencerem de novo.
 
 ### 11.5 Feedback
 

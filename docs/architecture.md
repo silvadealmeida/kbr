@@ -15,6 +15,7 @@ src/
   components/
     ui/                     # Button, Card, ProgressBar, Feedback
     hangul/                 # catálogo do curso e player de lição (client)
+    review/                 # ReviewArea: fila, sessão e conclusão de revisão (client)
     auth/                   # AuthProvider, AuthControl, ProtectedArea, AccountCard
     site/                   # header/footer públicos e CTA de login
   content/                  # DADOS originais (TS tipado, sem lógica)
@@ -23,6 +24,7 @@ src/
     auth/                   # redirect seguro, estados de acesso
     supabase/               # clientes browser/server, sessão no proxy
     srs/                    # interface Scheduler + leitner.ts (trocável por fsrs.ts)
+    review/                 # fila determinística, exercícios de revisão e applyReview (puro)
     storage/                # interface ProgressStore + localStorageStore.ts (versionado)
     exercises/              # tipos + check/checkAnswer (funções puras)
     hangul/                 # composição/decomposição de sílabas (Unicode), puro
@@ -73,6 +75,15 @@ Currículo e especificação pedagógica: `docs/pedagogy/`. A Fase 3B.5 implemen
 - Vogais compostas: `ㅑ/ㅕ/ㅛ/ㅠ` usam glide palatal; `ㅐ/ㅔ` e `ㅒ/ㅖ` são ensinadas como grafias distintas com fala moderna em fusão; `ㅚ/ㅙ/ㅞ` convergem para [we] em Seul; `ㅟ` aceita [wi]~[y]; `ㅢ` aceita [ɰi]/[i] e [e] na partícula possessiva. Os exercícios avaliam leitura e ortografia, não um contraste oral obrigatório, e carregam tags `pronunciation:*`.
 - `src/lib/hangul/pronunciation.ts` implementa as três regras como funções puras: `applyLiaison` cobre finais simples e os 11 duplos, a queda do ㅎ final e não move ㅇ final; `applyNasalization` cobre as famílias ㄱ/ㄷ/ㅂ antes de ㄴ/ㅁ, não antes de vogal nem ㄹ → ㄴ; `applyAspiration` cobre ㄱ/ㄷ/ㅂ/ㅈ + ㅎ nas duas ordens. Casos fora do escopo retornam `null`; a grafia escrita nunca é alterada. Tensificação, lateralização e ㅎ enfraquecido após ㄴ/ㅁ/ㅇ ficam de fora. As transcrições são didáticas, não IPA, e não avaliam fala.
 
+## Revisão
+`/revisao` é funcional desde a Fase 4A e não altera `Progress` v1, auth, migração, tabela ou RLS.
+
+- `src/lib/review/index.ts` é a camada pura: `buildReviewQueue`/`buildReviewQueueFromEntries` leem somente `Progress.cards`, aceitam o limite inclusivo `due <= now` do Leitner, deduplicam chaves, ignoram chaves desconhecidas e ordenam por vencimento ascendente, desempatando por `cardId`. A sessão é limitada a 20 cartões (`MAX_REVIEW_SESSION`); os demais ficam pendentes. Nenhum cartão novo é criado quando não há dados.
+- `buildReviewExercise` converte a chave estável existente em um exercício determinístico usando os registros de conteúdo: jamo → nome (`mcq`), sílaba → montagem (`build-syllable`), palavra → significado (`reading` com `mcq`) e regra → pronúncia didática (`reading` com `mcq`). A resposta correta não é marcada nem revelada antes do envio; o áudio do navegador é apoio e não avalia pronúncia.
+- `applyReview(progress, item, grade, now)` chama `leitner.review` no mesmo `cardId` (acerto avança, erro volta à caixa 1), acrescenta `Attempt` com prefixo `review:` e atualiza `lastActive`. Chave ausente é no-op; chaves e lições existentes não são recriadas nem apagadas.
+- `src/components/review/ReviewArea.tsx` reutiliza `ExerciseView`, `checkAnswer` e os componentes de UI. Cada envio persiste imediatamente pelo `ProgressStore` local-first, então recarregar a página não desfaz uma revisão concluída. Clique duplo é bloqueado por refs; a sessão não pode enviar o mesmo cartão duas vezes. Falha de gravação/sincronização mostra aviso local e nunca é apresentada como sincronizada.
+- Contagens de “vencido” usam o início do dia local; o restante da agenda permanece ISO UTC, como no Leitner. O store sincronizado grava o snapshot inteiro: o merge entre dispositivos acontece na carga/login, não durante a sessão, então edições simultâneas em dois dispositivos continuam sujeitas à última gravação remota.
+
 ## Voz
 O player usa `window.speechSynthesis` com `lang="ko-KR"`, rate 0.85, sob demanda (sem autoplay). Como a disponibilidade de voz coreana varia por sistema, todo item de escuta exibe uma dica textual (`fallback`) que descreve o som sem entregar a resposta escrita. Não há arquivos de áudio, avaliação de pronúncia nem módulo próprio de voz nesta fase.
 
@@ -90,10 +101,10 @@ O player usa `window.speechSynthesis` com `lang="ko-KR"`, rate 0.85, sob demanda
 - Política pública em `/privacidade`; aviso legal/Impressum em `/impressum` com pendências explícitas, sem inventar identidade, endereço ou prazos.
 
 ## Testes
-- Vitest (15 arquivos, 205 testes): composição/decomposição Hangul (simples e os 27 finais com batchim), NFC, jamo inválido, validação de exercícios (`check` e `checkAnswer`), validação do currículo `h01`–`h25` + `c1`–`c4`, cobertura das 21 vogais e dos 27 finais na ordem de introdução, metadados de pronúncia, transformações puras e limites de ligação/nasalização/aspiração, consistência entre exemplos de regra e funções, critérios adicionais de conclusão, score/desbloqueio de lição e checkpoint, limites autoritativos (`16/20`, `19/24`, `24/30`, `10/12`, `11/14`, `12/14`, `13/15`), exceção de `밟다`, diagnóstico por categoria (incluindo regras e leitura em contexto), chaves/criação/deduplicação de cartões SRS (incluindo `h:rule:*`), conclusão do módulo, scheduler, store (migração/corrupção) e persistência após recarga.
+- Vitest (16 arquivos, 219 testes): composição/decomposição Hangul (simples e os 27 finais com batchim), NFC, jamo inválido, validação de exercícios (`check` e `checkAnswer`), validação do currículo `h01`–`h25` + `c1`–`c4`, cobertura das 21 vogais e dos 27 finais na ordem de introdução, metadados de pronúncia, transformações puras e limites de ligação/nasalização/aspiração, consistência entre exemplos de regra e funções, critérios adicionais de conclusão, score/desbloqueio de lição e checkpoint, limites autoritativos (`16/20`, `19/24`, `24/30`, `10/12`, `11/14`, `12/14`, `13/15`), exceção de `밟다`, diagnóstico por categoria (incluindo regras e leitura em contexto), chaves/criação/deduplicação de cartões SRS (incluindo `h:rule:*`), conclusão do módulo, scheduler, store (migração/corrupção) e persistência após recarga. A cobertura da revisão inclui fila vazia, vencidos e limite inclusivo, ordem/deduplicação, exercícios das quatro categorias, avanço/rebaixamento Leitner, histórico e lições preservados, no-op para chave ausente, persistência local e falha remota.
 - Auth/sync: redirecionamento fechado, config pública, stores local/remoto, merge/migração/offline, classificação de rotas, estados de acesso, conteúdo da política/auditoria e inspeção estrutural da migration.
-- Playwright (Chromium, 375/390/768/1280; 100 testes): landing pública, links legais, bloqueio de rotas privadas sem sessão (incluindo `/hangul/h01`, `/hangul/h11`, `/hangul/h21`, `/hangul/h25`, `/hangul/c1`, `/hangul/c2`, `/hangul/c3` e `/hangul/c4`), retorno seguro via `next`, sessão inválida, callback sem código indo para `/auth/error`, ausência de vazamento no HTML, navegação mobile/desktop e tema.
-- O fluxo autenticado de Hangul é testado contra um Supabase mock local (`e2e/mock-supabase.mjs`, porta 54321) com cookie de sessão de teste: lição completa por teclado, feedback de erro, persistência após reload, liberação da próxima lição, `h11` desbloqueada após `c1`, `h16` após `c2`, `h21` após `c3` e jogada por teclado, checkpoints bloqueados e `c1`/`c2`/`c3`/`c4` completos com 20/24/24/30 itens e score 100, incluindo reload, banner de módulo concluído e ausência de overflow. O mock não substitui um teste de integração com o Supabase real; login Google real e sync remoto continuam manuais.
+- Playwright (Chromium, 375/390/768/1280; 120 testes): landing pública, links legais, bloqueio de rotas privadas sem sessão (incluindo `/revisao`, `/hangul/h01`, `/hangul/h11`, `/hangul/h21`, `/hangul/h25`, `/hangul/c1`, `/hangul/c2`, `/hangul/c3` e `/hangul/c4`), retorno seguro via `next`, sessão inválida, callback sem código indo para `/auth/error`, ausência de vazamento no HTML, navegação mobile/desktop e tema.
+- O fluxo autenticado de Hangul é testado contra um Supabase mock local (`e2e/mock-supabase.mjs`, porta 54321) com cookie de sessão de teste: lição completa por teclado, feedback de erro, persistência após reload, liberação da próxima lição, `h11` desbloqueada após `c1`, `h16` após `c2`, `h21` após `c3` e jogada por teclado, checkpoints bloqueados e `c1`/`c2`/`c3`/`c4` completos com 20/24/24/30 itens e score 100, incluindo reload, banner de módulo concluído e ausência de overflow. O mesmo mock cobre `/revisao`: estado vazio sem cartões inventados, ordem da fila, sessão por teclado/toque, avanço/rebaixamento persistido após reload, clique duplo, feedback de erro, preservação de lições e falha de sincronização determinística por HTTP 500 (sem `networkidle`). O mock não substitui um teste de integração com o Supabase real; login Google real e sync remoto continuam manuais.
 - iPhone real/Chrome iOS não é testável aqui.
 
 ## Decisões/limites

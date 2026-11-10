@@ -55,6 +55,7 @@ supabase/                    # migrations e testes pgTAP de RLS
 
 ## Hangul
 Composição por Unicode: `0xAC00 + (L*21 + V)*28 + T` — sem tabela de sílabas; testes unitários. Cards de letras: nome, som aproximado em pt-BR, grupo, exemplo.
+Currículo, referência histórica/fonética, pronúncia para brasileiros, design dos exercícios e schema de conteúdo da Fase 3A: `docs/pedagogy/`. A implementação da Fase 3B deve reutilizar `lib/hangul`, manter `Progress` v1 e não alterar auth, sync, banco ou RLS.
 
 ## Voz
 `speech/`: `isSupported()`, `getKoVoice()` (aguarda `voiceschanged`, timeout ~1s), `speak(text)` com `lang='ko-KR'`, rate ~0.8. Se sem voz: UI mostra aviso claro e esconde "ouvir" nos exercícios de escuta (substituídos por leitura). Sem avaliação de pronúncia.

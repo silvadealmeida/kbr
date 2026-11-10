@@ -96,9 +96,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1794315783.404498,
-    "seen": 1794316189.6314878,
-    "ast_hash": "4c17d42f82c8bc77be1338a901d062c2",
+    "mtime": 1794317862.1240537,
+    "seen": 1794317983.8835247,
+    "ast_hash": "f46d237d9b33cbd31453fd3e66427a44",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -108,9 +108,9 @@
     "semantic_hash": ""
   },
   "docs/architecture.md": {
-    "mtime": 1794316137.8543715,
-    "seen": 1794316189.63149,
-    "ast_hash": "67804b4a392075d5eae75ff1d81d5bd6",
+    "mtime": 1794317852.7775807,
+    "seen": 1794317983.8835273,
+    "ast_hash": "92a694744c12f7224fb12b06157adfcf",
     "semantic_hash": ""
   },
   "docs/research.md": {
@@ -120,9 +120,9 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794316145.6941235,
-    "seen": 1794316189.6314921,
-    "ast_hash": "d183c8ffbc6b98aae8d145ad6871479d",
+    "mtime": 1794317848.7288566,
+    "seen": 1794317983.883537,
+    "ast_hash": "4d6994d73e6de2375407dcc9a21393b1",
     "semantic_hash": ""
   },
   "src/lib/hangul/index.ts": {
@@ -489,6 +489,36 @@
     "mtime": 1794316119.128116,
     "seen": 1794316189.6314847,
     "ast_hash": "8c93eb755a9be552dcb424d880268a37",
+    "semantic_hash": ""
+  },
+  "docs/pedagogy/content-schema.md": {
+    "mtime": 1794317960.1887002,
+    "seen": 1794317983.883529,
+    "ast_hash": "1fd19ad260381e4a2e96117c47ca50df",
+    "semantic_hash": ""
+  },
+  "docs/pedagogy/curriculum.md": {
+    "mtime": 1794317963.6397977,
+    "seen": 1794317983.88353,
+    "ast_hash": "cfd4c7173a8a73dfc96bf1d4297dcb0b",
+    "semantic_hash": ""
+  },
+  "docs/pedagogy/exercise-design.md": {
+    "mtime": 1794317737.283345,
+    "seen": 1794317983.883531,
+    "ast_hash": "3c80babe220f42999a3f37dbe9b80b47",
+    "semantic_hash": ""
+  },
+  "docs/pedagogy/hangul.md": {
+    "mtime": 1794317939.7820656,
+    "seen": 1794317983.8835318,
+    "ast_hash": "062a5c0e8eb427ebd199fe2c1b6e91aa",
+    "semantic_hash": ""
+  },
+  "docs/pedagogy/pronunciation-ptbr.md": {
+    "mtime": 1794317775.7487462,
+    "seen": 1794317983.8835347,
+    "ast_hash": "e080c21ad475461f2933ae1f11b0c790",
     "semantic_hash": ""
   },
   "package-lock.json": {

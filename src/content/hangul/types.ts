@@ -56,6 +56,17 @@ export type LessonPanel = {
   ko?: string;
 };
 
+/**
+ * Critério adicional de conclusão. Permite representar regras documentadas que
+ * não cabem em "todos os itens obrigatórios", como "3 dos 4 contrastes".
+ */
+export type CompletionRule = {
+  id: string;
+  label: string;
+  exerciseIds: readonly string[];
+  minCorrect: number;
+};
+
 export type Lesson = {
   id: string;
   unit: 1 | 2 | 3 | 4 | 5 | 6 | 7;
@@ -72,6 +83,7 @@ export type Lesson = {
   completion: {
     minScore: number;
     requiredExerciseIds?: readonly string[];
+    rules?: readonly CompletionRule[];
   };
   review: ReviewMeta;
 };
@@ -89,10 +101,14 @@ export type RuleRecord = {
 export type Checkpoint = {
   id: string;
   unit: 1 | 2 | 3 | 4 | 5 | 6 | 7;
+  title: string;
+  objective: string;
+  instructions: readonly string[];
   lessonIds: readonly string[];
   exercises: readonly ExerciseSpec[];
   passingScore: number;
   diagnosticTags: readonly string[];
+  estimatedMinutes: number;
   review: ReviewMeta;
 };
 

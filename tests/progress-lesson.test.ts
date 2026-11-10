@@ -1,9 +1,13 @@
 import { describe, expect, test } from "vitest";
-import { LESSONS } from "@/content/hangul";
+import { CHECKPOINTS, LESSONS } from "@/content/hangul";
 import {
+  completeCheckpoint,
   completeLesson,
+  evaluateCheckpoint,
   evaluateLesson,
+  isCheckpointUnlocked,
   isLessonUnlocked,
+  nextCourseStepAfter,
   nextLessonAfter,
   recordAttempt,
 } from "@/lib/progress/lesson";
@@ -92,7 +96,10 @@ describe("progresso de lição", () => {
 
   test("aponta a próxima lição apenas quando existe", () => {
     expect(nextLessonAfter(LESSONS, "h01")?.id).toBe("h02");
-    expect(nextLessonAfter(LESSONS, "h03")).toBeUndefined();
+    expect(nextLessonAfter(LESSONS, "h03")?.id).toBe("h04");
+    expect(nextLessonAfter(LESSONS, "h10")).toBeUndefined();
+    expect(nextCourseStepAfter(LESSONS, CHECKPOINTS, "h10")?.id).toBe("c1");
+    expect(nextCourseStepAfter(LESSONS, CHECKPOINTS, "c1")).toBeUndefined();
   });
 
   test("persiste e recarrega o progresso do armazenamento local", async () => {
@@ -124,5 +131,143 @@ describe("progresso de lição", () => {
     expect(reloaded.lessons.h01).toEqual({ done: true, score: 100 });
     expect(reloaded.history).toEqual(completed.progress.history);
     expect(reloaded.lastActive).toBe(NOW.toISOString());
+  });
+});
+
+function checkpointAnswers(correctIds: readonly string[]) {
+  const checkpoint = CHECKPOINTS[0]!;
+  return Object.fromEntries(
+    checkpoint.exercises.map((exercise) => [
+      exercise.id,
+      { correct: correctIds.includes(exercise.id) },
+    ]),
+  );
+}
+
+function progressWithAllLessons(): Progress {
+  return {
+    ...createEmptyProgress(NOW),
+    lessons: Object.fromEntries(
+      LESSONS.map((lesson) => [lesson.id, { done: true, score: 100 }]),
+    ),
+  };
+}
+
+describe("progresso de lição — critérios adicionais", () => {
+  test("h07 reprova quem atinge a nota mas acerta só 2 dos 4 contrastes", () => {
+    const h07 = LESSONS.find((lesson) => lesson.id === "h07")!;
+    const correctIds = [
+      "h07-e01",
+      "h07-e02",
+      "h07-e05",
+      "h07-e06",
+      "h07-e07",
+      "h07-e08",
+      "h07-e09",
+      "h07-e10",
+      "h07-e11",
+      "h07-e12",
+    ];
+    const result = evaluateLesson(h07, answers("h07", correctIds));
+    expect(result.score).toBeGreaterThanOrEqual(h07.completion.minScore);
+    expect(result.rules.find((rule) => rule.id === "h07-aspiration")?.met).toBe(false);
+    expect(result.passed).toBe(false);
+  });
+
+  test("h10 exige pelo menos um acerto em cada contraste de três vias", () => {
+    const h10 = LESSONS.find((lesson) => lesson.id === "h10")!;
+    const all = h10.exercises.map((exercise) => exercise.id);
+    const missedOneContrast = all.filter((id) => id !== "h10-e04");
+    const result = evaluateLesson(h10, answers("h10", missedOneContrast));
+    expect(result.score).toBeGreaterThanOrEqual(h10.completion.minScore);
+    expect(result.rules.find((rule) => rule.id === "h10-contrast-g")?.met).toBe(false);
+    expect(result.passed).toBe(false);
+  });
+
+  test("diagnóstico agrupa erros por categoria determinística", () => {
+    const h06 = LESSONS.find((lesson) => lesson.id === "h06")!;
+    const all = h06.exercises.map((exercise) => exercise.id);
+    const result = evaluateLesson(
+      h06,
+      answers("h06", all.filter((id) => id !== "h06-e02" && id !== "h06-e05")),
+    );
+    const basic = result.diagnostics.find((category) => category.id === "consonant-basic");
+    const reading = result.diagnostics.find((category) => category.id === "reading");
+    expect(basic).toMatchObject({ missed: 1, total: 5 });
+    expect(reading).toMatchObject({ missed: 1, total: 5 });
+  });
+});
+
+describe("progresso de checkpoint", () => {
+  test("só abre com todas as lições do escopo concluídas", () => {
+    const c1 = CHECKPOINTS[0]!;
+    const empty = createEmptyProgress(NOW);
+    expect(isCheckpointUnlocked(empty, c1)).toBe(false);
+
+    const partial: Progress = {
+      ...empty,
+      lessons: Object.fromEntries(
+        LESSONS.slice(0, 9).map((lesson) => [lesson.id, { done: true, score: 100 }]),
+      ),
+    };
+    expect(isCheckpointUnlocked(partial, c1)).toBe(false);
+    expect(isCheckpointUnlocked(progressWithAllLessons(), c1)).toBe(true);
+  });
+
+  test("aprova com 16 de 20 e reprova com 15", () => {
+    const c1 = CHECKPOINTS[0]!;
+    const ids = c1.exercises.map((exercise) => exercise.id);
+
+    const pass = evaluateCheckpoint(c1, checkpointAnswers(ids.slice(0, 16)));
+    expect(pass).toMatchObject({ correct: 16, total: 20, score: 80, passed: true });
+
+    const fail = evaluateCheckpoint(c1, checkpointAnswers(ids.slice(0, 15)));
+    expect(fail).toMatchObject({ correct: 15, total: 20, score: 75, passed: false });
+  });
+
+  test("registra o checkpoint no mesmo formato e mantém o maior score", () => {
+    const c1 = CHECKPOINTS[0]!;
+    const ids = c1.exercises.map((exercise) => exercise.id);
+
+    const first = completeCheckpoint(
+      progressWithAllLessons(),
+      c1,
+      checkpointAnswers(ids),
+      NOW,
+    );
+    expect(first.progress.lessons.c1).toEqual({ done: true, score: 100 });
+
+    const retry = completeCheckpoint(
+      first.progress,
+      c1,
+      checkpointAnswers(ids.slice(0, 10)),
+      NOW,
+    );
+    expect(retry.progress.lessons.c1).toEqual({ done: true, score: 100 });
+    expect(retry.result.passed).toBe(false);
+  });
+
+  test("refazer sem concluir não cria conclusão falsa", () => {
+    const c1 = CHECKPOINTS[0]!;
+    const ids = c1.exercises.map((exercise) => exercise.id);
+    const result = completeCheckpoint(
+      progressWithAllLessons(),
+      c1,
+      checkpointAnswers(ids.slice(0, 15)),
+      NOW,
+    );
+    expect(result.progress.lessons.c1).toEqual({ done: false, score: 75 });
+  });
+
+  test("diagnóstico do checkpoint aponta os itens errados", () => {
+    const c1 = CHECKPOINTS[0]!;
+    const ids = c1.exercises.map((exercise) => exercise.id);
+    const result = evaluateCheckpoint(
+      c1,
+      checkpointAnswers(ids.filter((id) => id !== "c1-e03" && id !== "c1-e10")),
+    );
+    expect(result.missedExerciseIds).toEqual(["c1-e03", "c1-e10"]);
+    expect(result.diagnostics.find((category) => category.id === "consonant-tense")?.missed).toBe(1);
+    expect(result.diagnostics.find((category) => category.id === "reading")?.missed).toBe(1);
   });
 });

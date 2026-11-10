@@ -4,6 +4,13 @@ type ExerciseBase = {
   id: string;
   prompt: string;
   explanation?: string;
+  /**
+   * Tags pedagógicas estáveis (`diag:`, `vowel:`, `consonant:`, `reading:`).
+   * O diagnóstico usa apenas `diag:*` para não contar o mesmo item duas vezes.
+   */
+  tags?: readonly string[];
+  /** Chaves SRS determinísticas criadas/atualizadas quando o item é errado. */
+  srsCards?: readonly string[];
 };
 
 export type MultipleChoiceExercise = ExerciseBase & {

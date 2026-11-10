@@ -47,6 +47,7 @@ export const H01: Lesson = {
       options: ["1 bloco", "2 blocos", "3 blocos"],
       correctAnswer: "2 blocos",
       explanation: "한 é um bloco e 글 é outro; portanto, 한글 tem duas sílabas.",
+      tags: ["diag:structure", "blocks", "syllable-count"],
     },
     {
       id: "h01-e02",
@@ -55,6 +56,7 @@ export const H01: Lesson = {
       options: ["Verdadeiro", "Falso"],
       correctAnswer: "Verdadeiro",
       explanation: "O bloco é a unidade silábica: um bloco, uma sílaba.",
+      tags: ["diag:structure", "blocks", "syllable-count"],
     },
     {
       id: "h01-e03",
@@ -64,6 +66,7 @@ export const H01: Lesson = {
       correctAnswer: "Falso",
       explanation:
         "O Hunminjeongeum foi pensado justamente para tornar a escrita acessível a mais pessoas.",
+      tags: ["diag:structure", "history"],
     },
     {
       id: "h01-e04",
@@ -78,6 +81,7 @@ export const H01: Lesson = {
         "Na posição medial, à direita ou embaixo da consoante inicial",
       explanation:
         "A vogal ocupa o centro do bloco: pode aparecer à direita ou embaixo da consoante inicial.",
+      tags: ["diag:structure", "blocks", "positions"],
     },
     {
       id: "h01-e05",
@@ -92,6 +96,7 @@ export const H01: Lesson = {
         "Escrita chinesa antes do Hangul → criação do Hunminjeongeum em 1443–1446 → uso cotidiano hoje",
       explanation:
         "O Hangul foi promulgado no século XV e hoje é a escrita cotidiana do coreano.",
+      tags: ["diag:structure", "history"],
     },
     {
       id: "h01-e06",
@@ -106,6 +111,7 @@ export const H01: Lesson = {
         "Porque foram desenhadas a partir da boca, da língua e de elementos naturais",
       explanation:
         "O princípio de construção relaciona as formas das letras aos sons e aos órgãos que os produzem.",
+      tags: ["diag:structure", "history"],
     },
   ],
   estimatedMinutes: 6,

@@ -54,7 +54,8 @@ export const H02: Lesson = {
       ],
       correctOptionId: "a",
       explanation: "아 é ㅇ + ㅏ. O som é o 'a' aberto.",
-      tags: ["ㅏ", "vowel", "listening"],
+      tags: ["diag:vowel", "ㅏ", "vowel", "listening"],
+      srsCards: ["h:jamo:v:ㅏ", "h:syl:아"],
     },
     {
       id: "h02-e02",
@@ -68,7 +69,8 @@ export const H02: Lesson = {
       ],
       correctOptionId: "o",
       explanation: "오 é ㅇ + ㅗ, com lábios arredondados.",
-      tags: ["ㅗ", "vowel", "listening"],
+      tags: ["diag:vowel", "ㅗ", "vowel", "listening"],
+      srsCards: ["h:jamo:v:ㅗ", "h:syl:오"],
     },
     {
       id: "h02-e03",
@@ -86,7 +88,8 @@ export const H02: Lesson = {
       correctOptionId: "eo",
       explanation:
         "ㅓ não é 'ó'. A boca fica aberta e os lábios não se arredondam.",
-      tags: ["ㅓ", "vowel", "contrast"],
+      tags: ["diag:vowel", "ㅓ", "vowel", "contrast"],
+      srsCards: ["h:jamo:v:ㅓ", "h:syl:어"],
     },
     {
       id: "h02-e04",
@@ -99,7 +102,8 @@ export const H02: Lesson = {
       ],
       correctOptionId: "u",
       explanation: "ㅜ é o 'u' curto de uva; ㅗ é mais aberto, como em avô.",
-      tags: ["ㅜ", "vowel", "contrast"],
+      tags: ["diag:vowel", "ㅜ", "vowel", "contrast"],
+      srsCards: ["h:jamo:v:ㅜ", "h:syl:우"],
     },
     {
       id: "h02-e05",
@@ -111,7 +115,8 @@ export const H02: Lesson = {
       initialOptions: ["ㅇ"],
       medialOptions: ["ㅏ", "ㅓ", "ㅗ", "ㅜ"],
       explanation: "ㅇ não tem som inicial; com ㅏ, o resultado é 아.",
-      tags: ["ㅏ", "syllable", "build"],
+      tags: ["diag:vowel", "ㅏ", "syllable", "build"],
+      srsCards: ["h:jamo:v:ㅏ", "h:syl:아"],
     },
     {
       id: "h02-e06",
@@ -123,7 +128,8 @@ export const H02: Lesson = {
       initialOptions: ["ㅇ"],
       medialOptions: ["ㅏ", "ㅓ", "ㅗ", "ㅜ"],
       explanation: "ㅇ + ㅗ formam 오, com lábios arredondados.",
-      tags: ["ㅗ", "syllable", "build"],
+      tags: ["diag:vowel", "ㅗ", "syllable", "build"],
+      srsCards: ["h:jamo:v:ㅗ", "h:syl:오"],
     },
     {
       id: "h02-e07",
@@ -139,7 +145,8 @@ export const H02: Lesson = {
       correctOptionId: "a",
       contrast: { feature: "ㅏ vs ㅓ", a: "ㅏ", b: "ㅓ" },
       explanation: "ㅏ é mais aberto; ㅓ recua a língua e não arredonda os lábios.",
-      tags: ["ㅏ", "ㅓ", "minimal-pair"],
+      tags: ["diag:vowel", "ㅏ", "ㅓ", "minimal-pair"],
+      srsCards: ["h:jamo:v:ㅏ", "h:jamo:v:ㅓ"],
     },
     {
       id: "h02-e08",
@@ -155,7 +162,8 @@ export const H02: Lesson = {
       correctOptionId: "o",
       contrast: { feature: "ㅗ vs ㅜ", a: "ㅗ", b: "ㅜ" },
       explanation: "ㅗ abre mais a boca; ㅜ é mais fechado, como em uva.",
-      tags: ["ㅗ", "ㅜ", "minimal-pair"],
+      tags: ["diag:vowel", "ㅗ", "ㅜ", "minimal-pair"],
+      srsCards: ["h:jamo:v:ㅗ", "h:jamo:v:ㅜ"],
     },
     {
       id: "h02-e09",
@@ -172,7 +180,8 @@ export const H02: Lesson = {
       correctOptionId: "correct",
       explanation: "아 = ㅇ + ㅏ; 우 = ㅇ + ㅜ.",
       audioText: "아우",
-      tags: ["reading", "word", "syllable"],
+      tags: ["diag:vowel", "reading", "word", "syllable"],
+      srsCards: ["h:word:아우", "h:syl:아", "h:syl:우"],
     },
     {
       id: "h02-e10",
@@ -188,7 +197,8 @@ export const H02: Lesson = {
       ],
       correctOptionId: "u",
       explanation: "우 é ㅇ + ㅜ. Não arredonde demais nem prolongue o som.",
-      tags: ["ㅜ", "vowel", "listening"],
+      tags: ["diag:vowel", "ㅜ", "vowel", "listening"],
+      srsCards: ["h:jamo:v:ㅜ", "h:syl:우"],
     },
   ],
   estimatedMinutes: 7,

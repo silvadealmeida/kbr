@@ -55,7 +55,8 @@ export const H03: Lesson = {
       correctOptionId: "eu",
       contrast: { feature: "ㅡ vs ㅜ", a: "ㅡ", b: "ㅜ" },
       explanation: "ㅡ mantém os lábios esticados; ㅜ arredonda os lábios.",
-      tags: ["ㅡ", "ㅜ", "minimal-pair"],
+      tags: ["diag:vowel", "ㅡ", "ㅜ", "minimal-pair"],
+      srsCards: ["h:jamo:v:ㅡ", "h:jamo:v:ㅜ"],
     },
     {
       id: "h03-e02",
@@ -71,7 +72,8 @@ export const H03: Lesson = {
       correctOptionId: "eo",
       contrast: { feature: "ㅓ vs ㅗ", a: "ㅓ", b: "ㅗ" },
       explanation: "ㅓ não arredonda os lábios; ㅗ arredonda, como em avô.",
-      tags: ["ㅓ", "ㅗ", "minimal-pair"],
+      tags: ["diag:vowel", "ㅓ", "ㅗ", "minimal-pair"],
+      srsCards: ["h:jamo:v:ㅓ", "h:jamo:v:ㅗ"],
     },
     {
       id: "h03-e03",
@@ -87,7 +89,8 @@ export const H03: Lesson = {
       ],
       correctOptionId: "correct",
       explanation: "이 usa o ㅇ inicial mudo e a vogal ㅣ.",
-      tags: ["ㅣ", "reading", "syllable"],
+      tags: ["diag:vowel", "ㅣ", "reading", "syllable"],
+      srsCards: ["h:syl:이", "h:jamo:v:ㅣ"],
     },
     {
       id: "h03-e04",
@@ -104,7 +107,8 @@ export const H03: Lesson = {
       correctOptionId: "two",
       explanation: "아 e 이 são dois blocos, portanto duas sílabas.",
       audioText: "아이",
-      tags: ["reading", "word", "syllable-count"],
+      tags: ["diag:vowel", "reading", "word", "syllable-count"],
+      srsCards: ["h:word:아이", "h:syl:아", "h:syl:이"],
     },
     {
       id: "h03-e05",
@@ -116,7 +120,8 @@ export const H03: Lesson = {
       initialOptions: ["ㅇ"],
       medialOptions: ["ㅡ", "ㅜ", "ㅣ", "ㅓ"],
       explanation: "ㅇ + ㅡ formam 으, com lábios esticados.",
-      tags: ["ㅡ", "syllable", "build"],
+      tags: ["diag:vowel", "ㅡ", "syllable", "build"],
+      srsCards: ["h:jamo:v:ㅡ", "h:syl:으"],
     },
     {
       id: "h03-e06",
@@ -128,7 +133,8 @@ export const H03: Lesson = {
       initialOptions: ["ㅇ"],
       medialOptions: ["ㅣ", "ㅡ", "ㅏ", "ㅜ"],
       explanation: "ㅇ + ㅣ formam 이.",
-      tags: ["ㅣ", "syllable", "build"],
+      tags: ["diag:vowel", "ㅣ", "syllable", "build"],
+      srsCards: ["h:jamo:v:ㅣ", "h:syl:이"],
     },
     {
       id: "h03-e07",
@@ -142,7 +148,8 @@ export const H03: Lesson = {
       ],
       correctOptionId: "o-i",
       explanation: "오이 tem 오 (ㅇ + ㅗ) e 이 (ㅇ + ㅣ).",
-      tags: ["reading", "word", "ㅗ", "ㅣ"],
+      tags: ["diag:vowel", "reading", "word", "ㅗ", "ㅣ"],
+      srsCards: ["h:word:오이", "h:syl:오", "h:syl:이"],
     },
     {
       id: "h03-e08",
@@ -156,7 +163,8 @@ export const H03: Lesson = {
       ],
       correctOptionId: "a-i",
       explanation: "아이 tem 아 (ㅇ + ㅏ) e 이 (ㅇ + ㅣ).",
-      tags: ["reading", "word", "ㅏ", "ㅣ"],
+      tags: ["diag:vowel", "reading", "word", "ㅏ", "ㅣ"],
+      srsCards: ["h:word:아이", "h:syl:아", "h:syl:이"],
     },
     {
       id: "h03-e09",
@@ -165,6 +173,8 @@ export const H03: Lesson = {
       options: ["ㅡ ㅣ", "ㅣ ㅡ", "ㅗ ㅏ"],
       correctAnswer: "ㅡ ㅣ",
       explanation: "A ordem aprendida termina com ㅡ e ㅣ.",
+      tags: ["diag:vowel", "ㅡ", "ㅣ", "review"],
+      srsCards: ["h:jamo:v:ㅡ", "h:jamo:v:ㅣ"],
     },
     {
       id: "h03-e10",
@@ -182,7 +192,8 @@ export const H03: Lesson = {
       ],
       correctOptionId: "i",
       explanation: "이 é ㅇ + ㅣ, com som de 'i'.",
-      tags: ["ㅣ", "vowel", "listening", "review"],
+      tags: ["diag:vowel", "ㅣ", "vowel", "listening", "review"],
+      srsCards: ["h:jamo:v:ㅣ", "h:syl:이"],
     },
   ],
   estimatedMinutes: 7,

@@ -1,4 +1,5 @@
 import { composeSyllable, decomposeSyllable, isHangulSyllable, isInitial, isMedial } from "@/lib/hangul";
+import { parseSrsCardKey } from "@/lib/srs";
 import type {
   Curriculum,
   JamoRecord,
@@ -135,12 +136,13 @@ function lessonOrder(curriculum: Curriculum): Map<string, number> {
   return new Map(curriculum.lessons.map((lesson, index) => [lesson.id, index]));
 }
 
-/** Verifica se todo jamo usado em `text` já foi ensinado na lição. */
+/** Verifica se todo jamo usado em `text` já foi ensinado até `maxOrder`. */
 function checkTaughtText(
   issues: ContentIssue[],
   path: string,
   text: string,
-  lesson: Lesson,
+  maxOrder: number,
+  label: string,
   order: Map<string, number>,
   jamoBySymbol: Map<string, JamoRecord>,
 ) {
@@ -162,33 +164,71 @@ function checkTaughtText(
         continue;
       }
       const introduced = order.get(record.introducedIn);
-      const current = order.get(lesson.id);
-      if (introduced === undefined || current === undefined || introduced > current) {
+      if (introduced === undefined || introduced > maxOrder) {
         error(
           issues,
           "example-uses-untaught-jamo",
           path,
-          `"${text}" usa ${symbol}, ensinado em ${record.introducedIn}, depois de ${lesson.id}.`,
+          `"${text}" usa ${symbol}, ensinado em ${record.introducedIn}, depois de ${label}.`,
         );
       }
     }
   }
 }
 
+type ExerciseScope = {
+  idPrefix: string;
+  maxOrder: number;
+  label: string;
+};
+
 function checkExercise(
   issues: ContentIssue[],
   path: string,
-  lesson: Lesson,
   exercise: Lesson["exercises"][number],
+  scope: ExerciseScope,
   order: Map<string, number>,
   jamoBySymbol: Map<string, JamoRecord>,
+  syllableByText: Map<string, SyllableRecord>,
+  wordByKo: Map<string, WordRecord>,
 ) {
   const idPath = `${path}[${exercise.id}]`;
-  if (!exercise.id.startsWith(`${lesson.id}-e`)) {
-    error(issues, "exercise-id", `${idPath}.id`, `O ID deve começar com ${lesson.id}-e.`);
+  if (!exercise.id.startsWith(scope.idPrefix)) {
+    error(issues, "exercise-id", `${idPath}.id`, `O ID deve começar com ${scope.idPrefix}.`);
   }
   if (!exercise.prompt.trim()) {
     error(issues, "exercise-prompt", `${idPath}.prompt`, "O enunciado não pode ficar vazio.");
+  }
+
+  const cards = exercise.srsCards ?? [];
+  if (new Set(cards).size !== cards.length) {
+    error(issues, "duplicate-srs-card", `${idPath}.srsCards`, "Há chaves SRS repetidas no mesmo item.");
+  }
+  for (const key of cards) {
+    const ref = parseSrsCardKey(key);
+    if (!ref) {
+      error(issues, "srs-card-key", `${idPath}.srsCards`, `Chave SRS inválida: ${key}.`);
+      continue;
+    }
+    if (ref.kind === "jamo-consonant" || ref.kind === "jamo-vowel") {
+      const record = jamoBySymbol.get(ref.value);
+      if (!record) {
+        error(issues, "srs-card-jamo", `${idPath}.srsCards`, `Jamo desconhecido no cartão: ${ref.value}.`);
+      } else if ((order.get(record.introducedIn) ?? Infinity) > scope.maxOrder) {
+        error(
+          issues,
+          "srs-card-untaught",
+          `${idPath}.srsCards`,
+          `O cartão ${key} usa conteúdo ensinado depois de ${scope.label}.`,
+        );
+      }
+    }
+    if (ref.kind === "syllable" && !syllableByText.has(ref.value)) {
+      error(issues, "srs-card-syllable", `${idPath}.srsCards`, `Sílaba desconhecida no cartão: ${ref.value}.`);
+    }
+    if (ref.kind === "word" && !wordByKo.has(ref.value)) {
+      error(issues, "srs-card-word", `${idPath}.srsCards`, `Palavra desconhecida no cartão: ${ref.value}.`);
+    }
   }
 
   const uniqueIds = (options: readonly { id: string }[] | undefined, field: string) => {
@@ -223,7 +263,7 @@ function checkExercise(
       if (exercise.finalOptions && !exercise.finalOptions.includes(exercise.final ?? "")) {
         error(issues, "build-option", `${idPath}.finalOptions`, "O final correto não está nas opções.");
       }
-      if (exercise.final && order.get(lesson.id)! < (order.get("h17") ?? Number.POSITIVE_INFINITY)) {
+      if (exercise.final && scope.maxOrder < (order.get("h17") ?? Number.POSITIVE_INFINITY)) {
         error(issues, "batchim-before-h17", `${idPath}.final`, "Batchim só entra a partir de h17.");
       }
       break;
@@ -242,7 +282,7 @@ function checkExercise(
       if (!exercise.fallback.trim()) {
         error(issues, "audio-fallback", `${idPath}.fallback`, "Item de áudio precisa de fallback textual.");
       }
-      checkTaughtText(issues, `${idPath}.audioText`, exercise.audioText, lesson, order, jamoBySymbol);
+      checkTaughtText(issues, `${idPath}.audioText`, exercise.audioText, scope.maxOrder, scope.label, order, jamoBySymbol);
       break;
     }
     case "char-to-audio": {
@@ -257,7 +297,7 @@ function checkExercise(
       if (!exercise.options.every((option) => option.label.trim())) {
         error(issues, "option-label", `${idPath}.options`, "Toda alternativa precisa de descrição textual.");
       }
-      checkTaughtText(issues, `${idPath}.text`, exercise.text, lesson, order, jamoBySymbol);
+      checkTaughtText(issues, `${idPath}.text`, exercise.text, scope.maxOrder, scope.label, order, jamoBySymbol);
       break;
     }
     case "minimal-pair": {
@@ -272,12 +312,12 @@ function checkExercise(
         if (!exercise.fallback?.trim()) {
           error(issues, "audio-fallback", `${idPath}.fallback`, "Apresentação em áudio exige fallback.");
         }
-        checkTaughtText(issues, `${idPath}.audioText`, exercise.audioText ?? "", lesson, order, jamoBySymbol);
+        checkTaughtText(issues, `${idPath}.audioText`, exercise.audioText ?? "", scope.maxOrder, scope.label, order, jamoBySymbol);
       } else {
         if (!exercise.text?.trim()) {
           error(issues, "pair-text", `${idPath}.text`, "Apresentação em texto exige `text`.");
         }
-        checkTaughtText(issues, `${idPath}.text`, exercise.text ?? "", lesson, order, jamoBySymbol);
+        checkTaughtText(issues, `${idPath}.text`, exercise.text ?? "", scope.maxOrder, scope.label, order, jamoBySymbol);
       }
       if (!exercise.contrast.feature || !exercise.contrast.a || !exercise.contrast.b) {
         error(issues, "pair-contrast", `${idPath}.contrast`, "Descreva o contraste entre os dois sons.");
@@ -285,7 +325,7 @@ function checkExercise(
       break;
     }
     case "reading": {
-      checkTaughtText(issues, `${idPath}.text`, exercise.text, lesson, order, jamoBySymbol);
+      checkTaughtText(issues, `${idPath}.text`, exercise.text, scope.maxOrder, scope.label, order, jamoBySymbol);
       if (exercise.mode === "mcq") {
         if (!exercise.question?.trim()) {
           error(issues, "reading-question", `${idPath}.question`, "Leitura com MCQ exige pergunta.");
@@ -379,6 +419,30 @@ export function validateCurriculum(curriculum: Curriculum): ContentIssue[] {
         error(issues, "required-exercise", `${path}.completion.requiredExerciseIds`, `Exercício obrigatório inexistente: ${requiredId}.`);
       }
     }
+
+    const ruleIds = new Set<string>();
+    for (const rule of lesson.completion.rules ?? []) {
+      if (!rule.id.trim() || ruleIds.has(rule.id)) {
+        error(issues, "completion-rule-id", `${path}.completion.rules`, `Regra de conclusão inválida ou repetida: ${rule.id}.`);
+      }
+      ruleIds.add(rule.id);
+      if (!rule.label.trim()) {
+        error(issues, "completion-rule-label", `${path}.completion.rules`, "Toda regra de conclusão precisa de rótulo.");
+      }
+      if (rule.exerciseIds.length === 0 || rule.minCorrect < 1 || rule.minCorrect > rule.exerciseIds.length) {
+        error(
+          issues,
+          "completion-rule-range",
+          `${path}.completion.rules[${rule.id}]`,
+          "A regra precisa de itens e de um mínimo de acertos válido.",
+        );
+      }
+      for (const exerciseId of rule.exerciseIds) {
+        if (!localIds.has(exerciseId)) {
+          error(issues, "completion-rule-exercise", `${path}.completion.rules[${rule.id}]`, `Exercício inexistente na regra: ${exerciseId}.`);
+        }
+      }
+    }
   }
 
   const exerciseIds = new Set<string>();
@@ -443,6 +507,7 @@ export function validateCurriculum(curriculum: Curriculum): ContentIssue[] {
     }
     ids.add(syllable.id);
   }
+  const wordByKo = new Map<string, WordRecord>();
   for (const [index, word] of curriculum.words.entries()) {
     const path = `words[${index}]`;
     checkWord(issues, path, word, lessonIds, syllableByText);
@@ -450,6 +515,7 @@ export function validateCurriculum(curriculum: Curriculum): ContentIssue[] {
       error(issues, "duplicate-id", `${path}.id`, `ID duplicado: ${word.id}.`);
     }
     ids.add(word.id);
+    wordByKo.set(word.ko, word);
   }
 
   for (const lesson of curriculum.lessons) {
@@ -463,15 +529,33 @@ export function validateCurriculum(curriculum: Curriculum): ContentIssue[] {
         error(issues, "unknown-example", path, `Exemplo inexistente: ${ref.id}.`);
       }
     }
+    const maxOrder = order.get(lesson.id)!;
     for (const [index, exercise] of lesson.exercises.entries()) {
-      checkExercise(issues, `lessons[${lesson.id}].exercises[${index}]`, lesson, exercise, order, jamoBySymbol);
+      checkExercise(
+        issues,
+        `lessons[${lesson.id}].exercises[${index}]`,
+        exercise,
+        { idPrefix: `${lesson.id}-e`, maxOrder, label: lesson.id },
+        order,
+        jamoBySymbol,
+        syllableByText,
+        wordByKo,
+      );
     }
   }
 
   for (const [index, word] of curriculum.words.entries()) {
-    const lesson = curriculum.lessons.find((item) => item.id === word.introducedIn);
-    if (lesson) {
-      checkTaughtText(issues, `words[${index}].ko`, word.ko, lesson, order, jamoBySymbol);
+    const wordOrder = order.get(word.introducedIn);
+    if (wordOrder !== undefined) {
+      checkTaughtText(
+        issues,
+        `words[${index}].ko`,
+        word.ko,
+        wordOrder,
+        word.introducedIn,
+        order,
+        jamoBySymbol,
+      );
     }
   }
 
@@ -481,22 +565,58 @@ export function validateCurriculum(curriculum: Curriculum): ContentIssue[] {
     if (!CHECKPOINT_ID.test(checkpoint.id)) {
       error(issues, "checkpoint-id", `${path}.id`, `ID de checkpoint inválido: ${checkpoint.id}.`);
     }
+    if (!checkpoint.title.trim() || !checkpoint.objective.trim()) {
+      error(issues, "checkpoint-copy", path, "Checkpoint precisa de título e objetivo.");
+    }
+    if (checkpoint.instructions.length === 0) {
+      error(issues, "checkpoint-instructions", `${path}.instructions`, "Liste as instruções do checkpoint.");
+    }
+    if (checkpoint.exercises.length < 15) {
+      error(issues, "checkpoint-exercises", `${path}.exercises`, "O checkpoint precisa de pelo menos 15 itens.");
+    }
     if (checkpoint.passingScore < 0 || checkpoint.passingScore > 100) {
       error(issues, "checkpoint-score", `${path}.passingScore`, "A nota do checkpoint precisa ficar entre 0 e 100.");
     }
+    if (
+      !Number.isInteger(checkpoint.estimatedMinutes) ||
+      checkpoint.estimatedMinutes < 15 ||
+      checkpoint.estimatedMinutes > 20
+    ) {
+      error(issues, "checkpoint-duration", `${path}.estimatedMinutes`, "O checkpoint dura entre 15 e 20 minutos.");
+    }
+
+    let maxOrder = -1;
     for (const lessonId of checkpoint.lessonIds) {
       const target = curriculum.lessons.find((item) => item.id === lessonId);
       if (!target) {
         error(issues, "unknown-lesson", `${path}.lessonIds`, `Lição inexistente: ${lessonId}.`);
-      } else if (target.unit !== checkpoint.unit) {
-        error(issues, "checkpoint-unit", `${path}.lessonIds`, `${lessonId} não pertence à unidade ${checkpoint.unit}.`);
+      } else if (target.unit > checkpoint.unit) {
+        error(
+          issues,
+          "checkpoint-unit",
+          `${path}.lessonIds`,
+          `${lessonId} pertence a uma unidade posterior à do checkpoint ${checkpoint.id}.`,
+        );
+      } else {
+        maxOrder = Math.max(maxOrder, order.get(lessonId)!);
       }
     }
-    for (const exercise of checkpoint.exercises) {
+
+    for (const [exerciseIndex, exercise] of checkpoint.exercises.entries()) {
       if (exerciseIds.has(exercise.id)) {
         error(issues, "duplicate-exercise", `${path}.exercises[${exercise.id}].id`, "ID de exercício repetido no currículo.");
       }
       exerciseIds.add(exercise.id);
+      checkExercise(
+        issues,
+        `${path}.exercises[${exerciseIndex}]`,
+        exercise,
+        { idPrefix: `${checkpoint.id}-e`, maxOrder, label: checkpoint.id },
+        order,
+        jamoBySymbol,
+        syllableByText,
+        wordByKo,
+      );
     }
   }
 

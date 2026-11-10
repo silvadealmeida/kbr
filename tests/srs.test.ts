@@ -1,5 +1,15 @@
 import { describe, expect, test } from "vitest";
-import { leitner, type SrsState } from "@/lib/srs";
+import { LESSONS } from "@/content/hangul";
+import {
+  jamoCardKey,
+  leitner,
+  parseSrsCardKey,
+  scheduleMissedReview,
+  syllableCardKey,
+  wordCardKey,
+  type SrsState,
+} from "@/lib/srs";
+import { createEmptyProgress } from "@/lib/storage";
 
 const NOW = new Date("2026-11-10T12:00:00.000Z");
 
@@ -46,5 +56,63 @@ describe("agendador Leitner", () => {
 
   test("rejeita um relógio inválido", () => {
     expect(() => leitner.review(undefined, "correct", new Date("invalid"))).toThrow(RangeError);
+  });
+});
+
+describe("cartões SRS do Hangul", () => {
+  test("gera chaves estáveis e determinísticas", () => {
+    expect(jamoCardKey("ㄱ")).toBe("h:jamo:c:ㄱ");
+    expect(jamoCardKey("ㅏ")).toBe("h:jamo:v:ㅏ");
+    expect(syllableCardKey("가")).toBe("h:syl:가");
+    expect(wordCardKey("고기")).toBe("h:word:고기");
+    expect(() => jamoCardKey("가")).toThrow(RangeError);
+    expect(() => syllableCardKey("가구")).toThrow(RangeError);
+  });
+
+  test("interpreta apenas chaves conhecidas", () => {
+    expect(parseSrsCardKey("h:jamo:c:ㄱ")).toMatchObject({ kind: "jamo-consonant", value: "ㄱ" });
+    expect(parseSrsCardKey("h:jamo:v:ㅓ")).toMatchObject({ kind: "jamo-vowel", value: "ㅓ" });
+    expect(parseSrsCardKey("h:syl:나")).toMatchObject({ kind: "syllable", value: "나" });
+    expect(parseSrsCardKey("h:word:고기")).toMatchObject({ kind: "word", value: "고기" });
+    expect(parseSrsCardKey("h:syl:가구")).toBeNull();
+    expect(parseSrsCardKey("outro:card")).toBeNull();
+    expect(parseSrsCardKey("h:jamo:c:ㅏ")).toBeNull();
+  });
+
+  test("erro cria cartões na caixa 1 sem duplicar ao repetir", () => {
+    const exercise = LESSONS.find((lesson) => lesson.id === "h04")!.exercises[0]!;
+    const first = scheduleMissedReview(createEmptyProgress(NOW), exercise, NOW);
+
+    expect(Object.keys(first.cards)).toEqual(["h:jamo:c:ㄴ", "h:syl:나"]);
+    expect(first.cards["h:jamo:c:ㄴ"]).toEqual({
+      box: 1,
+      due: "2026-11-11T12:00:00.000Z",
+    });
+
+    const again = scheduleMissedReview(first, exercise, NOW);
+    expect(Object.keys(again.cards)).toHaveLength(2);
+    expect(again.cards).toEqual(first.cards);
+  });
+
+  test("erro rebaixa um cartão já avançado para a caixa 1", () => {
+    const exercise = LESSONS.find((lesson) => lesson.id === "h04")!.exercises[0]!;
+    const progress = createEmptyProgress(NOW);
+    progress.cards["h:jamo:c:ㄴ"] = {
+      box: 4,
+      due: "2026-11-18T12:00:00.000Z",
+    };
+
+    const next = scheduleMissedReview(progress, exercise, NOW);
+    expect(next.cards["h:jamo:c:ㄴ"]!.box).toBe(1);
+    expect(next.cards["h:syl:나"]!.box).toBe(1);
+    expect(progress.cards["h:jamo:c:ㄴ"]!.box).toBe(4);
+  });
+
+  test("item sem cartões não altera o progresso", () => {
+    const exercise = LESSONS.find((lesson) => lesson.id === "h08")!.exercises.find(
+      (item) => item.id === "h08-e06",
+    )!;
+    const progress = createEmptyProgress(NOW);
+    expect(scheduleMissedReview(progress, exercise, NOW)).toBe(progress);
   });
 });

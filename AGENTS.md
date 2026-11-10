@@ -15,6 +15,7 @@ Fontes de verdade: `docs/architecture.md` (stack, estrutura, modelo de dados, in
 - Conteúdo coreano original (sem copiar cursos/apps); marcar como "em revisão".
 - TypeScript estrito; poucas dependências; não use `"use client"` em módulos cujos exports não-componente o servidor importa (ex.: `lib/routes.ts`).
 - Não altere arquivos fora do escopo da tarefa. Commits pequenos e descritivos.
+- Commits: autor sempre `silvadealmeida`; sem trailers `Co-Authored-By` nem menções a IA nas mensagens.
 
 ## Comandos
 ```

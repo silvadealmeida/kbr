@@ -4,7 +4,7 @@ import { createServerSupabaseClient } from "@/lib/supabase/server";
 
 export async function GET(request: NextRequest) {
   const code = request.nextUrl.searchParams.get("code");
-  const next = safeNextPath(request.nextUrl.searchParams.get("next"));
+  const next = safeNextPath(request.nextUrl.searchParams.get("next"), "/dashboard");
   const supabase = await createServerSupabaseClient();
 
   if (code && supabase) {

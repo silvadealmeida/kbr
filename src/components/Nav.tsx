@@ -7,7 +7,7 @@ import { AuthControl } from "./auth/AuthControl";
 
 export function Nav() {
   const path = usePathname();
-  const active = (h: string) => (h === "/" ? path === "/" : path.startsWith(h));
+  const active = (h: string) => path === h || path.startsWith(`${h}/`);
   return (
     <>
       <aside className="fixed inset-y-0 left-0 hidden w-60 flex-col gap-1 border-r border-border bg-surface p-4 md:flex">

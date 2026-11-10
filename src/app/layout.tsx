@@ -1,14 +1,14 @@
 import type { Metadata, Viewport } from "next";
 import { Noto_Sans_KR } from "next/font/google";
 import "./globals.css";
-import { Nav } from "@/components/Nav";
 import { AuthProvider } from "@/components/auth/AuthProvider";
 
 const kr = Noto_Sans_KR({ subsets: ["latin"], variable: "--font-kr", display: "swap" });
 
 export const metadata: Metadata = {
   title: { default: "KBR — Coreano para brasileiros", template: "%s · KBR" },
-  description: "Aprenda coreano em português, passo a passo.",
+  description:
+    "Aprenda coreano em português: Hangul, vocabulário em contexto, diálogos progressivos e revisão espaçada.",
   applicationName: "KBR",
   manifest: "/manifest.webmanifest",
   icons: {
@@ -38,12 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="pt-BR" className={kr.variable} suppressHydrationWarning>
       <head><script dangerouslySetInnerHTML={{ __html: themeScript }} /></head>
       <body className="font-sans antialiased">
-        <AuthProvider>
-          <Nav />
-          <main className="mx-auto max-w-3xl px-4 pt-6 pb-[calc(6rem+env(safe-area-inset-bottom))] md:ml-60 md:max-w-none md:px-10 md:pb-12 md:pt-10 [&>*]:md:max-w-3xl">
-            {children}
-          </main>
-        </AuthProvider>
+        <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
   );

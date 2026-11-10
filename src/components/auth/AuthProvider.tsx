@@ -2,6 +2,8 @@
 
 import type { User } from "@supabase/supabase-js";
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
+import type { AuthStatus } from "@/lib/auth/access";
+import { oauthCallbackPath } from "@/lib/auth/redirect";
 import { getBrowserSupabaseClient } from "@/lib/supabase/client";
 import {
   createLocalStorageStore,
@@ -13,14 +15,12 @@ import {
   type SyncStatus,
 } from "@/lib/storage";
 
-type AuthStatus = "loading" | "guest" | "authenticated" | "unavailable";
-
 type AuthContextValue = {
   user: User | null;
   status: AuthStatus;
   syncStatus: SyncStatus;
   progressStore: ProgressStore | null;
-  signInWithGoogle(): Promise<string | null>;
+  signInWithGoogle(next?: string): Promise<string | null>;
   signOut(): Promise<string | null>;
 };
 
@@ -89,13 +89,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     };
   }, [status, user?.id]);
 
-  const signInWithGoogle = useCallback(async () => {
+  const signInWithGoogle = useCallback(async (next?: string) => {
     const supabase = getBrowserSupabaseClient();
     if (!supabase) return "Login não configurado.";
 
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
-      options: { redirectTo: `${window.location.origin}/auth/callback?next=/` },
+      options: { redirectTo: `${window.location.origin}${oauthCallbackPath(next ?? null)}` },
     });
     return error?.message ?? null;
   }, []);

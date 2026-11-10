@@ -96,9 +96,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1794339194.1578984,
-    "seen": 1794339249.2857451,
-    "ast_hash": "66b0793c054dbc2ac197854648c329ef",
+    "mtime": 1794340148.6988308,
+    "seen": 1794340217.670544,
+    "ast_hash": "09653f6d7a00cd392371bac8db6fabc0",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -108,9 +108,9 @@
     "semantic_hash": ""
   },
   "docs/architecture.md": {
-    "mtime": 1794339232.210535,
-    "seen": 1794339249.2857473,
-    "ast_hash": "ba21620d0e5a0acac6015e7d3cd2b4b8",
+    "mtime": 1794340242.667439,
+    "seen": 1794340268.092731,
+    "ast_hash": "a6f6ad82e9e5e27d713aead1582fdea3",
     "semantic_hash": ""
   },
   "docs/research.md": {
@@ -120,9 +120,9 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794339188.2719944,
-    "seen": 1794339249.2857525,
-    "ast_hash": "2616ab88ed3f29de511fb65668d146f6",
+    "mtime": 1794340256.3927226,
+    "seen": 1794340268.0927367,
+    "ast_hash": "8745a5e20224bdf55d72f7869e8e16f2",
     "semantic_hash": ""
   },
   "src/lib/hangul/index.ts": {
@@ -915,6 +915,30 @@
     "mtime": 1794338742.8821692,
     "seen": 1794339249.2857323,
     "ast_hash": "82fef10be7f70239001821f7ddce6b7b",
+    "semantic_hash": ""
+  },
+  "tests/sync-concurrency.test.ts": {
+    "mtime": 1794340236.7066205,
+    "seen": 1794340268.0927258,
+    "ast_hash": "9cc8c505013f38042c294e26f2a0b907",
+    "semantic_hash": ""
+  },
+  "docs/sync/concurrency-audit.md": {
+    "mtime": 1794340033.7836776,
+    "seen": 1794340217.670553,
+    "ast_hash": "dfaedb368f573dad5c446fe25841e671",
+    "semantic_hash": ""
+  },
+  "docs/sync/implementation-plan.md": {
+    "mtime": 1794340107.6151412,
+    "seen": 1794340217.670554,
+    "ast_hash": "3070df7e7a31f00d1b5a9c770ada2f4a",
+    "semantic_hash": ""
+  },
+  "docs/sync/merge-invariants.md": {
+    "mtime": 1794340061.0629463,
+    "seen": 1794340217.6705546,
+    "ast_hash": "e379529f8e65d2ea0864cb72f49c6c44",
     "semantic_hash": ""
   },
   "package-lock.json": {

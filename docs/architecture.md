@@ -1,7 +1,7 @@
 # KBR — Arquitetura
 
 ## Stack
-Next.js (App Router) + React + TypeScript + Tailwind; Vitest (unit); Playwright (e2e/responsivo). Sem backend, auth, Supabase ou IA paga. PWA mínima instalável (manifesto, ícones e modo standalone), sem service worker ou cache offline. Deploy: `next build` estático/Node simples; **todas as páginas interativas são client components** que leem `localStorage` após montagem (evitar mismatch de hidratação).
+Next.js (App Router) + React + TypeScript + Tailwind; Vitest (unit); Playwright (e2e/responsivo); Supabase Auth/PostgreSQL. Google OAuth usa PKCE e sessão em cookies via `@supabase/ssr`, renovada pelo Proxy do Next.js 16. PWA mínima instalável (manifesto, ícones e modo standalone), sem service worker ou cache offline. Deploy: Node/Next (a renovação segura de sessão impede export puramente estático); páginas interativas leem storage após montagem para evitar mismatch de hidratação.
 
 ## Estrutura
 ```
@@ -20,6 +20,8 @@ src/
   content/                  # DADOS originais (TS tipado, sem lógica)
     hangul.ts  lessons/*.ts  vocab.ts
   lib/
+    supabase/               # clientes browser/server, sessão no proxy
+    auth/                   # regras puras do fluxo OAuth
     srs/                    # interface Scheduler + leitner.ts (trocável por fsrs.ts)
     storage/                # interface ProgressStore + localStorageStore.ts (versionado)
     speech/                 # detecção, escolha de voz ko, fallback
@@ -59,5 +61,6 @@ Composição por Unicode: `0xAC00 + (L*21 + V)*28 + T` — sem tabela de sílaba
 - Playwright: fluxo completo (lição → exercício → revisão → persistência após reload) em 375, 390, 768, 1280px; projetos Chromium e WebKit. iPhone real/Chrome iOS: **não testável aqui**; documentar como verificação manual.
 
 ## Decisões/limites
-- PWA limitada à instalação standalone; sem service worker, cache offline, auth ou sync. A estrutura permite evolução posterior (store/scheduler/content separados; sem acesso direto a `localStorage` fora de `lib/storage`).
+- PWA limitada à instalação standalone; sem service worker ou cache offline.
+- Google OAuth é delegado ao Supabase; só URL e chave publicável chegam ao app. Client secret do Google fica no painel Supabase e service-role key não é usada pelo KBR.
 - Dados só locais: limpar o navegador apaga progresso (avisar na UI e oferecer exportar/importar JSON como possível item do roadmap).

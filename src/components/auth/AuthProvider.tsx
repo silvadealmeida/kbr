@@ -1,0 +1,76 @@
+"use client";
+
+import type { User } from "@supabase/supabase-js";
+import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
+import { getBrowserSupabaseClient } from "@/lib/supabase/client";
+
+type AuthStatus = "loading" | "guest" | "authenticated" | "unavailable";
+
+type AuthContextValue = {
+  user: User | null;
+  status: AuthStatus;
+  signInWithGoogle(): Promise<string | null>;
+  signOut(): Promise<string | null>;
+};
+
+const AuthContext = createContext<AuthContextValue | null>(null);
+
+export function AuthProvider({ children }: { children: React.ReactNode }) {
+  const [user, setUser] = useState<User | null>(null);
+  const [status, setStatus] = useState<AuthStatus>("loading");
+
+  useEffect(() => {
+    const supabase = getBrowserSupabaseClient();
+    if (!supabase) {
+      setStatus("unavailable");
+      return;
+    }
+
+    let active = true;
+    void supabase.auth.getUser().then(({ data }) => {
+      if (!active) return;
+      setUser(data.user);
+      setStatus(data.user ? "authenticated" : "guest");
+    });
+    const { data } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+      setStatus(session?.user ? "authenticated" : "guest");
+    });
+
+    return () => {
+      active = false;
+      data.subscription.unsubscribe();
+    };
+  }, []);
+
+  const signInWithGoogle = useCallback(async () => {
+    const supabase = getBrowserSupabaseClient();
+    if (!supabase) return "Login não configurado.";
+
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: { redirectTo: `${window.location.origin}/auth/callback?next=/` },
+    });
+    return error?.message ?? null;
+  }, []);
+
+  const signOut = useCallback(async () => {
+    const supabase = getBrowserSupabaseClient();
+    if (!supabase) return "Login não configurado.";
+
+    const { error } = await supabase.auth.signOut();
+    return error?.message ?? null;
+  }, []);
+
+  const value = useMemo(
+    () => ({ user, status, signInWithGoogle, signOut }),
+    [user, status, signInWithGoogle, signOut],
+  );
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+}
+
+export function useAuth() {
+  const value = useContext(AuthContext);
+  if (!value) throw new Error("useAuth deve ser usado dentro de AuthProvider");
+  return value;
+}

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ROUTES } from "@/lib/routes";
 import { ThemeToggle } from "./ThemeToggle";
+import { AuthControl } from "./auth/AuthControl";
 
 export function Nav() {
   const path = usePathname();
@@ -22,10 +23,16 @@ export function Nav() {
             </Link>
           ))}
         </nav>
+        <div className="mt-auto border-t border-border pt-4">
+          <AuthControl />
+        </div>
       </aside>
       <header className="flex items-center justify-between border-b border-border bg-surface px-4 pt-[env(safe-area-inset-top)] md:hidden">
         <span className="py-3 text-lg font-bold text-brand">KBR</span>
-        <ThemeToggle />
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+          <AuthControl compact />
+        </div>
       </header>
       <nav aria-label="Principal" className="fixed inset-x-0 bottom-0 z-10 grid grid-cols-5 border-t border-border bg-surface pb-[env(safe-area-inset-bottom)] md:hidden">
         {ROUTES.map((r) => (

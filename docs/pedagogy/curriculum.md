@@ -970,6 +970,7 @@ A última unidade ensina **três fenômenos de fronteira** e depois usa tudo em 
 - `읽어요` → 일거요 [ilɡʌjo]: em final duplo ㄺ, o ㄹ passa para a sílaba seguinte.
 - `앉아요` → 안자요 [andʑajo]: em ㄵ, o ㄴ passa; o ㅈ permanece como inicial.
 - A escrita **não muda**. Ligação é pronúncia, não ortografia.
+- **Nota de revisão:** `읽어요` e `앉아요` foram corrigidos para `일거요` e `안자요`; a forma escrita permanece `읽어요`/`앉아요`. A implementação registra a correção nas notas de h21.
 - Batchim ㅇ não se move: `강아지` continua [kaŋadʑi], com [ŋ] no fim da primeira sílaba.
 - Não aplicar ligação quando a sílaba seguinte já tem consoante inicial: `한국말` não vira “한구말”; o ㄱ encontra ㅁ e haverá nasalização em `h22`.
 
@@ -1104,7 +1105,7 @@ A última unidade ensina **três fenômenos de fronteira** e depois usa tudo em 
 14. Autogravar ou ler em voz alta e marcar “consigo/tenho dúvida” (sem avaliação automática).
 15. Revisão de uma regra de cada tipo.
 
-**Critério de conclusão:** 12/15. Itens de autopercepção não contam para o score.
+**Critério de conclusão:** 12/15. Itens de autopercepção não contam para o score. **No app:** o item 14 é autoavaliação sem nota, então a aprovação é 12 acertos nos 14 itens avaliados (86% exibido), preservando o critério documentado de 12/15.
 
 ---
 
@@ -1130,7 +1131,7 @@ A última unidade ensina **três fenômenos de fronteira** e depois usa tudo em 
 13–15. Leitura de 3 frases curtas.
 16. Autoavaliação: “o que ainda confundo?” com opções.
 
-**Critério de conclusão:** 13/16. A lição pode ser refeita; o score guardado é o maior.
+**Critério de conclusão:** 13/16. A lição pode ser refeita; o score guardado é o maior. **No app:** o item 16 é autoavaliação sem nota, então a aprovação é 13 acertos nos 15 itens avaliados (87% exibido), preservando o critério documentado de 13/16.
 
 ---
 
@@ -1149,7 +1150,7 @@ A última unidade ensina **três fenômenos de fronteira** e depois usa tudo em 
 | Leitura de palavra | 4 | precisão |
 | Leitura de frase | 4 | sentido e fluência |
 
-**Aprovação:** 24/30 (80%). Abaixo disso, o app gera um plano de revisão com as lições correspondentes e permite nova tentativa depois de concluir os cartões vencidos.
+**Aprovação:** 24/30 (80%). Abaixo disso, o app gera um plano de revisão com as lições correspondentes e permite nova tentativa depois de concluir os cartões vencidos. **No app:** a tentativa atual roda em uma sessão de 30 minutos, sem retomada no meio; o diagnóstico e a lista de erros aparecem ao final.
 
 **Certificado:** não emitir certificado de proficiência. Se o produto quiser um selo, usar “módulo Hangul concluído”, com a ressalva de que a pronúncia não foi avaliada por humano.
 

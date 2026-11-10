@@ -4,6 +4,7 @@ import {
   decomposeSyllable,
   isFinal,
   isHangulSyllable,
+  isHangulText,
   isInitial,
   isMedial,
 } from "@/lib/hangul";
@@ -13,6 +14,7 @@ import type {
   JamoRecord,
   Lesson,
   ReviewMeta,
+  RuleRecord,
   SyllableRecord,
   WordRecord,
 } from "./types";
@@ -243,6 +245,7 @@ function checkExercise(
   finalIntroducedIn: Map<string, string>,
   syllableByText: Map<string, SyllableRecord>,
   wordByKo: Map<string, WordRecord>,
+  ruleById: Map<string, RuleRecord>,
 ) {
   const idPath = `${path}[${exercise.id}]`;
   if (!exercise.id.startsWith(scope.idPrefix)) {
@@ -280,6 +283,19 @@ function checkExercise(
     }
     if (ref.kind === "word" && !wordByKo.has(ref.value)) {
       error(issues, "srs-card-word", `${idPath}.srsCards`, `Palavra desconhecida no cartão: ${ref.value}.`);
+    }
+    if (ref.kind === "rule") {
+      const rule = ruleById.get(`rule:${ref.value}`);
+      if (!rule) {
+        error(issues, "srs-card-rule", `${idPath}.srsCards`, `Regra desconhecida no cartão: ${ref.value}.`);
+      } else if ((order.get(rule.introducedIn) ?? Infinity) > scope.maxOrder) {
+        error(
+          issues,
+          "srs-card-untaught",
+          `${idPath}.srsCards`,
+          `O cartão ${key} usa uma regra ensinada depois de ${scope.label}.`,
+        );
+      }
     }
   }
 
@@ -421,6 +437,64 @@ export function validateCurriculum(curriculum: Curriculum): ContentIssue[] {
 
   if (curriculum.version !== 1) {
     error(issues, "version", "version", "A versão do conteúdo precisa ser 1.");
+  }
+
+  const ruleById = new Map<string, RuleRecord>();
+  const boundaryRuleKinds = new Set<string>();
+  for (const [index, rule] of curriculum.rules.entries()) {
+    const path = `rules[${index}]`;
+    checkReview(issues, `${path}.review`, rule.review);
+    if (!rule.id.trim()) {
+      error(issues, "rule-id", `${path}.id`, "Toda regra precisa de ID.");
+    } else if (ruleById.has(rule.id)) {
+      error(issues, "duplicate-rule", `${path}.id`, `Regra duplicada: ${rule.id}.`);
+    }
+    ruleById.set(rule.id, rule);
+    if (!rule.title.trim() || !rule.explanation.trim()) {
+      error(issues, "rule-copy", path, "Regra precisa de título e explicação.");
+    }
+    if (!["liaison", "nasalization", "aspiration", "batchim"].includes(rule.kind)) {
+      error(issues, "rule-kind", `${path}.kind`, `Tipo de regra inválido: ${String(rule.kind)}.`);
+    }
+    if (!["h21", "h22", "h23"].includes(rule.introducedIn)) {
+      error(issues, "rule-lesson", `${path}.introducedIn`, "Regras de fronteira entram em h21, h22 ou h23.");
+    } else if (!order.has(rule.introducedIn)) {
+      error(issues, "unknown-lesson", `${path}.introducedIn`, `Lição inexistente: ${rule.introducedIn}.`);
+    }
+    if (rule.kind === "liaison" && rule.introducedIn !== "h21") {
+      error(issues, "rule-lesson", `${path}.introducedIn`, "A ligação é introduzida em h21.");
+    }
+    if (rule.kind === "nasalization" && rule.introducedIn !== "h22") {
+      error(issues, "rule-lesson", `${path}.introducedIn`, "A nasalização é introduzida em h22.");
+    }
+    if (rule.kind === "aspiration" && rule.introducedIn !== "h23") {
+      error(issues, "rule-lesson", `${path}.introducedIn`, "A aspiração é introduzida em h23.");
+    }
+    if (rule.kind !== "batchim") {
+      if (boundaryRuleKinds.has(rule.kind)) {
+        error(issues, "duplicate-rule-kind", `${path}.kind`, `Já existe uma regra do tipo ${rule.kind}.`);
+      }
+      boundaryRuleKinds.add(rule.kind);
+    }
+    if (rule.examples.length === 0) {
+      error(issues, "rule-examples", `${path}.examples`, "Toda regra precisa de exemplos.");
+    }
+    for (const [exampleIndex, example] of rule.examples.entries()) {
+      const examplePath = `${path}.examples[${exampleIndex}]`;
+      if (!example.written.trim() || !example.spoken.trim()) {
+        error(issues, "rule-example", examplePath, "Exemplo precisa de forma escrita e falada.");
+      }
+      checkNfc(issues, `${examplePath}.written`, example.written);
+      checkNfc(issues, `${examplePath}.spoken`, example.spoken);
+      if (!isHangulText(example.written) || !isHangulText(example.spoken)) {
+        error(issues, "rule-example-text", examplePath, "Exemplos de regra devem usar sílabas Hangul.");
+      }
+    }
+  }
+  for (const kind of ["liaison", "nasalization", "aspiration"] as const) {
+    if (!boundaryRuleKinds.has(kind)) {
+      error(issues, "rule-missing", "rules", `Falta a regra de ${kind}.`);
+    }
   }
 
   const lessonIds = new Set<string>();
@@ -640,6 +714,7 @@ export function validateCurriculum(curriculum: Curriculum): ContentIssue[] {
         finalIntroducedIn,
         syllableByText,
         wordByKo,
+        ruleById,
       );
     }
   }
@@ -694,9 +769,9 @@ export function validateCurriculum(curriculum: Curriculum): ContentIssue[] {
     if (
       !Number.isInteger(checkpoint.estimatedMinutes) ||
       checkpoint.estimatedMinutes < 15 ||
-      checkpoint.estimatedMinutes > 20
+      checkpoint.estimatedMinutes > 30
     ) {
-      error(issues, "checkpoint-duration", `${path}.estimatedMinutes`, "O checkpoint dura entre 15 e 20 minutos.");
+      error(issues, "checkpoint-duration", `${path}.estimatedMinutes`, "O checkpoint dura entre 15 e 30 minutos.");
     }
 
     let maxOrder = -1;
@@ -731,15 +806,8 @@ export function validateCurriculum(curriculum: Curriculum): ContentIssue[] {
         finalIntroducedIn,
         syllableByText,
         wordByKo,
+        ruleById,
       );
-    }
-  }
-
-  for (const [index, rule] of curriculum.rules.entries()) {
-    const path = `rules[${index}]`;
-    checkReview(issues, `${path}.review`, rule.review);
-    if (!["h21", "h22", "h23"].includes(rule.introducedIn)) {
-      error(issues, "rule-lesson", `${path}.introducedIn`, "Regras de fronteira entram em h21, h22 ou h23.");
     }
   }
 

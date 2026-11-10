@@ -190,7 +190,7 @@ function AnswerArea({ exercise, result, disabled, onChange }: AnswerAreaProps) {
         }}
         className={`min-h-14 rounded-xl border-2 px-4 py-3 text-left font-medium ${optionClass(optionId === "done", "idle")}`}
       >
-        Já li em voz alta (prática, não conta nota)
+        {exercise.selfCheckLabel ?? "Já li em voz alta (prática, não conta nota)"}
       </button>
     );
   }

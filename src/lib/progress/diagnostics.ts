@@ -7,7 +7,12 @@ export type DiagnosticCategoryId =
   | "consonant-tense"
   | "batchim-simple"
   | "batchim-double"
+  | "liaison"
+  | "nasalization"
+  | "aspiration"
+  | "orthography-pronunciation"
   | "reading"
+  | "reading-fluency"
   | "structure";
 
 export type DiagnosticAnswer = {
@@ -39,7 +44,12 @@ const CATEGORY_ORDER: readonly DiagnosticCategoryId[] = [
   "consonant-tense",
   "batchim-simple",
   "batchim-double",
+  "liaison",
+  "nasalization",
+  "aspiration",
+  "orthography-pronunciation",
   "reading",
+  "reading-fluency",
   "structure",
 ];
 
@@ -86,12 +96,47 @@ const CATEGORIES: Record<DiagnosticCategoryId, DiagnosticCategory> = {
       "Reveja os 11 finais duplos: em geral só um componente sobrevive. Separe ㄳ–ㄻ de ㄼ–ㅄ e lembre a exceção de 밟다.",
     lessonIds: ["h20"],
   },
+  liaison: {
+    id: "liaison",
+    label: "Ligação (연음)",
+    advice:
+      "Quando o batchim encontra uma sílaba com ㅇ inicial, o som final passa para a sílaba seguinte. A escrita não muda; ㅇ final não se move.",
+    lessonIds: ["h21"],
+  },
+  nasalization: {
+    id: "nasalization",
+    label: "Nasalização",
+    advice:
+      "Antes de ㄴ/ㅁ, ㄱ vira ㅇ, ㄷ vira ㄴ e ㅂ vira ㅁ. Não nasalize antes de vogal: nesse caso vale a ligação.",
+    lessonIds: ["h22"],
+  },
+  aspiration: {
+    id: "aspiration",
+    label: "Aspiração",
+    advice:
+      "ㄱ/ㄷ/ㅂ/ㅈ + ㅎ fundem-se em ㅋ/ㅌ/ㅍ/ㅊ. O resultado é aspirado, não tenso. ㅎ fraco após ㄴ/ㅁ/ㅇ fica fora desta fase.",
+    lessonIds: ["h23"],
+  },
+  "orthography-pronunciation": {
+    id: "orthography-pronunciation",
+    label: "Escrita × pronúncia",
+    advice:
+      "A ortografia coreana não muda quando há ligação, nasalização ou aspiração. Leia a forma escrita e pronuncie a forma falada sem trocar as letras.",
+    lessonIds: ["h21", "h22", "h23"],
+  },
   reading: {
     id: "reading",
     label: "Leitura de sílabas",
     advice:
       "Leia bloco por bloco: inicial, vogal e, quando houver, final. Use as palavras já estudadas para conferir o sentido.",
     lessonIds: ["h04", "h05", "h06", "h07", "h08", "h09", "h10", "h17", "h18", "h19", "h20"],
+  },
+  "reading-fluency": {
+    id: "reading-fluency",
+    label: "Leitura em contexto",
+    advice:
+      "Leia em grupos de sentido e confira o significado antes de acelerar. Precisão vem antes de velocidade; o app não avalia sua fala.",
+    lessonIds: ["h24", "h25"],
   },
   structure: {
     id: "structure",

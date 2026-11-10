@@ -18,6 +18,11 @@ import { H17 } from "./h17";
 import { H18 } from "./h18";
 import { H19 } from "./h19";
 import { H20 } from "./h20";
+import { H21 } from "./h21";
+import { H22 } from "./h22";
+import { H23 } from "./h23";
+import { H24 } from "./h24";
+import { H25 } from "./h25";
 import type { Lesson } from "../types";
 
 /** Lições com conteúdo implementado, em ordem curricular. */
@@ -42,6 +47,11 @@ export const LESSONS: readonly Lesson[] = [
   H18,
   H19,
   H20,
+  H21,
+  H22,
+  H23,
+  H24,
+  H25,
 ];
 
 export const IMPLEMENTED_LESSON_IDS = new Set(LESSONS.map((lesson) => lesson.id));

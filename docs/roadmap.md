@@ -1,10 +1,10 @@
 # KBR — Roadmap
 
 ## Estado atual (atualize a cada commit — é o ponto de retomada entre agentes)
-- **Fase concluída:** 3B.4 — Unidade 6 (`h16`–`h20`, sílabas e batchim) e checkpoint `c3`.
+- **Fase concluída:** 3B.5 — Unidade 7 (`h21`–`h25`, regras de fronteira e leitura em contexto) e checkpoint `c4`; módulo Hangul completo (`h01`–`h25`, `c1`–`c4`).
 - **Em andamento:** nada.
-- **Próximo passo:** Fase 3B.5 — Unidade 7 (`h21`–`h25`, regras de fronteira e leitura em contexto) e checkpoint `c4`, somente com pedido explícito.
-- **Bloqueios / decisões pendentes:** revisão de todo o conteúdo coreano por falante nativo/professor (status `in-review`, com atenção especial a ㅐ/ㅔ, ㅚ/ㅙ/ㅞ, ㅟ, ㅢ, ㄹ final e aos 11 batchim duplos); a regra de h18 “5 dos 6 sons finais já vistos” é aproximada por `h18-seen-sounds` (ele não bloqueia sozinho porque `minCorrect` já exige a maioria dos itens); a tradução de `곬` (palavra rara) precisa de confirmação; execução de voz `ko-KR` varia por navegador (fallback textual); fluxo autenticado validado só contra Supabase mock, não contra o projeto real; revisão jurídica da política/Impressum; executar `supabase test db` contra a stack local; testar o fluxo completo em iPhone/Chrome iOS real (manual).
+- **Próximo passo:** Fase 4 — CEFR A1 (lições, vocabulário e diálogos), somente com pedido explícito.
+- **Bloqueios / decisões pendentes:** revisão de todo o conteúdo coreano por falante nativo/professor (status `in-review`, com atenção especial às transcrições didáticas de ligação/nasalização/aspiração — `한구거`, `일거요`, `안자요`, `임니다`, `한궁말`, `감사함니다`, `조타`, `추카`, `이팍`, `배콰점`, `구콰`, `전와` —, à naturalidade das frases de h24/h25/c4, a ㅐ/ㅔ, ㅚ/ㅙ/ㅞ, ㅟ, ㅢ, ㄹ final e aos 11 batchim duplos); a regra de h18 “5 dos 6 sons finais já vistos” é aproximada por `h18-seen-sounds` (ele não bloqueia sozinho porque `minCorrect` já exige a maioria dos itens); a tradução de `곬` (palavra rara) precisa de confirmação; execução de voz `ko-KR` varia por navegador (fallback textual); fluxo autenticado validado só contra Supabase mock, não contra o projeto real; revisão jurídica da política/Impressum; executar `supabase test db` contra a stack local; testar o fluxo completo em iPhone/Chrome iOS real (manual).
 - **Último agente:** OpenCode.
 
 Fases pequenas, cada uma com commit(s) próprio e `npm test` verde antes de avançar.
@@ -21,7 +21,8 @@ Fases pequenas, cada uma com commit(s) próprio e `npm test` verde antes de avan
 | 3B.2 | Unidade 3 e checkpoint `c1` (**feita**) | `h04`–`h10` com ㄱ…ㅎ, `c1`, SRS de erros, diagnóstico por categoria e testes de conteúdo | typecheck + 141 Vitest + build + 64 Playwright |
 | 3B.3 | Unidade 5 e checkpoint `c2` (**feita**) | `h11`–`h15` com as 15 vogais compostas, `c2`, navegação/SRS/diagnóstico e testes de ㅐ/ㅔ, ㅚ/ㅙ/ㅞ, ㅟ e ㅢ | typecheck + 157 Vitest + build + 76 Playwright |
 | 3B.4 | Unidade 6 e checkpoint `c3` (**feita**) | `h16`–`h20` (sílabas C+V, batchim simples/duplo) e `c3`; `newFinals`, mínimo autoritativo de acertos, diagnóstico `batchim-simple`/`batchim-double` e player compartilhado | typecheck + 176 Vitest + build + 88 Playwright |
-| 3B | Módulo Hangul completo | conteúdo restante, construtor de sílabas, áudio dedicado, SRS, checkpoints `c3`–`c4` | Vitest + e2e |
+| 3B.5 | Unidade 7 e checkpoint `c4` (**feita**) | `h21`–`h25` (ligação, nasalização, aspiração, oficina de leitura, consolidação), regras tipadas, transformações puras de pronúncia, `c4` e conclusão do módulo | typecheck + 205 Vitest + build + 100 Playwright |
+| 3B | Módulo Hangul (**conteúdo completo; áudio dedicado e construtor livre pendentes**) | `h01`–`h25` + `c1`–`c4`, exercícios de montagem, SRS por erro e navegação completa | Vitest + e2e |
 | 4 | Lições 1–3 | 3 lições originais (diálogo, vocabulário, nota de gramática, exercícios): ex. cumprimentos/apresentação (이에요/예요), objetos/lugares (은/는, 이/가), rotina/comida (을/를, -아요/어요) | e2e fluxo |
 | 5 | Vocabulário | frases com lacuna, tradução, escuta | e2e |
 | 6 | Revisão + Dashboard | cartões vencidos, histórico, estatísticas reais, streak, meta diária, "continuar" | Vitest + e2e |
@@ -132,4 +133,23 @@ Testes: `npm run typecheck`; `npm test` (14 arquivos, 176 testes); `npm run buil
 
 Limitações conhecidas: revisão de falante nativo pendente em todo o conteúdo; a regra de h18 “5 dos 6 sons finais” é aproximada (não bloqueia sozinha); `곬` é palavra rara e sua tradução precisa de confirmação; `많다`/`앉다`/`핥다`/`싫다` têm a pronúncia real de sandhi fora do escopo; voz `ko-KR` depende do navegador; h21–h25, c4, tela de revisão SRS, exportação/importação e login Google/sync reais continuam pendentes; iPhone/Chrome iOS real segue manual.
 
-Próximo passo: Fase 3B.5 — `h21`–`h25` (ligação, nasalização, aspiração, oficina de leitura e consolidação) + `c4`, somente com pedido explícito.
+Próximo passo: Fase 3B.5 — implementada na seção seguinte.
+
+## Status Fase 3B.5 (real)
+Feito: conteúdo original e validado de `h21`–`h25` e do checkpoint `c4`, fechando o módulo Hangul. São 73 exercícios novos nas lições (14 em h21, 14 em h22, 14 em h23, 15 em h24 e 16 em h25; `h24-e14` e `h25-e16` são autoavaliação sem nota) e 30 itens no `c4`. Com as fatias anteriores, o curso tem 307 exercícios de lição (305 avaliados) + 98 itens de checkpoint (todos avaliados), ou 403 itens avaliados no total. Todo conteúdo continua `in-review`. O registro ganhou 23 sílabas e 33 palavras novas, e `src/content/hangul/rules.ts` passou a guardar as três regras de fronteira com exemplos escrita/fala separados.
+
+Regras e pronúncia: `src/lib/hangul/pronunciation.ts` expõe funções puras `applyLiaison`, `applyNasalization`, `applyAspiration` e `PRONUNCIATION_APPLIERS`. Todas devolvem `null` quando o caso está fora do escopo ou não muda nada, e nunca alteram a ortografia: o resultado é uma transcrição falada separada. Limites deliberados: a ligação cobre finais simples e os 11 duplos, a queda do ㅎ final e não move ㅇ final (`강아지`); a nasalização cobre as famílias ㄱ/ㄷ/ㅂ antes de ㄴ/ㅁ, não antes de vogal (`입이`) e não inclui ㄹ → ㄴ; a aspiração cobre ㄱ/ㄷ/ㅂ/ㅈ + ㅎ nas duas ordens, mas exclui ㅎ enfraquecido depois de ㄴ/ㅁ/ㅇ (`전화`), tensificação e lateralização. A correção linguística de `읽어요` → `일거요` e `앉아요` → `안자요` está registrada nas notas de revisão de h21.
+
+Tipos e validação: `RuleRecord` tem tipo, explicação, `introducedIn`, exemplos e revisão. O validador exige as três regras de fronteira uma única vez, na lição correta (h21/h22/h23), com exemplos em sílabas Hangul/NFC; também valida cartões SRS de regra e aceita checkpoints de 15–30 minutos. `Lesson.completion.minCorrect` e `Checkpoint.minCorrect` continuam autoritativos: h21–h23 = 11/14, h24 = 12/14 avaliados (o critério documentado de 12/15 é preservado), h25 = 13/15 avaliados (13/16 documentado) e `c4` = 24/30.
+
+SRS e diagnóstico: erros de regra criam/atualizam cartões estáveis `h:rule:liaison`, `h:rule:nasalization` e `h:rule:aspiration`, além dos cartões de jamo, sílaba e palavra já existentes, sem duplicar chaves. O diagnóstico ganhou `liaison`, `nasalization`, `aspiration`, `orthography-pronunciation` e `reading-fluency`; as categorias anteriores foram mantidas.
+
+Checkpoint `c4`: 30 itens em 30 minutos, aprovação com 24/30 (80%). Blocos: 5 de inventário de jamo, 5 de montagem/decomposição, 6 de batchim, 6 de regras de fronteira, 4 de leitura de palavra e 4 de leitura de frase. Só abre com as 25 lições concluídas (o que já implica `c1`–`c3` pelos pré-requisitos); fica em `Progress.lessons.c4`, com `done` pegajoso, maior score preservado, revisão de erros e diagnóstico. `isCourseComplete` exige todas as 25 lições e os quatro checkpoints; a UI só então mostra “Módulo Hangul concluído”, sem certificado de proficiência e sem liberar CEFR A1 automaticamente. Se `c4` for concluído com checkpoints pendentes, a tela lista os pendentes.
+
+Navegação e player: `/hangul` lista `h01`–`h25` e `c1`–`c4` sem “em breve” nem links quebrados; cada checkpoint abre no ponto do currículo. `checkpoint c4` encerra `nextCourseStepAfter`. A autoavaliação de h24/h25 usa `selfCheckLabel` e não entra na nota. Nenhuma migração, tabela, coluna, RLS, auth ou formato de `Progress` foi alterado.
+
+Testes: `npm run typecheck`; `npm test` (15 arquivos, 205 testes); `npm run build`; `npm run e2e` (100 testes, 375/390/768/1280). A cobertura nova inclui transformações e limites de ligação/nasalização/aspiração, consistência entre exemplos de regra e funções puras, validação das regras e dos cartões SRS, `c4` aprovado/reprovado, retentativa com maior score, persistência após recarga e diagnóstico, conclusão do módulo, denominadores de h24/h25, navegação completa, h21 por teclado e proteção de `/hangul/h21`, `/hangul/h25` e `/hangul/c4`.
+
+Limitações conhecidas: revisão de falante nativo pendente em todo o conteúdo, sobretudo nas transcrições didáticas e na naturalidade das frases; as transcrições não substituem IPA nem avaliação de fala; `c4` verifica reconhecimento e compreensão por MCQ/leitura, não fluência oral; não há tela de revisão SRS, retomada de sessão no meio, áudio dedicado ou construtor livre de sílabas; a voz `ko-KR` depende do navegador; o fluxo autenticado é testado contra Supabase mock, não contra o projeto real; iPhone/Chrome iOS real segue manual.
+
+Próximo passo: Fase 4 — CEFR A1, somente com pedido explícito.

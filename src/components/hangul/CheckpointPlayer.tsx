@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { Checkpoint } from "@/content/hangul/types";
+import { CHECKPOINTS } from "@/content/hangul/checkpoints";
+import { LESSONS } from "@/content/hangul/lessons";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { checkAnswer, type DetailedCheckResult, type ExerciseAnswer } from "@/lib/exercises";
 import {
@@ -10,6 +12,7 @@ import {
   completeCheckpoint,
   evaluateCheckpoint,
   isCheckpointUnlocked,
+  isCourseComplete,
   recordAttempt,
   type CheckpointResult,
 } from "@/lib/progress/lesson";
@@ -216,11 +219,24 @@ export function CheckpointPlayer({
 
   if (phase === "done" && checkpointResult) {
     const done = progress.lessons[checkpoint.id]?.done === true;
+    const isFinalCheckpoint = checkpoint.id === "c4";
+    const courseComplete = isCourseComplete(progress, LESSONS, CHECKPOINTS);
+    const pendingCheckpoints = CHECKPOINTS.filter(
+      (item) => progress.lessons[item.id]?.done !== true,
+    ).map((item) => item.id);
+    const heading =
+      done && isFinalCheckpoint
+        ? courseComplete
+          ? "Módulo Hangul concluído"
+          : "Checkpoint final concluído"
+        : done
+          ? "Checkpoint concluído"
+          : "Quase lá";
     return (
       <article aria-labelledby="checkpoint-completion-title" className="pb-4">
         <p className="text-sm font-semibold text-brand">Fim do checkpoint</p>
         <h1 id="checkpoint-completion-title" className="mt-1 text-3xl font-bold tracking-tight">
-          {done ? "Checkpoint concluído" : "Quase lá"}
+          {heading}
         </h1>
         <div className="mt-4 rounded-2xl border border-border bg-surface p-5">
           <p className="text-lg">
@@ -232,7 +248,11 @@ export function CheckpointPlayer({
           </p>
           <p className="mt-2 text-muted">
             {done
-              ? "Seu resultado foi registrado. O app guarda o maior score entre as tentativas."
+              ? isFinalCheckpoint
+                ? courseComplete
+                  ? "Você concluiu as 25 lições e os quatro checkpoints do módulo Hangul. Não há certificado de proficiência e nenhum conteúdo CEFR A1 é liberado automaticamente; o próximo módulo ainda está em desenvolvimento."
+                  : `Você concluiu o checkpoint final. Ainda faltam: ${pendingCheckpoints.join(", ")}. O módulo será marcado como concluído quando todas as lições e todos os checkpoints estiverem feitos.`
+                : "Seu resultado foi registrado. O app guarda o maior score entre as tentativas."
               : `Este checkpoint pede ${requiredCorrect} de ${total} acertos (${checkpoint.passingScore}% documentado). Refaça quando quiser: seu melhor resultado não é perdido.`}
           </p>
           {saveWarning ? (

@@ -1,15 +1,20 @@
 import { describe, expect, test } from "vitest";
 import {
   CHECKPOINTS,
+  COURSE_OUTLINE,
   HANGUL_CURRICULUM,
   IMPLEMENTED_LESSON_IDS,
   LESSONS,
+  RULES,
+  getCheckpoint,
+  getLesson,
   validateCurriculum,
   type Checkpoint,
   type Curriculum,
   type Lesson,
   type SyllableRecord,
 } from "@/content/hangul";
+import { PRONUNCIATION_APPLIERS } from "@/lib/hangul/pronunciation";
 import { parseSrsCardKey } from "@/lib/srs";
 import { checkAnswer, type ExerciseAnswer, type ExerciseSpec } from "@/lib/exercises";
 
@@ -21,13 +26,13 @@ const ALL_EXERCISES = [
   ...CHECKPOINTS.flatMap((checkpoint) => checkpoint.exercises),
 ];
 
-describe("conteúdo Hangul — fatia h01–h20 + c1/c2/c3", () => {
+describe("conteúdo Hangul — curso completo h01–h25 + c1–c4", () => {
   test("o currículo implementado passa na validação sem erros", () => {
     const issues = validateCurriculum(HANGUL_CURRICULUM);
     expect(issues.filter((issue) => issue.severity === "error")).toEqual([]);
   });
 
-  test("implementa as vinte primeiras lições e os checkpoints c1, c2 e c3", () => {
+  test("implementa as 25 lições e os checkpoints c1, c2, c3 e c4", () => {
     expect(LESSONS.map((lesson) => lesson.id)).toEqual([
       "h01",
       "h02",
@@ -49,12 +54,18 @@ describe("conteúdo Hangul — fatia h01–h20 + c1/c2/c3", () => {
       "h18",
       "h19",
       "h20",
+      "h21",
+      "h22",
+      "h23",
+      "h24",
+      "h25",
     ]);
     expect([...IMPLEMENTED_LESSON_IDS]).toEqual(LESSONS.map((lesson) => lesson.id));
-    expect(CHECKPOINTS.map((checkpoint) => checkpoint.id)).toEqual(["c1", "c2", "c3"]);
+    expect(CHECKPOINTS.map((checkpoint) => checkpoint.id)).toEqual(["c1", "c2", "c3", "c4"]);
     expect(CHECKPOINTS[0]!.lessonIds).toEqual(LESSONS.slice(0, 10).map((lesson) => lesson.id));
     expect(CHECKPOINTS[1]!.lessonIds).toEqual(LESSONS.slice(0, 15).map((lesson) => lesson.id));
     expect(CHECKPOINTS[2]!.lessonIds).toEqual(LESSONS.slice(15, 20).map((lesson) => lesson.id));
+    expect(CHECKPOINTS[3]!.lessonIds).toEqual(LESSONS.map((lesson) => lesson.id));
   });
 
   test("cada lição tem a quantidade de prática definida no currículo", () => {
@@ -79,10 +90,16 @@ describe("conteúdo Hangul — fatia h01–h20 + c1/c2/c3", () => {
       ["h18", 14],
       ["h19", 12],
       ["h20", 14],
+      ["h21", 14],
+      ["h22", 14],
+      ["h23", 14],
+      ["h24", 15],
+      ["h25", 16],
     ]);
     expect(CHECKPOINTS[0]!.exercises).toHaveLength(20);
     expect(CHECKPOINTS[1]!.exercises).toHaveLength(24);
     expect(CHECKPOINTS[2]!.exercises).toHaveLength(24);
+    expect(CHECKPOINTS[3]!.exercises).toHaveLength(30);
   });
 
   test("todo conteúdo coreano está marcado como in-review", () => {
@@ -211,6 +228,79 @@ describe("conteúdo Hangul — fatia h01–h20 + c1/c2/c3", () => {
     ]);
   });
 
+  test("h21–h25 cobrem as três regras de fronteira na ordem e sem conteúdo novo", () => {
+    const byId = new Map(LESSONS.map((lesson) => [lesson.id, lesson]));
+    expect(byId.get("h21")!.prerequisites).toEqual(["c3"]);
+    expect(byId.get("h22")!.prerequisites).toEqual(["h21"]);
+    expect(byId.get("h23")!.prerequisites).toEqual(["h22"]);
+    expect(byId.get("h24")!.prerequisites).toEqual(["h23"]);
+    expect(byId.get("h25")!.prerequisites).toEqual(["h24"]);
+
+    for (const id of ["h21", "h22", "h23", "h24", "h25"]) {
+      expect(byId.get(id)!.newJamo).toEqual([]);
+      expect(byId.get(id)!.newFinals).toEqual([]);
+    }
+
+    expect(RULES.map((rule) => [rule.id, rule.kind, rule.introducedIn])).toEqual([
+      ["rule:liaison", "liaison", "h21"],
+      ["rule:nasalization", "nasalization", "h22"],
+      ["rule:aspiration", "aspiration", "h23"],
+    ]);
+    expect(new Set(RULES.map((rule) => rule.kind)).size).toBe(3);
+  });
+
+  test("os exemplos das regras batem com o módulo puro de pronúncia", () => {
+    for (const rule of RULES) {
+      const apply = PRONUNCIATION_APPLIERS[rule.kind as keyof typeof PRONUNCIATION_APPLIERS];
+      expect(apply).toBeDefined();
+      for (const example of rule.examples) {
+        const result = apply(example.written);
+        if (example.written === example.spoken) {
+          expect(result, `${rule.kind}: ${example.written} é caso negativo`).toBeNull();
+        } else {
+          expect(result?.spoken, `${rule.kind}: ${example.written}`).toBe(example.spoken);
+          expect(result?.written).toBe(example.written);
+        }
+      }
+    }
+  });
+
+  test("c4 tem 30 itens, exige 24 acertos e cobre o curso completo", () => {
+    const c4 = CHECKPOINTS[3]!;
+    expect(c4.id).toBe("c4");
+    expect(c4.exercises).toHaveLength(30);
+    expect(c4.minCorrect).toBe(24);
+    expect(c4.passingScore).toBe(80);
+    expect(c4.estimatedMinutes).toBe(30);
+    expect(c4.lessonIds).toEqual(LESSONS.map((lesson) => lesson.id));
+    expect(c4.diagnosticTags).toEqual(
+      expect.arrayContaining([
+        "diag:liaison",
+        "diag:nasalization",
+        "diag:aspiration",
+        "diag:reading-fluency",
+      ]),
+    );
+  });
+
+  test("a navegação cobre todas as lições e checkpoints sem links quebrados", () => {
+    const outlineLessons = COURSE_OUTLINE.flatMap((unit) => unit.lessons);
+    const outlineCheckpoints = COURSE_OUTLINE.flatMap((unit) =>
+      unit.checkpoint ? [unit.checkpoint] : [],
+    );
+
+    expect(outlineLessons).toHaveLength(25);
+    expect(outlineLessons.map((lesson) => lesson.id)).toEqual(LESSONS.map((lesson) => lesson.id));
+    expect(outlineCheckpoints).toEqual(CHECKPOINTS.map((checkpoint) => checkpoint.id));
+
+    for (const outline of outlineLessons) {
+      expect(getLesson(outline.id), `lição ${outline.id}`).toBeDefined();
+    }
+    for (const id of outlineCheckpoints) {
+      expect(getCheckpoint(id), `checkpoint ${id}`).toBeDefined();
+    }
+  });
+
   test("rejeita lição cujo pré-requisito é um checkpoint ausente", () => {
     const broken: Curriculum = {
       ...HANGUL_CURRICULUM,
@@ -283,14 +373,14 @@ describe("conteúdo Hangul — fatia h01–h20 + c1/c2/c3", () => {
     }
   });
 
-  test("os itens novos de h11–h20/c2/c3 aceitam a resposta certa e rejeitam a errada", () => {
+  test("os itens novos de h11–h25/c2–c4 aceitam a resposta certa e rejeitam a errada", () => {
     const newExercises = [
-      ...LESSONS.filter((lesson) => lesson.unit === 5 || lesson.unit === 6).flatMap(
-        (lesson) => lesson.exercises,
+      ...LESSONS.filter(
+        (lesson) => lesson.unit === 5 || lesson.unit === 6 || lesson.unit === 7,
+      ).flatMap((lesson) => lesson.exercises),
+      ...CHECKPOINTS.filter((checkpoint) => checkpoint.id !== "c1").flatMap(
+        (checkpoint) => checkpoint.exercises,
       ),
-      ...CHECKPOINTS.filter(
-        (checkpoint) => checkpoint.id === "c2" || checkpoint.id === "c3",
-      ).flatMap((checkpoint) => checkpoint.exercises),
     ];
 
     const correctAnswer = (exercise: ExerciseSpec): ExerciseAnswer => {
@@ -350,6 +440,7 @@ describe("conteúdo Hangul — fatia h01–h20 + c1/c2/c3", () => {
     };
 
     for (const exercise of newExercises) {
+      if (exercise.type === "reading" && exercise.mode === "self-check") continue;
       expect(checkAnswer(exercise, correctAnswer(exercise)).correct).toBe(true);
       expect(checkAnswer(exercise, wrongAnswer(exercise)).correct).toBe(false);
     }
@@ -376,6 +467,7 @@ describe("conteúdo Hangul — fatia h01–h20 + c1/c2/c3", () => {
     expect(CHECKPOINTS.find((item) => item.id === "c1")!.minCorrect).toBe(16);
     expect(CHECKPOINTS.find((item) => item.id === "c2")!.minCorrect).toBe(19);
     expect(CHECKPOINTS.find((item) => item.id === "c3")!.minCorrect).toBe(19);
+    expect(CHECKPOINTS.find((item) => item.id === "c4")!.minCorrect).toBe(24);
 
     const expected: Record<string, number> = {
       h16: 10,
@@ -383,9 +475,34 @@ describe("conteúdo Hangul — fatia h01–h20 + c1/c2/c3", () => {
       h18: 11,
       h19: 10,
       h20: 11,
+      h21: 11,
+      h22: 11,
+      h23: 11,
+      h24: 12,
+      h25: 13,
     };
     for (const [id, minCorrect] of Object.entries(expected)) {
       expect(LESSONS.find((lesson) => lesson.id === id)!.completion.minCorrect).toBe(minCorrect);
+    }
+  });
+
+  test("h24 e h25 marcam a autoavaliação como não pontuada", () => {
+    const selfChecks = [
+      LESSONS.find((lesson) => lesson.id === "h24")!.exercises.find(
+        (exercise) => exercise.type === "reading" && exercise.mode === "self-check",
+      ),
+      LESSONS.find((lesson) => lesson.id === "h25")!.exercises.find(
+        (exercise) => exercise.type === "reading" && exercise.mode === "self-check",
+      ),
+    ];
+    for (const exercise of selfChecks) {
+      expect(exercise).toBeDefined();
+      expect(exercise!.type).toBe("reading");
+      if (exercise!.type === "reading") {
+        expect(exercise!.correctOptionId).toBeUndefined();
+        expect(exercise!.options).toBeUndefined();
+      }
+      expect(exercise!.srsCards ?? []).toEqual([]);
     }
   });
 

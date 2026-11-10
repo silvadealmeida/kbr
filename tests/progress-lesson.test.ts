@@ -6,6 +6,7 @@ import {
   evaluateCheckpoint,
   evaluateLesson,
   isCheckpointUnlocked,
+  isCourseComplete,
   isLessonUnlocked,
   nextCourseStepAfter,
   nextLessonAfter,
@@ -100,13 +101,17 @@ describe("progresso de lição", () => {
     expect(nextLessonAfter(LESSONS, "h03")?.id).toBe("h04");
     expect(nextLessonAfter(LESSONS, "h10")?.id).toBe("h11");
     expect(nextLessonAfter(LESSONS, "h15")?.id).toBe("h16");
-    expect(nextLessonAfter(LESSONS, "h20")).toBeUndefined();
+    expect(nextLessonAfter(LESSONS, "h20")?.id).toBe("h21");
+    expect(nextLessonAfter(LESSONS, "h25")).toBeUndefined();
     expect(nextCourseStepAfter(LESSONS, CHECKPOINTS, "h10")?.id).toBe("c1");
     expect(nextCourseStepAfter(LESSONS, CHECKPOINTS, "c1")?.id).toBe("h11");
     expect(nextCourseStepAfter(LESSONS, CHECKPOINTS, "h15")?.id).toBe("c2");
     expect(nextCourseStepAfter(LESSONS, CHECKPOINTS, "c2")?.id).toBe("h16");
     expect(nextCourseStepAfter(LESSONS, CHECKPOINTS, "h20")?.id).toBe("c3");
-    expect(nextCourseStepAfter(LESSONS, CHECKPOINTS, "c3")).toBeUndefined();
+    expect(nextCourseStepAfter(LESSONS, CHECKPOINTS, "c3")?.id).toBe("h21");
+    expect(nextCourseStepAfter(LESSONS, CHECKPOINTS, "h24")?.id).toBe("h25");
+    expect(nextCourseStepAfter(LESSONS, CHECKPOINTS, "h25")?.id).toBe("c4");
+    expect(nextCourseStepAfter(LESSONS, CHECKPOINTS, "c4")).toBeUndefined();
   });
 
   test("calcula o mínimo de acertos sem reprovar 19 de 24 por arredondamento", () => {
@@ -490,6 +495,236 @@ describe("checkpoint c3 — batchim simples e duplos", () => {
     }
     expect(cards.has("h:syl:닭")).toBe(true);
     expect(cards.has("h:word:삶")).toBe(true);
+  });
+});
+
+function c4Answers(correctIds: readonly string[]) {
+  const checkpoint = CHECKPOINTS.find((item) => item.id === "c4")!;
+  return Object.fromEntries(
+    checkpoint.exercises.map((exercise) => [
+      exercise.id,
+      { correct: correctIds.includes(exercise.id) },
+    ]),
+  );
+}
+
+describe("checkpoint c4 — leitura integrada", () => {
+  test("só abre com todas as 25 lições concluídas", () => {
+    const c4 = CHECKPOINTS.find((checkpoint) => checkpoint.id === "c4")!;
+    const empty = createEmptyProgress(NOW);
+    expect(isCheckpointUnlocked(empty, c4)).toBe(false);
+
+    const withoutH25: Progress = {
+      ...empty,
+      lessons: Object.fromEntries(
+        LESSONS.filter((lesson) => lesson.id !== "h25").map((lesson) => [
+          lesson.id,
+          { done: true, score: 100 },
+        ]),
+      ),
+    };
+    expect(isCheckpointUnlocked(withoutH25, c4)).toBe(false);
+    expect(isCheckpointUnlocked(progressWithAllLessons(), c4)).toBe(true);
+  });
+
+  test("aprova com 24 de 30 e reprova com 23", () => {
+    const c4 = CHECKPOINTS.find((checkpoint) => checkpoint.id === "c4")!;
+    const ids = c4.exercises.map((exercise) => exercise.id);
+
+    const pass = evaluateCheckpoint(c4, c4Answers(ids.slice(0, 24)));
+    expect(pass).toMatchObject({ correct: 24, total: 30, score: 80, passed: true });
+
+    const fail = evaluateCheckpoint(c4, c4Answers(ids.slice(0, 23)));
+    expect(fail).toMatchObject({ correct: 23, total: 30, score: 77, passed: false });
+  });
+
+  test("mantém conclusão e maior score em retentativas", () => {
+    const c4 = CHECKPOINTS.find((checkpoint) => checkpoint.id === "c4")!;
+    const ids = c4.exercises.map((exercise) => exercise.id);
+
+    const first = completeCheckpoint(
+      progressWithAllLessons(),
+      c4,
+      c4Answers(ids),
+      NOW,
+    );
+    expect(first.progress.lessons.c4).toEqual({ done: true, score: 100 });
+
+    const retry = completeCheckpoint(
+      first.progress,
+      c4,
+      c4Answers(ids.slice(0, 10)),
+      NOW,
+    );
+    expect(retry.progress.lessons.c4).toEqual({ done: true, score: 100 });
+    expect(retry.result.passed).toBe(false);
+  });
+
+  test("refazer abaixo da nota não cria conclusão falsa", () => {
+    const c4 = CHECKPOINTS.find((checkpoint) => checkpoint.id === "c4")!;
+    const ids = c4.exercises.map((exercise) => exercise.id);
+    const result = completeCheckpoint(
+      progressWithAllLessons(),
+      c4,
+      c4Answers(ids.slice(0, 23)),
+      NOW,
+    );
+    expect(result.progress.lessons.c4).toEqual({ done: false, score: 77 });
+  });
+
+  test("diagnóstico do c4 separa regras e leitura em contexto", () => {
+    const c4 = CHECKPOINTS.find((checkpoint) => checkpoint.id === "c4")!;
+    const ids = c4.exercises.map((exercise) => exercise.id);
+    const result = evaluateCheckpoint(
+      c4,
+      c4Answers(ids.filter((id) => id !== "c4-e22" && id !== "c4-e30")),
+    );
+    expect(result.missedExerciseIds).toEqual(["c4-e22", "c4-e30"]);
+    expect(result.diagnostics.find((category) => category.id === "aspiration")?.missed).toBe(1);
+    expect(
+      result.diagnostics.find((category) => category.id === "reading-fluency")?.missed,
+    ).toBe(1);
+  });
+
+  test("c4 persiste no mesmo Progress v1 após recarga", async () => {
+    const c4 = CHECKPOINTS.find((checkpoint) => checkpoint.id === "c4")!;
+    const ids = c4.exercises.map((exercise) => exercise.id);
+    const completed = completeCheckpoint(
+      progressWithAllLessons(),
+      c4,
+      c4Answers(ids.slice(0, 24)),
+      NOW,
+    );
+
+    const memory = new Map<string, string>();
+    const storage = {
+      getItem: (key: string) => memory.get(key) ?? null,
+      setItem: (key: string, value: string) => {
+        memory.set(key, value);
+      },
+    };
+
+    expect(
+      await createLocalStorageStore(storage, () => NOW, "kbr:test:c4").save(
+        completed.progress,
+      ),
+    ).toBe(true);
+
+    const reloaded = await createLocalStorageStore(
+      storage,
+      () => NOW,
+      "kbr:test:c4",
+    ).load();
+    expect(reloaded.lessons.c4).toEqual({ done: true, score: 80 });
+    expect(reloaded.lastActive).toBe(NOW.toISOString());
+  });
+
+  test("o curso só é considerado completo com todas as lições e checkpoints", () => {
+    const home = createEmptyProgress(NOW);
+    expect(isCourseComplete(home, LESSONS, CHECKPOINTS)).toBe(false);
+
+    const onlyLessons = progressWithAllLessons();
+    expect(isCourseComplete(onlyLessons, LESSONS, CHECKPOINTS)).toBe(false);
+
+    const complete: Progress = {
+      ...onlyLessons,
+      lessons: {
+        ...onlyLessons.lessons,
+        c1: { done: true, score: 100 },
+        c2: { done: true, score: 100 },
+        c3: { done: true, score: 100 },
+        c4: { done: true, score: 80 },
+      },
+    };
+    expect(isCourseComplete(complete, LESSONS, CHECKPOINTS)).toBe(true);
+  });
+});
+
+describe("lições h21–h25 — critérios e autoavaliação", () => {
+  test("h21–h23 aprovam com 11 de 14 e reprovam com 10", () => {
+    for (const id of ["h21", "h22", "h23"]) {
+      const lesson = LESSONS.find((item) => item.id === id)!;
+      const ids = lesson.exercises.map((exercise) => exercise.id);
+      expect(evaluateLesson(lesson, answers(id, ids.slice(0, 11))).passed).toBe(true);
+      expect(evaluateLesson(lesson, answers(id, ids.slice(0, 10))).passed).toBe(false);
+    }
+  });
+
+  test("h22 exige os itens e09 e e10 mesmo com nota suficiente", () => {
+    const h22 = LESSONS.find((lesson) => lesson.id === "h22")!;
+    const ids = h22.exercises.map((exercise) => exercise.id);
+    const result = evaluateLesson(h22, answers("h22", ids.filter((id) => id !== "h22-e09")));
+    expect(result.score).toBeGreaterThanOrEqual(h22.completion.minScore);
+    expect(result.requiredMet).toBe(false);
+    expect(result.passed).toBe(false);
+  });
+
+  test("h21 exige ao menos 5 dos 8 exemplos de ligação", () => {
+    const h21 = LESSONS.find((lesson) => lesson.id === "h21")!;
+    const ids = h21.exercises.map((exercise) => exercise.id);
+    const result = evaluateLesson(
+      h21,
+      answers(
+        "h21",
+        ids.filter((id) => !["h21-e01", "h21-e02", "h21-e03", "h21-e04", "h21-e05"].includes(id)),
+      ),
+    );
+    expect(result.rules.find((rule) => rule.id === "h21-liaison-examples")?.met).toBe(false);
+    expect(result.passed).toBe(false);
+  });
+
+  test("h24 conta 12 de 14 itens avaliados e ignora a autoavaliação", () => {
+    const h24 = LESSONS.find((lesson) => lesson.id === "h24")!;
+    const scored = h24.exercises.filter((exercise) => exercise.id !== "h24-e14");
+    const response = Object.fromEntries(
+      h24.exercises.map((exercise) => [
+        exercise.id,
+        {
+          correct: scored.slice(0, 12).some((item) => item.id === exercise.id),
+          scored: exercise.id !== "h24-e14",
+        },
+      ]),
+    );
+    const result = evaluateLesson(h24, response);
+    expect(result).toMatchObject({ correct: 12, total: 14, score: 86, passed: true });
+
+    const eleven = Object.fromEntries(
+      h24.exercises.map((exercise) => [
+        exercise.id,
+        {
+          correct: scored.slice(0, 11).some((item) => item.id === exercise.id),
+          scored: exercise.id !== "h24-e14",
+        },
+      ]),
+    );
+    expect(evaluateLesson(h24, eleven).passed).toBe(false);
+  });
+
+  test("h25 conta 13 de 15 itens avaliados e ignora a autoavaliação", () => {
+    const h25 = LESSONS.find((lesson) => lesson.id === "h25")!;
+    const scored = h25.exercises.filter((exercise) => exercise.id !== "h25-e16");
+    const response = Object.fromEntries(
+      h25.exercises.map((exercise) => [
+        exercise.id,
+        {
+          correct: scored.slice(0, 13).some((item) => item.id === exercise.id),
+          scored: exercise.id !== "h25-e16",
+        },
+      ]),
+    );
+    const result = evaluateLesson(h25, response);
+    expect(result).toMatchObject({ correct: 13, total: 15, score: 87, passed: true });
+
+    const twelve = Object.fromEntries(
+      h25.exercises.map((exercise) => [
+        exercise.id,
+        {
+          correct: scored.slice(0, 12).some((item) => item.id === exercise.id),
+          scored: exercise.id !== "h25-e16",
+        },
+      ]),
+    );
+    expect(evaluateLesson(h25, twelve).passed).toBe(false);
   });
 });
 

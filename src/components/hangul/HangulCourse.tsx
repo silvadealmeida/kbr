@@ -3,10 +3,14 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { COURSE_OUTLINE } from "@/content/hangul/outline";
-import { getCheckpoint } from "@/content/hangul/checkpoints";
-import { getLesson } from "@/content/hangul/lessons";
+import { CHECKPOINTS, getCheckpoint } from "@/content/hangul/checkpoints";
+import { getLesson, LESSONS } from "@/content/hangul/lessons";
 import { useAuth } from "@/components/auth/AuthProvider";
-import { isCheckpointUnlocked, isLessonUnlocked } from "@/lib/progress/lesson";
+import {
+  isCheckpointUnlocked,
+  isCourseComplete,
+  isLessonUnlocked,
+} from "@/lib/progress/lesson";
 import type { Progress } from "@/lib/storage";
 
 function StatusBadge({ children, tone = "muted" }: { children: React.ReactNode; tone?: "muted" | "brand" }) {
@@ -36,13 +40,32 @@ export function HangulCourse() {
     };
   }, [progressStore]);
 
+  const courseComplete = progress
+    ? isCourseComplete(progress, LESSONS, CHECKPOINTS)
+    : false;
+
   return (
     <div className="flex flex-col gap-6">
       <p className="rounded-2xl border border-border bg-surface p-4 text-sm text-muted">
-        Conteúdo coreano em revisão por falante nativo. As lições h01–h20 e os
-        checkpoints c1, c2 e c3 já podem ser feitos; o restante do curso está em
-        desenvolvimento.
+        Conteúdo coreano em revisão por falante nativo. As lições h01–h25 e os
+        checkpoints c1–c4 estão disponíveis.
       </p>
+
+      {courseComplete ? (
+        <section
+          aria-labelledby="course-complete"
+          className="rounded-2xl border-2 border-brand/40 bg-surface p-5"
+        >
+          <h2 id="course-complete" className="text-lg font-semibold text-brand">
+            Módulo Hangul concluído
+          </h2>
+          <p className="mt-2 text-muted">
+            Você concluiu as 25 lições e os quatro checkpoints. Isso registra a
+            conclusão do módulo, não uma certificação de proficiência. O próximo
+            módulo (CEFR A1) ainda não está disponível.
+          </p>
+        </section>
+      ) : null}
 
       {COURSE_OUTLINE.map((unit) => {
         const checkpoint = unit.checkpoint ? getCheckpoint(unit.checkpoint) : undefined;

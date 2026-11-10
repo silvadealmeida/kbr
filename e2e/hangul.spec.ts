@@ -24,7 +24,10 @@ test.describe("Hangul autenticado", () => {
       page.getByRole("link", { name: /h01.*Um alfabeto desenhado/ }),
     ).toBeVisible();
     await expect(page.getByText("Após h01", { exact: true })).toBeVisible();
-    await expect(page.getByText("Em breve").first()).toBeVisible();
+    await expect(page.getByText("Em breve")).toHaveCount(0);
+    await expect(
+      page.getByText("Após h01–h25", { exact: true }),
+    ).toBeVisible();
 
     const lessonLink = page.getByRole("link", {
       name: /h01.*Um alfabeto desenhado/,
@@ -173,6 +176,9 @@ async function seedCompletedLessons(
   lessonIds: readonly string[] = COMPLETED_LESSONS,
 ) {
   await page.goto("/hangul");
+  // Espera a sincronização inicial terminar; um save remoto atrasado poderia
+  // sobrescrever o progresso semeado antes do reload.
+  await page.waitForLoadState("networkidle");
   await page.evaluate(
     ({ key, lessonIds: ids }) => {
       const lessons = Object.fromEntries(
@@ -193,6 +199,7 @@ async function seedCompletedLessons(
     },
     { key: `kbr:user:${TEST_USER.id}:v1`, lessonIds },
   );
+  await page.reload();
 }
 
 type CheckpointStep =
@@ -636,5 +643,199 @@ test.describe("Unidade 6 e checkpoint c3 autenticados", () => {
 
     await page.goto("/hangul");
     await expect(page.getByText("Concluído · 100%").last()).toBeVisible();
+  });
+});
+
+const COMPLETED_THROUGH_C3 = [
+  ...Array.from(
+    { length: 20 },
+    (_, index) => `h${String(index + 1).padStart(2, "0")}`,
+  ),
+  "c1",
+  "c2",
+  "c3",
+];
+
+const COMPLETED_ALL_LESSONS_AND_PREVIOUS_CHECKPOINTS = [
+  ...Array.from(
+    { length: 25 },
+    (_, index) => `h${String(index + 1).padStart(2, "0")}`,
+  ),
+  "c1",
+  "c2",
+  "c3",
+];
+
+type C4Step =
+  | { kind: "choice"; name: string }
+  | { kind: "build"; initial: string; medial: string; final?: string };
+
+const C4_STEPS: C4Step[] = [
+  { kind: "choice", name: "ㅋ" },
+  { kind: "choice", name: "ㄲ" },
+  { kind: "choice", name: "ㅎ" },
+  { kind: "choice", name: "ㅈ" },
+  { kind: "choice", name: "ㅙ" },
+  { kind: "build", initial: "ㅋ", medial: "ㅘ" },
+  { kind: "build", initial: "ㄱ", medial: "ㅟ" },
+  { kind: "build", initial: "ㄷ", medial: "ㅏ", final: "ㄺ" },
+  { kind: "build", initial: "ㄱ", medial: "ㅏ", final: "ㅄ" },
+  { kind: "choice", name: "ㅇ + ㅙ" },
+  { kind: "choice", name: "[t̚] — língua no alvéolo, sem soltar ar" },
+  { kind: "choice", name: "[p̚] — lábios fechados, sem soltar ar" },
+  { kind: "choice", name: "[k̚] — boca fecha, sem soltar ar" },
+  { kind: "choice", name: "[l] — língua no alvéolo, sem soltar" },
+  { kind: "choice", name: "[ŋ] — nasal velar" },
+  { kind: "choice", name: "[p̚] — lábios fechados, sem soltar ar" },
+  { kind: "choice", name: "한구거" },
+  { kind: "choice", name: "조아요" },
+  { kind: "choice", name: "일거요" },
+  { kind: "choice", name: "임니다" },
+  { kind: "choice", name: "한궁말" },
+  { kind: "choice", name: "조타" },
+  { kind: "choice", name: "pessoa" },
+  { kind: "choice", name: "amor" },
+  { kind: "choice", name: "coração; mente; disposição" },
+  { kind: "choice", name: "paz; bem-estar" },
+  { kind: "choice", name: "olá; como vai?" },
+  { kind: "choice", name: "감사함니다" },
+  { kind: "choice", name: "Eu estudo coreano." },
+  { kind: "choice", name: "Eu sou estudante." },
+];
+
+test.describe("Unidade 7 e checkpoint c4 autenticados", () => {
+  test.beforeEach(async ({ context }) => {
+    await authenticate(context);
+  });
+
+  test("h21 abre após c3 e responde pelo teclado em 375 px", async ({ page }) => {
+    await seedCompletedLessons(page, COMPLETED_THROUGH_C3);
+
+    await page.goto("/hangul");
+    const h21 = page.getByRole("link", { name: /h21.*Ligação/ });
+    await expect(h21).toBeVisible({ timeout: 15_000 });
+    const box = await h21.boundingBox();
+    expect(box?.height ?? 0).toBeGreaterThanOrEqual(44);
+    await h21.click();
+
+    await expect(
+      page.getByRole("heading", { level: 1, name: /Ligação/ }),
+    ).toBeVisible();
+    await page.getByRole("button", { name: "Começar a prática" }).click();
+
+    const option = page.getByRole("button", { name: /한구거/ }).first();
+    await option.focus();
+    await page.keyboard.press("Enter");
+    await expect(option).toHaveAttribute("aria-pressed", "true");
+    await page.getByRole("button", { name: "Conferir" }).focus();
+    await page.keyboard.press("Enter");
+    await expect(
+      page.getByRole("status").filter({ hasText: "Correto." }),
+    ).toBeVisible();
+    await expect(page.getByRole("button", { name: "Continuar" })).toBeVisible();
+
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= window.innerWidth,
+      ),
+    ).toBe(true);
+  });
+
+  test("c4 fica bloqueado até h21–h25 serem concluídas", async ({ page }) => {
+    await seedCompletedLessons(page, COMPLETED_THROUGH_H20);
+
+    await page.goto("/hangul");
+    await expect(page.getByText("Após h01–h25", { exact: true })).toBeVisible();
+
+    await page.goto("/hangul/c4");
+    await expect(
+      page.getByRole("heading", { level: 1, name: /Checkpoint 4/ }),
+    ).toBeVisible();
+    await expect(page.getByText("Checkpoint bloqueado")).toBeVisible();
+    await expect(page.getByText(/Pendentes:.*h21/)).toBeVisible();
+  });
+
+  test("c4 abre com 25 lições, registra 100% e conclui o módulo", async ({
+    page,
+  }) => {
+    await seedCompletedLessons(page, COMPLETED_ALL_LESSONS_AND_PREVIOUS_CHECKPOINTS);
+
+    await page.goto("/hangul");
+    await expect(
+      page.getByRole("link", { name: /c4.*Checkpoint 4/ }),
+    ).toBeVisible({ timeout: 15_000 });
+
+    await page.goto("/hangul/c4");
+    await expect(
+      page.getByRole("heading", { level: 1, name: /Checkpoint 4/ }),
+    ).toBeVisible();
+    await expect(page.getByText(/24 de 30/)).toBeVisible();
+    await page.getByRole("button", { name: "Começar checkpoint" }).click();
+
+    for (const [index, step] of C4_STEPS.entries()) {
+      if (step.kind === "choice") {
+        await page
+          .getByRole("button", { name: step.name, exact: true })
+          .first()
+          .click();
+      } else {
+        await page
+          .getByRole("group", { name: "Consoante inicial" })
+          .getByRole("button", { name: step.initial, exact: true })
+          .click();
+        await page
+          .getByRole("group", { name: "Vogal" })
+          .getByRole("button", { name: step.medial, exact: true })
+          .click();
+        if (step.final) {
+          await page
+            .getByRole("group", { name: "Consoante final" })
+            .getByRole("button", { name: step.final, exact: true })
+            .click();
+        }
+      }
+      await page.getByRole("button", { name: "Conferir" }).click();
+      await expect(
+        page.getByRole("status").filter({ hasText: "Correto." }),
+      ).toBeVisible();
+      await page
+        .getByRole("button", {
+          name:
+            index === C4_STEPS.length - 1 ? "Concluir checkpoint" : "Continuar",
+        })
+        .click();
+    }
+
+    await expect(
+      page.getByRole("heading", { level: 1, name: "Módulo Hangul concluído" }),
+    ).toBeVisible();
+    await expect(page.getByText("Você acertou 30 de 30 (100%).")).toBeVisible();
+    await expect(
+      page.getByText(/Não há certificado de proficiência/),
+    ).toBeVisible();
+    await expect(page.getByRole("link", { name: /Próximo:/ })).toHaveCount(0);
+
+    await expect
+      .poll(async () =>
+        page.evaluate((key) => {
+          const raw = window.localStorage.getItem(key);
+          return raw ? JSON.parse(raw).lessons?.c4 : null;
+        }, `kbr:user:${TEST_USER.id}:v1`),
+      )
+      .toEqual({ done: true, score: 100 });
+
+    await page.reload();
+    await expect(
+      page.getByRole("heading", { level: 1, name: /Checkpoint 4/ }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("button", { name: "Começar checkpoint" }),
+    ).toBeVisible();
+
+    await page.goto("/hangul");
+    await expect(
+      page.getByRole("heading", { name: "Módulo Hangul concluído" }),
+    ).toBeVisible();
+    await expect(page.getByText("Em breve")).toHaveCount(0);
   });
 });

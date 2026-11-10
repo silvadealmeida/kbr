@@ -4,7 +4,9 @@ import {
   jamoCardKey,
   leitner,
   parseSrsCardKey,
+  ruleCardKey,
   scheduleMissedReview,
+  SRS_RULE_IDS,
   syllableCardKey,
   wordCardKey,
   type SrsState,
@@ -69,8 +71,12 @@ describe("cartões SRS do Hangul", () => {
     expect(jamoCardKey("ㅏ")).toBe("h:jamo:v:ㅏ");
     expect(syllableCardKey("가")).toBe("h:syl:가");
     expect(wordCardKey("고기")).toBe("h:word:고기");
+    expect(ruleCardKey("liaison")).toBe("h:rule:liaison");
+    expect(ruleCardKey("nasalization")).toBe("h:rule:nasalization");
+    expect(ruleCardKey("aspiration")).toBe("h:rule:aspiration");
     expect(() => jamoCardKey("가")).toThrow(RangeError);
     expect(() => syllableCardKey("가구")).toThrow(RangeError);
+    expect(() => ruleCardKey("batchim" as never)).toThrow(RangeError);
   });
 
   test("interpreta apenas chaves conhecidas", () => {
@@ -90,6 +96,11 @@ describe("cartões SRS do Hangul", () => {
       kind: "word",
       value: "고기",
     });
+    expect(parseSrsCardKey("h:rule:liaison")).toMatchObject({
+      kind: "rule",
+      value: "liaison",
+    });
+    expect(parseSrsCardKey("h:rule:batchim")).toBeNull();
     expect(parseSrsCardKey("h:syl:가구")).toBeNull();
     expect(parseSrsCardKey("outro:card")).toBeNull();
     expect(parseSrsCardKey("h:jamo:c:ㅏ")).toBeNull();
@@ -255,5 +266,85 @@ describe("cartões SRS de batchim", () => {
     expect(reloaded.cards).toEqual(progress.cards);
     expect(reloaded.cards["h:syl:말"]).toBeDefined();
     expect(reloaded.cards["h:word:말"]).toBeDefined();
+  });
+});
+
+describe("cartões SRS de regras de fronteira", () => {
+  test("as três regras têm chaves estáveis e aparecem no curso", () => {
+    const cards = new Set(
+      LESSONS.flatMap((lesson) =>
+        lesson.exercises.flatMap((exercise) => exercise.srsCards ?? []),
+      ),
+    );
+    expect(SRS_RULE_IDS).toEqual(["liaison", "nasalization", "aspiration"]);
+    for (const id of SRS_RULE_IDS) {
+      expect(cards.has(ruleCardKey(id))).toBe(true);
+      expect(parseSrsCardKey(ruleCardKey(id))).toMatchObject({ kind: "rule", value: id });
+    }
+  });
+
+  test("erro em h21 cria cartões da regra, da palavra e da sílaba sem duplicar", () => {
+    const exercise = LESSONS.find((lesson) => lesson.id === "h21")!
+      .exercises[0]!;
+    const first = scheduleMissedReview(createEmptyProgress(NOW), exercise, NOW);
+
+    expect(Object.keys(first.cards)).toEqual([
+      "h:rule:liaison",
+      "h:word:한국어",
+      "h:syl:국",
+    ]);
+    expect(first.cards["h:rule:liaison"]).toEqual({
+      box: 1,
+      due: "2026-11-11T12:00:00.000Z",
+    });
+
+    const again = scheduleMissedReview(first, exercise, NOW);
+    expect(again.cards).toEqual(first.cards);
+  });
+
+  test("erro em h22 e h23 agenda as regras correspondentes", () => {
+    const h22 = LESSONS.find((lesson) => lesson.id === "h22")!.exercises[0]!;
+    const h23 = LESSONS.find((lesson) => lesson.id === "h23")!.exercises[0]!;
+
+    const afterH22 = scheduleMissedReview(createEmptyProgress(NOW), h22, NOW);
+    expect(afterH22.cards["h:rule:nasalization"]).toBeDefined();
+
+    const afterH23 = scheduleMissedReview(afterH22, h23, NOW);
+    expect(afterH23.cards["h:rule:aspiration"]).toBeDefined();
+    expect(afterH23.cards["h:rule:nasalization"]).toBeDefined();
+  });
+
+  test("cartões de regra persistem após recarga", async () => {
+    const memory = new Map<string, string>();
+    const storage = {
+      getItem: (key: string) => memory.get(key) ?? null,
+      setItem: (key: string, value: string) => {
+        memory.set(key, value);
+      },
+    };
+    const exercise = LESSONS.find((lesson) => lesson.id === "h23")!
+      .exercises[0]!;
+    const progress = scheduleMissedReview(
+      createEmptyProgress(NOW),
+      exercise,
+      NOW,
+    );
+
+    expect(
+      await createLocalStorageStore(storage, () => NOW, "kbr:test:rules").save(
+        progress,
+      ),
+    ).toBe(true);
+    const reloaded = await createLocalStorageStore(
+      storage,
+      () => NOW,
+      "kbr:test:rules",
+    ).load();
+
+    expect(reloaded.cards).toEqual(progress.cards);
+    expect(reloaded.cards["h:rule:aspiration"]).toEqual({
+      box: 1,
+      due: "2026-11-11T12:00:00.000Z",
+    });
   });
 });

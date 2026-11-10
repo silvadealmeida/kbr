@@ -16,8 +16,11 @@ export { leitner } from "./leitner";
 export {
   jamoCardKey,
   parseSrsCardKey,
+  ruleCardKey,
   scheduleMissedReview,
   syllableCardKey,
   wordCardKey,
+  SRS_RULE_IDS,
   type SrsCardRef,
+  type SrsRuleId,
 } from "./cards";

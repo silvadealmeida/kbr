@@ -99,6 +99,8 @@ export type ReadingExercise = ExerciseBase & {
   options?: readonly ChoiceOption[];
   correctOptionId?: string;
   audioText?: string;
+  /** Texto do botão de autoavaliação; padrão: leitura em voz alta. */
+  selfCheckLabel?: string;
   tags: readonly string[];
 };
 

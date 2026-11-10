@@ -1,17 +1,17 @@
 # Graph Report - kbr  (2026-11-10)
 
 ## Corpus Check
-- 128 files · ~104,864 words
+- 137 files · ~120,653 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 5 file(s) not represented in the graph (top: (none) 3, .example 1, .css 1)
 
 ## Summary
-- 937 nodes · 1705 edges · 66 communities (62 shown, 4 thin omitted)
-- Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 76 edges (avg confidence: 0.95)
+- 970 nodes · 1835 edges · 64 communities (61 shown, 3 thin omitted)
+- Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 93 edges (avg confidence: 0.95)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `95fe4dea`
+- Built from commit: `149ed994`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -28,12 +28,12 @@
 - postLoginPath
 - Hangul — referência pedagógica
 - Currículo de Hangul — Fase 3A
-- CheckpointPlayer.tsx
+- storage/index.ts
 - KBR — Auditoria de privacidade e avaliação legal (Fase 2B)
 - KBR — instruções para agentes (Codex, OpenCode, Claude Code)
-- storage/index.ts
+- progress-sync.test.ts
 - exercises/index.ts
-- lesson.ts
+- CheckpointPlayer.tsx
 - validate.ts
 - CLAUDE.md
 - Design de exercícios — módulo Hangul
@@ -45,7 +45,7 @@
 - 8. Tipo 6 — `minimal-pair`
 - 7. Tipo 5 — `build-syllable`
 - 9. Tipo 7 — `reading`
-- content/hangul.test.ts
+- srs/index.ts
 - 11. Unidade 5 — Todas as vogais
 - 12. Unidade 6 — Sílabas e batchim
 - 13. Unidade 7 — Ler em contexto
@@ -53,7 +53,7 @@
 - mock-supabase.mjs
 - next
 - 9. Unidade 3 — Consoantes básicas
-- KBR — Roadmap
+- checkpoints/index.ts
 - 16. Avaliação
 - 4. Estrutura geral
 - 18. Plano de testes
@@ -61,49 +61,47 @@
 - 15. Matriz de cobertura
 - 17. Integração com revisão espaçada
 - 19. QA de conteúdo
-- KBR — Arquitetura
+- syncProgress.ts
 - 2. Pesquisa, benchmark e decisão de design
 - 8. Unidade 2 — Primeiras vogais
-- HangulCourse.tsx
+- content/hangul.test.ts
 - AuthProvider.tsx
 - site.test.ts
 - auth.test.ts
 - next-cookie.ts
-- diagnostics.ts
+- route.ts
 - vitest
 - 3. Tipos de domínio
 - scripts
-- 4. Exercícios: extensão compatível
+- types.ts
 - 5. Respostas e correção
 - 12. Modelo de resposta e correção
-- supabase-proxy.test.ts
-- 6. Compatibilidade com `Progress`
 - 7. Validação do currículo
 - @playwright/test
 
 ## God Nodes (most connected - your core abstractions)
 1. `Progress` - 31 edges
-2. `next` - 30 edges
-3. `Lesson` - 25 edges
+2. `Lesson` - 31 edges
+3. `next` - 30 edges
 4. `Currículo de Hangul — Fase 3A` - 24 edges
 5. `Design de exercícios — módulo Hangul` - 21 edges
-6. `useAuth()` - 17 edges
-7. `postLoginPath()` - 17 edges
-8. `vitest` - 17 edges
-9. `Pronúncia coreana para brasileiros` - 17 edges
-10. `validateCurriculum()` - 16 edges
+6. `validateCurriculum()` - 19 edges
+7. `composeSyllable()` - 18 edges
+8. `Hangul` - 18 edges
+9. `vitest` - 18 edges
+10. `useAuth()` - 17 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `Interfaces de troca futura` --references--> `SrsState`  [INFERRED]
-  docs/architecture.md → src/lib/srs/index.ts
-- `Status conta e sincronização (real)` --references--> `safeNextPath()`  [INFERRED]
-  docs/roadmap.md → src/lib/auth/redirect.ts
-- `Status Fase 3A (real)` --references--> `Progress`  [INFERRED]
-  docs/roadmap.md → src/lib/storage/index.ts
-- `Fase atual` --references--> `Progress`  [INFERRED]
-  AGENTS.md → src/lib/storage/index.ts
+- `3.8 Currículo` --references--> `Progress`  [INFERRED]
+  docs/pedagogy/content-schema.md → src/lib/storage/index.ts
 - `17.3 Relação com `Progress`` --references--> `Progress`  [INFERRED]
   docs/pedagogy/curriculum.md → src/lib/storage/index.ts
+- `2. Inventário de `localStorage`` --references--> `Progress`  [INFERRED]
+  docs/privacy-audit.md → src/lib/storage/index.ts
+- `Status Fase 3A (real)` --references--> `Progress`  [INFERRED]
+  docs/roadmap.md → src/lib/storage/index.ts
+- `Interfaces de troca futura` --references--> `SrsState`  [INFERRED]
+  docs/architecture.md → src/lib/srs/index.ts
 
 ## Import Cycles
 - 2-file cycle: `src/lib/srs/index.ts -> src/lib/srs/leitner.ts -> src/lib/srs/index.ts`
@@ -117,19 +115,19 @@
 - 3-file cycle: `src/lib/storage/index.ts -> src/lib/storage/supabaseProgressStore.ts -> src/lib/storage/localStorageStore.ts -> src/lib/storage/index.ts`
 - 4-file cycle: `src/lib/storage/index.ts -> src/lib/storage/syncProgress.ts -> src/lib/storage/supabaseProgressStore.ts -> src/lib/storage/localStorageStore.ts -> src/lib/storage/index.ts`
 
-## Communities (66 total, 4 thin omitted)
+## Communities (64 total, 3 thin omitted)
 
 ### Community 0 - "Progress"
-Cohesion: 0.24
-Nodes (10): 10. Critérios de aceite técnicos, 11. Referências, 1. O que muda e o que não muda, 2. Estrutura de arquivos recomendada, 3.8 Currículo, 8. Separação conteúdo × usuário, 9. Ordem de implementação da Fase 3B, Muda (+2 more)
+Cohesion: 0.14
+Nodes (19): 10. Critérios de aceite técnicos, 11. Referências, 1. O que muda e o que não muda, 2. Estrutura de arquivos recomendada, 6.1 Mapeamento de lições, 6.2 Cartões SRS, 6.3 Histórico, 6.4 `mergeProgress` (+11 more)
 
 ### Community 1 - "package.json"
-Cohesion: 0.12
-Nodes (21): dependencies, next@^16.4.6, react-dom@^19.3.1, @supabase/ssr@0.12.0, @supabase/supabase-js@2.109.0, tailwindcss@^4.3.5, @tailwindcss/postcss@^4.3.5, @types/node@^20.19.43 (+13 more)
+Cohesion: 0.11
+Nodes (22): dependencies, next@^16.4.6, react@^19.3.1, react-dom@^19.3.1, @supabase/ssr@0.12.0, @supabase/supabase-js@2.109.0, tailwindcss@^4.3.5, @tailwindcss/postcss@^4.3.5 (+14 more)
 
 ### Community 2 - "supabase/proxy.ts"
-Cohesion: 0.19
-Nodes (13): @supabase/ssr, isProtectedPath(), PROTECTED_PATHS, ROUTES, getBrowserSupabaseClient(), getSupabasePublicConfig(), SupabasePublicConfig, hadSessionCookie() (+5 more)
+Cohesion: 0.18
+Nodes (10): isProtectedPath(), PROTECTED_PATHS, ROUTES, hadSessionCookie(), redirect(), redirectToLogin(), updateSupabaseSession(), config (+2 more)
 
 ### Community 3 - "Deep UI/UX, Motion Design & Creative Development Research — KBR"
 Cohesion: 0.05
@@ -140,8 +138,8 @@ Cohesion: 0.14
 Nodes (19): Dashboard(), metadata, stats, metadata, Page(), metadata, Page(), metadata (+11 more)
 
 ### Community 5 - "types.ts"
-Cohesion: 0.06
-Nodes (46): C1, C2, C3, CHECKPOINTS, IMPLEMENTED_CHECKPOINT_IDS, CONTENT_IN_REVIEW, JAMO, H01 (+38 more)
+Cohesion: 0.08
+Nodes (26): H01, H02, H03, H04, H05, H06, H07, H08 (+18 more)
 
 ### Community 6 - "privacidade/page.tsx"
 Cohesion: 0.38
@@ -156,20 +154,20 @@ Cohesion: 0.06
 Nodes (32): 10. Romanização: por que ela engana, 11. Tabela de aproximações para a interface, 12. Limites do TTS, 13. Roteiro de gravação (para revisão humana), 14. Pontos que exigem revisão especializada, 15. Sequência de prática para brasileiros, 16. Referências, 1. Advertência inicial (+24 more)
 
 ### Community 9 - "postLoginPath"
-Cohesion: 0.16
-Nodes (18): Rotas e autenticação, features, first(), LandingPage(), metadata, SearchParams, steps, targetLabels (+10 more)
+Cohesion: 0.18
+Nodes (12): features, first(), LandingPage(), metadata, SearchParams, steps, targetLabels, GoogleMark() (+4 more)
 
 ### Community 10 - "Hangul — referência pedagógica"
 Cohesion: 0.06
 Nodes (30): 10. Notas de ensino por letra, 11. Originalidade e limites, 12. Referências, 1. Como ler este documento, 2. Terminologia mínima, 3. História em poucas linhas, 4.1 Consoantes, 4.2 Vogais (+22 more)
 
 ### Community 11 - "Currículo de Hangul — Fase 3A"
-Cohesion: 0.12
-Nodes (15): 14. Grafo de pré-requisitos, 18. Fluxo do player de lição, 1.1 Fora de escopo, 1. Objetivo do módulo, 20. Revisão especializada pendente, 21. Riscos e mitigação, 22. Handoff para a Fase 3B, 23. Referências (+7 more)
+Cohesion: 0.13
+Nodes (14): 14. Grafo de pré-requisitos, 18. Fluxo do player de lição, 1.1 Fora de escopo, 1. Objetivo do módulo, 20. Revisão especializada pendente, 21. Riscos e mitigação, 23. Referências, 3. Princípios pedagógicos operacionais (+6 more)
 
-### Community 12 - "CheckpointPlayer.tsx"
+### Community 12 - "storage/index.ts"
 Cohesion: 0.22
-Nodes (17): CheckpointPlayer(), DiagnosticsList(), AnswerArea(), AnswerAreaProps, AudioControl(), BilingualText(), choiceState(), ExerciseView() (+9 more)
+Nodes (11): @supabase/supabase-js, ProgressStore, createEmptyProgress(), isDateString(), isProgress(), isRecord(), migrate(), createSupabaseProgressStore() (+3 more)
 
 ### Community 13 - "KBR — Auditoria de privacidade e avaliação legal (Fase 2B)"
 Cohesion: 0.05
@@ -179,21 +177,21 @@ Nodes (32): 1. Inventário de cookies, 2. Inventário de `localStorage`, 3. Anal
 Cohesion: 0.25
 Nodes (7): Comandos, Fase atual, graphify, KBR — instruções para agentes (Codex, OpenCode, Claude Code), Preservar trabalho entre agentes, Regras, This is NOT the Next.js you know
 
-### Community 15 - "storage/index.ts"
-Cohesion: 0.07
-Nodes (34): 6.1 Mapeamento de lições, Não muda, Status Fase 2B (real), @supabase/supabase-js, LessonProgress, PROGRESS_STORAGE_KEY, progressStorageKeyForUser(), ProgressStore (+26 more)
+### Community 15 - "progress-sync.test.ts"
+Cohesion: 0.12
+Nodes (6): PROGRESS_STORAGE_KEY, StorageLike, MemoryStorage, NOW, MemoryStorage, NOW
 
 ### Community 16 - "exercises/index.ts"
-Cohesion: 0.15
-Nodes (19): Testes, Estado atual (atualize a cada commit — é o ponto de retomada entre agentes), AudioToCharExercise, BuildSyllableExercise, CharToAudioExercise, check(), checkAnswer(), CheckResult (+11 more)
+Cohesion: 0.07
+Nodes (38): Decisões/limites, Estrutura, Interfaces de troca futura, KBR — Arquitetura, Modelo de dados (TS), Privacidade, Stack, Testes (+30 more)
 
-### Community 17 - "lesson.ts"
-Cohesion: 0.16
-Nodes (14): summarizeDiagnostics(), AnswerRecord, checkpointRequiredCorrect(), CheckpointResult, completeCheckpoint(), completeLesson(), CompletionRuleResult, evaluateCheckpoint() (+6 more)
+### Community 17 - "CheckpointPlayer.tsx"
+Cohesion: 0.09
+Nodes (40): react, CheckpointPlayer(), DiagnosticsList(), AnswerArea(), AnswerAreaProps, AudioControl(), BilingualText(), choiceState() (+32 more)
 
 ### Community 18 - "validate.ts"
-Cohesion: 0.11
-Nodes (42): Hangul, Status Fase 3B.1 (real), JamoRecord, assertCurriculum(), checkExercise(), checkJamoRecord(), checkNfc(), checkReview() (+34 more)
+Cohesion: 0.08
+Nodes (59): Hangul, KBR — Roadmap, Pós-MVP (não implementar agora), Riscos, Status conta e sincronização (real), Status Fase 1 (real), Status Fase 2B (real), Status Fase 3A (real) (+51 more)
 
 ### Community 22 - "Design de exercícios — módulo Hangul"
 Cohesion: 0.15
@@ -231,9 +229,9 @@ Nodes (9): 7.1 Objetivo, 7.2 Quando usar, 7.3 Especificação, 7.4 Validação, 
 Cohesion: 0.22
 Nodes (9): 7.1 Objetivo, 9.2 Quando usar, 9.3 Especificação, 9.4 Validação, 9.5 Distratores, 9.6 Feedback, 9.7 Acessibilidade, 9.8 Exemplo (+1 more)
 
-### Community 31 - "content/hangul.test.ts"
-Cohesion: 0.11
-Nodes (3): HANGUL_CURRICULUM, ALL_EXERCISES, NOW
+### Community 31 - "srs/index.ts"
+Cohesion: 0.18
+Nodes (15): jamoCardKey(), ruleCardKey(), scheduleMissedReview(), SRS_RULE_IDS, SrsCardRef, SrsRuleId, syllableCardKey(), wordCardKey() (+7 more)
 
 ### Community 32 - "11. Unidade 5 — Todas as vogais"
 Cohesion: 0.29
@@ -252,20 +250,20 @@ Cohesion: 0.29
 Nodes (7): 11.1 Objetivo, 11.2 Especificação, 11.3 Seleção, 11.4 Validação e nota, 11.5 Feedback, 11.6 Acessibilidade, 11. Tipo 9 — `srs-session`
 
 ### Community 36 - "mock-supabase.mjs"
-Cohesion: 0.10
-Nodes (21): authenticate(), C2_STEPS, C2Step, C3_STEPS, C3Step, CHECKPOINT_STEPS, CheckpointStep, COMPLETED_LESSONS (+13 more)
+Cohesion: 0.08
+Nodes (25): authenticate(), C2_STEPS, C2Step, C3_STEPS, C3Step, C4_STEPS, C4Step, CHECKPOINT_STEPS (+17 more)
 
 ### Community 37 - "next"
-Cohesion: 0.19
-Nodes (10): next, metadata, pendingItems, SiteLayout(), Nav(), learnLinks, legalLinks, SiteFooter() (+2 more)
+Cohesion: 0.20
+Nodes (9): next, metadata, pendingItems, SiteLayout(), learnLinks, legalLinks, SiteFooter(), SiteHeader() (+1 more)
 
 ### Community 38 - "9. Unidade 3 — Consoantes básicas"
 Cohesion: 0.33
 Nodes (6): 9. Unidade 3 — Consoantes básicas, `h04` — ㄱ e ㄴ, `h05` — ㄷ ㄹ ㅁ, `h06` — ㅂ ㅅ ㅈ, `h07` — ㅋ ㅌ ㅍ ㅊ, `h08` — ㅎ e revisão das 14 consoantes básicas
 
-### Community 39 - "KBR — Roadmap"
-Cohesion: 0.18
-Nodes (12): KBR — Roadmap, Pós-MVP (não implementar agora), Riscos, Status conta e sincronização (real), Status Fase 1 (real), Status Fase 3A (real), Status Fase 3B.2 (real), Status Fase 3B.3 (real) (+4 more)
+### Community 39 - "checkpoints/index.ts"
+Cohesion: 0.29
+Nodes (7): Status Fase 3B.2 (real), C1, C2, C3, C4, Checkpoint, CompletionRule
 
 ### Community 40 - "16. Avaliação"
 Cohesion: 0.40
@@ -295,9 +293,9 @@ Nodes (4): 17.1 Cartões, 17.2 Sessão de revisão, 17.3 Relação com `Progress
 Cohesion: 0.50
 Nodes (4): 19.1 Verificações automáticas obrigatórias, 19.2 Verificações manuais, 19.3 Critérios de bloqueio de lançamento, 19. QA de conteúdo
 
-### Community 47 - "KBR — Arquitetura"
-Cohesion: 0.18
-Nodes (11): Decisões/limites, Estrutura, Interfaces de troca futura, KBR — Arquitetura, Modelo de dados (TS), Privacidade, Stack, UI/UX (+3 more)
+### Community 47 - "syncProgress.ts"
+Cohesion: 0.25
+Nodes (12): progressStorageKeyForUser(), createLocalStorageStore(), mergeProgress(), recentSide(), SyncStatusChange, activeSyncs, hasLearningData(), migrationKey() (+4 more)
 
 ### Community 48 - "2. Pesquisa, benchmark e decisão de design"
 Cohesion: 0.67
@@ -307,45 +305,45 @@ Nodes (3): 2.1 Decisões de design (hipóteses, não fatos), 2.2 O que o curríc
 Cohesion: 0.67
 Nodes (3): 8. Unidade 2 — Primeiras vogais, `h02` — ㅏ ㅓ ㅗ ㅜ e o ㅇ mudo, `h03` — ㅡ ㅣ e as seis vogais básicas
 
-### Community 50 - "HangulCourse.tsx"
-Cohesion: 0.36
-Nodes (9): generateMetadata(), Page(), PageProps, HangulCourse(), StatusBadge(), getCheckpoint(), getLesson(), isCheckpointUnlocked() (+1 more)
+### Community 50 - "content/hangul.test.ts"
+Cohesion: 0.11
+Nodes (23): generateMetadata(), Page(), PageProps, HangulCourse(), StatusBadge(), CHECKPOINTS, getCheckpoint(), IMPLEMENTED_CHECKPOINT_IDS (+15 more)
 
 ### Community 51 - "AuthProvider.tsx"
-Cohesion: 0.13
-Nodes (13): react@^19.3.1, react, kr, metadata, RootLayout(), viewport, AuthControl(), AuthContext (+5 more)
+Cohesion: 0.16
+Nodes (9): kr, metadata, RootLayout(), viewport, AuthContext, AuthContextValue, AuthProvider(), AuthStatus (+1 more)
 
 ### Community 52 - "site.test.ts"
 Cohesion: 0.15
 Nodes (10): appLayout, callback, footer, impressum, landing, landingAuth, landingRedirect, privacy (+2 more)
 
 ### Community 53 - "auth.test.ts"
-Cohesion: 0.35
-Nodes (8): AppLayout(), dynamic, metadata, GateCard(), ProtectedArea(), ProtectedView, protectedView(), loginRedirectPath()
+Cohesion: 0.24
+Nodes (11): AppLayout(), dynamic, metadata, AuthControl(), useAuth(), GateCard(), ProtectedArea(), Nav() (+3 more)
 
 ### Community 54 - "next-cookie.ts"
-Cohesion: 0.25
-Nodes (13): GET(), redirectAndClear(), LandingRedirect(), AUTH_NEXT_COOKIE, AUTH_NEXT_COOKIE_MAX_AGE, callbackDestination(), clearAuthNextCookie(), cookieSuffix() (+5 more)
+Cohesion: 0.27
+Nodes (14): Rotas e autenticação, LandingRedirect(), AUTH_NEXT_COOKIE_MAX_AGE, clearAuthNextCookie(), cookieSuffix(), decodeNextCookie(), nextCookieValue(), readAuthNextCookie() (+6 more)
 
-### Community 55 - "diagnostics.ts"
-Cohesion: 0.20
-Nodes (8): CATEGORIES, CATEGORY_ORDER, DiagnosticAnswer, DiagnosticBreakdown, DiagnosticCategory, diagnosticCategoryFor(), DiagnosticCategoryId, DiagnosticSummary
+### Community 55 - "route.ts"
+Cohesion: 0.27
+Nodes (9): @supabase/ssr, GET(), redirectAndClear(), AUTH_NEXT_COOKIE, callbackDestination(), getBrowserSupabaseClient(), getSupabasePublicConfig(), SupabasePublicConfig (+1 more)
 
 ### Community 56 - "vitest"
 Cohesion: 0.25
 Nodes (4): vitest@^4.1.12, vitest, manifest(), migration
 
 ### Community 57 - "3. Tipos de domínio"
-Cohesion: 0.25
-Nodes (8): 3.1 Status de revisão, 3.2 Jamo, 3.3 Sílabas, 3.4 Palavras, 3.5 Regras, 3.6 Lições, 3.7 Checkpoints, 3. Tipos de domínio
+Cohesion: 0.22
+Nodes (9): 3.1 Status de revisão, 3.2 Jamo, 3.3 Sílabas, 3.4 Palavras, 3.5 Regras, 3.6 Lições, 3.7 Checkpoints, 3.8 Currículo (+1 more)
 
 ### Community 58 - "scripts"
 Cohesion: 0.29
 Nodes (7): scripts, build, dev, e2e, start, test, typecheck
 
-### Community 59 - "4. Exercícios: extensão compatível"
-Cohesion: 0.33
-Nodes (6): 4.1 Estado atual, 4.2 Novos tipos, 4.3 `build-syllable` estendido, 4.4 União final, 4. Exercícios: extensão compatível, ExerciseBase
+### Community 59 - "types.ts"
+Cohesion: 0.23
+Nodes (9): CONTENT_IN_REVIEW, review, ContentStatus, ExampleRef, LessonOutline, LessonPanel, ReviewMeta, SyllableRecord (+1 more)
 
 ### Community 60 - "5. Respostas e correção"
 Cohesion: 0.33
@@ -354,10 +352,6 @@ Nodes (6): 5.1 União, 5.2 Resultado detalhado, 5.3 `check` preservado, 5.4 Norm
 ### Community 61 - "12. Modelo de resposta e correção"
 Cohesion: 0.33
 Nodes (6): 12.1 União de respostas, 12.2 Resultado, 12.3 `checkAnswer`, 12.4 Compatibilidade com `check`, 12.5 Invariantes, 12. Modelo de resposta e correção
-
-### Community 63 - "6. Compatibilidade com `Progress`"
-Cohesion: 0.40
-Nodes (5): 6.2 Cartões SRS, 6.3 Histórico, 6.4 `mergeProgress`, 6.5 Domínio derivado (não persistido), 6. Compatibilidade com `Progress`
 
 ### Community 64 - "7. Validação do currículo"
 Cohesion: 0.40
@@ -368,22 +362,22 @@ Cohesion: 0.40
 Nodes (3): protectedRoutes, @playwright/test@^1.65.0, @playwright/test
 
 ## Knowledge Gaps
-- **4 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **3 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Progress` connect `Progress` to `KBR — Roadmap`, `Currículo de Hangul — Fase 3A`, `CheckpointPlayer.tsx`, `17. Integração com revisão espaçada`, `KBR — instruções para agentes (Codex, OpenCode, Claude Code)`, `storage/index.ts`, `KBR — Auditoria de privacidade e avaliação legal (Fase 2B)`, `exercises/index.ts`, `validate.ts`, `HangulCourse.tsx`, `lesson.ts`, `6. Compatibilidade com `Progress``?**
-  _High betweenness centrality (0.243) - this node is a cross-community bridge._
-- **Are the 19 inferred relationships involving `Progress` (e.g. with `Fase atual` and `Hangul`) actually correct?**
+- **Why does `Design de exercícios — módulo Hangul` connect `Design de exercícios — módulo Hangul` to `11. Tipo 9 — `srs-session``, `18. Plano de testes`, `exercises/index.ts`, `7. Tipo 5 — `build-syllable``, `10. Tipo 8 — `stroke-order``, `3. Tipo 1 — `recognition``, `4. Tipo 2 — `audio-to-char``, `5. Tipo 3 — `char-to-audio``, `6. Tipo 4 — `order-jamo``, `8. Tipo 6 — `minimal-pair``, `12. Modelo de resposta e correção`, `9. Tipo 7 — `reading``?**
+  _High betweenness centrality (0.167) - this node is a cross-community bridge._
+- **Are the 19 inferred relationships involving `Progress` (e.g. with `Hangul` and `10. Critérios de aceite técnicos`) actually correct?**
   _`Progress` has 19 INFERRED edges - model-reasoned connections that need verification._
+- **Should `Progress` be split into smaller, more focused modules?**
+  _Cohesion score 0.14210526315789473 - nodes in this community are weakly interconnected._
+- **Why does `Progress` connect `Progress` to `checkpoints/index.ts`, `storage/index.ts`, `KBR — Auditoria de privacidade e avaliação legal (Fase 2B)`, `17. Integração com revisão espaçada`, `syncProgress.ts`, `exercises/index.ts`, `CheckpointPlayer.tsx`, `validate.ts`, `content/hangul.test.ts`, `progress-sync.test.ts`, `3. Tipos de domínio`, `srs/index.ts`?**
+  _High betweenness centrality (0.156) - this node is a cross-community bridge._
 - **Should `package.json` be split into smaller, more focused modules?**
-  _Cohesion score 0.12121212121212122 - nodes in this community are weakly interconnected._
-- **Why does `Design de exercícios — módulo Hangul` connect `Design de exercícios — módulo Hangul` to `11. Tipo 9 — `srs-session``, `18. Plano de testes`, `KBR — Arquitetura`, `7. Tipo 5 — `build-syllable``, `10. Tipo 8 — `stroke-order``, `3. Tipo 1 — `recognition``, `4. Tipo 2 — `audio-to-char``, `5. Tipo 3 — `char-to-audio``, `6. Tipo 4 — `order-jamo``, `8. Tipo 6 — `minimal-pair``, `12. Modelo de resposta e correção`, `9. Tipo 7 — `reading``?**
-  _High betweenness centrality (0.174) - this node is a cross-community bridge._
+  _Cohesion score 0.11462450592885376 - nodes in this community are weakly interconnected._
+- **Why does `ExerciseSpec` connect `exercises/index.ts` to `CheckpointPlayer.tsx`, `content/hangul.test.ts`, `types.ts`, `srs/index.ts`?**
+  _High betweenness centrality (0.150) - this node is a cross-community bridge._
 - **Should `Deep UI/UX, Motion Design & Creative Development Research — KBR` be split into smaller, more focused modules?**
   _Cohesion score 0.05405405405405406 - nodes in this community are weakly interconnected._
-- **Why does `ExerciseSpec` connect `KBR — Arquitetura` to `types.ts`, `CheckpointPlayer.tsx`, `exercises/index.ts`, `validate.ts`, `diagnostics.ts`, `content/hangul.test.ts`?**
-  _High betweenness centrality (0.161) - this node is a cross-community bridge._
-- **Should `dashboard/page.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.13978494623655913 - nodes in this community are weakly interconnected._

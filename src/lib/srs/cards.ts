@@ -8,7 +8,11 @@ export type SrsCardRef =
   | { kind: "jamo-consonant"; value: string; key: string }
   | { kind: "jamo-vowel"; value: string; key: string }
   | { kind: "syllable"; value: string; key: string }
-  | { kind: "word"; value: string; key: string };
+  | { kind: "word"; value: string; key: string }
+  | { kind: "rule"; value: SrsRuleId; key: string };
+
+export const SRS_RULE_IDS = ["liaison", "nasalization", "aspiration"] as const;
+export type SrsRuleId = (typeof SRS_RULE_IDS)[number];
 
 /** Chave estável de um jamo; o tipo (consoante/vogal) fica explícito na chave. */
 export function jamoCardKey(symbol: string): string {
@@ -31,6 +35,14 @@ export function wordCardKey(ko: string): string {
   return `h:word:${ko}`;
 }
 
+/** Chave estável de uma regra de fronteira (ex.: `h:rule:liaison`). */
+export function ruleCardKey(rule: SrsRuleId): string {
+  if (!SRS_RULE_IDS.includes(rule)) {
+    throw new RangeError(`Regra inválida para cartão SRS: ${rule}`);
+  }
+  return `h:rule:${rule}`;
+}
+
 /** Interpreta uma chave de cartão; retorna `null` para formato desconhecido. */
 export function parseSrsCardKey(key: string): SrsCardRef | null {
   if (key.startsWith("h:jamo:c:")) {
@@ -51,6 +63,12 @@ export function parseSrsCardKey(key: string): SrsCardRef | null {
     const value = key.slice("h:word:".length);
     return isHangulText(value) && !value.includes(" ")
       ? { kind: "word", value, key }
+      : null;
+  }
+  if (key.startsWith("h:rule:")) {
+    const value = key.slice("h:rule:".length);
+    return SRS_RULE_IDS.includes(value as SrsRuleId)
+      ? { kind: "rule", value: value as SrsRuleId, key }
       : null;
   }
   return null;

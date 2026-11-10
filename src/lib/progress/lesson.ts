@@ -241,3 +241,19 @@ export function nextCourseStepAfter(
   const next = steps[index + 1];
   return next ? { id: next.id, title: next.title } : undefined;
 }
+
+/**
+ * Módulo Hangul concluído: todas as lições e todos os checkpoints do curso
+ * têm `done: true`. Não implica desbloqueio de conteúdo CEFR A1, que ainda não
+ * existe no produto.
+ */
+export function isCourseComplete(
+  progress: Progress,
+  lessons: readonly Lesson[],
+  checkpoints: readonly Checkpoint[],
+): boolean {
+  return (
+    lessons.every((lesson) => progress.lessons[lesson.id]?.done === true) &&
+    checkpoints.every((checkpoint) => progress.lessons[checkpoint.id]?.done === true)
+  );
+}

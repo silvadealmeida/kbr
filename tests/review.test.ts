@@ -214,7 +214,11 @@ describe("integração com o Leitner", () => {
 
     const next = applyReview(progress, { cardId: "h:word:고기" }, "correct", NOW);
 
-    expect(next.cards["h:word:고기"]).toEqual({ box: 4, due: at(18) });
+    expect(next.cards["h:word:고기"]).toEqual({
+      box: 4,
+      due: at(18),
+      reviewedAt: NOW.toISOString(),
+    });
     expect(next.lessons.h01).toEqual({ done: true, score: 100 });
     expect(next.history.map((attempt) => attempt.exerciseId)).toEqual([
       "h01-e01",
@@ -230,7 +234,11 @@ describe("integração com o Leitner", () => {
     const progress = progressWith({ "h:rule:liaison": card(5, at(8)) });
     const next = applyReview(progress, { cardId: "h:rule:liaison" }, "again", NOW);
 
-    expect(next.cards["h:rule:liaison"]).toEqual({ box: 1, due: at(11) });
+    expect(next.cards["h:rule:liaison"]).toEqual({
+      box: 1,
+      due: at(11),
+      reviewedAt: NOW.toISOString(),
+    });
     expect(next.history.at(-1)).toMatchObject({
       exerciseId: "review:h:rule:liaison",
       correct: false,
@@ -256,7 +264,11 @@ describe("persistência da revisão", () => {
     await expect(store.save(reviewed)).resolves.toBe(true);
     const loaded = await store.load();
 
-    expect(loaded.cards["h:syl:가"]).toEqual({ box: 3, due: at(14) });
+    expect(loaded.cards["h:syl:가"]).toEqual({
+      box: 3,
+      due: at(14),
+      reviewedAt: NOW.toISOString(),
+    });
     expect(loaded.history).toHaveLength(1);
     expect(buildReviewQueue(loaded, NOW).totalDue).toBe(0);
   });

@@ -1,10 +1,32 @@
 import { expect, test, type BrowserContext, type Page } from "@playwright/test";
-import { TEST_USER, testAuthCookie } from "./mock-supabase.mjs";
+import { createTestUser, testAuthCookie } from "./mock-supabase.mjs";
 
 const BASE_URL = "http://localhost:3100";
+const sessions = new WeakMap<
+  BrowserContext,
+  { user: ReturnType<typeof createTestUser>; storageKey: string }
+>();
 
-async function authenticate(context: BrowserContext) {
-  await context.addCookies([{ ...testAuthCookie(), url: BASE_URL }]);
+async function authenticate(
+  context: BrowserContext,
+  user?: ReturnType<typeof createTestUser>,
+) {
+  const existing = sessions.get(context);
+  if (existing && !user) return existing.user;
+
+  const account = user ?? createTestUser();
+  sessions.set(context, {
+    user: account,
+    storageKey: `kbr:user:${account.id}:v1`,
+  });
+  await context.addCookies([{ ...testAuthCookie(Date.now(), account), url: BASE_URL }]);
+  return account;
+}
+
+function accountKey(context: BrowserContext) {
+  const session = sessions.get(context);
+  if (!session) throw new Error("Autentique o contexto antes de semear o progresso.");
+  return session.storageKey;
 }
 
 test.describe("Hangul autenticado", () => {
@@ -98,7 +120,7 @@ test.describe("Hangul autenticado", () => {
         page.evaluate((key) => {
           const raw = window.localStorage.getItem(key);
           return raw ? JSON.parse(raw).lessons?.h01?.score : null;
-        }, `kbr:user:${TEST_USER.id}:v1`),
+        }, accountKey(page.context())),
       )
       .toBe(100);
 
@@ -202,7 +224,7 @@ async function seedCompletedLessons(
         /* documento sem origem utilizável (about:blank) */
       }
     },
-    { key: `kbr:user:${TEST_USER.id}:v1`, ids: lessonIds },
+    { key: accountKey(page.context()), ids: lessonIds },
   );
   await page.goto("/hangul");
 }
@@ -313,7 +335,7 @@ test.describe("Checkpoint c1 autenticado", () => {
         page.evaluate((key) => {
           const raw = window.localStorage.getItem(key);
           return raw ? JSON.parse(raw).lessons?.c1 : null;
-        }, `kbr:user:${TEST_USER.id}:v1`),
+        }, accountKey(page.context())),
       )
       .toEqual({ done: true, score: 100 });
 
@@ -463,7 +485,7 @@ test.describe("Unidade 5 e checkpoint c2 autenticados", () => {
         page.evaluate((key) => {
           const raw = window.localStorage.getItem(key);
           return raw ? JSON.parse(raw).lessons?.c2 : null;
-        }, `kbr:user:${TEST_USER.id}:v1`),
+        }, accountKey(page.context())),
       )
       .toEqual({ done: true, score: 100 });
 
@@ -637,7 +659,7 @@ test.describe("Unidade 6 e checkpoint c3 autenticados", () => {
         page.evaluate((key) => {
           const raw = window.localStorage.getItem(key);
           return raw ? JSON.parse(raw).lessons?.c3 : null;
-        }, `kbr:user:${TEST_USER.id}:v1`),
+        }, accountKey(page.context())),
       )
       .toEqual({ done: true, score: 100 });
 
@@ -857,7 +879,7 @@ test.describe("Unidade 7 e checkpoint c4 autenticados", () => {
         page.evaluate((key) => {
           const raw = window.localStorage.getItem(key);
           return raw ? JSON.parse(raw).lessons?.c4 : null;
-        }, `kbr:user:${TEST_USER.id}:v1`),
+        }, accountKey(page.context())),
       )
       .toEqual({ done: true, score: 100 });
 
@@ -920,7 +942,7 @@ test.describe("Unidade 7 e checkpoint c4 autenticados", () => {
         page.evaluate((key) => {
           const raw = window.localStorage.getItem(key);
           return raw ? JSON.parse(raw).lessons?.c4 : null;
-        }, `kbr:user:${TEST_USER.id}:v1`),
+        }, accountKey(page.context())),
       )
       .toEqual({ done: true, score: 97 });
 

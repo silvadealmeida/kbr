@@ -9,6 +9,8 @@ export type LessonProgress = {
 };
 
 export type Attempt = {
+  /** Identidade estável opcional; registros antigos usam a tupla como fallback. */
+  id?: string;
   exerciseId: string;
   correct: boolean;
   at: string;
@@ -32,7 +34,19 @@ export interface ProgressStore {
 export type StorageLike = Pick<Storage, "getItem" | "setItem">;
 
 export { createEmptyProgress, createLocalStorageStore, isProgress } from "./localStorageStore";
-export { createSupabaseProgressStore } from "./supabaseProgressStore";
+export {
+  classifyProgressSyncError,
+  createSupabaseProgressStore,
+  type ProgressSyncErrorKind,
+  type SupabaseProgressStore,
+  type SupabaseProgressStoreOptions,
+} from "./supabaseProgressStore";
 export { createSyncedProgressStore } from "./syncedProgressStore";
-export { mergeProgress } from "./mergeProgress";
+export {
+  canonicalHistory,
+  compareCardStates,
+  inferCardReviewedAt,
+  mergeProgress,
+  progressEquals,
+} from "./mergeProgress";
 export { syncProgressForUser, type SyncResult, type SyncStatus } from "./syncProgress";

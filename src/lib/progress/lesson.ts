@@ -199,12 +199,16 @@ export function recordAttempt(
   exerciseId: string,
   correct: boolean,
   now: Date,
+  id?: string,
 ): Progress {
   if (Number.isNaN(now.getTime())) throw new RangeError("Relógio inválido");
 
   return {
     ...progress,
-    history: [...progress.history, { exerciseId, correct, at: now.toISOString() }],
+    history: [
+      ...progress.history,
+      { ...(id ? { id } : {}), exerciseId, correct, at: now.toISOString() },
+    ],
     lastActive: now.toISOString(),
   };
 }

@@ -87,9 +87,10 @@ export function scheduleMissedReview(
   const keys = [...new Set(exercise.srsCards ?? [])];
   if (keys.length === 0) return progress;
 
+  const reviewedAt = now.toISOString();
   const cards: Record<string, SrsState> = { ...progress.cards };
   for (const key of keys) {
-    cards[key] = leitner.review(cards[key], "again", now);
+    cards[key] = { ...leitner.review(cards[key], "again", now), reviewedAt };
   }
 
   return {

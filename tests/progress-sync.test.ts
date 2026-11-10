@@ -1,5 +1,4 @@
 import { describe, expect, test, vi } from "vitest";
-import type { SupabaseClient } from "@supabase/supabase-js";
 import {
   PROGRESS_STORAGE_KEY,
   createEmptyProgress,
@@ -11,14 +10,19 @@ import {
   type ProgressStore,
   type StorageLike,
 } from "@/lib/storage";
+import { FakeCasServer } from "./helpers/fakeSupabaseCas";
 
 const NOW = new Date("2026-11-10T12:00:00.000Z");
 const USER_ID = "11111111-1111-1111-1111-111111111111";
 
 class MemoryStorage implements StorageLike {
   values = new Map<string, string>();
-  getItem(key: string) { return this.values.get(key) ?? null; }
-  setItem(key: string, value: string) { this.values.set(key, value); }
+  getItem(key: string) {
+    return this.values.get(key) ?? null;
+  }
+  setItem(key: string, value: string) {
+    this.values.set(key, value);
+  }
 }
 
 function memoryStore(progress: Progress, saveResult = true): ProgressStore & { save: ReturnType<typeof vi.fn> } {
@@ -26,15 +30,6 @@ function memoryStore(progress: Progress, saveResult = true): ProgressStore & { s
     load: vi.fn().mockResolvedValue(progress),
     save: vi.fn().mockResolvedValue(saveResult),
   };
-}
-
-function supabaseClient(remote: Progress | null, loadError: unknown = null, saveError: unknown = loadError) {
-  const maybeSingle = vi.fn().mockResolvedValue({ data: remote ? { progress: remote } : null, error: loadError });
-  const eq = vi.fn(() => ({ maybeSingle }));
-  const select = vi.fn(() => ({ eq }));
-  const upsert = vi.fn().mockResolvedValue({ error: saveError });
-  const from = vi.fn(() => ({ select, upsert }));
-  return { client: { from } as unknown as SupabaseClient, maybeSingle, upsert };
 }
 
 describe("sincronização de progresso", () => {
@@ -121,15 +116,20 @@ describe("sincronização de progresso", () => {
     storage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(guest));
     const remote = createEmptyProgress(new Date("2026-11-11T12:00:00.000Z"));
     remote.cards.card1 = { box: 2, due: "2026-11-13T12:00:00.000Z" };
-    const supabase = supabaseClient(remote);
+    const server = new FakeCasServer();
+    server.seed(USER_ID, remote);
 
-    const result = await syncProgressForUser(supabase.client, storage, USER_ID, () => NOW);
+    const result = await syncProgressForUser(server.client(USER_ID), storage, USER_ID, () => NOW);
 
-    expect(result).toMatchObject({ status: "synced", migratedGuest: true });
+    expect(result).toMatchObject({ status: "synced", migratedGuest: true, errorKind: null });
     expect(result.progress.lessons.hangul.done).toBe(true);
-    expect(result.progress.cards.card1.box).toBe(2);
+    expect(result.progress.cards.card1!.box).toBe(2);
     expect(JSON.parse(storage.getItem(progressStorageKeyForUser(USER_ID)) ?? "null")).toEqual(result.progress);
-    expect(supabase.upsert).toHaveBeenCalledTimes(1);
+    expect(server.rpcCalls).toHaveLength(1);
+
+    const second = await syncProgressForUser(server.client(USER_ID), storage, USER_ID, () => NOW);
+    expect(second).toMatchObject({ status: "synced", migratedGuest: false });
+    expect(server.rpcCalls).toHaveLength(1);
   });
 
   test("falha de rede preserva convidado no cache da conta e permite nova tentativa", async () => {
@@ -137,11 +137,13 @@ describe("sincronização de progresso", () => {
     const guest = createEmptyProgress(NOW);
     guest.streak = 3;
     storage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(guest));
-    const supabase = supabaseClient(null, new Error("offline"));
+    const server = new FakeCasServer();
+    server.seed(USER_ID, createEmptyProgress(NOW));
+    server.failNext({ kind: "network" });
 
-    const result = await syncProgressForUser(supabase.client, storage, USER_ID, () => NOW);
+    const result = await syncProgressForUser(server.client(USER_ID), storage, USER_ID, () => NOW);
 
-    expect(result).toMatchObject({ status: "offline", migratedGuest: false });
+    expect(result).toMatchObject({ status: "offline", migratedGuest: false, errorKind: "network" });
     expect(JSON.parse(storage.getItem(progressStorageKeyForUser(USER_ID)) ?? "null").streak).toBe(3);
   });
 
@@ -152,24 +154,28 @@ describe("sincronização de progresso", () => {
     storage.setItem(progressStorageKeyForUser(USER_ID), JSON.stringify(account));
     const remote = createEmptyProgress(NOW);
     remote.streak = 4;
-    const supabase = supabaseClient(remote, null, new Error("offline"));
+    const server = new FakeCasServer();
+    server.seed(USER_ID, remote);
+    server.failNextRpc(3, { kind: "network" });
 
-    const result = await syncProgressForUser(supabase.client, storage, USER_ID, () => NOW);
+    const result = await syncProgressForUser(server.client(USER_ID), storage, USER_ID, () => NOW);
 
-    expect(result).toMatchObject({ status: "offline", migratedGuest: false });
+    expect(result).toMatchObject({ status: "offline", migratedGuest: false, errorKind: "network" });
     expect(result.progress.lessons.hangul.done).toBe(true);
     expect(result.progress.streak).toBe(4);
     expect(JSON.parse(storage.getItem(progressStorageKeyForUser(USER_ID)) ?? "null")).toEqual(result.progress);
+    expect(server.row(USER_ID)!.progress.lessons.hangul).toBeUndefined();
   });
 
   test("deduplica sincronizações simultâneas do mesmo usuário", async () => {
     const storage = new MemoryStorage();
-    const supabase = supabaseClient(createEmptyProgress(NOW));
+    const server = new FakeCasServer();
+    server.seed(USER_ID, createEmptyProgress(NOW));
 
-    const first = syncProgressForUser(supabase.client, storage, USER_ID, () => NOW);
-    const second = syncProgressForUser(supabase.client, storage, USER_ID, () => NOW);
+    const first = syncProgressForUser(server.client(USER_ID), storage, USER_ID, () => NOW);
+    const second = syncProgressForUser(server.client(USER_ID), storage, USER_ID, () => NOW);
     expect(first).toBe(second);
     await first;
-    expect(supabase.maybeSingle).toHaveBeenCalledTimes(1);
+    expect(server.loadCalls).toBe(1);
   });
 });

@@ -3,6 +3,8 @@ export type LeitnerBox = 1 | 2 | 3 | 4 | 5;
 export type SrsState = {
   box: LeitnerBox;
   due: string;
+  /** Instante da última revisão; ausente em estados legados (inferido da agenda). */
+  reviewedAt?: string;
 };
 
 export type ReviewGrade = "again" | "correct";

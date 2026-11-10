@@ -96,9 +96,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1794340148.6988308,
-    "seen": 1794340217.670544,
-    "ast_hash": "09653f6d7a00cd392371bac8db6fabc0",
+    "mtime": 1794344012.9756684,
+    "seen": 1794344323.6305773,
+    "ast_hash": "5433dba5362185a3e0822189a609da21",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -108,9 +108,9 @@
     "semantic_hash": ""
   },
   "docs/architecture.md": {
-    "mtime": 1794340242.667439,
-    "seen": 1794340268.092731,
-    "ast_hash": "a6f6ad82e9e5e27d713aead1582fdea3",
+    "mtime": 1794343997.2514422,
+    "seen": 1794344323.6306064,
+    "ast_hash": "4ffa6f13580f79f4fbdb962b77470c9d",
     "semantic_hash": ""
   },
   "docs/research.md": {
@@ -120,9 +120,9 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794340256.3927226,
-    "seen": 1794340268.0927367,
-    "ast_hash": "8745a5e20224bdf55d72f7869e8e16f2",
+    "mtime": 1794344082.0286174,
+    "seen": 1794344323.6307254,
+    "ast_hash": "bbd3b7278ce255bd3a6802c59088d6df",
     "semantic_hash": ""
   },
   "src/lib/hangul/index.ts": {
@@ -186,9 +186,9 @@
     "semantic_hash": ""
   },
   "src/lib/srs/index.ts": {
-    "mtime": 1794330270.2704942,
-    "seen": 1794331823.43504,
-    "ast_hash": "673d475548e9400bdeb101cbc4036611",
+    "mtime": 1794341315.8704364,
+    "seen": 1794344323.6301713,
+    "ast_hash": "2d17a00c25e805714aaf9496e4b73c1a",
     "semantic_hash": ""
   },
   "src/lib/srs/leitner.ts": {
@@ -198,21 +198,21 @@
     "semantic_hash": ""
   },
   "tests/srs.test.ts": {
-    "mtime": 1794331178.1234934,
-    "seen": 1794331823.4350584,
-    "ast_hash": "d40c965272891a0b7019b58cd853e95d",
+    "mtime": 1794341836.6335402,
+    "seen": 1794344323.6305153,
+    "ast_hash": "7806a463ce340c89b4b5d028517b9733",
     "semantic_hash": ""
   },
   "src/lib/storage/index.ts": {
-    "mtime": 1794307742.5426397,
-    "seen": 1794307804.0904627,
-    "ast_hash": "b95adfc27bb814077f42470b6f3cf612",
+    "mtime": 1794341493.1203465,
+    "seen": 1794344323.6301918,
+    "ast_hash": "46de719a2bc43b344316598c8b0ccd3c",
     "semantic_hash": ""
   },
   "src/lib/storage/localStorageStore.ts": {
-    "mtime": 1794307742.5466406,
-    "seen": 1794307804.0904634,
-    "ast_hash": "cd23e3ea011317892593e8f2faaf3db6",
+    "mtime": 1794341315.8704364,
+    "seen": 1794344323.6301928,
+    "ast_hash": "294c593ba424e6d2f1b0cc0a1e68d76d",
     "semantic_hash": ""
   },
   "tests/storage.test.ts": {
@@ -234,9 +234,9 @@
     "semantic_hash": ""
   },
   "src/components/auth/AuthProvider.tsx": {
-    "mtime": 1794316008.5380907,
-    "seen": 1794316189.6314518,
-    "ast_hash": "b640444973c440e8c0945d129f8d608b",
+    "mtime": 1794344297.4553568,
+    "seen": 1794344323.6288593,
+    "ast_hash": "143db9bb3dea29bbcf850d8e7b14d637",
     "semantic_hash": ""
   },
   "src/lib/auth/redirect.ts": {
@@ -276,9 +276,9 @@
     "semantic_hash": ""
   },
   "src/lib/storage/supabaseProgressStore.ts": {
-    "mtime": 1794307613.1113913,
-    "seen": 1794307645.7615116,
-    "ast_hash": "92484acfaf71dc236b883709c8dcb5e1",
+    "mtime": 1794342338.2424686,
+    "seen": 1794344323.6301947,
+    "ast_hash": "b6eebfb0d160165bfc0f2ba3c1fa07c8",
     "semantic_hash": ""
   },
   "tests/security.test.ts": {
@@ -288,33 +288,33 @@
     "semantic_hash": ""
   },
   "tests/supabase-storage.test.ts": {
-    "mtime": 1794307613.1153893,
-    "seen": 1794307645.7616968,
-    "ast_hash": "91c1d72dfda4c9584c2f06dd57c7ee19",
+    "mtime": 1794342299.5051448,
+    "seen": 1794344323.6305475,
+    "ast_hash": "6b14d0bbf53114985f20577a5c2b8bc7",
     "semantic_hash": ""
   },
   "src/lib/storage/mergeProgress.ts": {
-    "mtime": 1794314075.0090382,
-    "seen": 1794314200.344623,
-    "ast_hash": "9c744cbe373f220a59cc9155c34c7a6d",
+    "mtime": 1794341269.8813238,
+    "seen": 1794344323.6301937,
+    "ast_hash": "fea9f3c4034c2044b089caaad860f6b0",
     "semantic_hash": ""
   },
   "src/lib/storage/syncProgress.ts": {
-    "mtime": 1794314084.2117348,
-    "seen": 1794314200.3446252,
-    "ast_hash": "0e11bf8e59013b5595ffbcd9221c1d62",
+    "mtime": 1794344181.5525424,
+    "seen": 1794344323.6301954,
+    "ast_hash": "1239909d03a09fbe0811c2d139444144",
     "semantic_hash": ""
   },
   "src/lib/storage/syncedProgressStore.ts": {
-    "mtime": 1794314078.1459582,
-    "seen": 1794314200.344626,
-    "ast_hash": "ee5a732e426de2a34902a713636f981c",
+    "mtime": 1794341453.4092844,
+    "seen": 1794344323.6301963,
+    "ast_hash": "b44b5b7e30153a202571b168f8781a41",
     "semantic_hash": ""
   },
   "tests/progress-sync.test.ts": {
-    "mtime": 1794314127.6191041,
-    "seen": 1794314200.3446333,
-    "ast_hash": "4b511967b53d40a5e94f5dc38026c9a3",
+    "mtime": 1794344202.399859,
+    "seen": 1794344323.630454,
+    "ast_hash": "0beea3c933a552ae02fb9d79c178a10c",
     "semantic_hash": ""
   },
   "supabase/migrations/20261110120000_create_user_progress.sql": {
@@ -330,9 +330,9 @@
     "semantic_hash": ""
   },
   "docs/supabase-setup.md": {
-    "mtime": 1794315029.312512,
-    "seen": 1794315074.4476707,
-    "ast_hash": "2c83550a297c7d680e2667b2757d0f18",
+    "mtime": 1794344120.1035829,
+    "seen": 1794344323.6307263,
+    "ast_hash": "60e76d267ba61381960c42c84b6c8cf1",
     "semantic_hash": ""
   },
   "README.md": {
@@ -516,15 +516,15 @@
     "semantic_hash": ""
   },
   "e2e/hangul.spec.ts": {
-    "mtime": 1794339055.7797182,
-    "seen": 1794339249.2856438,
-    "ast_hash": "cebd5074ff7f77e3d6d3e0fea889b16f",
+    "mtime": 1794342878.8604114,
+    "seen": 1794344323.628282,
+    "ast_hash": "a67431cc5d6eeaa2026403f46a69a89a",
     "semantic_hash": ""
   },
   "e2e/mock-supabase.mjs": {
-    "mtime": 1794318778.198874,
-    "seen": 1794318985.074825,
-    "ast_hash": "c14119e16288f7a597f6a48dd5a9d489",
+    "mtime": 1794342811.2032566,
+    "seen": 1794344323.6282842,
+    "ast_hash": "265278466b8e5615b68558ce7955e68a",
     "semantic_hash": ""
   },
   "e2e/run-e2e-server.mjs": {
@@ -546,9 +546,9 @@
     "semantic_hash": ""
   },
   "src/components/hangul/LessonPlayer.tsx": {
-    "mtime": 1794338944.2047057,
-    "seen": 1794339249.285676,
-    "ast_hash": "e5bdd0f1f42aaa596222da047ad9e19c",
+    "mtime": 1794341315.8744314,
+    "seen": 1794344323.628963,
+    "ast_hash": "23c17fba48955a8c2a69553f996521bd",
     "semantic_hash": ""
   },
   "src/content/hangul/index.ts": {
@@ -612,9 +612,9 @@
     "semantic_hash": ""
   },
   "src/lib/progress/lesson.ts": {
-    "mtime": 1794338515.4082465,
-    "seen": 1794339249.2857184,
-    "ast_hash": "e9c53844d06314ad583dc9f43a66f864",
+    "mtime": 1794341315.8744314,
+    "seen": 1794344323.6301503,
+    "ast_hash": "be5df32910b133abbb810a614026d641",
     "semantic_hash": ""
   },
   "tests/content/hangul.test.ts": {
@@ -636,9 +636,9 @@
     "semantic_hash": ""
   },
   "src/components/hangul/CheckpointPlayer.tsx": {
-    "mtime": 1794338948.9416337,
-    "seen": 1794339249.2856724,
-    "ast_hash": "82aec720c6a2a45a2611358fcf8ed2c9",
+    "mtime": 1794341315.8824215,
+    "seen": 1794344323.6289003,
+    "ast_hash": "fb21330a88d809a7c8c8d7acc33c98cb",
     "semantic_hash": ""
   },
   "src/components/hangul/DiagnosticsList.tsx": {
@@ -714,9 +714,9 @@
     "semantic_hash": ""
   },
   "src/lib/srs/cards.ts": {
-    "mtime": 1794330270.2864501,
-    "seen": 1794331823.4350393,
-    "ast_hash": "57c0ab2226c0dcf8d9dfb3a030213a3e",
+    "mtime": 1794341315.8704364,
+    "seen": 1794344323.6301706,
+    "ast_hash": "23ea25ccdb30d4bce4f9c4585ea33259",
     "semantic_hash": ""
   },
   "src/content/hangul/checkpoints/c2.ts": {
@@ -846,33 +846,33 @@
     "semantic_hash": ""
   },
   "e2e/review.spec.ts": {
-    "mtime": 1794333108.3280084,
-    "seen": 1794333296.149669,
-    "ast_hash": "43b4445a1146f605c026031eeca0bd91",
+    "mtime": 1794342865.2644687,
+    "seen": 1794344323.6282856,
+    "ast_hash": "579a70e382a38e4d11acb0e12f244af9",
     "semantic_hash": ""
   },
   "src/components/review/ReviewArea.tsx": {
-    "mtime": 1794333119.3696282,
-    "seen": 1794333296.1496992,
-    "ast_hash": "7a563b0567ba5d356bbb645c8a2838f6",
+    "mtime": 1794341315.8824215,
+    "seen": 1794344323.628983,
+    "ast_hash": "fe2cb2cfea8bab17757bc8e16e248da5",
     "semantic_hash": ""
   },
   "src/lib/review/index.ts": {
-    "mtime": 1794332757.1952689,
-    "seen": 1794333296.1497393,
-    "ast_hash": "1c27c8f6a548277fe737892532f0583c",
+    "mtime": 1794341315.8744314,
+    "seen": 1794344323.6301515,
+    "ast_hash": "caa2dba244193575b226fe59b5764596",
     "semantic_hash": ""
   },
   "tests/review.test.ts": {
-    "mtime": 1794333319.443623,
-    "seen": 1794333344.0454519,
-    "ast_hash": "9cc76a697e2ef5437df972d3422a9b94",
+    "mtime": 1794341815.133976,
+    "seen": 1794344323.6304696,
+    "ast_hash": "56dc5d682e989b265d945f9c5f2071dd",
     "semantic_hash": ""
   },
   "e2e/dashboard.spec.ts": {
-    "mtime": 1794337934.4398203,
-    "seen": 1794338046.3662155,
-    "ast_hash": "9bf4db073dce10e903b3abfb16148c8c",
+    "mtime": 1794342847.6823406,
+    "seen": 1794344323.628275,
+    "ast_hash": "9d67a820d0364bb30327e903c8a52d77",
     "semantic_hash": ""
   },
   "src/components/dashboard/DashboardArea.tsx": {
@@ -918,9 +918,9 @@
     "semantic_hash": ""
   },
   "tests/sync-concurrency.test.ts": {
-    "mtime": 1794340236.7066205,
-    "seen": 1794340268.0927258,
-    "ast_hash": "9cc8c505013f38042c294e26f2a0b907",
+    "mtime": 1794341916.6957135,
+    "seen": 1794344323.6305485,
+    "ast_hash": "b62be63c8cd13d731b2a520bf10e5810",
     "semantic_hash": ""
   },
   "docs/sync/concurrency-audit.md": {
@@ -930,15 +930,45 @@
     "semantic_hash": ""
   },
   "docs/sync/implementation-plan.md": {
-    "mtime": 1794340314.5674233,
-    "seen": 1794340347.076063,
-    "ast_hash": "cb43356d32e97a2a20f0598d6c36d54a",
+    "mtime": 1794344453.1614099,
+    "seen": 1794344463.3090217,
+    "ast_hash": "ad7b4c253aaa0d63b2edd941f93f6ae0",
     "semantic_hash": ""
   },
   "docs/sync/merge-invariants.md": {
     "mtime": 1794340061.0629463,
     "seen": 1794340217.6705546,
     "ast_hash": "e379529f8e65d2ea0864cb72f49c6c44",
+    "semantic_hash": ""
+  },
+  "e2e/sync.spec.ts": {
+    "mtime": 1794343358.6588633,
+    "seen": 1794344323.6283705,
+    "ast_hash": "c8cf69024476ce6b498e574225c7e563",
+    "semantic_hash": ""
+  },
+  "supabase/tests/local/run-concurrency.sh": {
+    "mtime": 1794342724.7818177,
+    "seen": 1794344323.6303077,
+    "ast_hash": "9d4629fb8f566bed36e93b60a04af74f",
+    "semantic_hash": ""
+  },
+  "supabase/tests/local/run-local-sql-tests.sh": {
+    "mtime": 1794342730.7294936,
+    "seen": 1794344323.6303089,
+    "ast_hash": "02ed80c5ed277731d1be4a20e254f8f2",
+    "semantic_hash": ""
+  },
+  "tests/helpers/fakeSupabaseCas.ts": {
+    "mtime": 1794342284.2393813,
+    "seen": 1794344323.6304224,
+    "ast_hash": "ce6bf6580301a563022079de29b3dc1f",
+    "semantic_hash": ""
+  },
+  "tests/supabase-cas.test.ts": {
+    "mtime": 1794344232.1157563,
+    "seen": 1794344323.630531,
+    "ast_hash": "c499c35a7cc544075092c0d6d2c06ac4",
     "semantic_hash": ""
   },
   "package-lock.json": {

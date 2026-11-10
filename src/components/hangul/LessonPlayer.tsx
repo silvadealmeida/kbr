@@ -90,7 +90,7 @@ export function LessonPlayer({
 
     if (progressRef.current) {
       const now = new Date();
-      let next = recordAttempt(progressRef.current, exercise.id, checked.correct, now);
+      let next = recordAttempt(progressRef.current, exercise.id, checked.correct, now, crypto.randomUUID());
       if (!checked.correct) next = scheduleMissedReview(next, exercise, now);
       persist(next);
     }

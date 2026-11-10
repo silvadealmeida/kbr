@@ -115,6 +115,7 @@ describe("cartões SRS do Hangul", () => {
     expect(first.cards["h:jamo:c:ㄴ"]).toEqual({
       box: 1,
       due: "2026-11-11T12:00:00.000Z",
+      reviewedAt: NOW.toISOString(),
     });
 
     const again = scheduleMissedReview(first, exercise, NOW);
@@ -146,6 +147,7 @@ describe("cartões SRS do Hangul", () => {
     expect(first.cards["h:jamo:v:ㅑ"]).toEqual({
       box: 1,
       due: "2026-11-11T12:00:00.000Z",
+      reviewedAt: NOW.toISOString(),
     });
 
     const again = scheduleMissedReview(first, exercise, NOW);
@@ -161,6 +163,7 @@ describe("cartões SRS do Hangul", () => {
     expect(next.cards["h:jamo:v:ㅢ"]).toEqual({
       box: 1,
       due: "2026-11-11T12:00:00.000Z",
+      reviewedAt: NOW.toISOString(),
     });
     expect(next.cards["h:word:의사"]).toBeDefined();
     expect(next.cards["h:syl:의"]).toBeDefined();
@@ -206,6 +209,7 @@ describe("cartões SRS do Hangul", () => {
     expect(reloaded.cards["h:jamo:v:ㅢ"]).toEqual({
       box: 1,
       due: "2026-11-11T12:00:00.000Z",
+      reviewedAt: NOW.toISOString(),
     });
   });
 });
@@ -225,6 +229,7 @@ describe("cartões SRS de batchim", () => {
     expect(progress.cards["h:syl:닭"]).toEqual({
       box: 1,
       due: "2026-11-11T12:00:00.000Z",
+      reviewedAt: NOW.toISOString(),
     });
   });
 
@@ -296,6 +301,7 @@ describe("cartões SRS de regras de fronteira", () => {
     expect(first.cards["h:rule:liaison"]).toEqual({
       box: 1,
       due: "2026-11-11T12:00:00.000Z",
+      reviewedAt: NOW.toISOString(),
     });
 
     const again = scheduleMissedReview(first, exercise, NOW);
@@ -345,6 +351,7 @@ describe("cartões SRS de regras de fronteira", () => {
     expect(reloaded.cards["h:rule:aspiration"]).toEqual({
       box: 1,
       due: "2026-11-11T12:00:00.000Z",
+      reviewedAt: NOW.toISOString(),
     });
   });
 });

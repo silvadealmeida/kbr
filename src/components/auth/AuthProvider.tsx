@@ -13,6 +13,7 @@ import {
   progressStorageKeyForUser,
   syncProgressForUser,
   type ProgressStore,
+  type ProgressSyncErrorKind,
   type SyncStatus,
 } from "@/lib/storage";
 
@@ -20,6 +21,7 @@ type AuthContextValue = {
   user: User | null;
   status: AuthStatus;
   syncStatus: SyncStatus;
+  syncErrorKind: ProgressSyncErrorKind | null;
   progressStore: ProgressStore | null;
   signInWithGoogle(next?: string): Promise<string | null>;
   signOut(): Promise<string | null>;
@@ -31,6 +33,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [status, setStatus] = useState<AuthStatus>("loading");
   const [syncStatus, setSyncStatus] = useState<SyncStatus>("idle");
+  const [syncErrorKind, setSyncErrorKind] = useState<ProgressSyncErrorKind | null>(null);
   const [progressStore, setProgressStore] = useState<ProgressStore | null>(null);
 
   useEffect(() => {
@@ -64,24 +67,39 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     if (!user || !supabase) {
       setProgressStore(createLocalStorageStore(window.localStorage));
       setSyncStatus("idle");
+      setSyncErrorKind(null);
       return;
     }
 
+    let active = true;
     const local = createLocalStorageStore(
       window.localStorage,
       () => new Date(),
       progressStorageKeyForUser(user.id),
     );
-    const remote = createSupabaseProgressStore(supabase, user.id);
+    const remote = createSupabaseProgressStore(supabase, user.id, {
+      onMerged: async (merged) => {
+        await local.save(merged);
+      },
+      onError: (kind) => {
+        if (!active) return;
+        setSyncErrorKind(kind);
+        // Sem PII: apenas a categoria do erro.
+        console.warn("[kbr] falha de sincronização:", kind);
+      },
+    });
     setProgressStore(null);
     setSyncStatus("syncing");
-    let active = true;
+    setSyncErrorKind(null);
     void syncProgressForUser(supabase, window.localStorage, user.id).then((result) => {
       if (active) {
         setProgressStore(createSyncedProgressStore(local, remote, (nextStatus) => {
-          if (active) setSyncStatus(nextStatus);
+          if (!active) return;
+          setSyncStatus(nextStatus);
+          if (nextStatus === "synced") setSyncErrorKind(null);
         }));
         setSyncStatus(result.status);
+        setSyncErrorKind(result.errorKind);
       }
     });
 
@@ -112,8 +130,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const value = useMemo(
-    () => ({ user, status, syncStatus, progressStore, signInWithGoogle, signOut }),
-    [user, status, syncStatus, progressStore, signInWithGoogle, signOut],
+    () => ({
+      user,
+      status,
+      syncStatus,
+      syncErrorKind,
+      progressStore,
+      signInWithGoogle,
+      signOut,
+    }),
+    [user, status, syncStatus, syncErrorKind, progressStore, signInWithGoogle, signOut],
   );
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }

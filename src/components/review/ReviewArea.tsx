@@ -132,6 +132,7 @@ export function ReviewArea() {
       item,
       checked.correct ? "correct" : "again",
       now,
+      crypto.randomUUID(),
     );
     persist(next);
     setQueue(buildReviewQueue(next, now));

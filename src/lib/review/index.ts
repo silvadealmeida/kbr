@@ -331,19 +331,25 @@ export function applyReview(
   item: Pick<ReviewItem, "cardId">,
   grade: ReviewGrade,
   now: Date,
+  attemptId?: string,
 ): Progress {
   const current = progress.cards[item.cardId];
   if (!current) return progress;
 
-  const nextState = leitner.review(current, grade, now);
   const at = now.toISOString();
+  const nextState = { ...leitner.review(current, grade, now), reviewedAt: at };
 
   return {
     ...progress,
     cards: { ...progress.cards, [item.cardId]: nextState },
     history: [
       ...progress.history,
-      { exerciseId: `review:${item.cardId}`, correct: grade === "correct", at },
+      {
+        ...(attemptId ? { id: attemptId } : {}),
+        exerciseId: `review:${item.cardId}`,
+        correct: grade === "correct",
+        at,
+      },
     ],
     lastActive: at,
   };

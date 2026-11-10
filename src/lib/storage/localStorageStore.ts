@@ -37,14 +37,16 @@ export function isProgress(value: unknown): value is Progress {
       typeof card.box === "number" &&
       card.box >= 1 &&
       card.box <= 5 &&
-      isDateString(card.due),
+      isDateString(card.due) &&
+      (card.reviewedAt === undefined || isDateString(card.reviewedAt)),
   );
   const historyValid = value.history.every(
     (attempt) =>
       isRecord(attempt) &&
       typeof attempt.exerciseId === "string" &&
       typeof attempt.correct === "boolean" &&
-      isDateString(attempt.at),
+      isDateString(attempt.at) &&
+      (attempt.id === undefined || typeof attempt.id === "string"),
   );
 
   return (

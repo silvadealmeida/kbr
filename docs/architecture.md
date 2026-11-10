@@ -37,7 +37,7 @@ supabase/                    # migrations e testes pgTAP de RLS
 - `Card { id, ko, pt, romanization?, audioText, tags, sentenceId? }`
 - `Lesson { id, title, objectives, dialogue: Line[], vocab: Card[], grammar: Note[], exercises: ExerciseSpec[] }`
 - `ExerciseSpec` = união discriminada (`mcq | cloze | build-syllable | listen | translate | audio-to-char | char-to-audio | minimal-pair | reading`); `check(spec, answer)` mantém o contrato antigo e `checkAnswer(spec, ExerciseAnswer)` devolve resultado detalhado (`errorTags`, `scored`).
-- `Progress { v: 1, lessons: Record<id,{done,score}>, cards: Record<id, SrsState>, history: Attempt[], streak, dailyGoal, lastActive }`. `lib/progress/lesson` calcula score/desbloqueio e grava tentativas sem alterar esse formato.
+- `Progress { v: 1, lessons: Record<id,{done,score}>, cards: Record<id, SrsState>, history: Attempt[], streak, dailyGoal, lastActive }`. `lib/progress/lesson` calcula score/desbloqueio, avalia lições e checkpoints e grava tentativas sem alterar esse formato; checkpoints usam a mesma entrada `lessons[id]`.
 
 ## Interfaces de troca futura
 - `ProgressStore { async load(); async save(p); }` → implementações para `localStorage` e Supabase sem acoplar telas. PostgreSQL mantém um snapshot JSONB v1 por `auth.users.id`; a PK elimina linhas duplicadas e RLS restringe todas as operações ao dono.
@@ -56,15 +56,18 @@ supabase/                    # migrations e testes pgTAP de RLS
 ## Hangul
 Composição por Unicode: `0xAC00 + (L*21 + V)*28 + T` — sem tabela de sílabas; testes unitários. `decomposeSyllable`, `isHangulText` e `normalizeHangul` completam as funções puras (round-trip e NFC).
 
-Currículo e especificação pedagógica: `docs/pedagogy/`. A Fase 3B.1 implementa a fatia `h01`–`h03`:
+Currículo e especificação pedagógica: `docs/pedagogy/`. A Fase 3B.2 implementa a fatia `h01`–`h10` + checkpoint `c1`:
 
-- `src/content/hangul/` contém tipos, registro de jamo (ㅇ + 6 vogais), sílabas, palavras, as três lições e `validateCurriculum`/`assertCurriculum`. Todo conteúdo está `in-review`; o validador rejeita jamo não ensinado, composição inconsistente, IDs repetidos, revisão sem revisor e exercícios ambíguos.
-- `src/lib/exercises` ganhou `audio-to-char`, `char-to-audio`, `minimal-pair` e `reading`, além de `checkAnswer(spec, answer)` com resposta tipada e erro controlado. `check(spec, string)` mantém exatamente o formato antigo.
-- O player fica em `components/hangul/LessonPlayer.tsx` e a rota é `/hangul/[lessonId]`. Só IDs implementados resolvem; os demais dão 404. A introdução mostra objetivos e telas de apresentação; a prática tem feedback imediato, progresso, foco no botão de continuar e alvos ≥44 px.
-- `/hangul` lista as lições disponíveis, bloqueadas (pré-requisito pendente) e futuras, sem links quebrados.
-- Progresso reutiliza `Progress` v1: cada primeira resposta acrescenta um `Attempt`; ao concluir, `lessons[id]` recebe o maior `score` e `done` quando atinge a nota mínima. Não há tabela, migração ou campo novo. Sair no meio não salva score.
+- `src/content/hangul/` contém tipos, registro de jamo (6 vogais + 19 consoantes), sílabas, palavras, as dez lições, o checkpoint `c1` e `validateCurriculum`/`assertCurriculum`. Todo conteúdo está `in-review`; o validador rejeita jamo não ensinado, composição inconsistente, IDs repetidos, revisão sem revisor, exercícios ambíguos, cartão SRS com conteúdo posterior à lição e checkpoint fora do escopo de unidade.
+- `Lesson.completion` ganhou `rules` opcionais para critérios documentados que não cabem em "todos os itens obrigatórios" (ex.: 3 dos 4 contrastes de aspiração em `h07`, 4 dos 6 contrastes tensos em `h09` e um acerto por contraste de três vias em `h10`).
+- `src/lib/exercises` mantém os nove tipos e `checkAnswer(spec, answer)`; `ExerciseBase` ganhou `tags` estáveis (`diag:*`) e `srsCards` determinísticas. `check(spec, string)` mantém exatamente o formato antigo.
+- `src/lib/srs/cards.ts` gera chaves estáveis (`h:jamo:c:ㄱ`, `h:jamo:v:ㅏ`, `h:syl:가`, `h:word:고기`), interpreta-as e aplica `scheduleMissedReview`: erro cria/atualiza cartões na caixa 1 do Leitner, sem duplicar chaves. `Progress` v1 permanece intacto.
+- `src/lib/progress/diagnostics.ts` agrupa erros pela tag primária `diag:*` em vogais, consoantes básicas, consoantes tensas, leitura C+V e estrutura de bloco. A saída é determinística e itens sem tag continuam contando para a nota, mas não para o diagnóstico.
+- `src/lib/progress/lesson.ts` avalia lições e checkpoints, verifica desbloqueio (`isCheckpointUnlocked` exige todas as lições do escopo) e escolhe o próximo passo (`nextCourseStepAfter`): após `h10`, o próximo passo é `c1`; depois de `c1`, não há link para conteúdo não implementado.
+- O player compartilhado fica em `components/hangul/exercise-ui.tsx`; `LessonPlayer.tsx` e `CheckpointPlayer.tsx` reutilizam a mesma prática com feedback imediato, foco no botão de continuar e alvos ≥44 px. A rota `/hangul/[lessonId]` resolve lições e o checkpoint `c1`; IDs desconhecidos dão 404. Introdução, prática e conclusão mostram erros por categoria.
+- `/hangul` lista lições disponíveis, bloqueadas (pré-requisito pendente), o checkpoint no ponto do currículo e conteúdo futuro, sem links quebrados. `c1` só abre com `h01`–`h10` concluídas e guarda o maior score.
+- Progresso reutiliza `Progress` v1: cada primeira resposta acrescenta um `Attempt`; ao concluir lição ou checkpoint, `lessons[id]` recebe o maior `score` e `done` quando atinge a nota mínima. Checkpoint não desfaz conclusão anterior nem corrompe histórico em retentativas. Não há tabela, migração ou campo novo.
 - Áudio usa `speechSynthesis` com `lang="ko-KR"` e fallback textual descritivo; não há arquivos de áudio nem avaliação de pronúncia. Em navegador sem voz coreana, a dica de som sustenta o exercício.
-- SRS e checkpoints continuam fora desta fatia.
 
 ## Voz
 O player usa `window.speechSynthesis` com `lang="ko-KR"`, rate 0.85, sob demanda (sem autoplay). Como a disponibilidade de voz coreana varia por sistema, todo item de escuta exibe uma dica textual (`fallback`) que descreve o som sem entregar a resposta escrita. Não há arquivos de áudio, avaliação de pronúncia nem módulo próprio de voz nesta fase.
@@ -83,10 +86,10 @@ O player usa `window.speechSynthesis` com `lang="ko-KR"`, rate 0.85, sob demanda
 - Política pública em `/privacidade`; aviso legal/Impressum em `/impressum` com pendências explícitas, sem inventar identidade, endereço ou prazos.
 
 ## Testes
-- Vitest: composição/decomposição Hangul, validação de exercícios (`check` e `checkAnswer`), validação do currículo `h01`–`h03`, score/conclusão/desbloqueio de lição, scheduler, store (migração/corrupção) e persistência após recarga.
+- Vitest: composição/decomposição Hangul, validação de exercícios (`check` e `checkAnswer`), validação do currículo `h01`–`h10` + `c1`, critérios adicionais de conclusão, score/desbloqueio de lição e checkpoint, diagnóstico por categoria, chaves/criação de cartões SRS, scheduler, store (migração/corrupção) e persistência após recarga.
 - Auth/sync: redirecionamento fechado, config pública, stores local/remoto, merge/migração/offline, classificação de rotas, estados de acesso, conteúdo da política/auditoria e inspeção estrutural da migration.
-- Playwright (Chromium, 375/390/768/1280): landing pública, links legais, bloqueio de rotas privadas sem sessão (incluindo `/hangul/h01`), retorno seguro via `next`, sessão inválida, callback sem código indo para `/auth/error`, ausência de vazamento no HTML, navegação mobile/desktop e tema.
-- O fluxo autenticado de Hangul é testado contra um Supabase mock local (`e2e/mock-supabase.mjs`, porta 54321) com cookie de sessão de teste: lição completa por teclado, feedback de erro, persistência após reload e liberação da próxima lição. O mock não substitui um teste de integração com o Supabase real; login Google real e sync remoto continuam manuais.
+- Playwright (Chromium, 375/390/768/1280): landing pública, links legais, bloqueio de rotas privadas sem sessão (incluindo `/hangul/h01` e `/hangul/c1`), retorno seguro via `next`, sessão inválida, callback sem código indo para `/auth/error`, ausência de vazamento no HTML, navegação mobile/desktop e tema.
+- O fluxo autenticado de Hangul é testado contra um Supabase mock local (`e2e/mock-supabase.mjs`, porta 54321) com cookie de sessão de teste: lição completa por teclado, feedback de erro, persistência após reload, liberação da próxima lição, checkpoint bloqueado e `c1` completo com 20 itens e score 100. O mock não substitui um teste de integração com o Supabase real; login Google real e sync remoto continuam manuais.
 - iPhone real/Chrome iOS não é testável aqui.
 
 ## Decisões/limites

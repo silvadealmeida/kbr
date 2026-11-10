@@ -30,6 +30,7 @@ src/
   types/
 tests/  (vitest)   e2e/ (playwright)
 docs/
+supabase/                    # migrations e testes pgTAP de RLS
 ```
 
 ## Modelo de dados (TS)
@@ -58,6 +59,7 @@ Composição por Unicode: `0xAC00 + (L*21 + V)*28 + T` — sem tabela de sílaba
 
 ## Testes
 - Vitest: composição Hangul, validação de exercícios, scheduler, store (migração/corrupção).
+- Auth/sync: redirecionamento fechado, config pública, stores local/remoto, merge/migração/offline e inspeção estrutural da migration no Vitest; isolamento RLS em pgTAP (`supabase test db`).
 - Playwright: fluxo completo (lição → exercício → revisão → persistência após reload) em 375, 390, 768, 1280px; projetos Chromium e WebKit. iPhone real/Chrome iOS: **não testável aqui**; documentar como verificação manual.
 
 ## Decisões/limites
@@ -65,4 +67,5 @@ Composição por Unicode: `0xAC00 + (L*21 + V)*28 + T` — sem tabela de sílaba
 - Google OAuth é delegado ao Supabase; só URL e chave publicável chegam ao app. Client secret do Google fica no painel Supabase e service-role key não é usada pelo KBR.
 - Progresso remoto é um snapshot atômico porque o modelo local já é versionado. `cards` contém vocabulário e agenda de revisão; `lessons`, `history`, `streak` e `dailyGoal` permanecem no mesmo documento.
 - Cada usuário tem cache local isolado (`kbr:user:<uuid>:v1`). Gravações são local-first; merge usa campos monotônicos para lições/histórico e o snapshot mais recente para agenda/streak. Migração do convidado só recebe marcador após confirmação remota e nunca apaga a origem local.
+- Setup operacional e configuração manual do Google/Supabase: `docs/supabase-setup.md`.
 - Dados só locais: limpar o navegador apaga progresso (avisar na UI e oferecer exportar/importar JSON como possível item do roadmap).

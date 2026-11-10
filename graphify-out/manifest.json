@@ -126,9 +126,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1794307045.5027812,
-    "seen": 1794307046.0133553,
-    "ast_hash": "44ad7568aadb785a15fff9037326f33b",
+    "mtime": 1794307929.358859,
+    "seen": 1794307959.8258243,
+    "ast_hash": "cfcefb714b8948249c69bc886fef8fe4",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -138,9 +138,9 @@
     "semantic_hash": ""
   },
   "docs/architecture.md": {
-    "mtime": 1794307742.5466406,
-    "seen": 1794307804.09075,
-    "ast_hash": "b11d89c4339fe1e75e0090e5b9478c18",
+    "mtime": 1794307929.358859,
+    "seen": 1794307959.8258257,
+    "ast_hash": "ee8de816a79f96ff6e7208642d0f261a",
     "semantic_hash": ""
   },
   "docs/research.md": {
@@ -150,9 +150,9 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794307742.5466406,
-    "seen": 1794307804.0907671,
-    "ast_hash": "d368e52636bf7da987ac6e1ccfd04e95",
+    "mtime": 1794307959.321366,
+    "seen": 1794307959.8258274,
+    "ast_hash": "d0fef30998b57815b920b9391b2c0ad0",
     "semantic_hash": ""
   },
   "src/lib/hangul/index.ts": {
@@ -357,6 +357,24 @@
     "mtime": 1794307790.0952644,
     "seen": 1794307804.0906193,
     "ast_hash": "5fdf51d46562c9744ad99cc6ab66d790",
+    "semantic_hash": ""
+  },
+  "supabase/migrations/20261110120000_create_user_progress.sql": {
+    "mtime": 1794307613.1113913,
+    "seen": 1794307804.5889103,
+    "ast_hash": "b6c73ece2803ac68d4afbb9bcbf3adb1",
+    "semantic_hash": ""
+  },
+  "supabase/tests/user_progress_rls.test.sql": {
+    "mtime": 1794307628.261156,
+    "seen": 1794307804.5889115,
+    "ast_hash": "54c660b727a6e7d93693694b00ec2cf1",
+    "semantic_hash": ""
+  },
+  "docs/supabase-setup.md": {
+    "mtime": 1794307929.358859,
+    "seen": 1794307959.8258283,
+    "ast_hash": "560f2c40fc56f64736a7d315a9bb09b6",
     "semantic_hash": ""
   },
   "package-lock.json": {

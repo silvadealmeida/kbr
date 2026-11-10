@@ -150,9 +150,9 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794306930.2809036,
-    "seen": 1794306943.253077,
-    "ast_hash": "d45ad4e642c71d2283f8a7b5f0c2c367",
+    "mtime": 1794307006.3085475,
+    "seen": 1794307027.3273966,
+    "ast_hash": "fe74fdb7dbee7c72a7302d8e99df85d9",
     "semantic_hash": ""
   },
   "src/lib/hangul/index.ts": {
@@ -231,6 +231,24 @@
     "mtime": 1794306930.2809036,
     "seen": 1794306943.2530708,
     "ast_hash": "e4efc4384316dc60bc85eb025d4bd36f",
+    "semantic_hash": ""
+  },
+  "src/lib/storage/index.ts": {
+    "mtime": 1794307006.3085475,
+    "seen": 1794307027.327385,
+    "ast_hash": "a74f785b74ebc83ba4d6ddb76eb89721",
+    "semantic_hash": ""
+  },
+  "src/lib/storage/localStorageStore.ts": {
+    "mtime": 1794307006.3085475,
+    "seen": 1794307027.3273861,
+    "ast_hash": "68b40608b1a8701f8d8a07349d16dfc3",
+    "semantic_hash": ""
+  },
+  "tests/storage.test.ts": {
+    "mtime": 1794307006.3085475,
+    "seen": 1794307027.3273914,
+    "ast_hash": "ec394cdd2e2c8d251131ae0e3783c35a",
     "semantic_hash": ""
   },
   "package-lock.json": {

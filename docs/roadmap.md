@@ -1,9 +1,9 @@
 # KBR — Roadmap
 
 ## Estado atual (atualize a cada commit — é o ponto de retomada entre agentes)
-- **Fase concluída:** 1 (Scaffold).
-- **Em andamento:** Fase 2 — Hangul, exercícios e SRS Leitner implementados; storage pendente. PWA mínima instalada no código.
-- **Próximo passo:** implementar `lib/storage` versionado, com recuperação de dados inválidos e migração.
+- **Fase concluída:** 2 (Núcleo puro).
+- **Em andamento:** nada. PWA mínima instalada no código.
+- **Próximo passo:** Fase 3 (Hangul interativo) — só iniciar quando o usuário pedir.
 - **Bloqueios / decisões pendentes:** nenhum.
 - **Último agente:** Codex.
 
@@ -13,7 +13,7 @@ Fases pequenas, cada uma com commit(s) próprio e `npm test` verde antes de avan
 |---|---|---|---|
 | 0 | Pesquisa e arquitetura (**feita**) | docs/* | — |
 | 1 | Scaffold (**feita**, só Chromium; WebKit/iPhone pendentes) | `git init`, Next+TS+Tailwind, Vitest, Playwright, fontes, shell com nav, tema claro/escuro | `npm run build`, smoke e2e |
-| 2 | Núcleo puro | `lib/hangul`, `lib/exercises`, `lib/srs` (Leitner), `lib/storage` + testes | Vitest |
+| 2 | Núcleo puro (**feita**) | `lib/hangul`, `lib/exercises`, `lib/srs` (Leitner), `lib/storage` + testes | Vitest |
 | 3 | Módulo Hangul | cards de letras, TTS com fallback, construtor de sílabas, quiz de reconhecimento | Vitest + e2e |
 | 4 | Lições 1–3 | 3 lições originais (diálogo, vocabulário, nota de gramática, exercícios): ex. cumprimentos/apresentação (이에요/예요), objetos/lugares (은/는, 이/가), rotina/comida (을/를, -아요/어요) | e2e fluxo |
 | 5 | Vocabulário | frases com lacuna, tradução, escuta | e2e |

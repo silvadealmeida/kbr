@@ -930,9 +930,9 @@
     "semantic_hash": ""
   },
   "docs/sync/implementation-plan.md": {
-    "mtime": 1794340107.6151412,
-    "seen": 1794340217.670554,
-    "ast_hash": "3070df7e7a31f00d1b5a9c770ada2f4a",
+    "mtime": 1794340314.5674233,
+    "seen": 1794340347.076063,
+    "ast_hash": "cb43356d32e97a2a20f0598d6c36d54a",
     "semantic_hash": ""
   },
   "docs/sync/merge-invariants.md": {

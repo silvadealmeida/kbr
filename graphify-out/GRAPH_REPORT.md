@@ -1,7 +1,7 @@
 # Graph Report - kbr  (2026-11-10)
 
 ## Corpus Check
-- 153 files · ~146,987 words
+- 153 files · ~147,121 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 5 file(s) not represented in the graph (top: (none) 3, .example 1, .css 1)
 
@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `9ed6bf5e`
+- Built from commit: `723c7f0e`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -108,10 +108,10 @@
   docs/architecture.md → src/lib/storage/index.ts
 - `Status conta e sincronização (real)` --references--> `safeNextPath()`  [INFERRED]
   docs/roadmap.md → src/lib/auth/redirect.ts
-- `6.2 Cartões SRS` --references--> `SrsState`  [INFERRED]
-  docs/pedagogy/content-schema.md → src/lib/srs/index.ts
-- `11. Referências` --references--> `Progress`  [INFERRED]
-  docs/pedagogy/content-schema.md → src/lib/storage/index.ts
+- `2.2 Fluxo de login e hidratação` --references--> `syncProgressForUser()`  [INFERRED]
+  docs/sync/concurrency-audit.md → src/lib/storage/syncProgress.ts
+- `3. Comportamento por operação` --references--> `isProgress()`  [INFERRED]
+  docs/sync/concurrency-audit.md → src/lib/storage/localStorageStore.ts
 
 ## Import Cycles
 - 2-file cycle: `src/lib/srs/index.ts -> src/lib/srs/leitner.ts -> src/lib/srs/index.ts`
@@ -418,16 +418,16 @@ Nodes (4): authenticate(), authenticate(), testAuthCookie(), authenticate()
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Progress` connect `Progress` to `3. Tipos de domínio`, `vitest`, `dashboard.ts`, `6. Compatibilidade com `Progress``, `lesson.ts`, `storage/index.ts`, `17. Integração com revisão espaçada`, `KBR — Auditoria de privacidade e avaliação legal (Fase 2B)`, `KBR — Plano de implementação da sincronização confiável (Fase 4D.2)`, `HangulCourse.tsx`, `validate.ts`, `3. Invariantes por campo`, `isProgress`, `Schema de conteúdo — módulo Hangul`, `KBR — Arquitetura`, `ReviewArea.tsx`, `review/index.ts`?**
-  _High betweenness centrality (0.174) - this node is a cross-community bridge._
+  _High betweenness centrality (0.198) - this node is a cross-community bridge._
 - **Are the 33 inferred relationships involving `Progress` (e.g. with `Decisões/limites` and `Hangul`) actually correct?**
   _`Progress` has 33 INFERRED edges - model-reasoned connections that need verification._
 - **Should `4. Defeitos confirmados` be split into smaller, more focused modules?**
   _Cohesion score 0.07407407407407407 - nodes in this community are weakly interconnected._
 - **Why does `Design de exercícios — módulo Hangul` connect `Design de exercícios — módulo Hangul` to `5. Tipo 3 — `char-to-audio``, `11. Tipo 9 — `srs-session``, `18. Plano de testes`, `exercises/index.ts`, `10. Tipo 8 — `stroke-order``, `3. Tipo 1 — `recognition``, `4. Tipo 2 — `audio-to-char``, `KBR — Arquitetura`, `6. Tipo 4 — `order-jamo``, `8. Tipo 6 — `minimal-pair``, `7. Tipo 5 — `build-syllable``, `9. Tipo 7 — `reading``?**
-  _High betweenness centrality (0.124) - this node is a cross-community bridge._
+  _High betweenness centrality (0.134) - this node is a cross-community bridge._
 - **Are the 10 inferred relationships involving `checkAnswer()` (e.g. with `Revisão` and `Testes`) actually correct?**
   _`checkAnswer()` has 10 INFERRED edges - model-reasoned connections that need verification._
 - **Should `package.json` be split into smaller, more focused modules?**
   _Cohesion score 0.07862903225806452 - nodes in this community are weakly interconnected._
-- **Why does `vitest` connect `vitest` to `package.json`, `supabase/proxy.ts`, `DashboardArea.tsx`, `dashboard.ts`, `lesson.ts`, `StorageLike`, `exercises/index.ts`, `content/hangul.test.ts`, `validate.ts`, `site.test.ts`, `auth.test.ts`, `localStorageStore.ts`, `review/index.ts`?**
-  _High betweenness centrality (0.114) - this node is a cross-community bridge._
+- **Why does `Currículo de Hangul — Fase 3A` connect `Currículo de Hangul — Fase 3A` to `11. Unidade 5 — Todas as vogais`, `12. Unidade 6 — Sílabas e batchim`, `13. Unidade 7 — Ler em contexto`, `9. Unidade 3 — Consoantes básicas`, `16. Avaliação`, `4. Estrutura geral`, `10. Unidade 4 — Consoantes tensas`, `15. Matriz de cobertura`, `17. Integração com revisão espaçada`, `19. QA de conteúdo`, `2. Pesquisa, benchmark e decisão de design`, `8. Unidade 2 — Primeiras vogais`, `validate.ts`?**
+  _High betweenness centrality (0.123) - this node is a cross-community bridge._

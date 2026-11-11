@@ -2,7 +2,7 @@
 
 Data da auditoria: 10 de novembro de 2026.
 Escopo: aplicação em `src/`, dependências em `package.json`, configuração de deploy e páginas públicas.
-Status: auditoria técnica concluída; revisão jurídica e dados de contato pendentes.
+Status: auditoria técnica concluída; revisão jurídica e dados de contato pendentes. A Fase 6A adicionou cabeçalhos de segurança/cache e manteve a ausência de service worker e de cache offline.
 
 Este documento registra o que o código **realmente** faz. A política pública está em `/privacidade` (`src/app/(site)/privacidade/page.tsx`) e o aviso legal em `/impressum`.
 
@@ -42,13 +42,23 @@ Auditoria de `src/` e `package.json`:
 
 - **Não há** Google Analytics, GTM, Vercel Analytics/Speed Insights, Plausible, PostHog, Hotjar, Mixpanel, Clarity, Meta Pixel ou similares.
 - **Não há** iframes, embeds de vídeo, mapas, chat ou botões sociais de terceiros.
-- **Não há** service worker, cache offline ou sincronização em background.
-- **Google:** usado apenas como provedor OAuth via Supabase. `next/font/google` baixa a fonte Noto Sans KR durante o build e a serve pelo próprio domínio; o visitante não faz requisição ao Google Fonts em tempo de execução.
+- **Não há** service worker, Cache Storage, cache offline ou sincronização em background. A Fase 6A não adicionou nenhum desses recursos.
+- **Google:** usado apenas como provedor OAuth via Supabase. `next/font/google` baixa a fonte Noto Sans KR durante o build e a serve pelo próprio domínio; o visitante não faz requisição ao Google Fonts em tempo de execução. Desde a 6A a fonte é carregada somente no layout autenticado `(app)` e com `preload: false`; páginas públicas usam fallback de fonte coreana do sistema.
 - **Supabase:** autenticação e banco de dados.
 - **Vercel:** hospedagem e logs técnicos de acesso/erro.
 - **GitHub:** link externo no README, não embutido no app.
 
 O teste `tests/site.test.ts` varre `src/` e falha se um rastreador conhecido, banner de consentimento ou iframe for introduzido.
+
+### 3.1 Cabeçalhos de segurança e cache
+
+`next.config.mjs` aplica a todas as respostas:
+
+- `X-Content-Type-Options: nosniff`;
+- `X-Frame-Options: DENY`;
+- `Referrer-Policy: strict-origin-when-cross-origin`.
+
+Respostas de `/auth/*` e das rotas privadas (`/dashboard`, `/cursos`, `/hangul`, `/vocabulario`, `/revisao`, `/licoes`) recebem `Cache-Control: private, no-store, max-age=0`. Isso impede que HTML de sessão/progresso fique em cache compartilhado ou seja reutilizado após logout/troca de conta. O manifesto usa `public, max-age=0, must-revalidate`; os ícones usam cache imutável de um ano. Não há cache próprio de respostas de API, JWT, tokens ou snapshots de progresso — o navegador e o Supabase seguem suas próprias regras para requisições `fetch`, e não há service worker para interceptá-las.
 
 ## 4. Avaliação de consentimento
 
@@ -106,7 +116,8 @@ Dados ausentes para completar o Impressum:
 - **Cookies do Supabase:** validade e atributos podem mudar com versão do SDK ou configuração do projeto; revalidar antes do lançamento.
 - **Logs de terceiros:** Vercel e Supabase podem reter logs conforme suas próprias políticas; os prazos não estão confirmados.
 - **Exclusão:** sem automação, pedidos dependem de contato ainda não publicado.
-- **iPhone/Chrome iOS:** a experiência real de cookies e PWA continua exigindo teste manual.
+- **Cabeçalhos e cache:** `no-store` nas rotas privadas é defesa em profundidade, não substitui RLS nem autorização no servidor. Um service worker futuro (Fase 6B) exigirá auditoria própria para não interceptar/cachear auth, tokens, respostas por usuário ou progresso sensível.
+- **iPhone/Chrome iOS:** a experiência real de cookies e PWA continua exigindo teste manual; o WebKit automatizado da 6A cobre smoke/PWA/axe, mas não equivale a um iPhone físico.
 
 ## 8. Checklist antes do lançamento público
 
@@ -115,4 +126,5 @@ Dados ausentes para completar o Impressum:
 - [ ] Confirmar região Supabase, DPAs e transferências internacionais.
 - [ ] Concluir a avaliação do Impressum e preencher `/impressum` ou remover a página com justificativa registrada.
 - [ ] Revalidar cookies e `localStorage` após qualquer nova dependência.
+- [ ] Revalidar cabeçalhos/cache e, se a Fase 6B adicionar service worker, garantir que auth, tokens, respostas de API por usuário e progresso sensível fiquem fora do cache.
 - [ ] Repetir `npm run typecheck`, `npm test`, `npm run build` e `npm run e2e`.

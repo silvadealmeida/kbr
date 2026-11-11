@@ -1,8 +1,8 @@
 # KBR — Plano de implementação da sincronização confiável (Fase 4D.2)
 
-**Status:** implementado no código e verificado localmente na Fase 4D.2. A preparação operacional da Fase 4D.3 está em `docs/sync/deployment-runbook.md`; a migração **não foi aplicada ao projeto Supabase real**, o cliente não foi implantado e não houve teste real em dois dispositivos. As seções de operação abaixo continuam sendo o roteiro de staging/produção.
+**Status:** implementado no código e verificado localmente na Fase 4D.2. A Fase 4D.3 foi **relatada pelo usuário como executada e aprovada em produção** em 11/11/2026 (migração, deploy e teste real em dispositivos); esta sessão não acessou Supabase/Vercel/dispositivos e não reverificou o estado remoto. As seções de operação abaixo continuam sendo o roteiro para futuras reaplicações.
 **Pré-requisitos:** `docs/sync/concurrency-audit.md` e `docs/sync/merge-invariants.md`.
-**Limite de verificação:** o RPC foi testado em PostgreSQL 14 local com `auth`/roles emulados e pgTAP, incluindo duas conexões reais; não houve acesso ao Supabase de produção. O mock de e2e prova o fluxo do cliente, não a atomicidade do banco.
+**Limite de verificação:** o RPC foi testado em PostgreSQL 14 local com `auth`/roles emulados e pgTAP, incluindo duas conexões reais; não houve acesso ao Supabase de produção nesta sessão. O mock de e2e prova o fluxo do cliente, não a atomicidade do banco.
 
 ## 1. Objetivo
 
@@ -50,7 +50,7 @@ Seria uma única chamada e resolveria o conflito sem retry, mas exigiria reimple
 
 A regra “cliente lê e depois faz upsert normal” não é CAS: entre a leitura e o upsert outra transação pode gravar. O RPC elimina essa janela com lock e comparação de token na mesma transação.
 
-## 4. Migração SQL implementada (não aplicada em produção)
+## 4. Migração SQL implementada (relatada como aplicada em produção)
 
 Arquivo: `supabase/migrations/20261110180000_add_save_user_progress_rpc.sql`.
 
@@ -482,7 +482,9 @@ Executado com PostgreSQL 14 local, schema `auth`/roles emulados e pgTAP; **não*
 - Migração de convidado: snapshot em `kbr:v1` é migrado para a conta no login e chega a outro dispositivo.
 - O mock não prova RLS/atomicidade; esses testes ficam no pgTAP/harness local.
 
-### 12.5 Manual (pendente)
+### 12.5 Manual (relatado; não reverificado nesta sessão)
+
+O usuário relatou a execução em produção e a aprovação do checklist em 11/11/2026. Esta sessão não acessou os dispositivos nem os painéis; os itens abaixo permanecem como roteiro de revalidação.
 
 - Dois perfis/dispositivos reais da mesma conta (ver §9.5).
 - Chrome desktop + PWA/iPhone real (quando disponível).
@@ -538,7 +540,7 @@ Isso é aceitável para a 4D.2 e está documentado; a UI não promete ordem exat
 - [x] Nenhum progresso existente é resetado; migração é aditiva e não há backfill.
 - [x] `npm run typecheck`, `npm test` (290), `npm run build` e `npm run e2e` (164) verdes.
 - [x] pgTAP executado no PostgreSQL local; Supabase real não acessado (limitação registrada).
-- [ ] Migração aplicada em staging/produção e teste manual em dois dispositivos reais (pendente, §9).
+- [x] Migração aplicada em staging/produção e teste manual em dois dispositivos reais — **concluída conforme relato do usuário em 11/11/2026; não reverificada nesta sessão**.
 
 ## 15. Commits da 4D.2
 
@@ -547,15 +549,15 @@ Isso é aceitável para a 4D.2 e está documentado; a UI não promete ordem exat
 
 Cada commit com typecheck/test/build verdes. O commit 1 contém a migração, mas **não** a aplica em produção; o deploy segue a ordem da §9 e não deve ir a produção sem o cliente novo e o teste manual.
 
-## 16. Fase 4D.3 — preparação de deploy e validação real
+## 16. Fase 4D.3 — deploy seguro do CAS e validação real
 
-**Status:** preparação concluída; execução remota pendente de aprovação. Nada foi aplicado no Supabase real, nenhum push/deploy foi feito e não houve teste com dois dispositivos reais.
+**Status:** concluída e aprovada em produção **conforme relato do usuário em 11/11/2026** (migração, deploy e checklist A–I). Esta sessão não acessou o Supabase, a Vercel ou dispositivos reais e não reverificou esses passos; o registro local abaixo continua sendo a evidência desta sessão.
 
 Entregas:
 
 - `docs/sync/deployment-runbook.md` — avaliação de prontidão, backup, preflight read-only, aplicação da migração pelo SQL Editor/CLI/conexão direta, verificação de função/grants/RLS, smoke test CAS em transação com `rollback`, deploy da Vercel, checklist A–I em duas sessões/dispositivos, garantias versus limites, rollback e riscos dos grants de DML direto.
 - Revisão do código: o cliente novo lê `progress, sync_id` e grava **somente** com `POST /rest/v1/rpc/save_user_progress`; não há fallback de upsert. A migração é aditiva, `create or replace`, sem coluna/índice/backfill, e foi reaplicada com sucesso no PostgreSQL local.
-- Verificações executadas: `npm run typecheck`; `npm test` (20 arquivos, 290 testes); `npm run build`; `npm run e2e` (164 testes, mock); PostgreSQL 14.24 local com 35 asserções pgTAP e 2 cenários de concorrência real com duas conexões (3 asserções). Supabase CLI, staging/produção, Vercel e dispositivos reais **não** foram acessados.
+- Verificações executadas nesta preparação: `npm run typecheck`; `npm test` (20 arquivos, 290 testes); `npm run build`; `npm run e2e` (164 testes, mock); PostgreSQL 14.24 local com 35 asserções pgTAP e 2 cenários de concorrência real com duas conexões (3 asserções). Supabase CLI, staging/produção, Vercel e dispositivos reais **não** foram acessados nesta sessão.
 - Ordem mantida: migração e verificação do RPC primeiro, cliente depois. Não revogar DML nem migrar para `SECURITY DEFINER` nesta fase; isso continua sendo hardening separado (4D.4+), porque quebraria o rollback e os clientes antigos.
 
-Limitações registradas: clientes antigos ainda podem fazer upsert direto durante a janela de rollout; a ordem exata de revisões concorrentes do mesmo cartão não é reconstruível no `Progress` v1; não há atualização ao vivo entre dispositivos; o backup/PITR, o project ref e o último deploy bom precisam ser confirmados pelo responsável antes de qualquer migração.
+Limitações registradas: clientes antigos ainda podem fazer upsert direto durante a janela de rollout; a ordem exata de revisões concorrentes do mesmo cartão não é reconstruível no `Progress` v1; não há atualização ao vivo entre dispositivos. A execução remota e a aprovação são relato do usuário, não verificação desta sessão.

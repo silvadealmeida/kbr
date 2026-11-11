@@ -1,6 +1,6 @@
 # KBR — Runbook de deploy seguro do CAS (Fase 4D.3)
 
-**Status:** preparação concluída em 2026-11-10. **Nada foi aplicado no Supabase real, nenhum deploy foi feito e nenhum `git push` foi executado.** Este documento separa o que foi verificado localmente do que ainda depende de aprovação e acesso aos painéis.
+**Status:** preparação local concluída em 2026-11-10. A execução remota foi **informada pelo usuário como concluída e aprovada em 11/11/2026** (migração, deploy e checklist real em dispositivos). **Esta sessão não acessou o Supabase, a Vercel nem dispositivos reais** e não reexecutou os passos; o conteúdo abaixo preserva o runbook e as verificações locais, separados do relato de produção.
 
 **Escopo:** aplicar a migração aditiva `save_user_progress`, verificar o RPC no Supabase, implantar o cliente novo na Vercel e validar com duas sessões/dispositivos reais da mesma conta Google.
 
@@ -12,19 +12,20 @@
 
 | Portão | Situação | Evidência |
 |---|---|---|
+| Execução remota da 4D.3 | **Relatada como concluída e aprovada** | Usuário informou sucesso em 11/11/2026; esta sessão não acessou os painéis/dispositivos |
 | Commits da 4D.2 presentes | **Sim** | `e0fb1fc`, `ed4fc33`, `6fc38d3`; verificado em `HEAD = 6fc38d3` (o commit de documentação da 4D.3 é posterior) |
 | Árvore de trabalho limpa no início | **Sim** | `git status --porcelain` vazio e `main` igual a `origin/main` antes das alterações de documentação desta fase |
 | Cliente novo escreve só pelo RPC | **Sim** | `src/lib/storage/supabaseProgressStore.ts` lê `progress, sync_id` e grava com `supabase.rpc("save_user_progress", ...)`; não há fallback de upsert |
 | Migração compatível com a tabela existente | **Verificado só em PostgreSQL local** | Migrações aplicadas do zero; RPC reaplicado com sucesso; 35 asserções pgTAP |
 | Migração idempotente | **Sim, com ressalvas** | `create or replace function` + `revoke/grant`; reaplicação local passou. Falha se existir sobrecarga incompatível ou retorno diferente |
-| Backup/PITR confirmado | **Não verificado** | Depende do painel Supabase e do plano do projeto |
-| Projeto Supabase de destino confirmado | **Não verificado** | Depende de acesso ao painel; não houve leitura de produção |
-| Último deploy bom identificado | **Não verificado** | Depende da Vercel; o repositório não registra deployment IDs |
-| Migração aplicada em staging/produção | **Não** | Nenhum acesso remoto foi feito |
-| Cliente novo implantado | **Não** | Nenhum push/deploy foi feito |
-| Teste real em dois dispositivos | **Não** | Depende de conta Google e dispositivos reais |
+| Backup/PITR confirmado | **Relatado pelo usuário; não reverificado** | Depende do painel Supabase e do plano do projeto |
+| Projeto Supabase de destino confirmado | **Relatado pelo usuário; não reverificado** | Depende de acesso ao painel; não houve leitura de produção nesta sessão |
+| Último deploy bom identificado | **Relatado pelo usuário; não reverificado** | Depende da Vercel; o repositório não registra deployment IDs |
+| Migração aplicada em staging/produção | **Relatada como aplicada** | Nenhum acesso remoto foi feito nesta sessão |
+| Cliente novo implantado | **Relatado como implantado** | Nenhum push/deploy foi feito nesta sessão |
+| Teste real em dois dispositivos | **Relatado como concluído** | Depende de conta Google e dispositivos reais; não reexecutado aqui |
 
-**Conclusão:** o código e os testes locais estão prontos para uma execução controlada. A produção continua **bloqueada** até que backup/PITR, projeto de destino e último deploy bom sejam confirmados e o smoke test passe em staging. A ordem é obrigatória: **migração e verificação do RPC primeiro; cliente depois**.
+**Conclusão:** a preparação local está registrada e os passos remotos foram **relatados como concluídos e aprovados**. Como esta sessão não acessou Supabase, Vercel ou dispositivos, o status de produção é um relato do usuário, não uma verificação independente. A ordem migração → verificação do RPC → cliente continua obrigatória para futuras reaplicações.
 
 ## 2. Ordem segura obrigatória
 
@@ -542,6 +543,7 @@ drop function if exists public.save_user_progress(uuid, uuid, jsonb);
 
 | Verificação | Ambiente | Resultado |
 |---|---|---|
+| Execução remota da 4D.3 (migração, deploy, checklist A–I) | Produção | **Relatada pelo usuário como concluída/aprovada em 11/11/2026; não reexecutada nesta sessão** |
 | `npm run typecheck` | Local, Node 20 | Passou |
 | `npm test` | Local, Vitest | 20 arquivos, 290 testes passaram |
 | `npm run build` | Local, Next 16.4.6 | Passou |
@@ -559,7 +561,11 @@ drop function if exists public.save_user_progress(uuid, uuid, jsonb);
 
 O mock de e2e usa uma linha em memória por usuário e um CAS de mentira; ele prova o fluxo do cliente, não a atomicidade do PostgreSQL. A atomicidade e a RLS foram exercitadas no cluster local e nos testes pgTAP.
 
-## 12. Ações que exigem o usuário
+Os números de Vitest/e2e acima são do commit de preparação da 4D.3. A Fase 6A posterior elevou a suíte para 315 testes Vitest e 256 testes Playwright (255 executados + 1 skip no WebKit); isso não revalida a execução remota.
+
+## 12. Ações que exigiram o usuário (histórico)
+
+Conforme relato do usuário, as ações 1–7 foram concluídas e aprovadas em produção em 11/11/2026. A lista permanece como registro do que foi exigido e como checklist para futuras reaplicações.
 
 1. **Aprovar** a janela e o ambiente (staging primeiro; produção depois).
 2. **Confirmar backup/PITR** e registrar o ID/janela no painel Supabase.
@@ -570,4 +576,4 @@ O mock de e2e usa uma linha em memória por usuário e um CAS de mentira; ele pr
 7. **Executar o checklist A–I** em duas sessões/dispositivos reais e registrar apenas resultados, sem progresso, JWT ou tokens.
 8. **Decidir o hardening** de DML/`SECURITY DEFINER` em uma fase separada, com plano e rollback próprios.
 
-Até que 1–5 sejam concluídos, a fase permanece **preparada, não validada em produção**. Nenhum resultado real deve ser declarado sem esses passos.
+O hardening de DML/`SECURITY DEFINER` (item 8) **não** foi executado e continua pendente para a 4D.4+. O status de produção acima é relato do usuário; nenhum resultado foi reverificado nesta sessão.

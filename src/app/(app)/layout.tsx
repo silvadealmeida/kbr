@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Noto_Sans_KR } from "next/font/google";
 import { redirect } from "next/navigation";
 import { Nav } from "@/components/Nav";
+import { ConnectionNotice } from "@/components/auth/ConnectionNotice";
 import { ProtectedArea } from "@/components/auth/ProtectedArea";
 import { loginRedirectPath } from "@/lib/auth/redirect";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
@@ -44,6 +45,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
           tabIndex={-1}
           className="mx-auto max-w-3xl px-4 pb-[calc(6rem+env(safe-area-inset-bottom))] pt-6 md:ml-60 md:max-w-none md:px-10 md:pb-12 md:pt-10 [&>*]:md:max-w-3xl"
         >
+          <ConnectionNotice />
           {children}
         </main>
       </ProtectedArea>

@@ -54,6 +54,10 @@ describe("autenticação", () => {
     );
     expect(unavailable.searchParams.get("next")).toBe("/dashboard");
     expect(unavailable.searchParams.get("motivo")).toBe("indisponivel");
+
+    const logout = new URL(loginRedirectPath("/dashboard", "logout"), "https://kbr.invalid");
+    expect(logout.searchParams.get("next")).toBe("/dashboard");
+    expect(logout.searchParams.get("motivo")).toBe("logout");
   });
 
   test("nunca envia retorno externo ao login", () => {

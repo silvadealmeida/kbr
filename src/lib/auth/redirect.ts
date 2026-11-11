@@ -40,7 +40,7 @@ export function postLoginPath(value: string | null, fallback = "/dashboard"): st
   return destination.split(/[?#]/)[0] === "/" ? safeFallback(fallback) : destination;
 }
 
-export type LoginReason = "sessao-expirada" | "indisponivel";
+export type LoginReason = "sessao-expirada" | "indisponivel" | "logout";
 
 /** Monta a URL pública de login preservando o destino interno (validado). */
 export function loginRedirectPath(path: string, reason?: LoginReason): string {

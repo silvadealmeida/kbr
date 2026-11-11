@@ -42,6 +42,11 @@ export function LessonPlayer({
 
   const progressRef = useRef<Progress | null>(null);
   const answersRef = useRef<Record<string, { correct: boolean; scored?: boolean }>>({});
+  // Guardas síncronas: o estado do React não muda entre dois cliques/entradas
+  // rápidas, então refs evitam registrar a mesma resposta duas vezes.
+  const resultRef = useRef<DetailedCheckResult | null>(null);
+  const submittedRef = useRef<Set<string>>(new Set());
+  const advancedForRef = useRef(-1);
 
   useEffect(() => {
     if (!progressStore) return;
@@ -67,7 +72,7 @@ export function LessonPlayer({
         return;
       }
       void progressStore.save(next).then((ok) => {
-        if (!ok) setSaveWarning(true);
+        setSaveWarning(!ok);
       });
     },
     [progressStore],
@@ -78,8 +83,12 @@ export function LessonPlayer({
   const requiredCorrect = lessonRequiredCorrect(lesson);
 
   const submit = () => {
-    if (!exercise || !draft || result) return;
+    if (!exercise || !draft || resultRef.current || submittedRef.current.has(exercise.id)) {
+      return;
+    }
+    submittedRef.current.add(exercise.id);
     const checked = checkAnswer(exercise, draft);
+    resultRef.current = checked;
     setResult(checked);
     const nextAnswers = {
       ...answersRef.current,
@@ -97,11 +106,13 @@ export function LessonPlayer({
   };
 
   const advance = () => {
-    if (!result) return;
+    if (!resultRef.current || advancedForRef.current === index) return;
+    advancedForRef.current = index;
     if (index + 1 < total) {
       setIndex(index + 1);
       setDraft(null);
       setResult(null);
+      resultRef.current = null;
       return;
     }
 
@@ -121,6 +132,9 @@ export function LessonPlayer({
     setIndex(0);
     setDraft(null);
     setResult(null);
+    resultRef.current = null;
+    submittedRef.current = new Set();
+    advancedForRef.current = -1;
     setLessonResult(null);
     setPhase("run");
   };

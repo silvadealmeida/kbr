@@ -1,6 +1,7 @@
 import { describe, expect, test } from "vitest";
 import { applyReview } from "@/lib/review";
 import {
+  classifyProgressSyncError,
   createEmptyProgress,
   createSupabaseProgressStore,
   createSyncedProgressStore,
@@ -381,6 +382,56 @@ describe("store sincronizado com CAS", () => {
     server.failNext({ kind: "network" });
     await expect(store.load()).resolves.toEqual(createEmptyProgress(NOW));
     expect(statuses).toEqual(["syncing", "offline"]);
+  });
+});
+
+describe("limite de tempo das requisições remotas", () => {
+  function hangingClient() {
+    const calls = { abortSignals: 0 };
+    const client = {
+      from: () => ({
+        select: () => ({
+          eq: () => ({
+            maybeSingle: async () => ({ data: null, error: null }),
+          }),
+        }),
+      }),
+      rpc: () => ({
+        abortSignal(signal: AbortSignal) {
+          calls.abortSignals += 1;
+          return new Promise((_, reject) => {
+            signal.addEventListener("abort", () => {
+              reject(Object.assign(new Error("The operation was aborted"), { name: "TimeoutError" }));
+            });
+          });
+        },
+      }),
+    };
+    return { client: client as unknown as Parameters<typeof createSupabaseProgressStore>[0], calls };
+  }
+
+  test("RPC sem resposta vira offline em vez de sincronizar para sempre", async () => {
+    const { client, calls } = hangingClient();
+    const store = createSupabaseProgressStore(client, USER_A, {
+      now: () => NOW,
+      requestTimeoutMs: 10,
+      transientRetryLimit: 0,
+      retryDelayMs: [0],
+      sleep: async () => {},
+    });
+
+    const progress = createEmptyProgress(NOW);
+    progress.lessons.h01 = { done: true, score: 100 };
+
+    await expect(store.save(progress)).resolves.toBe(false);
+    expect(calls.abortSignals).toBe(1);
+    expect(store.lastErrorKind).toBe("network");
+  });
+
+  test("classifica erros de aborto/timeout como rede", async () => {
+    expect(classifyProgressSyncError({ name: "TimeoutError", message: "timeout" })).toBe("network");
+    expect(classifyProgressSyncError({ name: "AbortError", message: "aborted" })).toBe("network");
+    expect(classifyProgressSyncError(new Error("AbortError"))).toBe("network");
   });
 });
 

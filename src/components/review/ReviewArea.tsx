@@ -25,8 +25,16 @@ function formatDate(value: string): string {
   }).format(new Date(value));
 }
 
-function SyncNote({ offline, synced }: { offline: boolean; synced: boolean }) {
-  if (!offline && !synced) return null;
+function SyncNote({
+  offline,
+  synced,
+  syncing,
+}: {
+  offline: boolean;
+  synced: boolean;
+  syncing?: boolean;
+}) {
+  if (!offline && !synced && !syncing) return null;
 
   return (
     <p
@@ -35,7 +43,9 @@ function SyncNote({ offline, synced }: { offline: boolean; synced: boolean }) {
     >
       {offline
         ? "Salvo neste dispositivo. A sincronização com sua conta está pendente — nada do que você fez foi perdido."
-        : "Progresso sincronizado com sua conta."}
+        : syncing
+          ? "Sincronizando este resultado com sua conta…"
+          : "Progresso sincronizado com sua conta."}
     </p>
   );
 }
@@ -92,7 +102,7 @@ export function ReviewArea() {
         return;
       }
       void progressStore.save(next).then((ok) => {
-        if (!ok) setSaveWarning(true);
+        setSaveWarning(!ok);
       });
     },
     [progressStore],
@@ -153,8 +163,13 @@ export function ReviewArea() {
     setPhase("done");
   };
 
-  const offline = saveWarning || syncStatus === "offline";
-  const synced = Boolean(user) && syncStatus === "synced" && !offline;
+  // A sessão autenticada manda no estado: uma falha local antiga não pode
+  // esconder para sempre o “sincronizado” depois que a reconexão escoa a fila.
+  const authSynced = Boolean(user) && syncStatus === "synced";
+  const authSyncing = Boolean(user) && syncStatus === "syncing";
+  const offline = syncStatus === "offline" || (saveWarning && !authSynced);
+  const synced = authSynced && !offline;
+  const syncing = authSyncing && !offline;
 
   if (status === "loading" || (loading && !progress && !loadError)) {
     return (
@@ -261,7 +276,7 @@ export function ReviewArea() {
             </p>
           ) : null}
           <div className="mt-4">
-            <SyncNote offline={offline} synced={synced} />
+            <SyncNote offline={offline} synced={synced} syncing={syncing} />
           </div>
         </Card>
 
@@ -340,7 +355,7 @@ export function ReviewArea() {
               {`Começar revisão (${queue?.session.length ?? 0})`}
             </button>
             <div className="mt-3">
-              <SyncNote offline={offline} synced={synced} />
+              <SyncNote offline={offline} synced={synced} syncing={syncing} />
             </div>
           </>
         ) : (
@@ -358,7 +373,7 @@ export function ReviewArea() {
               A revisão usa as respostas já registradas; nenhum cartão é inventado.
             </p>
             <div className="mt-4">
-              <SyncNote offline={offline} synced={synced} />
+              <SyncNote offline={offline} synced={synced} syncing={syncing} />
             </div>
           </>
         )}

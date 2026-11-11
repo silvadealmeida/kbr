@@ -120,6 +120,15 @@ export default async function LandingPage({ searchParams }: { searchParams: Sear
                 O login está temporariamente indisponível. Tente novamente em instantes.
               </p>
             ) : null}
+            {reason === "logout" ? (
+              <p
+                role="status"
+                className="mt-6 rounded-2xl border border-border bg-surface px-4 py-3 text-sm"
+              >
+                Você saiu da conta. Seu progresso deste dispositivo foi mantido e volta
+                ao entrar novamente.
+              </p>
+            ) : null}
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
               <LandingAuth variant="hero" />

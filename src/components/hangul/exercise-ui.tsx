@@ -376,7 +376,7 @@ export function ExerciseView({
   footer?: React.ReactNode;
 }) {
   const headingRef = useRef<HTMLHeadingElement>(null);
-  const continueRef = useRef<HTMLButtonElement>(null);
+  const resultRef = useRef<HTMLDivElement>(null);
 
   // Cada item é uma nova tarefa: leve o foco (e a rolagem) ao enunciado para
   // leitores de tela e para quem responde no celular.
@@ -387,8 +387,15 @@ export function ExerciseView({
     heading.scrollIntoView({ block: "start" });
   }, []);
 
+  // O resultado precisa ser lido antes de a pessoa avançar. Focar o próprio
+  // resultado (em vez do botão “Continuar”) evita que o leitor de tela anuncie
+  // apenas o botão e pule o feedback.
   useEffect(() => {
-    if (result) continueRef.current?.focus();
+    if (!result) return;
+    const element = resultRef.current;
+    if (!element) return;
+    element.focus({ preventScroll: true });
+    element.scrollIntoView({ block: "nearest" });
   }, [result]);
 
   return (
@@ -473,6 +480,8 @@ export function ExerciseView({
 
       {result ? (
         <div
+          ref={resultRef}
+          tabIndex={-1}
           role="status"
           aria-live="polite"
           className={`mt-5 rounded-xl border-2 p-4 ${
@@ -510,7 +519,6 @@ export function ExerciseView({
       <div className="mt-6 flex flex-col gap-3 sm:flex-row">
         {result ? (
           <button
-            ref={continueRef}
             type="button"
             onClick={onContinue}
             className="inline-flex min-h-12 items-center justify-center rounded-xl bg-brand px-6 font-semibold text-brand-fg"

@@ -18,6 +18,11 @@ export type SupabaseProgressStoreOptions = {
   /** Tentativas adicionais para falhas transitórias de rede/servidor. */
   transientRetryLimit?: number;
   retryDelayMs?: readonly number[];
+  /**
+   * Limite por requisição remota. Sem ele, uma conexão móvel instável pode
+   * deixar a UI em "Sincronizando…" indefinidamente. `0` desativa o limite.
+   */
+  requestTimeoutMs?: number;
   sleep?: (milliseconds: number) => Promise<void>;
   onMerged?: (progress: Progress) => void | Promise<void>;
   onError?: (kind: ProgressSyncErrorKind, error?: unknown) => void;
@@ -37,6 +42,43 @@ type RpcRow = {
 const DEFAULT_RETRY_DELAYS = [250, 750] as const;
 const DEFAULT_RETRY_LIMIT = 3;
 const DEFAULT_TRANSIENT_RETRY_LIMIT = 2;
+const DEFAULT_REQUEST_TIMEOUT_MS = 12_000;
+
+/**
+ * Aplica um limite de tempo a um builder do supabase-js quando a API existir.
+ * Os clientes falsos dos testes não implementam `abortSignal`; nesse caso o
+ * builder é devolvido sem alteração.
+ */
+function withRequestTimeout<T extends object>(builder: T, timeoutMs: number): T {
+  if (
+    timeoutMs <= 0 ||
+    typeof AbortSignal === "undefined" ||
+    typeof AbortSignal.timeout !== "function"
+  ) {
+    return builder;
+  }
+
+  const candidate = builder as T & { abortSignal?: (signal: AbortSignal) => T };
+  if (typeof candidate.abortSignal !== "function") return builder;
+
+  try {
+    return candidate.abortSignal(AbortSignal.timeout(timeoutMs));
+  } catch {
+    return builder;
+  }
+}
+
+function isAbortError(error: unknown): boolean {
+  if (!isRecord(error)) {
+    return error instanceof Error && /abort|timeout/i.test(`${error.name} ${error.message}`);
+  }
+  return (
+    error.name === "AbortError" ||
+    error.name === "TimeoutError" ||
+    /abort/i.test(String(error.code ?? "")) ||
+    /abort|timeout/i.test(errorMessage(error))
+  );
+}
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
@@ -94,6 +136,7 @@ export function classifyProgressSyncError(error: unknown): ProgressSyncErrorKind
     status === 408 ||
     status === 429 ||
     (status !== null && status >= 500) ||
+    isAbortError(error) ||
     /fetch|network|timeout|connection|econn|enotfound/i.test(message)
   ) {
     return "network";
@@ -136,6 +179,10 @@ export function createSupabaseProgressStore(
   const retryDelays = options.retryDelayMs ?? DEFAULT_RETRY_DELAYS;
   const sleep = options.sleep ?? ((milliseconds: number) =>
     new Promise<void>((resolve) => setTimeout(resolve, milliseconds)));
+  const requestTimeoutMs = Math.max(
+    0,
+    Math.floor(options.requestTimeoutMs ?? DEFAULT_REQUEST_TIMEOUT_MS),
+  );
 
   let token: string | null = null;
   let base: Progress | null = null;
@@ -160,11 +207,23 @@ export function createSupabaseProgressStore(
   }
 
   async function loadInternal(): Promise<Progress> {
-    const { data, error } = await supabase
-      .from("user_progress")
-      .select("progress, sync_id")
-      .eq("user_id", userId)
-      .maybeSingle();
+    let response: { data: unknown; error: unknown };
+    try {
+      response = await withRequestTimeout(
+        supabase
+          .from("user_progress")
+          .select("progress, sync_id")
+          .eq("user_id", userId)
+          .maybeSingle(),
+        requestTimeoutMs,
+      );
+    } catch (error) {
+      throw new Error("Falha ao carregar progresso remoto", {
+        cause: isAbortError(error) ? { name: "TimeoutError", message: "timeout" } : error,
+      });
+    }
+
+    const { data, error } = response;
 
     if (error) {
       throw new Error("Falha ao carregar progresso remoto", { cause: error });
@@ -239,11 +298,28 @@ export function createSupabaseProgressStore(
     let transientRetries = 0;
 
     while (true) {
-      const { data, error } = await supabase.rpc("save_user_progress", {
-        p_expected_user_id: userId,
-        p_expected_sync_id: token,
-        p_progress: candidate,
-      });
+      let response: { data: unknown; error: unknown };
+      try {
+        response = await withRequestTimeout(
+          supabase.rpc("save_user_progress", {
+            p_expected_user_id: userId,
+            p_expected_sync_id: token,
+            p_progress: candidate,
+          }),
+          requestTimeoutMs,
+        );
+      } catch (error) {
+        const kind = isAbortError(error) ? "network" : classifyProgressSyncError(error);
+        if (kind === "network" && transientRetries < transientRetryLimit) {
+          transientRetries += 1;
+          await sleep(delayFor(transientRetries));
+          continue;
+        }
+        reportError(kind, error);
+        return false;
+      }
+
+      const { data, error } = response;
 
       if (error) {
         const kind = classifyProgressSyncError(error);

@@ -44,6 +44,9 @@ export function CheckpointPlayer({
 
   const progressRef = useRef<Progress | null>(null);
   const answersRef = useRef<Record<string, { correct: boolean; scored?: boolean }>>({});
+  const resultRef = useRef<DetailedCheckResult | null>(null);
+  const submittedRef = useRef<Set<string>>(new Set());
+  const advancedForRef = useRef(-1);
 
   useEffect(() => {
     if (!progressStore) return;
@@ -69,7 +72,7 @@ export function CheckpointPlayer({
         return;
       }
       void progressStore.save(next).then((ok) => {
-        if (!ok) setSaveWarning(true);
+        setSaveWarning(!ok);
       });
     },
     [progressStore],
@@ -80,8 +83,12 @@ export function CheckpointPlayer({
   const requiredCorrect = checkpointRequiredCorrect(checkpoint);
 
   const submit = () => {
-    if (!exercise || !draft || result) return;
+    if (!exercise || !draft || resultRef.current || submittedRef.current.has(exercise.id)) {
+      return;
+    }
+    submittedRef.current.add(exercise.id);
     const checked = checkAnswer(exercise, draft);
+    resultRef.current = checked;
     setResult(checked);
     const nextAnswers = {
       ...answersRef.current,
@@ -99,11 +106,13 @@ export function CheckpointPlayer({
   };
 
   const advance = () => {
-    if (!result) return;
+    if (!resultRef.current || advancedForRef.current === index) return;
+    advancedForRef.current = index;
     if (index + 1 < total) {
       setIndex(index + 1);
       setDraft(null);
       setResult(null);
+      resultRef.current = null;
       return;
     }
 
@@ -123,6 +132,9 @@ export function CheckpointPlayer({
     setIndex(0);
     setDraft(null);
     setResult(null);
+    resultRef.current = null;
+    submittedRef.current = new Set();
+    advancedForRef.current = -1;
     setCheckpointResult(null);
     setPhase("run");
   };

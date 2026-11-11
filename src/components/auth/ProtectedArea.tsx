@@ -27,7 +27,7 @@ function GateCard({ title, children }: { title: string; children: React.ReactNod
  * renderizamos conteúdo para visitantes (`guest`).
  */
 export function ProtectedArea({ children }: { children: React.ReactNode }) {
-  const { status } = useAuth();
+  const { status, signedOut } = useAuth();
   const pathname = usePathname();
   const router = useRouter();
   const view = protectedView(status);
@@ -36,10 +36,10 @@ export function ProtectedArea({ children }: { children: React.ReactNode }) {
     if (view !== "redirect") return;
     const target = loginRedirectPath(
       `${pathname}${window.location.search}`,
-      "sessao-expirada",
+      signedOut ? "logout" : "sessao-expirada",
     );
     router.replace(target);
-  }, [view, pathname, router]);
+  }, [view, pathname, router, signedOut]);
 
   if (view === "content") return <>{children}</>;
 

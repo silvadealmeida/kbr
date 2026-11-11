@@ -112,6 +112,7 @@ For cloud authentication setup, see [Supabase Setup](docs/supabase-setup.md).
 - [System Architecture](docs/architecture.md)
 - [Development Roadmap](docs/roadmap.md)
 - [Supabase and Google OAuth Setup](docs/supabase-setup.md)
+- [Safe CAS Deployment and Real-Device Validation Runbook](docs/sync/deployment-runbook.md)
 - [Privacy and Legal Audit](docs/privacy-audit.md)
 
 ## Project philosophy

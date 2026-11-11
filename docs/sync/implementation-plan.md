@@ -1,6 +1,6 @@
 # KBR — Plano de implementação da sincronização confiável (Fase 4D.2)
 
-**Status:** implementado no código e verificado localmente na Fase 4D.2. A migração **não foi aplicada ao projeto Supabase real** e o deploy do cliente não foi feito. As seções de operação abaixo são o roteiro pendente para staging/produção.
+**Status:** implementado no código e verificado localmente na Fase 4D.2. A preparação operacional da Fase 4D.3 está em `docs/sync/deployment-runbook.md`; a migração **não foi aplicada ao projeto Supabase real**, o cliente não foi implantado e não houve teste real em dois dispositivos. As seções de operação abaixo continuam sendo o roteiro de staging/produção.
 **Pré-requisitos:** `docs/sync/concurrency-audit.md` e `docs/sync/merge-invariants.md`.
 **Limite de verificação:** o RPC foi testado em PostgreSQL 14 local com `auth`/roles emulados e pgTAP, incluindo duas conexões reais; não houve acesso ao Supabase de produção. O mock de e2e prova o fluxo do cliente, não a atomicidade do banco.
 
@@ -262,7 +262,7 @@ Novo contrato interno (o `ProgressStore` público continua `load/save`):
 
 - Nenhuma mudança de fluxo obrigatória.
 - Os componentes continuam chamando `load()` uma vez e `save()` por ação.
-- Se o `save` remoto mesclar dados de outra sessão, a UI local pode não mostrá-los até o próximo load. Isso é aceitável para a 4D.2; a alternativa (retornar o documento mesclado e substituir o estado) é uma melhoria de 4D.3.
+- Se o `save` remoto mesclar dados de outra sessão, a UI local pode não mostrá-los até o próximo load. Isso é aceitável para a 4D.2; a alternativa (retornar o documento mesclado e substituir o estado) fica para uma fase futura.
 - O aviso de sync continua verdadeiro: “Salvo neste dispositivo… pendente” só em `offline`.
 
 ## 6. Migração de dados e compatibilidade
@@ -291,7 +291,7 @@ Consequências práticas:
 - **Não há como o cliente novo impedir um upsert antigo** sem revogar `INSERT/UPDATE` da tabela. Por isso a janela de rollout deve ser curta e os usuários devem ser orientados a recarregar.
 - Um cliente antigo que gravar depois de um CAS pode apagar campos novos (`reviewedAt`, `Attempt.id`) do snapshot, porque envia o documento inteiro que tinha em memória. Os dados de lições/cartões/histórico continuam válidos; a inferência de revisão cobre cartões sem `reviewedAt`.
 - O cliente novo sempre relê e mescla antes de gravar; ao voltar a uma aba antiga, o próximo load recupera o que o servidor ainda tiver. Se o cliente antigo já sobrescreveu, o dado perdido não é reconstruível sem backup.
-- **Transição para hardening (4D.3+):** depois que a telemetria/logs e o teste manual mostrarem que não há clientes antigos ativos, revogar DML direto de `authenticated`/`anon` e manter apenas o RPC. Como o RPC atual é `SECURITY INVOKER`, isso exige migrá-lo para `SECURITY DEFINER` com owner dedicado (ou equivalente) e testar escalada, `search_path` e autorização. A decisão fica para a fase seguinte. **Não fazer isso na 4D.2**, porque quebraria o rollback.
+- **Transição para hardening (4D.4+):** depois que a telemetria/logs e o teste manual mostrarem que não há clientes antigos ativos, revogar DML direto de `authenticated`/`anon` e manter apenas o RPC. Como o RPC atual é `SECURITY INVOKER`, isso exige migrá-lo para `SECURITY DEFINER` com owner dedicado (ou equivalente) e testar escalada, `search_path` e autorização. A decisão fica para a fase seguinte. **Não fazer isso na 4D.2**, porque quebraria o rollback.
 
 ## 7. Falhas e recuperação
 
@@ -396,7 +396,7 @@ O harness local já cobre esses casos e duas conexões concorrentes; a verifica�
 - Não há analytics nem métrica automática de `offline`/conflitos. A proporção é observada por relatos, logs e inspeção manual do localStorage; não inventar números.
 - Após a janela, confirmar que não há tráfego relevante de upsert direto antes de considerar o hardening.
 
-### 9.7 Hardening futuro (4D.3+)
+### 9.7 Hardening futuro (4D.4+)
 
 Migrar para RPC `SECURITY DEFINER` com owner dedicado e revogar DML direto, com testes de escalada, `search_path`, autorização e rollback. Não fazer junto com a primeira mudança.
 
@@ -546,3 +546,16 @@ Isso é aceitável para a 4D.2 e está documentado; a UI não promete ordem exat
 2. `docs: record phase 4D.2 sync implementation` — arquitetura, roadmap, AGENTS, este plano e setup do Supabase.
 
 Cada commit com typecheck/test/build verdes. O commit 1 contém a migração, mas **não** a aplica em produção; o deploy segue a ordem da §9 e não deve ir a produção sem o cliente novo e o teste manual.
+
+## 16. Fase 4D.3 — preparação de deploy e validação real
+
+**Status:** preparação concluída; execução remota pendente de aprovação. Nada foi aplicado no Supabase real, nenhum push/deploy foi feito e não houve teste com dois dispositivos reais.
+
+Entregas:
+
+- `docs/sync/deployment-runbook.md` — avaliação de prontidão, backup, preflight read-only, aplicação da migração pelo SQL Editor/CLI/conexão direta, verificação de função/grants/RLS, smoke test CAS em transação com `rollback`, deploy da Vercel, checklist A–I em duas sessões/dispositivos, garantias versus limites, rollback e riscos dos grants de DML direto.
+- Revisão do código: o cliente novo lê `progress, sync_id` e grava **somente** com `POST /rest/v1/rpc/save_user_progress`; não há fallback de upsert. A migração é aditiva, `create or replace`, sem coluna/índice/backfill, e foi reaplicada com sucesso no PostgreSQL local.
+- Verificações executadas: `npm run typecheck`; `npm test` (20 arquivos, 290 testes); `npm run build`; `npm run e2e` (164 testes, mock); PostgreSQL 14.24 local com 35 asserções pgTAP e 2 cenários de concorrência real com duas conexões (3 asserções). Supabase CLI, staging/produção, Vercel e dispositivos reais **não** foram acessados.
+- Ordem mantida: migração e verificação do RPC primeiro, cliente depois. Não revogar DML nem migrar para `SECURITY DEFINER` nesta fase; isso continua sendo hardening separado (4D.4+), porque quebraria o rollback e os clientes antigos.
+
+Limitações registradas: clientes antigos ainda podem fazer upsert direto durante a janela de rollout; a ordem exata de revisões concorrentes do mesmo cartão não é reconstruível no `Progress` v1; não há atualização ao vivo entre dispositivos; o backup/PITR, o project ref e o último deploy bom precisam ser confirmados pelo responsável antes de qualquer migração.

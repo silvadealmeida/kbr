@@ -96,9 +96,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1794344012.9756684,
-    "seen": 1794344323.6305773,
-    "ast_hash": "5433dba5362185a3e0822189a609da21",
+    "mtime": 1794345272.8171277,
+    "seen": 1794387382.9483364,
+    "ast_hash": "9527e3cee63eb5d805003eeca298db50",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -108,9 +108,9 @@
     "semantic_hash": ""
   },
   "docs/architecture.md": {
-    "mtime": 1794343997.2514422,
-    "seen": 1794344323.6306064,
-    "ast_hash": "4ffa6f13580f79f4fbdb962b77470c9d",
+    "mtime": 1794345304.8214293,
+    "seen": 1794387382.9483588,
+    "ast_hash": "aeb27a43a91d9f5e3b217224647f2ea9",
     "semantic_hash": ""
   },
   "docs/research.md": {
@@ -120,9 +120,9 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794344082.0286174,
-    "seen": 1794344323.6307254,
-    "ast_hash": "bbd3b7278ce255bd3a6802c59088d6df",
+    "mtime": 1794345267.1505117,
+    "seen": 1794387382.9485207,
+    "ast_hash": "5d01af6bbb2bb6c3a15ef78dc8a6bbde",
     "semantic_hash": ""
   },
   "src/lib/hangul/index.ts": {
@@ -330,15 +330,15 @@
     "semantic_hash": ""
   },
   "docs/supabase-setup.md": {
-    "mtime": 1794344120.1035829,
-    "seen": 1794344323.6307263,
-    "ast_hash": "60e76d267ba61381960c42c84b6c8cf1",
+    "mtime": 1794345304.8214293,
+    "seen": 1794387382.948522,
+    "ast_hash": "6114ed803f29a766251590debc99c5a1",
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1794318448.5381656,
-    "seen": 1794318985.074927,
-    "ast_hash": "dd76709c58b3fb7e0b1cd4bbe75db4b1",
+    "mtime": 1794345292.0706446,
+    "seen": 1794387382.9483573,
+    "ast_hash": "36f01c0d0e012013fafa4d3512a5372a",
     "semantic_hash": ""
   },
   "src/app/(app)/dashboard/page.tsx": {
@@ -930,9 +930,9 @@
     "semantic_hash": ""
   },
   "docs/sync/implementation-plan.md": {
-    "mtime": 1794344453.1614099,
-    "seen": 1794344463.3090217,
-    "ast_hash": "ad7b4c253aaa0d63b2edd941f93f6ae0",
+    "mtime": 1794345311.0654771,
+    "seen": 1794387382.9485502,
+    "ast_hash": "6942eaeb33b55a0897e236fb4c1cff99",
     "semantic_hash": ""
   },
   "docs/sync/merge-invariants.md": {
@@ -986,7 +986,13 @@
   "supabase/tests/save_user_progress_rpc.test.sql": {
     "mtime": 1794342744.0068913,
     "seen": 1794344505.419554,
-    "ast_hash": "259488a75d55ac0bcba256c36b04465d",
+    "ast_hash": "",
+    "semantic_hash": ""
+  },
+  "docs/sync/deployment-runbook.md": {
+    "mtime": 1794345326.055172,
+    "seen": 1794387382.948548,
+    "ast_hash": "e5074ab648ecb71c26a989b50b75ee2e",
     "semantic_hash": ""
   },
   "package-lock.json": {

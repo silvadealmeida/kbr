@@ -5,12 +5,12 @@ O KBR usa somente a URL e a chave **publicável** do Supabase no app. O client s
 ## 1. Criar e preparar o projeto Supabase
 
 1. Crie um projeto no Supabase.
-2. Aplique `supabase/migrations/20261110120000_create_user_progress.sql` e `supabase/migrations/20261110180000_add_save_user_progress_rpc.sql` pelo SQL Editor, ou vincule o Supabase CLI e execute `supabase db push`. A segunda é aditiva (função + grants) e não altera dados; leia a ordem de deploy em `docs/sync/implementation-plan.md` §9 antes de aplicá-la em produção.
-3. Confirme no Table Editor que `public.user_progress` tem RLS habilitado e que `public.save_user_progress(uuid,uuid,jsonb)` existe com `SECURITY INVOKER`, `search_path` vazio e `EXECUTE` só para `authenticated`.
+2. Aplique `supabase/migrations/20261110120000_create_user_progress.sql` e `supabase/migrations/20261110180000_add_save_user_progress_rpc.sql` pelo SQL Editor, ou vincule o Supabase CLI e execute `supabase db push`. A segunda é aditiva (função + grants) e não altera dados. Antes de aplicá-la em produção, siga `docs/sync/deployment-runbook.md` (backup/PITR, preflight, aprovação explícita, verificação e rollback); a ordem resumida também está em `docs/sync/implementation-plan.md` §9. **Não aplique a migração remota sem aprovação explícita.**
+3. Confirme no Table Editor que `public.user_progress` tem RLS habilitado e que `public.save_user_progress(uuid,uuid,jsonb)` existe com `SECURITY INVOKER`, `search_path` vazio e `EXECUTE` só para `authenticated`. A função pode ser reaplicada com `create or replace` desde que a assinatura e o retorno sejam os mesmos; não crie sobrecargas.
 4. Para validar as políticas e o RPC com Docker e Supabase CLI, execute `supabase test db`. Os testes estão em `supabase/tests/user_progress_rls.test.sql` e `supabase/tests/save_user_progress_rpc.test.sql`; cobrem acesso anônimo, proprietário, outro usuário, CAS, validação de payload e conflito. Sem CLI, o harness local equivalente é `PGUSER=postgres ./supabase/tests/local/run-local-sql-tests.sh` (PostgreSQL + pgTAP + concorrência real com duas conexões).
 5. Confirme que o cliente usa `POST /rest/v1/rpc/save_user_progress` para gravar e que não há `PATCH/POST /rest/v1/user_progress` no Network.
 
-Não desabilite RLS para resolver erros de sincronização. Verifique primeiro se as migrations foram aplicadas e se a sessão está autenticada. Os grants de DML direto na tabela foram mantidos na 4D.2 para rollback/clientes antigos; não os revogue sem o hardening planejado (4D.3+).
+Não desabilite RLS para resolver erros de sincronização. Verifique primeiro se as migrations foram aplicadas e se a sessão está autenticada. Os grants de DML direto na tabela foram mantidos na 4D.2 para rollback/clientes antigos; não os revogue sem o hardening planejado (4D.4+).
 
 ## 2. Configurar o Google Auth Platform
 

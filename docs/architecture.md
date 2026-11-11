@@ -97,7 +97,7 @@ Currículo e especificação pedagógica: `docs/pedagogy/`. A Fase 3B.5 implemen
 - `src/components/dashboard/DashboardArea.tsx` carrega pelo `ProgressStore`, trata carregando/erro/vazio, usa `ProgressBar` (`role="progressbar"`), listas semânticas e alvos ≥44 px. O banner de sincronização mostra “Salvo neste dispositivo… pendente” apenas com status `offline` e “Sincronizando…” durante o envio; nenhum dado não sincronizado é apresentado como salvo na conta.
 
 ## Sincronização multi-dispositivo (Fase 4D.2)
-O store remoto grava o documento `Progress` inteiro (snapshot JSONB), mas a escrita passou a ser um compare-and-swap transacional. A migração `supabase/migrations/20261110180000_add_save_user_progress_rpc.sql` adiciona `public.save_user_progress(p_expected_user_id, p_expected_sync_id, p_progress)`:
+O store remoto grava o documento `Progress` inteiro (snapshot JSONB), mas a escrita passou a ser um compare-and-swap transacional. A preparação operacional da Fase 4D.3 (backup, migração, verificação, deploy, teste em dois dispositivos, garantias/limites e rollback) está em `docs/sync/deployment-runbook.md`; ela **não** foi executada no Supabase/Vercel real. A migração `supabase/migrations/20261110180000_add_save_user_progress_rpc.sql` adiciona `public.save_user_progress(p_expected_user_id, p_expected_sync_id, p_progress)`:
 
 - `SECURITY INVOKER`, `search_path = ''`, sem SQL dinâmico; RLS e grants da tabela continuam valendo.
 - O dono da linha é sempre `auth.uid()`; `p_expected_user_id` é uma asserção de sessão que impede um store atrasado (após troca de conta) de gravar o progresso antigo na conta nova.
@@ -111,9 +111,9 @@ Estados observáveis: `idle`, `syncing`, `synced`, `offline`; `AuthProvider` tam
 
 **Limitações conhecidas e pendências:**
 - Revisões concorrentes do mesmo cartão: a revisão mais nova vence por carimbo lógico e o histórico guarda as duas tentativas, mas o `Progress` v1 não tem identidade/ordem de evento por revisão; a composição sequencial exata não é garantida. A solução definitiva exigiria eventos imutáveis/projeção, fora do escopo.
-- O cliente novo usa o RPC, mas os grants de DML direto na tabela foram mantidos para rollback e clientes antigos. Durante a janela de rollout, um cliente antigo ainda pode fazer upsert sem CAS e sobrescrever uma escrita nova; a transição para revogar DML + `SECURITY DEFINER` dedicado é hardening futuro (4D.3+).
-- A migração e o deploy do cliente **não** foram aplicados em produção nesta fase. A verificação SQL foi feita em PostgreSQL 14 local com `auth`/roles emulados, pgTAP e duas conexões reais; `supabase test db` não foi executado por falta de CLI/stack Supabase. Login Google real, dois dispositivos reais e iPhone/Chrome iOS continuam manuais.
-- O roteiro de backup, deploy, verificação do RPC, teste seguro em dispositivos, monitoramento e rollback está em `docs/sync/implementation-plan.md` (§9–§10).
+- O cliente novo usa o RPC, mas os grants de DML direto na tabela foram mantidos para rollback e clientes antigos. Durante a janela de rollout, um cliente antigo ainda pode fazer upsert sem CAS e sobrescrever uma escrita nova; a transição para revogar DML + `SECURITY DEFINER` dedicado é hardening futuro (4D.4+).
+- A migração e o deploy do cliente **não** foram aplicados em produção. A verificação SQL foi feita em PostgreSQL 14 local com `auth`/roles emulados, pgTAP e duas conexões reais; `supabase test db` não foi executado por falta de CLI/stack Supabase. Login Google real, dois dispositivos reais e iPhone/Chrome iOS continuam manuais. A preparação da 4D.3 não alterou esse estado.
+- O roteiro de backup, deploy, verificação do RPC, teste seguro em dispositivos, monitoramento e rollback está em `docs/sync/implementation-plan.md` (§9–§10); a versão operacional detalhada, com checklist A–I e critérios de aprovação, está em `docs/sync/deployment-runbook.md`.
 
 ## Voz
 O player usa `window.speechSynthesis` com `lang="ko-KR"`, rate 0.85, sob demanda (sem autoplay). Como a disponibilidade de voz coreana varia por sistema, todo item de escuta exibe uma dica textual (`fallback`) que descreve o som sem entregar a resposta escrita. Não há arquivos de áudio, avaliação de pronúncia nem módulo próprio de voz nesta fase.

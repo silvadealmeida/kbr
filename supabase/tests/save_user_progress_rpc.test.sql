@@ -158,6 +158,9 @@ select is_empty(
   'another user reads no progress'
 );
 
+-- Os grants de DML direto do próprio dono continuam válidos nesta fase para
+-- permitir rollback/clientes antigos. Este teste cobre apenas a tentativa de
+-- inserir uma linha de OUTRO usuário, que a RLS deve negar.
 select throws_ok(
   $$insert into public.user_progress (user_id, progress, sync_id)
     values (
@@ -167,7 +170,7 @@ select throws_ok(
     )$$,
   '42501',
   null,
-  'direct table insert for the owner is denied by RLS'
+  'direct table insert for another user is denied by RLS'
 );
 
 select throws_ok(

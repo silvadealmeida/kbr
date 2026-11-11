@@ -4,14 +4,14 @@ App web de estudo de coreano para brasileiros (mobile-first, Chrome no Windows/i
 Fontes de verdade: `docs/architecture.md` (stack, estrutura, modelo de dados, interfaces), `docs/research.md` (pedagogia, limites de conteúdo), `docs/roadmap.md` (fases e status). **Leia-os antes de mexer; não repita a pesquisa e não duplique o conteúdo deles aqui.**
 
 ## Fase atual
-**Fase 6A — PWA, acessibilidade, uso mobile e desempenho** concluída em código e testes locais: manifesto e metadados de instalação endurecidos, cabeçalhos de segurança e `Cache-Control: private, no-store` em `/auth/*` e rotas privadas, Noto Sans KR restrita à área autenticada, SDK do Supabase carregado sob demanda, foco/rolagem e Enter no player, correções axe, estados honestos de carregamento e testes PWA/axe/WebKit. O app é instalável, mas **não há service worker nem cache offline**; não prometa estudo offline. A **4D.3** foi **relatada pelo usuário como concluída e aprovada em produção** (migração, deploy e validação real em dispositivos); esta sessão não acessou Supabase/Vercel e registra isso como relato separado, não como verificação própria. As Fases 5, 4C, 4B, 4A e o Hangul (`h01`–`h25`/`c1`–`c4`) continuam funcionais. Próximo passo recomendado, **somente com pedido explícito**: Fase 6B — decidir cache/offline com service worker (sem cachear auth, tokens, respostas de API por usuário ou progresso sensível), ampliar a matriz WebKit e fazer verificação manual em iPhone/Chrome iOS. A Fase 7 (CEFR A1–C2, IA/Heron) **não** foi iniciada. Hardening de DML direto/`SECURITY DEFINER` fica para uma fase separada (4D.4+). Status real, limitações e pendências: `docs/roadmap.md`, `docs/architecture.md` (§Cursos/Hangul/Sincronização/Testes) e `docs/privacy-audit.md`.
+**Fase 6B — confiabilidade mobile, decisão PWA/offline e acessibilidade** concluída em código e testes locais: timeouts de 12 s nas requisições remotas (sem “Sincronizando…” infinito), reconexão que relê/mescla o progresso sem recarregar, aviso global de “Sem conexão”, estados pendente/sincronizado corretos na revisão, logout explícito sem falso “sessão expirou”, foco no resultado do exercício, proteção contra envio duplo e suíte WebKit ampliada (OAuth mockado, lição/checkpoint/revisão/painel/catálogo, offline/reconexão, logout/login, voltar/avançar, reduced motion, viewport estreito). **Service worker/offline foi adiado com justificativa em `docs/offline-pwa-decision.md`**: HTML de lição é privado/`no-store`, respostas por usuário não podem ser cacheadas e, sem isso, o ganho offline não paga o custo de versionamento. A **4D.3** foi **relatada pelo usuário como concluída e aprovada em produção** (migração, deploy e validação real em dispositivos); esta sessão não acessou Supabase/Vercel e registra isso como relato separado, não como verificação própria. As Fases 6A, 5, 4C, 4B, 4A e o Hangul (`h01`–`h25`/`c1`–`c4`) continuam funcionais. A Fase 7 (CEFR A1–C2, IA/Heron, redesign visual com `pendenteDesign.md`) **não** foi iniciada e só começa com pedido explícito. Pendência manual: checklist em `docs/iphone-manual-checklist.md` (iPhone/Chrome iOS/VoiceOver reais não são testáveis aqui). Hardening de DML direto/`SECURITY DEFINER` fica para uma fase separada (4D.4+). Status real, limitações e pendências: `docs/roadmap.md`, `docs/architecture.md` (§Cursos/Hangul/Sincronização/Testes) e `docs/privacy-audit.md`.
 O Proxy do Next 16 fica em `src/proxy.ts` (o App Router está em `src/app`); não recrie `proxy.ts` na raiz.
 
 ## Regras
 - Interface em pt-BR; `lang="ko"` nos trechos coreanos (fonte Noto Sans KR).
 - Mobile-first: alvos ≥ 44–48px, safe-area, 375px → desktop, contraste AA, sem animações desnecessárias.
 - Sem estatísticas falsas: use estados vazios; placeholders indicam "Em desenvolvimento".
-- Fora de escopo até o roadmap pedir: novas lições/conteúdo, cache offline via service worker e IA.
+- Fora de escopo até o roadmap pedir: novas lições/conteúdo, cache offline via service worker (deferido na 6B — ver `docs/offline-pwa-decision.md`) e IA.
 - `localStorage` só via `lib/storage`; lógica pura em `lib/` (com `now` injetado); conteúdo em `content/` sem lógica.
 - Conteúdo coreano original (sem copiar cursos/apps); marcar como "em revisão".
 - TypeScript estrito; poucas dependências; não use `"use client"` em módulos cujos exports não-componente o servidor importa (ex.: `lib/routes.ts`).
@@ -24,7 +24,7 @@ npm run dev         # servidor local
 npm run typecheck   # tsc --noEmit
 npm test            # Vitest (tests/)
 npm run build       # build de produção
-npm run e2e         # Playwright (Chromium 375/390/768/1280 + WebKit 390 em smoke/PWA/a11y; porta 3100)
+npm run e2e         # Playwright (Chromium 375/390/768/1280 + WebKit 390 em smoke/PWA/a11y/webkit; porta 3100)
 PGUSER=postgres ./supabase/tests/local/run-local-sql-tests.sh  # pgTAP + concorrência real (PostgreSQL local)
 ```
 Antes de concluir qualquer tarefa: typecheck + test + build verdes. iPhone/Chrome iOS reais não são testáveis aqui — verificação manual.

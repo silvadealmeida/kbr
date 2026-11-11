@@ -1,3 +1,5 @@
+import { HANGUL_COURSE as HANGUL_COURSE_DEFINITION } from "@/content/courses";
+import { courseLevelLabel } from "@/content/courses/types";
 import type { Checkpoint, Lesson } from "@/content/hangul/types";
 import {
   buildReviewQueue,
@@ -17,9 +19,10 @@ import {
 const DAY_MS = 24 * 60 * 60 * 1_000;
 const RECENT_ACTIVITY_LIMIT = 8;
 
+/** Metadados do curso vêm do registro único; o dashboard não os duplica. */
 export const HANGUL_COURSE = {
-  title: "Hangul",
-  level: "Pré-A1",
+  title: HANGUL_COURSE_DEFINITION.title,
+  level: courseLevelLabel(HANGUL_COURSE_DEFINITION.level),
 } as const;
 
 export type AttemptCategory = "lesson" | "checkpoint" | "review" | "other";

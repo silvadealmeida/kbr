@@ -53,9 +53,10 @@ const steps = [
 
 const targetLabels: Record<string, string> = {
   "/dashboard": "o painel",
+  "/cursos": "os cursos",
   "/hangul": "o Hangul",
   "/vocabulario": "o vocabulário",
-  "/licoes": "as lições",
+  "/licoes": "os cursos",
   "/revisao": "a revisão",
 };
 

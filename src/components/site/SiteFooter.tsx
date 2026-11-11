@@ -2,9 +2,9 @@ import Link from "next/link";
 
 const learnLinks = [
   { href: "/dashboard", label: "Painel" },
+  { href: "/cursos", label: "Cursos" },
   { href: "/hangul", label: "Hangul" },
   { href: "/vocabulario", label: "Vocabulário" },
-  { href: "/licoes", label: "Lições" },
   { href: "/revisao", label: "Revisão" },
 ];
 

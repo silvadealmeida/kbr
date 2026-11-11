@@ -6,6 +6,8 @@ import { CourseCompletionPanel } from "@/components/hangul/CourseCompletionPanel
 import { ButtonLink } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { ProgressBar } from "@/components/ui/ProgressBar";
+import { getPlannedCourses } from "@/content/courses";
+import { courseLevelLabel } from "@/content/courses/types";
 import { CHECKPOINTS } from "@/content/hangul/checkpoints";
 import { LESSONS } from "@/content/hangul/lessons";
 import { buildCourseCompletionReport, type CourseCompletionReport } from "@/lib/progress/completion";
@@ -17,6 +19,9 @@ import {
 import type { SyncStatus } from "@/lib/storage";
 
 const BOXES = [1, 2, 3, 4, 5] as const;
+const PLANNED_LEVELS = getPlannedCourses()
+  .map((course) => courseLevelLabel(course.level))
+  .join(" · ");
 
 const dateFormatter = new Intl.DateTimeFormat("pt-BR", {
   day: "2-digit",
@@ -293,6 +298,21 @@ export function DashboardArea() {
           <ButtonLink href="/hangul">Abrir Hangul</ButtonLink>
         </Card>
       )}
+
+      <Card>
+        <p className="text-sm font-semibold text-brand">Catálogo de cursos</p>
+        <h2 className="mt-1 text-xl font-semibold">
+          Hangul disponível · {PLANNED_LEVELS} em planejamento
+        </h2>
+        <p className="mt-1 text-muted">
+          O curso Hangul é Pré-A1. Concluí-lo não é certificação CEFR, não comprova
+          proficiência oficial e não desbloqueia o A1 automaticamente. Os demais
+          níveis ainda não têm lições.
+        </p>
+        <ButtonLink href="/cursos" variant="ghost">
+          Ver catálogo de cursos
+        </ButtonLink>
+      </Card>
 
       <Card>
         <div className="flex flex-wrap items-baseline justify-between gap-2">

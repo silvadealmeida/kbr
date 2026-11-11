@@ -984,9 +984,9 @@
     "semantic_hash": ""
   },
   "supabase/tests/save_user_progress_rpc.test.sql": {
-    "mtime": 1794342744.0068913,
-    "seen": 1794344505.419554,
-    "ast_hash": "",
+    "mtime": 1794387272.0560353,
+    "seen": 1794396217.3332884,
+    "ast_hash": "78857e182968fd3773cbffaa033e27c8",
     "semantic_hash": ""
   },
   "docs/sync/deployment-runbook.md": {

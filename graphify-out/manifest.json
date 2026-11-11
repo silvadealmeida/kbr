@@ -120,9 +120,9 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794402152.5988739,
-    "seen": 1794402242.5988727,
-    "ast_hash": "7c4c0ee4c26d74454f6dbd6ae2342584",
+    "mtime": 1794409318.1049664,
+    "seen": 1794409499.5926495,
+    "ast_hash": "ba004068e7df94b1c933f6ed7bb47101",
     "semantic_hash": ""
   },
   "src/lib/hangul/index.ts": {
@@ -1125,6 +1125,48 @@
     "mtime": 1794401268.4642706,
     "seen": 1794402242.5988672,
     "ast_hash": "aa113858c2027c8a537944fd4750e0bf",
+    "semantic_hash": ""
+  },
+  "docs/design/component-redesign-plan.md": {
+    "mtime": 1794409472.9863536,
+    "seen": 1794409499.592624,
+    "ast_hash": "003facecb5f190df1aed603ad9169d9d",
+    "semantic_hash": ""
+  },
+  "docs/design/creative-direction.md": {
+    "mtime": 1794408777.9631388,
+    "seen": 1794409499.5926263,
+    "ast_hash": "e7eac910e9daeca7dc0cd2aacda7d837",
+    "semantic_hash": ""
+  },
+  "docs/design/design-system-spec.md": {
+    "mtime": 1794409381.486815,
+    "seen": 1794409499.592628,
+    "ast_hash": "9e9cafc372c055c132f20fe0a3b5185f",
+    "semantic_hash": ""
+  },
+  "docs/design/hangul-interaction-concepts.md": {
+    "mtime": 1794409327.7646022,
+    "seen": 1794409499.5926292,
+    "ast_hash": "4b3a8a6b33306dc26ed68e5e8cba5365",
+    "semantic_hash": ""
+  },
+  "docs/design/motion-design-spec.md": {
+    "mtime": 1794409449.940451,
+    "seen": 1794409499.592631,
+    "ast_hash": "179d50e0bd26dfcbb6dab057c412cc19",
+    "semantic_hash": ""
+  },
+  "docs/design/phase-7-implementation-roadmap.md": {
+    "mtime": 1794409350.2708945,
+    "seen": 1794409499.5926356,
+    "ast_hash": "bb302163179ca8d9f98feec71d797131",
+    "semantic_hash": ""
+  },
+  "docs/design/visual-research.md": {
+    "mtime": 1794409239.553829,
+    "seen": 1794409499.5926366,
+    "ast_hash": "36e8e8eac34e58930a86639f7ae0979a",
     "semantic_hash": ""
   },
   "package-lock.json": {

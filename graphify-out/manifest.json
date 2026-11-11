@@ -120,9 +120,9 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794345267.1505117,
-    "seen": 1794387382.9485207,
-    "ast_hash": "5d01af6bbb2bb6c3a15ef78dc8a6bbde",
+    "mtime": 1794387437.4878006,
+    "seen": 1794387526.5561464,
+    "ast_hash": "6e2db7d60abd9d6c8d5efc604f939533",
     "semantic_hash": ""
   },
   "src/lib/hangul/index.ts": {
@@ -930,9 +930,9 @@
     "semantic_hash": ""
   },
   "docs/sync/implementation-plan.md": {
-    "mtime": 1794345311.0654771,
-    "seen": 1794387382.9485502,
-    "ast_hash": "6942eaeb33b55a0897e236fb4c1cff99",
+    "mtime": 1794387437.4878006,
+    "seen": 1794387526.5562432,
+    "ast_hash": "5e63b08d9b3af015f79a60b434528f4b",
     "semantic_hash": ""
   },
   "docs/sync/merge-invariants.md": {
@@ -990,9 +990,9 @@
     "semantic_hash": ""
   },
   "docs/sync/deployment-runbook.md": {
-    "mtime": 1794345326.055172,
-    "seen": 1794387382.948548,
-    "ast_hash": "e5074ab648ecb71c26a989b50b75ee2e",
+    "mtime": 1794387455.2477188,
+    "seen": 1794387526.5562415,
+    "ast_hash": "b1986e00ba5bd1b5f31d09145beffd4f",
     "semantic_hash": ""
   },
   "package-lock.json": {

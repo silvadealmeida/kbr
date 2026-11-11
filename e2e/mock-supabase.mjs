@@ -155,6 +155,27 @@ export function createMockSupabaseServer() {
       return;
     }
 
+    // O cliente monta a URL de autorização localmente e navega para ela; o
+    // teste WebKit intercepta antes de chegar aqui, mas manter a rota evita um
+    // 404 confuso quando alguém abre o fluxo manualmente.
+    if (url.pathname === "/auth/v1/authorize" && request.method === "GET") {
+      response.writeHead(302, {
+        location: `https://accounts.google.com/o/oauth2/v2/auth?provider=${url.searchParams.get("provider") ?? "google"}`,
+      });
+      response.end();
+      return;
+    }
+
+    if (url.pathname === "/auth/v1/logout" && request.method === "POST") {
+      if (!user) {
+        json(response, 401, { message: "invalid token" });
+        return;
+      }
+      response.writeHead(204, { "access-control-allow-origin": "*" });
+      response.end();
+      return;
+    }
+
     if (url.pathname.startsWith("/rest/v1/user_progress")) {
       if (!user) {
         json(response, 401, { code: "42501", message: "not authenticated" });

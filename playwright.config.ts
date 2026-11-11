@@ -23,11 +23,11 @@ export default defineConfig({
     { name: "mobile-390", use: { ...devices["Desktop Chrome"], viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true } },
     { name: "tablet-768", use: { ...devices["Desktop Chrome"], viewport: { width: 768, height: 1024 }, hasTouch: true, isMobile: true } },
     { name: "desktop-1280", use: { ...devices["Desktop Chrome"], viewport: { width: 1280, height: 800 } } },
-    // Cobertura Safari/WebKit limitada a fumaça, PWA e acessibilidade.
+    // Cobertura Safari/WebKit: fumaça, PWA, acessibilidade e fluxos móveis.
     {
       name: "webkit-390",
       use: { ...devices["iPhone 13"] },
-      testMatch: /(smoke|pwa|a11y)\.spec\.ts/,
+      testMatch: /(smoke|pwa|a11y|webkit)\.spec\.ts/,
     },
   ],
 });

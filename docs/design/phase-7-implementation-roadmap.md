@@ -101,14 +101,14 @@ Dependências: 7C depende de 7B; 7D de 7B (e reusa primitivas da 7C); 7E de 7D; 
 
 **Rollback:** reverter por arquivo; landing e nav são independentes do player.
 
-## 6. Fase 7D — Lição, checkpoint e composição
+## 6. Fase 7D — Lição e composição
 
 **Objetivo:** redesenhar o coração do produto sem alterar respostas ou progresso.
 
 **Entregas:**
 
 1. Extrair `exercise-ui.tsx` em primitivas: `ChoiceList`, `TextAnswer`, `SyllableBuilder`, `AudioPrompt`, `ReadingPrompt`, `FeedbackPanel`.
-2. Cabeçalho de lâmina no `LessonPlayer`/`CheckpointPlayer`.
+2. Cabeçalho de lâmina no `LessonPlayer` (o `CheckpointPlayer` reusa a mesma moldura, mas o diagnóstico/final fica na 7E).
 3. Feedback com foco, ícone, explicação; progresso com `aria-valuetext`.
 4. **Bancada de composição** (`SyllableBuilder`) com zonas inicial/medial/final, toque + teclado, fallback sem drag.
 5. **Camadas de pronúncia** para `h21`–`h25` (ligação, nasalização, aspiração) usando dados existentes.
@@ -116,26 +116,25 @@ Dependências: 7C depende de 7B; 7D de 7B (e reusa primitivas da 7C); 7E de 7D; 
 
 **Não entra:** mudar enunciados, opções, respostas, `checkAnswer`, ordem, guards, `Progress` v1, SRS.
 
-**Testes:** unitários de `checkAnswer`; e2e de lição/checkpoint, Enter, duplo envio, foco, voltar/avançar, WebKit, reduced motion; axe; 320/375.
+**Testes:** unitários de `checkAnswer`; e2e de lição, Enter, duplo envio, foco, voltar/avançar, WebKit, reduced motion; axe; 320/375.
 
-**Saída:** todos os testes de lição/checkpoint verdes; nenhuma diferença de comportamento observável além da visual; conteúdo coreano intocado.
+**Saída:** todos os testes de lição verdes; nenhuma diferença de comportamento observável além da visual; conteúdo coreano intocado.
 
 **Rollback:** manter a versão antiga de `exercise-ui` atrás de flag? Preferir reverter o commit; a extração deve ser mecânica e testada.
 
 **Risco:** alto. Fazer em sub-fatias: (a) primitivas + lição, (b) composição, (c) pronúncia.
 
-## 7. Fase 7E — Superfícies do app
+## 7. Fase 7E — Superfícies do app e checkpoint
 
 **Objetivo:** revisão, catálogo, visão do Hangul, painel e checkpoint com a nova linguagem.
 
 **Entregas:**
 
-1. `ReviewArea`: cartão-prancha, mostrar resposta, botões, sync, vazio, conclusão.
-2. `CourseCatalog`: índice de lâminas, estados, CEFR visível.
-3. `HangulCourse`: régua 25+4, lição atual, pranchas, status.
-4. `DashboardArea`: próximo passo dominante, régua, estatísticas, revisão, atividade.
-5. `CheckpointPlayer`/`DiagnosticsList`: mesma moldura, diagnóstico legível.
-6. `HangulCourse` overview: estados de carregamento/erro.
+1. `CheckpointPlayer`/`DiagnosticsList`: mesma moldura da lição, diagnóstico legível, resultado final.
+2. `ReviewArea`: cartão-prancha, mostrar resposta, botões, sync, vazio, conclusão.
+3. `CourseCatalog`: índice de lâminas, estados, CEFR visível.
+4. `HangulCourse`: régua 25+4, lição atual, pranchas, status; estados de carregamento/erro.
+5. `DashboardArea`: próximo passo dominante, régua, estatísticas, revisão, atividade.
 
 **Não entra:** conclusão (7F), novas métricas, novos campos, novas consultas.
 

@@ -1,6 +1,28 @@
 import type { Metadata, Viewport } from "next";
+import { Archivo, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/components/auth/AuthProvider";
+
+// Fontes self-hosted no build (next/font): nenhuma requisição ao Google em runtime.
+// `preload: false` evita disputar banda com o LCP; o navegador baixa apenas a
+// família realmente usada na página. Noto Sans KR continua restrita a (app).
+const archivo = Archivo({
+  subsets: ["latin"],
+  weight: "variable",
+  variable: "--font-archivo",
+  // `optional` evita troca tardia de métricas na landing (CLS < 0,1). Em visitas
+  // com cache a fonte aparece; na primeira visita lenta, o fallback métrico fica.
+  display: "optional",
+  preload: false,
+});
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-plex-mono",
+  display: "swap",
+  preload: false,
+});
 
 export const metadata: Metadata = {
   title: { default: "KBR — Coreano para brasileiros", template: "%s · KBR" },
@@ -25,8 +47,8 @@ export const viewport: Viewport = {
   initialScale: 1,
   viewportFit: "cover",
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fafaf7" },
-    { media: "(prefers-color-scheme: dark)", color: "#121413" },
+    { media: "(prefers-color-scheme: light)", color: "#f4efe3" },
+    { media: "(prefers-color-scheme: dark)", color: "#101512" },
   ],
 };
 
@@ -37,7 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <head><script dangerouslySetInnerHTML={{ __html: themeScript }} /></head>
-      <body className="font-sans antialiased">
+      <body className={`${archivo.variable} ${plexMono.variable} font-sans antialiased`}>
         <AuthProvider>{children}</AuthProvider>
       </body>
     </html>

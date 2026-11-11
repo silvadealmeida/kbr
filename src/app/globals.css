@@ -1,19 +1,299 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* ==========================================================================
+   KBR — Fundação visual “Composição” (Fase 7B)
+
+   Primitivos e tokens semânticos aprovados em docs/design/design-system-spec.md.
+   A aplicação continua usando os nomes antigos (--bg, --surface, --fg, --muted,
+   --border, --brand, --brand-fg, --accent-soft) via aliases até a Fase 7G.
+   --brand permanece celadon na 7B para não transformar todos os links e botões
+   existentes em vermelho-selo; o selo tem token próprio (--seal).
+   ========================================================================== */
+
 :root {
-  --bg: #fafaf7; --surface: #ffffff; --fg: #1c1b1a; --muted: #5f5b55; --border: #e4e1da;
-  --brand: #2f5d50; --brand-fg: #ffffff; --accent-soft: #e3efe9;
+  color-scheme: light;
+
+  /* Primitivos — não usar diretamente em componentes. */
+  --paper-50: #fbf7ec;
+  --paper-100: #f4efe3;
+  --paper-200: #eae3d3;
+  --paper-300: #d8d0bf;
+  --ink-900: #201e19;
+  --ink-700: #5c574c;
+  --ink-500: #6b6255;
+  --seal-600: #c33a22;
+  --seal-700: #a02e17;
+  --celadon-700: #2e6a5b;
+  --celadon-800: #1f4e42;
+  --night-950: #101512;
+  --night-900: #171e1a;
+  --night-800: #1f2a24;
+  --night-700: #33413a;
+  --bone-100: #f2ede2;
+  --bone-300: #b4afa3;
+  --coral-400: #ff8a70;
+  --mint-300: #8fd3be;
+  --line-strong-light: #b9af9b;
+  --line-strong-dark: #4a5a51;
+  --faint-dark: #a8a296;
+
+  /* Semânticos — tema claro. */
+  --bg: var(--paper-100);
+  --surface: var(--paper-50);
+  --surface-2: var(--paper-200);
+  --fg: var(--ink-900);
+  --muted: var(--ink-700);
+  --faint: var(--ink-500);
+  --line: var(--paper-300);
+  --line-strong: var(--line-strong-light);
+  --seal: var(--seal-600);
+  --seal-fg: #ffffff;
+  --accent: var(--celadon-700);
+  --accent-fg: #ffffff;
+  --success: var(--celadon-800);
+  --success-soft: #dceae3;
+  --danger: var(--seal-700);
+  --danger-soft: #f3ddd6;
+  --warning: #7a4e00;
+  --warning-soft: #f0e4c8;
+  --info: var(--accent);
+  --info-soft: var(--surface-2);
+  --focus: var(--celadon-700);
+  --selection: #e8cdbf;
+
+  /* Aliases legados (7B–7G). Não criar código novo com eles. */
+  --brand: var(--accent);
+  --brand-fg: var(--accent-fg);
+  --border: var(--line);
+  --accent-soft: var(--surface-2);
+
+  /* Forma — nomes por papel para não sobrescrever a escala rounded-* existente. */
+  --radius-seal: 4px;
+  --radius-field: 8px;
+  --radius-plate: 12px;
+  --radius-panel: 16px;
+  --radius-hero: 24px;
+  --radius-pill: 999px;
+
+  /* Layout e espaçamento (base de 4 px via escala do Tailwind). */
+  --gutter: clamp(1rem, 4vw, 2rem);
+  --space-section: clamp(3rem, 7vw, 7rem);
+
+  /* Movimento. */
+  --motion-instant: 80ms;
+  --motion-fast: 140ms;
+  --motion-base: 220ms;
+  --motion-slow: 360ms;
+  --motion-cinematic: 640ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+  --ease-spring-soft: cubic-bezier(0.34, 1.4, 0.64, 1);
+
+  /* Textura de papel: tile SVG estático, ~400 B, usada só onde a 7C aplicar. */
+  --texture-paper: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='128' height='128' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
 }
+
 .dark {
-  --bg: #121413; --surface: #1b1e1c; --fg: #f1efe9; --muted: #a9a59c; --border: #2e332f;
-  --brand: #7fc4a8; --brand-fg: #0d1713; --accent-soft: #22302a;
+  color-scheme: dark;
+
+  --bg: var(--night-950);
+  --surface: var(--night-900);
+  --surface-2: var(--night-800);
+  --fg: var(--bone-100);
+  --muted: var(--bone-300);
+  --faint: var(--faint-dark);
+  --line: var(--night-700);
+  --line-strong: var(--line-strong-dark);
+  --seal: var(--coral-400);
+  --seal-fg: var(--night-950);
+  --accent: var(--mint-300);
+  --accent-fg: var(--night-950);
+  --success: var(--mint-300);
+  --success-soft: #1c3a31;
+  --danger: var(--coral-400);
+  --danger-soft: #3a211c;
+  --warning: #f0c36a;
+  --warning-soft: #332917;
+  --info: var(--accent);
+  --info-soft: var(--surface-2);
+  --focus: var(--mint-300);
+  --selection: #3a4a41;
+
+  --brand: var(--accent);
+  --brand-fg: var(--accent-fg);
+  --border: var(--line);
+  --accent-soft: var(--surface-2);
 }
+
 @theme inline {
-  --color-bg: var(--bg); --color-surface: var(--surface); --color-fg: var(--fg); --color-muted: var(--muted);
-  --color-border: var(--border); --color-brand: var(--brand); --color-brand-fg: var(--brand-fg); --color-soft: var(--accent-soft);
-  --font-sans: var(--font-pt), system-ui, sans-serif;
-  --font-ko: var(--font-kr), "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-seal: var(--seal);
+  --color-seal-fg: var(--seal-fg);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+  --color-focus: var(--focus);
+  --color-selection: var(--selection);
+
+  /* Aliases expostos ao Tailwind até a 7G. */
+  --color-brand: var(--brand);
+  --color-brand-fg: var(--brand-fg);
+  --color-border: var(--border);
+  --color-soft: var(--accent-soft);
+
+  /* @theme inline: as famílias são resolvidas no elemento que recebe a classe
+     do next/font (body para Archivo/Plex Mono; shell de (app) para Noto Sans KR). */
+  --font-sans: var(--font-archivo), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
+  --font-body: var(--font-archivo), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "SFMono-Regular", Consolas, monospace;
+  --font-ko: var(--font-kr), "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
 }
-body { background: var(--bg); color: var(--fg); min-height: 100dvh; }
-:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+
+@theme {
+  /* Larguras de leitura da especificação. */
+  --container-content: 1120px;
+  --container-wide: 1280px;
+  --container-reading: 68ch;
+
+  /* Escala tipográfica aprovada. */
+  --text-display-xl: clamp(2.75rem, 9vw, 5.5rem);
+  --text-display-xl--line-height: 0.94;
+  --text-display-xl--letter-spacing: -0.035em;
+  --text-display-lg: clamp(2.25rem, 6vw, 3.75rem);
+  --text-display-lg--line-height: 1;
+  --text-display-lg--letter-spacing: -0.03em;
+  --text-h1: clamp(1.75rem, 4vw, 2.5rem);
+  --text-h1--line-height: 1.08;
+  --text-h1--letter-spacing: -0.02em;
+  --text-h2: clamp(1.375rem, 3vw, 1.75rem);
+  --text-h2--line-height: 1.2;
+  --text-h2--letter-spacing: -0.015em;
+  --text-h3: 1.125rem;
+  --text-h3--line-height: 1.35;
+  --text-body-lg: 1.125rem;
+  --text-body-lg--line-height: 1.65;
+  --text-body: 1rem;
+  --text-body--line-height: 1.6;
+  --text-small: 0.875rem;
+  --text-small--line-height: 1.5;
+  --text-caption: 0.75rem;
+  --text-caption--line-height: 1.4;
+  --text-caption--letter-spacing: 0.01em;
+  --text-mono-label: 0.6875rem;
+  --text-mono-label--line-height: 1.3;
+  --text-mono-label--letter-spacing: 0.14em;
+  --text-mono-data: 0.8125rem;
+  --text-mono-data--line-height: 1.4;
+  --text-mono-data--letter-spacing: 0.02em;
+
+  /* Somente uma sombra “de impressão” por superfície. */
+  --shadow-print: 0 1px 0 rgb(32 30 25 / 0.06), 0 12px 32px -24px rgb(32 30 25 / 0.35);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    min-height: 100dvh;
+    background-color: var(--bg);
+    color: var(--fg);
+  }
+
+  ::selection {
+    background-color: var(--selection);
+    color: var(--fg);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .ko {
+    font-family: var(--font-kr), "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+    font-size: 1.12em;
+    line-height: 1.35;
+    letter-spacing: 0;
+    word-break: keep-all;
+  }
+
+  .mono-label {
+    font-family: var(--font-plex-mono), ui-monospace, "SFMono-Regular", Consolas, monospace;
+    font-size: 0.6875rem;
+    line-height: 1.3;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .mono-data {
+    font-family: var(--font-plex-mono), ui-monospace, "SFMono-Regular", Consolas, monospace;
+    font-size: 0.8125rem;
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .measure {
+    max-width: 65ch;
+  }
+
+  .paper-texture {
+    background-image: var(--texture-paper);
+    background-repeat: repeat;
+    background-size: 128px 128px;
+  }
+
+  .dark .paper-texture {
+    background-image: none;
+  }
+
+  .spinner {
+    animation: kbr-spin 800ms linear infinite;
+  }
+}
+
+@keyframes kbr-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Rede de segurança: remove deslocamento/escala/stagger e reduz transições.
+   O spinner de operação em andamento é a única exceção declarada. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .spinner {
+    animation-duration: 1.2s !important;
+    animation-iteration-count: infinite !important;
+  }
+}

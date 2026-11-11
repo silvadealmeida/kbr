@@ -1,7 +1,7 @@
 # Graph Report - kbr  (2026-11-11)
 
 ## Corpus Check
-- 191 files · ~195,462 words
+- 191 files · ~195,476 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 5 file(s) not represented in the graph (top: (none) 3, .example 1, .css 1)
 
@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `2d8bcb7e`
+- Built from commit: `3f37159d`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -136,22 +136,22 @@
 4. `checkAnswer()` - 28 edges
 5. `useAuth()` - 25 edges
 6. `mergeProgress()` - 24 edges
-7. `Currículo de Hangul — Fase 3A` - 24 edges
-8. `vitest` - 24 edges
+7. `vitest` - 24 edges
+8. `Currículo de Hangul — Fase 3A` - 24 edges
 9. `KBR — Roadmap` - 23 edges
 10. `validateCurriculum()` - 22 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `0. Contratos que não podem mudar` --references--> `Progress`  [INFERRED]
-  docs/design/component-redesign-plan.md → src/lib/storage/index.ts
-- `10. O que esta direção muda — e o que preserva` --references--> `Progress`  [INFERRED]
-  docs/design/creative-direction.md → src/lib/storage/index.ts
-- `12. Critérios de aceite` --references--> `Progress`  [INFERRED]
-  docs/design/hangul-interaction-concepts.md → src/lib/storage/index.ts
 - `Interfaces de troca futura` --references--> `SrsState`  [INFERRED]
   docs/architecture.md → src/lib/srs/index.ts
 - `6.2 Cartões SRS` --references--> `SrsState`  [INFERRED]
   docs/pedagogy/content-schema.md → src/lib/srs/index.ts
+- `C3 — Merge de cartões usa o documento inteiro, não o cartão (crítico)` --references--> `Attempt`  [INFERRED]
+  docs/sync/concurrency-audit.md → src/lib/storage/index.ts
+- `Decisões/limites` --references--> `Progress`  [INFERRED]
+  docs/architecture.md → src/lib/storage/index.ts
+- `0. Contratos que não podem mudar` --references--> `Progress`  [INFERRED]
+  docs/design/component-redesign-plan.md → src/lib/storage/index.ts
 
 ## Import Cycles
 - 2-file cycle: `src/lib/srs/index.ts -> src/lib/srs/leitner.ts -> src/lib/srs/index.ts`
@@ -553,7 +553,7 @@ Nodes (16): 1. Método e limites, 2.1 Stack e comportamento de página, 2.2 Pale
 
 ### Community 99 - "checkAnswer"
 Cohesion: 0.17
-Nodes (16): Testes, 6. Área E — Lição e checkpoint (player), 11. Riscos e mitigação, 6. Fase 7D — Lição, checkpoint e composição, 22. Handoff para a Fase 3B, 12.1 União de respostas, 12.2 Resultado, 12.3 `checkAnswer` (+8 more)
+Nodes (16): Testes, 6. Área E — Lição e checkpoint (player), 11. Riscos e mitigação, 6. Fase 7D — Lição e composição, 22. Handoff para a Fase 3B, 12.1 União de respostas, 12.2 Resultado, 12.3 `checkAnswer` (+8 more)
 
 ### Community 100 - "Fase 7 — roadmap de implementação"
 Cohesion: 0.13
@@ -606,16 +606,16 @@ Nodes (4): isDateString(), isProgress(), isRecord(), migrate()
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Progress` connect `Progress` to `dashboard.ts`, `storage/index.ts`, `fakeSupabaseCas.ts`, `Cursos e catálogo (Fase 5)`, `Schema de conteúdo — módulo Hangul`, `validate.ts`, `review/index.ts`, `createEmptyProgress`, `3. Invariantes por campo`, `completion.ts`, `17. Integração com revisão espaçada`, `KBR — Plano de implementação da sincronização confiável (Fase 4D.2)`, `courses.test.ts`, `KBR — Invariantes de merge do Progress (Fase 4D.1)`, `content/courses/index.ts`, `createSupabaseProgressStore`, `KBR — Runbook de deploy seguro do CAS (Fase 4D.3)`, `mergeProgress.ts`, `3. Tipos de domínio`, `dashboard.test.ts`, `lesson.ts`, `LessonPlayer.tsx`, `vitest`, `CheckpointPlayer.tsx`, `KBR — Decisão sobre PWA offline e service worker (Fase 6B)`, `6. Compatibilidade com `Progress``, `Direção criativa — “Composição”`, `CourseCatalog.tsx`, `Plano de redesign por componente`, `checkAnswer`, `Fase 7 — roadmap de implementação`, `Hangul — conceitos de interação`, `KBR — Auditoria de privacidade e avaliação legal (Fase 2B)`, `KBR — Arquitetura`, `localStorageStore.ts`?**
-  _High betweenness centrality (0.278) - this node is a cross-community bridge._
+  _High betweenness centrality (0.260) - this node is a cross-community bridge._
 - **Are the 50 inferred relationships involving `Progress` (e.g. with `Cursos e catálogo (Fase 5)` and `Decisões/limites`) actually correct?**
   _`Progress` has 50 INFERRED edges - model-reasoned connections that need verification._
 - **Should `4. Defeitos confirmados` be split into smaller, more focused modules?**
   _Cohesion score 0.07692307692307693 - nodes in this community are weakly interconnected._
-- **Why does `vitest` connect `vitest` to `package.json`, `dashboard.test.ts`, `createEmptyProgress`, `lesson.ts`, `completion.ts`, `routes.ts`, `supabase-proxy.test.ts`, `content/hangul/index.ts`, `fakeSupabaseCas.ts`, `vitest`, `courses.test.ts`, `validate.ts`, `site.test.ts`, `auth.test.ts`, `exercises/index.ts`, `createSupabaseProgressStore`, `review/index.ts`?**
-  _High betweenness centrality (0.115) - this node is a cross-community bridge._
+- **Why does `@playwright/test` connect `@playwright/test` to `dashboard.spec.ts`, `reliability.spec.ts`, `package.json`, `hangul.spec.ts`, `review.spec.ts`, `testAuthCookie`, `courses.spec.ts`, `testAuthCookie`, `webkit.spec.ts`?**
+  _High betweenness centrality (0.085) - this node is a cross-community bridge._
 - **Are the 14 inferred relationships involving `checkAnswer()` (e.g. with `Cursos e catálogo (Fase 5)` and `Revisão`) actually correct?**
   _`checkAnswer()` has 14 INFERRED edges - model-reasoned connections that need verification._
 - **Should `package.json` be split into smaller, more focused modules?**
   _Cohesion score 0.10461538461538461 - nodes in this community are weakly interconnected._
-- **Why does `@playwright/test` connect `@playwright/test` to `dashboard.spec.ts`, `reliability.spec.ts`, `package.json`, `hangul.spec.ts`, `review.spec.ts`, `testAuthCookie`, `courses.spec.ts`, `testAuthCookie`, `webkit.spec.ts`?**
-  _High betweenness centrality (0.099) - this node is a cross-community bridge._
+- **Why does `vitest` connect `vitest` to `package.json`, `dashboard.test.ts`, `createEmptyProgress`, `lesson.ts`, `completion.ts`, `routes.ts`, `supabase-proxy.test.ts`, `content/hangul/index.ts`, `fakeSupabaseCas.ts`, `vitest`, `courses.test.ts`, `validate.ts`, `site.test.ts`, `auth.test.ts`, `exercises/index.ts`, `createSupabaseProgressStore`, `review/index.ts`?**
+  _High betweenness centrality (0.083) - this node is a cross-community bridge._

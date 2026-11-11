@@ -77,6 +77,8 @@ Dependências: 7C depende de 7B; 7D de 7B (e reusa primitivas da 7C); 7E de 7D; 
 
 **Não entra:** redesenho de tela, mudança de copy, novas rotas, novas dependências.
 
+**Status (concluída em 11/11/2026):** tokens primitivos/semânticos, aliases, escala tipográfica, movimento, textura, primitivas `Button`/`ButtonLink`, `Card`/`Plate`, `Field`/`Input`, `Badge`/`Seal`, `ProgressBar`, `Ruler`, `Notice`, `NavLink`/`SkipLink`, Archivo + IBM Plex Mono e `display: optional` para preservar CLS. Sheet/Dialog adiado por falta de fluxo real. Medição local: landing 278.444 B (JS 212.310 B, CSS 10.148 B, 1 fonte/35.240 B, CLS 0,00065) e painel 479.026 B (6 fontes/134.544 B, CLS 0,00426); testes unitários de contraste/tokens/primitivas e performance/axe atualizados. Detalhes em `docs/architecture.md` §Design system.
+
 **Saída:** typecheck/test/build verdes; landing visualmente quase igual; axe sem regressão; orçamento de bytes atualizado e documentado.
 
 **Rollback:** reverter o commit de tokens; aliases garantem que nenhum componente quebre.

@@ -220,6 +220,8 @@
 
 Durante a 7B, criar aliases para que a aparência antiga continue funcionando; a substituição é gradual.
 
+**Status 7B (implementado):** `bg-soft`, `border-border`, `text-brand`, `bg-brand` e `text-brand-fg` seguem ativos. A 7B adicionou `surface-2`, `line`, `faint`, `seal`, `accent`, estados semânticos e as primitivas `Button`/`ButtonLink`, `Card`/`Plate`, `Field`/`Input`, `Badge`/`Seal`, `ProgressBar`, `Ruler`, `Notice`, `NavLink`/`SkipLink`. `text-brand` continua celadon de propósito; a decisão de trocar links para `text-accent` e botões primários para `bg-fg` fica para a 7C, junto com a remoção gradual dos aliases na 7G.
+
 ## 13. Sequência de implementação
 
 | Fatia | Conteúdo | Fase | Esforço |

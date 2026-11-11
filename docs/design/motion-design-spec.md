@@ -296,7 +296,7 @@ O bloco global é uma **rede de segurança**; componentes que precisam manter um
 
 ## 9. Ordem de implementação
 
-1. Tokens e bloco global de reduced motion (7B).
+1. Tokens e bloco global de reduced motion (7B — **implementado**; nenhuma coreografia de página foi adicionada).
 2. Microinterações de botão, foco, nav e toast (7C).
 3. Feedback de exercício e progresso (7D).
 4. Revisão (virada de cartão) e painel (7E).

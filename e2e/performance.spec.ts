@@ -16,19 +16,26 @@ async function measure(page: Page) {
       | undefined;
     const resources = performance.getEntriesByType("resource") as PerformanceResourceTiming[];
     const bytes = (navigation?.transferSize ?? 0) + resources.reduce((sum, item) => sum + item.transferSize, 0);
+    const isFont = (item: PerformanceResourceTiming) =>
+      /\.(woff2?|ttf|otf)(\?|$)/.test(item.name);
     const scripts = resources
-      .filter((item) => item.initiatorType === "script" || /\.js(\?|$)/.test(item.name))
+      .filter((item) => !isFont(item) && (item.initiatorType === "script" || /\.js(\?|$)/.test(item.name)))
       .reduce((sum, item) => sum + item.transferSize, 0);
+    // Fontes iniciadas por CSS também têm initiatorType "css" em alguns motores;
+    // excluí-las evita contabilizar o woff2 como se fosse folha de estilo.
     const styles = resources
-      .filter((item) => item.initiatorType === "css" || /\.css(\?|$)/.test(item.name))
+      .filter((item) => !isFont(item) && (item.initiatorType === "css" || /\.css(\?|$)/.test(item.name)))
       .reduce((sum, item) => sum + item.transferSize, 0);
-    const fonts = resources.filter((item) => /\.(woff2?|ttf|otf)(\?|$)/.test(item.name));
+    const fonts = resources.filter(isFont);
     return {
       bytes,
       scripts,
       styles,
       fontCount: fonts.length,
       fontBytes: fonts.reduce((sum, item) => sum + item.transferSize, 0),
+      loadedFontFamilies: Array.from(document.fonts)
+        .filter((font) => font.status === "loaded")
+        .map((font) => font.family),
       cls: (window as unknown as { __kbrCls?: number }).__kbrCls ?? 0,
     };
   });
@@ -62,11 +69,19 @@ test.describe("Orçamento de desempenho local", () => {
       body: JSON.stringify(result, null, 2),
       contentType: "application/json",
     });
-    expect(result.fontCount, "landing não deve baixar fonte coreana").toBe(0);
+    // Orçamento revisado na 7B: Archivo é a única fonte pública baixada na
+    // landing; IBM Plex Mono só entra quando um componente mono é renderizado.
+    // A fonte coreana continua proibida no caminho público.
+    expect(result.fontCount, "landing deve baixar no máximo 2 arquivos de fonte").toBeLessThanOrEqual(2);
+    expect(result.fontBytes, "fontes públicas da landing").toBeLessThanOrEqual(60_000);
+    expect(
+      result.loadedFontFamilies.join(" "),
+      "landing não deve carregar Noto Sans KR",
+    ).not.toMatch(/Noto\s*Sans\s*KR/i);
     expect(result.cls, "CLS da landing").toBeLessThan(0.1);
     expect(result.bytes, "transferência total da landing").toBeLessThan(450_000);
     expect(result.scripts, "JavaScript da landing").toBeLessThan(260_000);
-    expect(result.styles, "CSS da landing").toBeLessThan(60_000);
+    expect(result.styles, "CSS da landing").toBeLessThan(20_000);
   });
 
   test("painel autenticado mantém orçamento e não acumula layout shift grosseiro", async ({

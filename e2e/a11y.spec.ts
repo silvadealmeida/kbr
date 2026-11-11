@@ -36,8 +36,40 @@ test.describe("acessibilidade automatizada", () => {
     await expect(skip).toBeFocused();
     await expect(skip).toBeVisible();
 
+    const focusRing = await skip.evaluate((element) => {
+      const style = getComputedStyle(element);
+      return { width: style.outlineWidth, style: style.outlineStyle };
+    });
+    expect(focusRing).toEqual({ width: "3px", style: "solid" });
+
     await page.keyboard.press("Enter");
     await expect(page.locator("main#conteudo")).toBeFocused();
+  });
+
+  test("tema aplica tokens de cor e color-scheme nos dois modos", async ({ page }) => {
+    await page.goto("/");
+
+    const light = await page.evaluate(() => ({
+      scheme: getComputedStyle(document.documentElement).colorScheme,
+      background: getComputedStyle(document.body).backgroundColor,
+      font: getComputedStyle(document.body).fontFamily,
+    }));
+    expect(light.scheme).toBe("light");
+    expect(light.background).toBe("rgb(244, 239, 227)");
+    expect(light.font).toContain("Archivo");
+
+    await page.getByRole("button", { name: "Ativar tema escuro" }).click();
+
+    const dark = await page.evaluate(() => ({
+      scheme: getComputedStyle(document.documentElement).colorScheme,
+      background: getComputedStyle(document.body).backgroundColor,
+      foreground: getComputedStyle(document.body).color,
+      font: getComputedStyle(document.body).fontFamily,
+    }));
+    expect(dark.scheme).toBe("dark");
+    expect(dark.background).toBe("rgb(16, 21, 18)");
+    expect(dark.foreground).toBe("rgb(242, 237, 226)");
+    expect(dark.font).toContain("Archivo");
   });
 
   test("alternador de tema anuncia estado e ação", async ({ page }) => {
@@ -52,6 +84,21 @@ test.describe("acessibilidade automatizada", () => {
     await expect
       .poll(() => page.evaluate(() => document.documentElement.classList.contains("dark")))
       .toBe(true);
+  });
+
+  test("tema escuro mantém contraste em página pública e painel", async ({ context, page }) => {
+    await page.goto("/privacidade");
+    await page.getByRole("button", { name: "Ativar tema escuro" }).click();
+    await expect
+      .poll(() => page.evaluate(() => getComputedStyle(document.documentElement).colorScheme))
+      .toBe("dark");
+    await expectNoAxeViolations(page, "/privacidade (escuro)");
+
+    const user = createTestUser();
+    await context.addCookies([{ ...testAuthCookie(Date.now(), user), url: BASE_URL }]);
+    await page.goto("/dashboard");
+    await expect(page.getByRole("heading", { level: 1, name: "Seu painel" })).toBeVisible();
+    await expectNoAxeViolations(page, "/dashboard (escuro)");
   });
 
   test("área autenticada e prática não têm violações axe", async ({ context, page }) => {

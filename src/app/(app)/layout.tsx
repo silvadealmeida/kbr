@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { Nav } from "@/components/Nav";
 import { ConnectionNotice } from "@/components/auth/ConnectionNotice";
 import { ProtectedArea } from "@/components/auth/ProtectedArea";
+import { SkipLink } from "@/components/ui/Navigation";
 import { loginRedirectPath } from "@/lib/auth/redirect";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 
@@ -33,12 +34,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
   return (
     <div className={kr.variable}>
       <ProtectedArea>
-        <a
-          href="#conteudo"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-xl focus:bg-brand focus:px-4 focus:py-3 focus:font-semibold focus:text-brand-fg"
-        >
-          Pular para o conteúdo
-        </a>
+        <SkipLink />
         <Nav />
         <main
           id="conteudo"

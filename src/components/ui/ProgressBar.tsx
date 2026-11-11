@@ -19,9 +19,12 @@ export function ProgressBar({
       aria-valuenow={clamped}
       aria-valuetext={valueText ?? `${clamped}%`}
       aria-label={label}
-      className={`h-3 w-full overflow-hidden rounded-full bg-soft ${className}`}
+      className={`h-1.5 w-full overflow-hidden rounded-full bg-line ${className}`}
     >
-      <div className="h-full rounded-full bg-brand" style={{ width: `${clamped}%` }} />
+      <div
+        className="h-full rounded-full bg-accent"
+        style={{ width: `${clamped}%` }}
+      />
     </div>
   );
 }

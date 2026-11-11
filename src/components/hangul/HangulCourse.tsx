@@ -28,19 +28,32 @@ function StatusBadge({ children, tone = "muted" }: { children: React.ReactNode; 
 }
 
 export function HangulCourse() {
-  const { progressStore } = useAuth();
+  const { progressStore, status, syncStatus } = useAuth();
   const [progress, setProgress] = useState<Progress | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState(false);
+  const [reloadKey, setReloadKey] = useState(0);
 
   useEffect(() => {
     if (!progressStore) return;
     let active = true;
-    void progressStore.load().then((loaded) => {
-      if (active) setProgress(loaded);
-    });
+    setLoading(true);
+    setLoadError(false);
+    void progressStore
+      .load()
+      .then((loaded) => {
+        if (active) setProgress(loaded);
+      })
+      .catch(() => {
+        if (active) setLoadError(true);
+      })
+      .finally(() => {
+        if (active) setLoading(false);
+      });
     return () => {
       active = false;
     };
-  }, [progressStore]);
+  }, [progressStore, reloadKey]);
 
   const courseComplete = progress
     ? isCourseComplete(progress, LESSONS, CHECKPOINTS)
@@ -53,6 +66,34 @@ export function HangulCourse() {
           checkpoints: CHECKPOINTS,
         })
       : null;
+
+  if (status === "loading" || loading || (!progressStore && syncStatus === "syncing")) {
+    return (
+      <div className="rounded-2xl border border-border bg-surface p-6">
+        <p role="status" className="text-muted">
+          Preparando seu progresso…
+        </p>
+      </div>
+    );
+  }
+
+  if (loadError || !progress) {
+    return (
+      <div className="rounded-2xl border border-border bg-surface p-6">
+        <p className="font-semibold">Não foi possível carregar seu progresso.</p>
+        <p className="mt-1 text-muted">
+          Verifique se o armazenamento do navegador está disponível e tente novamente.
+        </p>
+        <button
+          type="button"
+          onClick={() => setReloadKey((key) => key + 1)}
+          className="mt-4 inline-flex min-h-12 items-center justify-center rounded-xl border border-border px-5 font-semibold hover:bg-soft"
+        >
+          Tentar novamente
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col gap-6">

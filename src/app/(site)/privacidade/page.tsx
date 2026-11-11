@@ -242,7 +242,12 @@ export default function PrivacyPage() {
             funcionamento do progresso. Não há cookies de publicidade, análise comportamental ou
             rastreamento entre sites.
           </p>
-          <div className="overflow-x-auto rounded-2xl border border-border bg-surface">
+          <div
+            role="region"
+            aria-label="Tabela de cookies e chaves de armazenamento local"
+            tabIndex={0}
+            className="overflow-x-auto rounded-2xl border border-border bg-surface"
+          >
             <table className="w-full min-w-[42rem] text-left text-sm">
               <caption className="sr-only">
                 Cookies e chaves de armazenamento local usados pelo KBR
@@ -283,7 +288,12 @@ export default function PrivacyPage() {
         </Section>
 
         <Section id="finalidade" title="4. Finalidade e base legal">
-          <div className="overflow-x-auto rounded-2xl border border-border bg-surface">
+          <div
+            role="region"
+            aria-label="Tabela de finalidades e bases legais"
+            tabIndex={0}
+            className="overflow-x-auto rounded-2xl border border-border bg-surface"
+          >
             <table className="w-full min-w-[38rem] text-left text-sm">
               <caption className="sr-only">Finalidades e bases legais do tratamento</caption>
               <thead className="border-b border-border text-xs uppercase tracking-wide text-muted">

@@ -76,6 +76,7 @@ type AnswerAreaProps = {
   result: DetailedCheckResult | null;
   disabled: boolean;
   onChange(answer: ExerciseAnswer | null): void;
+  onSubmit(): void;
 };
 
 function optionClass(active: boolean, state: "idle" | "correct" | "wrong") {
@@ -97,7 +98,7 @@ function choiceState(
   return "idle";
 }
 
-function AnswerArea({ exercise, result, disabled, onChange }: AnswerAreaProps) {
+function AnswerArea({ exercise, result, disabled, onChange, onSubmit }: AnswerAreaProps) {
   const [optionId, setOptionId] = useState<string | null>(null);
   const [text, setText] = useState("");
   const [parts, setParts] = useState<{
@@ -329,9 +330,17 @@ function AnswerArea({ exercise, result, disabled, onChange }: AnswerAreaProps) {
           setText(event.target.value);
           onChange(event.target.value.trim() ? { kind: "text", value: event.target.value } : null);
         }}
+        onKeyDown={(event) => {
+          if (event.key === "Enter" && !disabled && text.trim()) {
+            event.preventDefault();
+            onSubmit();
+          }
+        }}
         className="min-h-14 w-full rounded-xl border-2 border-border bg-surface px-4 text-base"
         autoComplete="off"
         autoCapitalize="off"
+        autoCorrect="off"
+        enterKeyHint="done"
         spellCheck={false}
       />
     </div>
@@ -369,6 +378,15 @@ export function ExerciseView({
   const headingRef = useRef<HTMLHeadingElement>(null);
   const continueRef = useRef<HTMLButtonElement>(null);
 
+  // Cada item é uma nova tarefa: leve o foco (e a rolagem) ao enunciado para
+  // leitores de tela e para quem responde no celular.
+  useEffect(() => {
+    const heading = headingRef.current;
+    if (!heading) return;
+    heading.focus({ preventScroll: true });
+    heading.scrollIntoView({ block: "start" });
+  }, []);
+
   useEffect(() => {
     if (result) continueRef.current?.focus();
   }, [result]);
@@ -387,6 +405,7 @@ export function ExerciseView({
         aria-valuemin={0}
         aria-valuemax={total}
         aria-valuenow={index}
+        aria-valuetext={`${index} de ${total}`}
         className="mt-2 h-2 overflow-hidden rounded-full bg-border"
       >
         <div
@@ -395,7 +414,12 @@ export function ExerciseView({
         />
       </div>
 
-      <h2 id="exercise-prompt" ref={headingRef} className="mt-6 text-xl font-semibold leading-snug">
+      <h2
+        id="exercise-prompt"
+        ref={headingRef}
+        tabIndex={-1}
+        className="mt-6 scroll-mt-4 break-words text-xl font-semibold leading-snug"
+      >
         <BilingualText text={exercise.prompt} />
       </h2>
 
@@ -438,7 +462,13 @@ export function ExerciseView({
       ) : null}
 
       <div className="mt-5">
-        <AnswerArea exercise={exercise} result={result} disabled={result !== null} onChange={onDraft} />
+        <AnswerArea
+          exercise={exercise}
+          result={result}
+          disabled={result !== null}
+          onChange={onDraft}
+          onSubmit={onSubmit}
+        />
       </div>
 
       {result ? (

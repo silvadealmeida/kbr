@@ -37,70 +37,77 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [progressStore, setProgressStore] = useState<ProgressStore | null>(null);
 
   useEffect(() => {
-    const supabase = getBrowserSupabaseClient();
-    if (!supabase) {
-      setStatus("unavailable");
-      return;
-    }
-
     let active = true;
-    void supabase.auth.getUser().then(({ data }) => {
+    let unsubscribe: (() => void) | undefined;
+
+    void getBrowserSupabaseClient().then((supabase) => {
       if (!active) return;
-      setUser(data.user);
-      setStatus(data.user ? "authenticated" : "guest");
-    });
-    const { data } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null);
-      setStatus(session?.user ? "authenticated" : "guest");
+      if (!supabase) {
+        setStatus("unavailable");
+        return;
+      }
+
+      void supabase.auth.getUser().then(({ data }) => {
+        if (!active) return;
+        setUser(data.user);
+        setStatus(data.user ? "authenticated" : "guest");
+      });
+      const { data } = supabase.auth.onAuthStateChange((_event, session) => {
+        setUser(session?.user ?? null);
+        setStatus(session?.user ? "authenticated" : "guest");
+      });
+      unsubscribe = () => data.subscription.unsubscribe();
     });
 
     return () => {
       active = false;
-      data.subscription.unsubscribe();
+      unsubscribe?.();
     };
   }, []);
 
   useEffect(() => {
     if (status === "loading") return;
 
-    const supabase = getBrowserSupabaseClient();
-    if (!user || !supabase) {
-      setProgressStore(createLocalStorageStore(window.localStorage));
-      setSyncStatus("idle");
-      setSyncErrorKind(null);
-      return;
-    }
-
     let active = true;
-    const local = createLocalStorageStore(
-      window.localStorage,
-      () => new Date(),
-      progressStorageKeyForUser(user.id),
-    );
-    const remote = createSupabaseProgressStore(supabase, user.id, {
-      onMerged: async (merged) => {
-        await local.save(merged);
-      },
-      onError: (kind) => {
-        if (!active) return;
-        setSyncErrorKind(kind);
-        // Sem PII: apenas a categoria do erro.
-        console.warn("[kbr] falha de sincronização:", kind);
-      },
-    });
-    setProgressStore(null);
-    setSyncStatus("syncing");
-    setSyncErrorKind(null);
-    void syncProgressForUser(supabase, window.localStorage, user.id).then((result) => {
-      if (active) {
-        setProgressStore(createSyncedProgressStore(local, remote, (nextStatus) => {
-          if (!active) return;
-          setSyncStatus(nextStatus);
-          if (nextStatus === "synced") setSyncErrorKind(null);
-        }));
-        setSyncStatus(result.status);
-        setSyncErrorKind(result.errorKind);
+    void getBrowserSupabaseClient().then((supabase) => {
+      if (!active) return;
+      if (!user || !supabase) {
+        setProgressStore(createLocalStorageStore(window.localStorage));
+        setSyncStatus("idle");
+        setSyncErrorKind(null);
+        return;
       }
+
+      const local = createLocalStorageStore(
+        window.localStorage,
+        () => new Date(),
+        progressStorageKeyForUser(user.id),
+      );
+      const remote = createSupabaseProgressStore(supabase, user.id, {
+        onMerged: async (merged) => {
+          await local.save(merged);
+        },
+        onError: (kind) => {
+          if (!active) return;
+          setSyncErrorKind(kind);
+          // Sem PII: apenas a categoria do erro.
+          console.warn("[kbr] falha de sincronização:", kind);
+        },
+      });
+      setProgressStore(null);
+      setSyncStatus("syncing");
+      setSyncErrorKind(null);
+      void syncProgressForUser(supabase, window.localStorage, user.id).then((result) => {
+        if (active) {
+          setProgressStore(createSyncedProgressStore(local, remote, (nextStatus) => {
+            if (!active) return;
+            setSyncStatus(nextStatus);
+            if (nextStatus === "synced") setSyncErrorKind(null);
+          }));
+          setSyncStatus(result.status);
+          setSyncErrorKind(result.errorKind);
+        }
+      });
     });
 
     return () => {
@@ -109,7 +116,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, [status, user?.id]);
 
   const signInWithGoogle = useCallback(async (next?: string) => {
-    const supabase = getBrowserSupabaseClient();
+    const supabase = await getBrowserSupabaseClient();
     if (!supabase) return "Login não configurado.";
 
     writeAuthNextCookie(next ?? null);
@@ -122,7 +129,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const signOut = useCallback(async () => {
-    const supabase = getBrowserSupabaseClient();
+    const supabase = await getBrowserSupabaseClient();
     if (!supabase) return "Login não configurado.";
 
     const { error } = await supabase.auth.signOut();

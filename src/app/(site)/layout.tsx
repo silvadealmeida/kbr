@@ -11,7 +11,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
         Pular para o conteúdo
       </a>
       <SiteHeader />
-      <main id="conteudo" className="flex-1">
+      <main id="conteudo" tabIndex={-1} className="flex-1">
         {children}
       </main>
       <SiteFooter />

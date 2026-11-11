@@ -1,9 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Noto_Sans_KR } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/components/auth/AuthProvider";
-
-const kr = Noto_Sans_KR({ subsets: ["latin"], variable: "--font-kr", display: "swap" });
 
 export const metadata: Metadata = {
   title: { default: "KBR — Coreano para brasileiros", template: "%s · KBR" },
@@ -19,6 +16,9 @@ export const metadata: Metadata = {
     apple: [{ url: "/icons/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
   appleWebApp: { capable: true, statusBarStyle: "default", title: "KBR" },
+  formatDetection: { telephone: false },
+  // O Next só emite `mobile-web-app-capable`; iOS anterior ao 17.4 exige a variante Apple.
+  other: { "apple-mobile-web-app-capable": "yes" },
 };
 export const viewport: Viewport = {
   width: "device-width",
@@ -35,7 +35,7 @@ const themeScript = `try{var t=localStorage.getItem("kbr:theme");if(t==="dark"||
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className={kr.variable} suppressHydrationWarning>
+    <html lang="pt-BR" suppressHydrationWarning>
       <head><script dangerouslySetInnerHTML={{ __html: themeScript }} /></head>
       <body className="font-sans antialiased">
         <AuthProvider>{children}</AuthProvider>

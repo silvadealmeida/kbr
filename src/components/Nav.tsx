@@ -18,7 +18,7 @@ export function Nav() {
         <nav aria-label="Principal" className="flex flex-col gap-1">
           {ROUTES.map((r) => (
             <Link key={r.href} href={r.href} aria-current={active(r.href) ? "page" : undefined}
-              className="flex min-h-12 items-center gap-3 rounded-xl px-3 font-medium text-muted hover:bg-soft aria-[current=page]:bg-soft aria-[current=page]:text-brand">
+              className="flex min-h-12 items-center gap-3 rounded-xl px-3 font-medium text-muted hover:bg-soft aria-[current=page]:bg-soft aria-[current=page]:font-semibold aria-[current=page]:text-brand">
               <span aria-hidden className="w-6 text-center font-ko">{r.icon}</span>{r.label}
             </Link>
           ))}
@@ -37,7 +37,7 @@ export function Nav() {
       <nav aria-label="Principal" className="fixed inset-x-0 bottom-0 z-10 grid grid-cols-5 border-t border-border bg-surface pb-[env(safe-area-inset-bottom)] md:hidden">
         {ROUTES.map((r) => (
           <Link key={r.href} href={r.href} aria-current={active(r.href) ? "page" : undefined}
-            className="flex min-h-14 flex-col items-center justify-center gap-0.5 text-[11px] font-medium text-muted aria-[current=page]:text-brand">
+            className="flex min-h-14 flex-col items-center justify-center gap-0.5 px-1 text-[11px] font-medium leading-tight text-muted aria-[current=page]:bg-soft aria-[current=page]:font-semibold aria-[current=page]:text-brand">
             <span aria-hidden className="font-ko text-lg leading-none">{r.icon}</span>{r.label}
           </Link>
         ))}

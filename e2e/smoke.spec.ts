@@ -130,7 +130,7 @@ test("callback sem código falha sem entrar em rota privada", async ({ page }) =
 
 test("navegação pública se adapta a mobile e desktop", async ({ page, viewport }) => {
   await page.goto("/");
-  const siteNav = page.getByRole("navigation", { name: "Site" });
+  const siteNav = page.getByRole("navigation", { name: "Site", exact: true });
   const width = viewport?.width ?? 1280;
 
   if (width >= 768) {
@@ -138,6 +138,7 @@ test("navegação pública se adapta a mobile e desktop", async ({ page, viewpor
     await expect(siteNav.getByRole("link", { name: "Privacidade" })).toBeVisible();
   } else {
     await expect(siteNav).toBeHidden();
+    await expect(page.getByRole("navigation", { name: "Site móvel" })).toBeVisible();
     await expect(page.getByRole("banner")).toBeVisible();
   }
 
@@ -169,4 +170,23 @@ test("alternar tema persiste", async ({ page }) => {
   expect(
     await page.evaluate(() => document.documentElement.classList.contains("dark")),
   ).toBe(dark);
+});
+
+test("landing 7C mostra o curso disponível e os planejados sem bloquear navegação móvel", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 667 });
+  await page.goto("/");
+  await expect(page.getByRole("navigation", { name: "Site móvel" })).toBeVisible();
+  await expect(page.getByRole("img", { name: /Composição da sílaba/ })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Hangul sem decoreba" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Diálogos progressivos" }).locator("..", {})).toContainText("Planejado");
+  await page.getByRole("navigation", { name: "Site móvel" }).getByRole("link", { name: "Método" }).click();
+  await expect(page).toHaveURL(/#metodo$/);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+});
+
+test("composição mantém conteúdo estático com movimento reduzido", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/");
+  await expect(page.getByRole("img", { name: /Composição da sílaba/ })).toBeVisible();
+  expect(await page.locator(".composition-enter").first().evaluate((el) => getComputedStyle(el).animationName)).toBe("none");
 });

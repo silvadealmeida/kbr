@@ -74,6 +74,8 @@
 
 **Fase:** 7C. **Esforço:** S. **Risco:** baixo.
 
+**Status 7C:** landing, SiteHeader/Footer, LandingAuth, AuthControl/AccountCard, Nav, PageHeader e EmptyState implementados; os elementos do catálogo e da lição permanecem para 7E/7D. A ilustração é SVG original de `한`, com movimento CSS opcional e sem fonte coreana pública.
+
 ## 4. Área C — Catálogo de cursos
 
 **Arquivo:** `src/components/courses/CourseCatalog.tsx` (+ `/cursos`).

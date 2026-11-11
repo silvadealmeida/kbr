@@ -1,366 +1,70 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { HangulComposition } from "@/components/site/HangulComposition";
 import { LandingAuth } from "@/components/site/LandingAuth";
 import { LandingRedirect } from "@/components/site/LandingRedirect";
+import { ButtonLink } from "@/components/ui/Button";
 import { postLoginPath } from "@/lib/auth/redirect";
 
 export const metadata: Metadata = {
   title: "Coreano para brasileiros",
-  description:
-    "Aprenda coreano em português, do Hangul às primeiras conversas, com vocabulário em contexto, diálogos progressivos e revisão espaçada.",
+  description: "Aprenda a ler Hangul em português com lições curtas, prática e revisão espaçada.",
 };
-
-const features = [
-  {
-    glyph: "한",
-    title: "Hangul sem decoreba",
-    text: "Consoantes, vogais e sílabas montadas passo a passo, com o som aproximado em português.",
-  },
-  {
-    glyph: "말",
-    title: "Vocabulário em contexto",
-    text: "Palavras e frases úteis desde o começo, com explicações pensadas para quem fala pt-BR.",
-  },
-  {
-    glyph: "대",
-    title: "Diálogos progressivos",
-    text: "Situações reais em dificuldade crescente, para você entender e responder sem saltos.",
-  },
-  {
-    glyph: "복",
-    title: "Revisão no tempo certo",
-    text: "Um sistema de repetição espaçada traz cada cartão de volta antes que ele seja esquecido.",
-  },
-];
-
-const steps = [
-  {
-    number: "01",
-    title: "Reconheça",
-    text: "Comece pelo alfabeto: formas, sons e a lógica de composição das sílabas coreanas.",
-  },
-  {
-    number: "02",
-    title: "Use",
-    text: "Aprenda palavras dentro de frases e diálogos que fazem sentido no dia a dia.",
-  },
-  {
-    number: "03",
-    title: "Retenha",
-    text: "Revise no intervalo certo para transformar reconhecimento em memória de longo prazo.",
-  },
-];
-
 const targetLabels: Record<string, string> = {
-  "/dashboard": "o painel",
-  "/cursos": "os cursos",
-  "/hangul": "o Hangul",
-  "/vocabulario": "o vocabulário",
-  "/licoes": "os cursos",
-  "/revisao": "a revisão",
+  "/dashboard": "o painel", "/cursos": "os cursos", "/hangul": "o Hangul",
+  "/vocabulario": "o vocabulário", "/licoes": "os cursos", "/revisao": "a revisão",
 };
-
+const method = [
+  { number: "01", title: "Reconhecer", text: "Veja a forma e escute o som antes de montar a primeira sílaba." },
+  { number: "02", title: "Usar", text: "Pratique em lições curtas e confira o que você realmente entendeu." },
+  { number: "03", title: "Retomar", text: "Reveja os cartões criados pelos seus erros quando eles vencerem." },
+];
+const resources = [
+  { title: "Hangul sem decoreba", status: "Disponível", text: "25 lições e quatro checkpoints para aprender a ler os blocos da escrita coreana." },
+  { title: "Vocabulário em contexto", status: "Planejado", text: "Palavras e frases em português e coreano ficam para uma próxima etapa." },
+  { title: "Diálogos progressivos", status: "Planejado", text: "Conversas graduais ainda não fazem parte do curso disponível." },
+  { title: "Revisão no tempo certo", status: "Disponível", text: "Cartões de repetição espaçada surgem a partir dos erros nas lições." },
+];
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
-
-function first(value: string | string[] | undefined) {
-  return typeof value === "string" ? value : null;
-}
+const first = (value: string | string[] | undefined) => typeof value === "string" ? value : null;
 
 export default async function LandingPage({ searchParams }: { searchParams: SearchParams }) {
   const params = await searchParams;
   const nextPath = postLoginPath(first(params.next));
   const reason = first(params.motivo);
   const target = targetLabels[nextPath.split("?")[0]] ?? "a página anterior";
-  const continuing = nextPath !== "/dashboard";
-
   return (
     <>
       <LandingRedirect next={nextPath} />
-      <section className="relative overflow-hidden border-b border-border">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(60% 70% at 78% 8%, var(--accent-soft), transparent 70%)",
-          }}
-        />
-        <div className="relative mx-auto grid max-w-6xl gap-14 px-4 pb-16 pt-12 sm:px-6 sm:pb-20 sm:pt-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:pb-28 lg:pt-24">
-          <div>
-            <p className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1.5 text-xs font-semibold text-muted">
-              <span lang="ko" aria-hidden className="font-ko text-sm text-brand">
-                한국어
-              </span>
-              Coreano para quem fala português
-            </p>
-
-            <h1 className="mt-6 max-w-2xl text-[2.65rem] font-bold leading-[1.03] tracking-tight sm:text-6xl lg:text-[4.4rem]">
-              Coreano de verdade,{" "}
-              <span className="text-brand">explicado em português.</span>
-            </h1>
-
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
-              Do Hangul às primeiras conversas: aprenda com contexto, diálogos progressivos e
-              revisão espaçada — sem traduções automáticas esquisitas e sem decoreba solta.
-            </p>
-
-            {reason === "sessao-expirada" ? (
-              <p
-                role="status"
-                className="mt-6 rounded-2xl border border-border bg-surface px-4 py-3 text-sm"
-              >
-                Sua sessão expirou. Entre novamente para continuar de onde parou.
-              </p>
-            ) : null}
-            {reason === "indisponivel" ? (
-              <p
-                role="status"
-                className="mt-6 rounded-2xl border border-border bg-surface px-4 py-3 text-sm"
-              >
-                O login está temporariamente indisponível. Tente novamente em instantes.
-              </p>
-            ) : null}
-            {reason === "logout" ? (
-              <p
-                role="status"
-                className="mt-6 rounded-2xl border border-border bg-surface px-4 py-3 text-sm"
-              >
-                Você saiu da conta. Seu progresso deste dispositivo foi mantido e volta
-                ao entrar novamente.
-              </p>
-            ) : null}
-
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <LandingAuth variant="hero" />
-              <a
-                href="#metodo"
-                className="inline-flex min-h-13 w-full items-center justify-center rounded-full border border-border bg-surface px-6 font-semibold text-fg hover:bg-soft sm:w-auto"
-              >
-                Conhecer o método
-              </a>
-            </div>
-
-            {continuing ? (
-              <p className="mt-3 text-sm text-muted">
-                Depois de entrar, você volta para {target}.
-              </p>
-            ) : null}
-
-            <ul className="mt-8 flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted">
-              {["Hangul desde o início", "Vocabulário em contexto", "Revisão espaçada"].map(
-                (item) => (
-                  <li key={item} className="flex items-center gap-2">
-                    <span aria-hidden className="text-brand">
-                      ✓
-                    </span>
-                    {item}
-                  </li>
-                ),
-              )}
-            </ul>
+      <section className="paper-texture border-b border-line">
+        <div className="mx-auto grid max-w-[1280px] gap-10 px-5 pb-18 pt-12 sm:px-8 lg:min-h-[680px] lg:grid-cols-[minmax(0,1.05fr)_minmax(0,.95fr)] lg:items-center lg:gap-16 lg:py-20">
+          <div className="max-w-[650px]">
+            <p className="mono-label text-accent">Coreano para quem fala português</p>
+            <h1 className="composition-enter mt-7 max-w-[11ch] font-display text-[clamp(3.1rem,7vw,6.5rem)] font-semibold leading-[.98] tracking-[-.055em]">Coreano de verdade, explicado em português.</h1>
+            <p className="mt-7 max-w-[55ch] text-lg leading-relaxed text-muted">Comece pela lógica da escrita coreana. Monte sílabas, pratique a leitura e retome o que ainda precisa de atenção.</p>
+            {reason === "sessao-expirada" ? <p role="status" className="mt-6 border-l-[3px] border-warning bg-surface px-4 py-3 text-sm">Sua sessão expirou. Entre novamente para continuar de onde parou.</p> : null}
+            {reason === "indisponivel" ? <p role="status" className="mt-6 border-l-[3px] border-warning bg-surface px-4 py-3 text-sm">O login está temporariamente indisponível. Tente novamente em instantes.</p> : null}
+            {reason === "logout" ? <p role="status" className="mt-6 border-l-[3px] border-accent bg-surface px-4 py-3 text-sm">Você saiu da conta. Seu progresso deste dispositivo foi mantido e volta ao entrar novamente.</p> : null}
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center"><LandingAuth variant="hero" /><ButtonLink href="#metodo" variant="secondary" className="w-full sm:w-auto">Conhecer o método</ButtonLink></div>
+            {nextPath !== "/dashboard" ? <p className="mt-3 text-sm text-muted">Depois de entrar, você volta para {target}.</p> : null}
+            <p className="mt-8 border-t border-line pt-4 text-sm text-muted">Hangul disponível · A1–C2 planejados · Conteúdo coreano em revisão</p>
           </div>
-
-          <figure className="relative mx-auto w-full max-w-md lg:max-w-none">
-            <div
-              aria-hidden
-              className="absolute -left-3 top-16 -rotate-6 rounded-2xl border border-border bg-surface px-4 py-3 shadow-sm"
-            >
-              <p lang="ko" className="font-ko text-xl font-bold text-brand">
-                한글
-              </p>
-              <p className="text-xs text-muted">Hangul</p>
-            </div>
-
-            <div className="relative rounded-[2rem] border border-border bg-surface p-6 shadow-[0_24px_60px_-30px_rgba(28,27,26,0.55)] sm:p-8">
-              <div className="flex items-center justify-between gap-3">
-                <span className="rounded-full bg-soft px-3 py-1 text-xs font-semibold text-brand">
-                  Prévia de um cartão
-                </span>
-                <span className="text-xs text-muted">em revisão</span>
-              </div>
-
-              <p lang="ko" className="mt-8 font-ko text-5xl font-bold leading-none sm:text-6xl">
-                안녕하세요
-              </p>
-              <p className="mt-3 text-sm tracking-wide text-muted">annyeonghaseyo</p>
-              <p className="mt-4 text-lg font-medium">Olá — cumprimento formal e educado.</p>
-              <p className="mt-2 text-sm leading-relaxed text-muted">
-                Usado com pessoas que você acabou de conhecer, professores e atendentes.
-              </p>
-
-              <div className="mt-6 grid grid-cols-2 gap-2 text-center text-sm">
-                <span className="rounded-xl border border-border px-3 py-2">
-                  <span lang="ko" className="font-ko font-bold text-brand">
-                    ㅎ
-                  </span>{" "}
-                  consoante
-                </span>
-                <span className="rounded-xl border border-border px-3 py-2">
-                  <span lang="ko" className="font-ko font-bold text-brand">
-                    ㅏ
-                  </span>{" "}
-                  vogal
-                </span>
-              </div>
-
-              <div className="mt-6 rounded-2xl bg-soft p-4">
-                <p className="text-xs font-semibold uppercase tracking-wide text-muted">
-                  Repetição espaçada
-                </p>
-                <p className="mt-1 text-sm">
-                  O cartão volta na hora certa — nem cedo demais, nem tarde demais.
-                </p>
-              </div>
-            </div>
-
-            <div
-              aria-hidden
-              className="absolute -bottom-6 -right-2 rotate-6 rounded-2xl border border-border bg-surface px-4 py-3 shadow-sm"
-            >
-              <p lang="ko" className="font-ko text-xl font-bold text-brand">
-                복습
-              </p>
-              <p className="text-xs text-muted">revisão</p>
-            </div>
-
-            <figcaption className="mt-10 text-center text-xs text-muted">
-              Prévia ilustrativa do método — sem dados reais.
-            </figcaption>
-          </figure>
+          <figure className="composition-enter mx-auto w-full max-w-[480px] [animation-delay:120ms] lg:max-w-none"><HangulComposition /><figcaption className="mt-3 max-w-[44ch] text-sm leading-relaxed text-muted"><span lang="ko">한</span> nasce da combinação de ㅎ, ㅏ e ㄴ. Cada parte ocupa um lugar no bloco.</figcaption></figure>
         </div>
       </section>
-
-      <section id="recursos" className="scroll-mt-20 border-b border-border">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-          <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-brand">
-              O que você encontra
-            </p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
-              Uma trilha pensada para quem começa do zero.
-            </h2>
-            <p className="mt-4 text-lg leading-relaxed text-muted">
-              Cada parte tem um papel: entender a escrita, usar a língua e não esquecer o que
-              aprendeu.
-            </p>
-          </div>
-
-          <ul className="mt-10 grid gap-4 sm:grid-cols-2">
-            {features.map((feature) => (
-              <li
-                key={feature.title}
-                className="rounded-3xl border border-border bg-surface p-6 sm:p-7"
-              >
-                <span
-                  lang="ko"
-                  aria-hidden
-                  className="flex size-12 items-center justify-center rounded-2xl bg-soft font-ko text-2xl font-bold text-brand"
-                >
-                  {feature.glyph}
-                </span>
-                <h3 className="mt-5 text-xl font-semibold">{feature.title}</h3>
-                <p className="mt-2 leading-relaxed text-muted">{feature.text}</p>
-              </li>
-            ))}
-          </ul>
+      <section id="metodo" className="scroll-mt-24 border-b border-line bg-surface">
+        <div className="mx-auto max-w-[1280px] px-5 py-18 sm:px-8 lg:py-24">
+          <div className="grid gap-5 lg:grid-cols-[1fr_2fr] lg:gap-12"><div><p className="mono-label text-accent">Como se aprende</p><h2 className="mt-4 max-w-[12ch] text-h1 font-semibold">Reconhecer, usar, retomar.</h2></div><p className="max-w-[60ch] text-lg leading-relaxed text-muted">No Hangul, as letras se organizam em blocos. O curso segue a mesma lógica: entenda uma parte, use-a numa lição e volte a ela quando precisar.</p></div>
+          <ol className="mt-10 grid border-t border-line md:grid-cols-3">{method.map((step) => <li key={step.number} className="border-b border-line py-6 md:border-r md:px-6 md:first:pl-0 md:last:border-r-0"><span className="mono-data text-accent">{step.number} / 03</span><h3 className="mt-7 text-2xl font-semibold">{step.title}</h3><p className="mt-3 max-w-[36ch] leading-relaxed text-muted">{step.text}</p></li>)}</ol>
         </div>
       </section>
-
-      <section id="metodo" className="scroll-mt-20 border-b border-border bg-surface">
-        <div className="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-brand">
-              Método
-            </p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
-              Reconhecer, usar, retomar.
-            </h2>
-            <p className="mt-4 leading-relaxed text-muted">
-              O KBR combina alfabetização em Hangul, prática contextual e repetição espaçada.
-              A ideia é simples: aprender menos de uma vez e lembrar por mais tempo.
-            </p>
-            <p className="mt-6 rounded-2xl border border-border bg-bg p-4 text-sm leading-relaxed text-muted">
-              As primeiras lições e o módulo de Hangul estão em desenvolvimento. O conteúdo
-              coreano passa por revisão antes de ser publicado.
-            </p>
-          </div>
-
-          <ol className="grid gap-3">
-            {steps.map((step) => (
-              <li
-                key={step.number}
-                className="flex gap-5 rounded-3xl border border-border bg-bg p-5 sm:p-6"
-              >
-                <span className="text-sm font-bold tracking-widest text-brand">
-                  {step.number}
-                </span>
-                <div>
-                  <h3 className="text-lg font-semibold">{step.title}</h3>
-                  <p className="mt-1 leading-relaxed text-muted">{step.text}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
+      <section id="recursos" className="scroll-mt-24 border-b border-line">
+        <div className="mx-auto max-w-[1280px] px-5 py-18 sm:px-8 lg:py-24"><p className="mono-label text-accent">O que você encontra</p><h2 className="mt-4 max-w-[20ch] text-h1 font-semibold">Um primeiro curso completo. Os próximos, no tempo certo.</h2>
+          <ul className="mt-10 grid gap-px overflow-hidden border border-line bg-line md:grid-cols-2">{resources.map((item, index) => <li key={item.title} className="bg-surface p-6 sm:p-8"><div className="flex items-start justify-between gap-4"><span className="mono-data text-muted">0{index + 1}</span><span className={`text-xs font-semibold ${item.status === "Disponível" ? "text-accent" : "text-muted"}`}>{item.status}</span></div><h3 className="mt-10 text-2xl font-semibold">{item.title}</h3><p className="mt-3 max-w-[40ch] leading-relaxed text-muted">{item.text}</p></li>)}</ul>
         </div>
       </section>
-
-      <section className="border-b border-border">
-        <div className="mx-auto grid max-w-6xl gap-8 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[1fr_auto] lg:items-center">
-          <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-brand">
-              Privacidade por padrão
-            </p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
-              Sua conta serve para sincronizar, não para anunciar.
-            </h2>
-            <p className="mt-4 leading-relaxed text-muted">
-              Pedimos apenas o necessário para autenticar sua conta Google e guardar seu
-              progresso. Sem anúncios, sem rastreadores de terceiros e sem venda de dados.
-            </p>
-          </div>
-          <Link
-            href="/privacidade"
-            className="inline-flex min-h-12 items-center justify-center rounded-full border border-border bg-surface px-6 font-semibold hover:bg-soft"
-          >
-            Ler a política de privacidade
-          </Link>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-        <div className="relative overflow-hidden rounded-[2rem] border border-border bg-surface px-6 py-12 text-center sm:px-12 sm:py-16">
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0"
-            style={{
-              background:
-                "radial-gradient(50% 90% at 50% 0%, var(--accent-soft), transparent 70%)",
-            }}
-          />
-          <div className="relative mx-auto max-w-2xl">
-            <p lang="ko" aria-hidden className="font-ko text-3xl font-bold text-brand">
-              시작해 볼까요?
-            </p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
-              Comece pelo primeiro som.
-            </h2>
-            <p className="mt-4 leading-relaxed text-muted">
-              Entre com sua conta Google para abrir o painel e continuar de onde parou. Seu
-              progresso também fica salvo neste dispositivo.
-            </p>
-            <div className="mt-8 flex justify-center">
-              <LandingAuth variant="footer" />
-            </div>
-            <p className="mt-4 text-xs text-muted">
-              Saiba como tratamos seus dados na{" "}
-              <Link href="/privacidade" className="underline underline-offset-2 hover:text-brand">
-                política de privacidade
-              </Link>
-              .
-            </p>
-          </div>
-        </div>
-      </section>
+      <section className="border-b border-line bg-surface-2"><div className="mx-auto grid max-w-[1280px] gap-8 px-5 py-16 sm:px-8 lg:grid-cols-[1fr_auto] lg:items-center"><div><p className="mono-label text-accent">Índice de cursos</p><h2 className="mt-4 text-h1 font-semibold">Comece pelo Hangul.</h2><p className="mt-3 max-w-[58ch] leading-relaxed text-muted">O curso de leitura está disponível como Pré-A1. A1–C2 aparecem no catálogo como planejados, sem lições ou certificação disponíveis.</p></div><ButtonLink href="/cursos" variant="primary" className="w-full sm:w-auto">Ver os cursos</ButtonLink></div></section>
+      <section className="mx-auto grid max-w-[1280px] gap-8 px-5 py-18 sm:px-8 lg:grid-cols-[1fr_1fr] lg:items-center lg:py-24"><div><p className="mono-label text-accent">Seu próximo passo</p><h2 className="mt-4 max-w-[15ch] text-h1 font-semibold">A primeira sílaba começa aqui.</h2><p className="mt-5 max-w-[52ch] leading-relaxed text-muted">Entre com Google para abrir as lições. Seu progresso fica salvo neste dispositivo e pode ser sincronizado com sua conta.</p><p className="mt-4 text-sm text-muted">Saiba como tratamos seus dados na <Link href="/privacidade" className="text-accent underline underline-offset-4">Ler a política de privacidade</Link>.</p></div><div className="border-t-[3px] border-seal bg-surface p-7 sm:p-10"><p className="mono-label text-seal">Lâmina 01 / 25</p><p className="mt-6 text-3xl font-semibold">Aprenda a ler, um bloco de cada vez.</p><div className="mt-8"><LandingAuth variant="footer" /></div></div></section>
     </>
   );
 }

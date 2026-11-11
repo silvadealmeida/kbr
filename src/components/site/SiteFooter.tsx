@@ -7,7 +7,6 @@ const learnLinks = [
   { href: "/vocabulario", label: "Vocabulário" },
   { href: "/revisao", label: "Revisão" },
 ];
-
 const legalLinks = [
   { href: "/privacidade", label: "Privacidade" },
   { href: "/impressum", label: "Aviso legal / Impressum" },
@@ -15,68 +14,17 @@ const legalLinks = [
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border bg-surface">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 pb-[calc(3rem+env(safe-area-inset-bottom))] sm:px-6 md:grid-cols-[1.4fr_1fr_1fr]">
+    <footer className="border-t border-line bg-surface">
+      <div className="mx-auto grid max-w-[1280px] gap-10 px-5 py-12 pb-[calc(3rem+env(safe-area-inset-bottom))] sm:px-8 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
-          <div className="flex items-center gap-2.5">
-            <span
-              lang="ko"
-              aria-hidden
-              className="flex size-10 items-center justify-center rounded-xl bg-brand font-ko text-xl font-bold text-brand-fg"
-            >
-              한
-            </span>
-            <span className="text-lg font-bold tracking-tight">KBR</span>
-          </div>
-          <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">
-            Coreano para quem fala português. Hangul, vocabulário em contexto, diálogos
-            progressivos e revisão espaçada.
-          </p>
-          <p className="mt-4 inline-flex rounded-full bg-soft px-3 py-1 text-xs font-semibold text-brand">
-            Projeto em desenvolvimento
-          </p>
+          <Link href="/" className="inline-flex min-h-11 items-center gap-3 text-xl font-bold tracking-[-.05em]"><span aria-hidden className="flex size-9 items-center justify-center border border-fg">K</span>KBR</Link>
+          <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted">Coreano para brasileiros. Comece pela escrita, pratique a leitura e volte ao que precisa de atenção.</p>
+          <p className="mt-5 text-sm text-muted">Hangul disponível · A1–C2 planejados</p>
         </div>
-
-        <nav aria-label="Aprender" className="text-sm">
-          <h2 className="mb-3 font-semibold">Aprender</h2>
-          <ul className="space-y-1">
-            {learnLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="flex min-h-11 items-center text-muted hover:text-brand"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        <nav aria-label="Transparência" className="text-sm">
-          <h2 className="mb-3 font-semibold">Transparência</h2>
-          <ul className="space-y-1">
-            {legalLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="flex min-h-11 items-center text-muted hover:text-brand"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-4 text-xs leading-relaxed text-muted">
-            Sem anúncios e sem rastreadores de terceiros. Conteúdo coreano em revisão.
-          </p>
-        </nav>
+        <nav aria-label="Aprender"><h2 className="font-semibold">Aprender</h2><ul className="mt-3">{learnLinks.map((item) => <li key={item.href}><Link href={item.href} className="inline-flex min-h-11 items-center text-sm text-muted hover:text-accent">{item.label}</Link></li>)}</ul></nav>
+        <nav aria-label="Transparência"><h2 className="font-semibold">Transparência</h2><ul className="mt-3">{legalLinks.map((item) => <li key={item.href}><Link href={item.href} className="inline-flex min-h-11 items-center text-sm text-muted hover:text-accent">{item.label}</Link></li>)}</ul><p className="mt-5 text-sm leading-relaxed text-muted">Sem anúncios ou rastreadores de terceiros. Conteúdo coreano em revisão.</p></nav>
       </div>
-      <div className="border-t border-border">
-        <p className="mx-auto max-w-6xl px-4 py-5 text-xs text-muted sm:px-6">
-          © 2026 KBR. Feito para aprender coreano em português.
-        </p>
-      </div>
+      <p className="border-t border-line px-5 py-5 text-center text-xs text-muted">© 2026 KBR · Estude coreano em português</p>
     </footer>
   );
 }

@@ -15,34 +15,13 @@ export function AuthControl({ compact = false }: { compact?: boolean }) {
     setError(message);
     setBusy(false);
   }
-
-  if (status === "loading") {
-    return <span className="text-sm text-muted">Verificando conta…</span>;
-  }
-  if (status === "unavailable") {
-    return <span className="text-sm text-muted">Modo convidado</span>;
-  }
-
+  if (status === "loading") return <span className="text-sm text-muted">Verificando conta…</span>;
+  if (status === "unavailable") return <span className="text-sm text-muted">Modo convidado</span>;
   return (
-    <div className={compact ? "flex items-center" : "space-y-2"}>
-      {user && !compact ? (
-        <>
-          <p className="truncate text-xs text-muted" title={user.email}>{user.email}</p>
-          <p className="text-xs text-muted" aria-live="polite">
-            {syncStatus === "syncing" ? "Sincronizando…" : syncStatus === "synced" ? "Progresso sincronizado" : syncStatus === "offline" ? "Salvo neste dispositivo" : ""}
-          </p>
-        </>
-      ) : null}
-      <button
-        type="button"
-        disabled={busy}
-        onClick={() => void run(user ? signOut : signInWithGoogle)}
-        className="inline-flex min-h-11 items-center justify-center rounded-xl border border-border px-3 text-sm font-semibold text-fg hover:bg-soft disabled:cursor-wait disabled:opacity-60"
-        aria-label={user && compact ? "Sair da conta Google" : undefined}
-      >
-        {busy ? "Aguarde…" : user ? (compact ? "Sair" : "Sair da conta") : "Entrar com Google"}
-      </button>
-      {error ? <p role="alert" className="mt-1 max-w-48 text-xs text-red-700 dark:text-red-300">{error}</p> : null}
+    <div className={compact ? "flex items-center" : "space-y-3"}>
+      {user && !compact ? <div className="border-l-2 border-seal pl-3"><p className="mono-label text-muted">Conta Google</p><p className="mt-2 truncate text-sm font-medium" title={user.email}>{user.email}</p><p className="mt-1 text-xs text-muted" aria-live="polite">{syncStatus === "syncing" ? "Sincronizando…" : syncStatus === "synced" ? "Progresso sincronizado" : syncStatus === "offline" ? "Salvo neste dispositivo" : ""}</p></div> : null}
+      <button type="button" disabled={busy} aria-busy={busy || undefined} onClick={() => void run(user ? signOut : signInWithGoogle)} className="inline-flex min-h-11 items-center justify-center rounded-[var(--radius-field)] border border-line-strong px-3 text-sm font-semibold text-fg hover:bg-surface-2 disabled:cursor-wait disabled:opacity-60" aria-label={user && compact ? "Sair da conta Google" : undefined}>{busy ? "Aguarde…" : user ? (compact ? "Sair" : "Sair da conta") : "Entrar com Google"}</button>
+      {error ? <p role="alert" className="mt-1 max-w-48 text-xs text-danger">{error}</p> : null}
     </div>
   );
 }

@@ -103,6 +103,8 @@ Dependências: 7C depende de 7B; 7D de 7B (e reusa primitivas da 7C); 7E de 7D; 
 
 **Rollback:** reverter por arquivo; landing e nav são independentes do player.
 
+**Status 7C:** implementada e validada localmente. SVG de `한`, landing editorial com disponibilidade explícita, navegação pública mobile sem overlay, auth visual e shell autenticado; 326 e2e aprovados/10 skips. Medidas e limites em `docs/roadmap.md` (§Status Fase 7C).
+
 ## 6. Fase 7D — Lição e composição
 
 **Objetivo:** redesenhar o coração do produto sem alterar respostas ou progresso.

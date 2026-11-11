@@ -27,7 +27,7 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   title: { default: "KBR — Coreano para brasileiros", template: "%s · KBR" },
   description:
-    "Aprenda coreano em português: Hangul, vocabulário em contexto, diálogos progressivos e revisão espaçada.",
+    "Aprenda a ler Hangul em português com lições curtas, checkpoints e revisão espaçada.",
   applicationName: "KBR",
   manifest: "/manifest.webmanifest",
   icons: {

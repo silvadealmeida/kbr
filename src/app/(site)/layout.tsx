@@ -7,9 +7,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
     <div className="flex min-h-dvh flex-col">
       <SkipLink />
       <SiteHeader />
-      <main id="conteudo" tabIndex={-1} className="flex-1">
-        {children}
-      </main>
+      <main id="conteudo" tabIndex={-1} className="flex-1">{children}</main>
       <SiteFooter />
     </div>
   );

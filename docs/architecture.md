@@ -88,6 +88,8 @@ Limites atuais: o registro é estático; não há CMS, banco, rota genérica `/c
 
 `validateA1Blueprint` verifica namespace/ordem/unicidade, campos obrigatórios, carga lexical, tipos conhecidos, módulos, escopo e pré-requisitos cumulativos dos checkpoints e dependências de revisão. É validação estrutural: naturalidade, correção coreana, tradução, registro e cultura continuam dependentes de revisão humana. O mapa e as fontes estão em `docs/curriculum/`.
 
+O contrato `A1LessonContent` prepara a Fase 9B sem instanciar datasets: diálogo bilíngue com texto de TTS, referências ao registro canônico de vocabulário/frases, notas gramaticais, `ExerciseSpec` já implementados, conclusão e metadados editoriais. `validateA1LessonContent` aceita implementação incremental por lição e rejeita lição fora do blueprint, IDs duplicados, quantidade lexical fora do plano, origem/reuso lexical incorreto, item novo sem frase contextual, exercício ausente/não implementado/fora do plano, critério impossível e `reviewed` sem revisor/data. Ele não cria uma segunda fonte de vocabulário, não agenda cartões e não valida qualidade linguística.
+
 ## Hangul
 Composição por Unicode: `0xAC00 + (L*21 + V)*28 + T` — sem tabela de sílabas; testes unitários. `decomposeSyllable`, `isHangulText` e `normalizeHangul` completam as funções puras (round-trip e NFC).
 

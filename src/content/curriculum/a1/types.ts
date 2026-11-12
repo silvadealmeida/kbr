@@ -1,5 +1,6 @@
 import type { ReviewMeta } from "@/content/hangul/types";
 import type { ExerciseTypeId } from "@/lib/exercises/registry";
+import type { ExerciseSpec } from "@/lib/exercises";
 
 export type A1Skill =
   | "reading"
@@ -77,6 +78,55 @@ export type A1CurriculumBlueprint = {
   lessons: readonly A1LessonBlueprint[];
   checkpoints: readonly A1CheckpointBlueprint[];
   review: ReviewMeta;
+};
+
+export type A1DialogueLine = {
+  id: string;
+  speaker: string;
+  ko: string;
+  pt: string;
+  audioText: string;
+  review: ReviewMeta;
+};
+
+export type A1GrammarExample = {
+  ko: string;
+  pt: string;
+  audioText: string;
+};
+
+export type A1GrammarNote = {
+  id: string;
+  titlePt: string;
+  form: string;
+  explanationPt: string;
+  examples: readonly A1GrammarExample[];
+  review: ReviewMeta;
+};
+
+export type A1LessonVocabularyRefs = {
+  newIds: readonly string[];
+  reusedIds: readonly string[];
+  sentenceIds: readonly string[];
+};
+
+/** Dataset jogável futuro. A Fase 9A define o contrato, mas não instancia lições. */
+export type A1LessonContent = {
+  id: string;
+  title: string;
+  objective: string;
+  dialogue: readonly A1DialogueLine[];
+  vocabulary: A1LessonVocabularyRefs;
+  grammar: readonly A1GrammarNote[];
+  exercises: readonly ExerciseSpec[];
+  completion: { minScore: number; minCorrect: number };
+  review: ReviewMeta;
+};
+
+export type A1ContentIssue = {
+  code: string;
+  path: string;
+  message: string;
 };
 
 export type A1BlueprintIssue = {

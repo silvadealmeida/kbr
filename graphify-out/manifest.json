@@ -108,9 +108,9 @@
     "semantic_hash": ""
   },
   "docs/architecture.md": {
-    "mtime": 1794492790.31049,
-    "seen": 1794492796.2884073,
-    "ast_hash": "569df03981bf9935234244dd4b3e5a12",
+    "mtime": 1794492995.4529524,
+    "seen": 1794492997.7496266,
+    "ast_hash": "fcbad2c17e1a9ba77c9b2ef76dd71864",
     "semantic_hash": ""
   },
   "docs/research.md": {
@@ -120,9 +120,9 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794492790.31049,
-    "seen": 1794492796.2884293,
-    "ast_hash": "c95e2bec7c001ae8a134bc092a05f8bd",
+    "mtime": 1794492995.4529524,
+    "seen": 1794492997.74965,
+    "ast_hash": "da832f6cb878d9467b0daccd99034193",
     "semantic_hash": ""
   },
   "src/lib/hangul/index.ts": {
@@ -3414,9 +3414,9 @@
     "semantic_hash": ""
   },
   "PLAN.md": {
-    "mtime": 1794492790.31049,
-    "seen": 1794492796.2884061,
-    "ast_hash": "42ff87a8d82784f4b5393e3909137023",
+    "mtime": 1794492995.4529524,
+    "seen": 1794492997.7496254,
+    "ast_hash": "0a79569459525c40df332ea5096c9cde",
     "semantic_hash": ""
   },
   "docs/curriculum/a1-exercise-plan.md": {
@@ -3456,15 +3456,15 @@
     "semantic_hash": ""
   },
   "src/content/curriculum/a1/index.ts": {
-    "mtime": 1794492625.386409,
-    "seen": 1794492700.4903276,
-    "ast_hash": "68687eeae391f492b747c5dbee224325",
+    "mtime": 1794492852.9179246,
+    "seen": 1794492997.749538,
+    "ast_hash": "6f418d765053711e389d891f555e1bff",
     "semantic_hash": ""
   },
   "src/content/curriculum/a1/types.ts": {
-    "mtime": 1794492417.2541997,
-    "seen": 1794492700.4903288,
-    "ast_hash": "73a1888985888f75b1e72fe5121226c1",
+    "mtime": 1794492852.9143245,
+    "seen": 1794492997.7495394,
+    "ast_hash": "4ac8d9e80035ae4c9a6d5b827e4c9be7",
     "semantic_hash": ""
   },
   "src/content/curriculum/a1/validate.ts": {
@@ -3474,9 +3474,15 @@
     "semantic_hash": ""
   },
   "tests/content/a1-curriculum.test.ts": {
-    "mtime": 1794492757.3092663,
-    "seen": 1794492796.2883856,
-    "ast_hash": "71d203fec65470917f849f15c1a639ef",
+    "mtime": 1794492961.0966625,
+    "seen": 1794492997.7496057,
+    "ast_hash": "55374a7aae7ee730a5b51d7b09254f57",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/a1/validate-content.ts": {
+    "mtime": 1794492961.0966625,
+    "seen": 1794492997.7495403,
+    "ast_hash": "d557f4af203a6468d550e059a09b7d93",
     "semantic_hash": ""
   },
   "package-lock.json": {

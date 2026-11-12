@@ -96,9 +96,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1794525220.3408928,
-    "seen": 1794525248.6291053,
-    "ast_hash": "5061ca8abf85cd124f9ea39924ebb1b4",
+    "mtime": 1794525852.277899,
+    "seen": 1794525857.932736,
+    "ast_hash": "dd238010a85352707459aee1a4446062",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -120,8 +120,8 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794525220.3408928,
-    "seen": 1794525248.6291573,
+    "mtime": 1794525852.277899,
+    "seen": 1794525857.9328244,
     "ast_hash": "9fd56cf91dc57ff22a8cb1cc43a0e0bc",
     "semantic_hash": ""
   },

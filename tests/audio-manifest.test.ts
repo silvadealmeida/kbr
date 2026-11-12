@@ -26,6 +26,25 @@ const COURSE_STEPS = [
   ...A2_IMPLEMENTED_CHECKPOINTS.map((step) => ({ courseId: "ko-a2", step })),
 ];
 
+// O corpus gerado cobre Hangul, A1 e A2. O B1 (e cursos futuros) usa a voz do
+// sistema até que seus próprios MP3 sejam gerados.
+const AUDIO_COURSES = new Set(["hangul", "ko-a1", "ko-a2"]);
+const AUDIO_VOCABULARY = VOCAB_ENTRIES.filter((entry) =>
+  AUDIO_COURSES.has(entry.course),
+);
+const AUDIO_VOCAB_IDS = new Set(AUDIO_VOCABULARY.map((entry) => entry.id));
+const AUDIO_SENTENCES = VOCAB_SENTENCES.filter((sentence) =>
+  AUDIO_VOCAB_IDS.has(sentence.vocabId),
+);
+
+function audioInventory() {
+  return collectAudioInventory(HANGUL_CURRICULUM, {
+    courseSteps: COURSE_STEPS,
+    vocabulary: AUDIO_VOCABULARY,
+    sentences: AUDIO_SENTENCES,
+  });
+}
+
 function fullInventory() {
   return collectAudioInventory(HANGUL_CURRICULUM, {
     courseSteps: COURSE_STEPS,
@@ -39,24 +58,24 @@ function sha256(file: string) {
 }
 
 describe("manifesto de áudio estático", () => {
-  test("inventaria o texto falado e usa fallback quando não há MP3", () => {
-    const inventory = fullInventory();
+  test("cobre todo o inventário falado de Hangul, A1, A2 e vocabulário", () => {
+    const inventory = audioInventory();
     const missing = inventory.filter((item) => !hasAudioAsset(item.text));
-    const hangul = inventory.filter((item) =>
-      item.sources.some((source) =>
-        /^(syllable|word|rule|anatomy):/.test(source),
-      ),
-    );
 
-    expect(inventory).toHaveLength(3547);
-    expect(manifest.count).toBe(287);
-    expect(audioAssetCount()).toBe(manifest.count);
-    expect(hangul.length).toBeGreaterThan(0);
-    expect(hangul.every((item) => hasAudioAsset(item.text))).toBe(true);
-    expect(missing.length).toBeGreaterThan(0);
+    expect(inventory).toHaveLength(2907);
+    expect(manifest.count).toBe(inventory.length);
+    expect(audioAssetCount()).toBe(inventory.length);
+    expect(missing).toEqual([]);
     expect(hasAudioAsset("한")).toBe(true);
-    expect(hasAudioAsset("저는 학생이에요.")).toBe(false);
-    expect(resolvePublicAudioSrc("저는 학생이에요.")).toBeNull();
+    expect(hasAudioAsset("저는 학생이에요.")).toBe(true);
+    expect(resolvePublicAudioSrc("저는 학생이에요.")).not.toBeNull();
+  });
+
+  test("cursos sem MP3 próprio (B1) caem no fallback da voz do sistema", () => {
+    const b1 = VOCAB_ENTRIES.filter((entry) => entry.course === "ko-b1");
+    expect(b1.length).toBeGreaterThan(0);
+    expect(b1.some((entry) => !hasAudioAsset(entry.audioText))).toBe(true);
+    expect(fullInventory().length).toBeGreaterThan(audioInventory().length);
   });
 
   test("mantém chaves, textos e caminhos únicos", () => {
@@ -102,7 +121,7 @@ describe("manifesto de áudio estático", () => {
     }
 
     expect(totalBytes).toBe(manifest.totalBytes);
-    expect(totalBytes).toBeLessThan(20 * 1024 * 1024);
+    expect(totalBytes).toBeLessThan(50 * 1024 * 1024);
   });
 
   test("não deixa arquivos órfãos no diretório versionado", () => {

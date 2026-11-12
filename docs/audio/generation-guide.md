@@ -23,20 +23,20 @@ npm run build && npx playwright test e2e/audio.spec.ts
 
 | Métrica | Valor |
 |---|---|
-| Textos únicos | **287** (266 da camada de dados + 23 formas `spoken` das regras − 2 sobreposições) |
-| Prioridade 1 / 2 | **156 / 131** |
-| Arquivos MP3 | **287** |
-| Tamanho total | **1.384.146 bytes** (~1,32 MiB; 1,9 MB em blocos de disco) |
-| Duração total | **153,39 s** |
-| Duração por clipe | **0,298–1,606 s** |
+| Textos únicos | **2.907** (Hangul + A1 + A2 + vocabulário: palavras e frases contextuais) |
+| Prioridade 1 / 2 | **1.949 / 958** |
+| Arquivos MP3 | **2.907** |
+| Tamanho total | **38.464.973 bytes** (~36,7 MiB) |
+| Duração total | **4.611,21 s** (~76,9 min) |
+| Duração por clipe | **0,298–8,676 s** |
 | Formato | MP3, **64 kbps**, mono, **44,1 kHz** |
-| Loudness | RMS **−18,5 a −18,0 dBFS**; pico **−9,43 a −1,0 dBFS** |
-| Ganho aplicado | **−4,45 a +6,44 dB** |
-| Avisos de QC | **0** |
+| Loudness | RMS **−19,57 a −18,0 dBFS**; pico **−9,43 a −1,0 dBFS** |
+| Ganho aplicado | **−4,76 a +6,44 dB** |
+| Avisos de QC | **17** (frases completas acima de 6 s; nenhum erro) |
 | Áudio no carregamento inicial | **0 bytes** (sob demanda) |
 | Cache HTTP | `public, max-age=31536000, immutable` em `/audio/:path*` |
 
-O corpus cobre `audioText` de exercícios, alternativas, leituras, sílabas, palavras, alvos de montagem, as formas `spoken` das três regras e a sílaba `한` da anatomia. O construtor livre de sílabas é dinâmico e não tem asset para toda combinação; nesses casos o player usa a voz do sistema.
+O corpus cobre `audioText` de exercícios, alternativas, leituras, diálogos, exemplos de gramática e painéis de introdução, sílabas, palavras, alvos de montagem, as formas `spoken` das três regras, a sílaba `한` da anatomia e o vocabulário (palavras e frases contextuais) de Hangul, A1 e A2. O construtor livre de sílabas é dinâmico e não tem asset para toda combinação; nesses casos o player usa a voz do sistema.
 
 ## Decisão: Python oficial, não imagem Docker
 
@@ -137,7 +137,7 @@ PY
 node scripts/audio/build-inventory.mjs
 ```
 
-Lê o currículo real via Vite SSR e grava `.audio/inventory.json` com texto NFC, chave FNV-1a, referências de origem, passos, tags e prioridade. O script falha em colisão de chave. Saída observada: **287 itens**, 156 de prioridade 1 e 131 de prioridade 2.
+Lê o currículo real via Vite SSR e grava `.audio/inventory.json` com texto NFC, chave FNV-1a, referências de origem, passos, tags e prioridade. O script cobre Hangul, A1, A2 e o vocabulário desses cursos (B1 fica na voz do sistema) e falha em colisão de chave. Saída observada: **2.907 itens**, 1.949 de prioridade 1 e 958 de prioridade 2.
 
 ### 2. Síntese
 
@@ -205,7 +205,7 @@ npx playwright test e2e/audio.spec.ts --project=mobile-390
 
 Os testes de manifesto verificam:
 
-- cobertura dos 287 textos do inventário;
+- cobertura dos 2.907 textos do inventário;
 - texto não vazio, apenas Hangul + espaços, chave determinística e caminho único;
 - existência, bytes e SHA-256 de cada MP3;
 - ausência de órfãos no diretório versionado;

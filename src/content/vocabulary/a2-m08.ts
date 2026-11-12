@@ -57,7 +57,7 @@ export const A2_M08_ROWS: readonly A2VocabRow[] = [
   ["a2-l40", "발전", "progresso; desenvolvimento", "substantivo", "발전하려면", "발전하려면 연습이 필요해요.", "Para progredir, é preciso praticar.", "progresso"],
   ["a2-l40", "앞으로", "daqui para frente; adiante", "advérbio", "앞으로", "앞으로도 계속 공부할 거예요.", "Vou continuar estudando daqui para frente.", "daqui para frente"],
   ["a2-l40", "돌아보다", "olhar para trás; revisar", "verbo", "돌아봤어요", "지난 일 년을 돌아봤어요.", "Revisei o último ano.", "olhar para trás", "Forma de dicionário; a frase usa 돌아봤어요."],
-  ["a2-l40", "시작점", "ponto de partida", "substantivo", "시작점", "A2는 새로운 시작점이에요.", "O A2 é um novo ponto de partida.", "ponto de partida"],
+  ["a2-l40", "시작점", "ponto de partida", "substantivo", "시작점", "에이 투는 새로운 시작점이에요.", "O A2 é um novo ponto de partida.", "ponto de partida"],
   ["a2-l40", "다음 단계", "próxima etapa", "substantivo", "다음 단계", "다음 단계로 나아가요.", "Avancemos para a próxima etapa.", "próxima etapa"],
   ["a2-l40", "응원", "torcida; apoio", "substantivo", "응원할게요", "항상 응원할게요.", "Sempre vou torcer por você.", "torcida; apoio"],
   ["a2-l40", "격려", "encorajamento", "substantivo", "격려해", "친구가 저를 격려해 줬어요.", "Meu amigo me encorajou.", "encorajamento"],

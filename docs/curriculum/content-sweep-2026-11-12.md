@@ -56,7 +56,7 @@
 
 | # | Tema | Achado |
 |---|---|---|
-| 4 | Áudio estático | O corpus tem **287 MP3** e cobre 678 ocorrências (sílabas/palavras do Hangul, 118 `reading`, 73 `audio-to-char`, 24 `minimal-pair`, 23 `char-to-audio`, 141 itens de vocabulário). **Nenhum dos 396 exercícios `listen` tem MP3** — todos caem no fallback de TTS do navegador; idem 718 falas de diálogo, 660 exemplos de gramática e 1.155 itens de vocabulário. É o desenho documentado ("asset → voz coreana → dica textual"), mas é a maior lacuna de referência de áudio do conteúdo. |
+| 4 | Áudio estático | **Resolvido para Hangul, A1 e A2 em 2026-11-13:** o corpus passou a **2.907 MP3** e cobre exercícios, diálogos, exemplos de gramática, introduções e vocabulário (palavras e frases) desses cursos. O B1 continua no fallback de TTS do navegador até uma fase própria de áudio. Relatório original: 287 MP3 cobriam 678 ocorrências e nenhum dos 396 `listen` tinha MP3. |
 | 5 | Esquemas de ID de frase | Convivem dois formatos: `sent:<forma>:<n>` (Hangul) e `sent:<curso>-…` (A1–B1). Ambos validam; padronizar seria cosmético. |
 | 6 | Vocabulário do Hangul | 108 das 133 entradas não têm frase de contexto (nos cursos de língua há 1 frase por item novo). |
 | 7 | Assimetria de dados | `completion.minCorrect` é opcional no Hangul e sempre explícito nos cursos de língua; `passingScore`/`minScore` convivem com regras extras (`rules`, `diagnosticTags`). Documentado nos tipos, mas é uma forma de dados mista. |

@@ -22,8 +22,8 @@ TTS **não** deve ser a referência oficial de ㄹ, vogais ou contrastes crític
 
 A 8B foi implementada em código local com **MeloTTS-Korean sintético como referência provisória**, não como gravação nativa. O que está pronto:
 
-- inventário reproduzível com **287 textos únicos** (266 da camada de dados + 23 formas `spoken` − 2 sobreposições), 156 de prioridade 1 e 131 de prioridade 2;
-- **287 MP3** em `public/audio/v1/`, **1.384.146 bytes** no total, **153,39 s**, 64 kbps mono 44,1 kHz; maior arquivo **13.393 bytes**;
+- inventário reproduzível com **2.907 textos únicos** (Hangul, A1, A2 e vocabulário), 1.949 de prioridade 1 e 958 de prioridade 2;
+- **2.907 MP3** em `public/audio/v1/`, cobrindo Hangul, A1, A2 e vocabulário, 64 kbps mono 44,1 kHz;
 - manifesto versionado com SHA-256, duração, loudness, fontes, passos, tags e prioridade; mapa compacto `texto → src` separado para o cliente;
 - player **asset → voz do sistema**, com seleção explícita de voz coreana, espera por `voiceschanged`, timeouts, erros, replay, cancelamento e limpeza;
 - controle **0,75×** com preservação de pitch e status acessível que só anuncia reprodução depois de `play()`/`onstart`;
@@ -106,7 +106,7 @@ Como o corpus inteiro é pequeno, a meta é **gravar tudo**, não só os itens c
 - Versionar o manifesto e os assets; não versionar tomadas brutas. Guardar as tomadas brutas em armazenamento do projeto, fora do repositório.
 - Cache: `Cache-Control: public, max-age=31536000, immutable` para `/audio/v1/*`. Como não há service worker, o cache é apenas HTTP; offline continua fora de escopo.
 
-**Implementação local (8B):** o formato publicado é **MP3 64 kbps mono 44,1 kHz**, não AAC/WebM. A decisão foi tomada depois de medir o corpus: 287 clipes somam **1,38 MB** e o maior tem **13,4 KB**, muito abaixo do orçamento; um único formato universal reduz complexidade de encode, manifesto e fallback sem ganho material de tamanho. O AAC/WebM continua sendo a escolha preferida quando houver gravação nativa em alta qualidade. O `Cache-Control` imutável foi aplicado em `next.config.mjs` para `/audio/:path*`.
+**Implementação local (8B):** o formato publicado é **MP3 64 kbps mono 44,1 kHz**, não AAC/WebM. A decisão foi tomada depois de medir o corpus: os clipes somam poucos MB, muito abaixo do orçamento; um único formato universal reduz complexidade de encode, manifesto e fallback sem ganho material de tamanho. O AAC/WebM continua sendo a escolha preferida quando houver gravação nativa em alta qualidade. O `Cache-Control` imutável foi aplicado em `next.config.mjs` para `/audio/:path*`.
 
 ### 8B.3 — Camada de reprodução
 
@@ -192,11 +192,11 @@ Requisitos:
 
 Os itens marcados foram atendidos pela implementação local com áudio sintético; os demais exigem gravação/revisão nativa ou dispositivo real.
 
-- [x] Inventário reproduzível cobre todos os `audioText` e formas `spoken` (287 textos; teste de cobertura).
+- [x] Inventário reproduzível cobre todos os `audioText` e formas `spoken` de Hangul, A1, A2 e vocabulário (2.907 textos; teste de cobertura).
 - [ ] 100% dos itens de escuta e contrastes críticos têm asset **aprovado por falante nativo** — os 287 assets existem, mas são sintéticos e seguem `in-review`.
 - [x] Todo `audioSrc` aponta para arquivo existente; teste falha se faltar (SHA-256 e bytes verificados).
 - [x] Player toca asset, cai para TTS e, sem TTS, mostra fallback textual.
-- [x] Nenhum áudio carrega no inicial; orçamento por clipe e total documentados (maior 13,4 KB; total 1,38 MB).
+- [x] Nenhum áudio carrega no inicial; orçamento por clipe e total documentados (maior ~70 KB; total ~38 MB).
 - [x] UI não afirma sucesso antes de `play()`; erros são anunciados.
 - [ ] iPhone/Chrome iOS/VoiceOver reais verificados no checklist manual.
 - [ ] Licenças, consentimento e atribuições registrados — MeloTTS-Korean é MIT, mas o encoder BERT não declara licença e não há consentimento de voz humana.

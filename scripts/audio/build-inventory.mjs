@@ -47,10 +47,21 @@ try {
     ...A2_IMPLEMENTED_CHECKPOINTS.map((step) => ({ courseId: "ko-a2", step })),
   ];
 
+  // Hangul + A1 + A2. B1 e cursos posteriores usam a voz do sistema até que
+  // uma fase própria gere os MP3 deles.
+  const AUDIO_COURSES = new Set(["hangul", "ko-a1", "ko-a2"]);
+  const vocabulary = VOCAB_ENTRIES.filter((entry) =>
+    AUDIO_COURSES.has(entry.course),
+  );
+  const vocabIds = new Set(vocabulary.map((entry) => entry.id));
+  const sentences = VOCAB_SENTENCES.filter((sentence) =>
+    vocabIds.has(sentence.vocabId),
+  );
+
   const items = collectAudioInventory(HANGUL_CURRICULUM, {
     courseSteps,
-    vocabulary: VOCAB_ENTRIES,
-    sentences: VOCAB_SENTENCES,
+    vocabulary,
+    sentences,
   });
   const byKey = new Map();
   const collisions = [];

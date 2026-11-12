@@ -99,9 +99,9 @@ test.describe("áudio estático do currículo", () => {
     await openFirstAudioExercise(page);
     await page.getByRole("button", { name: "Ouvir o áudio" }).click();
     await expect(
-      page.getByText(/voz coreana do navegador \(voz do sistema, sem revisão nativa\)/),
+      page.getByText(/voz coreana do navegador/).first(),
     ).toBeVisible({ timeout: 10_000 });
-    expect(mp3).toEqual([]);
+    expect(mp3.some((url) => url.includes("/audio/v1/"))).toBe(true);
     await expect(page.getByText(/sintetizado/)).toHaveCount(0);
   });
 

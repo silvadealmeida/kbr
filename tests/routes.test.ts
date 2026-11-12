@@ -1,5 +1,6 @@
 import { expect, test } from "vitest";
 import {
+  CURRICULUM_PROTECTED_PATHS,
   EXPERIMENTAL_PROTECTED_PATHS,
   isProtectedPath,
   LEGACY_PROTECTED_PATHS,
@@ -17,6 +18,7 @@ test("cinco rotas de navegação, todas privadas e começando com /", () => {
     ...ROUTES.map((route) => route.href),
     ...LEGACY_PROTECTED_PATHS,
     ...EXPERIMENTAL_PROTECTED_PATHS,
+    ...CURRICULUM_PROTECTED_PATHS,
   ]);
   expect(ROUTES.map((route) => route.href)).not.toContain("/fala");
 });
@@ -29,6 +31,8 @@ test.each([
   ["/hangul/c3", true],
   ["/cursos", true],
   ["/cursos/hangul", true],
+  ["/a1", true],
+  ["/a1/a1-l01", true],
   ["/licoes", true],
   ["/fala", true],
   ["/vocabulario?tag=casa", true],

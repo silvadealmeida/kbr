@@ -1,5 +1,6 @@
 import { describe, expect, test } from "vitest";
 import {
+  A1_COURSE,
   COURSE_REGISTRY,
   HANGUL_COURSE,
   PLANNED_COURSES,
@@ -7,6 +8,7 @@ import {
   getAvailableCourses,
   getCourse,
   getCourseBySlug,
+  getInDevelopmentCourses,
   getPlannedCourses,
   validateCourseRegistry,
   type CourseDefinition,
@@ -107,19 +109,35 @@ function issueCodes(courses: readonly CourseDefinition[]): string[] {
 }
 
 describe("registro genérico de cursos", () => {
-  test("Hangul é o único curso disponível; A1–C2 estão planejados", () => {
+  test("Hangul está disponível; A1 está em desenvolvimento; A2–C2 planejados", () => {
     expect(validateCourseRegistry()).toEqual([]);
     expect(COURSE_REGISTRY).toHaveLength(1 + CEFR_LEVELS.length);
     expect(getAvailableCourses().map((course) => course.id)).toEqual(["hangul"]);
-    expect(getPlannedCourses().map((course) => course.level)).toEqual([
-      ...CEFR_LEVELS,
+    expect(getInDevelopmentCourses().map((course) => course.id)).toEqual([
+      "ko-a1",
     ]);
+    expect(getPlannedCourses().map((course) => course.level)).toEqual(
+      CEFR_LEVELS.filter((level) => level !== "a1"),
+    );
     expect(getCourse("hangul")).toBe(HANGUL_COURSE);
+    expect(getCourse("ko-a1")).toBe(A1_COURSE);
     expect(getCourseBySlug("hangul")).toBe(HANGUL_COURSE);
+    expect(getCourseBySlug("a1")).toBe(A1_COURSE);
 
     expect(HANGUL_COURSE.level).toBe("pre-a1");
     expect(isCefrLevel(HANGUL_COURSE.level)).toBe(false);
     expect(COURSE_LEVEL_LABELS["pre-a1"]).toBe("Pré-A1");
+
+    expect(A1_COURSE.status).toBe("in-development");
+    expect(A1_COURSE.level).toBe("a1");
+    expect(A1_COURSE.steps.map((step) => step.id)).toEqual(["a1-l01"]);
+    expect(A1_COURSE.plannedTotals).toEqual({ lessons: 40, checkpoints: 8 });
+    expect(A1_COURSE.basePath).toBe("/a1");
+    expect(A1_COURSE.completion).toMatchObject({
+      requiresAllSteps: false,
+      finalStepId: null,
+      certification: "none",
+    });
 
     for (const course of PLANNED_COURSES) {
       expect(course.status).toBe("planned");
@@ -285,19 +303,28 @@ describe("registro genérico de cursos", () => {
     });
   });
 
-  test("curso concluído não desbloqueia A1 nem o marca como concluído", () => {
+  test("curso concluído não desbloqueia A1 nem conclui o curso em desenvolvimento", () => {
     const complete = markDone(createEmptyProgress(NOW), EXPECTED_HANGUL_STEP_IDS);
     const a1 = getCourse("ko-a1")!;
 
     expect(summarizeCourseProgress(complete, a1)).toMatchObject({
-      totalSteps: 0,
+      totalSteps: 1,
       completedSteps: 0,
       percent: 0,
       complete: false,
+      nextStep: { id: "a1-l01" },
+    });
+    expect(courseStepHref(a1, "a1-l01")).toBe("/a1/a1-l01");
+    expect(courseStepHref(a1, "a1-l02")).toBeNull();
+    expect(courseStepHref(a1, "a1-c01")).toBeNull();
+
+    const a1Done = markDone(createEmptyProgress(NOW), ["a1-l01"]);
+    expect(summarizeCourseProgress(a1Done, a1)).toMatchObject({
+      completedSteps: 1,
+      percent: 100,
+      complete: false,
       nextStep: null,
     });
-    expect(courseStepHref(a1, "a1-01")).toBeNull();
-    expect(a1.basePath).toBeNull();
   });
 
   test("navegação só cria links para passos existentes do curso disponível", () => {

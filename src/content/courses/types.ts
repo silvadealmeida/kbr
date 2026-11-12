@@ -32,7 +32,7 @@ export function isCefrLevel(level: CourseLevel): level is CefrLevel {
   return level !== "pre-a1";
 }
 
-export type CourseStatus = "available" | "planned";
+export type CourseStatus = "available" | "in-development" | "planned";
 
 export type CourseStepKind = "lesson" | "checkpoint";
 
@@ -82,6 +82,16 @@ export type CourseLocalization = {
   contentLanguage: "ko";
 };
 
+/**
+ * Totais editoriais de um curso em desenvolvimento. Os `steps` continuam
+ * listando apenas o que já é jogável; estes números não criam rotas, links ou
+ * progresso.
+ */
+export type CoursePlannedTotals = {
+  lessons: number;
+  checkpoints: number;
+};
+
 export type CourseDefinition = {
   /** Identificador estável do curso (ex.: `hangul`). */
   id: string;
@@ -100,6 +110,11 @@ export type CourseDefinition = {
   basePath: string | null;
   units: readonly CourseUnitDefinition[];
   steps: readonly CourseStepDefinition[];
+  /**
+   * Só existe em cursos `in-development`: total editorial planejado, maior que
+   * os passos implementados. Não é usado para calcular conclusão.
+   */
+  plannedTotals?: CoursePlannedTotals;
   /** Tipos de exercício que o conteúdo do curso usa hoje. */
   exerciseTypes: readonly ExerciseSpec["type"][];
   completion: CourseCompletionDefinition;

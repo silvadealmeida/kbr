@@ -298,12 +298,13 @@ export function DashboardArea() {
       <Card>
         <p className="text-sm font-semibold text-accent">Catálogo de cursos</p>
         <h2 className="mt-1 text-xl font-semibold">
-          Hangul disponível · {PLANNED_LEVELS} em planejamento
+          Hangul disponível · A1 em desenvolvimento
         </h2>
         <p className="mt-1 text-muted">
           O curso Hangul é Pré-A1. Concluí-lo não é certificação CEFR, não comprova
-          proficiência oficial e não desbloqueia o A1 automaticamente. Os demais
-          níveis ainda não têm lições.
+          proficiência oficial e não desbloqueia o A1 automaticamente. O A1 tem a
+          primeira lição disponível; {PLANNED_LEVELS} seguem em planejamento e
+          ainda não têm lições.
         </p>
         <ButtonLink href="/cursos" variant="ghost">
           Ver catálogo de cursos

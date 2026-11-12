@@ -40,6 +40,12 @@ export function validateA1LessonContent(
     if (contentIds.has(lesson.id)) add("lesson-duplicate", path, `Dataset duplicado: ${lesson.id}.`);
     contentIds.add(lesson.id);
     if (!lesson.title.trim() || !lesson.objective.trim()) add("lesson-field", path, "Título e objetivo são obrigatórios.");
+    if (lesson.intro.length === 0) add("intro-empty", path, "A lição precisa ensinar antes de testar.");
+    lesson.intro.forEach((panel, panelIndex) => {
+      if (!panel.title.trim() || !panel.body.trim()) add("intro-field", `${path}.intro[${panelIndex}]`, "Painel de introdução incompleto.");
+    });
+    if (lesson.summary.length === 0) add("summary-empty", path, "A lição precisa de um fechamento.");
+    if (lesson.summary.some((point) => !point.trim())) add("summary-field", path, "O fechamento não pode ter item vazio.");
     if (lesson.dialogue.length < 2) add("dialogue-short", path, "Diálogo precisa de ao menos dois turnos.");
     const dialogueIds = new Set<string>();
     lesson.dialogue.forEach((line, lineIndex) => {
@@ -102,13 +108,21 @@ export function validateA1LessonContent(
     });
 
     const exerciseIds = new Set<string>();
+    const stages = { guided: 0, independent: 0 };
     if (lesson.exercises.length === 0) add("exercise-empty", path, "Lição precisa de exercícios.");
     for (const exercise of lesson.exercises) {
       if (exerciseIds.has(exercise.id)) add("exercise-id", path, `Exercício duplicado: ${exercise.id}.`);
       exerciseIds.add(exercise.id);
+      if (exercise.stage !== "guided" && exercise.stage !== "independent") {
+        add("exercise-stage", path, `Etapa inválida no exercício: ${exercise.id}.`);
+      } else {
+        stages[exercise.stage] += 1;
+      }
       if (!isImplementedExerciseType(exercise.type)) add("exercise-unimplemented", path, `Tipo não implementado: ${exercise.type}.`);
       if (plan && !plan.exerciseTypes.includes(exercise.type)) add("exercise-outside-plan", path, `Tipo fora do plano da lição: ${exercise.type}.`);
     }
+    if (stages.guided === 0) add("exercise-guided", path, "A lição precisa de prática guiada.");
+    if (stages.independent === 0) add("exercise-independent", path, "A lição precisa de prática independente.");
     if (lesson.exercises.length > 0 && (lesson.completion.minCorrect < 0 || lesson.completion.minCorrect > lesson.exercises.length)) add("completion", path, "Mínimo de acertos não cabe nos exercícios.");
     if (lesson.completion.minScore < 0 || lesson.completion.minScore > 100) add("completion", path, "Nota mínima precisa ficar entre 0 e 100.");
     checkReview(lesson.review, path);

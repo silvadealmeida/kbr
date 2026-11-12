@@ -53,7 +53,7 @@ export function PlayerHeader({
       <div className="mt-3 flex items-center justify-between gap-3 border-b border-line pb-3">
         <Link
           href={backHref}
-          className="inline-flex min-h-11 items-center text-sm font-semibold text-accent underline-offset-4 hover:underline"
+          className="inline-flex min-h-11 min-w-12 items-center text-sm font-semibold text-accent underline-offset-4 hover:underline"
         >
           {backLabel}
         </Link>

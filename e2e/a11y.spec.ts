@@ -139,4 +139,32 @@ test.describe("acessibilidade automatizada", () => {
     await expect(page.getByRole("heading", { name: /Quantos blocos/ })).toBeVisible();
     await expectNoAxeViolations(page, "/hangul/h01 (prática)");
   });
+
+  test("A1 em desenvolvimento não tem violações axe em claro e escuro", async ({
+    context,
+    page,
+  }) => {
+    const user = createTestUser();
+    await context.addCookies([{ ...testAuthCookie(Date.now(), user), url: BASE_URL }]);
+
+    await page.goto("/a1");
+    await expect(
+      page.getByRole("heading", { level: 1, name: "Coreano A1" }),
+    ).toBeVisible();
+    await expectNoAxeViolations(page, "/a1 (claro)");
+
+    await page.goto("/a1/a1-l01");
+    await expect(
+      page.getByRole("heading", { level: 1, name: "Olá, eu sou…" }),
+    ).toBeVisible();
+    await expectNoAxeViolations(page, "/a1/a1-l01 (claro)");
+
+    await page.getByRole("button", { name: "Ativar tema escuro" }).click();
+    await expect
+      .poll(() =>
+        page.evaluate(() => getComputedStyle(document.documentElement).colorScheme),
+      )
+      .toBe("dark");
+    await expectNoAxeViolations(page, "/a1/a1-l01 (escuro)");
+  });
 });

@@ -1,0 +1,318 @@
+import { expect, test, type BrowserContext, type Page } from "@playwright/test";
+import { createTestUser, testAuthCookie } from "./mock-supabase.mjs";
+
+const BASE_URL = "http://localhost:3100";
+const sessions = new WeakMap<
+  BrowserContext,
+  { user: ReturnType<typeof createTestUser>; storageKey: string }
+>();
+
+type Answer =
+  | { kind: "choice"; label: string }
+  | { kind: "text"; value: string };
+
+/**
+ * Gabarito da primeira lição A1. A ordem segue a lição; cada item é respondido
+ * uma única vez, como na prática real.
+ */
+const ANSWERS: readonly Answer[] = [
+  { kind: "choice", label: "안녕하세요" },
+  { kind: "choice", label: "이에요" },
+  { kind: "text", value: "예요" },
+  { kind: "choice", label: "Eu sou Minsu." },
+  { kind: "text", value: "안녕하세요" },
+  { kind: "text", value: "이름" },
+  { kind: "choice", label: "이름이 뭐예요?" },
+  { kind: "text", value: "저는 브라질 사람이에요." },
+  { kind: "text", value: "Eu sou professor." },
+  { kind: "text", value: "이름이 뭐예요?" },
+];
+
+async function authenticate(context: BrowserContext) {
+  const account = createTestUser();
+  sessions.set(context, {
+    user: account,
+    storageKey: `kbr:user:${account.id}:v1`,
+  });
+  await context.addCookies([{ ...testAuthCookie(Date.now(), account), url: BASE_URL }]);
+  return account;
+}
+
+function storageKeyFor(context: BrowserContext) {
+  const session = sessions.get(context);
+  if (!session) throw new Error("Autentique o contexto antes de semear o progresso.");
+  return session.storageKey;
+}
+
+async function seedProgress(context: BrowserContext, lessons: Record<string, { done: boolean; score: number }>) {
+  await context.addInitScript(
+    ({ key, value }) => {
+      try {
+        window.localStorage.setItem(key, JSON.stringify(value));
+      } catch {
+        /* documento sem origem utilizável (about:blank) */
+      }
+    },
+    {
+      key: storageKeyFor(context),
+      value: {
+        v: 1,
+        lessons,
+        cards: {},
+        history: [],
+        streak: 0,
+        dailyGoal: 10,
+        lastActive: "2020-01-01T00:00:00.000Z",
+      },
+    },
+  );
+}
+
+async function expectNoHorizontalOverflow(page: Page) {
+  expect(
+    await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth),
+  ).toBe(true);
+}
+
+async function playA1(page: Page) {
+  for (const [index, answer] of ANSWERS.entries()) {
+    if (answer.kind === "choice") {
+      await page
+        .getByRole("group", { name: "Alternativas" })
+        .getByRole("button", { name: answer.label, exact: true })
+        .click();
+    } else {
+      await page.getByLabel("Sua resposta").fill(answer.value);
+    }
+    await page.getByRole("button", { name: "Conferir" }).click();
+    await expect(
+      page.getByRole("status").filter({ hasText: "Correto." }),
+    ).toBeVisible();
+    await page
+      .getByRole("button", {
+        name: index === ANSWERS.length - 1 ? "Concluir lição" : "Continuar",
+      })
+      .click();
+  }
+}
+
+test.describe("A1 — primeira lição autenticada", () => {
+  test.beforeEach(async ({ context }) => {
+    await authenticate(context);
+  });
+
+  test("visão geral apresenta o curso em desenvolvimento sem prometer certificação", async ({
+    page,
+  }) => {
+    await page.goto("/a1");
+
+    await expect(page.getByRole("heading", { level: 1, name: "Coreano A1" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Curso em desenvolvimento" })).toBeVisible();
+    await expect(page.getByText(/40 lições e 8 checkpoints/)).toBeVisible();
+    await expect(page.getByText(/Apenas 1 lição está disponível agora/)).toBeVisible();
+    await expect(page.getByText(/não emite certificação CEFR ou TOPIK/)).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Lição disponível" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Olá, eu sou…" })).toBeVisible();
+    await expect(page.getByRole("link", { name: "Abrir a lição" })).toHaveAttribute(
+      "href",
+      "/a1/a1-l01",
+    );
+
+    // Só a lição implementada recebe link; o roteiro planejado não.
+    const a1Links = await page
+      .locator("main a[href^='/a1/']")
+      .evaluateAll((links) => links.map((link) => link.getAttribute("href")));
+    expect(new Set(a1Links)).toEqual(new Set(["/a1/a1-l01"]));
+    await expect(page.getByText("1 de 5 lições disponíveis")).toBeVisible();
+    await expect(page.getByText("Planejado", { exact: true })).toHaveCount(7);
+
+    await expectNoHorizontalOverflow(page);
+  });
+
+  test("ensina antes de testar e conclui apenas a lição, não o curso", async ({ page }) => {
+    await page.goto("/a1/a1-l01");
+
+    await expect(page.getByRole("heading", { level: 1, name: "Olá, eu sou…" })).toBeVisible();
+    await expect(page.getByText("Lição 1 de 40 planejadas")).toBeVisible();
+    await expect(page.getByText(/O curso A1 está em desenvolvimento/)).toBeVisible();
+
+    // Introdução e diálogo original com tradução e áudio sob demanda.
+    await expect(page.getByText("Diálogo", { exact: true })).toBeVisible();
+    await expect(page.getByText("Minsu e Ana se conhecem")).toBeVisible();
+    await expect(page.getByText("Prazer em conhecer você.").first()).toBeVisible();
+    await expect(page.getByRole("button", { name: /Ouvir a fala/ }).first()).toBeVisible();
+
+    // Gramática guiada antes da prática.
+    await expect(page.getByRole("heading", { name: "Como a frase se organiza" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: /이에요 \/ 예요/ })).toBeVisible();
+
+    // Vocabulário opcional: nada salvo até uma ação explícita.
+    await expect(page.getByText("Palavras desta lição")).toBeVisible();
+    await expect(
+      page.getByRole("button", { name: "Salvar 안녕하세요 no meu vocabulário" }),
+    ).toBeVisible();
+    expect(
+      await page.evaluate((key) => {
+        const raw = window.localStorage.getItem(key);
+        return raw ? Object.keys(JSON.parse(raw).cards ?? {}).length : 0;
+      }, storageKeyFor(page.context())),
+    ).toBe(0);
+
+    await page.getByRole("button", { name: "Começar a prática" }).click();
+
+    await expect(page.getByText("Prática guiada")).toBeVisible();
+    await expect(page.getByText("Aula de apresentação · mínimo 8 de 10")).toBeVisible();
+    await playA1(page);
+
+    await expect(page.getByRole("heading", { name: "Lição concluída" })).toBeVisible();
+    await expect(page.getByText("Você acertou 10 de 10 (100%).")).toBeVisible();
+    await expect(
+      page.getByText(/Concluí-la não conclui o curso A1 e não emite certificação CEFR ou TOPIK/),
+    ).toBeVisible();
+    await expect(page.getByText(/A lição a1-l02 ainda não está disponível/)).toBeVisible();
+    await expect(page.getByRole("link", { name: /Próximo:/ })).toHaveCount(0);
+
+    await expect
+      .poll(async () =>
+        page.evaluate(
+          (key) => JSON.parse(window.localStorage.getItem(key) ?? "{}").lessons ?? {},
+          storageKeyFor(page.context()),
+        ),
+      )
+      .toEqual({ "a1-l01": { done: true, score: 100 } });
+
+    // Salvar depois da conclusão entra no vocabulário, sem mudar o resultado.
+    await page
+      .getByRole("button", { name: "Salvar 안녕하세요 no meu vocabulário" })
+      .click();
+    await expect(
+      page.getByRole("button", { name: "Remover 안녕하세요 do meu vocabulário" }),
+    ).toBeVisible();
+    await expect
+      .poll(async () =>
+        page.evaluate(
+          (key) =>
+            Object.keys(
+              JSON.parse(window.localStorage.getItem(key) ?? "{}").cards ?? {},
+            ),
+          storageKeyFor(page.context()),
+        ),
+      )
+      .toEqual(["v:ko:안녕하세요"]);
+
+    // A palavra salva aparece no vocabulário e pode entrar na revisão diária.
+    await page.getByRole("link", { name: "Ver meu vocabulário" }).click();
+    await page.getByLabel("Curso").selectOption("ko-a1");
+    await page.getByLabel("Mostrar só as salvas").check();
+    await expect(page.getByTestId("vocab-row")).toHaveCount(1);
+    await expect(page.getByTestId("vocab-row")).toContainText("안녕하세요");
+
+    await expectNoHorizontalOverflow(page);
+  });
+
+  test("o áudio coreano só toca após o clique e informa a fonte", async ({
+    page,
+    browserName,
+  }) => {
+    // O stub de voz não funciona no WebKit; a lógica pura é coberta nos testes unitários.
+    test.skip(browserName === "webkit", "stub de voz indisponível no WebKit");
+
+    await page.addInitScript(() => {
+      const synth = window.speechSynthesis;
+      if (!synth) return;
+      Object.defineProperty(window, "SpeechSynthesisUtterance", {
+        configurable: true,
+        value: class {
+          constructor(public text: string) {}
+        },
+      });
+      const voice = {
+        lang: "ko-KR",
+        name: "Voz de teste",
+        default: true,
+        localService: true,
+        voiceURI: "t",
+      };
+      Object.defineProperty(synth, "getVoices", {
+        configurable: true,
+        value: () => [voice],
+      });
+      Object.defineProperty(synth, "cancel", {
+        configurable: true,
+        value: () => {},
+      });
+      Object.defineProperty(synth, "speak", {
+        configurable: true,
+        value: (utterance: { onstart?: () => void; onend?: () => void }) => {
+          setTimeout(() => utterance.onstart?.(), 0);
+          setTimeout(() => utterance.onend?.(), 50);
+        },
+      });
+    });
+
+    const audioRequests: string[] = [];
+    page.on("request", (request) => {
+      if (request.url().includes("/audio/")) audioRequests.push(request.url());
+    });
+
+    await page.goto("/a1/a1-l01");
+    await page.getByRole("button", { name: "Ouvir a fala" }).first().click();
+    await expect(
+      page.getByText(/voz coreana do navegador/).first(),
+    ).toBeVisible({ timeout: 10_000 });
+    expect(audioRequests).toEqual([]);
+  });
+
+  test("lição fora do conjunto implementado responde 404 e rota exige sessão", async ({
+    page,
+  }) => {
+    await page.goto("/a1/a1-l02");
+    await expect(page.getByRole("heading", { level: 1 })).toContainText("404");
+
+    await page.context().clearCookies();
+    await page.goto("/a1");
+    await expect(page).toHaveURL(/\/?next=%2Fa1/);
+    await page.goto("/a1/a1-l01");
+    await expect(page).toHaveURL(/next=%2Fa1%2Fa1-l01/);
+  });
+
+  test("responsivo e tema escuro sem rolagem horizontal", async ({ page }) => {
+    for (const width of [320, 375, 390, 768, 1280]) {
+      await page.setViewportSize({ width, height: 800 });
+      await page.goto("/a1/a1-l01");
+      await expect(page.getByRole("heading", { level: 1, name: "Olá, eu sou…" })).toBeVisible();
+      await expectNoHorizontalOverflow(page);
+
+      const undersized = await page.evaluate(() => {
+        const targets = Array.from(
+          document.querySelectorAll("article button:not([disabled]), article a[href]"),
+        ).filter((element) => {
+          const rect = element.getBoundingClientRect();
+          return rect.width > 0 && rect.height > 0;
+        });
+        return targets
+          .map((element) => {
+            const rect = element.getBoundingClientRect();
+            return {
+              label: (element.getAttribute("aria-label") ?? element.textContent ?? "")
+                .trim()
+                .slice(0, 40),
+              width: Math.round(rect.width),
+              height: Math.round(rect.height),
+            };
+          })
+          .filter((target) => target.width < 44 || target.height < 44);
+      });
+      expect(undersized, `alvos de toque em ${width}px`).toEqual([]);
+    }
+
+    await page.setViewportSize({ width: 375, height: 800 });
+    await page.getByRole("button", { name: /tema/ }).and(page.locator(":visible")).click();
+    expect(
+      await page.evaluate(() =>
+        document.documentElement.classList.contains("dark"),
+      ),
+    ).toBe(true);
+    await expectNoHorizontalOverflow(page);
+  });
+});

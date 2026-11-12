@@ -1,3 +1,4 @@
+import { A1_COURSE } from "./a1";
 import { HANGUL_COURSE } from "./hangul";
 import { PLANNED_COURSES } from "./planned";
 import {
@@ -10,16 +11,22 @@ const COURSE_ID = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const SRS_PREFIX = /^[a-z0-9]+:$/i;
 
 /**
- * Registro estático de cursos. Hangul é o único curso disponível; A1–C2 são
+ * Registro estático de cursos. Hangul está disponível; A1 tem apenas a
+ * primeira lição implementada (curso em desenvolvimento); A2–C2 seguem como
  * entradas de planejamento sem passos, rotas ou conteúdo.
  */
 export const COURSE_REGISTRY: readonly CourseDefinition[] = [
   HANGUL_COURSE,
+  A1_COURSE,
   ...PLANNED_COURSES,
 ];
 
 export const AVAILABLE_COURSES: readonly CourseDefinition[] = COURSE_REGISTRY.filter(
   (course) => course.status === "available",
+);
+
+export const IN_DEVELOPMENT_COURSES: readonly CourseDefinition[] = COURSE_REGISTRY.filter(
+  (course) => course.status === "in-development",
 );
 
 export const PLANNED_COURSE_LIST: readonly CourseDefinition[] = COURSE_REGISTRY.filter(
@@ -38,19 +45,24 @@ export function getAvailableCourses(): readonly CourseDefinition[] {
   return AVAILABLE_COURSES;
 }
 
+export function getInDevelopmentCourses(): readonly CourseDefinition[] {
+  return IN_DEVELOPMENT_COURSES;
+}
+
 export function getPlannedCourses(): readonly CourseDefinition[] {
   return PLANNED_COURSE_LIST;
 }
 
 /**
  * Rota de um passo existente. Retorna `null` para curso planejado, passo
- * inexistente ou curso sem rota, então a UI nunca cria link quebrado.
+ * inexistente ou curso sem rota, então a UI nunca cria link quebrado. Cursos
+ * em desenvolvimento só geram links para os passos já implementados.
  */
 export function courseStepHref(
   course: CourseDefinition,
   stepId: string,
 ): string | null {
-  if (course.status !== "available" || !course.basePath) return null;
+  if (course.status === "planned" || !course.basePath) return null;
   if (!course.steps.some((step) => step.id === stepId)) return null;
   return `${course.basePath}/${stepId}`;
 }
@@ -140,6 +152,47 @@ export function validateCourseRegistry(
       if (course.stepIdPattern !== null) {
         error("planned-course-id-pattern", path, "Curso planejado não reserva IDs de passos.");
       }
+    } else if (course.status === "in-development") {
+      if (course.steps.length === 0) {
+        error("development-course-steps", path, "Curso em desenvolvimento precisa de ao menos um passo jogável.");
+      }
+      if (course.units.length === 0) {
+        error("development-course-units", path, "Curso em desenvolvimento precisa de uma unidade implementada.");
+      }
+      if (!course.basePath || !course.basePath.startsWith("/")) {
+        error("development-course-route", path, "Curso em desenvolvimento precisa de `basePath` interno.");
+      }
+      if (!course.stepIdPattern) {
+        error("development-course-id-pattern", path, "Curso em desenvolvimento precisa reservar IDs de passos.");
+      }
+      if (!course.srsKeyPrefix) {
+        error("development-course-srs", path, "Curso em desenvolvimento precisa reservar um prefixo SRS.");
+      }
+      if (course.exerciseTypes.length === 0) {
+        error("development-course-exercises", path, "Curso em desenvolvimento precisa declarar exercícios.");
+      }
+      if (course.completion.requiresAllSteps) {
+        error("development-course-completion-all", path, "Curso incompleto não pode exigir todos os passos.");
+      }
+      if (course.completion.finalStepId !== null) {
+        error("development-course-final-step", path, "Curso em desenvolvimento não tem passo final.");
+      }
+      if (!course.plannedTotals) {
+        error("development-course-totals", path, "Curso em desenvolvimento precisa informar os totais planejados.");
+      } else {
+        const implementedLessons = course.steps.filter((step) => step.kind === "lesson").length;
+        const implementedCheckpoints = course.steps.filter((step) => step.kind === "checkpoint").length;
+        const { lessons, checkpoints } = course.plannedTotals;
+        if (!Number.isInteger(lessons) || lessons < implementedLessons || lessons <= 0) {
+          error("development-course-lesson-total", path, "O total planejado de lições precisa cobrir as implementadas.");
+        }
+        if (!Number.isInteger(checkpoints) || checkpoints < implementedCheckpoints || checkpoints < 0) {
+          error("development-course-checkpoint-total", path, "O total planejado de checkpoints não pode ser menor que os implementados.");
+        }
+        if (lessons + checkpoints <= course.steps.length) {
+          error("development-course-totals", path, "Os totais planejados precisam incluir passos ainda não implementados.");
+        }
+      }
     } else {
       if (course.steps.length === 0) {
         error("available-course-steps", path, "Curso disponível precisa de passos.");
@@ -170,6 +223,10 @@ export function validateCourseRegistry(
       ) {
         error("course-final-step-order", path, "O passo final deve ser o último do curso.");
       }
+    }
+
+    if (course.status !== "in-development" && course.plannedTotals) {
+      error("course-planned-totals", path, "Só um curso em desenvolvimento declara totais planejados.");
     }
 
     if (course.completion.certification !== "none") {

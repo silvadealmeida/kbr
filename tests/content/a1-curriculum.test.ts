@@ -2,15 +2,24 @@ import { describe, expect, test } from "vitest";
 import {
   A1_CHECKPOINTS,
   A1_CURRICULUM,
+  A1_IMPLEMENTED_LESSONS,
   A1_LESSON_IDS,
   A1_LESSONS,
   A1_MODULES,
+  getA1Lesson,
+  validateA1Content,
   validateA1LessonContent,
   validateA1Blueprint,
   type A1CurriculumBlueprint,
   type A1LessonContent,
 } from "@/content/curriculum/a1";
-import { courseStepHref, getCourse, validateCourseRegistry } from "@/content/courses";
+import {
+  A1_COURSE,
+  courseStepHref,
+  getCourse,
+  getInDevelopmentCourses,
+  validateCourseRegistry,
+} from "@/content/courses";
 import { VOCAB_ENTRIES, type VocabEntry, type VocabSentence } from "@/content/vocabulary";
 import { COURSE_LESSON_IDS } from "@/content/vocabulary";
 import { summarizeCourseProgress } from "@/lib/courses";
@@ -44,6 +53,7 @@ const VALID_CONTENT: A1LessonContent = {
   id: "a1-l01",
   title: "Fixture estrutural",
   objective: "Validar o contrato sem publicar uma lição.",
+  intro: [{ title: "Contexto", body: "Texto de introdução estrutural." }],
   dialogue: [
     { id: "d1", speaker: "A", ko: "안녕하세요?", pt: "Olá!", audioText: "안녕하세요?", review: IN_REVIEW },
     { id: "d2", speaker: "B", ko: "안녕하세요!", pt: "Olá!", audioText: "안녕하세요!", review: IN_REVIEW },
@@ -61,7 +71,11 @@ const VALID_CONTENT: A1LessonContent = {
     examples: [{ ko: "학생이에요.", pt: "Sou estudante.", audioText: "학생이에요." }],
     review: IN_REVIEW,
   }],
-  exercises: [{ id: "a1-l01-e1", type: "mcq", prompt: "Fixture", options: ["A", "B"], correctAnswer: "A" }],
+  exercises: [
+    { id: "a1-l01-e1", type: "mcq", stage: "guided", prompt: "Fixture", options: ["A", "B"], correctAnswer: "A" },
+    { id: "a1-l01-e2", type: "mcq", stage: "independent", prompt: "Fixture 2", options: ["A", "B"], correctAnswer: "A" },
+  ],
+  summary: ["Fechamento estrutural."],
   completion: { minScore: 80, minCorrect: 1 },
   review: IN_REVIEW,
 };
@@ -86,7 +100,7 @@ describe("blueprint curricular A1", () => {
     );
   });
 
-  test("cada lição contém o contrato pedagógico completo, sem dataset jogável", () => {
+  test("cada lição mantém o contrato editorial; só a implementada tem dataset", () => {
     const knownTypes = new Set(EXERCISE_TYPE_REGISTRY.map((definition) => definition.id));
     for (const lesson of A1_LESSONS) {
       expect(lesson.title).not.toBe("");
@@ -104,7 +118,14 @@ describe("blueprint curricular A1", () => {
       expect(lesson).not.toHaveProperty("exercises");
       expect(lesson).not.toHaveProperty("vocabularyEntries");
     }
-    expect(VOCAB_ENTRIES.filter((entry) => entry.course === "ko-a1")).toEqual([]);
+    const a1Entries = VOCAB_ENTRIES.filter((entry) => entry.course === "ko-a1");
+    expect(a1Entries.length).toBeGreaterThanOrEqual(10);
+    expect(
+      a1Entries.every(
+        (entry) =>
+          entry.lesson === "a1-l01" && entry.review.status === "in-review",
+      ),
+    ).toBe(true);
     expect(COURSE_LESSON_IDS.get("ko-a1")).toEqual(A1_LESSON_IDS);
   });
 
@@ -122,24 +143,56 @@ describe("blueprint curricular A1", () => {
     }
   });
 
-  test("A1 continua planejado, sem rota, link ou conclusão prematura", () => {
+  test("A1 está em desenvolvimento: uma lição jogável e nenhuma conclusão de curso", () => {
     const course = getCourse("ko-a1")!;
-    const progress = createEmptyProgress(NOW);
-    for (const id of [...A1_LESSONS.map((lesson) => lesson.id), ...A1_CHECKPOINTS.map((checkpoint) => checkpoint.id)]) {
-      progress.lessons[id] = { done: true, score: 100 };
-    }
+    expect(course.status).toBe("in-development");
+    expect(course.plannedTotals).toEqual({ lessons: 40, checkpoints: 8 });
+    expect(course.steps.map((step) => step.id)).toEqual(["a1-l01"]);
+    expect(course.units.flatMap((unit) => unit.stepIds)).toEqual(["a1-l01"]);
+    expect(courseStepHref(course, "a1-l01")).toBe("/a1/a1-l01");
+    expect(courseStepHref(course, "a1-l02")).toBeNull();
+    expect(getInDevelopmentCourses().map((item) => item.id)).toEqual(["ko-a1"]);
 
-    expect(course.status).toBe("planned");
-    expect(course.steps).toEqual([]);
-    expect(course.basePath).toBeNull();
-    expect(courseStepHref(course, "a1-l01")).toBeNull();
+    const progress = createEmptyProgress(NOW);
+    progress.lessons["a1-l01"] = { done: true, score: 100 };
     expect(summarizeCourseProgress(progress, course)).toMatchObject({
-      totalSteps: 0,
-      completedSteps: 0,
-      percent: 0,
+      totalSteps: 1,
+      completedSteps: 1,
+      totalLessons: 1,
+      completedLessons: 1,
+      totalCheckpoints: 0,
+      completedCheckpoints: 0,
+      percent: 100,
       complete: false,
       nextStep: null,
     });
+  });
+
+  test("o dataset implementado é só a a1-l01 e passa na validação estrutural", () => {
+    expect(validateA1Content()).toEqual([]);
+    expect(validateCourseRegistry()).toEqual([]);
+    expect(A1_IMPLEMENTED_LESSONS.map((lesson) => lesson.id)).toEqual([
+      "a1-l01",
+    ]);
+    expect(getA1Lesson("a1-l01")).toBe(A1_IMPLEMENTED_LESSONS[0]);
+    expect(getA1Lesson("a1-l02")).toBeUndefined();
+    expect(A1_COURSE.steps.every((step) => getA1Lesson(step.id))).toBe(true);
+
+    const lesson = A1_IMPLEMENTED_LESSONS[0]!;
+    expect(lesson.exercises).toHaveLength(10);
+    expect(
+      lesson.exercises.filter((exercise) => exercise.stage === "guided"),
+    ).toHaveLength(5);
+    expect(
+      lesson.exercises.filter((exercise) => exercise.stage === "independent"),
+    ).toHaveLength(5);
+    expect(new Set(lesson.exercises.map((exercise) => exercise.type))).toEqual(
+      new Set(["mcq", "cloze", "listen", "translate"]),
+    );
+    expect(lesson.vocabulary.newIds).toHaveLength(11);
+    expect(lesson.dialogue.length).toBeGreaterThanOrEqual(2);
+    expect(lesson.intro.length).toBeGreaterThan(0);
+    expect(lesson.summary.length).toBeGreaterThan(0);
   });
 
   test("o scaffold A1 não altera o curso Hangul nem o registro multi-curso", () => {
@@ -149,7 +202,7 @@ describe("blueprint curricular A1", () => {
     expect(hangul.steps).toHaveLength(29);
     expect(hangul.steps.at(0)?.id).toBe("h01");
     expect(hangul.steps.at(-1)?.id).toBe("c4");
-    expect(getCourse("ko-a1")?.status).toBe("planned");
+    expect(getCourse("ko-a1")?.status).toBe("in-development");
   });
 
   test.each([
@@ -209,6 +262,29 @@ describe("contrato do conteúdo A1 futuro", () => {
       "completion",
       "review-evidence",
     ]));
+  });
+
+  test("rejeita lição sem introdução, fechamento ou etapa independente", () => {
+    const incomplete: A1LessonContent = {
+      ...VALID_CONTENT,
+      intro: [],
+      summary: [],
+      exercises: [{ ...VALID_CONTENT.exercises[0]!, stage: "guided" }],
+    };
+    const codes = validateA1LessonContent(
+      [incomplete],
+      A1_CURRICULUM,
+      FIXTURE_ENTRIES,
+      FIXTURE_SENTENCES,
+    ).map((issue) => issue.code);
+
+    expect(codes).toEqual(
+      expect.arrayContaining([
+        "intro-empty",
+        "summary-empty",
+        "exercise-independent",
+      ]),
+    );
   });
 
   test("rejeita frases sem tradução, dica, alvo, lacuna ou revisão válidos", () => {

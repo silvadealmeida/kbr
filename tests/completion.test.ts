@@ -256,7 +256,7 @@ describe("painel de conclusão", () => {
     expect(html).toContain("Jornada do módulo");
     expect(html).toContain("29 passos");
     expect(html).toContain("não uma certificação oficial");
-    expect(html).toContain("não está disponível");
+    expect(html).toContain("O curso A1 está em desenvolvimento");
     expect(html).toContain("Revisar cartões");
     expect(html).toContain("Progresso nas 25 lições de Hangul");
   });

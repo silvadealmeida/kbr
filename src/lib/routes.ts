@@ -18,11 +18,18 @@ export const LEGACY_PROTECTED_PATHS = ["/licoes"];
  */
 export const EXPERIMENTAL_PROTECTED_PATHS = ["/fala"];
 
+/**
+ * Rotas curriculares acessadas pelo catálogo, não pela navegação principal.
+ * O A1 entra aqui enquanto o curso está em desenvolvimento.
+ */
+export const CURRICULUM_PROTECTED_PATHS = ["/a1"];
+
 /** Rotas que exigem sessão válida; a landing e as páginas legais são públicas. */
 export const PROTECTED_PATHS = [
   ...ROUTES.map((route) => route.href),
   ...LEGACY_PROTECTED_PATHS,
   ...EXPERIMENTAL_PROTECTED_PATHS,
+  ...CURRICULUM_PROTECTED_PATHS,
 ];
 
 export function isProtectedPath(pathname: string): boolean {

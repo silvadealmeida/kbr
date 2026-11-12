@@ -80,6 +80,13 @@ export type A1CurriculumBlueprint = {
   review: ReviewMeta;
 };
 
+export type A1IntroPanel = {
+  title: string;
+  body: string;
+  /** Trecho coreano curto já explicado no corpo; nunca é a única instrução. */
+  ko?: string;
+};
+
 export type A1DialogueLine = {
   id: string;
   speaker: string;
@@ -110,15 +117,28 @@ export type A1LessonVocabularyRefs = {
   sentenceIds: readonly string[];
 };
 
-/** Dataset jogável futuro. A Fase 9A define o contrato, mas não instancia lições. */
+export type A1ExerciseStage = "guided" | "independent";
+
+/**
+ * Exercício jogável de uma lição A1. `stage` separa a prática guiada (logo
+ * depois da explicação) da prática independente, sem criar outro tipo de
+ * exercício nem mudar a correção determinística.
+ */
+export type A1LessonExercise = ExerciseSpec & { stage: A1ExerciseStage };
+
+/** Dataset jogável de uma lição A1 implementada. */
 export type A1LessonContent = {
   id: string;
   title: string;
   objective: string;
+  /** Ensina antes de testar: painéis curtos de introdução ao tema. */
+  intro: readonly A1IntroPanel[];
   dialogue: readonly A1DialogueLine[];
   vocabulary: A1LessonVocabularyRefs;
   grammar: readonly A1GrammarNote[];
-  exercises: readonly ExerciseSpec[];
+  exercises: readonly A1LessonExercise[];
+  /** Fechamento em pt-BR; não substitui a revisão humana do conteúdo. */
+  summary: readonly string[];
   completion: { minScore: number; minCorrect: number };
   review: ReviewMeta;
 };

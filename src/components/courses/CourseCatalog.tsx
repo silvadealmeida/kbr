@@ -9,6 +9,7 @@ import { ProgressBar } from "@/components/ui/ProgressBar";
 import {
   courseStepHref,
   getAvailableCourses,
+  getInDevelopmentCourses,
   getPlannedCourses,
 } from "@/content/courses";
 import { courseLevelLabel, isCefrLevel } from "@/content/courses/types";
@@ -39,6 +40,7 @@ export function CourseCatalog() {
   }, [progressStore]);
 
   const available = getAvailableCourses();
+  const inDevelopment = getInDevelopmentCourses();
   const planned = getPlannedCourses();
   const loading =
     status === "loading" ||
@@ -55,9 +57,10 @@ export function CourseCatalog() {
         </h2>
         <p className="mt-2">
           O KBR organiza o estudo em cursos. O Hangul é um curso introdutório de{" "}
-          <strong>Pré-A1</strong> e não corresponde a um nível oficial do CEFR. Os
-          níveis A1–C2 aparecem apenas como planejamento editorial e ainda não têm
-          lições, atividades ou avaliações.
+          <strong>Pré-A1</strong> e não corresponde a um nível oficial do CEFR. O{" "}
+          <strong>A1 está em desenvolvimento</strong>, com a primeira lição
+          disponível e as demais planejadas. A2–C2 aparecem apenas como
+          planejamento editorial e ainda não têm lições, atividades ou avaliações.
         </p>
         <p className="mt-2">
           Concluir um curso no KBR não emite certificado CEFR, não comprova
@@ -174,7 +177,8 @@ export function CourseCatalog() {
                 {summary?.complete ? (
                   <p className="mt-4 rounded-xl bg-surface-2 p-3 text-sm">
                     Você concluiu o curso Hangul. Isso não é certificação CEFR e{" "}
-                    <strong>não desbloqueia o A1</strong>; A1–C2 continuam planejados.
+                    <strong>não desbloqueia o A1 automaticamente</strong>; o A1
+                    segue em desenvolvimento e A2–C2 continuam planejados.
                   </p>
                 ) : summary?.nextStep && nextHref ? (
                   <p className="mt-4 text-sm text-muted">
@@ -243,13 +247,114 @@ export function CourseCatalog() {
         </ul>
       </section>
 
+      <section aria-labelledby="courses-development-title">
+        <div className="mb-3">
+          <h2 id="courses-development-title" className="text-lg font-semibold">
+            Em desenvolvimento
+          </h2>
+          <p className="mt-1 text-sm text-muted">
+            Cursos com uma primeira fatia jogável. Só os passos implementados
+            recebem link; o restante continua planejado.
+          </p>
+        </div>
+
+        <ul className="flex flex-col gap-4">
+          {inDevelopment.map((course) => {
+            const step = course.steps[0];
+            const stepHref = step ? courseStepHref(course, step.id) : null;
+            const totals = course.plannedTotals;
+            const implementedLessons = course.steps.filter(
+              (item) => item.kind === "lesson",
+            ).length;
+            const implementedCheckpoints = course.steps.filter(
+              (item) => item.kind === "checkpoint",
+            ).length;
+            return (
+              <li key={course.id}>
+                <Plate label="Curso em desenvolvimento" className="border-accent">
+                  <div className="flex flex-wrap items-start justify-between gap-3">
+                    <div className="min-w-0">
+                      <p className="text-sm font-semibold uppercase tracking-wide text-accent">
+                        {isCefrLevel(course.level)
+                          ? `CEFR ${courseLevelLabel(course.level)}`
+                          : courseLevelLabel(course.level)}{" "}
+                        · Em desenvolvimento
+                      </p>
+                      <h3 className="mt-1 text-2xl font-bold">
+                        {course.title}
+                        {course.titleKo ? (
+                          <span lang="ko" className="ml-2 font-ko text-lg text-muted">
+                            {course.titleKo}
+                          </span>
+                        ) : null}
+                      </h3>
+                      <p className="mt-1 text-muted">{course.description}</p>
+                    </div>
+                    <Badge tone="warning">Em desenvolvimento</Badge>
+                  </div>
+
+                  <dl className="mt-4 grid grid-cols-2 gap-3 text-sm sm:grid-cols-4">
+                    <div className="border-l border-line pl-3">
+                      <dt className="text-muted">Lições</dt>
+                      <dd className="mt-1 text-lg font-bold">
+                        {implementedLessons} de {totals?.lessons ?? implementedLessons}
+                      </dd>
+                    </div>
+                    <div className="border-l border-line pl-3">
+                      <dt className="text-muted">Checkpoints</dt>
+                      <dd className="mt-1 text-lg font-bold">
+                        {implementedCheckpoints} de{" "}
+                        {totals?.checkpoints ?? implementedCheckpoints}
+                      </dd>
+                    </div>
+                    <div className="border-l border-line pl-3">
+                      <dt className="text-muted">Passos jogáveis</dt>
+                      <dd className="mt-1 text-lg font-bold">{course.steps.length}</dd>
+                    </div>
+                    <div className="border-l border-line pl-3">
+                      <dt className="text-muted">Status</dt>
+                      <dd className="mt-1 text-lg font-bold">Parcial</dd>
+                    </div>
+                  </dl>
+
+                  <p className="mt-4 rounded-xl bg-surface-2 p-3 text-sm">
+                    Concluir a lição disponível não conclui o curso A1 e não
+                    emite certificação CEFR ou TOPIK.
+                  </p>
+
+                  <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                    {course.basePath ? (
+                      <ButtonLink href={course.basePath}>Abrir {course.title}</ButtonLink>
+                    ) : null}
+                    {step && stepHref ? (
+                      <ButtonLink href={stepHref} variant="ghost">
+                        Começar {step.id}
+                      </ButtonLink>
+                    ) : null}
+                  </div>
+
+                  {step ? (
+                    <p className="mt-4 text-sm text-muted">
+                      Disponível agora:{" "}
+                      <strong className="text-fg">
+                        {step.id} · {step.title}
+                      </strong>
+                    </p>
+                  ) : null}
+                </Plate>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+
       <section aria-labelledby="courses-planned-title">
         <div className="mb-3">
           <h2 id="courses-planned-title" className="text-lg font-semibold">
             Em planejamento
           </h2>
           <p className="mt-1 text-sm text-muted">
-            A1–C2 são referências de organização futura, não uma promessa de
+            A2–C2 são referências de organização futura, não uma promessa de
             lançamento. Nenhum destes níveis tem lição ou link disponível.
           </p>
         </div>

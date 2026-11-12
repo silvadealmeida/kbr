@@ -73,24 +73,23 @@ describe("conteúdo — validação ESTRUTURAL (não prova correção linguísti
     ).toContain("sense duplicado");
   });
 
-  it("o schema de vocabulário já reconhece IDs de lição A1 sem registrar conteúdo", () => {
-    const entry = {
-      ...VOCAB_ENTRIES[0],
-      id: "ko:안녕하세요",
-      ko: "안녕하세요",
-      pt: "olá",
-      course: "ko-a1",
-      lesson: "a1-l01",
-      audioText: "안녕하세요",
-    };
+  it("reconhece as identidades A1 no registro canônico, sem duplicar o Hangul", () => {
+    const a1 = VOCAB_ENTRIES.filter((item) => item.course === "ko-a1");
     expect(COURSE_LESSON_IDS.get("ko-a1")?.size).toBe(40);
-    expect(validateVocabulary([entry], [], COURSE_LESSON_IDS)).toEqual([]);
-    expect(VOCAB_ENTRIES.some((item) => item.course === "ko-a1")).toBe(false);
+    expect(a1).toHaveLength(11);
+    expect(a1.every((item) => item.lesson === "a1-l01")).toBe(true);
+    expect(a1.every((item) => item.review.status === "in-review")).toBe(true);
+    expect(
+      new Set(VOCAB_ENTRIES.map((item) => item.ko)).size,
+    ).toBe(VOCAB_ENTRIES.length);
+    expect(validateVocabulary([...a1], [], COURSE_LESSON_IDS)).toEqual([]);
   });
 
-  it("todo item vem de um WordRecord existente do Hangul, sem formas flexionadas", () => {
+  it("todo item do Hangul vem de um WordRecord existente, sem formas flexionadas", () => {
     const kos = new Set(WORDS.map((w) => w.ko));
-    expect(VOCAB_ENTRIES.every((e) => kos.has(e.ko))).toBe(true);
+    expect(
+      VOCAB_ENTRIES.filter((e) => e.course === "hangul").every((e) => kos.has(e.ko)),
+    ).toBe(true);
     for (const flexed of ["밥을", "좋아요", "입니다", "한국어를", "곬"]) {
       expect(VOCAB_ENTRIES.some((e) => e.ko === flexed)).toBe(false);
     }

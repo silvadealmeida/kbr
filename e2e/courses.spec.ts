@@ -71,7 +71,7 @@ test.describe("Catálogo de cursos autenticado", () => {
     await authenticate(context);
   });
 
-  test("mostra Hangul disponível e A1–C2 como planejados, sem links falsos", async ({
+  test("mostra Hangul disponível, A1 em desenvolvimento e A2–C2 planejados, sem links falsos", async ({
     page,
   }) => {
     await page.goto("/cursos");
@@ -85,10 +85,36 @@ test.describe("Catálogo de cursos autenticado", () => {
       page.getByRole("progressbar", { name: "Progresso no curso Hangul" }),
     ).toHaveAttribute("aria-valuenow", "0");
 
+    await expect(page.getByRole("heading", { name: "Em desenvolvimento" })).toBeVisible();
+    await expect(page.getByText("CEFR A1 · Em desenvolvimento")).toBeVisible();
+    await expect(page.getByText("1 de 40")).toBeVisible();
+    await expect(page.getByText("0 de 8")).toBeVisible();
+    await expect(page.getByText("Parcial")).toBeVisible();
+    await expect(
+      page.getByText(/Concluir a lição disponível não conclui o curso A1/),
+    ).toBeVisible();
+
+    const developmentSection = page.locator("section").filter({
+      has: page.getByRole("heading", { name: "Em desenvolvimento" }),
+    });
+    await expect(
+      developmentSection.getByRole("link", { name: "Abrir Coreano A1" }),
+    ).toHaveAttribute("href", "/a1");
+    await expect(
+      developmentSection.getByRole("link", { name: "Começar a1-l01" }),
+    ).toHaveAttribute("href", "/a1/a1-l01");
+    await expect(
+      developmentSection.getByText("a1-l01 · Olá, eu sou…"),
+    ).toBeVisible();
+    const developmentLinks = await developmentSection
+      .locator("a[href^='/a1/']")
+      .evaluateAll((links) => links.map((link) => link.getAttribute("href")));
+    expect(new Set(developmentLinks)).toEqual(new Set(["/a1/a1-l01"]));
+
     await expect(page.getByRole("heading", { name: "Em planejamento" })).toBeVisible();
-    await expect(page.getByText("CEFR A1", { exact: true })).toBeVisible();
+    await expect(page.getByText("CEFR A2", { exact: true })).toBeVisible();
     await expect(page.getByText("CEFR C2", { exact: true })).toBeVisible();
-    await expect(page.getByText("Planejado · indisponível")).toHaveCount(6);
+    await expect(page.getByText("Planejado · indisponível")).toHaveCount(5);
 
     await expect(
       page.getByText(/Concluir um curso no KBR não emite certificado CEFR/),
@@ -106,6 +132,24 @@ test.describe("Catálogo de cursos autenticado", () => {
     for (const href of stepLinks) {
       expect(ALL_STEP_IDS).toContain(href!.split("/").at(-1));
     }
+
+    await expectNoHorizontalOverflow(page);
+  });
+
+  test("A1 em desenvolvimento não aparece como curso concluído ao terminar a primeira lição", async ({
+    context,
+    page,
+  }) => {
+    await seedProgress(context, { "a1-l01": { done: true, score: 90 } });
+    await page.goto("/cursos");
+
+    const developmentSection = page.locator("section").filter({
+      has: page.getByRole("heading", { name: "Em desenvolvimento" }),
+    });
+    await expect(developmentSection.getByText("1 de 40")).toBeVisible();
+    await expect(developmentSection.getByText("Parcial")).toBeVisible();
+    await expect(developmentSection.getByText("Curso concluído")).toHaveCount(0);
+    await expect(developmentSection.getByText(/100%/)).toHaveCount(0);
 
     await expectNoHorizontalOverflow(page);
   });
@@ -137,8 +181,8 @@ test.describe("Catálogo de cursos autenticado", () => {
     await expect(page.getByText("Curso concluído")).toBeVisible();
     await expect(page.getByText("29 de 29 passos concluídos.")).toBeVisible();
     await expect(page.getByText(/não é certificação CEFR/)).toBeVisible();
-    await expect(page.getByText(/não desbloqueia o A1/)).toBeVisible();
-    await expect(page.getByText("Planejado · indisponível")).toHaveCount(6);
+    await expect(page.getByText(/não desbloqueia o A1 automaticamente/)).toBeVisible();
+    await expect(page.getByText("Planejado · indisponível")).toHaveCount(5);
     await expect(page.getByRole("link", { name: /Continuar/ })).toHaveCount(0);
 
     await expectNoHorizontalOverflow(page);

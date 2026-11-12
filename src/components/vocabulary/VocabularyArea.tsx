@@ -34,7 +34,7 @@ const fold = (text: string) => text.normalize("NFD").replace(/\p{M}/gu, "").toLo
 const lessonOrder = (id: string) => id.replace(/\d+/g, (n) => n.padStart(4, "0"));
 const LESSONS = [...new Set(VOCAB_ENTRIES.map((e) => `${e.course}/${e.lesson}`))].sort((a, b) => lessonOrder(a).localeCompare(lessonOrder(b)));
 const COURSES = [...new Set(VOCAB_ENTRIES.map((e) => e.course))];
-const COURSE_LABEL: Record<string, string> = { hangul: "Hangul" };
+const COURSE_LABEL: Record<string, string> = { hangul: "Hangul", "ko-a1": "Coreano A1" };
 
 function Stat({ label, value }: { label: string; value: number }) {
   return (

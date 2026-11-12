@@ -178,7 +178,7 @@ test("landing 7C mostra o curso disponível e os planejados sem bloquear navega�
   await expect(page.getByRole("navigation", { name: "Site móvel" })).toBeVisible();
   await expect(page.getByRole("img", { name: /Composição da sílaba/ })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Hangul sem decoreba" })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Diálogos progressivos" }).locator("..", {})).toContainText("Planejado");
+  await expect(page.getByRole("heading", { name: "Diálogos progressivos" }).locator("..", {})).toContainText("Em desenvolvimento");
   await page.getByRole("navigation", { name: "Site móvel" }).getByRole("link", { name: "Método" }).click();
   await expect(page).toHaveURL(/#metodo$/);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);

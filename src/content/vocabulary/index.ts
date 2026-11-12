@@ -1,8 +1,9 @@
 import { CHECKPOINTS } from "@/content/hangul/checkpoints";
 import { LESSONS } from "@/content/hangul/lessons";
 import { A1_LESSON_IDS } from "@/content/curriculum/a1/ids";
+import { A1_VOCABULARY, A1_VOCAB_SENTENCES } from "./a1";
 import { HANGUL_VOCABULARY } from "./hangul";
-import { VOCAB_SENTENCES } from "./sentences";
+import { VOCAB_SENTENCES as HANGUL_VOCAB_SENTENCES } from "./sentences";
 import { validateVocabulary } from "./validate";
 import type { VocabEntry, VocabSentence } from "./types";
 
@@ -13,8 +14,14 @@ export { targetPosition, validateVocabulary, type VocabIssue } from "./validate"
  * Registro canônico. Um curso novo (A1…) entrega seu array de `VocabEntry` e
  * suas frases aqui; ver docs/vocabulary/content-schema.md.
  */
-export const VOCAB_ENTRIES: readonly VocabEntry[] = [...HANGUL_VOCABULARY];
-export { VOCAB_SENTENCES };
+export const VOCAB_ENTRIES: readonly VocabEntry[] = [
+  ...HANGUL_VOCABULARY,
+  ...A1_VOCABULARY,
+];
+export const VOCAB_SENTENCES: readonly VocabSentence[] = [
+  ...HANGUL_VOCAB_SENTENCES,
+  ...A1_VOCAB_SENTENCES,
+];
 
 /** Lições/checkpoints existentes por curso, para validar referências. */
 export const COURSE_LESSON_IDS: ReadonlyMap<string, ReadonlySet<string>> = new Map([

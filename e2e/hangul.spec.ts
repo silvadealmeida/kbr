@@ -1158,7 +1158,7 @@ test.describe("Unidade 7 e checkpoint c4 autenticados", () => {
     await expect(page.locator(".completion-seal")).toContainText("Módulo");
     await expect(page.locator(".completion-seal")).toContainText("concluído");
     await expect(
-      page.getByText(/O próximo módulo \(CEFR A1\) ainda não está disponível/),
+      page.getByText(/O curso A1 está em desenvolvimento/),
     ).toBeVisible();
     await expect(page.getByText("30 corretos · 0 incorretos.")).toBeVisible();
     await expect(page.getByText("Nenhum item errado nesta tentativa.")).toBeVisible();

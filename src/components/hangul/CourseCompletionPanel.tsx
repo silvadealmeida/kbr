@@ -217,8 +217,9 @@ export function CourseCompletionPanel({
 
       {isComplete ? (
         <p className="mt-4 rounded-[var(--radius-plate)] bg-surface-2 p-3 text-sm">
-          O próximo módulo (CEFR A1) ainda não está disponível. Nenhum conteúdo novo é
-          liberado automaticamente.
+          O curso A1 está em desenvolvimento e tem a primeira lição disponível.
+          Concluir o Hangul não libera o A1 automaticamente; nenhum conteúdo novo
+          é liberado aqui.
         </p>
       ) : null}
 

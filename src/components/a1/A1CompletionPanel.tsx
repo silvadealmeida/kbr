@@ -16,22 +16,31 @@ function Stat({ label, value }: { label: string; value: string | number }) {
  * Conclusão interna do A1. Só é renderizada quando as 40 lições e os 8
  * checkpoints estão concluídos; não emite certificado nem mede fala livre.
  */
-export function A1CompletionPanel({ report }: { report: A1CompletionReport }) {
+export function A1CompletionPanel({
+  report,
+  levelLabel = "A1",
+  coursePath = "/a1",
+}: {
+  report: A1CompletionReport;
+  levelLabel?: string;
+  coursePath?: string;
+}) {
   if (!report.complete) return null;
+  const titleId = `${levelLabel.toLowerCase()}-completion-title`;
 
   return (
     <section
-      aria-labelledby="a1-completion-title"
+      aria-labelledby={titleId}
       className="relative overflow-hidden rounded-[var(--radius-panel)] border-2 border-seal/50 bg-surface p-4 sm:p-5"
     >
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div className="completion-enter min-w-0 flex-1">
-          <p className="mono-label text-seal">Curso concluído · Coreano A1</p>
+          <p className="mono-label text-seal">Curso concluído · Coreano {levelLabel}</p>
           <h2
-            id="a1-completion-title"
+            id={titleId}
             className="mt-1 text-2xl font-semibold tracking-tight"
           >
-            Você concluiu o percurso A1 do KBR
+            Você concluiu o percurso {levelLabel} do KBR
           </h2>
           <p className="mt-2 text-muted">
             Foram {report.completedLessons} lições e {report.completedCheckpoints}{" "}
@@ -40,7 +49,7 @@ export function A1CompletionPanel({ report }: { report: A1CompletionReport }) {
           </p>
         </div>
         <div className="completion-seal shrink-0">
-          <Seal label="Selo de conclusão do curso A1 do KBR">
+          <Seal label={`Selo de conclusão do curso ${levelLabel} do KBR`}>
             Curso
             <br />
             concluído
@@ -49,7 +58,7 @@ export function A1CompletionPanel({ report }: { report: A1CompletionReport }) {
       </div>
 
       <p className="mt-3 max-w-[65ch] text-sm text-muted">
-        Esta é a conclusão interna do currículo A1 do KBR. Não é certificado CEFR,
+        Esta é a conclusão interna do currículo {levelLabel} do KBR. Não é certificado CEFR,
         não equivale ao TOPIK e não comprova proficiência oficial. Leitura, escuta e
         itens controlados têm correção automática; fala livre e escrita aberta não
         são avaliadas automaticamente.
@@ -65,7 +74,7 @@ export function A1CompletionPanel({ report }: { report: A1CompletionReport }) {
           value={`${report.completedCheckpoints} de ${report.totalCheckpoints}`}
         />
         <Stat label="Passos concluídos" value={`${report.completedSteps} de ${report.totalSteps}`} />
-        <Stat label="Palavras novas do A1" value={report.vocabIntroduced} />
+        <Stat label={`Palavras novas do ${levelLabel}`} value={report.vocabIntroduced} />
         <Stat label="Palavras retomadas" value={report.vocabReused} />
         <Stat label="Palavras salvas" value={report.vocabSaved} />
       </dl>
@@ -73,7 +82,7 @@ export function A1CompletionPanel({ report }: { report: A1CompletionReport }) {
       <Ruler
         value={report.completedSteps}
         max={report.totalSteps}
-        label="Progresso nos passos do A1"
+        label={`Progresso nos passos do ${levelLabel}`}
         valueText={`${report.completedSteps} de ${report.totalSteps} passos concluídos`}
         className="mt-4"
       />
@@ -92,7 +101,7 @@ export function A1CompletionPanel({ report }: { report: A1CompletionReport }) {
         <ButtonLink href="/dashboard" variant="secondary">
           Ir para o painel
         </ButtonLink>
-        <ButtonLink href="/a1" variant="ghost">
+        <ButtonLink href={coursePath} variant="ghost">
           Rever o curso
         </ButtonLink>
       </div>

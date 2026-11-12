@@ -27,7 +27,7 @@ export default defineConfig({
     {
       name: "webkit-390",
       use: { ...devices["iPhone 13"] },
-      testMatch: /(a1|smoke|pwa|a11y|webkit|audio|speech|vocabulary)\.spec\.ts/,
+      testMatch: /(a1|a2|smoke|pwa|a11y|webkit|audio|speech|vocabulary)\.spec\.ts/,
     },
   ],
 });

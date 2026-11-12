@@ -78,7 +78,7 @@ test.describe("Catálogo de cursos autenticado", () => {
     await authenticate(context);
   });
 
-  test("mostra Hangul e A1 disponíveis e A2–C2 planejados, sem links falsos", async ({
+  test("mostra Hangul, A1 e A2 disponíveis e B1–C2 planejados, sem links falsos", async ({
     page,
   }) => {
     await page.goto("/cursos");
@@ -87,13 +87,25 @@ test.describe("Catálogo de cursos autenticado", () => {
     await expect(page.getByRole("heading", { name: "Disponíveis agora" })).toBeVisible();
     await expect(page.getByText("Pré-A1 · Curso disponível")).toBeVisible();
     await expect(page.getByText("A1 · Curso disponível", { exact: true })).toBeVisible();
+    await expect(page.getByText("A2 · Curso disponível", { exact: true })).toBeVisible();
     await expect(page.getByText("0 de 29 passos concluídos.")).toBeVisible();
-    await expect(page.getByText("0 de 48 passos concluídos.")).toBeVisible();
+    const a1Plate = page
+      .locator("li")
+      .filter({ has: page.getByRole("heading", { name: "Coreano A1" }) });
+    const a2Plate = page
+      .locator("li")
+      .filter({ has: page.getByRole("heading", { name: "Coreano A2" }) });
+    await expect(a1Plate.getByText("0 de 48 passos concluídos.")).toBeVisible();
+    await expect(a2Plate.getByText("0 de 48 passos concluídos.")).toBeVisible();
+    await expect(a2Plate.getByText("Requer A1 concluído")).toBeVisible();
     await expect(
       page.getByRole("progressbar", { name: "Progresso no curso Hangul" }),
     ).toHaveAttribute("aria-valuenow", "0");
     await expect(
       page.getByRole("progressbar", { name: "Progresso no curso Coreano A1" }),
+    ).toHaveAttribute("aria-valuenow", "0");
+    await expect(
+      page.getByRole("progressbar", { name: "Progresso no curso Coreano A2" }),
     ).toHaveAttribute("aria-valuenow", "0");
     await expect(page.getByText("Em desenvolvimento")).toHaveCount(0);
     await expect(page.getByText("1 de 40")).toHaveCount(0);
@@ -105,11 +117,12 @@ test.describe("Catálogo de cursos autenticado", () => {
     await expect(
       page.locator("main a[href='/a1/a1-l01']"),
     ).toHaveCount(1);
+    await expect(page.locator("main a[href='/a2/a2-l01']")).toHaveCount(0);
 
     await expect(page.getByRole("heading", { name: "Em planejamento" })).toBeVisible();
-    await expect(page.getByText("CEFR A2", { exact: true })).toBeVisible();
+    await expect(page.getByText("CEFR B1", { exact: true })).toBeVisible();
     await expect(page.getByText("CEFR C2", { exact: true })).toBeVisible();
-    await expect(page.getByText("Planejado · indisponível")).toHaveCount(5);
+    await expect(page.getByText("Planejado · indisponível")).toHaveCount(4);
     await expect(
       page.getByText(/Concluir um curso no KBR não emite certificado CEFR/),
     ).toBeVisible();
@@ -152,7 +165,7 @@ test.describe("Catálogo de cursos autenticado", () => {
     await expect(a1Plate.getByText("8 de 8")).toBeVisible();
     await expect(a1Plate.getByText("48 de 48 passos concluídos.")).toBeVisible();
     await expect(a1Plate.getByText(/não é certificação CEFR/)).toBeVisible();
-    await expect(a1Plate.getByText(/não libera o A2 automaticamente/)).toBeVisible();
+    await expect(a1Plate.getByText(/libera a entrada do A2 neste app/)).toBeVisible();
     await expect(a1Plate.getByRole("link", { name: /Continuar/ })).toHaveCount(0);
 
     await expectNoHorizontalOverflow(page);
@@ -167,8 +180,11 @@ test.describe("Catálogo de cursos autenticado", () => {
 
     await expect(page.getByText("29 de 29 passos concluídos.")).toBeVisible();
     await expect(page.getByText(/não desbloqueia o A1 automaticamente/)).toBeVisible();
-    await expect(page.getByText("0 de 48 passos concluídos.")).toBeVisible();
-    await expect(page.getByText("Planejado · indisponível")).toHaveCount(5);
+    const a1Plate = page
+      .locator("li")
+      .filter({ has: page.getByRole("heading", { name: "Coreano A1" }) });
+    await expect(a1Plate.getByText("0 de 48 passos concluídos.")).toBeVisible();
+    await expect(page.getByText("Planejado · indisponível")).toHaveCount(4);
     await expect(page.getByRole("link", { name: "Continuar h01" })).toHaveCount(0);
 
     await expectNoHorizontalOverflow(page);

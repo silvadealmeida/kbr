@@ -298,11 +298,12 @@ export function DashboardArea() {
       <Card>
         <p className="text-sm font-semibold text-accent">Catálogo de cursos</p>
         <h2 className="mt-1 text-xl font-semibold">
-          Hangul e Coreano A1 disponíveis
+          Hangul, Coreano A1 e Coreano A2 disponíveis
         </h2>
         <p className="mt-1 text-muted">
           O curso Hangul é Pré-A1. Concluí-lo não é certificação CEFR, não comprova
-          proficiência oficial e não desbloqueia o A1 automaticamente. O A1 tem 40
+          proficiência oficial e não desbloqueia o A1 automaticamente. O A1 e o A2
+          têm 40
           lições e 8 checkpoints no currículo interno do KBR; {PLANNED_LEVELS} seguem
           em planejamento e ainda não têm lições.
         </p>

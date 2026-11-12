@@ -8,9 +8,11 @@ import { Button } from "@/components/ui/Button";
 import { Card, Plate } from "@/components/ui/Card";
 import { ProgressBar } from "@/components/ui/ProgressBar";
 import { A1_COURSE, courseStepHref } from "@/content/courses";
+import type { CourseClientView } from "@/content/courses/client";
 import {
   isCourseStepDone,
   isCourseStepUnlocked,
+  missingCourseEntryPrerequisites,
   summarizeCourseProgress,
 } from "@/lib/courses";
 import { buildA1CompletionReport, type A1VocabularyFacts } from "@/lib/a1/completion";
@@ -24,8 +26,12 @@ import { A1CompletionPanel } from "./A1CompletionPanel";
  */
 export function A1CourseArea({
   vocabularyFacts,
+  course = A1_COURSE,
+  levelLabel = "A1",
 }: {
   vocabularyFacts: A1VocabularyFacts;
+  course?: CourseClientView;
+  levelLabel?: string;
 }) {
   const { progressStore, status, syncStatus } = useAuth();
   const [progress, setProgress] = useState<Progress | null>(null);
@@ -82,18 +88,55 @@ export function A1CourseArea({
     );
   }
 
-  const summary = summarizeCourseProgress(progress, A1_COURSE);
-  const report = buildA1CompletionReport(progress, new Date(), A1_COURSE, vocabularyFacts);
+  const entryMissing = missingCourseEntryPrerequisites(progress, course);
+
+  if (entryMissing.length > 0) {
+    return (
+      <Card className="flex flex-col gap-4">
+        <div>
+          <h2 className="text-lg font-semibold">Curso bloqueado</h2>
+          <p className="mt-1 text-muted">
+            {course.title} abre depois de concluir o A1. Abrir o endereço direto
+            não libera as lições; o app usa o mesmo `Progress` v1.
+          </p>
+        </div>
+        <p className="text-sm text-muted">Requisitos pendentes: {entryMissing.join(", ")}.</p>
+        <div className="flex flex-col gap-3 sm:flex-row">
+          <Link
+            href="/a1"
+            className="inline-flex min-h-12 items-center font-semibold text-accent underline-offset-4 hover:underline"
+          >
+            Ver o percurso do A1
+          </Link>
+          <Link
+            href="/cursos"
+            className="inline-flex min-h-12 items-center font-semibold text-muted underline-offset-4 hover:underline"
+          >
+            Voltar aos cursos
+          </Link>
+        </div>
+      </Card>
+    );
+  }
+
+  const summary = summarizeCourseProgress(progress, course);
+  const report = buildA1CompletionReport(progress, new Date(), course, vocabularyFacts);
   const currentStepId = summary.nextStep?.id ?? null;
 
   return (
     <div className="flex flex-col gap-6">
-      {report.complete ? <A1CompletionPanel report={report} /> : null}
+      {report.complete ? (
+        <A1CompletionPanel
+          report={report}
+          levelLabel={levelLabel}
+          coursePath={course.basePath ?? "/a1"}
+        />
+      ) : null}
 
       <Plate label="Situação do curso" number={`${summary.percent}%`}>
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
-            <h2 className="text-lg font-semibold">Coreano A1 · 40 lições e 8 checkpoints</h2>
+            <h2 className="text-lg font-semibold">{course.title} · {summary.totalLessons} lições e {summary.totalCheckpoints} checkpoints</h2>
             <p className="mt-1 text-sm text-muted">
               Curso completo, com conteúdo original em revisão. A ordem abaixo é a
               ordem de desbloqueio; abrir um endereço direto não pula pré-requisitos.
@@ -105,7 +148,7 @@ export function A1CourseArea({
         </div>
         <ProgressBar
           value={summary.percent}
-          label="Progresso no curso Coreano A1"
+          label={`Progresso no curso ${course.title}`}
           className="mt-4"
         />
         <dl className="mt-4 grid grid-cols-2 gap-3 text-sm sm:grid-cols-4">
@@ -139,7 +182,7 @@ export function A1CourseArea({
             Próximo passo:{" "}
             <strong className="text-fg">
               {currentStepId} ·{" "}
-              {A1_COURSE.steps.find((step) => step.id === currentStepId)?.title}
+              {course.steps.find((step) => step.id === currentStepId)?.title}
             </strong>
           </p>
         ) : null}
@@ -148,12 +191,12 @@ export function A1CourseArea({
       <p className="border-l-2 border-accent bg-surface-2 p-4 text-sm text-muted">
         Conteúdo coreano original em revisão por falante nativo. A voz é a coreana do
         navegador, sob clique; não há MP3 novo nem microfone obrigatório. A conclusão
-        do A1 é interna do KBR, não certifica CEFR ou TOPIK e não libera A2
-        automaticamente.
+        do {levelLabel} é interna do KBR, não certifica CEFR ou TOPIK e não libera
+        o próximo nível automaticamente.
       </p>
 
-      {A1_COURSE.units.map((unit) => {
-        const steps = A1_COURSE.steps.filter((step) => step.unitId === unit.id);
+      {course.units.map((unit) => {
+        const steps = course.steps.filter((step) => step.unitId === unit.id);
         return (
           <section
             key={unit.id}
@@ -161,7 +204,7 @@ export function A1CourseArea({
             aria-labelledby={`a1-unit-${unit.id}`}
           >
             <div className="mb-2 flex flex-wrap items-baseline justify-between gap-3">
-              <h2 id={`a1-unit-${unit.id}`} className="text-lg font-semibold">
+              <h2 id={`${course.slug}-unit-${unit.id}`} className="text-lg font-semibold">
                 Módulo {unit.number} · {unit.title}
               </h2>
               <span className="mono-label text-muted">
@@ -174,7 +217,7 @@ export function A1CourseArea({
               {steps.map((step) => {
                 const record = progress.lessons[step.id];
                 const unlocked = isCourseStepUnlocked(progress, step) || record?.done === true;
-                const href = courseStepHref(A1_COURSE, step.id);
+                const href = courseStepHref(course, step.id);
                 const isCurrent = currentStepId === step.id;
                 const body = (
                   <>

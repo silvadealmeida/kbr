@@ -108,6 +108,12 @@ export type CourseDefinition = {
    * planejados, que não têm lições nem links.
    */
   basePath: string | null;
+  /**
+   * Passos de outros cursos que precisam estar concluídos para abrir o curso.
+   * É uma política de entrada, não um pré-requisito de lição; o player e o
+   * catálogo a aplicam sem alterar `Progress` v1.
+   */
+  entryPrerequisites?: readonly string[];
   units: readonly CourseUnitDefinition[];
   steps: readonly CourseStepDefinition[];
   /**

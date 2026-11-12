@@ -20,8 +20,12 @@ function answerFor(exercise: (typeof A2_IMPLEMENTED_LESSONS)[number]["exercises"
       return { kind: "choice", optionId: exercise.correctOptionId ?? "" };
     case "mcq":
       return { kind: "text", value: exercise.correctAnswer };
-    default:
+    case "cloze":
+    case "listen":
+    case "translate":
       return { kind: "text", value: exercise.answer };
+    default:
+      return { kind: "text", value: "" };
   }
 }
 
@@ -77,7 +81,11 @@ describe("conteúdo A2 implementado — contrato, gabaritos e vocabulário", () 
     ];
     for (const exercise of all) {
       expect(checkAnswer(exercise, answerFor(exercise)).correct, exercise.id).toBe(true);
-      if (exercise.type !== "reading" && exercise.type !== "mcq") {
+      if (
+        exercise.type === "cloze" ||
+        exercise.type === "listen" ||
+        exercise.type === "translate"
+      ) {
         for (const accepted of exercise.acceptedAnswers ?? []) {
           expect(
             checkAnswer(exercise, { kind: "text", value: accepted }).correct,

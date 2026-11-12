@@ -14,6 +14,7 @@ import {
 } from "@/content/courses";
 import { courseLevelLabel, isCefrLevel } from "@/content/courses/types";
 import { summarizeCourseProgress } from "@/lib/courses";
+import { missingCourseEntryPrerequisites } from "@/lib/courses/steps";
 import type { Progress } from "@/lib/storage";
 
 
@@ -58,13 +59,15 @@ export function CourseCatalog() {
         <p className="mt-2">
           O KBR organiza o estudo em cursos. O Hangul é um curso introdutório de{" "}
           <strong>Pré-A1</strong> e não corresponde a um nível oficial do CEFR. O{" "}
-          <strong>Coreano A1</strong> está completo no currículo interno do KBR, com
-          conteúdo original em revisão. A2–C2 aparecem apenas como planejamento
-          editorial e ainda não têm lições, atividades ou avaliações.
+          <strong>Coreano A1</strong> e o <strong>Coreano A2</strong> estão
+          completos no currículo interno do KBR, com conteúdo original em
+          revisão. B1–C2 aparecem apenas como planejamento editorial e ainda não
+          têm lições, atividades ou avaliações.
         </p>
         <p className="mt-2">
-          Concluir um curso no KBR não emite certificado CEFR, não comprova
-          proficiência oficial e não libera o próximo nível automaticamente.
+          Concluir um curso no KBR não emite certificado CEFR e não comprova
+          proficiência oficial. O A2 exige o A1 concluído; os demais níveis não
+          são liberados automaticamente.
         </p>
       </section>
 
@@ -99,8 +102,14 @@ export function CourseCatalog() {
           {available.map((course) => {
             const summary =
               progress && !loading ? summarizeCourseProgress(progress, course) : null;
+            const entryMissing = progress
+              ? missingCourseEntryPrerequisites(progress, course)
+              : (course.entryPrerequisites ?? []);
+            const entryOpen =
+              (course.entryPrerequisites ?? []).length === 0 ||
+              (progress !== null && !loading && entryMissing.length === 0);
             const nextHref =
-              summary?.nextStep && !summary.complete
+              entryOpen && summary?.nextStep && !summary.complete
                 ? courseStepHref(course, summary.nextStep.id)
                 : null;
             const level = courseLevelLabel(course.level);
@@ -125,6 +134,8 @@ export function CourseCatalog() {
                   </div>
                   {summary?.complete ? (
                     <Badge tone="accent">Curso concluído</Badge>
+                  ) : !entryOpen ? (
+                    <Badge tone="warning">Requer A1 concluído</Badge>
                   ) : summary ? (
                     <Badge tone="accent">{summary.percent}% concluído</Badge>
                   ) : (
@@ -174,13 +185,23 @@ export function CourseCatalog() {
                   </div>
                 ) : null}
 
+                {!entryOpen ? (
+                  <p className="mt-4 rounded-xl bg-surface-2 p-3 text-sm">
+                    A entrada do {course.title} exige o A1 concluído. Concluir o
+                    A1 é uma etapa interna do KBR; não há certificação CEFR ou
+                    TOPIK.
+                  </p>
+                ) : null}
+
                 {summary?.complete ? (
                   <p className="mt-4 rounded-xl bg-surface-2 p-3 text-sm">
                     Você concluiu o curso {course.title}. Isso não é certificação
                     CEFR nem TOPIK.{" "}
                     {course.id === "hangul"
                       ? "A conclusão do Hangul não desbloqueia o A1 automaticamente."
-                      : "A conclusão do A1 não libera o A2 automaticamente."}
+                      : course.id === "ko-a1"
+                        ? "A conclusão do A1 libera a entrada do A2 neste app, sem certificação."
+                        : "A conclusão do A2 exige os 48 passos e não libera B1."}
                   </p>
                 ) : summary?.nextStep && nextHref ? (
                   <p className="mt-4 text-sm text-muted">
@@ -197,7 +218,7 @@ export function CourseCatalog() {
                 ) : null}
 
                 <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                  {course.basePath ? (
+                  {entryOpen && course.basePath ? (
                     <ButtonLink href={course.basePath}>Abrir curso</ButtonLink>
                   ) : null}
                   {nextHref ? (
@@ -358,7 +379,7 @@ export function CourseCatalog() {
             Em planejamento
           </h2>
           <p className="mt-1 text-sm text-muted">
-            A2–C2 são referências de organização futura, não uma promessa de
+            B1–C2 são referências de organização futura, não uma promessa de
             lançamento. Nenhum destes níveis tem lição ou link disponível.
           </p>
         </div>

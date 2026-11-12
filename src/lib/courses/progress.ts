@@ -29,7 +29,7 @@ export type CourseProgressSummary = {
  */
 export function summarizeCourseProgress(
   progress: Pick<Progress, "lessons">,
-  course: CourseDefinition,
+  course: Pick<CourseDefinition, "id" | "status" | "steps">,
 ): CourseProgressSummary {
   const totalSteps = course.steps.length;
   const completedSteps = course.steps.filter((step) =>

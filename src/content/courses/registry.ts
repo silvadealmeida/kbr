@@ -1,4 +1,5 @@
 import { A1_COURSE } from "./a1";
+import { A2_COURSE } from "./a2";
 import { HANGUL_COURSE } from "./hangul";
 import { PLANNED_COURSES } from "./planned";
 import {
@@ -11,12 +12,13 @@ const COURSE_ID = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const SRS_PREFIX = /^[a-z0-9]+:$/i;
 
 /**
- * Registro estático de cursos. Hangul e A1 estão disponíveis; A2–C2 seguem
+ * Registro estático de cursos. Hangul, A1 e A2 estão disponíveis; B1–C2 seguem
  * como entradas de planejamento sem passos, rotas ou conteúdo.
  */
 export const COURSE_REGISTRY: readonly CourseDefinition[] = [
   HANGUL_COURSE,
   A1_COURSE,
+  A2_COURSE,
   ...PLANNED_COURSES,
 ];
 
@@ -58,7 +60,7 @@ export function getPlannedCourses(): readonly CourseDefinition[] {
  * em desenvolvimento só geram links para os passos já implementados.
  */
 export function courseStepHref(
-  course: CourseDefinition,
+  course: Pick<CourseDefinition, "status" | "basePath" | "steps">,
   stepId: string,
 ): string | null {
   if (course.status === "planned" || !course.basePath) return null;
@@ -391,6 +393,24 @@ export function validateCourseRegistry(
           "step-unit-unknown",
           path,
           `Passo ${step.id} aponta para unidade inexistente: ${step.unitId}.`,
+        );
+      }
+    }
+  }
+
+  for (const course of courses) {
+    for (const prerequisite of course.entryPrerequisites ?? []) {
+      if (!stepOwners.has(prerequisite)) {
+        error(
+          "course-entry-prerequisite-unknown",
+          `courses.${course.id}.entryPrerequisites`,
+          `Pré-requisito de entrada inexistente: ${prerequisite}.`,
+        );
+      } else if (stepOwners.get(prerequisite) === course.id) {
+        error(
+          "course-entry-prerequisite-own",
+          `courses.${course.id}.entryPrerequisites`,
+          `Pré-requisito de entrada não pode pertencer ao próprio curso: ${prerequisite}.`,
         );
       }
     }

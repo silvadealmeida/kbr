@@ -13,6 +13,7 @@ export {
   validateCourseRegistry,
 } from "./registry";
 export { A1_COURSE } from "./a1";
+export { A2_COURSE } from "./a2";
 export { HANGUL_COURSE } from "./hangul";
 export { PLANNED_COURSES } from "./planned";
 export {

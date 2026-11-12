@@ -34,7 +34,11 @@ O `target` pode ser igual à forma de dicionário (`사과`) ou a forma polida u
 
 `src/content/vocabulary/a1.ts` fornece as 11 `VocabEntry` e 11 frases de `a1-l01`. `src/content/vocabulary/a1-course.ts` fornece 432 identidades e 432 frases de `a1-l02`–`a1-l40`, com origem `course: "ko-a1"` e a lição correta. `VOCAB_ENTRIES`/`VOCAB_SENTENCES` incluem os dois arrays. Totais atuais: **443 identidades A1**, **443 frases A1**, **468 frases no registro** (25 do Hangul + 443 do A1), **495 identidades distintas ensinadas** no A1 contando 52 reusos do Hangul. Todas as entradas A1 estão `in-review`.
 
-Para um novo curso A1–C2:
+## Curso A2 integrado
+
+`src/content/vocabulary/a2-course.ts` fornece **400 identidades A2** e **400 frases** para `a2-l01`–`a2-l40`, com origem `course: "ko-a2"` e a lição correta. O A2 retoma 115 identidades distintas do A1/Hangul, totalizando 515 identidades ensinadas/retomadas. `COURSE_LESSON_IDS` inclui os 48 passos A2. `VOCAB_ENTRIES`/`VOCAB_SENTENCES` somam **868 frases** (25 do Hangul + 443 do A1 + 400 do A2). Todas as entradas A2 estão `in-review`.
+
+Para um novo curso B1–C2:
 
 1. Exportar `VocabEntry[]` e `VocabSentence[]` do curso, com `course` igual ao id do curso e `lesson` apontando para uma lição real.
 2. Acrescentar os arrays a `VOCAB_ENTRIES`/`VOCAB_SENTENCES` em `src/content/vocabulary/index.ts` e registrar os IDs de lição em `COURSE_LESSON_IDS`.

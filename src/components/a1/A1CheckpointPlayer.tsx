@@ -9,6 +9,7 @@ import { Button, ButtonLink } from "@/components/ui/Button";
 import { Plate } from "@/components/ui/Card";
 import type { A1CheckpointContent } from "@/content/curriculum/a1/types";
 import { A1_COURSE } from "@/content/courses/a1";
+import type { CourseClientView } from "@/content/courses/client";
 import type { CourseStepDefinition } from "@/content/courses/types";
 import {
   a1CheckpointRequiredCorrect,
@@ -20,7 +21,7 @@ import {
   buildA1CompletionReport,
   type A1VocabularyFacts,
 } from "@/lib/a1/completion";
-import { isCourseStepUnlocked } from "@/lib/courses/steps";
+import { isCourseStepUnlocked, missingCourseEntryPrerequisites } from "@/lib/courses/steps";
 import { checkAnswer, type DetailedCheckResult, type ExerciseAnswer } from "@/lib/exercises";
 import { recordAttempt, type AnswerRecord } from "@/lib/progress/lesson";
 import type { Progress } from "@/lib/storage";
@@ -36,11 +37,15 @@ export function A1CheckpointPlayer({
   step,
   nextStep,
   vocabularyFacts,
+  course = A1_COURSE,
+  levelLabel = "A1",
 }: {
   checkpoint: A1CheckpointContent;
   step: CourseStepDefinition;
   nextStep: CourseStepDefinition | null;
   vocabularyFacts: A1VocabularyFacts;
+  course?: CourseClientView;
+  levelLabel?: string;
 }) {
   const { progressStore, status } = useAuth();
   const [progress, setProgress] = useState<Progress | null>(null);
@@ -161,9 +166,11 @@ export function A1CheckpointPlayer({
     setPhase("run");
   };
 
+  const coursePath = course.basePath ?? "/a1";
+
   if (status === "loading" || (loadingProgress && !progress)) {
     return (
-      <Plate label="Checkpoint A1">
+      <Plate label={`Checkpoint ${levelLabel}`}>
         <p role="status" className="text-muted">
           Preparando seu progresso…
         </p>
@@ -173,22 +180,51 @@ export function A1CheckpointPlayer({
 
   if (!progress) {
     return (
-      <Plate label="Checkpoint A1">
+      <Plate label={`Checkpoint ${levelLabel}`}>
         <p className="text-lg font-semibold">Não foi possível carregar seu progresso.</p>
         <p className="mt-1 text-muted">
           Verifique se o armazenamento do navegador está disponível e tente novamente.
         </p>
-        <ButtonLink href="/a1" variant="secondary" className="mt-4">
-          Voltar ao A1
+        <ButtonLink href={coursePath} variant="secondary" className="mt-4">
+          Voltar ao {levelLabel}
         </ButtonLink>
       </Plate>
+    );
+  }
+
+  const entryMissing = missingCourseEntryPrerequisites(progress, course);
+
+  if (entryMissing.length > 0) {
+    return (
+      <article aria-labelledby="checkpoint-title" className="mx-auto w-full max-w-[680px] pb-4">
+        <PlayerHeader
+          tone="checkpoint"
+          code={`checkpoint ${checkpoint.id}`}
+          eyebrow="Curso bloqueado"
+          title={checkpoint.title}
+          titleId="checkpoint-title"
+          meta={<span>{course.title}</span>}
+          backHref="/cursos"
+          backLabel="← Cursos"
+        />
+        <Plate className="mt-5" label="Requisito de entrada" number={course.id}>
+          <p className="text-muted">
+            Este curso abre depois de concluir o A1. Abrir o endereço direto não
+            libera a avaliação.
+          </p>
+          <p className="mt-2 text-sm text-muted">Pendentes: {entryMissing.join(", ")}.</p>
+          <ButtonLink href={coursePath} className="mt-5">
+            Ver o percurso do {levelLabel}
+          </ButtonLink>
+        </Plate>
+      </article>
     );
   }
 
   const record = progress.lessons[checkpoint.id];
   const alreadyDone = record?.done === true;
   const unlocked = alreadyDone || isCourseStepUnlocked(progress, step);
-  const isFinal = checkpoint.id === A1_COURSE.completion.finalStepId;
+  const isFinal = checkpoint.id === course.completion.finalStepId;
 
   if (!unlocked) {
     const missing = step.prerequisites.filter(
@@ -212,8 +248,8 @@ export function A1CheckpointPlayer({
               <span>{checkpoint.estimatedMinutes} min</span>
             </>
           }
-          backHref="/a1"
-          backLabel="← A1"
+          backHref={coursePath}
+          backLabel={`← ${levelLabel}`}
         />
         <Plate className="mt-5" label="Requisitos pendentes" number={checkpoint.id}>
           <p className="text-muted">
@@ -221,8 +257,8 @@ export function A1CheckpointPlayer({
             anteriores. Abrir o endereço diretamente não libera a avaliação.
           </p>
           <p className="mt-2 text-sm text-muted">Pendentes: {missing.join(", ")}.</p>
-          <ButtonLink href="/a1" className="mt-5">
-            Ver o percurso do A1
+          <ButtonLink href={coursePath} className="mt-5">
+            Ver o percurso do {levelLabel}
           </ButtonLink>
         </Plate>
       </article>
@@ -231,7 +267,7 @@ export function A1CheckpointPlayer({
 
   const report =
     isFinal && (alreadyDone || checkpointResult?.passed)
-      ? buildA1CompletionReport(progress, new Date(), A1_COURSE, vocabularyFacts)
+      ? buildA1CompletionReport(progress, new Date(), course, vocabularyFacts)
       : null;
   const courseCompletionPage =
     report?.complete === true ? (
@@ -244,22 +280,22 @@ export function A1CheckpointPlayer({
         <PlayerHeader
           tone="checkpoint"
           code={`checkpoint ${checkpoint.id}`}
-          eyebrow="Fim do A1"
-          title="Curso A1 concluído"
+          eyebrow={`Fim do ${levelLabel}`}
+          title={`Curso ${levelLabel} concluído`}
           titleId="checkpoint-completion-title"
           meta={<span>{checkpoint.title}</span>}
-          backHref="/a1"
-          backLabel="← A1"
+          backHref={coursePath}
+          backLabel={`← ${levelLabel}`}
         />
         <div className="mt-5">
-          <A1CompletionPanel report={report} />
+          <A1CompletionPanel report={report} levelLabel={levelLabel} coursePath={coursePath} />
         </div>
         <div className="mt-4 flex flex-col gap-3 sm:flex-row">
           <Button variant="secondary" onClick={restart}>
             Refazer checkpoint
           </Button>
-          <ButtonLink href="/a1" variant="ghost">
-            Voltar ao A1
+          <ButtonLink href={coursePath} variant="ghost">
+            Voltar ao {levelLabel}
           </ButtonLink>
         </div>
       </article>
@@ -285,8 +321,8 @@ export function A1CheckpointPlayer({
               <span>{checkpoint.estimatedMinutes} min</span>
             </>
           }
-          backHref="/a1"
-          backLabel="← A1"
+          backHref={coursePath}
+          backLabel={`← ${levelLabel}`}
         />
         <Plate
           className="mt-5"
@@ -309,15 +345,15 @@ export function A1CheckpointPlayer({
         </Plate>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           {nextStep && isCourseStepUnlocked(progress, nextStep) ? (
-            <ButtonLink href={`/a1/${nextStep.id}`}>
+            <ButtonLink href={`${coursePath}/${nextStep.id}`}>
               Próximo: {nextStep.id} · {nextStep.title}
             </ButtonLink>
           ) : null}
           <Button variant="secondary" onClick={restart}>
             Refazer checkpoint
           </Button>
-          <ButtonLink href="/a1" variant="secondary">
-            Voltar ao A1
+          <ButtonLink href={coursePath} variant="secondary">
+            Voltar ao {levelLabel}
           </ButtonLink>
         </div>
       </article>
@@ -347,8 +383,8 @@ export function A1CheckpointPlayer({
               </span>
             </>
           }
-          backHref="/a1"
-          backLabel="← A1"
+          backHref={coursePath}
+          backLabel={`← ${levelLabel}`}
         />
         <p className="mt-4 text-lg leading-relaxed text-muted">{checkpoint.objective}</p>
 
@@ -440,8 +476,8 @@ export function A1CheckpointPlayer({
               <span>Módulo {checkpoint.number}</span>
             </>
           }
-          backHref="/a1"
-          backLabel="← A1"
+          backHref={coursePath}
+          backLabel={`← ${levelLabel}`}
         />
         <Plate
           className="mt-5"
@@ -479,7 +515,7 @@ export function A1CheckpointPlayer({
           {checkpointResult.passed &&
           nextStep &&
           isCourseStepUnlocked(progress, nextStep) ? (
-            <ButtonLink href={`/a1/${nextStep.id}`}>
+            <ButtonLink href={`${coursePath}/${nextStep.id}`}>
               Próximo: {nextStep.id} · {nextStep.title}
             </ButtonLink>
           ) : null}
@@ -489,8 +525,8 @@ export function A1CheckpointPlayer({
           <ButtonLink href="/vocabulario/revisao" variant="secondary">
             Revisar vocabulário
           </ButtonLink>
-          <ButtonLink href="/a1" variant="ghost">
-            Voltar ao A1
+          <ButtonLink href={coursePath} variant="ghost">
+            Voltar ao {levelLabel}
           </ButtonLink>
         </div>
       </article>
@@ -507,11 +543,11 @@ export function A1CheckpointPlayer({
           compact
           tone="checkpoint"
           code={`checkpoint ${checkpoint.id}`}
-          eyebrow={`A1 · ${checkpoint.estimatedMinutes} min`}
+          eyebrow={`${levelLabel} · ${checkpoint.estimatedMinutes} min`}
           title={checkpoint.title}
           titleId="checkpoint-title"
-          backHref="/a1"
-          backLabel="← A1"
+          backHref={coursePath}
+          backLabel={`← ${levelLabel}`}
         />
         <div className="mt-4 flex flex-wrap items-center justify-between gap-2">
           <Badge tone="accent">Avaliação cumulativa</Badge>

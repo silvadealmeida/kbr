@@ -1,6 +1,7 @@
 import { describe, expect, test } from "vitest";
 import {
   A1_COURSE,
+  A2_COURSE,
   COURSE_REGISTRY,
   HANGUL_COURSE,
   PLANNED_COURSES,
@@ -109,21 +110,24 @@ function issueCodes(courses: readonly CourseDefinition[]): string[] {
 }
 
 describe("registro genérico de cursos", () => {
-  test("Hangul e A1 estão disponíveis; A2–C2 planejados", () => {
+  test("Hangul, A1 e A2 estão disponíveis; B1–C2 planejados", () => {
     expect(validateCourseRegistry()).toEqual([]);
-    expect(COURSE_REGISTRY).toHaveLength(2 + CEFR_LEVELS.length - 1);
+    expect(COURSE_REGISTRY).toHaveLength(3 + CEFR_LEVELS.length - 2);
     expect(getAvailableCourses().map((course) => course.id)).toEqual([
       "hangul",
       "ko-a1",
+      "ko-a2",
     ]);
     expect(getInDevelopmentCourses()).toEqual([]);
     expect(getPlannedCourses().map((course) => course.level)).toEqual(
-      CEFR_LEVELS.filter((level) => level !== "a1"),
+      CEFR_LEVELS.filter((level) => level !== "a1" && level !== "a2"),
     );
     expect(getCourse("hangul")).toBe(HANGUL_COURSE);
     expect(getCourse("ko-a1")).toBe(A1_COURSE);
+    expect(getCourse("ko-a2")).toBe(A2_COURSE);
     expect(getCourseBySlug("hangul")).toBe(HANGUL_COURSE);
     expect(getCourseBySlug("a1")).toBe(A1_COURSE);
+    expect(getCourseBySlug("a2")).toBe(A2_COURSE);
 
     expect(HANGUL_COURSE.level).toBe("pre-a1");
     expect(isCefrLevel(HANGUL_COURSE.level)).toBe(false);
@@ -144,6 +148,21 @@ describe("registro genérico de cursos", () => {
       certification: "none",
     });
 
+    expect(A2_COURSE.status).toBe("available");
+    expect(A2_COURSE.level).toBe("a2");
+    expect(A2_COURSE.steps).toHaveLength(48);
+    expect(A2_COURSE.steps.filter((step) => step.kind === "lesson")).toHaveLength(40);
+    expect(A2_COURSE.steps.filter((step) => step.kind === "checkpoint")).toHaveLength(8);
+    expect(A2_COURSE.steps.at(0)?.id).toBe("a2-l01");
+    expect(A2_COURSE.steps.at(-1)?.id).toBe("a2-c08");
+    expect(A2_COURSE.basePath).toBe("/a2");
+    expect(A2_COURSE.entryPrerequisites).toEqual(["a1-c08"]);
+    expect(A2_COURSE.completion).toMatchObject({
+      requiresAllSteps: true,
+      finalStepId: "a2-c08",
+      certification: "none",
+    });
+
     for (const course of PLANNED_COURSES) {
       expect(course.status).toBe("planned");
       expect(course.steps).toEqual([]);
@@ -152,6 +171,28 @@ describe("registro genérico de cursos", () => {
       expect(course.completion.finalStepId).toBeNull();
       expect(isCefrLevel(course.level)).toBe(true);
     }
+  });
+
+  test("entryPrerequisites exige um passo existente de outro curso", () => {
+    const withoutA2 = COURSE_REGISTRY.filter((course) => course.id !== "ko-a2");
+    expect(
+      issueCodes([
+        ...withoutA2,
+        { ...A2_COURSE, entryPrerequisites: ["passo-inexistente"] },
+      ]),
+    ).toContain("course-entry-prerequisite-unknown");
+    expect(
+      issueCodes([
+        ...withoutA2,
+        { ...A2_COURSE, entryPrerequisites: ["a2-l01"] },
+      ]),
+    ).toContain("course-entry-prerequisite-own");
+    expect(
+      issueCodes([
+        ...withoutA2,
+        { ...A2_COURSE, entryPrerequisites: ["a1-c08"] },
+      ]),
+    ).toEqual([]);
   });
 
   test("preserva os IDs h01–h25/c1–c4 e o namespace SRS do Hangul", () => {

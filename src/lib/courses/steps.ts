@@ -89,6 +89,24 @@ export function isCourseStepDone(
   return progress.lessons[step.id]?.done === true;
 }
 
+/** Requisitos de entrada do curso (de outros cursos) ainda pendentes. */
+export function missingCourseEntryPrerequisites(
+  progress: CourseProgressLike,
+  course: { entryPrerequisites?: readonly string[] },
+): string[] {
+  return (course.entryPrerequisites ?? []).filter(
+    (id) => progress.lessons[id]?.done !== true,
+  );
+}
+
+/** Um curso só abre quando os requisitos de entrada estão concluídos. */
+export function isCourseEntryOpen(
+  progress: CourseProgressLike,
+  course: { entryPrerequisites?: readonly string[] },
+): boolean {
+  return missingCourseEntryPrerequisites(progress, course).length === 0;
+}
+
 /** Um passo só abre quando todos os pré-requisitos curriculares estão concluídos. */
 export function isCourseStepUnlocked(
   progress: CourseProgressLike,

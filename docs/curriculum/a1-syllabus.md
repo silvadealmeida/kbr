@@ -10,6 +10,10 @@ Convenções:
 - critério padrão de lição: 8/10 itens avaliados + a tarefa comunicativa indicada; produções abertas são autoavaliação/rubrica humana;
 - todos os cenários, traduções e exemplos futuros serão originais e `in-review`.
 
+## Status de implementação (Fase 9B)
+
+Somente `a1-l01` está implementada e jogável. O curso `ko-a1` está `in-development`, com 1 de 40 lições e 0 de 8 checkpoints jogáveis; concluir a lição não conclui o curso. A lição implementada tem 4 painéis de introdução, diálogo de 6 turnos com tradução e áudio de TTS, 5 notas gramaticais, 11 identidades novas + 6 reusos do Hangul, 11 frases contextuais e 10 itens automáticos (5 guiados + 5 independentes). Todo o coreano é original e permanece `in-review`. As demais lições e checkpoints continuam sendo plano editorial, sem rota, link ou estado de conclusão.
+
 ## Módulo 1 — Primeiro contato (`a1-m01`)
 
 ### `a1-l01` — Olá, eu sou…
@@ -20,9 +24,9 @@ Convenções:
 - **Gramática:** cópula `이에요/예요`; tópico `은/는` em blocos formulaicos; ordem nome + identidade.
 - **Diálogo:** duas pessoas se encontram numa atividade e trocam nome/apresentação.
 - **Escuta:** localizar saudação, nome e identidade em 2–4 turnos lentos.
-- **Escrita:** preencher nome e produzir 2 frases de apresentação.
-- **Exercícios:** contextual, `cloze`, `listen`, `mcq`, `translate`; `dialogue-choice` (planejado).
-- **Avaliação/esforço:** 8/10 + apresentação de 2 frases; 50 min + 20 min de revisão.
+- **Escrita:** preencher nome e produzir 2 frases de apresentação; na 9B, o preenchimento e uma frase aparecem em `cloze`/`translate` automáticos, e a produção aberta de duas frases fica como prática humana fora da nota.
+- **Exercícios:** 10 itens automáticos com `mcq`, `cloze`, `listen` e `translate` (5 guiados + 5 independentes); a prática contextual 9A-V está disponível pelo vocabulário, e `dialogue-choice` (planejado) não foi usado.
+- **Avaliação/esforço:** 8/10 automáticos implementados; a apresentação de 2 frases do plano não entra no denominador desta fatia; 50 min + 20 min de revisão são estimativa editorial.
 
 ### `a1-l02` — De onde você é?
 

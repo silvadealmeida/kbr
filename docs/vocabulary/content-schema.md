@@ -32,10 +32,12 @@ Regras validadas: o alvo ocorre **exatamente uma vez** e no **início de uma pal
 
 ## Como um curso A1–C2 fornece vocabulário
 
+O A1 já está integrado: `src/content/vocabulary/a1.ts` fornece 11 `VocabEntry` e 11 `VocabSentence` de `a1-l01`; `src/content/vocabulary/index.ts` inclui os arrays em `VOCAB_ENTRIES`/`VOCAB_SENTENCES`. Para a próxima lição:
+
 1. Exportar `VocabEntry[]` (e `VocabSentence[]`) do curso, com `course` igual ao id do curso e `lesson` apontando para uma lição real.
-2. Acrescentar o array a `VOCAB_ENTRIES` (e as frases a `VOCAB_SENTENCES`) em `src/content/vocabulary/index.ts`. O A1 já usa `A1_LESSON_IDS` em `COURSE_LESSON_IDS`; isso não registra conteúdo nem torna o curso jogável.
+2. Acrescentar o array a `VOCAB_ENTRIES` (e as frases a `VOCAB_SENTENCES`) em `src/content/vocabulary/index.ts`. O A1 usa `A1_LESSON_IDS` em `COURSE_LESSON_IDS`; registrar conteúdo não torna as outras lições jogáveis.
 3. Rodar `npm test`: a validação estrutural acusa ids duplicados, referências inválidas, alvo ausente/duplicado e variantes ambíguas.
-4. Opcional: mostrar o resumo da lição com `vocabForLesson(course, lesson)` e o botão "Salvar as N palavras desta lição" (já existe em `/vocabulario` com o filtro de lição). Salvar é sempre ação do aluno.
+4. Mostrar o resumo da lição com `vocabForLesson(course, lesson)` ou uma lista explícita de IDs. Use `LessonVocabulary`, que oferece salvar/remover individual e “Salvar as N palavras” quando há uma lição filtrada. Salvar é sempre ação do aluno.
 5. Marcar `review.status: "in-review"` até revisão nativa. Não gerar áudio: a voz do sistema cobre.
 
 ## Validação

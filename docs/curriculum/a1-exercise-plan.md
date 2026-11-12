@@ -17,6 +17,8 @@
 | `short-answer` | planejado | escrita curta com variantes explícitas | produção livre deve ser rubrica humana/autoavaliação |
 | `dialogue-choice` | planejado | coerência pragmática de turnos | não implementar na 9A |
 
+A 9B implementou `a1-l01` somente com `mcq`, `cloze`, `listen` e `translate`: 10 itens automáticos, 5 guiados e 5 independentes, nenhum tipo planejado. A prática contextual 9A-V existe separadamente em `/vocabulario`, não conta a nota da lição e não cria cartões sem ação do aluno.
+
 ## 2. Mapeamento por objetivo
 
 - **Recordação lexical:** prática contextual como principal; `cloze` e `translate` como variação; flashcard como fallback sem frase.

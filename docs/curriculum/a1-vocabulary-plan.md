@@ -100,4 +100,14 @@ Metas são guardas editoriais, não licença para gerar frases de enchimento. Ex
 
 Automação prova unicidade, formato, referências, presença de traduções/dicas, relação alvo/frase e estado de revisão. Revisão humana prova sentido, naturalidade, colocação, nível, tradução, registro e adequação cultural.
 
-Pendências herdadas: relógio do dispositivo influencia remoção/salvamento concorrente; Supabase real não foi verificado; as 25 frases atuais e os 133 itens Hangul continuam `in-review`; o painel de vocabulário dentro de uma lição real ainda precisa ser exercitado na 9B; tablet/desktop precisam de inspeção visual quando essa UI existir.
+Pendências herdadas: relógio do dispositivo influencia remoção/salvamento concorrente; Supabase real não foi verificado; as 25 frases Hangul e os 133 itens legados continuam `in-review`; o painel de vocabulário dentro de uma lição real foi exercitado na 9B, mas tablet/desktop ainda dependem de inspeção visual e de teste em dispositivo físico.
+
+## 9. Estado da 9B — `a1-l01`
+
+- **Novos:** 11 identidades canônicas em `src/content/vocabulary/a1.ts` (`course: "ko-a1"`, `lesson: "a1-l01"`), dentro da faixa de 10–12 do blueprint.
+- **Reusados:** 6 formas do Hangul (`감사합니다`, `네`, `사람`, `학생`, `한국`, `씨`), referenciadas sem nova `VocabEntry` e sem cartão pessoal duplicado.
+- **Frases:** 11 `VocabSentence` originais, uma por item novo, com tradução completa, alvo canônico, dica de sentido e revisão `in-review`; o reuso usa a frase existente `sent:학생:5` quando adequada.
+- **Integração:** `VOCAB_ENTRIES`/`VOCAB_SENTENCES` incluem o array A1; `/vocabulario` mostra “Coreano A1” e permite filtrar por `a1-l01`; a revisão contextual usa o mesmo `buildVocabQueue` e os mesmos cartões `Progress.cards["v:<id>"]`.
+- **Opt-in:** nenhuma palavra é salva automaticamente. A conclusão da lição oferece salvar cada palavra ou todas as 17 da lição; salvar/remover não altera a nota da lição nem o progresso do curso.
+- **Áudio:** voz coreana do navegador por clique, inclusive no vocabulário; nenhum MP3 novo. A revisão nativa continua pendente.
+- **Validação:** o dataset e as frases passam por `validateA1LessonContent`/`validateVocabulary`; testes cobrem cobertura de cada item novo, IDs únicos, reuso do Hangul, frases e opt-in. A validação é estrutural, não prova naturalidade nem tradução.

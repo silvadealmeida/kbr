@@ -96,9 +96,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1794486515.5723822,
-    "seen": 1794486517.3860006,
-    "ast_hash": "12b903814c41677063ddc644c53ce39c",
+    "mtime": 1794487370.1876535,
+    "seen": 1794487381.616815,
+    "ast_hash": "26b72b70b724b51437fe6e8f65eb13e3",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -108,9 +108,9 @@
     "semantic_hash": ""
   },
   "docs/architecture.md": {
-    "mtime": 1794486144.0499818,
-    "seen": 1794486517.3860028,
-    "ast_hash": "ab871d9249bbefd4b2a051d28ff208c8",
+    "mtime": 1794487379.745659,
+    "seen": 1794487381.6168172,
+    "ast_hash": "db21b3586ea63d84d8020ee9ce0ef146",
     "semantic_hash": ""
   },
   "docs/research.md": {
@@ -120,9 +120,9 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794486515.5723822,
-    "seen": 1794486517.386016,
-    "ast_hash": "6246610e19b6f575b055e7c2166d9481",
+    "mtime": 1794487370.1876535,
+    "seen": 1794487381.6168332,
+    "ast_hash": "f2295cc9eb3f5a582d40b4ac5611762c",
     "semantic_hash": ""
   },
   "src/lib/hangul/index.ts": {
@@ -1116,9 +1116,9 @@
     "semantic_hash": ""
   },
   "docs/iphone-manual-checklist.md": {
-    "mtime": 1794486144.0499818,
-    "seen": 1794486517.386011,
-    "ast_hash": "ecee40dea4bc062b7c786b5d5d97eec3",
+    "mtime": 1794487287.5696228,
+    "seen": 1794487381.6168272,
+    "ast_hash": "7eea82a360af236b4fda6417d0097143",
     "semantic_hash": ""
   },
   "docs/offline-pwa-decision.md": {
@@ -1230,9 +1230,9 @@
     "semantic_hash": ""
   },
   "src/components/hangul/exercise-media.tsx": {
-    "mtime": 1794482748.757278,
-    "seen": 1794485163.4942765,
-    "ast_hash": "ca7a9a8dfee1c0441baf0c0f0d86b282",
+    "mtime": 1794487083.2728603,
+    "seen": 1794487381.6167135,
+    "ast_hash": "521069cf0f056987f9d6eb4394ddd3db",
     "semantic_hash": ""
   },
   "src/components/hangul/player-header.tsx": {
@@ -1248,15 +1248,15 @@
     "semantic_hash": ""
   },
   "tests/hangul-experience.test.ts": {
-    "mtime": 1794482937.3509302,
-    "seen": 1794485163.4943635,
-    "ast_hash": "71f9ebc5e6b837499d458b75affec18a",
+    "mtime": 1794487083.2728603,
+    "seen": 1794487381.6168013,
+    "ast_hash": "19c09a5c10410d03e6b684b96ce9e529",
     "semantic_hash": ""
   },
   "docs/feedback/feedback-igo.md": {
-    "mtime": 1794486144.0499818,
-    "seen": 1794486517.3860102,
-    "ast_hash": "a6464b9d966bb9a93375c92e4cc27d02",
+    "mtime": 1794487370.1876535,
+    "seen": 1794487381.6168263,
+    "ast_hash": "e1350d9672ec1541ea64e2876540a8ba",
     "semantic_hash": ""
   },
   "src/components/hangul/CourseJourney.tsx": {
@@ -1272,9 +1272,9 @@
     "semantic_hash": ""
   },
   "src/components/hangul/SyllableAnatomy.tsx": {
-    "mtime": 1794482763.8520784,
-    "seen": 1794485163.494275,
-    "ast_hash": "5a8194622c6095ae2e5bf8ea84bff0d6",
+    "mtime": 1794487083.2728603,
+    "seen": 1794487381.6167119,
+    "ast_hash": "73aac640ea9a0c6bb8068e71cbeec241",
     "semantic_hash": ""
   },
   "docs/audio/audio-quality-roadmap.md": {
@@ -1392,9 +1392,9 @@
     "semantic_hash": ""
   },
   "docs/audio/generation-guide.md": {
-    "mtime": 1794483641.481961,
-    "seen": 1794485163.4943802,
-    "ast_hash": "a4f6accc6fde44d5fcd7355913b4f7a7",
+    "mtime": 1794487379.745659,
+    "seen": 1794487381.6168196,
+    "ast_hash": "7bac5a6ec5ce44979ef1b8bbc1f19fc9",
     "semantic_hash": ""
   },
   "public/audio/hangul/v1/ko-006245a8.mp3": {
@@ -3138,9 +3138,9 @@
     "semantic_hash": ""
   },
   "src/components/speaking/SpeakingPracticeArea.tsx": {
-    "mtime": 1794485899.0772648,
-    "seen": 1794485969.4360182,
-    "ast_hash": "a84586dbf80fcb8912c149f000ae3f51",
+    "mtime": 1794487083.2728603,
+    "seen": 1794487381.6167226,
+    "ast_hash": "8f57f5991ee8d789903a26ac68f24afc",
     "semantic_hash": ""
   },
   "src/components/speaking/use-speech-practice.ts": {
@@ -3189,6 +3189,36 @@
     "mtime": 1794486515.5795822,
     "seen": 1794486517.386017,
     "ast_hash": "7c2b8075691a23c3a389eb716c1ce491",
+    "semantic_hash": ""
+  },
+  "scripts/audio/check-spoken-forms.py": {
+    "mtime": 1794487013.6413982,
+    "seen": 1794487381.6166816,
+    "ast_hash": "47132770f2870d2bbdbef7f916fb081f",
+    "semantic_hash": ""
+  },
+  "tests/content/curriculum-audit.test.ts": {
+    "mtime": 1794486948.7327023,
+    "seen": 1794487381.6167965,
+    "ast_hash": "0d49d08cd2bd91ae25ec2f1497343548",
+    "semantic_hash": ""
+  },
+  "docs/audio/audio-quality-report.md": {
+    "mtime": 1794487247.868943,
+    "seen": 1794487381.616818,
+    "ast_hash": "38f6c0402d5e0ce13014e4234f7bcfb0",
+    "semantic_hash": ""
+  },
+  "docs/audio/license-audit.md": {
+    "mtime": 1794487219.7800813,
+    "seen": 1794487381.6168208,
+    "ast_hash": "6dddb8e910fdb890b92e5d4b7dccd35b",
+    "semantic_hash": ""
+  },
+  "docs/release/beta-readiness.md": {
+    "mtime": 1794487351.1148531,
+    "seen": 1794487381.616832,
+    "ast_hash": "71ef2e57e4e21308e4236e8c58325322",
     "semantic_hash": ""
   },
   "package-lock.json": {

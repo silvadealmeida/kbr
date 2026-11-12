@@ -50,16 +50,16 @@ function statusMessage(state: AudioPlaybackState): string | null {
   if (state.status === "loading") return "Carregando áudio…";
 
   if (state.status === "playing") {
-    if (state.source === "asset") return "Reproduzindo áudio gravado.";
+    if (state.source === "asset") return "Reproduzindo áudio sintetizado (referência provisória).";
     return state.fallback
-      ? "Áudio gravado indisponível; usando a voz coreana do navegador."
+      ? "Áudio do KBR indisponível; usando a voz coreana do navegador."
       : "Reproduzindo pela voz coreana do navegador.";
   }
 
   if (state.status === "ended") {
     if (state.source === "asset") return "Áudio concluído.";
     return state.fallback
-      ? "Áudio concluído pela voz coreana do navegador (o arquivo gravado não carregou)."
+      ? "Áudio concluído pela voz coreana do navegador (o arquivo de áudio do KBR não carregou)."
       : "Áudio concluído pela voz coreana do navegador.";
   }
 

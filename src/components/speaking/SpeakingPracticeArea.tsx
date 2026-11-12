@@ -29,7 +29,7 @@ export function modeFor(
 
 const UNSUPPORTED: Record<string, string> = {
   "no-api":
-    "Este navegador não oferece reconhecimento de fala para sites (ele depende do navegador e do sistema; no iPhone exige o Safari com Siri/Ditado ativos e não funciona no app instalado na Tela de Início). Use o campo de texto de cada cartão ou o ditado do teclado.",
+    "Este navegador não oferece reconhecimento de fala para sites (ele depende do navegador e do sistema; no iPhone, o suporte pode depender do Safari, de Siri/Ditado ativos e de não usar o app da Tela de Início; ainda não verificamos em aparelho real). Use o campo de texto de cada cartão ou o ditado do teclado.",
   "insecure-context":
     "O reconhecimento de fala só funciona em conexão segura (HTTPS).",
   "no-window": "Verificando o navegador…",

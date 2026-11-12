@@ -193,7 +193,7 @@ export function SyllableAnatomy() {
           <AudioControl
             text={syllable.audioText ?? syllable.text}
             label="Ouvir a sílaba 한"
-            fallback="O áudio gravado tem prioridade. Se ele não tocar, a voz do sistema pode variar; o esquema acima é a referência visual."
+            fallback="O áudio sintetizado do KBR tem prioridade. Se ele não tocar, a voz do sistema pode variar; o esquema acima é a referência visual."
             compact
           />
         </div>

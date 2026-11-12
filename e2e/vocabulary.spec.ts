@@ -90,7 +90,7 @@ test.describe("Vocabulário", () => {
       await expect(page.getByText("“Eu como maçã.”")).toBeVisible();
       if (browserName !== "webkit") {
         await page.getByRole("button", { name: "Ouvir a frase" }).click();
-        await expect(page.getByText(/voz coreana do navegador/)).toBeVisible({ timeout: 10_000 });
+        await expect(page.getByText(/sintetizado|voz coreana do navegador/).first()).toBeVisible({ timeout: 10_000 });
       }
 
       // remover
@@ -164,7 +164,7 @@ test.describe("Vocabulário", () => {
       // No WebKit o stub de voz não funciona (ver e2e/audio.spec.ts); o botão deve existir.
       if (browserName !== "webkit") {
         await page.getByRole("button", { name: "Ouvir a frase" }).click();
-        await expect(page.getByText(/voz coreana do navegador/)).toBeVisible({ timeout: 10_000 });
+        await expect(page.getByText(/sintetizado|voz coreana do navegador/).first()).toBeVisible({ timeout: 10_000 });
       } else {
         await expect(page.getByRole("button", { name: "Ouvir a frase" })).toBeVisible();
       }

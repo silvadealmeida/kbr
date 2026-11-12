@@ -64,12 +64,13 @@ test.describe("áudio estático do currículo", () => {
     }
   });
 
-  test("cai para a voz coreana do sistema quando o asset não é usado", async ({
+  test("cai para a voz coreana do sistema quando o asset falha", async ({
     page,
     browserName,
   }) => {
     // No WebKit a substituição de getVoices na instância não surtiu efeito (causa não apurada); lógica coberta em tests/audio-playback.test.ts.
     test.skip(browserName === "webkit", "stub de voz não funciona no WebKit");
+    await page.route("**/audio/v1/*.mp3", (route) => route.abort());
 
     await page.addInitScript(() => {
       const synth = window.speechSynthesis;

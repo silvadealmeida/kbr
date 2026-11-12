@@ -4,7 +4,8 @@ import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { BilingualText, ExerciseView } from "@/components/hangul/exercise-ui";
-import { Card } from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
+import { Card, Plate } from "@/components/ui/Card";
 import { checkAnswer, type DetailedCheckResult, type ExerciseAnswer } from "@/lib/exercises";
 import { applyReview, buildReviewQueue, REVIEW_KIND_LABELS, type ReviewItem, type ReviewQueue } from "@/lib/review";
 import type { Progress } from "@/lib/storage";
@@ -39,7 +40,7 @@ function SyncNote({
   return (
     <p
       role="status"
-      className={`rounded-xl p-3 text-sm ${offline ? "bg-soft text-fg" : "text-muted"}`}
+      className={`border-l-2 p-3 text-sm ${offline ? "border-warning bg-warning-soft text-fg" : "border-accent bg-surface-2 text-muted"}`}
     >
       {offline
         ? "Salvo neste dispositivo. A sincronização com sua conta está pendente — nada do que você fez foi perdido."
@@ -205,15 +206,18 @@ export function ReviewArea() {
           <Link href="/dashboard" className="text-sm font-semibold text-brand">
             ← Painel
           </Link>
-          <span className="text-sm text-muted">
-            {REVIEW_KIND_LABELS[item.kind]} · {index + 1} de {session.length}
-          </span>
+          <div className="flex flex-wrap items-center justify-end gap-2">
+            <Badge tone="accent">Caixa {item.box}</Badge>
+            <span className="text-sm text-muted">
+              {REVIEW_KIND_LABELS[item.kind]} · {index + 1} de {session.length}
+            </span>
+          </div>
         </div>
         <h1 id="review-session-title" className="mt-3 text-2xl font-bold tracking-tight">
           Revisão
         </h1>
         <p className="mt-1 text-sm text-muted">
-          Responda sem consultar. O acerto avança o cartão; o erro o traz de volta.
+          Escolha sua resposta antes de revelar o verso. O acerto avança o cartão; o erro o traz de volta.
         </p>
 
         <ExerciseView
@@ -228,6 +232,7 @@ export function ReviewArea() {
           onContinue={advance}
           isLast={index + 1 === session.length}
           lastLabel="Concluir revisão"
+          submitLabel="Mostrar resposta"
           progressLabel="revisão"
         />
 
@@ -321,7 +326,7 @@ export function ReviewArea() {
 
   return (
     <>
-      <Card className="mb-6">
+      <Plate className="mb-6" label="Fila Leitner" number={String(totalDue).padStart(2, "0")}>
         {totalDue > 0 ? (
           <>
             <div className="grid grid-cols-1 gap-3 min-[420px]:grid-cols-3">
@@ -377,9 +382,9 @@ export function ReviewArea() {
             </div>
           </>
         )}
-      </Card>
+      </Plate>
 
-      <section aria-labelledby="review-how" className="rounded-2xl border border-border bg-surface p-5">
+      <section aria-labelledby="review-how" className="border-t border-line pt-5">
         <h2 id="review-how" className="text-lg font-semibold">
           Como funciona
         </h2>

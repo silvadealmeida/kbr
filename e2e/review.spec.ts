@@ -127,7 +127,7 @@ test.describe("Revisão autenticada", () => {
     });
     await wordOption.focus();
     await page.keyboard.press("Enter");
-    await page.getByRole("button", { name: "Conferir" }).focus();
+    await page.getByRole("button", { name: "Mostrar resposta" }).focus();
     await page.keyboard.press("Enter");
     await expect(page.getByRole("status").filter({ hasText: "Correto." })).toBeVisible();
     await page.getByRole("button", { name: "Continuar" }).focus();
@@ -139,7 +139,7 @@ test.describe("Revisão autenticada", () => {
       .getByRole("button", { name: "아" });
     await jamoOption.focus();
     await page.keyboard.press("Enter");
-    await page.getByRole("button", { name: "Conferir" }).focus();
+    await page.getByRole("button", { name: "Mostrar resposta" }).focus();
     await page.keyboard.press("Enter");
     await page.getByRole("button", { name: "Concluir revisão" }).focus();
     await page.keyboard.press("Enter");
@@ -204,9 +204,9 @@ test.describe("Revisão autenticada", () => {
     }
     expect(selected).toBe(true);
 
-    await expect(page.getByRole("button", { name: "Conferir" })).toBeVisible();
+    await expect(page.getByRole("button", { name: "Mostrar resposta" })).toBeVisible();
     await expect(page.getByText(/Resposta correta:/)).toHaveCount(0);
-    await page.getByRole("button", { name: "Conferir" }).click();
+    await page.getByRole("button", { name: "Mostrar resposta" }).click();
 
     const feedback = page.getByRole("status").filter({ hasText: "Ainda não." });
     await expect(feedback).toBeVisible();
@@ -247,7 +247,7 @@ test.describe("Revisão autenticada", () => {
     await page.getByRole("button", { name: "Começar revisão (1)" }).click();
     await chooseCorrectWord(page);
 
-    const submit = page.getByRole("button", { name: "Conferir" });
+    const submit = page.getByRole("button", { name: "Mostrar resposta" });
     await submit.evaluate((element) => {
       (element as HTMLElement).click();
       (element as HTMLElement).click();
@@ -290,7 +290,7 @@ test.describe("Revisão autenticada", () => {
 
     await page.getByRole("button", { name: "Começar revisão (1)" }).click();
     await chooseCorrectWord(page);
-    await page.getByRole("button", { name: "Conferir" }).click();
+    await page.getByRole("button", { name: "Mostrar resposta" }).click();
     await expect(page.getByRole("status").filter({ hasText: "Correto." })).toBeVisible();
     await expect(
       page.getByText(/Salvo neste dispositivo\. A sincronização com sua conta está pendente/),

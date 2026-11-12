@@ -409,6 +409,7 @@ export function ExerciseView({
   onContinue,
   isLast,
   lastLabel = "Concluir lição",
+  submitLabel = "Conferir",
   progressLabel = "prática",
   footer,
 }: {
@@ -422,6 +423,8 @@ export function ExerciseView({
   onContinue(): void;
   isLast: boolean;
   lastLabel?: string;
+  /** Rótulo da ação que revela o feedback; revisão usa “Mostrar resposta”. */
+  submitLabel?: string;
   /** Nome da atividade no progresso (lições/checkpoints usam "prática"). */
   progressLabel?: string;
   footer?: React.ReactNode;
@@ -564,7 +567,7 @@ export function ExerciseView({
             disabled={!draft}
             className="inline-flex min-h-12 items-center justify-center rounded-[var(--radius-field)] bg-fg px-6 font-semibold text-bg transition-colors duration-[var(--motion-fast)] hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-45"
           >
-            Conferir
+            {submitLabel}
           </button>
         )}
       </div>

@@ -120,9 +120,9 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794463952.7858164,
-    "seen": 1794464129.3321466,
-    "ast_hash": "b8f9759f7d281f0533278ab8cb30f1de",
+    "mtime": 1794471497.3074892,
+    "seen": 1794471508.1970441,
+    "ast_hash": "0d18cc3303dc5bc7ba6f05d379b63815",
     "semantic_hash": ""
   },
   "src/lib/hangul/index.ts": {
@@ -642,9 +642,9 @@
     "semantic_hash": ""
   },
   "src/components/hangul/exercise-ui.tsx": {
-    "mtime": 1794463820.4939194,
-    "seen": 1794464129.3319352,
-    "ast_hash": "3c2bcccad16167afe243e9b01477e21f",
+    "mtime": 1794471429.3749797,
+    "seen": 1794471508.1967487,
+    "ast_hash": "60550935bebb95da288de586180def86",
     "semantic_hash": ""
   },
   "src/content/hangul/checkpoints/c1.ts": {
@@ -840,15 +840,15 @@
     "semantic_hash": ""
   },
   "e2e/review.spec.ts": {
-    "mtime": 1794342865.2644687,
-    "seen": 1794344323.6282856,
-    "ast_hash": "579a70e382a38e4d11acb0e12f244af9",
+    "mtime": 1794471419.6801794,
+    "seen": 1794471508.1967003,
+    "ast_hash": "8d4d8676f451e98ab35e5534cf080745",
     "semantic_hash": ""
   },
   "src/components/review/ReviewArea.tsx": {
-    "mtime": 1794400930.5613048,
-    "seen": 1794402242.598783,
-    "ast_hash": "13a92a6c5944ac3f1028fb74dd4ad4cf",
+    "mtime": 1794471419.7269795,
+    "seen": 1794471508.1967506,
+    "ast_hash": "0127296c018acc4d6925a17ebf5d7ae0",
     "semantic_hash": ""
   },
   "src/lib/review/index.ts": {

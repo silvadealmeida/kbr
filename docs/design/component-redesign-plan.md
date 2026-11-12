@@ -92,6 +92,8 @@
 
 **Fase:** 7E. **Esforço:** S/M. **Risco:** baixo.
 
+**Status 7E:** implementada. `CourseCatalog` usa `Plate`/`Badge` como índice de lâminas, com código, nível, status, progresso real, próximo passo e CEFR explícito; cursos planejados não têm link. Estados de carregamento/erro usam `Card`; a promessa de que o Hangul não desbloqueia A1 permanece. Nenhum dado ou rota mudou.
+
 ## 5. Área D — Visão geral do Hangul
 
 **Arquivo:** `src/components/hangul/HangulCourse.tsx` (+ `/hangul`).
@@ -107,6 +109,8 @@
 **Aceite:** mesmos links/ordem/status; e2e de navegação e `aria-current`; contraste.
 
 **Fase:** 7E. **Esforço:** M. **Risco:** médio (muitos estados).
+
+**Status 7E:** implementada. O atlas mostra 25 lições + 4 checkpoints, régua de progresso, `aria-current="step"` e etiqueta “Agora”; concluídas, disponíveis e bloqueadas mantêm texto, links e ordem. Títulos usam `line-clamp-2` para não truncar cedo em 375 px. A conclusão do curso continua em `CourseCompletionPanel`, fora da 7E.
 
 ## 6. Área E — Lição e checkpoint (player)
 
@@ -131,6 +135,8 @@
 **Fase:** 7D (primitivas + lição), 7E (checkpoint/diagnóstico). **Esforço:** L. **Risco:** alto (regressão funcional).
 
 **Status 7D:** a moldura, o enunciado, as alternativas, o input, o feedback e o progresso foram implementados para lição e checkpoint. `exercise-ui.tsx` mantém `ExerciseView` e extraiu `ChoiceList`, `TextAnswer`, `SyllableBuilder`, `AudioPrompt`, `ReadingPrompt` e `FeedbackPanel`; `exercise-media.tsx` concentra TTS/texto bilíngue e `player-header.tsx` a moldura compartilhada. O diagnóstico detalhado do checkpoint e a conclusão final continuam na 7E/7F. Os contratos de resposta, foco no resultado, Enter, input de 16 px e anti-duplo-envio foram preservados.
+
+**Status 7E:** o checkpoint foi concluído. A introdução tem ficha (itens, aprovação, nota documentada, duração) e instruções; o bloqueio separa checkpoints anteriores e lições do escopo; o resultado usa selo, régua, critério, foco no artigo e ações de próximo/refazer/revisar. `DiagnosticsList` apresenta categorias em `Plate`/`Badge` com links de lição e aviso de sessão; a revisão por item não é persistida. A tentativa reprovada grava `{ done: false, score: 0 }` sem rebaixar conclusão anterior. O `c4` completo e a celebração continuam na 7F.
 
 ## 7. Área F — Ilustrações interativas de Hangul
 
@@ -162,6 +168,8 @@
 
 **Fase:** 7E. **Esforço:** M. **Risco:** médio.
 
+**Status 7E:** implementada. A revisão usa cartão-prancha, contadores mono, “Mostrar resposta” e primitivas `Button`/`ButtonLink`; contadores, sync/vazio/conclusão e foco foram preservados. A fila, o Leitner, o store e o anti-duplo-envio não mudaram.
+
 ## 9. Área H — Painel
 
 **Arquivo:** `src/components/dashboard/DashboardArea.tsx`.
@@ -184,6 +192,8 @@
 
 **Fase:** 7E. **Esforço:** M. **Risco:** médio.
 
+**Status 7E:** implementada. O painel usa “Mesa de estudo”, próximo passo dominante, régua, métricas mono, fila e atividade em placas/hairlines. Todos os números continuam derivados de `lessons`/`history`; estados vazio/erro/sync e a ausência de promessa CEFR foram preservados. Medição local: 501.417 B/CLS 0,006295.
+
 ## 10. Área I — Conclusão do curso
 
 **Arquivo:** `src/components/hangul/CourseCompletionPanel.tsx`.
@@ -197,6 +207,8 @@
 **Aceite:** testes de conclusão/revisita; nenhum dado falso.
 
 **Fase:** 7F. **Esforço:** S/M. **Risco:** baixo.
+
+**Status 7E:** o `c4` completo e o `CourseCompletionPanel` foram deixados intocados; a única mudança no caminho é a apresentação do checkpoint que os precede. A celebração/percurso de 25 lâminas continua na 7F.
 
 ## 11. Área J — Navegação e responsividade
 
@@ -236,8 +248,8 @@ Durante a 7B, criar aliases para que a aparência antiga continue funcionando; a
 | 2 | Nav, shell, landing, auth | 7C | M |
 | 3 | Lição: header, enunciado, respostas, feedback | 7D | L |
 | 4 | Composição + camadas de pronúncia | 7D | M |
-| 5 | Revisão, catálogo, Hangul overview, painel | 7E | L |
-| 6 | Checkpoint, conclusão, anatomia, mapa | 7E/7F | M |
+| 5 | Revisão, catálogo, Hangul overview, painel | 7E (feita) | L |
+| 6 | Checkpoint, conclusão, anatomia, mapa | 7E (checkpoint feito); 7F (conclusão/anatomia/mapa) | M |
 | 7 | Movimento, View Transitions, polimento | 7F | M |
 | 8 | Limpeza de tokens, testes, docs | 7G | S/M |
 

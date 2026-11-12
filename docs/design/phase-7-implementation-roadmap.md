@@ -148,6 +148,8 @@ Dependências: 7C depende de 7B; 7D de 7B (e reusa primitivas da 7C); 7E de 7D; 
 
 **Saída:** dados reais em todos os estados; nenhuma estatística falsa; navegação consistente.
 
+**Status 7E:** implementada e validada localmente. A revisão mantém a fila Leitner e ganhou cartão-prancha, “Mostrar resposta”, sync/vazio/conclusão; o catálogo virou índice de lâminas com CEFR explícito; `/hangul` virou atlas de 25 lições + 4 checkpoints com régua, `aria-current="step"` e “Agora”; o painel hierarquiza próximo passo, curso, métricas, fila e atividade. O checkpoint separa bloqueio, ficha/instruções, prática e resultado, com selo, régua, diagnóstico por categoria e revisão por item apenas na sessão; o `c4` completo continua em `CourseCompletionPanel` para a 7F. Nenhum contrato de conteúdo, `checkAnswer`, nota, `Progress` v1, CAS, SRS, ID, auth ou PWA mudou. Validação: 370 Vitest, **353 Playwright (337 executados + 16 skips)**, typecheck e build; dashboard 501.417 B/CLS 0,006295; cursos 450.288 B/CLS 0,022503; Hangul 487.967 B/CLS 0,001629; revisão 476.278 B/CLS 0,001578; `c4` 471.633 B/CLS 0,001787. Limites: diagnóstico por item efêmero; axe não é certificação WCAG; iPhone/Chrome iOS/VoiceOver reais seguem manuais; a celebração final e o movimento de marco ficam para a 7F.
+
 ## 8. Fase 7F — Movimento, ilustrações e conclusão
 
 **Objetivo:** adicionar a camada expressiva onde ela tem significado, com orçamento controlado.

@@ -1,27 +1,36 @@
 import type { ReviewMeta } from "@/content/hangul/types";
 import type { ExerciseTypeId } from "@/lib/exercises/registry";
-import type { ExerciseSpec } from "@/lib/exercises";
+import type {
+  CourseAssessmentPlan,
+  CourseCheckpointContent,
+  CourseContentIssue,
+  CourseDialogueLine,
+  CourseExerciseStage,
+  CourseGrammarExample,
+  CourseGrammarNote,
+  CourseIntroPanel,
+  CourseLessonContent,
+  CourseLessonExercise,
+  CourseLessonVocabularyRefs,
+  CourseSkill,
+  CourseVocabularyTarget,
+  CourseBlueprintIssue,
+} from "../course-types";
 
-export type A1Skill =
-  | "reading"
-  | "listening"
-  | "speaking"
-  | "writing"
-  | "vocabulary"
-  | "grammar"
-  | "register"
-  | "culture";
-
-export type A1VocabularyTarget = {
-  themes: readonly string[];
-  newItems: { min: number; max: number };
-};
-
-export type A1AssessmentPlan = {
-  automaticItems: number;
-  minCorrect: number;
-  performance: string;
-};
+export type A1Skill = CourseSkill;
+export type A1VocabularyTarget = CourseVocabularyTarget;
+export type A1AssessmentPlan = CourseAssessmentPlan;
+export type A1IntroPanel = CourseIntroPanel;
+export type A1DialogueLine = CourseDialogueLine;
+export type A1GrammarExample = CourseGrammarExample;
+export type A1GrammarNote = CourseGrammarNote;
+export type A1LessonVocabularyRefs = CourseLessonVocabularyRefs;
+export type A1ExerciseStage = CourseExerciseStage;
+export type A1LessonExercise = CourseLessonExercise;
+export type A1LessonContent = CourseLessonContent;
+export type A1CheckpointContent = CourseCheckpointContent;
+export type A1ContentIssue = CourseContentIssue;
+export type A1BlueprintIssue = CourseBlueprintIssue;
 
 /**
  * Plano editorial, não uma lição jogável. Não contém falas, frases, entradas de
@@ -78,102 +87,4 @@ export type A1CurriculumBlueprint = {
   lessons: readonly A1LessonBlueprint[];
   checkpoints: readonly A1CheckpointBlueprint[];
   review: ReviewMeta;
-};
-
-export type A1IntroPanel = {
-  title: string;
-  body: string;
-  /** Trecho coreano curto já explicado no corpo; nunca é a única instrução. */
-  ko?: string;
-};
-
-export type A1DialogueLine = {
-  id: string;
-  speaker: string;
-  ko: string;
-  pt: string;
-  audioText: string;
-  review: ReviewMeta;
-};
-
-export type A1GrammarExample = {
-  ko: string;
-  pt: string;
-  audioText: string;
-};
-
-export type A1GrammarNote = {
-  id: string;
-  titlePt: string;
-  form: string;
-  explanationPt: string;
-  examples: readonly A1GrammarExample[];
-  review: ReviewMeta;
-};
-
-export type A1LessonVocabularyRefs = {
-  newIds: readonly string[];
-  reusedIds: readonly string[];
-  sentenceIds: readonly string[];
-};
-
-export type A1ExerciseStage = "guided" | "independent";
-
-/**
- * Exercício jogável de uma lição A1. `stage` separa a prática guiada (logo
- * depois da explicação) da prática independente, sem criar outro tipo de
- * exercício nem mudar a correção determinística.
- */
-export type A1LessonExercise = ExerciseSpec & { stage: A1ExerciseStage };
-
-/** Dataset jogável de uma lição A1 implementada. */
-export type A1LessonContent = {
-  id: string;
-  number: number;
-  moduleId: string;
-  title: string;
-  objective: string;
-  /** Pré-requisitos estruturais; a rota só libera com todos concluídos. */
-  prerequisites: readonly string[];
-  estimatedMinutes: number;
-  dialogueTitle: string;
-  /** Ensina antes de testar: painéis curtos de introdução ao tema. */
-  intro: readonly A1IntroPanel[];
-  dialogue: readonly A1DialogueLine[];
-  vocabulary: A1LessonVocabularyRefs;
-  grammar: readonly A1GrammarNote[];
-  exercises: readonly A1LessonExercise[];
-  /** Fechamento em pt-BR; não substitui a revisão humana do conteúdo. */
-  summary: readonly string[];
-  completion: { minScore: number; minCorrect: number };
-  review: ReviewMeta;
-};
-
-/** Checkpoint A1 jogável: avaliação determinística, sem conteúdo novo obrigatório. */
-export type A1CheckpointContent = {
-  id: string;
-  number: number;
-  moduleId: string;
-  title: string;
-  objective: string;
-  instructions: readonly string[];
-  lessonIds: readonly string[];
-  prerequisites: readonly string[];
-  estimatedMinutes: number;
-  exercises: readonly A1LessonExercise[];
-  passingScore: number;
-  minCorrect: number;
-  review: ReviewMeta;
-};
-
-export type A1ContentIssue = {
-  code: string;
-  path: string;
-  message: string;
-};
-
-export type A1BlueprintIssue = {
-  code: string;
-  path: string;
-  message: string;
 };

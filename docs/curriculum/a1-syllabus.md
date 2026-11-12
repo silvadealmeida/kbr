@@ -258,7 +258,7 @@ Abrange `a1-l11`–`a1-l15` e recupera localização/presente; 25 itens (mínimo
 - **Exercícios:** contextual, `listen`, `mcq`, `cloze`, `reading`.
 - **Avaliação/esforço:** 8/10 + especificar produto sem ambiguidade; 55 min + 25 min.
 
-### `a1-l20` — O que você quer fazer/comer?
+### `a1-l20` — O que você quer fazer ou comer?
 
 - **Meta comunicativa:** expressar desejo imediato e negociar escolha simples.
 - **Prévio:** `a1-l19`; **revisão:** ações de `a1-l08`, preferências/pedidos de `a1-l16`–`a1-l19`.
@@ -354,7 +354,7 @@ Abrange `a1-l21`–`a1-l25` e recupera tempo/pedidos; 25 itens (mínimo 20) + ma
 - **Exercícios:** contextual, `listen`, `cloze`, `reading`, `translate`.
 - **Avaliação/esforço:** 8/10 + descrever 3 hobbies/frequências; 55 min + 25 min.
 
-### `a1-l27` — Sei fazer / não consigo
+### `a1-l27` — Sei fazer ou não consigo
 
 - **Meta comunicativa:** informar capacidade prática e pedir ajuda.
 - **Prévio:** `a1-l26`; **revisão:** negação de `a1-l09` e reparo de `a1-l05`.

@@ -8,6 +8,18 @@ import type {
 } from "@/lib/audio/playback";
 
 const HANGUL = /[\u3131-\u318E\uAC00-\uD7A3]/;
+const PLAYBACK_RATES = [0.5, 0.75, 1] as const;
+type PlaybackRate = (typeof PLAYBACK_RATES)[number];
+
+function nextPlaybackRate(current: PlaybackRate): PlaybackRate {
+  const index = PLAYBACK_RATES.indexOf(current);
+  return PLAYBACK_RATES[(index + 1) % PLAYBACK_RATES.length]!;
+}
+
+function rateLabel(rate: PlaybackRate): string {
+  if (rate === 1) return "1×";
+  return `${String(rate).replace(".", ",")}×`;
+}
 
 /** Marca apenas os trechos coreanos com `lang="ko"` sem quebrar o texto latino. */
 export function BilingualText({ text }: { text: string }) {
@@ -95,7 +107,7 @@ export function AudioControl({
   label?: string;
 }) {
   const [state, setState] = useState<AudioPlaybackState>({ status: "idle" });
-  const [slow, setSlow] = useState(false);
+  const [rate, setRate] = useState<PlaybackRate>(1);
   const playerRef = useRef<AudioPlayer | null>(null);
 
   useEffect(() => {
@@ -118,17 +130,14 @@ export function AudioControl({
       setState({ status: "unavailable", reason: "unsupported" });
       return;
     }
-    void player.play(text, { rate: slow ? 0.75 : 1, src });
+    void player.play(text, { rate, src });
   };
 
-  const toggleSlow = () => {
-    const next = !slow;
-    setSlow(next);
+  const cycleRate = () => {
+    const next = nextPlaybackRate(rate);
+    setRate(next);
     if (state.status === "playing" || state.status === "loading") {
-      void playerRef.current?.play(text, {
-        rate: next ? 0.75 : 1,
-        src,
-      });
+      void playerRef.current?.play(text, { rate: next, src });
     }
   };
 
@@ -148,32 +157,27 @@ export function AudioControl({
           : "rounded-[var(--radius-panel)] border border-line bg-surface-2 p-3 sm:p-4"
       }
     >
-      <div className="flex flex-wrap items-center gap-2">
+      <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-2">
         <button
           type="button"
           onClick={play}
           aria-busy={state.status === "loading"}
-          className="inline-flex min-h-12 items-center justify-center gap-2 rounded-[var(--radius-field)] border border-line-strong bg-surface px-4 font-semibold text-fg transition-colors duration-[var(--motion-fast)] hover:bg-surface-2"
+          className="inline-flex min-h-12 min-w-0 items-center justify-center gap-2 whitespace-nowrap rounded-[var(--radius-field)] border border-line-strong bg-surface px-3 font-semibold text-fg transition-colors duration-[var(--motion-fast)] hover:bg-surface-2 sm:px-4"
         >
           <SpeakerIcon />
-          {buttonLabel}
+          <span className="truncate">{buttonLabel}</span>
         </button>
         <button
           type="button"
-          onClick={toggleSlow}
-          aria-pressed={slow}
-          aria-label={
-            slow
-              ? "Velocidade lenta ativada; voltar à velocidade normal"
-              : "Usar velocidade lenta, 0,75 vezes"
-          }
-          className={`inline-flex min-h-12 items-center justify-center rounded-[var(--radius-field)] border px-3 text-sm font-semibold transition-colors duration-[var(--motion-fast)] ${
-            slow
-              ? "border-accent bg-success-soft text-fg"
-              : "border-line bg-surface text-muted hover:text-fg"
+          onClick={cycleRate}
+          aria-label={`Velocidade ${rateLabel(rate)}; alterar para ${rateLabel(nextPlaybackRate(rate))}`}
+          className={`inline-flex min-h-12 w-[4.75rem] shrink-0 items-center justify-center rounded-[var(--radius-field)] border px-2 font-mono text-sm font-semibold tabular-nums transition-colors duration-[var(--motion-fast)] ${
+            rate === 1
+              ? "border-line bg-surface text-muted hover:text-fg"
+              : "border-accent bg-success-soft text-fg"
           }`}
         >
-          0,75×
+          {rateLabel(rate)}
         </button>
       </div>
       {message ? (

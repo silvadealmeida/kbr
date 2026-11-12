@@ -87,7 +87,7 @@ describe("bancada de composição", () => {
     expect(html).toContain('aria-pressed="false"');
   });
 
-  test("mantém alvos de toque de pelo menos 44 px e instrução sem arrastar", () => {
+  test("mantém alvos de toque de pelo menos 44 px e aceita arrastar ou teclado", () => {
     const html = render(
       createElement(SyllableBuilder, {
         exercise: withFinal,
@@ -97,8 +97,9 @@ describe("bancada de composição", () => {
     );
 
     expect(html).toContain("min-h-12");
-    expect(html).toContain("Use Tab e");
-    expect(html).not.toContain("draggable");
+    expect(html).toContain("Arraste uma peça");
+    expect(html).toContain('draggable="true"');
+    expect(html).toContain("syllable-drop-zone");
   });
 });
 
@@ -377,8 +378,9 @@ describe("controle de áudio", () => {
     );
 
     expect(html).toContain("Ouvir a sílaba 한");
-    expect(html).toContain("0,75×");
-    expect(html).toContain('aria-pressed="false"');
+    expect(html).toContain("1×");
+    expect(html).toContain("Velocidade 1×; alterar para 0,5×");
+    expect(html).not.toContain('aria-pressed="false"');
     expect(html).not.toContain("Reproduzindo");
     expect(html).not.toContain("<audio");
   });

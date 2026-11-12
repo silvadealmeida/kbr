@@ -2,6 +2,8 @@
 
 **Verificado em 2026-11-12** (somente leitura: `curl -I`, `git ls-remote`, API pública do GitHub e `gh api` autenticado como o dono). Nada foi enviado, apagado, reescrito ou alterado na Vercel/GitHub nesta fase.
 
+> **Decisão posterior (2026-11-12):** o dono do projeto optou por **manter o corpus público e usá-lo no app**. A contenção foi revertida, os MP3 voltaram para `public/audio/v1/` e a licença não esclarecida foi registrada como risco aceito em `license-audit.md` §11. Este documento permanece como registro histórico do plano de remoção.
+
 ## 1. Estado real (corrige o §9 da 8E)
 
 A 8E assumia que o deploy novo ainda não tinha acontecido. **Já aconteceu**: `origin/main` = `daf4f12` (= HEAD local, 0 commits de divergência; `git ls-remote` confirma), a Vercel marcou o commit como `success` e a produção já não serve os MP3.

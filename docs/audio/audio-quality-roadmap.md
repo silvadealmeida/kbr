@@ -23,7 +23,7 @@ TTS **não** deve ser a referência oficial de ㄹ, vogais ou contrastes crític
 A 8B foi implementada em código local com **MeloTTS-Korean sintético como referência provisória**, não como gravação nativa. O que está pronto:
 
 - inventário reproduzível com **287 textos únicos** (266 da camada de dados + 23 formas `spoken` − 2 sobreposições), 156 de prioridade 1 e 131 de prioridade 2;
-- **287 MP3** em `public/audio/hangul/v1/`, **1.384.146 bytes** no total, **153,39 s**, 64 kbps mono 44,1 kHz; maior arquivo **13.393 bytes**;
+- **287 MP3** em `public/audio/v1/`, **1.384.146 bytes** no total, **153,39 s**, 64 kbps mono 44,1 kHz; maior arquivo **13.393 bytes**;
 - manifesto versionado com SHA-256, duração, loudness, fontes, passos, tags e prioridade; mapa compacto `texto → src` separado para o cliente;
 - player **asset → voz do sistema**, com seleção explícita de voz coreana, espera por `voiceschanged`, timeouts, erros, replay, cancelamento e limpeza;
 - controle **0,75×** com preservação de pitch e status acessível que só anuncia reprodução depois de `play()`/`onstart`;
@@ -82,7 +82,7 @@ Como o corpus inteiro é pequeno, a meta é **gravar tudo**, não só os itens c
 - Exportar dois formatos:
   - **AAC/M4A** como base universal (Safari/iOS);
   - **Opus/WebM** para navegadores que suportam, se o ganho de tamanho justificar.
-- Nomear por ID estável: `public/audio/hangul/v1/<id>.m4a` e `.webm`. Evitar Hangul no nome do arquivo para não depender de normalização Unicode.
+- Nomear por ID estável: `public/audio/v1/<id>.m4a` e `.webm`. Evitar Hangul no nome do arquivo para não depender de normalização Unicode.
 - Gerar um manifesto versionado:
 
 ```json
@@ -92,7 +92,7 @@ Como o corpus inteiro é pequeno, a meta é **gravar tudo**, não só os itens c
   "items": [
     {
       "id": "syl:아",
-      "src": "/audio/hangul/v1/syl-ah.m4a",
+      "src": "/audio/v1/syl-ah.m4a",
       "mime": "audio/mp4",
       "durationMs": 620,
       "speaker": "spk-1",
@@ -104,7 +104,7 @@ Como o corpus inteiro é pequeno, a meta é **gravar tudo**, não só os itens c
 ```
 
 - Versionar o manifesto e os assets; não versionar tomadas brutas. Guardar as tomadas brutas em armazenamento do projeto, fora do repositório.
-- Cache: `Cache-Control: public, max-age=31536000, immutable` para `/audio/hangul/v1/*`. Como não há service worker, o cache é apenas HTTP; offline continua fora de escopo.
+- Cache: `Cache-Control: public, max-age=31536000, immutable` para `/audio/v1/*`. Como não há service worker, o cache é apenas HTTP; offline continua fora de escopo.
 
 **Implementação local (8B):** o formato publicado é **MP3 64 kbps mono 44,1 kHz**, não AAC/WebM. A decisão foi tomada depois de medir o corpus: 287 clipes somam **1,38 MB** e o maior tem **13,4 KB**, muito abaixo do orçamento; um único formato universal reduz complexidade de encode, manifesto e fallback sem ganho material de tamanho. O AAC/WebM continua sendo a escolha preferida quando houver gravação nativa em alta qualidade. O `Cache-Control` imutável foi aplicado em `next.config.mjs` para `/audio/:path*`.
 

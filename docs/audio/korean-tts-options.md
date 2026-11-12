@@ -51,7 +51,7 @@ Valores e limites de nuvem mudam; conferir a página de preços na data de contr
 
 **Papel recomendado:** gerar candidatos para revisão, nunca publicar como pronúncia final sem escuta nativa. Se usado, marcar os itens como “áudio sintetizado em revisão”.
 
-**Uso na 8B:** o MeloTTS-Korean foi escolhido para a referência provisória e rodou em CPU, com revisões fixadas. O resultado está em `public/audio/hangul/v1/` (287 MP3, 1,38 MB) e documentado em `docs/audio/generation-guide.md`. A imagem Docker `hangrylabs/melotts` foi avaliada e **rejeitada** por licença AGPL-3.0-only, suporte apenas `amd64`, tamanho (~8,3 GB comprimida) e pacote coreano com aceite manual. O ponto pendente é o encoder `kykim/bert-kor-base`, que **não declara licença**; isso impede tratar o pipeline como liberado para produção comercial sem revisão jurídica.
+**Uso na 8B e ampliação:** o MeloTTS-Korean foi escolhido para a referência provisória e rodou em CPU, com revisões fixadas. O corpus em `public/audio/v1/` cobre Hangul, A1, A2 e vocabulário (2.907 textos) e está documentado em `docs/audio/generation-guide.md`. A imagem Docker `hangrylabs/melotts` foi avaliada e **rejeitada** por licença AGPL-3.0-only, suporte apenas `amd64`, tamanho (~8,3 GB comprimida) e pacote coreano com aceite manual. O ponto pendente é o encoder `kykim/bert-kor-base`, que **não declara licença**; isso impede tratar o pipeline como liberado para produção comercial sem revisão jurídica.
 
 **Referência:** <https://huggingface.co/myshell-ai/MeloTTS-Korean>
 

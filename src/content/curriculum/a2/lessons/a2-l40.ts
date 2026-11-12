@@ -33,7 +33,7 @@ export const A2_L40 = defineA2Lesson({
     },
   ],
   dialogue: [
-    ["지민", "수진 씨, A2 과정을 거의 다 끝냈네요. 어땠어요?", "Sujin, você está quase terminando o curso A2. Como foi?"],
+    ["지민", "수진 씨, 에이 투 과정을 거의 다 끝냈네요. 어땠어요?", "Sujin, você está quase terminando o curso A2. Como foi?"],
     ["수진", "처음에는 과거 이야기가 어려웠어요. 그런데 여행 이야기를 하면서 많이 익숙해졌어요.", "No começo, falar do passado era difícil. Mas, contando histórias de viagem, fiquei muito mais à vontade."],
     ["지민", "이제 가장 자신 있는 게 뭐예요?", "O que você se sente mais confiante em fazer agora?"],
     ["수진", "간단한 문제를 설명하고 도움을 요청하는 것이 자신 있어요. 아직 뉴스는 어려워요.", "Tenho confiança em explicar problemas simples e pedir ajuda. Ainda acho notícias difíceis."],
@@ -122,7 +122,7 @@ export const A2_L40 = defineA2Lesson({
       ["Sinto confiança para explicar problemas simples e pedir ajuda."],
     ),
     reading(
-      "A2 과정을 끝내도 배움은 계속돼요. 자신 있는 부분을 유지하고, 어려운 부분은 작은 목표로 나누어 연습하는 게 좋아요.",
+      "에이 투 과정을 끝내도 배움은 계속돼요. 자신 있는 부분을 유지하고, 어려운 부분은 작은 목표로 나누어 연습하는 게 좋아요.",
       "Qual é a recomendação?",
       ["Dividir dificuldades em metas pequenas.", "Parar de estudar.", "Evitar conteúdo difícil para sempre."],
       "Dividir dificuldades em metas pequenas.",

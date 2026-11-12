@@ -17,7 +17,7 @@ Fontes de verdade: `docs/architecture.md` (stack, estrutura, modelo de dados, in
 - Randomização de alternativas é apresentação: use `lib/exercises/shuffle` + `use-shuffled-order`, mantenha a ordem durante a tentativa ativa, renove só em nova tentativa e nunca corrija por posição.
 - Fala experimental (`lib/speech`): nunca ativar o microfone sem clique; modo remoto/desconhecido só com consentimento; não gravar, persistir, logar nem enviar áudio ou texto reconhecido; não afirmar "no aparelho" sem `available()`; não equiparar reconhecimento a avaliação de pronúncia; não ligar a `Progress`/SRS/grading sem fase explícita.
 - Conteúdo coreano original (sem copiar cursos/apps); marcar como "em revisão".
-- Áudio: MP3 só em `restricted-assets/`; nunca em `public/` enquanto a licença estiver BLOQUEADA. O MP3 do KBR é **sintético**, nunca "gravado"/"nativo"; não afirmar pronúncia correta sem revisão nativa; não distribuir publicamente enquanto a licença do encoder estiver BLOQUEADA.
+- Áudio: o corpus MP3 vive em `public/audio/v1/` e é servido por padrão (`NEXT_PUBLIC_KBR_STATIC_AUDIO=0` é o kill switch). O MP3 do KBR é **sintético**, nunca "gravado"/"nativo"; não afirmar pronúncia correta sem revisão nativa. A licença do encoder `kykim/bert-kor-base` continua não esclarecida; o uso foi aceito pelo dono do projeto em `docs/audio/license-audit.md` §11, não é parecer jurídico.
 - TypeScript estrito; poucas dependências; não use `"use client"` em módulos cujos exports não-componente o servidor importa (ex.: `lib/routes.ts`).
 - Não altere arquivos fora do escopo da tarefa. Commits pequenos e descritivos.
 - Commits: autor sempre `silvadealmeida`; sem trailers `Co-Authored-By` nem menções a IA nas mensagens.

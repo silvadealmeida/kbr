@@ -327,11 +327,14 @@ test.describe("A1 — curso completo autenticado", () => {
     });
 
     await page.goto("/a1/a1-l01");
-    await page.getByRole("button", { name: "Ouvir a fala" }).first().click();
-    await expect(page.getByText(/voz coreana do navegador/).first()).toBeVisible({
-      timeout: 10_000,
-    });
     expect(audioRequests).toEqual([]);
+
+    await page.getByRole("button", { name: "Ouvir a fala" }).first().click();
+    await expect(
+      page.getByRole("button", { name: "Ouvir novamente" }).first(),
+    ).toBeVisible({ timeout: 10_000 });
+    expect(audioRequests.some((url) => url.includes("/audio/v1/"))).toBe(true);
+    await expect(page.getByText(/sintetizado/).first()).toBeVisible();
   });
 
   test("responsivo e tema escuro sem rolagem horizontal", async ({ page }) => {

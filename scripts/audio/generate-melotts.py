@@ -78,7 +78,8 @@ def load_tts():
     import torch
     from melo.api import TTS
 
-    torch.set_num_threads(max(1, min(8, os.cpu_count() or 1)))
+    threads = int(os.environ.get("KBR_TORCH_THREADS", "0"))
+    torch.set_num_threads(threads or max(1, min(8, os.cpu_count() or 1)))
     torch.manual_seed(0)
 
     config_path = MELO_DIR / "config.json"
@@ -105,6 +106,11 @@ def main() -> int:
     parser.add_argument("--limit", type=int, default=0)
     parser.add_argument("--force", action="store_true")
     parser.add_argument("--text", default=None, help="Gera apenas este texto.")
+    parser.add_argument(
+        "--shard",
+        default=None,
+        help="Divide os pendentes entre processos: i/n (ex.: 0/3, 1/3, 2/3).",
+    )
     args = parser.parse_args()
 
     if not INVENTORY.is_file():
@@ -130,6 +136,12 @@ def main() -> int:
 
     if args.limit:
         pending = pending[: args.limit]
+
+    if args.shard:
+        index, total = (int(part) for part in args.shard.split("/", 1))
+        if total < 1 or not 0 <= index < total:
+            raise SystemExit("--shard inválido; use i/n com 0 <= i < n.")
+        pending = pending[index::total]
 
     if not pending:
         print("Nada a gerar; todos os WAVs já existem.")

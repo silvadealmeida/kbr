@@ -1,7 +1,9 @@
 # Relatório de qualidade e integridade do áudio — Fase 8D
 
 **Data:** 2026-11-12  
-**Natureza:** auditoria técnica de 287 MP3 **sintéticos** (MeloTTS-Korean). Nada aqui certifica pronúncia: nenhuma escuta por falante nativo ocorreu, e transcrição/G2P automáticos não substituem essa escuta. Questão de licença: `license-audit.md`.
+**Natureza:** auditoria técnica de MP3 **sintéticos** (MeloTTS-Korean). Nada aqui certifica pronúncia: nenhuma escuta por falante nativo ocorreu, e transcrição/G2P automáticos não substituem essa escuta. Questão de licença: `license-audit.md`.
+
+> **Ampliação de 2026-11-12:** o corpus passou de 287 para **2.907 textos únicos**, cobrindo Hangul, A1, A2 e vocabulário (palavras e frases contextuais). A tabela do §1 descreve a auditoria original da 8D; os números atualizados estão em `docs/audio/generation-guide.md` §Resultado e são verificados por `tests/audio-manifest.test.ts`.
 
 ## 1. Integridade técnica (reverificada)
 

@@ -50,26 +50,26 @@ async function openFirstAudioExercise(page: Page) {
   ).toBeVisible();
 }
 
-// MP3 só existem quando o build usa NEXT_PUBLIC_KBR_STATIC_AUDIO=1 e a cópia em
-// public/audio (npm run audio:stage). Por padrão (licença BLOQUEADA) não existem.
-const STATIC_AUDIO = process.env.NEXT_PUBLIC_KBR_STATIC_AUDIO === "1";
-
-test.describe("áudio estático do Hangul", () => {
+test.describe("áudio estático do currículo", () => {
   test.beforeEach(async ({ context }) => {
     await seedLesson(context, "h01");
   });
 
-  test("sem a flag: nenhuma rota serve MP3 e a voz coreana do sistema toca", async ({
+  test("serve o MP3 do corpus com cache imutável", async ({ request }) => {
+    for (const src of ["/audio/v1/ko-cdd08b15.mp3", "/audio/v1/ko-2620702c.mp3"]) {
+      const response = await request.get(src);
+      expect(response.status()).toBe(200);
+      expect(response.headers()["content-type"]).toContain("audio/mpeg");
+      expect(response.headers()["cache-control"]).toContain("immutable");
+    }
+  });
+
+  test("cai para a voz coreana do sistema quando o asset não é usado", async ({
     page,
-    request,
     browserName,
   }) => {
-    test.skip(STATIC_AUDIO, "build com áudio estático habilitado");
     // No WebKit a substituição de getVoices na instância não surtiu efeito (causa não apurada); lógica coberta em tests/audio-playback.test.ts.
     test.skip(browserName === "webkit", "stub de voz não funciona no WebKit");
-    for (const src of ["/audio/hangul/v1/ko-cdd08b15.mp3", "/audio/hangul/v1/ko-2620702c.mp3"]) {
-      expect((await request.get(src)).status()).toBe(404);
-    }
 
     await page.addInitScript(() => {
       const synth = window.speechSynthesis;
@@ -92,7 +92,7 @@ test.describe("áudio estático do Hangul", () => {
     });
     const mp3: string[] = [];
     page.on("request", (r) => {
-      if (r.url().includes("/audio/hangul/")) mp3.push(r.url());
+      if (r.url().includes("/audio/")) mp3.push(r.url());
     });
 
     await openFirstAudioExercise(page);
@@ -105,7 +105,6 @@ test.describe("áudio estático do Hangul", () => {
   });
 
   test("toca o MP3 do corpus e permite repetir", async ({ page }) => {
-    test.skip(!STATIC_AUDIO, "áudio estático desligado (licença BLOQUEADA)");
     await page.addInitScript(() => {
       const rates: number[] = [];
       (window as unknown as { __kbrRates: number[] }).__kbrRates = rates;
@@ -118,7 +117,7 @@ test.describe("áudio estático do Hangul", () => {
 
     const requests: string[] = [];
     page.on("request", (request) => {
-      if (request.url().includes("/audio/hangul/v1/")) {
+      if (request.url().includes("/audio/v1/")) {
         requests.push(request.url());
       }
     });
@@ -127,7 +126,7 @@ test.describe("áudio estático do Hangul", () => {
     await page.getByRole("button", { name: "Ouvir o áudio" }).click();
 
     await expect.poll(() => requests.length).toBeGreaterThan(0);
-    expect(requests[0]).toMatch(/\/audio\/hangul\/v1\/ko-[0-9a-f]{8}\.mp3$/);
+    expect(requests[0]).toMatch(/\/audio\/v1\/ko-[0-9a-f]{8}\.mp3$/);
     await expect(
       page.getByRole("button", { name: "Ouvir novamente" }),
     ).toBeVisible({ timeout: 10_000 });
@@ -140,7 +139,6 @@ test.describe("áudio estático do Hangul", () => {
   });
 
   test("aplica 0,75× com preservação de pitch", async ({ page }) => {
-    test.skip(!STATIC_AUDIO, "áudio estático desligado (licença BLOQUEADA)");
     await page.addInitScript(() => {
       const rates: number[] = [];
       (window as unknown as { __kbrRates: number[] }).__kbrRates = rates;
@@ -153,13 +151,21 @@ test.describe("áudio estático do Hangul", () => {
 
     await openFirstAudioExercise(page);
     await page
-      .getByRole("button", { name: "Usar velocidade lenta, 0,75 vezes" })
+      .getByRole("button", { name: "Velocidade 1×; alterar para 0,5×" })
       .click();
     await expect(
       page.getByRole("button", {
-        name: "Velocidade lenta ativada; voltar à velocidade normal",
+        name: "Velocidade 0,5×; alterar para 0,75×",
       }),
-    ).toHaveAttribute("aria-pressed", "true");
+    ).toBeVisible();
+    await page
+      .getByRole("button", { name: "Velocidade 0,5×; alterar para 0,75×" })
+      .click();
+    await expect(
+      page.getByRole("button", {
+        name: "Velocidade 0,75×; alterar para 1×",
+      }),
+    ).toBeVisible();
 
     await page.getByRole("button", { name: "Ouvir o áudio" }).click();
     await expect
@@ -174,7 +180,7 @@ test.describe("áudio estático do Hangul", () => {
   test("sem MP3 e sem voz coreana informa indisponibilidade sem fingir sucesso", async ({
     page,
   }) => {
-    await page.route("**/audio/hangul/v1/*.mp3", (route) => route.abort());
+    await page.route("**/audio/v1/*.mp3", (route) => route.abort());
     await page.addInitScript(() => {
       const synth = window.speechSynthesis;
       if (!synth) return;

@@ -122,3 +122,21 @@ Opções (todas dependem do dono; nada foi feito): (a) tornar o repositório pri
 | Site publicado (produção) | **sem MP3** (404 verificado na 8F); deployments antigos não verificados |
 | Repositório público | **ainda expõe** os MP3 em `restricted-assets/` e na história (§9) |
 | Lançamento público ou comercial | **BLOQUEADO** |
+
+## 11. Decisão do dono do projeto (2026-11-12): uso liberado no app
+
+**Decisão:** o dono do projeto determinou que as restrições técnicas de uso sejam removidas e que o áudio
+sintético seja servido normalmente no app, incluindo todo o curso A2. A contenção da 8E foi revertida.
+
+- `restricted-assets/audio/` foi movido de volta para `public/audio/v1/` e é versionado novamente.
+- `NEXT_PUBLIC_KBR_STATIC_AUDIO` deixou de bloquear o player: o padrão é **ligado**
+  (`STATIC_AUDIO_ENABLED = process.env.NEXT_PUBLIC_KBR_STATIC_AUDIO !== "0"`). `0` funciona como
+  kill switch de deploy.
+- A guarda de build, o script de stage/unstage e `tests/audio-containment.test.ts` foram removidos.
+- O corpus foi ampliado de 287 para os textos de Hangul + A1 + A2 + vocabulário (ver
+  `docs/audio/generation-guide.md`).
+
+**Risco que permanece registrado, sem alteração de fato:** o encoder `kykim/bert-kor-base` continua sem
+licença declarada no Hugging Face e a contradição Apache-2.0 × MOU do repositório do autor não foi
+resolvida. A decisão acima é de risco aceito pelo dono do projeto, **não** um parecer jurídico nem uma
+confirmação de licença. Antes de lançamento comercial, as ações R1/R2/R5 do §6 continuam recomendadas.

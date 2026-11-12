@@ -28,12 +28,30 @@ try {
   const { HANGUL_CURRICULUM } = await server.ssrLoadModule(
     "/src/content/hangul/index.ts",
   );
+  const { A1_IMPLEMENTED_LESSONS, A1_IMPLEMENTED_CHECKPOINTS } =
+    await server.ssrLoadModule("/src/content/curriculum/a1/content.ts");
+  const { A2_IMPLEMENTED_LESSONS, A2_IMPLEMENTED_CHECKPOINTS } =
+    await server.ssrLoadModule("/src/content/curriculum/a2/content.ts");
+  const { VOCAB_ENTRIES, VOCAB_SENTENCES } = await server.ssrLoadModule(
+    "/src/content/vocabulary/index.ts",
+  );
   const { collectAudioInventory } = await server.ssrLoadModule(
     "/src/lib/audio/inventory.ts",
   );
   const { audioKey } = await server.ssrLoadModule("/src/lib/audio/text.ts");
 
-  const items = collectAudioInventory(HANGUL_CURRICULUM);
+  const courseSteps = [
+    ...A1_IMPLEMENTED_LESSONS.map((step) => ({ courseId: "ko-a1", step })),
+    ...A1_IMPLEMENTED_CHECKPOINTS.map((step) => ({ courseId: "ko-a1", step })),
+    ...A2_IMPLEMENTED_LESSONS.map((step) => ({ courseId: "ko-a2", step })),
+    ...A2_IMPLEMENTED_CHECKPOINTS.map((step) => ({ courseId: "ko-a2", step })),
+  ];
+
+  const items = collectAudioInventory(HANGUL_CURRICULUM, {
+    courseSteps,
+    vocabulary: VOCAB_ENTRIES,
+    sentences: VOCAB_SENTENCES,
+  });
   const byKey = new Map();
   const collisions = [];
 

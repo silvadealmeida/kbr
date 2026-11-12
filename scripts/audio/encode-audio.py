@@ -5,7 +5,7 @@ Uso:
   .audio/venv/bin/python scripts/audio/encode-audio.py
 
 Entrada:  .audio/inventory.json + .audio/raw/<chave>.wav
-Saída:    restricted-assets/audio/hangul/v1/<chave>.mp3
+Saída:    public/audio/v1/<chave>.mp3
           src/content/audio/entries.ts
           src/content/audio/manifest.json
           .audio/encode-report.json
@@ -31,7 +31,7 @@ ROOT = Path(__file__).resolve().parents[2]
 AUDIO_DIR = ROOT / ".audio"
 RAW_DIR = AUDIO_DIR / "raw"
 WORK_DIR = AUDIO_DIR / "encoded"
-PUBLIC_DIR = ROOT / "restricted-assets" / "audio" / "hangul" / "v1"
+PUBLIC_DIR = ROOT / "public" / "audio" / "v1"
 ENTRIES_FILE = ROOT / "src" / "content" / "audio" / "entries.ts"
 MANIFEST_FILE = ROOT / "src" / "content" / "audio" / "manifest.json"
 REPORT_FILE = AUDIO_DIR / "encode-report.json"
@@ -242,12 +242,12 @@ def main() -> int:
         duplicates[digest] = item["text"]
 
         duration = probe_duration(mp3_path)
-        entries[item["text"]] = f"/audio/hangul/v1/{key}.mp3"
+        entries[item["text"]] = f"/audio/v1/{key}.mp3"
         manifest_items.append(
             {
                 "text": item["text"],
                 "key": key,
-                "src": f"/audio/hangul/v1/{key}.mp3",
+                "src": f"/audio/v1/{key}.mp3",
                 "sha256": digest,
                 "bytes": mp3_path.stat().st_size,
                 "durationSeconds": duration,

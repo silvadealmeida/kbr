@@ -40,7 +40,7 @@
 
 ## 4. Opcional / experimental
 
-`/fala` (reconhecimento de fala; **não expandir**), `npm run audio:stage` + flag (teste local de MP3), avaliação de TTS alternativo (`docs/audio/tts-alternatives.md`), flashcards ilustrados, export/import JSON.
+`/fala` (reconhecimento de fala; **não expandir**), avaliação de TTS alternativo (`docs/audio/tts-alternatives.md`), flashcards ilustrados, export/import JSON.
 
 ## 5. Tarefas de áudio/pronúncia que podem ser retomadas depois
 

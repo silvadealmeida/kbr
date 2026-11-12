@@ -1,31 +1,23 @@
 # Geração do áudio estático — MeloTTS-Korean
 
-**Fase:** 8B  
+**Fase:** 8B (corpus Hangul) e ampliação A1/A2  
 **Data:** 2026-11-12  
-**Status (8E):** pipeline reproduzível em ambiente local. Os MP3 ficam **contidos** em `restricted-assets/audio/hangul/v1/` (fora de `public/`, não servidos) por causa da licença não resolvida; ver "Contenção e como reativar" abaixo.  
+**Status:** pipeline reproduzível. Os MP3 ficam em `public/audio/v1/`, são versionados e servidos por padrão.  
 **Natureza do áudio:** síntese neural, **não** gravação nativa. Todo o conteúdo coreano continua `in-review`; estes arquivos são a referência estável provisória e ainda precisam de escuta e aprovação de falante nativo.
 
-## Contenção e como reativar (8E)
+## Uso e desligamento
 
-Os 287 MP3 e o manifesto estão **preservados**. Desde a 8E eles vivem em `restricted-assets/audio/hangul/v1/` (movidos com `git mv`; o histórico do Git está intacto) e **não são servidos**: o Next serve tudo em `public/`, então a contenção é estrutural, não só de UI.
+- O áudio estático é o caminho padrão. `NEXT_PUBLIC_KBR_STATIC_AUDIO=0` é o kill switch: o player
+  ignora os MP3 e cai para a voz coreana do sistema (ou para a dica textual).
+- `encode-audio.py` grava direto em `public/audio/v1/`; não há mais cópia de stage nem guarda de build.
+- A decisão do dono do projeto de usar o corpus apesar da licença do encoder ainda não esclarecida está
+  registrada em [`license-audit.md`](license-audit.md) §11. O risco não foi resolvido, apenas aceito.
 
-- Padrão: `NEXT_PUBLIC_KBR_STATIC_AUDIO` ausente → o player nunca pede MP3 e usa a voz coreana do sistema (ou a dica textual). `npm run build` roda `scripts/audio/verify-no-restricted-audio.mjs` antes e depois e **falha** se encontrar qualquer MP3 do corpus (por extensão, por caminho ou por SHA-256, inclusive renomeado) em `public/`, `.next/` ou `.vercel/output`.
-- `encode-audio.py` agora grava em `restricted-assets/`, nunca em `public/`.
-
-**Para testar o áudio estático localmente (sem implantar):**
+**Verificação local:**
 ```bash
-export NEXT_PUBLIC_KBR_STATIC_AUDIO=1
-npm run audio:stage           # copia restricted-assets/audio -> public/audio (gitignored), conferindo SHA-256
 npm run build && npx playwright test e2e/audio.spec.ts
-npm run audio:unstage         # remove só a cópia; a fonte não é tocada
 ```
 
-**Para reativar em produção, somente depois de a licença estar resolvida por escrito** (resposta guardada em `docs/audio/permissions/`, bloqueio removido em `docs/release/beta-readiness.md`):
-1. Registrar a decisão em `docs/audio/license-audit.md` e remover o BLOQUEIO.
-2. Mover de volta: `git mv restricted-assets/audio public/audio` (e remover `/public/audio/` do `.gitignore`).
-3. Definir `NEXT_PUBLIC_KBR_STATIC_AUDIO=1` no ambiente de build da Vercel; o guarda então só avisa.
-4. Fazer o deploy de preview, conferir `curl -I <preview>/audio/hangul/v1/<chave>.mp3` e `npm test`; só então promover.
-Reverter a contenção é, portanto, um `git mv` + uma variável de ambiente; nada foi apagado.
 
 ## Resultado
 
@@ -154,6 +146,10 @@ Lê o currículo real via Vite SSR e grava `.audio/inventory.json` com texto NFC
 # variantes:
 .audio/venv/bin/python scripts/audio/generate-melotts.py --limit 1
 .audio/venv/bin/python scripts/audio/generate-melotts.py --text '한' --force
+# corpus grande: divida o trabalho em processos paralelos (retomável)
+KBR_TORCH_THREADS=6 .audio/venv/bin/python scripts/audio/generate-melotts.py --shard 0/3
+KBR_TORCH_THREADS=6 .audio/venv/bin/python scripts/audio/generate-melotts.py --shard 1/3
+KBR_TORCH_THREADS=6 .audio/venv/bin/python scripts/audio/generate-melotts.py --shard 2/3
 ```
 
 Parâmetros fixos: `TTS(language="KR", device="cpu")`, speaker `KR` (`speaker_id=0`), `speed=1.0`, `torch.manual_seed(0)`. Saída: `.audio/raw/<chave>.wav` (PCM 16 bits, 44,1 kHz, mono). A execução completa observada levou **146,5 s** e não teve falhas.
@@ -181,7 +177,7 @@ O encode é determinístico para a mesma versão de FFmpeg/LAME e o mesmo WAV de
 
 - `src/lib/audio/text.ts`: normalização NFC + trim e chave FNV-1a de 32 bits.
 - `src/lib/audio/inventory.ts`: inventário determinístico a partir do currículo.
-- `src/content/audio/entries.ts`: mapa compacto `texto → /audio/hangul/v1/<chave>.mp3`, gerado; é o único mapa que entra no bundle do cliente.
+- `src/content/audio/entries.ts`: mapa compacto `texto → /audio/v1/<chave>.mp3`, gerado; é o único mapa que entra no bundle do cliente.
 - `src/content/audio/manifest.json`: manifesto completo com hash, bytes, duração, loudness, fontes, passos, tags e prioridade; não entra no bundle do cliente.
 - `src/lib/audio/manifest.ts`: resolve o asset por texto normalizado.
 - `src/lib/audio/playback.ts`: controlador sem React, com ordem **asset → voz do sistema**, seleção explícita de voz `ko`, espera por `voiceschanged`, timeouts, erros, cancelamento e limpeza.

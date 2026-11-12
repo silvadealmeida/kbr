@@ -6,6 +6,14 @@ import type {
   SyllableRecord,
   WordRecord,
 } from "@/content/hangul/types";
+import type {
+  CourseCheckpointContent,
+  CourseDialogueLine,
+  CourseGrammarNote,
+  CourseIntroPanel,
+  CourseLessonContent,
+} from "@/content/curriculum/course-types";
+import type { VocabEntry, VocabSentence } from "@/content/vocabulary/types";
 import { composeSyllable, decomposeSyllable } from "@/lib/hangul";
 import type { ExerciseSpec } from "@/lib/exercises";
 import { normalizeAudioText } from "./text";
@@ -17,7 +25,12 @@ export type AudioInventorySourceKind =
   | "syllable"
   | "word"
   | "rule"
-  | "anatomy";
+  | "anatomy"
+  | "intro"
+  | "dialogue"
+  | "grammar"
+  | "vocabulary"
+  | "sentence";
 
 export type AudioInventoryItem = {
   /** Texto exato do conteúdo (NFC), usado como chave de busca. */
@@ -189,6 +202,81 @@ function addRule(items: Map<string, MutableItem>, rule: RuleRecord) {
   }
 }
 
+export type CourseAudioStep =
+  | CourseLessonContent
+  | CourseCheckpointContent;
+
+function addCourseStep(
+  items: Map<string, MutableItem>,
+  courseId: string,
+  step: CourseAudioStep,
+) {
+  const base = `course:${courseId}:${step.id}`;
+
+  if ("intro" in step) {
+    step.intro.forEach((panel: CourseIntroPanel, index) => {
+      if (panel.ko) {
+        add(items, panel.ko, `${base}:intro:${index}`, step.id, ["intro"], 1);
+      }
+    });
+    step.dialogue.forEach((line: CourseDialogueLine) => {
+      add(items, line.audioText, `${base}:dialogue:${line.id}`, step.id, ["dialogue"], 1);
+    });
+    step.grammar.forEach((note: CourseGrammarNote) => {
+      note.examples.forEach((example, index) => {
+        add(
+          items,
+          example.audioText,
+          `${base}:grammar:${note.id}:${index}`,
+          step.id,
+          ["grammar"],
+          1,
+        );
+      });
+    });
+  }
+
+  for (const exercise of step.exercises) {
+    addExercise(items, step.id, exercise);
+  }
+}
+
+function addVocabularyEntry(
+  items: Map<string, MutableItem>,
+  entry: VocabEntry,
+) {
+  add(
+    items,
+    entry.audioText,
+    `vocabulary:${entry.id}`,
+    entry.lesson,
+    ["vocabulary", entry.course],
+    2,
+  );
+}
+
+function addVocabularySentence(
+  items: Map<string, MutableItem>,
+  sentence: VocabSentence,
+  lesson: string | undefined,
+) {
+  add(
+    items,
+    sentence.ko,
+    `sentence:${sentence.id}`,
+    lesson ?? "vocabulary",
+    ["vocabulary-sentence"],
+    1,
+  );
+}
+
+export type AudioInventoryExtras = {
+  /** Passos jogáveis dos cursos de língua (A1, A2…). */
+  courseSteps?: readonly { courseId: string; step: CourseAudioStep }[];
+  vocabulary?: readonly VocabEntry[];
+  sentences?: readonly VocabSentence[];
+};
+
 /**
  * Inventário determinístico de tudo que pode ser falado no currículo atual.
  *
@@ -197,7 +285,10 @@ function addRule(items: Map<string, MutableItem>, rule: RuleRecord) {
  * anatomia (`한`). O construtor livre de sílabas é dinâmico e não entra aqui;
  * combinações sem asset caem no fallback de voz do sistema.
  */
-export function collectAudioInventory(curriculum: Curriculum): AudioInventoryItem[] {
+export function collectAudioInventory(
+  curriculum: Curriculum,
+  extras: AudioInventoryExtras = {},
+): AudioInventoryItem[] {
   const items = new Map<string, MutableItem>();
 
   for (const lesson of curriculum.lessons) addStep(items, lesson);
@@ -205,6 +296,25 @@ export function collectAudioInventory(curriculum: Curriculum): AudioInventoryIte
   for (const syllable of curriculum.syllables) addSyllable(items, syllable);
   for (const word of curriculum.words) addWord(items, word);
   for (const rule of curriculum.rules) addRule(items, rule);
+
+  for (const { courseId, step } of extras.courseSteps ?? []) {
+    addCourseStep(items, courseId, step);
+  }
+
+  for (const entry of extras.vocabulary ?? []) {
+    addVocabularyEntry(items, entry);
+  }
+
+  const lessonByVocabId = new Map(
+    (extras.vocabulary ?? []).map((entry) => [entry.id, entry.lesson]),
+  );
+  for (const sentence of extras.sentences ?? []) {
+    addVocabularySentence(
+      items,
+      sentence,
+      lessonByVocabId.get(sentence.vocabId),
+    );
+  }
 
   // A anatomia de `한` tem um controle de áudio próprio. Normalmente `한` já
   // aparece em SYLLABLES; a referência explícita mantém a cobertura se o

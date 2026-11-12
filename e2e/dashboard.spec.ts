@@ -101,6 +101,7 @@ test.describe("Painel autenticado", () => {
     await expect(page.getByText("0 de 25")).toBeVisible();
     await expect(page.getByText("0 de 4")).toBeVisible();
 
+    await expect(page.getByText("Primeira lâmina")).toBeVisible();
     await expect(page.getByText("Comece por aqui")).toBeVisible();
     await expect(
       page.getByRole("heading", { name: "Próxima lição: h01" }),

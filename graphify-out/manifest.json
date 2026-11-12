@@ -120,9 +120,9 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794471691.7844312,
-    "seen": 1794471714.1476831,
-    "ast_hash": "e62fbd0905a7d99a6b30e3ea305dc02e",
+    "mtime": 1794471812.5635393,
+    "seen": 1794471830.3880527,
+    "ast_hash": "125a39ecf27464d8cd3bf1dbaa893d0c",
     "semantic_hash": ""
   },
   "src/lib/hangul/index.ts": {
@@ -864,15 +864,15 @@
     "semantic_hash": ""
   },
   "e2e/dashboard.spec.ts": {
-    "mtime": 1794342847.6823406,
-    "seen": 1794344323.628275,
-    "ast_hash": "9d67a820d0364bb30327e903c8a52d77",
+    "mtime": 1794471767.9609249,
+    "seen": 1794471830.3878102,
+    "ast_hash": "79a2b3f60d4d68c949995597d14a49ba",
     "semantic_hash": ""
   },
   "src/components/dashboard/DashboardArea.tsx": {
-    "mtime": 1794389060.206117,
-    "seen": 1794396154.8617575,
-    "ast_hash": "ae370ffabd15fdd98fafe45e3c068cf5",
+    "mtime": 1794471767.9609249,
+    "seen": 1794471830.3878732,
+    "ast_hash": "d9bf108852166468f7588a529d75c586",
     "semantic_hash": ""
   },
   "src/components/ui/ProgressBar.tsx": {

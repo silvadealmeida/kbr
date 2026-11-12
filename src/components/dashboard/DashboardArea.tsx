@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { CourseCompletionPanel } from "@/components/hangul/CourseCompletionPanel";
 import { ButtonLink } from "@/components/ui/Button";
-import { Card } from "@/components/ui/Card";
+import { Card, Plate } from "@/components/ui/Card";
 import { ProgressBar } from "@/components/ui/ProgressBar";
 import { getPlannedCourses } from "@/content/courses";
 import { courseLevelLabel } from "@/content/courses/types";
@@ -58,7 +58,7 @@ function SyncBanner({ syncStatus }: { syncStatus: SyncStatus }) {
     return (
       <p
         role="alert"
-        className="rounded-2xl border border-border bg-soft p-4 text-sm text-fg"
+        className="border-l-2 border-warning bg-warning-soft p-4 text-sm text-fg"
       >
         Salvo neste dispositivo. A sincronização com sua conta está pendente — nada do
         que você fez foi perdido.
@@ -68,7 +68,7 @@ function SyncBanner({ syncStatus }: { syncStatus: SyncStatus }) {
 
   if (syncStatus === "syncing") {
     return (
-      <p role="status" className="rounded-2xl border border-border bg-surface p-4 text-sm text-muted">
+      <p role="status" className="border-l-2 border-accent bg-surface-2 p-4 text-sm text-muted">
         Sincronizando seu progresso…
       </p>
     );
@@ -87,7 +87,7 @@ function StatCard({
   hint?: string;
 }) {
   return (
-    <div className="rounded-2xl border border-border bg-surface p-4">
+    <div className="border-l border-line py-2 pl-4">
       <p className="text-sm text-muted">{label}</p>
       <p className="mt-1 text-2xl font-bold">{value}</p>
       {hint ? <p className="mt-1 text-xs text-muted">{hint}</p> : null}
@@ -223,7 +223,7 @@ export function DashboardArea() {
     <div className="flex flex-col gap-6">
       <SyncBanner syncStatus={syncStatus} />
 
-      <Card>
+      <Plate label="Mesa de estudo" number={course.percent + "%"}>
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
             <p className="text-sm font-semibold uppercase tracking-wide text-brand">
@@ -261,7 +261,7 @@ export function DashboardArea() {
             </dd>
           </div>
         </dl>
-      </Card>
+      </Plate>
 
       {completion ? (
         <CourseCompletionPanel
@@ -270,7 +270,7 @@ export function DashboardArea() {
           showDashboardLink={false}
         />
       ) : course.nextStep ? (
-        <Card>
+        <Plate label={starting ? "Primeira lâmina" : "Próximo passo"} number={course.nextStep.id} className="border-accent">
           <p className="text-sm font-semibold text-brand">
             {starting ? "Comece por aqui" : "Continue de onde parou"}
           </p>
@@ -283,10 +283,10 @@ export function DashboardArea() {
             {course.nextStep.kind === "checkpoint" ? "Checkpoint" : "Lição"} ·{" "}
             {course.nextStep.estimatedMinutes} min
           </p>
-          <ButtonLink href={`/hangul/${course.nextStep.id}`}>
+          <ButtonLink className="mt-5" href={`/hangul/${course.nextStep.id}`}>
             {starting ? `Começar pelo ${course.nextStep.id}` : `Continuar ${course.nextStep.id}`}
           </ButtonLink>
-        </Card>
+        </Plate>
       ) : (
         <Card>
           <h2 className="text-xl font-semibold">Próximo passo indisponível</h2>
@@ -364,7 +364,7 @@ export function DashboardArea() {
         <p className="mb-3 text-sm text-muted">
           Tentativas repetidas contam como prática; exercícios únicos contam uma vez.
         </p>
-        <div className="grid gap-3 sm:grid-cols-2">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
           <StatCard
             label="Exercícios únicos"
             value={attempts.uniqueExercises}

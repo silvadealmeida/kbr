@@ -1,5 +1,8 @@
+import { createElement } from "react";
+import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, test } from "vitest";
 import { CHECKPOINTS, LESSONS } from "@/content/hangul";
+import { CourseCompletionPanel } from "@/components/hangul/CourseCompletionPanel";
 import {
   buildCourseCompletionReport,
   type CompletionReportOptions,
@@ -102,6 +105,58 @@ describe("relatório de conclusão do curso", () => {
     expect(report.completedLessons).toBe(24);
   });
 
+  test("jornada usa a ordem intercalada real de lições e checkpoints", () => {
+    const complete = buildCourseCompletionReport(fullProgress(), reportOptions());
+
+    expect(complete.totalSteps).toBe(29);
+    expect(complete.completedSteps).toBe(29);
+    expect(complete.currentStepId).toBeNull();
+    expect(complete.nextStep).toBeNull();
+    expect(complete.journey.map((step) => step.id)).toEqual(
+      expect.arrayContaining(["h01", "c1", "h11", "c2", "h21", "c4"]),
+    );
+    expect(complete.journey.every((step) => step.done && step.score !== null)).toBe(true);
+    expect(complete.journey.find((step) => step.kind === "checkpoint")?.id).toBe("c1");
+    expect(complete.journey.at(-1)?.id).toBe("c4");
+  });
+
+  test("jornada incompleta marca passo atual, concluídos e bloqueados sem inventar score", () => {
+    const progress = fullProgress();
+    progress.lessons = { h01: { done: true, score: 100 } };
+    progress.history = [];
+
+    const report = buildCourseCompletionReport(progress, reportOptions());
+
+    expect(report.complete).toBe(false);
+    expect(report.completedSteps).toBe(1);
+    expect(report.totalSteps).toBe(29);
+    expect(report.currentStepId).toBe("h02");
+    expect(report.nextStep).toMatchObject({ id: "h02", kind: "lesson" });
+    expect(report.journey.find((step) => step.id === "h01")).toMatchObject({
+      done: true,
+      score: 100,
+      current: false,
+      unlocked: true,
+    });
+    expect(report.journey.find((step) => step.id === "h02")).toMatchObject({
+      done: false,
+      score: null,
+      current: true,
+      unlocked: true,
+    });
+    expect(report.journey.find((step) => step.id === "h03")).toMatchObject({
+      done: false,
+      current: false,
+      unlocked: false,
+    });
+    expect(report.journey.find((step) => step.id === "c1")).toMatchObject({
+      kind: "checkpoint",
+      done: false,
+      current: false,
+      unlocked: false,
+    });
+  });
+
   test("faltando um checkpoint não conclui o curso", () => {
     const progress = fullProgress();
     progress.lessons = { ...progress.lessons };
@@ -185,6 +240,61 @@ describe("relatório de conclusão do curso", () => {
       incorrect: 7,
       passed: false,
     });
+  });
+});
+
+describe("painel de conclusão", () => {
+  test("completo mostra selo, jornada e resumo real sem prometer CEFR", () => {
+    const report = buildCourseCompletionReport(fullProgress(), reportOptions());
+    const html = renderToStaticMarkup(
+      createElement(CourseCompletionPanel, { report }),
+    );
+
+    expect(html).toContain("Curso concluído · Hangul · Pré-A1");
+    expect(html).toContain("Módulo Hangul concluído");
+    expect(html).toContain("Selo de conclusão do módulo Hangul");
+    expect(html).toContain("Jornada do módulo");
+    expect(html).toContain("29 passos");
+    expect(html).toContain("não uma certificação oficial");
+    expect(html).toContain("não está disponível");
+    expect(html).toContain("Revisar cartões");
+    expect(html).toContain("Progresso nas 25 lições de Hangul");
+  });
+
+  test("incompleto só aparece com allowIncomplete e não emite selo", () => {
+    const progress = fullProgress();
+    progress.lessons = { h01: { done: true, score: 100 } };
+    progress.history = [];
+    const report = buildCourseCompletionReport(progress, reportOptions());
+
+    expect(
+      renderToStaticMarkup(createElement(CourseCompletionPanel, { report })),
+    ).toBe("");
+
+    const html = renderToStaticMarkup(
+      createElement(CourseCompletionPanel, { report, allowIncomplete: true }),
+    );
+
+    expect(html).toContain("Curso em andamento · Hangul · Pré-A1");
+    expect(html).toContain("Sua jornada no Hangul");
+    expect(html).toContain("1 de 29 passos");
+    expect(html).toContain("Retomar jornada em h02");
+    expect(html).toContain("Nenhum selo é");
+    expect(html).not.toContain("Selo de conclusão do módulo Hangul");
+    expect(html).not.toContain("Curso concluído · Hangul · Pré-A1");
+  });
+
+  test("compacto não duplica listas nem estatísticas no painel", () => {
+    const report = buildCourseCompletionReport(fullProgress(), reportOptions());
+    const html = renderToStaticMarkup(
+      createElement(CourseCompletionPanel, { report, compact: true }),
+    );
+
+    expect(html).toContain("Módulo Hangul concluído");
+    expect(html).toContain("Jornada do módulo");
+    expect(html).not.toContain("Estatísticas reais");
+    expect(html).not.toContain("Resultado do checkpoint final");
+    expect(html).not.toContain("Jornada completa:");
   });
 });
 

@@ -268,7 +268,7 @@ export function CheckpointPlayer({
         </p>
       ) : null}
       <div className="mt-4">
-        <CourseCompletionPanel report={completion} />
+        <CourseCompletionPanel report={completion} title="Sua jornada de 29 passos" />
       </div>
       <div className="mt-4 flex flex-col gap-3 sm:flex-row">
         <button

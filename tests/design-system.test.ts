@@ -181,3 +181,26 @@ describe("fundação de forma, movimento e tipografia (7B)", () => {
     expect(globals).toContain("outline-offset: 2px");
   });
 });
+
+describe("movimento pedagógico (7F)", () => {
+  test("desenha o herói em quatro grupos com traço normalizado", () => {
+    const composition = read("components/site/HangulComposition.tsx");
+
+    expect(composition.match(/pathLength=\{1\}/g)).toHaveLength(4);
+    expect(composition.match(/className="composition-strokes"/g)).toHaveLength(1);
+    expect(composition).toContain("composition-strokes");
+    expect(composition).toContain('role="img"');
+    expect(composition).toContain("Composição da sílaba 한");
+  });
+
+  test("define entrada e selo de conclusão sem atrasar ações", () => {
+    expect(globals).toContain(".composition-strokes > g > *");
+    expect(globals).toContain("animation-delay: 120ms");
+    expect(globals).toContain("animation-delay: 240ms");
+    expect(globals).toContain("animation-delay: 360ms");
+    expect(globals).toContain(".completion-enter");
+    expect(globals).toContain(".completion-seal");
+    expect(globals).toContain("@keyframes completion-seal");
+    expect(globals).not.toMatch(/transition:\s*all/);
+  });
+});

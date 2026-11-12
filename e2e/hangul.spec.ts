@@ -50,6 +50,9 @@ test.describe("Hangul autenticado", () => {
     await expect(
       page.getByRole("progressbar", { name: "Progresso nas 25 lições de Hangul" }),
     ).toHaveAttribute("aria-valuenow", "0");
+    await expect(page.getByText("Sua jornada no Hangul")).toBeVisible();
+    await expect(page.getByText("0 de 29 passos", { exact: true })).toBeVisible();
+    await expect(page.getByRole("link", { name: /Retomar jornada em h01/ })).toBeVisible();
     await expect(page.getByText("Após h01", { exact: true })).toBeVisible();
     await expect(page.getByText("Em breve")).toHaveCount(0);
     await expect(
@@ -61,6 +64,51 @@ test.describe("Hangul autenticado", () => {
     });
     const box = await lessonLink.boundingBox();
     expect(box?.height ?? 0).toBeGreaterThanOrEqual(44);
+
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= window.innerWidth,
+      ),
+    ).toBe(true);
+  });
+
+  test("explora anatomia e mapa de sons por teclado sem overflow", async ({
+    page,
+  }) => {
+    await page.goto("/hangul");
+
+    const anatomy = page.getByRole("region", { name: "Uma sílaba, três posições" });
+    await expect(anatomy).toBeVisible();
+    await expect(
+      anatomy.getByRole("img", { name: /Esquema da sílaba 한/ }),
+    ).toBeVisible();
+
+    const toggle = anatomy.getByRole("button", { name: "Ver peças separadas" });
+    const toggleBox = await toggle.boundingBox();
+    expect(toggleBox?.height ?? 0).toBeGreaterThanOrEqual(44);
+    await toggle.focus();
+    await page.keyboard.press("Enter");
+    await expect(
+      anatomy.getByRole("button", { name: "Ver bloco montado" }),
+    ).toHaveAttribute("aria-pressed", "true");
+
+    const finalPart = anatomy.getByRole("button", { name: /Final/ });
+    await finalPart.focus();
+    await page.keyboard.press("Enter");
+    await expect(finalPart).toHaveAttribute("aria-pressed", "true");
+    await expect(anatomy.getByText(/Fecha o bloco por baixo/)).toBeVisible();
+
+    await anatomy.getByRole("button", { name: "Ver bloco montado" }).click();
+    await expect(
+      anatomy.getByRole("button", { name: "Ver peças separadas" }),
+    ).toHaveAttribute("aria-pressed", "false");
+
+    const soundMap = page.locator("summary").filter({ hasText: "Mapa de sons" });
+    await soundMap.scrollIntoViewIfNeeded();
+    await soundMap.click();
+    await expect(page.getByRole("heading", { name: "Consoantes · 19" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Vogais · 21" })).toBeVisible();
+    await expect(page.getByText("não é uma tabela fonética completa")).toBeVisible();
 
     expect(
       await page.evaluate(
@@ -1039,6 +1087,18 @@ test.describe("Unidade 7 e checkpoint c4 autenticados", () => {
     ).toBeVisible();
     await expect(page.getByText("Você acertou 30 de 30 (100%).")).toBeVisible();
     await expect(page.getByText(/não uma certificação oficial de proficiência/)).toBeVisible();
+    const journey = page.getByRole("region", { name: "Jornada do módulo" });
+    await expect(journey).toBeVisible();
+    await expect(
+      page.getByRole("progressbar", { name: "Progresso na jornada do módulo Hangul" }),
+    ).toHaveAttribute("aria-valuenow", "29");
+    await expect(
+      journey.getByRole("list", { name: /Jornada completa: 25 lições e 4 checkpoints/ }),
+    ).toBeVisible();
+    await expect(journey.getByRole("listitem")).toHaveCount(29);
+    await expect(page.getByText("29 de 29 passos", { exact: true })).toBeVisible();
+    await expect(page.locator(".completion-seal")).toContainText("Módulo");
+    await expect(page.locator(".completion-seal")).toContainText("concluído");
     await expect(
       page.getByText(/O próximo módulo \(CEFR A1\) ainda não está disponível/),
     ).toBeVisible();
@@ -1071,11 +1131,16 @@ test.describe("Unidade 7 e checkpoint c4 autenticados", () => {
     ).toBeVisible();
     await expect(page.getByRole("button", { name: "Refazer checkpoint" })).toBeVisible();
     await expect(page.getByText(/Seu melhor score registrado no checkpoint final é 100%/)).toBeVisible();
+    await expect(
+      page.getByRole("progressbar", { name: "Progresso na jornada do módulo Hangul" }),
+    ).toHaveAttribute("aria-valuenow", "29");
 
     await page.goto("/hangul");
     await expect(
       page.getByRole("heading", { name: "Módulo Hangul concluído" }),
     ).toBeVisible();
+    await expect(page.getByText("29 de 29 passos", { exact: true })).toBeVisible();
+    await expect(page.getByRole("link", { name: /Continuar h/ })).toHaveCount(0);
     await expect(page.getByText("Em breve")).toHaveCount(0);
     expect(
       await page.evaluate(

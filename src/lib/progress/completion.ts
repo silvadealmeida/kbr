@@ -1,4 +1,10 @@
 import type { Checkpoint, Lesson } from "@/content/hangul/types";
+import {
+  buildCourseSteps,
+  isCourseStepUnlocked,
+  nextRecommendedCourseStep,
+  type CourseStepKind,
+} from "@/lib/courses";
 import type { Progress } from "@/lib/storage";
 import { buildDashboardSummary } from "./dashboard";
 import { summarizeDiagnostics } from "./diagnostics";
@@ -18,6 +24,21 @@ export type CompletedCheckpointSummary = {
   id: string;
   title: string;
   score: number;
+};
+
+/**
+ * Passo da jornada intercalada do curso (lições e checkpoints na ordem em que
+ * aparecem no percurso). `done`, `score`, `unlocked` e `current` são derivados
+ * do `Progress` v1; nada aqui inventa conclusão, nota ou desbloqueio.
+ */
+export type CourseJourneyStep = {
+  id: string;
+  kind: CourseStepKind;
+  title: string;
+  done: boolean;
+  score: number | null;
+  unlocked: boolean;
+  current: boolean;
 };
 
 export type CompletionStats = {
@@ -64,6 +85,12 @@ export type CourseCompletionReport = {
   finalCheckpointScore: number | null;
   /** Resultado da tentativa atual do checkpoint final, quando disponível. */
   finalAssessment: FinalAssessmentFeedback | null;
+  /** Ordem intercalada real de lições e checkpoints, com estado derivado. */
+  journey: readonly CourseJourneyStep[];
+  completedSteps: number;
+  totalSteps: number;
+  currentStepId: string | null;
+  nextStep: { id: string; title: string; kind: CourseStepKind } | null;
   stats: CompletionStats;
 };
 
@@ -142,6 +169,21 @@ export function buildCourseCompletionReport(
       ? buildFinalAssessment(options.finalCheckpoint, options.finalResult, options.lessons)
       : null;
 
+  const steps = buildCourseSteps(options.lessons, options.checkpoints);
+  const nextStep = nextRecommendedCourseStep(progress, steps) ?? null;
+  const journey = steps.map((step): CourseJourneyStep => {
+    const record = progress.lessons[step.id];
+    return {
+      id: step.id,
+      kind: step.kind,
+      title: step.title,
+      done: record?.done === true,
+      score: typeof record?.score === "number" ? record.score : null,
+      unlocked: isCourseStepUnlocked(progress, step),
+      current: nextStep?.id === step.id,
+    };
+  });
+
   return {
     complete: isCourseComplete(progress, options.lessons, options.checkpoints),
     totalLessons: options.lessons.length,
@@ -162,6 +204,13 @@ export function buildCourseCompletionReport(
         ? progress.lessons[options.finalCheckpoint.id]!.score
         : null,
     finalAssessment,
+    journey,
+    completedSteps: journey.filter((step) => step.done).length,
+    totalSteps: journey.length,
+    currentStepId: nextStep?.id ?? null,
+    nextStep: nextStep
+      ? { id: nextStep.id, title: nextStep.title, kind: nextStep.kind }
+      : null,
     stats: {
       attempts: dashboard.attempts.total,
       correct: dashboard.attempts.correct,

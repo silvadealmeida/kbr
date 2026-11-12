@@ -3,6 +3,8 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, test } from "vitest";
 
 import { PronunciationLayers } from "@/components/hangul/PronunciationLayers";
+import { SoundMap } from "@/components/hangul/SoundMap";
+import { SyllableAnatomy } from "@/components/hangul/SyllableAnatomy";
 import { SyllableBuilder } from "@/components/hangul/SyllableBuilder";
 import { ExerciseView } from "@/components/hangul/exercise-ui";
 import { PlayerHeader } from "@/components/hangul/player-header";
@@ -128,6 +130,54 @@ describe("camadas de pronúncia", () => {
     expect(html).toContain('aria-expanded="false"');
     expect(html).toContain("Bloco com contorno e fundo");
     expect(html).toContain("Ouvir a forma falada");
+  });
+});
+
+describe("anatomia da sílaba", () => {
+  test("mostra bloco montado, peças separadas e explicação estática", () => {
+    const html = render(createElement(SyllableAnatomy));
+
+    expect(html).toContain("Uma sílaba, três posições");
+    expect(html).toContain("Ordem de composição");
+    expect(html).toContain("Ver peças separadas");
+    expect(html).toContain('aria-pressed="false"');
+    expect(html).toContain('role="img"');
+    expect(html).toContain("ㅎ na posição inicial");
+    expect(html).toContain("Ocupa o canto superior esquerdo do bloco.");
+    expect(html).toContain("Fecha o bloco por baixo");
+    expect(html).toContain("Conteúdo em revisão · h18");
+    expect(html).toContain('lang="ko"');
+    expect(html).toContain("Ouvir a sílaba 한");
+    expect(html).toContain("voz é gerada pelo sistema");
+    expect(html).toContain("Conteúdo em revisão");
+    expect(html).not.toContain("draggable");
+  });
+
+  test("mantém três botões de parte com alvo de 44 px e estado acessível", () => {
+    const html = render(createElement(SyllableAnatomy));
+
+    expect(html).toContain("min-h-12");
+    expect(html).toContain("Inicial");
+    expect(html).toContain("Medial");
+    expect(html).toContain("Final");
+    expect(html.match(/aria-pressed="false"/g)?.length).toBeGreaterThanOrEqual(3);
+    expect(html).toContain("Ver peças separadas");
+  });
+});
+
+describe("mapa de sons", () => {
+  test("deriva 19 consoantes e 21 vogais do conteúdo existente", () => {
+    const html = render(createElement(SoundMap));
+
+    expect(html).toContain("<details");
+    expect(html).toContain("Mapa de sons · 40 jamo");
+    expect(html).toContain("Consoantes · 19");
+    expect(html).toContain("Vogais · 21");
+    expect(html).toContain("não é uma tabela fonética completa");
+    expect(html).toContain("em revisão");
+    expect(html).toContain("h02");
+    expect(html).toContain('lang="ko"');
+    expect(html).not.toContain("<audio");
   });
 });
 

@@ -16,6 +16,14 @@ async function seedHangulProgress(context: BrowserContext, userId: string) {
     "c2",
     "c3",
   ];
+  await seedLessons(context, userId, completed);
+}
+
+async function seedLessons(
+  context: BrowserContext,
+  userId: string,
+  completed: readonly string[],
+) {
   await context.addInitScript(
     ({ key, lessons }) => {
       try {
@@ -191,6 +199,62 @@ test.describe("Orçamento de desempenho local", () => {
     });
     expect(result.cls, "CLS do player").toBeLessThan(0.1);
     expect(result.bytes, "transferência total do player").toBeLessThan(1_200_000);
+  });
+
+  test("atlas do Hangul mantém orçamento autenticado", async ({
+    context,
+    page,
+  }, testInfo) => {
+    test.skip(testInfo.project.name !== "desktop-1280", "Medição única em 1280 px.");
+    const user = await authenticate(context);
+    await seedLessons(context, user.id, [
+      ...Array.from({ length: 25 }, (_, index) => `h${String(index + 1).padStart(2, "0")}`),
+      "c1",
+      "c2",
+      "c3",
+      "c4",
+    ]);
+    await page.addInitScript({ content: clsObserver });
+
+    await page.goto("/hangul", { waitUntil: "networkidle" });
+    await expect(page.getByRole("heading", { name: "Módulo Hangul concluído" })).toBeVisible();
+    await page.waitForTimeout(300);
+    const hangul = await measure(page);
+    await testInfo.attach("hangul-metrics.json", {
+      body: JSON.stringify(hangul, null, 2),
+      contentType: "application/json",
+    });
+    expect(hangul.cls, "CLS do atlas").toBeLessThan(0.1);
+    expect(hangul.bytes, "transferência total do atlas").toBeLessThan(1_200_000);
+  });
+
+  test("conclusão do c4 mantém orçamento autenticado", async ({
+    context,
+    page,
+  }, testInfo) => {
+    test.skip(testInfo.project.name !== "desktop-1280", "Medição única em 1280 px.");
+    const user = await authenticate(context);
+    await seedLessons(context, user.id, [
+      ...Array.from({ length: 25 }, (_, index) => `h${String(index + 1).padStart(2, "0")}`),
+      "c1",
+      "c2",
+      "c3",
+      "c4",
+    ]);
+    await page.addInitScript({ content: clsObserver });
+
+    await page.goto("/hangul/c4", { waitUntil: "networkidle" });
+    await expect(
+      page.getByRole("heading", { level: 1, name: "Módulo Hangul concluído" }),
+    ).toBeVisible();
+    await page.waitForTimeout(300);
+    const completion = await measure(page);
+    await testInfo.attach("c4-completion-metrics.json", {
+      body: JSON.stringify(completion, null, 2),
+      contentType: "application/json",
+    });
+    expect(completion.cls, "CLS da conclusão").toBeLessThan(0.1);
+    expect(completion.bytes, "transferência total da conclusão").toBeLessThan(1_200_000);
   });
 
   test("320/375/390/640/768/1280 não criam rolagem horizontal", async ({

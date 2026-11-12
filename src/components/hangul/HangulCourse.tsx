@@ -2,24 +2,22 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { HANGUL_COURSE } from "@/content/courses";
 import { COURSE_OUTLINE } from "@/content/hangul/outline";
 import { CHECKPOINTS, getCheckpoint } from "@/content/hangul/checkpoints";
 import { getLesson, LESSONS } from "@/content/hangul/lessons";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
-import { Card, Plate } from "@/components/ui/Card";
-import { Ruler } from "@/components/ui/Ruler";
-import { summarizeCourseProgress } from "@/lib/courses";
+import { Card } from "@/components/ui/Card";
 import { buildCourseCompletionReport } from "@/lib/progress/completion";
 import {
   isCheckpointUnlocked,
-  isCourseComplete,
   isLessonUnlocked,
 } from "@/lib/progress/lesson";
 import type { Progress } from "@/lib/storage";
 import { CourseCompletionPanel } from "./CourseCompletionPanel";
+import { SoundMap } from "./SoundMap";
+import { SyllableAnatomy } from "./SyllableAnatomy";
 
 
 export function HangulCourse() {
@@ -50,17 +48,14 @@ export function HangulCourse() {
     };
   }, [progressStore, reloadKey]);
 
-  const courseComplete = progress
-    ? isCourseComplete(progress, LESSONS, CHECKPOINTS)
-    : false;
-  const completion =
-    progress && courseComplete
-      ? buildCourseCompletionReport(progress, {
-          now: new Date(),
-          lessons: LESSONS,
-          checkpoints: CHECKPOINTS,
-        })
-      : null;
+  const completion = progress
+    ? buildCourseCompletionReport(progress, {
+        now: new Date(),
+        lessons: LESSONS,
+        checkpoints: CHECKPOINTS,
+      })
+    : null;
+  const currentStepId = completion?.currentStepId ?? null;
 
   if (status === "loading" || loading || (!progressStore && syncStatus === "syncing")) {
     return (
@@ -90,41 +85,19 @@ export function HangulCourse() {
     );
   }
 
-  const summary = summarizeCourseProgress(progress, HANGUL_COURSE);
-  const currentStepId = summary.nextStep?.id ?? null;
-
   return (
     <div className="flex flex-col gap-6">
-      <Plate label="Atlas de estudo" number={summary.completedSteps + " / " + summary.totalSteps}>
-        <div className="flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <p className="mono-label text-accent">Hangul · Pré-A1</p>
-            <h2 className="mt-2 text-2xl font-semibold">25 lições, quatro checkpoints</h2>
-          </div>
-          <Badge tone="accent">
-            {summary.complete ? "Percurso concluído" : currentStepId ? "Agora · " + currentStepId : "Sem passo disponível"}
-          </Badge>
-        </div>
-        <Ruler
-          value={summary.completedLessons}
-          max={summary.totalLessons}
-          label="Progresso nas 25 lições de Hangul"
-          valueText={summary.completedLessons + " de " + summary.totalLessons + " lições concluídas"}
-          className="mt-5"
-        />
-        <p className="mt-3 border-t border-line pt-3 text-sm text-muted">
-          Checkpoints: <strong className="font-mono text-fg">{summary.completedCheckpoints} de {summary.totalCheckpoints}</strong> concluídos.
-        </p>
-      </Plate>
+      {completion ? (
+        <CourseCompletionPanel report={completion} allowIncomplete compact />
+      ) : null}
 
       <p className="border-l-2 border-accent bg-surface-2 p-4 text-sm text-muted">
         Conteúdo coreano em revisão por falante nativo. As lições h01–h25 e os
         checkpoints c1–c4 estão disponíveis.
       </p>
 
-      {completion ? (
-        <CourseCompletionPanel report={completion} />
-      ) : null}
+      <SyllableAnatomy />
+      <SoundMap />
 
       {COURSE_OUTLINE.map((unit) => {
         const checkpoint = unit.checkpoint ? getCheckpoint(unit.checkpoint) : undefined;

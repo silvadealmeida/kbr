@@ -420,6 +420,14 @@ test.describe("WebKit/iOS automatizado (sem dispositivo físico)", () => {
     expect(
       await feedback.evaluate((element) => getComputedStyle(element).animationName),
     ).toBe("none");
+
+    await page.goto("/hangul");
+    const anatomy = page.getByRole("region", { name: "Uma sílaba, três posições" });
+    await expect(anatomy).toBeVisible();
+    await anatomy.getByRole("button", { name: "Ver peças separadas" }).click();
+    await expect(
+      anatomy.getByRole("button", { name: "Ver bloco montado" }),
+    ).toHaveAttribute("aria-pressed", "true");
   });
 
   test("viewport estreito e resposta textual não criam rolagem horizontal", async ({

@@ -115,3 +115,18 @@ seguem abertos. A auditoria técnica do áudio está em `docs/audio/`.
 - **Aberto:** confirmar em iPhone/Safari, Chrome iOS, Chrome Android e Chrome
   Windows (checklist `docs/iphone-manual-checklist.md` §13 e o roteiro do doc de
   fala); só o reconhecedor simulado foi testado automaticamente.
+
+## Atualização da Fase 8D
+
+- **Item 2 (áudio):** os 287 MP3 sintéticos continuam `in-review`. A 8D
+  reverificou integridade e corrigiu o rótulo "gravado" (era falso), mas **não**
+  houve escuta nativa. Surgiu um bloqueio novo: a licença do encoder
+  `kykim/bert-kor-base` não está resolvida, então a distribuição pública/comercial
+  do áudio sintético está **bloqueada** (`docs/audio/license-audit.md`). Itens de
+  maior risco para escuta: ㄹ, ㅐ/ㅔ, ㅚ/ㅙ/ㅞ, tensas × aspiradas em sílabas isoladas
+  e batchim em clipes curtos (`docs/audio/audio-quality-report.md` §3). Segue
+  aberto.
+- **Item 3 (flashcards ilustrados):** inalterado, futuro.
+- **Item 4 (fala/catálogo):** a prática de fala continua testada só com
+  reconhecedor simulado; a matriz para o usuário rodar nos aparelhos está em
+  `docs/iphone-manual-checklist.md` §14.

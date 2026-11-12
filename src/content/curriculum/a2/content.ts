@@ -3,6 +3,7 @@ import { A2_CURRICULUM } from "./blueprint";
 import { A2_C01 } from "./checkpoints/a2-c01";
 import { A2_C02 } from "./checkpoints/a2-c02";
 import { A2_C03 } from "./checkpoints/a2-c03";
+import { A2_C04 } from "./checkpoints/a2-c04";
 import { A2_L01 } from "./lessons/a2-l01";
 import { A2_L02 } from "./lessons/a2-l02";
 import { A2_L03 } from "./lessons/a2-l03";
@@ -18,6 +19,11 @@ import { A2_L12 } from "./lessons/a2-l12";
 import { A2_L13 } from "./lessons/a2-l13";
 import { A2_L14 } from "./lessons/a2-l14";
 import { A2_L15 } from "./lessons/a2-l15";
+import { A2_L16 } from "./lessons/a2-l16";
+import { A2_L17 } from "./lessons/a2-l17";
+import { A2_L18 } from "./lessons/a2-l18";
+import { A2_L19 } from "./lessons/a2-l19";
+import { A2_L20 } from "./lessons/a2-l20";
 import type { A2CheckpointContent, A2ContentIssue, A2LessonContent } from "./types";
 import {
   validateA2CheckpointContent,
@@ -41,12 +47,18 @@ export const A2_IMPLEMENTED_LESSONS: readonly A2LessonContent[] = [
   A2_L13,
   A2_L14,
   A2_L15,
+  A2_L16,
+  A2_L17,
+  A2_L18,
+  A2_L19,
+  A2_L20,
 ];
 
 export const A2_IMPLEMENTED_CHECKPOINTS: readonly A2CheckpointContent[] = [
   A2_C01,
   A2_C02,
   A2_C03,
+  A2_C04,
 ];
 
 const LESSON_BY_ID = new Map(A2_IMPLEMENTED_LESSONS.map((lesson) => [lesson.id, lesson]));

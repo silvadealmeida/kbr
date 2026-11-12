@@ -412,7 +412,7 @@ Testes: `npm run typecheck`; `npm test` (34 arquivos, 517 testes); `npm run buil
 
 Limitações: todo o coreano novo continua `in-review`; naturalidade, traduções e a explicação de `씨` aguardam falante nativo. A voz do sistema depende do dispositivo e não foi testada em iPhone real. Não há teste de áudio real, revisão nativa, Supabase real, checkpoints A1, rota genérica, player compartilhado, conclusão do A1 ou produção. A 9B não alterou `Progress` v1, CAS, SQL, RLS, migrações, SRS do Hangul ou o corpus restrito.
 
-Próximo passo: **9C — `a1-l02` ou o recorte explicitamente pedido**, seguindo o padrão registrado em `docs/release/curriculum-handoff.md` §7 e em `AGENTS.md`. Não iniciar sem pedido. A revisão nativa e os bloqueios de áudio/licença continuam válidos.
+Próximo passo naquele momento: 9C — `a1-l02`. **Concluído pelas fases 9C–9H**, que implementaram as 40 lições e os 8 checkpoints; ver §Status Fases 9C–9H. A revisão nativa e os bloqueios de áudio/licença continuam válidos.
 
 ## Status Fases 9C–9H (real)
 

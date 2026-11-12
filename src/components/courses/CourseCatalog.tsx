@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { ButtonLink } from "@/components/ui/Button";
+import { Plate } from "@/components/ui/Card";
 import { ProgressBar } from "@/components/ui/ProgressBar";
 import {
   courseStepHref,
@@ -22,8 +23,8 @@ function StatusBadge({
 }) {
   return (
     <span
-      className={`shrink-0 rounded-full px-2.5 py-1 text-xs font-semibold ${
-        tone === "brand" ? "bg-soft text-brand" : "border border-border text-muted"
+      className={`shrink-0 rounded-[var(--radius-seal)] px-2.5 py-1 font-mono text-[11px] font-medium uppercase tracking-[0.08em] ${
+        tone === "brand" ? "bg-surface-2 text-accent" : "border border-line text-muted"
       }`}
     >
       {children}
@@ -63,7 +64,7 @@ export function CourseCatalog() {
     <div className="flex flex-col gap-8">
       <section
         aria-labelledby="courses-levels-title"
-        className="rounded-2xl border border-border bg-surface p-4 text-sm text-muted"
+        className="border-l-2 border-accent bg-surface-2 p-4 text-sm text-muted"
       >
         <h2 id="courses-levels-title" className="font-semibold text-fg">
           Cursos e níveis
@@ -114,10 +115,8 @@ export function CourseCatalog() {
             const level = courseLevelLabel(course.level);
 
             return (
-              <li
-                key={course.id}
-                className="rounded-2xl border-2 border-brand/30 bg-surface p-5"
-              >
+              <li key={course.id}>
+                <Plate label="Índice de curso" number="01" className="border-accent">
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div className="min-w-0">
                     <p className="text-sm font-semibold uppercase tracking-wide text-brand">
@@ -143,17 +142,17 @@ export function CourseCatalog() {
                 </div>
 
                 <dl className="mt-4 grid grid-cols-2 gap-3 text-sm sm:grid-cols-4">
-                  <div className="rounded-xl bg-soft p-3">
+                  <div className="border-l border-line pl-3">
                     <dt className="text-muted">Unidades</dt>
                     <dd className="mt-1 text-lg font-bold">{course.units.length}</dd>
                   </div>
-                  <div className="rounded-xl bg-soft p-3">
+                  <div className="border-l border-line pl-3">
                     <dt className="text-muted">Lições</dt>
                     <dd className="mt-1 text-lg font-bold">
                       {summary ? `${summary.completedLessons} de ${summary.totalLessons}` : course.steps.filter((step) => step.kind === "lesson").length}
                     </dd>
                   </div>
-                  <div className="rounded-xl bg-soft p-3">
+                  <div className="border-l border-line pl-3">
                     <dt className="text-muted">Checkpoints</dt>
                     <dd className="mt-1 text-lg font-bold">
                       {summary
@@ -161,7 +160,7 @@ export function CourseCatalog() {
                         : course.steps.filter((step) => step.kind === "checkpoint").length}
                     </dd>
                   </div>
-                  <div className="rounded-xl bg-soft p-3">
+                  <div className="border-l border-line pl-3">
                     <dt className="text-muted">Passos</dt>
                     <dd className="mt-1 text-lg font-bold">
                       {summary ? `${summary.completedSteps} de ${summary.totalSteps}` : course.steps.length}
@@ -214,7 +213,7 @@ export function CourseCatalog() {
                   ) : null}
                 </div>
 
-                <details className="mt-5">
+                <details className="mt-5 border-t border-line pt-4">
                   <summary className="min-h-11 cursor-pointer text-sm font-semibold text-brand">
                     Unidades e passos
                   </summary>
@@ -249,6 +248,7 @@ export function CourseCatalog() {
                     })}
                   </ol>
                 </details>
+                </Plate>
               </li>
             );
           })}
@@ -270,10 +270,10 @@ export function CourseCatalog() {
           {planned.map((course) => (
             <li
               key={course.id}
-              className="flex flex-col rounded-2xl border border-dashed border-border p-4"
+              className="flex flex-col border-t border-line py-4"
             >
               <div className="flex items-center justify-between gap-3">
-                <span className="rounded-full bg-soft px-2.5 py-1 text-xs font-semibold text-brand">
+                <span className="mono-label text-accent">
                   {isCefrLevel(course.level) ? `CEFR ${courseLevelLabel(course.level)}` : courseLevelLabel(course.level)}
                 </span>
                 <StatusBadge>Planejado · indisponível</StatusBadge>

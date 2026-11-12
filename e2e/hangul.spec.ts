@@ -42,9 +42,14 @@ test.describe("Hangul autenticado", () => {
     await expect(
       page.getByRole("heading", { level: 1, name: "Aprender Hangul" }),
     ).toBeVisible();
+    const currentLesson = page.getByRole("link", {
+      name: /h01.*Um alfabeto desenhado/,
+    });
+    await expect(currentLesson).toBeVisible();
+    await expect(currentLesson).toHaveAttribute("aria-current", "step");
     await expect(
-      page.getByRole("link", { name: /h01.*Um alfabeto desenhado/ }),
-    ).toBeVisible();
+      page.getByRole("progressbar", { name: "Progresso nas 25 lições de Hangul" }),
+    ).toHaveAttribute("aria-valuenow", "0");
     await expect(page.getByText("Após h01", { exact: true })).toBeVisible();
     await expect(page.getByText("Em breve")).toHaveCount(0);
     await expect(

@@ -78,6 +78,7 @@ test.describe("Catálogo de cursos autenticado", () => {
 
     await expect(page.getByRole("heading", { level: 1, name: "Cursos" })).toBeVisible();
     await expect(page.getByText("Pré-A1 · Curso disponível")).toBeVisible();
+    await expect(page.getByText("Índice de curso")).toBeVisible();
     await expect(page.getByRole("heading", { name: "Hangul", exact: false }).first()).toBeVisible();
     await expect(page.getByText("0 de 29 passos concluídos.")).toBeVisible();
     await expect(

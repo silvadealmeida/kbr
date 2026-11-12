@@ -2,10 +2,14 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { HANGUL_COURSE } from "@/content/courses";
 import { COURSE_OUTLINE } from "@/content/hangul/outline";
 import { CHECKPOINTS, getCheckpoint } from "@/content/hangul/checkpoints";
 import { getLesson, LESSONS } from "@/content/hangul/lessons";
 import { useAuth } from "@/components/auth/AuthProvider";
+import { Ruler } from "@/components/ui/Ruler";
+import { Plate } from "@/components/ui/Card";
+import { summarizeCourseProgress } from "@/lib/courses";
 import { buildCourseCompletionReport } from "@/lib/progress/completion";
 import {
   isCheckpointUnlocked,
@@ -18,8 +22,8 @@ import { CourseCompletionPanel } from "./CourseCompletionPanel";
 function StatusBadge({ children, tone = "muted" }: { children: React.ReactNode; tone?: "muted" | "brand" }) {
   return (
     <span
-      className={`shrink-0 rounded-full px-2.5 py-1 text-xs font-semibold ${
-        tone === "brand" ? "bg-soft text-brand" : "border border-border text-muted"
+      className={`shrink-0 rounded-[var(--radius-seal)] px-2.5 py-1 font-mono text-[11px] font-medium uppercase tracking-[0.08em] ${
+        tone === "brand" ? "bg-surface-2 text-accent" : "border border-line text-muted"
       }`}
     >
       {children}
@@ -95,9 +99,34 @@ export function HangulCourse() {
     );
   }
 
+  const summary = summarizeCourseProgress(progress, HANGUL_COURSE);
+  const currentStepId = summary.nextStep?.id ?? null;
+
   return (
     <div className="flex flex-col gap-6">
-      <p className="rounded-2xl border border-border bg-surface p-4 text-sm text-muted">
+      <Plate label="Atlas de estudo" number={summary.completedSteps + " / " + summary.totalSteps}>
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p className="mono-label text-accent">Hangul · Pré-A1</p>
+            <h2 className="mt-2 text-2xl font-semibold">25 lições, quatro checkpoints</h2>
+          </div>
+          <StatusBadge tone="brand">
+            {summary.complete ? "Percurso concluído" : currentStepId ? "Agora · " + currentStepId : "Sem passo disponível"}
+          </StatusBadge>
+        </div>
+        <Ruler
+          value={summary.completedLessons}
+          max={summary.totalLessons}
+          label="Progresso nas 25 lições de Hangul"
+          valueText={summary.completedLessons + " de " + summary.totalLessons + " lições concluídas"}
+          className="mt-5"
+        />
+        <p className="mt-3 border-t border-line pt-3 text-sm text-muted">
+          Checkpoints: <strong className="font-mono text-fg">{summary.completedCheckpoints} de {summary.totalCheckpoints}</strong> concluídos.
+        </p>
+      </Plate>
+
+      <p className="border-l-2 border-accent bg-surface-2 p-4 text-sm text-muted">
         Conteúdo coreano em revisão por falante nativo. As lições h01–h25 e os
         checkpoints c1–c4 estão disponíveis.
       </p>
@@ -109,7 +138,7 @@ export function HangulCourse() {
       {COURSE_OUTLINE.map((unit) => {
         const checkpoint = unit.checkpoint ? getCheckpoint(unit.checkpoint) : undefined;
         return (
-          <section key={unit.unit} aria-labelledby={`unit-${unit.unit}`}>
+          <section key={unit.unit} className="border-t border-line pt-5" aria-labelledby={`unit-${unit.unit}`}>
             <div className="mb-2 flex items-baseline justify-between gap-3">
               <h2 id={`unit-${unit.unit}`} className="text-lg font-semibold">
                 Unidade {unit.unit} · {unit.title}
@@ -167,7 +196,10 @@ export function HangulCourse() {
                     {unlocked ? (
                       <Link
                         href={`/hangul/${outline.id}`}
-                        className="flex min-h-14 items-center justify-between gap-3 rounded-xl border border-border bg-surface px-4 py-3 hover:bg-soft"
+                        aria-current={currentStepId === outline.id ? "step" : undefined}
+                        className={currentStepId === outline.id
+                          ? "flex min-h-14 items-center justify-between gap-3 border border-l-4 border-accent bg-surface px-4 py-3 hover:bg-surface-2"
+                          : "flex min-h-14 items-center justify-between gap-3 border border-line bg-surface px-4 py-3 hover:bg-surface-2"}
                       >
                         {body}
                       </Link>
@@ -215,7 +247,10 @@ export function HangulCourse() {
                     return unlocked ? (
                       <Link
                         href={`/hangul/${checkpoint.id}`}
-                        className="flex min-h-14 items-center justify-between gap-3 rounded-xl border-2 border-brand/40 bg-surface px-4 py-3 hover:bg-soft"
+                        aria-current={currentStepId === checkpoint.id ? "step" : undefined}
+                        className={currentStepId === checkpoint.id
+                          ? "flex min-h-14 items-center justify-between gap-3 border-2 border-l-4 border-seal bg-surface px-4 py-3 hover:bg-surface-2"
+                          : "flex min-h-14 items-center justify-between gap-3 border-2 border-line bg-surface px-4 py-3 hover:bg-surface-2"}
                       >
                         {body}
                       </Link>

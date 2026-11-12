@@ -120,9 +120,9 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794471497.3074892,
-    "seen": 1794471508.1970441,
-    "ast_hash": "0d18cc3303dc5bc7ba6f05d379b63815",
+    "mtime": 1794471691.7844312,
+    "seen": 1794471714.1476831,
+    "ast_hash": "e62fbd0905a7d99a6b30e3ea305dc02e",
     "semantic_hash": ""
   },
   "src/lib/hangul/index.ts": {
@@ -516,9 +516,9 @@
     "semantic_hash": ""
   },
   "e2e/hangul.spec.ts": {
-    "mtime": 1794437934.6744149,
-    "seen": 1794464129.33186,
-    "ast_hash": "871e32990dbfb17e343b108b09e83ce9",
+    "mtime": 1794471652.680294,
+    "seen": 1794471714.147492,
+    "ast_hash": "ff3b53f358601b870ce04841840b79de",
     "semantic_hash": ""
   },
   "e2e/mock-supabase.mjs": {
@@ -540,9 +540,9 @@
     "semantic_hash": ""
   },
   "src/components/hangul/HangulCourse.tsx": {
-    "mtime": 1794397406.931962,
-    "seen": 1794398486.1041207,
-    "ast_hash": "519880a55335c688f59e5f1fb31d95c2",
+    "mtime": 1794471633.3299434,
+    "seen": 1794471714.1475399,
+    "ast_hash": "082b4407cb4f69308256a842b0f74dc1",
     "semantic_hash": ""
   },
   "src/components/hangul/LessonPlayer.tsx": {
@@ -990,9 +990,9 @@
     "semantic_hash": ""
   },
   "e2e/courses.spec.ts": {
-    "mtime": 1794389411.259148,
-    "seen": 1794396154.8611236,
-    "ast_hash": "d884b4cd5e3df5e96a089444d27618ee",
+    "mtime": 1794471652.727094,
+    "seen": 1794471714.1474853,
+    "ast_hash": "9a02c0ac32fddee5b531c2ab74f686bb",
     "semantic_hash": ""
   },
   "src/app/(app)/cursos/page.tsx": {
@@ -1002,9 +1002,9 @@
     "semantic_hash": ""
   },
   "src/components/courses/CourseCatalog.tsx": {
-    "mtime": 1794395794.458983,
-    "seen": 1794396154.861756,
-    "ast_hash": "236eac4f9a642436d33fe75f1e3a123c",
+    "mtime": 1794471565.643647,
+    "seen": 1794471714.1475341,
+    "ast_hash": "8278fdfbfeec87ac2071720cd7d9053e",
     "semantic_hash": ""
   },
   "src/content/courses/hangul.ts": {

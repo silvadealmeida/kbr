@@ -77,6 +77,7 @@ describe("blueprint curricular A1", () => {
     expect(A1_LESSONS).toHaveLength(40);
     expect(A1_CHECKPOINTS).toHaveLength(8);
     expect(A1_LESSON_IDS.size).toBe(40);
+    expect(A1_LESSONS.map((lesson) => lesson.id)).toEqual([...A1_LESSON_IDS]);
     expect(A1_LESSONS.map((lesson) => lesson.id)).toEqual(
       Array.from({ length: 40 }, (_, index) => `a1-l${String(index + 1).padStart(2, "0")}`),
     );

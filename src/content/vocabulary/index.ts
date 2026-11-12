@@ -1,6 +1,6 @@
 import { CHECKPOINTS } from "@/content/hangul/checkpoints";
 import { LESSONS } from "@/content/hangul/lessons";
-import { A1_LESSON_IDS } from "@/content/curriculum/a1";
+import { A1_LESSON_IDS } from "@/content/curriculum/a1/ids";
 import { HANGUL_VOCABULARY } from "./hangul";
 import { VOCAB_SENTENCES } from "./sentences";
 import { validateVocabulary } from "./validate";

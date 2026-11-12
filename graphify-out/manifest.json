@@ -96,9 +96,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1794490854.3810873,
-    "seen": 1794490856.8398168,
-    "ast_hash": "4ea2f36d3ee307cc0fc106937718785d",
+    "mtime": 1794493056.0373156,
+    "seen": 1794493803.3166955,
+    "ast_hash": "b0dfaddcf5ba1d20f9a19370db1568f9",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -108,9 +108,9 @@
     "semantic_hash": ""
   },
   "docs/architecture.md": {
-    "mtime": 1794492995.4529524,
-    "seen": 1794492997.7496266,
-    "ast_hash": "fcbad2c17e1a9ba77c9b2ef76dd71864",
+    "mtime": 1794493795.034565,
+    "seen": 1794493803.316698,
+    "ast_hash": "201b1628fb535cada85bf5df1dd80861",
     "semantic_hash": ""
   },
   "docs/research.md": {
@@ -120,9 +120,9 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794492995.4529524,
-    "seen": 1794492997.74965,
-    "ast_hash": "da832f6cb878d9467b0daccd99034193",
+    "mtime": 1794493790.8009648,
+    "seen": 1794493803.316722,
+    "ast_hash": "337353240064293f7726b44a4b07e722",
     "semantic_hash": ""
   },
   "src/lib/hangul/index.ts": {
@@ -3276,9 +3276,9 @@
     "semantic_hash": ""
   },
   "docs/release/curriculum-handoff.md": {
-    "mtime": 1794489897.319461,
-    "seen": 1794490856.839846,
-    "ast_hash": "e1309aea701c1fd71c668872a45dbc15",
+    "mtime": 1794493798.353765,
+    "seen": 1794493803.3167207,
+    "ast_hash": "7c985700ef480127fea950e422d00af0",
     "semantic_hash": ""
   },
   "e2e/vocabulary.spec.ts": {
@@ -3336,9 +3336,9 @@
     "semantic_hash": ""
   },
   "src/content/vocabulary/index.ts": {
-    "mtime": 1794492734.8265386,
-    "seen": 1794492796.2883456,
-    "ast_hash": "61b455a69ac691e2ad207a9480eb5772",
+    "mtime": 1794493621.7388918,
+    "seen": 1794493803.316634,
+    "ast_hash": "a917c78001bc26d07351608bb04caebe",
     "semantic_hash": ""
   },
   "src/content/vocabulary/sentences.ts": {
@@ -3438,9 +3438,9 @@
     "semantic_hash": ""
   },
   "docs/curriculum/a1-syllabus.md": {
-    "mtime": 1794492285.4123018,
-    "seen": 1794492387.1740675,
-    "ast_hash": "afc1949993f2b33b115fe35455916827",
+    "mtime": 1794493484.9761631,
+    "seen": 1794493803.3167076,
+    "ast_hash": "18946e2f9ce351f892b704042d505a1a",
     "semantic_hash": ""
   },
   "docs/curriculum/a1-vocabulary-plan.md": {
@@ -3450,15 +3450,15 @@
     "semantic_hash": ""
   },
   "src/content/curriculum/a1/blueprint.ts": {
-    "mtime": 1794492582.380427,
-    "seen": 1794492700.490326,
-    "ast_hash": "7756aa12fb92382a658c77a8964a1937",
+    "mtime": 1794493819.9578485,
+    "seen": 1794493824.9746664,
+    "ast_hash": "5b457190a634be0dc8861904783f1f20",
     "semantic_hash": ""
   },
   "src/content/curriculum/a1/index.ts": {
-    "mtime": 1794492852.9179246,
-    "seen": 1794492997.749538,
-    "ast_hash": "6f418d765053711e389d891f555e1bff",
+    "mtime": 1794493621.7388918,
+    "seen": 1794493803.3165684,
+    "ast_hash": "7fe3b207c411081da8c26e98917f4604",
     "semantic_hash": ""
   },
   "src/content/curriculum/a1/types.ts": {
@@ -3474,15 +3474,21 @@
     "semantic_hash": ""
   },
   "tests/content/a1-curriculum.test.ts": {
-    "mtime": 1794492961.0966625,
-    "seen": 1794492997.7496057,
-    "ast_hash": "55374a7aae7ee730a5b51d7b09254f57",
+    "mtime": 1794493624.269692,
+    "seen": 1794493803.3166747,
+    "ast_hash": "a41fcbb1f17f3fe29338e867de491938",
     "semantic_hash": ""
   },
   "src/content/curriculum/a1/validate-content.ts": {
     "mtime": 1794492961.0966625,
     "seen": 1794492997.7495403,
     "ast_hash": "d557f4af203a6468d550e059a09b7d93",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/a1/ids.ts": {
+    "mtime": 1794493621.735292,
+    "seen": 1794493803.316567,
+    "ast_hash": "025325026bad3d35185868711a92df91",
     "semantic_hash": ""
   },
   "package-lock.json": {

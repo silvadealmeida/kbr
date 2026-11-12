@@ -380,7 +380,3 @@ export const A1_CURRICULUM: A1CurriculumBlueprint = {
   checkpoints: A1_CHECKPOINTS,
   review: IN_REVIEW,
 };
-
-export const A1_LESSON_IDS: ReadonlySet<string> = new Set(
-  A1_LESSONS.map((lesson) => lesson.id),
-);

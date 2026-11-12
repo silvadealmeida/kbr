@@ -73,19 +73,19 @@ test.describe("Vocabulário", () => {
       await page.getByLabel("Buscar em coreano ou português").fill("maçã");
       await expect(page.getByTestId("vocab-row")).toHaveCount(1);
       await expect(page.getByText("사과", { exact: true })).toBeVisible();
-      const save = page.getByRole("button", { name: "Salvar 사과" });
+      const save = page.getByRole("button", { name: "Salvar 사과", exact: true });
       expect((await save.boundingBox())?.height ?? 0).toBeGreaterThanOrEqual(40);
       await save.click();
-      await expect(page.getByRole("button", { name: "Remover 사과" })).toHaveAttribute("aria-pressed", "true");
+      await expect(page.getByRole("button", { name: "Remover 사과", exact: true })).toHaveAttribute("aria-pressed", "true");
       await expect(page.getByRole("link", { name: "Revisão diária (1)" })).toBeVisible();
 
       expect((await read(page, key)).cards["v:ko:사과"]).toMatchObject({ box: 1 });
       await page.reload();
       await page.getByLabel("Buscar em coreano ou português").fill("사과");
-      await expect(page.getByRole("button", { name: "Remover 사과" })).toBeVisible();
+      await expect(page.getByRole("button", { name: "Remover 사과", exact: true })).toBeVisible();
 
       // detalhes: exemplo com tradução e áudio da frase
-      await page.getByRole("button", { name: "Ver detalhes de 사과" }).click();
+      await page.getByRole("button", { name: "Ver detalhes de 사과", exact: true }).click();
       await expect(page.getByText("저는 사과를 먹어요.")).toBeVisible();
       await expect(page.getByText("“Eu como maçã.”")).toBeVisible();
       if (browserName !== "webkit") {
@@ -94,7 +94,7 @@ test.describe("Vocabulário", () => {
       }
 
       // remover
-      await page.getByRole("button", { name: "Remover 사과" }).click();
+      await page.getByRole("button", { name: "Remover 사과", exact: true }).click();
       const stored = await read(page, key);
       expect(stored.cards["v:ko:사과"].due).toBe("9999-12-31T00:00:00.000Z");
       await expect(page.getByText("Você ainda não salvou palavras.")).toBeVisible();
@@ -345,7 +345,7 @@ test.describe("Vocabulário", () => {
         await page.emulateMedia({ colorScheme: scheme });
         await page.goto("/vocabulario");
         await page.getByLabel("Buscar em coreano ou português").fill("사과");
-        await page.getByRole("button", { name: "Ver detalhes de 사과" }).click();
+        await page.getByRole("button", { name: "Ver detalhes de 사과", exact: true }).click();
         await expect.poll(() => page.evaluate(() => getComputedStyle(document.documentElement).colorScheme)).toBe(scheme);
         await axe("lista");
 

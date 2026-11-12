@@ -1,6 +1,6 @@
 # A1 — syllabus completo da Fase 9A
 
-Blueprint editorial: **8 módulos, 40 lições e 8 checkpoints**. Não contém diálogos, frases, listas lexicais ou exercícios finais; esses dados começam na 9B. Cada lição prevê 45–60 minutos de percurso principal e duas revisões distribuídas de 10–15 minutos. `contextual` abaixo significa a prática 9A-V; tipos entre “planejado” ainda não existem e não podem ser requisito de conclusão até fase própria.
+Blueprint editorial: **8 módulos, 40 lições e 8 checkpoints**. Os dados de diálogos, frases, listas lexicais e exercícios finais foram implementados nas fases 9B–9H. Cada lição prevê 45–60 minutos de percurso principal e duas revisões distribuídas de 10–15 minutos. `contextual` abaixo significa a prática 9A-V; tipos entre “planejado” ainda não existem e não podem ser requisito de conclusão até fase própria.
 
 Convenções:
 
@@ -10,9 +10,16 @@ Convenções:
 - critério padrão de lição: 8/10 itens avaliados + a tarefa comunicativa indicada; produções abertas são autoavaliação/rubrica humana;
 - todos os cenários, traduções e exemplos futuros serão originais e `in-review`.
 
-## Status de implementação (Fase 9B)
+## Status de implementação (Fases 9C–9H)
 
-Somente `a1-l01` está implementada e jogável. O curso `ko-a1` está `in-development`, com 1 de 40 lições e 0 de 8 checkpoints jogáveis; concluir a lição não conclui o curso. A lição implementada tem 4 painéis de introdução, diálogo de 6 turnos com tradução e áudio de TTS, 5 notas gramaticais, 11 identidades novas + 6 reusos do Hangul, 11 frases contextuais e 10 itens automáticos (5 guiados + 5 independentes). Todo o coreano é original e permanece `in-review`. As demais lições e checkpoints continuam sendo plano editorial, sem rota, link ou estado de conclusão.
+**Todas as 40 lições e os 8 checkpoints estão implementados e jogáveis.** `a1-l01` foi preservada (conteúdo, IDs e progresso); as demais lições seguem o mesmo contrato. O curso `ko-a1` está `available`, com 48 passos, `requiresAllSteps: true`, `finalStepId: "a1-c08"` e sem `plannedTotals`.
+
+- **Lições:** 10 exercícios automáticos por lição, 5 guiados + 5 independentes, mínimo 8/10 (80%). Todas têm introdução, diálogo original traduzido, 3–5 notas gramaticais, vocabulário novo + reuso, frases contextuais e `summary`.
+- **Checkpoints:** `a1-c01`–`a1-c07` têm 25 itens e mínimo 20/25; `a1-c08` tem 40 itens e mínimo 32/40. A tarefa funcional aberta é autoavaliação/rubrica e não entra na nota automática.
+- **Vocabulário:** 443 identidades novas do A1 + 443 frases contextuais próprias; 52 identidades do Hangul foram retomadas (495 identidades distintas ensinadas). Todo o conteúdo segue `in-review`.
+- **Exercícios:** 615 no total (400 de lição + 215 de checkpoint), usando somente tipos implementados: 79 `mcq`, 183 `cloze`, 132 `listen`, 97 `translate` e 124 `reading`. Nenhum `order-words`, `short-answer` ou `dialogue-choice` foi usado como item avaliado.
+- **Progressão:** `a1-l01` é o único passo inicial; cada lição seguinte depende da anterior; cada checkpoint depende das cinco lições do módulo e dos checkpoints anteriores; `a1-c08` depende de `a1-l36`–`a1-l40` e de `a1-c01`–`a1-c07`. A conclusão A1 exige os 48 passos.
+- **Limites:** a revisão nativa continua pendente; os critérios de produção aberta/fala não são automáticos; a conclusão é interna do KBR, sem certificação CEFR/TOPIK.
 
 ## Módulo 1 — Primeiro contato (`a1-m01`)
 

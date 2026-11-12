@@ -20,4 +20,4 @@ Acerto ou erro, tradução aberta ou não: palavra esperada, frase coreana compl
 - Alvos de toque ≥ 44 px; sem animação além das transições existentes.
 
 ## Limites
-Só 25 frases originais, todas em revisão nativa. As demais palavras caem para cartão simples. Não há áudio do corpus (MP3 restrito); só voz do sistema, que pode não existir no aparelho (mensagem honesta do `AudioControl`).
+O corpus tem 468 frases originais (25 do Hangul + 443 do A1), todas em revisão nativa. Palavras sem frase caem para cartão simples. Não há áudio do corpus (MP3 restrito); só voz do sistema, que pode não existir no aparelho (mensagem honesta do `AudioControl`).

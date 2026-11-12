@@ -56,9 +56,8 @@ export function validateVocabulary(
   for (const s of sentences) {
     if (sentenceIds.has(s.id)) add(s.id, "id de frase duplicado");
     sentenceIds.add(s.id);
-    const entry = entryById.get(s.vocabId);
-    if (!entry) { add(s.id, `vocabId inexistente: ${s.vocabId}`); continue; }
-    if (s.target !== entry.ko) add(s.id, "alvo difere do item de vocabulário");
+    if (!entryById.has(s.vocabId)) { add(s.id, `vocabId inexistente: ${s.vocabId}`); continue; }
+    if (!s.target.trim()) add(s.id, "alvo vazio");
     if (!s.pt.trim()) add(s.id, "tradução da frase ausente");
     if (!s.contextMeaning.trim()) add(s.id, "dica de sentido ausente");
     if (!/[가-힣]/.test(s.ko)) add(s.id, "frase sem hangul");

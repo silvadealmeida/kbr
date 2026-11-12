@@ -11,9 +11,8 @@ const COURSE_ID = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const SRS_PREFIX = /^[a-z0-9]+:$/i;
 
 /**
- * Registro estático de cursos. Hangul está disponível; A1 tem apenas a
- * primeira lição implementada (curso em desenvolvimento); A2–C2 seguem como
- * entradas de planejamento sem passos, rotas ou conteúdo.
+ * Registro estático de cursos. Hangul e A1 estão disponíveis; A2–C2 seguem
+ * como entradas de planejamento sem passos, rotas ou conteúdo.
  */
 export const COURSE_REGISTRY: readonly CourseDefinition[] = [
   HANGUL_COURSE,

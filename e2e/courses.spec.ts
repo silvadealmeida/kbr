@@ -6,11 +6,18 @@ const sessions = new WeakMap<
   BrowserContext,
   { user: ReturnType<typeof createTestUser>; storageKey: string }
 >();
-const LESSON_IDS = Array.from({ length: 25 }, (_, index) =>
+const HANGUL_LESSON_IDS = Array.from({ length: 25 }, (_, index) =>
   `h${String(index + 1).padStart(2, "0")}`,
 );
-const CHECKPOINT_IDS = ["c1", "c2", "c3", "c4"];
-const ALL_STEP_IDS = [...LESSON_IDS, ...CHECKPOINT_IDS];
+const HANGUL_ALL_STEPS = [...HANGUL_LESSON_IDS, "c1", "c2", "c3", "c4"];
+const A1_ALL_STEPS = [
+  ...Array.from({ length: 40 }, (_, index) =>
+    `a1-l${String(index + 1).padStart(2, "0")}`,
+  ),
+  ...Array.from({ length: 8 }, (_, index) =>
+    `a1-c${String(index + 1).padStart(2, "0")}`,
+  ),
+];
 
 function lessonProgress(ids: readonly string[]) {
   return Object.fromEntries(ids.map((id) => [id, { done: true, score: 100 }]));
@@ -71,51 +78,38 @@ test.describe("Catálogo de cursos autenticado", () => {
     await authenticate(context);
   });
 
-  test("mostra Hangul disponível, A1 em desenvolvimento e A2–C2 planejados, sem links falsos", async ({
+  test("mostra Hangul e A1 disponíveis e A2–C2 planejados, sem links falsos", async ({
     page,
   }) => {
     await page.goto("/cursos");
 
     await expect(page.getByRole("heading", { level: 1, name: "Cursos" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Disponíveis agora" })).toBeVisible();
     await expect(page.getByText("Pré-A1 · Curso disponível")).toBeVisible();
-    await expect(page.getByText("Índice de curso")).toBeVisible();
-    await expect(page.getByRole("heading", { name: "Hangul", exact: false }).first()).toBeVisible();
+    await expect(page.getByText("A1 · Curso disponível", { exact: true })).toBeVisible();
     await expect(page.getByText("0 de 29 passos concluídos.")).toBeVisible();
+    await expect(page.getByText("0 de 48 passos concluídos.")).toBeVisible();
     await expect(
       page.getByRole("progressbar", { name: "Progresso no curso Hangul" }),
     ).toHaveAttribute("aria-valuenow", "0");
+    await expect(
+      page.getByRole("progressbar", { name: "Progresso no curso Coreano A1" }),
+    ).toHaveAttribute("aria-valuenow", "0");
+    await expect(page.getByText("Em desenvolvimento")).toHaveCount(0);
+    await expect(page.getByText("1 de 40")).toHaveCount(0);
+    await expect(page.getByText("Parcial")).toHaveCount(0);
 
-    await expect(page.getByRole("heading", { name: "Em desenvolvimento" })).toBeVisible();
-    await expect(page.getByText("CEFR A1 · Em desenvolvimento")).toBeVisible();
-    await expect(page.getByText("1 de 40")).toBeVisible();
-    await expect(page.getByText("0 de 8")).toBeVisible();
-    await expect(page.getByText("Parcial")).toBeVisible();
     await expect(
-      page.getByText(/Concluir a lição disponível não conclui o curso A1/),
-    ).toBeVisible();
-
-    const developmentSection = page.locator("section").filter({
-      has: page.getByRole("heading", { name: "Em desenvolvimento" }),
-    });
+      page.locator("main a[href='/hangul/h01']"),
+    ).toHaveCount(1);
     await expect(
-      developmentSection.getByRole("link", { name: "Abrir Coreano A1" }),
-    ).toHaveAttribute("href", "/a1");
-    await expect(
-      developmentSection.getByRole("link", { name: "Começar a1-l01" }),
-    ).toHaveAttribute("href", "/a1/a1-l01");
-    await expect(
-      developmentSection.getByText("a1-l01 · Olá, eu sou…"),
-    ).toBeVisible();
-    const developmentLinks = await developmentSection
-      .locator("a[href^='/a1/']")
-      .evaluateAll((links) => links.map((link) => link.getAttribute("href")));
-    expect(new Set(developmentLinks)).toEqual(new Set(["/a1/a1-l01"]));
+      page.locator("main a[href='/a1/a1-l01']"),
+    ).toHaveCount(1);
 
     await expect(page.getByRole("heading", { name: "Em planejamento" })).toBeVisible();
     await expect(page.getByText("CEFR A2", { exact: true })).toBeVisible();
     await expect(page.getByText("CEFR C2", { exact: true })).toBeVisible();
     await expect(page.getByText("Planejado · indisponível")).toHaveCount(5);
-
     await expect(
       page.getByText(/Concluir um curso no KBR não emite certificado CEFR/),
     ).toBeVisible();
@@ -125,67 +119,77 @@ test.describe("Catálogo de cursos autenticado", () => {
     });
     await expect(plannedSection.getByRole("link")).toHaveCount(0);
 
-    const stepLinks = await page
-      .locator("main a[href^='/hangul/']")
-      .evaluateAll((links) => links.map((link) => link.getAttribute("href")));
-    expect(stepLinks).toContain("/hangul/h01");
-    for (const href of stepLinks) {
-      expect(ALL_STEP_IDS).toContain(href!.split("/").at(-1));
-    }
-
     await expectNoHorizontalOverflow(page);
   });
 
-  test("A1 em desenvolvimento não aparece como curso concluído ao terminar a primeira lição", async ({
-    context,
-    page,
-  }) => {
+  test("A1 parcial aponta para o próximo passo real", async ({ context, page }) => {
     await seedProgress(context, { "a1-l01": { done: true, score: 90 } });
     await page.goto("/cursos");
 
-    const developmentSection = page.locator("section").filter({
-      has: page.getByRole("heading", { name: "Em desenvolvimento" }),
-    });
-    await expect(developmentSection.getByText("1 de 40")).toBeVisible();
-    await expect(developmentSection.getByText("Parcial")).toBeVisible();
-    await expect(developmentSection.getByText("Curso concluído")).toHaveCount(0);
-    await expect(developmentSection.getByText(/100%/)).toHaveCount(0);
+    await expect(page.getByText("2% concluído")).toBeVisible();
+    await expect(page.getByText("1 de 40")).toBeVisible();
+    await expect(page.getByText("1 de 48 passos concluídos.")).toBeVisible();
+    await expect(page.getByText("a1-l02 · De onde você é?")).toBeVisible();
+    await expect(page.getByRole("link", { name: "Continuar a1-l02" })).toHaveAttribute(
+      "href",
+      "/a1/a1-l02",
+    );
+    await expect(page.getByText("Curso concluído")).toHaveCount(0);
+  });
+
+  test("A1 completo mostra curso concluído sem certificação CEFR", async ({
+    context,
+    page,
+  }) => {
+    await seedProgress(context, lessonProgress(A1_ALL_STEPS));
+    await page.goto("/cursos");
+
+    const a1Plate = page
+      .locator("li")
+      .filter({ has: page.getByRole("heading", { name: "Coreano A1" }) });
+    await expect(a1Plate.getByText("Curso concluído")).toBeVisible();
+    await expect(a1Plate.getByText("40 de 40")).toBeVisible();
+    await expect(a1Plate.getByText("8 de 8")).toBeVisible();
+    await expect(a1Plate.getByText("48 de 48 passos concluídos.")).toBeVisible();
+    await expect(a1Plate.getByText(/não é certificação CEFR/)).toBeVisible();
+    await expect(a1Plate.getByText(/não libera o A2 automaticamente/)).toBeVisible();
+    await expect(a1Plate.getByRole("link", { name: /Continuar/ })).toHaveCount(0);
 
     await expectNoHorizontalOverflow(page);
   });
 
-  test("progresso parcial aponta para o próximo passo real", async ({ context, page }) => {
-    await seedProgress(context, lessonProgress([...LESSON_IDS.slice(0, 10), "c1"]));
+  test("Hangul completo não vira certificação CEFR nem desbloqueia o A1", async ({
+    context,
+    page,
+  }) => {
+    await seedProgress(context, lessonProgress(HANGUL_ALL_STEPS));
+    await page.goto("/cursos");
+
+    await expect(page.getByText("29 de 29 passos concluídos.")).toBeVisible();
+    await expect(page.getByText(/não desbloqueia o A1 automaticamente/)).toBeVisible();
+    await expect(page.getByText("0 de 48 passos concluídos.")).toBeVisible();
+    await expect(page.getByText("Planejado · indisponível")).toHaveCount(5);
+    await expect(page.getByRole("link", { name: "Continuar h01" })).toHaveCount(0);
+
+    await expectNoHorizontalOverflow(page);
+  });
+
+  test("progresso parcial do Hangul continua apontando para h11", async ({
+    context,
+    page,
+  }) => {
+    await seedProgress(context, lessonProgress([...HANGUL_LESSON_IDS.slice(0, 10), "c1"]));
     await page.goto("/cursos");
 
     await expect(page.getByText("38% concluído")).toBeVisible();
-    await expect(page.getByText("11 de 29 passos concluídos.")).toBeVisible();
-    await expect(page.getByText("Próximo passo:")).toBeVisible();
     await expect(page.getByText("h11 · ㅑ ㅕ ㅛ ㅠ")).toBeVisible();
     await expect(page.getByRole("link", { name: "Continuar h11" })).toHaveAttribute(
       "href",
       "/hangul/h11",
     );
 
-    const box = await page.getByRole("link", { name: "Abrir curso" }).boundingBox();
+    const box = await page.getByRole("link", { name: "Abrir curso" }).first().boundingBox();
     expect(box?.height ?? 0).toBeGreaterThanOrEqual(44);
-  });
-
-  test("curso concluído não vira certificação CEFR nem libera A1", async ({
-    context,
-    page,
-  }) => {
-    await seedProgress(context, lessonProgress(ALL_STEP_IDS));
-    await page.goto("/cursos");
-
-    await expect(page.getByText("Curso concluído")).toBeVisible();
-    await expect(page.getByText("29 de 29 passos concluídos.")).toBeVisible();
-    await expect(page.getByText(/não é certificação CEFR/)).toBeVisible();
-    await expect(page.getByText(/não desbloqueia o A1 automaticamente/)).toBeVisible();
-    await expect(page.getByText("Planejado · indisponível")).toHaveCount(5);
-    await expect(page.getByRole("link", { name: /Continuar/ })).toHaveCount(0);
-
-    await expectNoHorizontalOverflow(page);
   });
 });
 

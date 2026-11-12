@@ -7,14 +7,19 @@ const sessions = new WeakMap<
   { user: ReturnType<typeof createTestUser>; storageKey: string }
 >();
 
+const LESSON_IDS = Array.from({ length: 40 }, (_, index) =>
+  `a1-l${String(index + 1).padStart(2, "0")}`,
+);
+const CHECKPOINT_IDS = Array.from({ length: 8 }, (_, index) =>
+  `a1-c${String(index + 1).padStart(2, "0")}`,
+);
+const ALL_STEP_IDS = [...LESSON_IDS, ...CHECKPOINT_IDS];
+
 type Answer =
   | { kind: "choice"; label: string }
   | { kind: "text"; value: string };
 
-/**
- * Gabarito da primeira lição A1. A ordem segue a lição; cada item é respondido
- * uma única vez, como na prática real.
- */
+/** Gabarito da a1-l01; a ordem segue a lição e cada item é respondido uma vez. */
 const ANSWERS: readonly Answer[] = [
   { kind: "choice", label: "안녕하세요" },
   { kind: "choice", label: "이에요" },
@@ -44,7 +49,10 @@ function storageKeyFor(context: BrowserContext) {
   return session.storageKey;
 }
 
-async function seedProgress(context: BrowserContext, lessons: Record<string, { done: boolean; score: number }>) {
+async function seedProgress(
+  context: BrowserContext,
+  lessons: Record<string, { done: boolean; score: number }>,
+) {
   await context.addInitScript(
     ({ key, value }) => {
       try {
@@ -96,58 +104,51 @@ async function playA1(page: Page) {
   }
 }
 
-test.describe("A1 — primeira lição autenticada", () => {
+test.describe("A1 — curso completo autenticado", () => {
   test.beforeEach(async ({ context }) => {
     await authenticate(context);
   });
 
-  test("visão geral apresenta o curso em desenvolvimento sem prometer certificação", async ({
+  test("visão geral mostra 40 lições, 8 checkpoints e só o primeiro passo clicável", async ({
     page,
   }) => {
     await page.goto("/a1");
 
     await expect(page.getByRole("heading", { level: 1, name: "Coreano A1" })).toBeVisible();
-    await expect(page.getByRole("heading", { name: "Curso em desenvolvimento" })).toBeVisible();
-    await expect(page.getByText(/40 lições e 8 checkpoints/)).toBeVisible();
-    await expect(page.getByText(/Apenas 1 lição está disponível agora/)).toBeVisible();
-    await expect(page.getByText(/não emite certificação CEFR ou TOPIK/)).toBeVisible();
-    await expect(page.getByRole("heading", { name: "Lição disponível" })).toBeVisible();
-    await expect(page.getByRole("heading", { name: "Olá, eu sou…" })).toBeVisible();
-    await expect(page.getByRole("link", { name: "Abrir a lição" })).toHaveAttribute(
-      "href",
-      "/a1/a1-l01",
-    );
+    await expect(
+      page.getByRole("heading", { name: "Coreano A1 · 40 lições e 8 checkpoints" }),
+    ).toBeVisible();
+    await expect(page.getByText("0 de 40")).toBeVisible();
+    await expect(page.getByText("0 de 8")).toBeVisible();
+    await expect(page.getByText("0 de 48")).toBeVisible();
+    await expect(page.getByText(/Conteúdo coreano original em revisão/)).toBeVisible();
+    await expect(page.getByRole("heading", { name: /Módulo 1 · Primeiro contato/ })).toBeVisible();
+    await expect(page.getByText(/não certifica CEFR ou TOPIK/)).toBeVisible();
+    await expect(page.getByText("Em desenvolvimento")).toHaveCount(0);
 
-    // Só a lição implementada recebe link; o roteiro planejado não.
     const a1Links = await page
       .locator("main a[href^='/a1/']")
       .evaluateAll((links) => links.map((link) => link.getAttribute("href")));
     expect(new Set(a1Links)).toEqual(new Set(["/a1/a1-l01"]));
-    await expect(page.getByText("1 de 5 lições disponíveis")).toBeVisible();
-    await expect(page.getByText("Planejado", { exact: true })).toHaveCount(7);
+    await expect(page.getByText("Bloqueado").first()).toBeVisible();
 
     await expectNoHorizontalOverflow(page);
   });
 
-  test("ensina antes de testar e conclui apenas a lição, não o curso", async ({ page }) => {
+  test("a primeira lição ensina antes de testar, conclui e libera a próxima", async ({
+    page,
+  }) => {
     await page.goto("/a1/a1-l01");
 
     await expect(page.getByRole("heading", { level: 1, name: "Olá, eu sou…" })).toBeVisible();
-    await expect(page.getByText("Lição 1 de 40 planejadas")).toBeVisible();
-    await expect(page.getByText(/O curso A1 está em desenvolvimento/)).toBeVisible();
-
-    // Introdução e diálogo original com tradução e áudio sob demanda.
+    await expect(page.getByText("Lição 1 de 40")).toBeVisible();
     await expect(page.getByText("Diálogo", { exact: true })).toBeVisible();
     await expect(page.getByText("Minsu e Ana se conhecem")).toBeVisible();
     await expect(page.getByText("Prazer em conhecer você.").first()).toBeVisible();
     await expect(page.getByRole("button", { name: /Ouvir a fala/ }).first()).toBeVisible();
-
-    // Gramática guiada antes da prática.
     await expect(page.getByRole("heading", { name: "Como a frase se organiza" })).toBeVisible();
     await expect(page.getByRole("heading", { name: /이에요 \/ 예요/ })).toBeVisible();
 
-    // Vocabulário opcional: nada salvo até uma ação explícita.
-    await expect(page.getByText("Palavras desta lição")).toBeVisible();
     await expect(
       page.getByRole("button", { name: "Salvar 안녕하세요 no meu vocabulário" }),
     ).toBeVisible();
@@ -159,18 +160,15 @@ test.describe("A1 — primeira lição autenticada", () => {
     ).toBe(0);
 
     await page.getByRole("button", { name: "Começar a prática" }).click();
-
     await expect(page.getByText("Prática guiada")).toBeVisible();
-    await expect(page.getByText("Aula de apresentação · mínimo 8 de 10")).toBeVisible();
+    await expect(page.getByText("Item 1 de 10 · mínimo 8 de 10")).toBeVisible();
     await playA1(page);
 
     await expect(page.getByRole("heading", { name: "Lição concluída" })).toBeVisible();
     await expect(page.getByText("Você acertou 10 de 10 (100%).")).toBeVisible();
     await expect(
-      page.getByText(/Concluí-la não conclui o curso A1 e não emite certificação CEFR ou TOPIK/),
-    ).toBeVisible();
-    await expect(page.getByText(/A lição a1-l02 ainda não está disponível/)).toBeVisible();
-    await expect(page.getByRole("link", { name: /Próximo:/ })).toHaveCount(0);
+      page.getByRole("link", { name: /Próximo: a1-l02/ }),
+    ).toHaveAttribute("href", "/a1/a1-l02");
 
     await expect
       .poll(async () =>
@@ -181,40 +179,113 @@ test.describe("A1 — primeira lição autenticada", () => {
       )
       .toEqual({ "a1-l01": { done: true, score: 100 } });
 
-    // Salvar depois da conclusão entra no vocabulário, sem mudar o resultado.
     await page
       .getByRole("button", { name: "Salvar 안녕하세요 no meu vocabulário" })
       .click();
     await expect(
       page.getByRole("button", { name: "Remover 안녕하세요 do meu vocabulário" }),
     ).toBeVisible();
-    await expect
-      .poll(async () =>
-        page.evaluate(
-          (key) =>
-            Object.keys(
-              JSON.parse(window.localStorage.getItem(key) ?? "{}").cards ?? {},
-            ),
-          storageKeyFor(page.context()),
-        ),
-      )
-      .toEqual(["v:ko:안녕하세요"]);
-
-    // A palavra salva aparece no vocabulário e pode entrar na revisão diária.
-    await page.getByRole("link", { name: "Ver meu vocabulário" }).click();
-    await page.getByLabel("Curso").selectOption("ko-a1");
-    await page.getByLabel("Mostrar só as salvas").check();
-    await expect(page.getByTestId("vocab-row")).toHaveCount(1);
-    await expect(page.getByTestId("vocab-row")).toContainText("안녕하세요");
 
     await expectNoHorizontalOverflow(page);
+  });
+
+  test("lição bloqueada não abre por URL direta e abre depois do pré-requisito", async ({
+    context,
+    page,
+  }) => {
+    await page.goto("/a1/a1-l02");
+    await expect(page.getByRole("heading", { level: 1, name: "De onde você é?" })).toBeVisible();
+    await expect(page.getByText("Lição bloqueada")).toBeVisible();
+    await expect(page.getByText("Pendentes: a1-l01.")).toBeVisible();
+    await expect(page.getByRole("button", { name: "Começar a prática" })).toHaveCount(0);
+
+    await page.context().clearCookies();
+    await authenticate(page.context());
+    await seedProgress(page.context(), { "a1-l01": { done: true, score: 100 } });
+    await page.goto("/a1/a1-l02");
+    await expect(page.getByRole("heading", { level: 1, name: "De onde você é?" })).toBeVisible();
+    await expect(page.getByRole("button", { name: "Começar a prática" })).toBeVisible();
+    await expect(page.getByText("Lição bloqueada")).toHaveCount(0);
+  });
+
+  test("checkpoint do módulo bloqueia por URL direta e abre com as cinco lições", async ({
+    context,
+    page,
+  }) => {
+    await page.goto("/a1/a1-c01");
+    await expect(
+      page.getByRole("heading", { level: 1, name: "Checkpoint · Primeiro contato" }),
+    ).toBeVisible();
+    await expect(page.getByText("Checkpoint bloqueado")).toBeVisible();
+    await expect(page.getByText(/Pendentes: a1-l01, a1-l02/)).toBeVisible();
+    await expect(page.getByText("20/25")).toHaveCount(0);
+
+    await page.context().clearCookies();
+    await authenticate(page.context());
+    await seedProgress(
+      page.context(),
+      Object.fromEntries(
+        LESSON_IDS.slice(0, 5).map((id) => [id, { done: true, score: 100 }]),
+      ),
+    );
+    await page.goto("/a1/a1-c01");
+    await expect(page.getByRole("heading", { name: "Como funciona" })).toBeVisible();
+    await expect(page.getByText("20/25")).toBeVisible();
+    await expect(page.getByRole("button", { name: "Começar checkpoint" })).toBeVisible();
+  });
+
+  test("checkpoint final só abre com os 47 passos anteriores e exige 32 de 40", async ({
+    context,
+    page,
+  }) => {
+    await seedProgress(
+      context,
+      Object.fromEntries(
+        [...LESSON_IDS, ...CHECKPOINT_IDS.slice(0, 7)].map((id) => [
+          id,
+          { done: true, score: 100 },
+        ]),
+      ),
+    );
+    await page.goto("/a1/a1-c08");
+    await expect(
+      page.getByRole("heading", { level: 1, name: "Desempenho A1 interno" }),
+    ).toBeVisible();
+    await expect(page.getByText("32/40")).toBeVisible();
+    await expect(page.getByRole("button", { name: "Começar checkpoint" })).toBeVisible();
+    await expect(page.getByText("Curso A1 concluído")).toHaveCount(0);
+  });
+
+  test("curso completo mostra a conclusão interna, estatísticas e revisão", async ({
+    context,
+    page,
+  }) => {
+    await seedProgress(
+      context,
+      Object.fromEntries(ALL_STEP_IDS.map((id) => [id, { done: true, score: 100 }])),
+    );
+    await page.goto("/a1");
+
+    await expect(
+      page.getByRole("heading", { name: "Você concluiu o percurso A1 do KBR" }),
+    ).toBeVisible();
+    await expect(page.getByText("40 de 40").first()).toBeVisible();
+    await expect(page.getByText("8 de 8").first()).toBeVisible();
+    await expect(page.getByText("48 de 48").first()).toBeVisible();
+    await expect(page.getByText(/Não é certificado CEFR/)).toBeVisible();
+    await expect(
+      page.getByRole("link", { name: "Revisar vocabulário" }),
+    ).toHaveAttribute("href", "/vocabulario/revisao");
+
+    await page.goto("/a1/a1-c08");
+    await expect(page.getByRole("heading", { name: "Curso A1 concluído" })).toBeVisible();
+    await expect(page.getByText(/Esta é a conclusão interna/)).toBeVisible();
   });
 
   test("o áudio coreano só toca após o clique e informa a fonte", async ({
     page,
     browserName,
   }) => {
-    // O stub de voz não funciona no WebKit; a lógica pura é coberta nos testes unitários.
     test.skip(browserName === "webkit", "stub de voz indisponível no WebKit");
 
     await page.addInitScript(() => {
@@ -257,23 +328,10 @@ test.describe("A1 — primeira lição autenticada", () => {
 
     await page.goto("/a1/a1-l01");
     await page.getByRole("button", { name: "Ouvir a fala" }).first().click();
-    await expect(
-      page.getByText(/voz coreana do navegador/).first(),
-    ).toBeVisible({ timeout: 10_000 });
+    await expect(page.getByText(/voz coreana do navegador/).first()).toBeVisible({
+      timeout: 10_000,
+    });
     expect(audioRequests).toEqual([]);
-  });
-
-  test("lição fora do conjunto implementado responde 404 e rota exige sessão", async ({
-    page,
-  }) => {
-    await page.goto("/a1/a1-l02");
-    await expect(page.getByRole("heading", { level: 1 })).toContainText("404");
-
-    await page.context().clearCookies();
-    await page.goto("/a1");
-    await expect(page).toHaveURL(/\/?next=%2Fa1/);
-    await page.goto("/a1/a1-l01");
-    await expect(page).toHaveURL(/next=%2Fa1%2Fa1-l01/);
   });
 
   test("responsivo e tema escuro sem rolagem horizontal", async ({ page }) => {
@@ -309,10 +367,16 @@ test.describe("A1 — primeira lição autenticada", () => {
     await page.setViewportSize({ width: 375, height: 800 });
     await page.getByRole("button", { name: /tema/ }).and(page.locator(":visible")).click();
     expect(
-      await page.evaluate(() =>
-        document.documentElement.classList.contains("dark"),
-      ),
+      await page.evaluate(() => document.documentElement.classList.contains("dark")),
     ).toBe(true);
     await expectNoHorizontalOverflow(page);
+  });
+
+  test("rota exige sessão", async ({ page }) => {
+    await page.context().clearCookies();
+    await page.goto("/a1");
+    await expect(page).toHaveURL(/\/?next=%2Fa1/);
+    await page.goto("/a1/a1-l01");
+    await expect(page).toHaveURL(/next=%2Fa1%2Fa1-l01/);
   });
 });

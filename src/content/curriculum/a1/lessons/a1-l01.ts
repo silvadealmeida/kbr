@@ -13,9 +13,14 @@ const review = {
  */
 export const A1_L01: A1LessonContent = {
   id: "a1-l01",
+  number: 1,
+  moduleId: "a1-m01",
   title: "Olá, eu sou…",
   objective:
     "Cumprimentar alguém, dizer seu nome e se apresentar de modo polido em situações simples.",
+  prerequisites: [],
+  estimatedMinutes: 50,
+  dialogueTitle: "Minsu e Ana se conhecem",
   intro: [
     {
       title: "Falar com cortesia",
@@ -352,7 +357,7 @@ export const A1_L01: A1LessonContent = {
     "Você aprendeu a cumprimentar com 안녕하세요 e a responder com 반갑습니다.",
     "Para se apresentar, use 저는 + nome/ocupação + 이에요/예요.",
     "제 이름 é “meu nome”; 이름이 뭐예요? pergunta o nome de alguém.",
-    "Esta é a primeira lição de um curso A1 em desenvolvimento. Concluí-la não conclui o A1 nem certifica CEFR ou TOPIK.",
+    "Esta é a primeira lição do curso A1. O percurso completo tem 40 lições e 8 checkpoints; concluir esta lição não conclui o curso nem certifica CEFR ou TOPIK.",
   ],
   completion: { minScore: 80, minCorrect: 8 },
   review,

@@ -76,13 +76,35 @@ describe("conteúdo — validação ESTRUTURAL (não prova correção linguísti
   it("reconhece as identidades A1 no registro canônico, sem duplicar o Hangul", () => {
     const a1 = VOCAB_ENTRIES.filter((item) => item.course === "ko-a1");
     expect(COURSE_LESSON_IDS.get("ko-a1")?.size).toBe(40);
-    expect(a1).toHaveLength(11);
-    expect(a1.every((item) => item.lesson === "a1-l01")).toBe(true);
+    expect(a1.length).toBeGreaterThanOrEqual(430);
+    expect(a1.length).toBeLessThanOrEqual(560);
+    expect(new Set(a1.map((item) => item.lesson)).size).toBe(40);
     expect(a1.every((item) => item.review.status === "in-review")).toBe(true);
     expect(
       new Set(VOCAB_ENTRIES.map((item) => item.ko)).size,
     ).toBe(VOCAB_ENTRIES.length);
     expect(validateVocabulary([...a1], [], COURSE_LESSON_IDS)).toEqual([]);
+    for (const item of a1) {
+      expect(sentencesFor(item.id).length, item.id).toBeGreaterThanOrEqual(1);
+    }
+  });
+
+  it("cobre 480–560 identidades distintas ensinadas no A1, contando reusos do Hangul", async () => {
+    const { A1_IMPLEMENTED_LESSONS } = await import("@/content/curriculum/a1");
+    const distinct = new Set<string>();
+    for (const lesson of A1_IMPLEMENTED_LESSONS) {
+      for (const id of lesson.vocabulary.newIds) distinct.add(id);
+      for (const id of lesson.vocabulary.reusedIds) distinct.add(id);
+    }
+    expect(distinct.size).toBeGreaterThanOrEqual(480);
+    expect(distinct.size).toBeLessThanOrEqual(560);
+  });
+
+  it("o alvo da frase pode ser a forma polida do verbo, mas continua único e explícito", () => {
+    const sentence = VOCAB_SENTENCES.find((item) => item.id === "sent:a1-l08:일어나다")!;
+    expect(sentence.target).toBe("일어나요");
+    expect(sentence.vocabId).toBe("ko:일어나다");
+    expect(targetPosition(sentence)).not.toBeNull();
   });
 
   it("todo item do Hangul vem de um WordRecord existente, sem formas flexionadas", () => {

@@ -100,7 +100,7 @@ Romanização não é uma trilha permanente. Como o pré-requisito é o Hangul, 
 - revisão distribuída e tarefas de desempenho acrescentam cerca de 31–39 horas, totalizando **65–85 horas**;
 - a faixa toca o limite inferior de 72 horas do referencial coreano, mas o KBR continuará avaliando pelos resultados mensuráveis, não apenas por tempo.
 
-O número não é promessa de que qualquer lista de 40 lições “certifica A1”. Conteúdo, avaliações, revisão nativa e validação com aprendizes ainda precisam ser implementados nas fases 9B+.
+O número não é promessa de que qualquer lista de 40 lições “certifica A1”. Conteúdo, avaliações, revisão nativa e validação com aprendizes foram implementados nas fases 9B–9H, mas a revisão nativa e a validação com aprendizes continuam pendentes.
 
 ## 5. Limites conhecidos
 

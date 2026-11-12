@@ -140,7 +140,7 @@ test.describe("acessibilidade automatizada", () => {
     await expectNoAxeViolations(page, "/hangul/h01 (prática)");
   });
 
-  test("A1 em desenvolvimento não tem violações axe em claro e escuro", async ({
+  test("A1 completo não tem violações axe em claro e escuro", async ({
     context,
     page,
   }) => {
@@ -159,6 +159,13 @@ test.describe("acessibilidade automatizada", () => {
     ).toBeVisible();
     await expectNoAxeViolations(page, "/a1/a1-l01 (claro)");
 
+    await page.goto("/a1/a1-c01");
+    await expect(
+      page.getByText("Checkpoint bloqueado"),
+    ).toBeVisible();
+    await expectNoAxeViolations(page, "/a1/a1-c01 (bloqueado)");
+
+    await page.goto("/a1/a1-l01");
     await page.getByRole("button", { name: "Ativar tema escuro" }).click();
     await expect
       .poll(() =>

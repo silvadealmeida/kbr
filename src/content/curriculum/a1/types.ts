@@ -129,8 +129,14 @@ export type A1LessonExercise = ExerciseSpec & { stage: A1ExerciseStage };
 /** Dataset jogável de uma lição A1 implementada. */
 export type A1LessonContent = {
   id: string;
+  number: number;
+  moduleId: string;
   title: string;
   objective: string;
+  /** Pré-requisitos estruturais; a rota só libera com todos concluídos. */
+  prerequisites: readonly string[];
+  estimatedMinutes: number;
+  dialogueTitle: string;
   /** Ensina antes de testar: painéis curtos de introdução ao tema. */
   intro: readonly A1IntroPanel[];
   dialogue: readonly A1DialogueLine[];
@@ -140,6 +146,23 @@ export type A1LessonContent = {
   /** Fechamento em pt-BR; não substitui a revisão humana do conteúdo. */
   summary: readonly string[];
   completion: { minScore: number; minCorrect: number };
+  review: ReviewMeta;
+};
+
+/** Checkpoint A1 jogável: avaliação determinística, sem conteúdo novo obrigatório. */
+export type A1CheckpointContent = {
+  id: string;
+  number: number;
+  moduleId: string;
+  title: string;
+  objective: string;
+  instructions: readonly string[];
+  lessonIds: readonly string[];
+  prerequisites: readonly string[];
+  estimatedMinutes: number;
+  exercises: readonly A1LessonExercise[];
+  passingScore: number;
+  minCorrect: number;
   review: ReviewMeta;
 };
 

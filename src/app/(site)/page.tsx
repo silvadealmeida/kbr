@@ -22,7 +22,7 @@ const method = [
 const resources = [
   { title: "Hangul sem decoreba", status: "Disponível", text: "25 lições e quatro checkpoints para aprender a ler os blocos da escrita coreana." },
   { title: "Vocabulário em contexto", status: "Disponível", text: "Palavras com frases, dicas de sentido e revisão espaçada em /vocabulario." },
-  { title: "Diálogos progressivos", status: "Em desenvolvimento", text: "A primeira lição A1 já traz um diálogo original; os próximos entram aos poucos." },
+  { title: "Diálogos progressivos", status: "Disponível", text: "O curso A1 traz diálogos originais, tradução e prática contextual em 40 lições." },
   { title: "Revisão no tempo certo", status: "Disponível", text: "Cartões de repetição espaçada surgem a partir dos erros nas lições." },
 ];
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
@@ -47,7 +47,7 @@ export default async function LandingPage({ searchParams }: { searchParams: Sear
             {reason === "logout" ? <p role="status" className="mt-6 border-l-[3px] border-accent bg-surface px-4 py-3 text-sm">Você saiu da conta. Seu progresso deste dispositivo foi mantido e volta ao entrar novamente.</p> : null}
             <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center"><LandingAuth variant="hero" /><ButtonLink href="#metodo" variant="secondary" className="w-full sm:w-auto">Conhecer o método</ButtonLink></div>
             {nextPath !== "/dashboard" ? <p className="mt-3 text-sm text-muted">Depois de entrar, você volta para {target}.</p> : null}
-            <p className="mt-8 border-t border-line pt-4 text-sm text-muted">Hangul disponível · A1 em desenvolvimento · A2–C2 planejados · Conteúdo coreano em revisão</p>
+            <p className="mt-8 border-t border-line pt-4 text-sm text-muted">Hangul e A1 disponíveis · A2–C2 planejados · Conteúdo coreano em revisão</p>
           </div>
           <figure className="composition-enter mx-auto w-full max-w-[480px] [animation-delay:120ms] lg:max-w-none"><HangulComposition /><figcaption className="mt-3 max-w-[44ch] text-sm leading-relaxed text-muted"><span lang="ko">한</span> nasce da combinação de ㅎ, ㅏ e ㄴ. Cada parte ocupa um lugar no bloco.</figcaption></figure>
         </div>
@@ -63,7 +63,7 @@ export default async function LandingPage({ searchParams }: { searchParams: Sear
           <ul className="mt-10 grid gap-px overflow-hidden border border-line bg-line md:grid-cols-2">{resources.map((item, index) => <li key={item.title} className="bg-surface p-6 sm:p-8"><div className="flex items-start justify-between gap-4"><span className="mono-data text-muted">0{index + 1}</span><span className={`text-xs font-semibold ${item.status === "Disponível" ? "text-accent" : "text-muted"}`}>{item.status}</span></div><h3 className="mt-10 text-2xl font-semibold">{item.title}</h3><p className="mt-3 max-w-[40ch] leading-relaxed text-muted">{item.text}</p></li>)}</ul>
         </div>
       </section>
-      <section className="border-b border-line bg-surface-2"><div className="mx-auto grid max-w-[1280px] gap-8 px-5 py-16 sm:px-8 lg:grid-cols-[1fr_auto] lg:items-center"><div><p className="mono-label text-accent">Índice de cursos</p><h2 className="mt-4 text-h1 font-semibold">Comece pelo Hangul.</h2><p className="mt-3 max-w-[58ch] leading-relaxed text-muted">O curso de leitura está disponível como Pré-A1. O A1 está em desenvolvimento, com a primeira lição disponível; A2–C2 aparecem no catálogo como planejados, sem certificação.</p></div><ButtonLink href="/cursos" variant="primary" className="w-full sm:w-auto">Ver os cursos</ButtonLink></div></section>
+      <section className="border-b border-line bg-surface-2"><div className="mx-auto grid max-w-[1280px] gap-8 px-5 py-16 sm:px-8 lg:grid-cols-[1fr_auto] lg:items-center"><div><p className="mono-label text-accent">Índice de cursos</p><h2 className="mt-4 text-h1 font-semibold">Comece pelo Hangul.</h2><p className="mt-3 max-w-[58ch] leading-relaxed text-muted">O curso de leitura está disponível como Pré-A1. O Coreano A1 está disponível com 40 lições e 8 checkpoints no currículo interno do KBR; A2–C2 aparecem no catálogo como planejados, sem certificação.</p></div><ButtonLink href="/cursos" variant="primary" className="w-full sm:w-auto">Ver os cursos</ButtonLink></div></section>
       <section className="mx-auto grid max-w-[1280px] gap-8 px-5 py-18 sm:px-8 lg:grid-cols-[1fr_1fr] lg:items-center lg:py-24"><div><p className="mono-label text-accent">Seu próximo passo</p><h2 className="mt-4 max-w-[15ch] text-h1 font-semibold">A primeira sílaba começa aqui.</h2><p className="mt-5 max-w-[52ch] leading-relaxed text-muted">Entre com Google para abrir as lições. Seu progresso fica salvo neste dispositivo e pode ser sincronizado com sua conta.</p><p className="mt-4 text-sm text-muted">Saiba como tratamos seus dados na <Link href="/privacidade" className="text-accent underline underline-offset-4">Ler a política de privacidade</Link>.</p></div><div className="border-t-[3px] border-seal bg-surface p-7 sm:p-10"><p className="mono-label text-seal">Lâmina 01 / 25</p><p className="mt-6 text-3xl font-semibold">Aprenda a ler, um bloco de cada vez.</p><div className="mt-8"><LandingAuth variant="footer" /></div></div></section>
     </>
   );

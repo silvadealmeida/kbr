@@ -217,7 +217,7 @@ test.describe("Painel autenticado", () => {
     await expect(
       page.getByRole("heading", { name: "Módulo Hangul concluído" }),
     ).toBeVisible();
-    await expect(page.getByText(/O curso A1 está em desenvolvimento/)).toBeVisible();
+    await expect(page.getByText(/O curso A1 está disponível/)).toBeVisible();
     await expect(page.getByRole("link", { name: "Revisar cartões" })).toHaveAttribute(
       "href",
       "/revisao",

@@ -1,8 +1,10 @@
 # A1 — resultados de aprendizagem
 
-Pré-requisito: conclusão pedagógica do curso Hangul ou demonstração equivalente de leitura/escrita do alfabeto. O catálogo continuará sem desbloqueio automático: a verificação do pré-requisito será decisão da fase que tornar o A1 jogável.
+Pré-requisito: conclusão pedagógica do curso Hangul ou demonstração equivalente de leitura/escrita do alfabeto. O catálogo mantém o Hangul como Pré-A1 e o A1 como curso separado; concluir o Hangul não libera o A1 automaticamente.
 
-Os resultados abaixo são metas internas alinhadas ao CEFR A1, não certificação. A conclusão futura exigirá todas as lições e checkpoints, mas o desempenho será descrito por tarefas observáveis e por condições de apoio.
+**Status 9C–9H:** o A1 está implementado com 40 lições e 8 checkpoints, 443 identidades lexicais novas, 52 identidades do Hangul retomadas (495 distintas), 615 itens automáticos e conclusão interna. A avaliação de leitura/escuta/vocabulário/gramática é determinística; fala e escrita aberta continuam por autoavaliação/rubrica humana, sem IA nem microfone obrigatório. O conteúdo segue `in-review`.
+
+Os resultados abaixo são metas internas alinhadas ao CEFR A1, não certificação. A conclusão exige todas as lições e checkpoints, mas o desempenho é descrito por tarefas observáveis e por condições de apoio.
 
 ## Leitura
 

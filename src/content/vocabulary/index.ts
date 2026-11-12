@@ -2,12 +2,23 @@ import { CHECKPOINTS } from "@/content/hangul/checkpoints";
 import { LESSONS } from "@/content/hangul/lessons";
 import { A1_LESSON_IDS } from "@/content/curriculum/a1/ids";
 import { A1_VOCABULARY, A1_VOCAB_SENTENCES } from "./a1";
+import {
+  A1_COURSE_SENTENCES,
+  A1_COURSE_VOCABULARY,
+} from "./a1-course";
 import { HANGUL_VOCABULARY } from "./hangul";
 import { VOCAB_SENTENCES as HANGUL_VOCAB_SENTENCES } from "./sentences";
 import { validateVocabulary } from "./validate";
 import type { VocabEntry, VocabSentence } from "./types";
 
 export type * from "./types";
+export {
+  A1_COURSE_SENTENCES,
+  A1_COURSE_VOCABULARY,
+  newVocabFormsFor,
+  newVocabIdsFor,
+  sentenceIdsFor,
+} from "./a1-course";
 export { targetPosition, validateVocabulary, type VocabIssue } from "./validate";
 
 /**
@@ -17,10 +28,12 @@ export { targetPosition, validateVocabulary, type VocabIssue } from "./validate"
 export const VOCAB_ENTRIES: readonly VocabEntry[] = [
   ...HANGUL_VOCABULARY,
   ...A1_VOCABULARY,
+  ...A1_COURSE_VOCABULARY,
 ];
 export const VOCAB_SENTENCES: readonly VocabSentence[] = [
   ...HANGUL_VOCAB_SENTENCES,
   ...A1_VOCAB_SENTENCES,
+  ...A1_COURSE_SENTENCES,
 ];
 
 /** Lições/checkpoints existentes por curso, para validar referências. */

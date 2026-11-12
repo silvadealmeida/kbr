@@ -111,3 +111,14 @@ Pendências herdadas: relógio do dispositivo influencia remoção/salvamento co
 - **Opt-in:** nenhuma palavra é salva automaticamente. A conclusão da lição oferece salvar cada palavra ou todas as 17 da lição; salvar/remover não altera a nota da lição nem o progresso do curso.
 - **Áudio:** voz coreana do navegador por clique, inclusive no vocabulário; nenhum MP3 novo. A revisão nativa continua pendente.
 - **Validação:** o dataset e as frases passam por `validateA1LessonContent`/`validateVocabulary`; testes cobrem cobertura de cada item novo, IDs únicos, reuso do Hangul, frases e opt-in. A validação é estrutural, não prova naturalidade nem tradução.
+
+## 10. Estado 9C–9H — curso A1 completo
+
+- **Novos:** 443 identidades A1 (11 em `a1.ts` + 432 em `src/content/vocabulary/a1-course.ts`), todas com `course: "ko-a1"` e lição de origem `a1-l01`–`a1-l40`.
+- **Frases:** 443 `VocabSentence` próprias do A1 (uma por identidade nova), 468 no registro total contando as 25 do Hangul. Cada frase tem tradução completa, dica de sentido, alvo explícito e revisão `in-review`.
+- **Reusos:** 176 referências de reuso nas lições, sendo 52 identidades distintas do Hangul e 124 reusos internos do próprio A1. A união ensinada é **495 identidades distintas**, dentro da faixa editorial de 480–560.
+- **Formas verbais:** o `target` da frase pode ser a forma polida usada no contexto (`일어나요`, `먹어요`) enquanto o cartão canônico continua no dicionário (`일어나다`, `먹다`). A validação exige alvo único no início de palavra e não cria outro cartão.
+- **Cobertura por lição:** 10–14 novos nas lições 1–35; 8–10 nas integradoras 36–38; 8 em `a1-l39`; 5 em `a1-l40`, conforme o blueprint. Cada lição referencia ao menos 6 identidades anteriores.
+- **Checkpoints:** não introduzem vocabulário obrigatório; amostram o módulo e recuperam módulos anteriores. `a1-c08` avalia 40 itens cumulativos.
+- **Opt-in e SRS:** inalterados. Salvar cria um cartão `v:`; remover grava a marca de remoção; acerto com ajuda não avança a caixa; o SRS do Hangul ignora chaves `v:`.
+- **Limites:** a revisão nativa de todas as 443 identidades e das 443 frases continua obrigatória antes de qualquer alegação de qualidade ou lançamento público; a sincronização com Supabase real segue não verificada nesta sessão.

@@ -296,7 +296,7 @@ test.describe("WebKit/iOS automatizado (sem dispositivo físico)", () => {
 
     await page.goto("/cursos");
     await expect(page.getByRole("heading", { level: 1, name: "Cursos" })).toBeVisible();
-    await expect(page.getByRole("link", { name: /Abrir curso/ })).toBeVisible();
+    await expect(page.getByRole("link", { name: /Abrir curso/ }).first()).toBeVisible();
 
     await page.goto("/hangul/c1");
     await expect(page.getByRole("heading", { level: 1, name: /Checkpoint 1/ })).toBeVisible();

@@ -1,30 +1,32 @@
-# Transição para o A1 — handoff após as Fases 9A e 9B
+# Transição para o A1 — handoff após as Fases 9A–9H
 
-**Decisão vigente:** a arquitetura A1 está pronta e a **9B entregou `a1-l01`** como primeira fatia jogável de um curso em desenvolvimento. A próxima fatia é **9C — `a1-l02` ou o recorte explicitamente pedido**, seguindo o §7. A infraestrutura de áudio está **encerrada**: pendências de licença/pronúncia não bloqueiam conteúdo original, mas impedem distribuir os MP3 sintéticos.
+**Decisão vigente:** o **curso A1 está completo no currículo interno do KBR** — 40 lições, 8 checkpoints e 48 passos jogáveis. `a1-l01` foi preservada. A próxima frente é **A2 — planejamento editorial e primeira fatia**, ou uma correção/native review do A1 explicitamente pedida. A infraestrutura de áudio está **encerrada**: pendências de licença/pronúncia não bloqueiam conteúdo original, mas impedem distribuir os MP3 sintéticos.
 
 ## 1. Pronto para desenvolvimento contínuo
 
 | Área | Estado | Onde |
 |---|---|---|
 | Módulo Hangul completo (`h01`–`h25`, `c1`–`c4`) | conteúdo `in-review`, estável | `src/content/hangul`, `tests/content/*` |
-| Registro multi-curso (Hangul, A1 em desenvolvimento, A2–C2 planejados) | tipado e validado | `src/content/courses/{types,registry,a1,planned,hangul}.ts` |
+| Curso A1 completo (`a1-l01`–`a1-l40`, `a1-c01`–`a1-c08`) | 48 passos, `in-review`, disponível | `src/content/curriculum/a1`, `/a1/[lessonId]` |
+| Registro multi-curso (Hangul e A1 disponíveis; A2–C2 planejados) | tipado e validado | `src/content/courses/{types,registry,a1,planned,hangul}.ts` |
 | Blueprint A1 | 8 módulos, 40 lições, 8 checkpoints; tipado e validado | `src/content/curriculum/a1`, `docs/curriculum/` |
-| Primeira lição A1 | `a1-l01` jogável, curso “em desenvolvimento”, conteúdo `in-review` | `/a1`, `/a1/a1-l01`, `src/components/a1`, `src/content/curriculum/a1/lessons` |
-| Contrato de conteúdo A1 | introdução, diálogo, gramática, refs lexicais/contextuais, exercícios com etapa, fechamento e revisão | `A1LessonContent`, `validateA1LessonContent` |
+| Vocabulário A1 | 443 identidades novas, 443 frases; 52 reusos do Hangul (495 distintas) | `src/content/vocabulary/{a1,a1-course}.ts` |
+| Contrato de conteúdo A1 | lição, checkpoint, vocabulário contextual, exercícios com etapa, revisão | `A1LessonContent`, `A1CheckpointContent`, `validateA1*` |
 | Tipos de exercício | 9 implementados, 3 planejados (`order-words`, `short-answer`, `dialogue-choice`) | `src/lib/exercises/registry.ts` |
-| Progresso e SRS | `Progress` v1 + Leitner por erro, CAS multi-dispositivo | `src/lib/{storage,srs,progress,supabase}` |
+| Progresso e SRS | `Progress` v1 + Leitner por erro, cartões `v:` opt-in, CAS multi-dispositivo | `src/lib/{storage,srs,progress,supabase}` |
+| Conclusão A1 | relatório derivado + painel interno, sem CEFR/TOPIK | `src/lib/a1/completion.ts`, `A1CompletionPanel` |
 | Revisão, painel, catálogo, PWA | funcionais | `/revisao`, `/dashboard`, `/cursos` |
 | Reprodução de áudio | asset (desligado) → voz coreana explícita → dica textual | `src/lib/audio/playback.ts` |
 | Testes | typecheck, Vitest, Playwright (Chromium 4 larguras + WebKit) | `AGENTS.md` |
 
-## 2. Interfaces reutilizáveis por cursos A1–C2
+## 2. Interfaces reutilizáveis por A2–C2
 
-- **`CourseDefinition` / `COURSE_REGISTRY`**: `ko-a1` usa `status: "in-development"`, `steps` só com lições implementadas, `plannedTotals` (40 lições/8 checkpoints) e `completion.requiresAllSteps: false`. Não o marque como `available` com um único passo: isso faria a conclusão de `a1-l01` parecer conclusão do curso. `courseStepHref` e `summarizeCourseProgress` já respeitam esse estado.
-- **`ExerciseSpec` + `EXERCISE_TYPE_REGISTRY`**: novo tipo = extensão da união + entrada no registro com `skills` e `grading`; correção determinística em `checkAnswer`; apresentação com `lib/exercises/shuffle` + `use-shuffled-order` (regra de randomização do `AGENTS.md`).
-- **Conteúdo**: `content/` sem lógica, com `ReviewMeta` (`in-review`). O esquema próprio já existe como `A1LessonContent`; `validateA1LessonContent` confere suas relações com blueprint, vocabulário, frases e tipos implementados, mas revisão humana continua obrigatória.
-- **IDs leves**: importe `A1_LESSON_IDS` de `@/content/curriculum/a1/ids` em código de cliente/registro; o índice `@/content/curriculum/a1` carrega o blueprint completo e roda a validação estrutural, sendo apropriado a servidor e testes.
-- **Progresso**: `Progress` v1 guarda tentativas por id de exercício/lição; ids novos não exigem migração de banco. **Não alterar o formato nem o CAS** sem fase explícita.
-- **Áudio**: `audioText` por exercício; `resolveAudioAsset(text)` devolve `null` com a flag desligada, então a voz do sistema cobre todo texto coreano novo **sem novos MP3**. Texto coreano novo deve passar por `lang="ko"`.
+- **`CourseDefinition` / `COURSE_REGISTRY`**: `ko-a1` usa `status: "available"`, 48 passos, `requiresAllSteps: true`, `finalStepId: "a1-c08"`, prefixo SRS `a1:` e `stepIdPattern` próprio. Para um novo curso, crie outro prefixo e outro namespace de IDs; não reutilize `a1-*`/`h*`/`c*`.
+- **`ExerciseSpec` + `EXERCISE_TYPE_REGISTRY`**: novo tipo = extensão da união + entrada no registro com `skills` e `grading`; correção determinística em `checkAnswer`; apresentação com `lib/exercises/shuffle` + `use-shuffled-order`.
+- **Conteúdo**: `content/` sem lógica, com `ReviewMeta` (`in-review`). O A1 já tem contratos próprios e validadores; um curso novo deve criar contrato/validador equivalentes, não reutilizar IDs de lição.
+- **IDs leves**: importe `A1_LESSON_IDS` de `@/content/curriculum/a1/ids` em código de cliente/registro; o índice `@/content/curriculum/a1` carrega o blueprint e os datasets, sendo apropriado a servidor e testes. Para A2, crie um `ids.ts` leve equivalente.
+- **Progresso**: `Progress` v1 guarda tentativas por ID global de exercício/passo; IDs novos não exigem migração. **Não alterar o formato nem o CAS** sem fase explícita.
+- **Áudio**: `audioText` por exercício; `resolveAudioAsset(text)` devolve `null` com a flag desligada, então a voz do sistema cobre texto coreano novo **sem novos MP3**.
 - **Guardas**: `audio-containment.test.ts` e `verify-no-restricted-audio.mjs` continuam valendo para qualquer áudio novo.
 
 ## 3. Bloqueado para lançamento público (não bloqueia desenvolvimento local)
@@ -32,40 +34,38 @@
 1. Licença do áudio sintético (MeloTTS + `kykim/bert-kor-base`): **BLOQUEADA**; corpus tem de ficar fora do HEAD público (ver `docs/audio/exposure-and-removal-plan.md`).
 2. Exposição histórica dos 287 MP3 no repositório público e em deployments antigos da Vercel (ações do dono).
 3. Privacidade/Impressum com campos "a confirmar" e revisão jurídica.
-4. Revisão nativa de todo o conteúdo coreano e da pronúncia; teste em dispositivos reais.
+4. Revisão nativa de todo o conteúdo coreano A1/Hangul; teste em dispositivos reais.
 
 ## 4. Opcional / experimental
 
-`/fala` (reconhecimento de fala; **não expandir**), `npm run audio:stage` + flag (teste local de MP3), avaliação de TTS alternativo (`docs/audio/tts-alternatives.md`), flashcards ilustrados (item 3 do feedback), export/import JSON.
+`/fala` (reconhecimento de fala; **não expandir**), `npm run audio:stage` + flag (teste local de MP3), avaliação de TTS alternativo (`docs/audio/tts-alternatives.md`), flashcards ilustrados, export/import JSON.
 
 ## 5. Tarefas de áudio/pronúncia que podem ser retomadas depois
 
 R1/R2 (e-mails em `docs/audio/permissions/email-drafts.md`, **não enviados**), piloto de TTS alternativo (~20 clipes), gravação com falante nativo (`audio-quality-roadmap.md`), matriz manual §14 do checklist de iPhone, decisão formal sobre manter ou substituir o MeloTTS. Nenhuma depende de código novo agora.
 
-## 5b. Vocabulário (Fase 9A-V, feita)
+## 5b. Vocabulário (Fase 9A-V + A1)
 
-Infraestrutura de vocabulário pronta para o A1: registro `src/content/vocabulary` (cada curso entrega `VocabEntry[]` + frases; passos em `docs/vocabulary/content-schema.md`), `/vocabulario` (busca, filtros, salvar/remover, detalhes), revisão diária contextual (frase com lacuna + dica de sentido + tradução opcional antes e obrigatória depois), cartões simples e Leitner reaproveitado em `Progress.cards["v:<id>"]` (sem migração). Há 133 IDs legados imutáveis; homógrafos **novos** podem usar `ko:<forma>#<sentido>`, desde que todas as entradas da forma sejam qualificadas. Separar um ID legado exige migração explícita e fica fora desta fase. A 9B adicionou 11 itens e 11 frases A1 (`src/content/vocabulary/a1.ts`), todos `in-review`; a lição reusa 6 IDs do Hangul sem duplicar cartões. Limites: as 25 frases antigas e as 11 novas seguem em revisão nativa, e a sincronização remota não foi verificada em Supabase real.
+Infraestrutura pronta: registro `src/content/vocabulary` (cada curso entrega `VocabEntry[]` + frases; passos em `docs/vocabulary/content-schema.md`), `/vocabulario` (busca, filtros, salvar/remover, detalhes), revisão diária contextual (frase com lacuna + dica de sentido + tradução opcional antes e obrigatória depois), cartões simples e Leitner reaproveitado em `Progress.cards["v:<id>"]` (sem migração). Há 133 IDs legados imutáveis; homógrafos **novos** podem usar `ko:<forma>#<sentido>`, desde que todas as entradas da forma sejam qualificadas. O A1 adiciona 443 itens e 443 frases, todos `in-review`, e reusa 52 identidades do Hangul sem duplicar cartões. `VocabSentence.target` pode ser a forma polida usada na frase; o cartão canônico continua no dicionário. Limites: revisão nativa pendente; sincronização remota não verificada em Supabase real.
 
-## 6. Escopo fechado da Fase 9B (concluída)
+## 6. Escopo fechado da implementação A1 (9B–9H)
 
-Implementar **somente `a1-l01` (“Olá, eu sou…”)**. Não iniciar `a1-l02`, checkpoint, gerador de conteúdo ou expansão C2. O estado entregue está resumido abaixo e em `docs/roadmap.md` §Status Fase 9B.
+1. **40 lições** em `src/content/curriculum/a1/lessons/a1-lNN.ts`, com introdução, diálogo traduzido, gramática, vocabulário, exercícios guiados/independentes, fechamento e `review: "in-review"`.
+2. **8 checkpoints** em `src/content/curriculum/a1/checkpoints/a1-cNN.ts`, com 25 itens (20/25) ou 40 no final (32/40), sem conteúdo novo obrigatório.
+3. **Vocabulário** em `src/content/vocabulary/a1.ts` (l01) + `a1-course.ts` (l02–l40), uma frase contextual por item novo; reusos explícitos referenciam IDs existentes.
+4. **Curso** em `src/content/courses/a1.ts`, derivado do blueprint; `available`, 48 passos, `requiresAllSteps: true`, `finalStepId: "a1-c08"`.
+5. **Players** `A1LessonPlayer` e `A1CheckpointPlayer` reutilizam `ExerciseView`, `AudioControl` e `LessonVocabulary`; URL direta bloqueada por pré-requisitos; conclusão gravada somente em `Progress.lessons`.
+6. **Conclusão** derivada por `buildA1CompletionReport`; painel só com 48/48, sem certificação e com estatísticas reais de vocabulário.
+7. **Sem mudanças** em `Progress` v1, CAS, SQL, RLS, SRS do Hangul ou cartões `v:` existentes. Nenhum MP3 novo, nenhum microfone obrigatório.
+8. **Testes** unitários cobrem 40+8 datasets, gabaritos, IDs, contagens, thresholds, progressão, conclusão, opt-in e isolamento. Playwright cobre catálogo, bloqueio por URL, lição, checkpoints, conclusão, áudio, 320–1280 e axe claro/escuro.
 
-1. Antes de expor a rota, estender o ciclo de vida do curso com um estado “em desenvolvimento”: o catálogo informa **1 de 40 lições disponível** e 8 checkpoints planejados; completar `a1-l01` nunca mostra “curso A1 concluído”. Os 48 IDs do blueprint continuam a referência total, e só passos com dataset/rota implementados são clicáveis.
-2. Instanciar um `A1LessonContent` original com objetivo de cumprimentar, dizer o nome e identificar-se polidamente; diálogo curto; `이에요/예요` e uso inicial/formulaico de `은/는`; 10–12 itens novos conforme o blueprint; pelo menos uma `VocabSentence` contextual por item novo; metadados `in-review`.
-3. Reutilizar uma entrada lexical existente apenas quando forma **e sentido** coincidirem. Criar novos itens no registro canônico, com origem `course: "ko-a1"`, `lesson: "a1-l01"`; nenhum array ou scheduler paralelo.
-4. Usar apenas tipos já implementados e previstos para a lição (`mcq`, `cloze`, `listen`, `translate`); `dialogue-choice` permanece planejado. Voz coreana do sistema por `audioText`, sem MP3, microfone, IA ou avaliação de pronúncia.
-5. Criar a menor rota/player A1 reutilizando as primitivas existentes, com introdução, diálogo, nota gramatical, prática e conclusão. No resumo, usar `vocabForLesson` e oferecer “Salvar as palavras desta lição”; nunca salvar automaticamente.
-6. Progresso usa os IDs existentes em `Progress.lessons/history`; vocabulário salvo usa `Progress.cards["v:<id>"]`. Não mudar `Progress` v1, CAS, SQL, Supabase, políticas RLS ou lógica Leitner.
-7. Testar validação do dataset, referências, desbloqueio/rota, exercício e conclusão sem curso completo, salvamento opt-in, regressão do Hangul/vocabulário e estados móvel/desktop. Conteúdo coreano permanece `in-review`; iPhone/Chrome iOS/voz do sistema e Supabase real continuam manuais.
+Critério cumprido: o curso está jogável em `/a1`, a conclusão só aparece com 48/48, o Hangul e o vocabulário existente permanecem intactos e nenhum áudio restrito foi reativado. **Limite:** revisão nativa e licença de áudio continuam pendentes.
 
-Critério de término da 9B: `a1-l01` jogável e honestamente rotulada como primeira fatia de um curso em desenvolvimento, sem sugerir certificação CEFR/TOPIK nem conclusão A1. **Critério cumprido:** a lição está em `/a1/a1-l01`, o catálogo informa 1 de 40 e 0 de 8, a conclusão grava apenas `a1-l01`, o vocabulário é opt-in e a rota de `a1-l02` responde 404.
+## 7. Padrão para A2
 
-## 7. Padrão para a Fase 9C e lições seguintes
-
-1. Criar o dataset em `src/content/curriculum/a1/lessons/a1-lNN.ts`, com introdução, diálogo original traduzido, gramática, `summary`, exercícios `guided`/`independent` e `review: "in-review"`. Registrar em `A1_IMPLEMENTED_LESSONS` apenas quando completo.
-2. Adicionar o passo em `A1_COURSE.steps` somente depois do dataset; manter `plannedTotals` e `requiresAllSteps: false`. Lição futura não pode ganhar link, conclusão ou percentual de curso.
-3. Vocabulário novo no array canônico, com IDs estáveis e uma `VocabSentence` por item novo; reusar IDs do Hangul ou de lições A1 anteriores quando forma e sentido coincidirem, sem duplicar cartões.
-4. Usar só `mcq`, `cloze`, `listen` e `translate` (ou tipo explicitamente aprovado em fase própria); não usar `dialogue-choice`, `order-words` ou `short-answer` sem implementação e validação.
-5. Reutilizar `ExerciseView`, `AudioControl`, `LessonVocabulary` e as primitivas “Composição”. Áudio só sob clique, pela voz do sistema; nenhum MP3.
-6. Cobrir validação do dataset, referências, traduções, gabaritos, ordem guiada→independente, conclusão sem curso, opt-in, 404 de passos futuros, larguras 320–1280 e axe claro/escuro. Rodar typecheck, Vitest, build e Playwright.
-7. Atualizar `docs/architecture.md`, `docs/roadmap.md`, `docs/curriculum/a1-syllabus.md`, `docs/curriculum/a1-vocabulary-plan.md` e este handoff no mesmo commit. A revisão nativa continua obrigatória antes de qualquer alegação de qualidade linguística.
+1. Criar um blueprint A2 validado (módulos, lições, checkpoints, dependências, resultados), sem copiar o A1.
+2. Criar contratos/datasets A2 com IDs próprios (`a2-*`), validadores e um `A2_COURSE` derivado do blueprint.
+3. Reutilizar o motor de exercícios, `ExerciseView`, áudio do sistema, `LessonVocabulary`, `Progress` v1 e o padrão de conclusão derivada.
+4. Vocabulário A2 no registro canônico, com IDs `ko:<forma>` estáveis, frases contextuais e reusos do A1/Hangul quando forma e sentido coincidirem.
+5. Progressão por pré-requisitos no player e no catálogo; nenhum passo futuro ganha link ou conclusão antes do dataset.
+6. Cobrir validação, referências, gabaritos, bloqueios, conclusão, opt-in, 320–1280 e axe; atualizar docs no mesmo commit.

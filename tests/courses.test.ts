@@ -109,13 +109,14 @@ function issueCodes(courses: readonly CourseDefinition[]): string[] {
 }
 
 describe("registro genérico de cursos", () => {
-  test("Hangul está disponível; A1 está em desenvolvimento; A2–C2 planejados", () => {
+  test("Hangul e A1 estão disponíveis; A2–C2 planejados", () => {
     expect(validateCourseRegistry()).toEqual([]);
-    expect(COURSE_REGISTRY).toHaveLength(1 + CEFR_LEVELS.length);
-    expect(getAvailableCourses().map((course) => course.id)).toEqual(["hangul"]);
-    expect(getInDevelopmentCourses().map((course) => course.id)).toEqual([
+    expect(COURSE_REGISTRY).toHaveLength(2 + CEFR_LEVELS.length - 1);
+    expect(getAvailableCourses().map((course) => course.id)).toEqual([
+      "hangul",
       "ko-a1",
     ]);
+    expect(getInDevelopmentCourses()).toEqual([]);
     expect(getPlannedCourses().map((course) => course.level)).toEqual(
       CEFR_LEVELS.filter((level) => level !== "a1"),
     );
@@ -128,14 +129,18 @@ describe("registro genérico de cursos", () => {
     expect(isCefrLevel(HANGUL_COURSE.level)).toBe(false);
     expect(COURSE_LEVEL_LABELS["pre-a1"]).toBe("Pré-A1");
 
-    expect(A1_COURSE.status).toBe("in-development");
+    expect(A1_COURSE.status).toBe("available");
     expect(A1_COURSE.level).toBe("a1");
-    expect(A1_COURSE.steps.map((step) => step.id)).toEqual(["a1-l01"]);
-    expect(A1_COURSE.plannedTotals).toEqual({ lessons: 40, checkpoints: 8 });
+    expect(A1_COURSE.steps).toHaveLength(48);
+    expect(A1_COURSE.steps.filter((step) => step.kind === "lesson")).toHaveLength(40);
+    expect(A1_COURSE.steps.filter((step) => step.kind === "checkpoint")).toHaveLength(8);
+    expect(A1_COURSE.steps.at(0)?.id).toBe("a1-l01");
+    expect(A1_COURSE.steps.at(-1)?.id).toBe("a1-c08");
+    expect(A1_COURSE.plannedTotals).toBeUndefined();
     expect(A1_COURSE.basePath).toBe("/a1");
     expect(A1_COURSE.completion).toMatchObject({
-      requiresAllSteps: false,
-      finalStepId: null,
+      requiresAllSteps: true,
+      finalStepId: "a1-c08",
       certification: "none",
     });
 
@@ -255,6 +260,50 @@ describe("registro genérico de cursos", () => {
     expect(nextRecommendedCourseStep(lessonsDone, HANGUL_COURSE.steps)?.id).toBe("c1");
   });
 
+  test("pré-requisitos do A1 intercalam lições e checkpoints sem atalhos", () => {
+    const step = (id: string) => A1_COURSE.steps.find((item) => item.id === id)!;
+    expect(step("a1-l01").prerequisites).toEqual([]);
+    expect(step("a1-l02").prerequisites).toEqual(["a1-l01"]);
+    expect(step("a1-l06").prerequisites).toEqual(["a1-c01"]);
+    expect(step("a1-c01").prerequisites).toEqual([
+      "a1-l01",
+      "a1-l02",
+      "a1-l03",
+      "a1-l04",
+      "a1-l05",
+    ]);
+    expect(step("a1-c08").prerequisites).toEqual([
+      "a1-l36",
+      "a1-l37",
+      "a1-l38",
+      "a1-l39",
+      "a1-l40",
+      "a1-c01",
+      "a1-c02",
+      "a1-c03",
+      "a1-c04",
+      "a1-c05",
+      "a1-c06",
+      "a1-c07",
+    ]);
+
+    const empty = createEmptyProgress(NOW);
+    expect(isCourseStepUnlocked(empty, step("a1-l01"))).toBe(true);
+    expect(isCourseStepUnlocked(empty, step("a1-l02"))).toBe(false);
+    expect(isCourseStepUnlocked(empty, step("a1-c01"))).toBe(false);
+    expect(nextRecommendedCourseStep(empty, A1_COURSE.steps)?.id).toBe("a1-l01");
+
+    const firstFive = markDone(createEmptyProgress(NOW), [
+      "a1-l01",
+      "a1-l02",
+      "a1-l03",
+      "a1-l04",
+      "a1-l05",
+    ]);
+    expect(isCourseStepUnlocked(firstFive, step("a1-c01"))).toBe(true);
+    expect(nextRecommendedCourseStep(firstFive, A1_COURSE.steps)?.id).toBe("a1-c01");
+  });
+
   test("progresso específico do curso é derivado, não persistido", () => {
     const progress = createEmptyProgress(NOW);
     markDone(progress, [...HANGUL_LESSON_IDS.slice(0, 10), "c1"], 88);
@@ -303,27 +352,37 @@ describe("registro genérico de cursos", () => {
     });
   });
 
-  test("curso concluído não desbloqueia A1 nem conclui o curso em desenvolvimento", () => {
-    const complete = markDone(createEmptyProgress(NOW), EXPECTED_HANGUL_STEP_IDS);
+  test("A1 completa só com os 48 passos e não conclui por causa de outra lição", () => {
+    const completeHangul = markDone(createEmptyProgress(NOW), EXPECTED_HANGUL_STEP_IDS);
     const a1 = getCourse("ko-a1")!;
 
-    expect(summarizeCourseProgress(complete, a1)).toMatchObject({
-      totalSteps: 1,
+    expect(summarizeCourseProgress(completeHangul, a1)).toMatchObject({
+      totalSteps: 48,
       completedSteps: 0,
       percent: 0,
       complete: false,
       nextStep: { id: "a1-l01" },
     });
     expect(courseStepHref(a1, "a1-l01")).toBe("/a1/a1-l01");
-    expect(courseStepHref(a1, "a1-l02")).toBeNull();
-    expect(courseStepHref(a1, "a1-c01")).toBeNull();
+    expect(courseStepHref(a1, "a1-l02")).toBe("/a1/a1-l02");
+    expect(courseStepHref(a1, "a1-c01")).toBe("/a1/a1-c01");
+    expect(courseStepHref(a1, "a1-c08")).toBe("/a1/a1-c08");
 
     const a1Done = markDone(createEmptyProgress(NOW), ["a1-l01"]);
     expect(summarizeCourseProgress(a1Done, a1)).toMatchObject({
       completedSteps: 1,
-      percent: 100,
+      percent: 2,
       complete: false,
+      nextStep: { id: "a1-l02" },
+    });
+
+    const allA1 = markDone(createEmptyProgress(NOW), a1.steps.map((step) => step.id));
+    expect(summarizeCourseProgress(allA1, a1)).toMatchObject({
+      completedSteps: 48,
+      percent: 100,
+      complete: true,
       nextStep: null,
+      lockedIncompleteSteps: 0,
     });
   });
 

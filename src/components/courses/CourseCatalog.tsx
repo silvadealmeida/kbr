@@ -58,9 +58,9 @@ export function CourseCatalog() {
         <p className="mt-2">
           O KBR organiza o estudo em cursos. O Hangul é um curso introdutório de{" "}
           <strong>Pré-A1</strong> e não corresponde a um nível oficial do CEFR. O{" "}
-          <strong>A1 está em desenvolvimento</strong>, com a primeira lição
-          disponível e as demais planejadas. A2–C2 aparecem apenas como
-          planejamento editorial e ainda não têm lições, atividades ou avaliações.
+          <strong>Coreano A1</strong> está completo no currículo interno do KBR, com
+          conteúdo original em revisão. A2–C2 aparecem apenas como planejamento
+          editorial e ainda não têm lições, atividades ou avaliações.
         </p>
         <p className="mt-2">
           Concluir um curso no KBR não emite certificado CEFR, não comprova
@@ -176,9 +176,11 @@ export function CourseCatalog() {
 
                 {summary?.complete ? (
                   <p className="mt-4 rounded-xl bg-surface-2 p-3 text-sm">
-                    Você concluiu o curso Hangul. Isso não é certificação CEFR e{" "}
-                    <strong>não desbloqueia o A1 automaticamente</strong>; o A1
-                    segue em desenvolvimento e A2–C2 continuam planejados.
+                    Você concluiu o curso {course.title}. Isso não é certificação
+                    CEFR nem TOPIK.{" "}
+                    {course.id === "hangul"
+                      ? "A conclusão do Hangul não desbloqueia o A1 automaticamente."
+                      : "A conclusão do A1 não libera o A2 automaticamente."}
                   </p>
                 ) : summary?.nextStep && nextHref ? (
                   <p className="mt-4 text-sm text-muted">
@@ -247,6 +249,7 @@ export function CourseCatalog() {
         </ul>
       </section>
 
+      {inDevelopment.length > 0 ? (
       <section aria-labelledby="courses-development-title">
         <div className="mb-3">
           <h2 id="courses-development-title" className="text-lg font-semibold">
@@ -347,6 +350,7 @@ export function CourseCatalog() {
           })}
         </ul>
       </section>
+      ) : null}
 
       <section aria-labelledby="courses-planned-title">
         <div className="mb-3">

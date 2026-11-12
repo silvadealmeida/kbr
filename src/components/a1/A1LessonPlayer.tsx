@@ -10,6 +10,7 @@ import { Badge } from "@/components/ui/Badge";
 import { Button, ButtonLink } from "@/components/ui/Button";
 import { Plate } from "@/components/ui/Card";
 import type { A1LessonContent } from "@/content/curriculum/a1/types";
+import type { CourseStepDefinition } from "@/content/courses/types";
 import { checkAnswer, type DetailedCheckResult, type ExerciseAnswer } from "@/lib/exercises";
 import {
   a1RequiredCorrect,
@@ -17,6 +18,7 @@ import {
   evaluateA1Lesson,
   type A1LessonResult,
 } from "@/lib/a1/lesson";
+import { isCourseStepUnlocked } from "@/lib/courses/steps";
 import { recordAttempt, type AnswerRecord } from "@/lib/progress/lesson";
 import type { Progress } from "@/lib/storage";
 
@@ -25,12 +27,23 @@ const STAGE_LABEL = {
   independent: "Prática independente",
 } as const;
 
+const TOTAL_LESSONS = 40;
+
 /**
- * Player mínimo da primeira lição A1. Reutiliza o motor de exercícios, o áudio
- * sob demanda e as primitivas visuais do Hangul; não cria progresso paralelo.
- * A conclusão é da lição, nunca do curso A1.
+ * Player da lição A1. Reutiliza o motor de exercícios, o áudio sob demanda e
+ * as primitivas visuais do Hangul; não cria progresso paralelo. A rota é
+ * bloqueada no cliente quando os pré-requisitos não estão concluídos, como no
+ * player do Hangul, e a conclusão continua sendo da lição, não do curso.
  */
-export function A1LessonPlayer({ lesson }: { lesson: A1LessonContent }) {
+export function A1LessonPlayer({
+  lesson,
+  step,
+  nextStep,
+}: {
+  lesson: A1LessonContent;
+  step: CourseStepDefinition;
+  nextStep: CourseStepDefinition | null;
+}) {
   const { progressStore, status } = useAuth();
   const [progress, setProgress] = useState<Progress | null>(null);
   const [loadingProgress, setLoadingProgress] = useState(true);
@@ -38,7 +51,6 @@ export function A1LessonPlayer({ lesson }: { lesson: A1LessonContent }) {
   const [index, setIndex] = useState(0);
   const [draft, setDraft] = useState<ExerciseAnswer | null>(null);
   const [result, setResult] = useState<DetailedCheckResult | null>(null);
-  const [answers, setAnswers] = useState<Record<string, AnswerRecord>>({});
   const [lessonResult, setLessonResult] = useState<A1LessonResult | null>(null);
   const [saveWarning, setSaveWarning] = useState(false);
 
@@ -96,7 +108,6 @@ export function A1LessonPlayer({ lesson }: { lesson: A1LessonContent }) {
       [exercise.id]: { correct: checked.correct, scored: checked.scored },
     };
     answersRef.current = nextAnswers;
-    setAnswers(nextAnswers);
 
     if (progressRef.current) {
       persist(
@@ -139,7 +150,6 @@ export function A1LessonPlayer({ lesson }: { lesson: A1LessonContent }) {
 
   const restart = () => {
     answersRef.current = {};
-    setAnswers({});
     setIndex(0);
     setDraft(null);
     setResult(null);
@@ -176,6 +186,42 @@ export function A1LessonPlayer({ lesson }: { lesson: A1LessonContent }) {
   }
 
   const record = progress.lessons[lesson.id];
+  const unlocked = record?.done === true || isCourseStepUnlocked(progress, step);
+
+  if (!unlocked) {
+    const missing = step.prerequisites.filter(
+      (id) => progress.lessons[id]?.done !== true,
+    );
+    return (
+      <article aria-labelledby="lesson-title" className="mx-auto w-full max-w-[680px] pb-4">
+        <PlayerHeader
+          code={`lição ${lesson.id}`}
+          eyebrow="Lição bloqueada"
+          title={lesson.title}
+          titleId="lesson-title"
+          meta={
+            <>
+              <span>Lição {lesson.number} de {TOTAL_LESSONS}</span>
+              <span aria-hidden>·</span>
+              <span>{lesson.estimatedMinutes} min</span>
+            </>
+          }
+          backHref="/a1"
+          backLabel="← A1"
+        />
+        <Plate className="mt-5" label="Requisitos pendentes" number={lesson.id}>
+          <p className="text-muted">
+            Esta lição abre depois dos passos anteriores. Conclua os pré-requisitos
+            abaixo para praticar; abrir o endereço diretamente não desbloqueia a lição.
+          </p>
+          <p className="mt-2 text-sm text-muted">Pendentes: {missing.join(", ")}.</p>
+          <ButtonLink href="/a1" className="mt-5">
+            Ver o percurso do A1
+          </ButtonLink>
+        </Plate>
+      </article>
+    );
+  }
 
   if (phase === "run" && exercise) {
     return (
@@ -183,7 +229,7 @@ export function A1LessonPlayer({ lesson }: { lesson: A1LessonContent }) {
         <PlayerHeader
           compact
           code={`lição ${lesson.id}`}
-          eyebrow="Curso A1 em desenvolvimento"
+          eyebrow={`A1 · ${lesson.estimatedMinutes} min`}
           title={lesson.title}
           titleId="lesson-title"
           backHref="/a1"
@@ -192,7 +238,7 @@ export function A1LessonPlayer({ lesson }: { lesson: A1LessonContent }) {
         <div className="mt-4 flex flex-wrap items-center justify-between gap-2">
           <Badge tone="accent">{STAGE_LABEL[exercise.stage]}</Badge>
           <span className="text-sm text-muted">
-            Aula de apresentação · mínimo {requiredCorrect} de {total}
+            Item {index + 1} de {total} · mínimo {requiredCorrect} de {total}
           </span>
         </div>
         <ExerciseView
@@ -221,6 +267,11 @@ export function A1LessonPlayer({ lesson }: { lesson: A1LessonContent }) {
   }
 
   if (phase === "done" && lessonResult) {
+    const nextUnlocked =
+      nextStep !== null &&
+      (progress.lessons[nextStep.id]?.done === true ||
+        isCourseStepUnlocked(progress, nextStep));
+
     return (
       <article aria-labelledby="completion-title" className="mx-auto w-full max-w-[680px] pb-4">
         <PlayerHeader
@@ -255,22 +306,18 @@ export function A1LessonPlayer({ lesson }: { lesson: A1LessonContent }) {
             </p>
           ) : null}
           <p className="mt-4 border-l-2 border-warning bg-warning-soft p-3 text-sm">
-            Esta é a primeira lição de um curso A1 <strong>em desenvolvimento</strong>.
-            Concluí-la não conclui o curso A1 e não emite certificação CEFR ou TOPIK.
+            Conteúdo original em revisão. A conclusão do A1 é interna do KBR e não
+            emite certificação CEFR ou TOPIK.
           </p>
         </Plate>
 
         <Plate className="mt-4" label="O que você praticou">
           <ul className="list-disc space-y-1.5 pl-5 text-muted">
+            <li>{guidedCount} itens de prática guiada, logo depois das explicações.</li>
+            <li>{independentCount} itens de prática independente, com menos apoio.</li>
             <li>
-              {guidedCount} itens de prática guiada, logo depois das explicações.
-            </li>
-            <li>
-              {independentCount} itens de prática independente, com menos apoio.
-            </li>
-            <li>
-              {lesson.dialogue.length} turnos de diálogo e {lesson.grammar.length}{" "}
-              notas de gramática.
+              {lesson.dialogue.length} turnos de diálogo e {lesson.grammar.length} notas
+              de gramática.
             </li>
           </ul>
         </Plate>
@@ -307,6 +354,16 @@ export function A1LessonPlayer({ lesson }: { lesson: A1LessonContent }) {
         />
 
         <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          {lessonResult.passed && nextUnlocked && nextStep ? (
+            <ButtonLink href={`/a1/${nextStep.id}`}>
+              Próximo: {nextStep.id} · {nextStep.title}
+            </ButtonLink>
+          ) : null}
+          {lessonResult.passed && nextStep && !nextUnlocked ? (
+            <ButtonLink href="/a1" variant="secondary">
+              Próximo passo bloqueado · ver percurso
+            </ButtonLink>
+          ) : null}
           <Button variant="secondary" onClick={restart}>
             Refazer lição
           </Button>
@@ -315,10 +372,10 @@ export function A1LessonPlayer({ lesson }: { lesson: A1LessonContent }) {
           </ButtonLink>
         </div>
         <p className="mt-4 border-l-2 border-accent bg-surface-2 p-3 text-sm text-muted">
-          <strong className="text-fg">Próximo estado:</strong> o A1 tem 1 de 40
-          lições publicadas. A lição a1-l02 ainda não está disponível; novas
-          lições entram aos poucos e continuam em revisão. Concluir a1-l01 não
-          conclui o curso.
+          <strong className="text-fg">Percurso:</strong>{" "}
+          {lessonResult.passed
+            ? "seu resultado foi gravado nesta lição. A conclusão do A1 exige as 40 lições e os 8 checkpoints."
+            : "esta tentativa não desbloqueia o próximo passo. Refaça para atingir o mínimo."}
         </p>
       </article>
     );
@@ -328,14 +385,14 @@ export function A1LessonPlayer({ lesson }: { lesson: A1LessonContent }) {
     <article aria-labelledby="lesson-title" className="mx-auto w-full max-w-[680px] pb-4">
       <PlayerHeader
         code={`lição ${lesson.id}`}
-        eyebrow="Curso A1 em desenvolvimento"
+        eyebrow="Curso A1 · conteúdo em revisão"
         title={lesson.title}
         titleId="lesson-title"
         meta={
           <>
-            <span>Lição 1 de 40 planejadas</span>
+            <span>Lição {lesson.number} de {TOTAL_LESSONS}</span>
             <span aria-hidden>·</span>
-            <span>≈ 50 min</span>
+            <span>≈ {lesson.estimatedMinutes} min</span>
             <span aria-hidden>·</span>
             <span className="rounded-[var(--radius-seal)] bg-surface-2 px-2 py-0.5 text-accent">
               Conteúdo em revisão
@@ -350,10 +407,8 @@ export function A1LessonPlayer({ lesson }: { lesson: A1LessonContent }) {
       </p>
 
       <p className="mt-4 border-l-2 border-accent bg-surface-2 p-4 text-sm text-muted">
-        O curso A1 está em desenvolvimento: esta é a única lição jogável por
-        enquanto. O A1 completo prevê 40 lições e 8 checkpoints; nada aqui
-        certifica CEFR ou TOPIK. A conclusão desta lição fica registrada apenas
-        como a1-l01, nunca como curso A1 concluído.
+        Esta lição ensina antes de testar. A conclusão do A1 é interna do KBR,
+        exige 40 lições e 8 checkpoints e não certifica CEFR ou TOPIK.
       </p>
 
       {record?.done ? (
@@ -382,11 +437,7 @@ export function A1LessonPlayer({ lesson }: { lesson: A1LessonContent }) {
                 >
                   {panel.ko}
                 </p>
-                <AudioControl
-                  text={panel.ko}
-                  compact
-                  label="Ouvir a expressão"
-                />
+                <AudioControl text={panel.ko} compact label="Ouvir a expressão" />
               </>
             ) : null}
           </Plate>
@@ -394,7 +445,7 @@ export function A1LessonPlayer({ lesson }: { lesson: A1LessonContent }) {
       </div>
 
       <Plate className="mt-4" label="Diálogo" number={`${lesson.dialogue.length}`}>
-        <h2 className="text-lg font-semibold">Minsu e Ana se conhecem</h2>
+        <h2 className="text-lg font-semibold">{lesson.dialogueTitle}</h2>
         <p className="mt-1 text-sm text-muted">
           Toque no áudio apenas se quiser ouvir. A voz é a coreana do seu
           navegador quando disponível.

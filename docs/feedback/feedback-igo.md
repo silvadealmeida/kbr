@@ -79,17 +79,18 @@ seguem abertos. A auditoria técnica do áudio está em `docs/audio/`.
 ## 3. Vontade de flashcards de vocabulário ilustrados
 
 - **Observação:** o usuário gostaria de cartões de vocabulário com ilustrações.
-- **Verificação:** não implementado. O catálogo atual é de Hangul/Pré-A1; não há
-  curso A1, banco de vocabulário amplo nem assets ilustrados. O SRS existente
-  revisa erros já registrados, não um baralho de vocabulário novo.
+- **Verificação:** parcialmente atendido pelo vocabulário em texto. O A1 já tem
+  40 lições, 443 identidades lexicais e 443 frases contextuais, mas **não há
+  ilustrações** nem um baralho ilustrado. O SRS existente revisa as palavras
+  salvas pelo aluno, não um baralho visual novo.
 - **Severidade:** média/oportunidade de produto. Não é requisito para concluir o
   módulo Hangul e não deve bloquear o lançamento atual.
 - **Área de investigação:** roadmap CEFR A1–C2, modelo de conteúdo de
   vocabulário, SRS Leitner, política de assets e acessibilidade das imagens.
-- **Correção proposta:** planejar um baralho de vocabulário somente quando
-  houver conteúdo A1 aprovado; cada cartão deve ter palavra, leitura, tradução,
-  exemplo, áudio/alternativa textual e ilustração com descrição acessível.
-  Reutilizar o SRS existente sem criar outro scheduler.
+- **Correção proposta:** planejar um baralho ilustrado depois da revisão nativa
+  do vocabulário A1; cada cartão deve ter palavra, leitura, tradução, exemplo,
+  áudio/alternativa textual e ilustração com descrição acessível. Reutilizar o
+  SRS existente sem criar outro scheduler.
 - **Critérios de aceite:**
   - vocabulário com revisão nativa e status editorial explícito;
   - ilustrações originais ou licenciadas, com texto alternativo;

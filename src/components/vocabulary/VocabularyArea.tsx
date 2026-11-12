@@ -117,11 +117,17 @@ export function VocabularyArea() {
   const now = new Date();
   const visible = useMemo(() => {
     const q = fold(query.trim());
+    const words = q.split(/\s+/).filter(Boolean);
+    const ptMatches = (text: string) => {
+      if (words.length === 0) return true;
+      const tokens = fold(text).split(/[^a-z0-9]+/).filter(Boolean);
+      return words.every((word) => tokens.some((token) => token.startsWith(word)));
+    };
     return VOCAB_ENTRIES.filter(
       (e) =>
         (!course || e.course === course) &&
         (!lesson || `${e.course}/${e.lesson}` === lesson) &&
-        (!q || e.ko.includes(query.trim()) || fold(e.pt).includes(q)) &&
+        (!q || e.ko.includes(query.trim()) || ptMatches(e.pt)) &&
         (!onlySaved || (progress ? isSaved(progress, e.id) : false)),
     );
   }, [query, course, lesson, onlySaved, progress]);

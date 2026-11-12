@@ -22,24 +22,26 @@ Política de compatibilidade: IDs amplos já publicados (incluindo homógrafos c
 
 ## `VocabSentence`
 
-`vocabId`, `ko` (frase completa), `pt` (tradução natural da frase inteira), `target` (= `entry.ko`), `contextMeaning` (a dica "Palavra esperada"), `accepted?` (variantes lexicais **registradas**; vazio por padrão), `review`.
+`vocabId`, `ko` (frase completa), `pt` (tradução natural da frase inteira), `target` (forma exata ocultada), `contextMeaning` (a dica "Palavra esperada"), `accepted?` (variantes lexicais **registradas**; vazio por padrão), `review`.
 
-Regras validadas: o alvo ocorre **exatamente uma vez** e no **início de uma palavra** (sem lacuna em meio de palavra); tradução e dica não vazias; variantes não podem repetir o alvo nem coincidir com outro item do registro (lacuna ambígua).
+O `target` pode ser igual à forma de dicionário (`사과`) ou a forma polida usada no contexto (`일어나요`, `먹어요`); o cartão/identidade continua sendo `vocabId`. Regras validadas: o alvo ocorre **exatamente uma vez** e no **início de uma palavra** (sem lacuna em meio de palavra); tradução e dica não vazias; variantes não podem repetir o alvo nem coincidir com outro item do registro (lacuna ambígua).
 
 ## Vocabulário do Hangul (9A-V)
 
 `src/content/vocabulary/hangul.ts` **deriva** os itens de `WORDS` (sem duplicar dados): 148 registros menos 15 excluídos — formas flexionadas/com partícula (`밥을`, `좋아요`, `입니다`…), `십만` e `곬` (tradução ainda a confirmar). Resultado: **133 itens**. Jamo, sílabas e exemplos fonéticos não são vocabulário. O corpus tem **25 frases originais** (`sentences.ts`), todas `in-review`; as demais palavras usam cartão simples.
 
-## Como um curso A1–C2 fornece vocabulário
+## Curso A1 integrado
 
-O A1 já está integrado: `src/content/vocabulary/a1.ts` fornece 11 `VocabEntry` e 11 `VocabSentence` de `a1-l01`; `src/content/vocabulary/index.ts` inclui os arrays em `VOCAB_ENTRIES`/`VOCAB_SENTENCES`. Para a próxima lição:
+`src/content/vocabulary/a1.ts` fornece as 11 `VocabEntry` e 11 frases de `a1-l01`. `src/content/vocabulary/a1-course.ts` fornece 432 identidades e 432 frases de `a1-l02`–`a1-l40`, com origem `course: "ko-a1"` e a lição correta. `VOCAB_ENTRIES`/`VOCAB_SENTENCES` incluem os dois arrays. Totais atuais: **443 identidades A1**, **443 frases A1**, **468 frases no registro** (25 do Hangul + 443 do A1), **495 identidades distintas ensinadas** no A1 contando 52 reusos do Hangul. Todas as entradas A1 estão `in-review`.
 
-1. Exportar `VocabEntry[]` (e `VocabSentence[]`) do curso, com `course` igual ao id do curso e `lesson` apontando para uma lição real.
-2. Acrescentar o array a `VOCAB_ENTRIES` (e as frases a `VOCAB_SENTENCES`) em `src/content/vocabulary/index.ts`. O A1 usa `A1_LESSON_IDS` em `COURSE_LESSON_IDS`; registrar conteúdo não torna as outras lições jogáveis.
-3. Rodar `npm test`: a validação estrutural acusa ids duplicados, referências inválidas, alvo ausente/duplicado e variantes ambíguas.
-4. Mostrar o resumo da lição com `vocabForLesson(course, lesson)` ou uma lista explícita de IDs. Use `LessonVocabulary`, que oferece salvar/remover individual e “Salvar as N palavras” quando há uma lição filtrada. Salvar é sempre ação do aluno.
-5. Marcar `review.status: "in-review"` até revisão nativa. Não gerar áudio: a voz do sistema cobre.
+Para um novo curso A1–C2:
+
+1. Exportar `VocabEntry[]` e `VocabSentence[]` do curso, com `course` igual ao id do curso e `lesson` apontando para uma lição real.
+2. Acrescentar os arrays a `VOCAB_ENTRIES`/`VOCAB_SENTENCES` em `src/content/vocabulary/index.ts` e registrar os IDs de lição em `COURSE_LESSON_IDS`.
+3. Rodar `npm test`: a validação estrutural acusa IDs duplicados, referências inválidas, alvo ausente/duplicado, variantes ambíguas e origens incorretas.
+4. Mostrar o resumo com `vocabForLesson(course, lesson)` ou uma lista explícita de IDs. `LessonVocabulary` oferece salvar/remover individual e “Salvar as N palavras”; salvar é sempre ação do aluno.
+5. Manter `review.status: "in-review"` até revisão nativa. Não gerar áudio: a voz do sistema cobre.
 
 ## Validação
 
-`validateVocabulary` / `assertVocabulary` e `tests/vocabulary.test.ts` são **estruturais**. Não provam naturalidade, gramática nem tradução; isso depende de falante nativo.
+`validateVocabulary` / `assertVocabulary` e `tests/vocabulary.test.ts` são **estruturais**. Não provam naturalidade, gramática nem tradução; isso depende de falante nativo. `target` diferente da forma de dicionário é aceito para verbos/adjetivos, desde que a forma exista na frase e o cartão permaneça único.

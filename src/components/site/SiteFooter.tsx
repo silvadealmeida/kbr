@@ -19,7 +19,7 @@ export function SiteFooter() {
         <div>
           <Link href="/" className="inline-flex min-h-11 items-center gap-3 text-xl font-bold tracking-[-.05em]"><span aria-hidden className="flex size-9 items-center justify-center border border-fg">K</span>KBR</Link>
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted">Coreano para brasileiros. Comece pela escrita, pratique a leitura e volte ao que precisa de atenção.</p>
-          <p className="mt-5 text-sm text-muted">Hangul disponível · A1 em desenvolvimento · A2–C2 planejados</p>
+          <p className="mt-5 text-sm text-muted">Hangul e A1 disponíveis · A2–C2 planejados</p>
         </div>
         <nav aria-label="Aprender"><h2 className="font-semibold">Aprender</h2><ul className="mt-3">{learnLinks.map((item) => <li key={item.href}><Link href={item.href} className="inline-flex min-h-11 items-center text-sm text-muted hover:text-accent">{item.label}</Link></li>)}</ul></nav>
         <nav aria-label="Transparência"><h2 className="font-semibold">Transparência</h2><ul className="mt-3">{legalLinks.map((item) => <li key={item.href}><Link href={item.href} className="inline-flex min-h-11 items-center text-sm text-muted hover:text-accent">{item.label}</Link></li>)}</ul><p className="mt-5 text-sm leading-relaxed text-muted">Sem anúncios ou rastreadores de terceiros. Conteúdo coreano em revisão.</p></nav>

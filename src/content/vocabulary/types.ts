@@ -37,6 +37,11 @@ export type VocabSentence = {
   ko: string;
   /** Tradução natural da frase inteira. */
   pt: string;
+  /**
+   * Forma exata ocultada na frase. Em substantivos e expressões costuma ser a
+   * própria forma de dicionário; em verbos e adjetivos pode ser a forma polida
+   * usada no contexto. A identidade/cartão continua sendo `vocabId`.
+   */
   target: string;
   /** Sentido da palavra nesta frase (a dica "Palavra esperada"). */
   contextMeaning: string;

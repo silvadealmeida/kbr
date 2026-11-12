@@ -33,6 +33,7 @@ test.each([
   ["/cursos/hangul", true],
   ["/a1", true],
   ["/a1/a1-l01", true],
+  ["/a1/a1-c01", true],
   ["/licoes", true],
   ["/fala", true],
   ["/vocabulario?tag=casa", true],

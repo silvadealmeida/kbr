@@ -17,7 +17,7 @@
 | `short-answer` | planejado | escrita curta com variantes explícitas | produção livre deve ser rubrica humana/autoavaliação |
 | `dialogue-choice` | planejado | coerência pragmática de turnos | não implementar na 9A |
 
-A 9B implementou `a1-l01` somente com `mcq`, `cloze`, `listen` e `translate`: 10 itens automáticos, 5 guiados e 5 independentes, nenhum tipo planejado. A prática contextual 9A-V existe separadamente em `/vocabulario`, não conta a nota da lição e não cria cartões sem ação do aluno.
+A 9B implementou `a1-l01` somente com `mcq`, `cloze`, `listen` e `translate`: 10 itens automáticos, 5 guiados e 5 independentes, nenhum tipo planejado. As fases 9C–9H completaram as 40 lições com 615 itens automáticos no total (400 de lição + 215 de checkpoint), usando apenas tipos implementados: 79 `mcq`, 183 `cloze`, 132 `listen`, 97 `translate` e 124 `reading`. Cada lição tem 10 itens (5 guiados + 5 independentes, mínimo 8/10); `a1-c01`–`a1-c07` têm 25 itens (mínimo 20/25) e `a1-c08` tem 40 (mínimo 32/40). A prática contextual 9A-V continua separada em `/vocabulario`, não conta a nota da lição e não cria cartões sem ação do aluno. `order-words`, `short-answer` e `dialogue-choice` permanecem planejados e não foram usados como itens avaliados.
 
 ## 2. Mapeamento por objetivo
 

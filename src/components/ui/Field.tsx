@@ -1,4 +1,4 @@
-import type { ComponentPropsWithoutRef, ReactNode } from "react";
+import type { ComponentPropsWithRef, ReactNode } from "react";
 
 export function fieldDescribedBy(
   id: string,
@@ -60,7 +60,7 @@ export function Field({
   );
 }
 
-export type InputProps = ComponentPropsWithoutRef<"input"> & {
+export type InputProps = ComponentPropsWithRef<"input"> & {
   invalid?: boolean;
 };
 

@@ -25,6 +25,7 @@ import { BilingualText, ExerciseView } from "./exercise-ui";
 import { PronunciationLayers } from "./PronunciationLayers";
 import { PlayerHeader } from "./player-header";
 import { Plate } from "@/components/ui/Card";
+import { LessonVocabulary } from "@/components/vocabulary/LessonVocabulary";
 
 export function LessonPlayer({
   lesson,
@@ -429,6 +430,8 @@ export function LessonPlayer({
             })}
           </ul>
         </Plate>
+
+        {lessonResult.passed ? <LessonVocabulary course="hangul" lesson={lesson.id} /> : null}
 
         <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           {lessonResult.passed && nextStep ? (

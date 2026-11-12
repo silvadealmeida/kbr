@@ -347,7 +347,115 @@ test.describe("Checkpoint c1 autenticado", () => {
     await page.goto("/hangul");
     await expect(page.getByText("Concluído · 100%")).toBeVisible();
   });
+
+  test("c1 abaixo do critério mostra diagnóstico sem concluir o checkpoint", async ({
+    page,
+  }) => {
+    await seedCompletedLessons(page);
+
+    await page.goto("/hangul/c1");
+    await page.getByRole("button", { name: "Começar checkpoint" }).click();
+
+    for (const [index, step] of C1_WRONG_STEPS.entries()) {
+      if (step.kind === "choice") {
+        await page
+          .getByRole("button", {
+            name: step.name,
+            exact: typeof step.name === "string",
+          })
+          .first()
+          .click();
+      } else {
+        await page
+          .getByRole("button", { name: step.initial, exact: true })
+          .first()
+          .click();
+        await page
+          .getByRole("button", { name: step.medial, exact: true })
+          .first()
+          .click();
+      }
+      await page.getByRole("button", { name: "Conferir" }).click();
+      await expect(
+        page.getByRole("status").filter({ hasText: "Ainda não." }),
+      ).toBeVisible();
+      await page
+        .getByRole("button", {
+          name:
+            index === C1_WRONG_STEPS.length - 1
+              ? "Concluir checkpoint"
+              : "Continuar",
+        })
+        .click();
+    }
+
+    const resultPanel = page.locator(
+      'article[aria-labelledby="checkpoint-completion-title"]',
+    );
+    await expect(resultPanel).toBeFocused();
+    await expect(
+      page.getByRole("heading", { level: 1, name: "Quase lá" }),
+    ).toBeVisible();
+    await expect(page.getByText("Abaixo do critério", { exact: true })).toBeVisible();
+    await expect(page.getByText("Você acertou 0 de 20 (0%).")).toBeVisible();
+    await expect(
+      page.getByText(
+        "0 corretos · 20 incorretos. Aprovação com pelo menos 16 de 20 (80% documentado).",
+      ),
+    ).toBeVisible();
+
+    await expect(
+      page.getByRole("heading", { name: "O que revisar antes de seguir" }),
+    ).toBeVisible();
+    await expect(page.getByText("Vogais", { exact: true })).toBeVisible();
+    const structureLesson = page.getByRole("link", { name: "h01", exact: true });
+    await expect(structureLesson).toHaveAttribute("href", "/hangul/h01");
+    await expect(
+      page.getByText(/O status por item existe apenas nesta sessão/),
+    ).toBeVisible();
+
+    await expect(
+      page.getByRole("button", { name: "Refazer checkpoint" }),
+    ).toBeVisible();
+    await expect(page.getByRole("link", { name: "Revisar cartões" })).toHaveAttribute(
+      "href",
+      "/revisao",
+    );
+
+    await expect
+      .poll(async () =>
+        page.evaluate((key) => {
+          const raw = window.localStorage.getItem(key);
+          const record = raw ? JSON.parse(raw).lessons?.c1 : null;
+          return record ? { done: record.done, score: record.score } : null;
+        }, accountKey(page.context())),
+      )
+      .toEqual({ done: false, score: 0 });
+  });
 });
+
+const C1_WRONG_STEPS: CheckpointStep[] = [
+  { kind: "choice", name: "노" },
+  { kind: "choice", name: "오" },
+  { kind: "choice", name: "가" },
+  { kind: "choice", name: "시" },
+  { kind: "choice", name: "ㄱ (simples)" },
+  { kind: "choice", name: "ㄷ (simples)" },
+  { kind: "choice", name: "ㅂ (simples)" },
+  { kind: "choice", name: "ㅈ (simples)" },
+  { kind: "choice", name: "móveis" },
+  { kind: "choice", name: "cabeça" },
+  { kind: "choice", name: "lago" },
+  { kind: "choice", name: "uva" },
+  { kind: "choice", name: "senhor" },
+  { kind: "choice", name: "ser salgado" },
+  { kind: "build", initial: "ㄴ", medial: "ㅓ" },
+  { kind: "build", initial: "ㄱ", medial: "ㅜ" },
+  { kind: "build", initial: "ㅂ", medial: "ㅗ" },
+  { kind: "choice", name: "ㅅ + ㅣ e ㄷ + ㅗ" },
+  { kind: "choice", name: "2 blocos" },
+  { kind: "choice", name: "ㅣ" },
+];
 
 type C2Step =
   | { kind: "choice"; name: string }

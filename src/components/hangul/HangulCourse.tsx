@@ -7,8 +7,10 @@ import { COURSE_OUTLINE } from "@/content/hangul/outline";
 import { CHECKPOINTS, getCheckpoint } from "@/content/hangul/checkpoints";
 import { getLesson, LESSONS } from "@/content/hangul/lessons";
 import { useAuth } from "@/components/auth/AuthProvider";
+import { Badge } from "@/components/ui/Badge";
+import { Button } from "@/components/ui/Button";
+import { Card, Plate } from "@/components/ui/Card";
 import { Ruler } from "@/components/ui/Ruler";
-import { Plate } from "@/components/ui/Card";
 import { summarizeCourseProgress } from "@/lib/courses";
 import { buildCourseCompletionReport } from "@/lib/progress/completion";
 import {
@@ -19,17 +21,6 @@ import {
 import type { Progress } from "@/lib/storage";
 import { CourseCompletionPanel } from "./CourseCompletionPanel";
 
-function StatusBadge({ children, tone = "muted" }: { children: React.ReactNode; tone?: "muted" | "brand" }) {
-  return (
-    <span
-      className={`shrink-0 rounded-[var(--radius-seal)] px-2.5 py-1 font-mono text-[11px] font-medium uppercase tracking-[0.08em] ${
-        tone === "brand" ? "bg-surface-2 text-accent" : "border border-line text-muted"
-      }`}
-    >
-      {children}
-    </span>
-  );
-}
 
 export function HangulCourse() {
   const { progressStore, status, syncStatus } = useAuth();
@@ -73,29 +64,29 @@ export function HangulCourse() {
 
   if (status === "loading" || loading || (!progressStore && syncStatus === "syncing")) {
     return (
-      <div className="rounded-2xl border border-border bg-surface p-6">
+      <Card>
         <p role="status" className="text-muted">
           Preparando seu progresso…
         </p>
-      </div>
+      </Card>
     );
   }
 
   if (loadError || !progress) {
     return (
-      <div className="rounded-2xl border border-border bg-surface p-6">
+      <Card>
         <p className="font-semibold">Não foi possível carregar seu progresso.</p>
         <p className="mt-1 text-muted">
           Verifique se o armazenamento do navegador está disponível e tente novamente.
         </p>
-        <button
-          type="button"
+        <Button
+          className="mt-4"
+          variant="secondary"
           onClick={() => setReloadKey((key) => key + 1)}
-          className="mt-4 inline-flex min-h-12 items-center justify-center rounded-xl border border-border px-5 font-semibold hover:bg-soft"
         >
           Tentar novamente
-        </button>
-      </div>
+        </Button>
+      </Card>
     );
   }
 
@@ -110,9 +101,9 @@ export function HangulCourse() {
             <p className="mono-label text-accent">Hangul · Pré-A1</p>
             <h2 className="mt-2 text-2xl font-semibold">25 lições, quatro checkpoints</h2>
           </div>
-          <StatusBadge tone="brand">
+          <Badge tone="accent">
             {summary.complete ? "Percurso concluído" : currentStepId ? "Agora · " + currentStepId : "Sem passo disponível"}
-          </StatusBadge>
+          </Badge>
         </div>
         <Ruler
           value={summary.completedLessons}
@@ -144,7 +135,7 @@ export function HangulCourse() {
                 Unidade {unit.unit} · {unit.title}
               </h2>
               {unit.checkpoint && !checkpoint ? (
-                <StatusBadge>Checkpoint {unit.checkpoint} em breve</StatusBadge>
+                <Badge>Checkpoint {unit.checkpoint} em breve</Badge>
               ) : null}
             </div>
 
@@ -155,13 +146,13 @@ export function HangulCourse() {
                   return (
                     <li
                       key={outline.id}
-                      className="flex min-h-14 items-center justify-between gap-3 rounded-xl border border-dashed border-border px-4 py-3"
+                      className="flex min-h-14 items-center justify-between gap-3 border border-dashed border-line px-4 py-3"
                     >
                       <span className="flex min-w-0 flex-col">
                         <span className="text-xs font-semibold text-muted">{outline.id}</span>
                         <span className="truncate text-muted">{outline.title}</span>
                       </span>
-                      <StatusBadge>Em breve</StatusBadge>
+                      <Badge>Em breve</Badge>
                     </li>
                   );
                 }
@@ -177,16 +168,18 @@ export function HangulCourse() {
                       <span className="text-xs font-semibold text-muted">
                         {outline.id} · {lesson.estimatedMinutes} min
                       </span>
-                      <span className={`truncate font-medium ${unlocked ? "text-fg" : "text-muted"}`}>
+                      <span className={`line-clamp-2 font-medium ${unlocked ? "text-fg" : "text-muted"}`}>
                         {outline.title}
                       </span>
                     </span>
                     {record?.done ? (
-                      <StatusBadge tone="brand">Concluída · {record.score}%</StatusBadge>
+                      <Badge tone="accent">Concluída · {record.score}%</Badge>
+                    ) : currentStepId === outline.id ? (
+                      <Badge tone="accent">Agora</Badge>
                     ) : unlocked ? (
-                      <StatusBadge tone="brand">Disponível</StatusBadge>
+                      <Badge tone="accent">Disponível</Badge>
                     ) : (
-                      <StatusBadge>Após {lesson.prerequisites.join(", ")}</StatusBadge>
+                      <Badge>Após {lesson.prerequisites.join(", ")}</Badge>
                     )}
                   </>
                 );
@@ -206,7 +199,7 @@ export function HangulCourse() {
                     ) : (
                       <div
                         aria-disabled="true"
-                        className="flex min-h-14 items-center justify-between gap-3 rounded-xl border border-border px-4 py-3 opacity-80"
+                        className="flex min-h-14 items-center justify-between gap-3 border border-line px-4 py-3 opacity-80"
                       >
                         {body}
                       </div>
@@ -228,18 +221,20 @@ export function HangulCourse() {
                           <span className="text-xs font-semibold text-muted">
                             {checkpoint.id} · {checkpoint.estimatedMinutes} min · checkpoint
                           </span>
-                          <span className={`truncate font-medium ${unlocked ? "text-fg" : "text-muted"}`}>
+                          <span className={`line-clamp-2 font-medium ${unlocked ? "text-fg" : "text-muted"}`}>
                             {checkpoint.title}
                           </span>
                         </span>
                         {record?.done ? (
-                          <StatusBadge tone="brand">Concluído · {record.score}%</StatusBadge>
+                          <Badge tone="accent">Concluído · {record.score}%</Badge>
+                        ) : currentStepId === checkpoint.id ? (
+                          <Badge tone="accent">Agora</Badge>
                         ) : unlocked ? (
-                          <StatusBadge tone="brand">Disponível</StatusBadge>
+                          <Badge tone="accent">Disponível</Badge>
                         ) : (
-                          <StatusBadge>
+                          <Badge>
                             Após {checkpoint.lessonIds[0]}–{checkpoint.lessonIds[checkpoint.lessonIds.length - 1]}
-                          </StatusBadge>
+                          </Badge>
                         )}
                       </>
                     );
@@ -257,7 +252,7 @@ export function HangulCourse() {
                     ) : (
                       <div
                         aria-disabled="true"
-                        className="flex min-h-14 items-center justify-between gap-3 rounded-xl border border-dashed border-border px-4 py-3 opacity-80"
+                        className="flex min-h-14 items-center justify-between gap-3 border border-dashed border-line px-4 py-3 opacity-80"
                       >
                         {body}
                       </div>

@@ -5,6 +5,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { BilingualText, ExerciseView } from "@/components/hangul/exercise-ui";
 import { Badge } from "@/components/ui/Badge";
+import { Button, ButtonLink } from "@/components/ui/Button";
 import { Card, Plate } from "@/components/ui/Card";
 import { checkAnswer, type DetailedCheckResult, type ExerciseAnswer } from "@/lib/exercises";
 import { applyReview, buildReviewQueue, REVIEW_KIND_LABELS, type ReviewItem, type ReviewQueue } from "@/lib/review";
@@ -191,7 +192,7 @@ export function ReviewArea() {
         </p>
         <Link
           href="/dashboard"
-          className="mt-4 inline-flex min-h-12 items-center font-semibold text-brand"
+          className="mt-4 inline-flex min-h-12 items-center font-semibold text-accent underline-offset-4 hover:underline"
         >
           Voltar ao painel
         </Link>
@@ -203,7 +204,10 @@ export function ReviewArea() {
     return (
       <article aria-labelledby="review-session-title" className="pb-4">
         <div className="flex items-center justify-between gap-3">
-          <Link href="/dashboard" className="text-sm font-semibold text-brand">
+          <Link
+            href="/dashboard"
+            className="inline-flex min-h-11 items-center text-sm font-semibold text-accent underline-offset-4 hover:underline"
+          >
             ← Painel
           </Link>
           <div className="flex flex-wrap items-center justify-end gap-2">
@@ -252,7 +256,7 @@ export function ReviewArea() {
 
     return (
       <article aria-labelledby="review-done-title" className="pb-4">
-        <p className="text-sm font-semibold text-brand">Fim da sessão</p>
+        <p className="mono-label text-accent">Fim da sessão</p>
         <h1 id="review-done-title" className="mt-1 text-3xl font-bold tracking-tight">
           Revisão concluída
         </h1>
@@ -275,7 +279,7 @@ export function ReviewArea() {
             </p>
           ) : null}
           {remaining > 0 ? (
-            <p className="mt-2 rounded-xl bg-soft p-3 text-sm">
+            <p className="mt-2 border-l-2 border-accent bg-surface-2 p-3 text-sm">
               Ainda há {remaining} {remaining === 1 ? "cartão vencido" : "cartões vencidos"}{" "}
               para revisar hoje. Você pode iniciar outra sessão.
             </p>
@@ -299,24 +303,19 @@ export function ReviewArea() {
 
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
           {(queue?.totalDue ?? 0) > 0 ? (
-            <button
-              type="button"
+            <Button
               onClick={() => {
                 setPhase("overview");
                 setSession([]);
                 setReviewed([]);
               }}
-              className="inline-flex min-h-12 items-center justify-center rounded-xl bg-brand px-5 font-semibold text-brand-fg"
             >
               Revisar mais
-            </button>
+            </Button>
           ) : null}
-          <Link
-            href="/dashboard"
-            className="inline-flex min-h-12 items-center justify-center rounded-xl border border-border px-5 font-semibold hover:bg-soft"
-          >
+          <ButtonLink href="/dashboard" variant="secondary">
             Voltar ao painel
-          </Link>
+          </ButtonLink>
         </div>
       </article>
     );
@@ -330,19 +329,25 @@ export function ReviewArea() {
         {totalDue > 0 ? (
           <>
             <div className="grid grid-cols-1 gap-3 min-[420px]:grid-cols-3">
-              <div className="rounded-xl bg-soft p-4">
+              <div className="border-l border-line py-1 pl-4">
                 <p className="text-sm text-muted">Vencidos</p>
-                <p className="text-3xl font-bold">{queue?.overdue ?? 0}</p>
+                <p className="mt-1 font-mono text-3xl font-semibold tabular-nums">
+                  {queue?.overdue ?? 0}
+                </p>
                 <p className="text-xs text-muted">antes de hoje</p>
               </div>
-              <div className="rounded-xl bg-soft p-4">
+              <div className="border-l border-line py-1 pl-4">
                 <p className="text-sm text-muted">Vencem hoje</p>
-                <p className="text-3xl font-bold">{queue?.dueToday ?? 0}</p>
+                <p className="mt-1 font-mono text-3xl font-semibold tabular-nums">
+                  {queue?.dueToday ?? 0}
+                </p>
                 <p className="text-xs text-muted">desde 00:00</p>
               </div>
-              <div className="rounded-xl bg-soft p-4">
+              <div className="border-l border-line py-1 pl-4">
                 <p className="text-sm text-muted">Nesta sessão</p>
-                <p className="text-3xl font-bold">{queue?.session.length ?? 0}</p>
+                <p className="mt-1 font-mono text-3xl font-semibold tabular-nums">
+                  {queue?.session.length ?? 0}
+                </p>
                 <p className="text-xs text-muted">de {totalDue} pendentes</p>
               </div>
             </div>
@@ -352,20 +357,16 @@ export function ReviewArea() {
                 : `Há ${totalDue} cartões para revisar.`}{" "}
               A sessão começa pelos mais atrasados e usa a agenda Leitner já existente.
             </p>
-            <button
-              type="button"
-              onClick={start}
-              className="mt-4 inline-flex min-h-12 w-full items-center justify-center rounded-xl bg-brand px-6 font-semibold text-brand-fg sm:w-auto"
-            >
+            <Button className="mt-4 w-full sm:w-auto" onClick={start}>
               {`Começar revisão (${queue?.session.length ?? 0})`}
-            </button>
+            </Button>
             <div className="mt-3">
               <SyncNote offline={offline} synced={synced} syncing={syncing} />
             </div>
           </>
         ) : (
           <>
-            <p lang="ko" aria-hidden className="font-ko text-4xl font-bold text-brand">
+            <p lang="ko" aria-hidden className="font-ko text-4xl font-bold text-accent">
               복습
             </p>
             <h2 className="mt-2 text-xl font-semibold">Nada para revisar agora</h2>
@@ -397,12 +398,9 @@ export function ReviewArea() {
         <p className="mt-3 text-sm text-muted">
           <BilingualText text="Conteúdo coreano em revisão por falante nativo." />
         </p>
-        <Link
-          href="/dashboard"
-          className="mt-4 inline-flex min-h-12 items-center justify-center rounded-xl border border-border px-5 font-semibold hover:bg-soft"
-        >
+        <ButtonLink href="/dashboard" variant="secondary" className="mt-4">
           Voltar ao painel
-        </Link>
+        </ButtonLink>
       </section>
     </>
   );

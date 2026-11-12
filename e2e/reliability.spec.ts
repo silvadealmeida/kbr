@@ -77,7 +77,7 @@ test.describe("Confiabilidade de rede", () => {
       .getByRole("group", { name: "Alternativas" })
       .getByRole("button", { name: "carne", exact: true })
       .click();
-    await page.getByRole("button", { name: "Conferir" }).click();
+    await page.getByRole("button", { name: "Mostrar resposta" }).click();
     await expect(page.getByRole("status").filter({ hasText: "Correto." })).toBeVisible();
     await page.getByRole("button", { name: /Concluir revisão/ }).click();
     await expect(

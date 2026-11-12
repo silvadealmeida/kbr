@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { CourseCompletionPanel } from "@/components/hangul/CourseCompletionPanel";
-import { ButtonLink } from "@/components/ui/Button";
+import { Button, ButtonLink } from "@/components/ui/Button";
 import { Card, Plate } from "@/components/ui/Card";
 import { ProgressBar } from "@/components/ui/ProgressBar";
 import { getPlannedCourses } from "@/content/courses";
@@ -108,7 +108,7 @@ function ActivityList({ items }: { items: readonly DashboardActivity[] }) {
 
   return (
     <Card>
-      <ol className="flex flex-col divide-y divide-border">
+      <ol className="flex flex-col divide-y divide-line">
         {items.map((activity, index) => (
           <li
             key={`${activity.exerciseId}-${activity.at}-${index}`}
@@ -123,7 +123,7 @@ function ActivityList({ items }: { items: readonly DashboardActivity[] }) {
             </div>
             <span
               className={`shrink-0 rounded-full px-2.5 py-1 text-xs font-semibold ${
-                activity.correct ? "bg-soft text-brand" : "border border-border text-muted"
+                activity.correct ? "bg-surface-2 text-accent" : "border border-line text-muted"
               }`}
             >
               {activity.correct ? "Acertou" : "Errou"}
@@ -199,13 +199,9 @@ export function DashboardArea() {
         <p className="mt-1 text-muted">
           Verifique se o armazenamento do navegador está disponível e tente novamente.
         </p>
-        <button
-          type="button"
-          onClick={() => setReloadKey((value) => value + 1)}
-          className="mt-4 inline-flex min-h-12 items-center justify-center rounded-xl bg-brand px-5 font-semibold text-brand-fg"
-        >
+        <Button className="mt-4" onClick={() => setReloadKey((value) => value + 1)}>
           Tentar novamente
-        </button>
+        </Button>
       </Card>
     );
   }
@@ -226,7 +222,7 @@ export function DashboardArea() {
       <Plate label="Mesa de estudo" number={course.percent + "%"}>
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-brand">
+            <p className="text-sm font-semibold uppercase tracking-wide text-accent">
               {course.title} · {course.level}
             </p>
             <h2 className="mt-1 text-2xl font-bold">
@@ -236,7 +232,7 @@ export function DashboardArea() {
               Acompanhe seu progresso real no módulo Hangul e continue de onde parou.
             </p>
           </div>
-          <span className="rounded-full bg-soft px-3 py-1 text-sm font-semibold text-brand">
+          <span className="rounded-full bg-surface-2 px-3 py-1 text-sm font-semibold text-accent">
             {course.percent}% do curso
           </span>
         </div>
@@ -248,15 +244,15 @@ export function DashboardArea() {
         />
 
         <dl className="mt-4 grid grid-cols-2 gap-3 text-sm">
-          <div className="rounded-xl bg-soft p-3">
+          <div className="border-l border-line py-1 pl-4">
             <dt className="text-muted">Lições concluídas</dt>
-            <dd className="mt-1 text-xl font-bold">
+            <dd className="mt-1 font-mono text-xl font-semibold tabular-nums">
               {course.completedLessons} de {course.totalLessons}
             </dd>
           </div>
-          <div className="rounded-xl bg-soft p-3">
+          <div className="border-l border-line py-1 pl-4">
             <dt className="text-muted">Checkpoints concluídos</dt>
-            <dd className="mt-1 text-xl font-bold">
+            <dd className="mt-1 font-mono text-xl font-semibold tabular-nums">
               {course.completedCheckpoints} de {course.totalCheckpoints}
             </dd>
           </div>
@@ -271,7 +267,7 @@ export function DashboardArea() {
         />
       ) : course.nextStep ? (
         <Plate label={starting ? "Primeira lâmina" : "Próximo passo"} number={course.nextStep.id} className="border-accent">
-          <p className="text-sm font-semibold text-brand">
+          <p className="text-sm font-semibold text-accent">
             {starting ? "Comece por aqui" : "Continue de onde parou"}
           </p>
           <h2 className="mt-1 text-xl font-semibold">
@@ -300,7 +296,7 @@ export function DashboardArea() {
       )}
 
       <Card>
-        <p className="text-sm font-semibold text-brand">Catálogo de cursos</p>
+        <p className="text-sm font-semibold text-accent">Catálogo de cursos</p>
         <h2 className="mt-1 text-xl font-semibold">
           Hangul disponível · {PLANNED_LEVELS} em planejamento
         </h2>
@@ -317,10 +313,10 @@ export function DashboardArea() {
       <Card>
         <div className="flex flex-wrap items-baseline justify-between gap-2">
           <div>
-            <p className="text-sm font-semibold text-brand">Revisão espaçada</p>
+            <p className="text-sm font-semibold text-accent">Revisão espaçada</p>
             <h2 className="mt-1 text-xl font-semibold">Fila de revisão</h2>
           </div>
-          <span className="rounded-full bg-soft px-3 py-1 text-sm font-semibold text-brand">
+          <span className="rounded-full bg-surface-2 px-3 py-1 text-sm font-semibold text-accent">
             {review.due} {review.due === 1 ? "vencido" : "vencidos"}
           </span>
         </div>
@@ -433,9 +429,9 @@ export function DashboardArea() {
                   <li key={box} className="flex flex-col items-center gap-1 text-center">
                     <span className="text-xs text-muted">Caixa {box}</span>
                     <span className="text-xl font-bold">{count}</span>
-                    <span aria-hidden className="flex h-2 w-full overflow-hidden rounded-full bg-soft">
+                    <span aria-hidden className="flex h-2 w-full overflow-hidden rounded-full bg-surface-2">
                       <span
-                        className="h-full rounded-full bg-brand"
+                        className="h-full rounded-full bg-accent"
                         style={{ width: `${(count / largestBox) * 100}%` }}
                       />
                     </span>

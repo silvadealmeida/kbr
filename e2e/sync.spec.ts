@@ -73,7 +73,7 @@ async function reviewWord(page: Page, answer: string) {
     .getByRole("group", { name: "Alternativas" })
     .getByRole("button", { name: answer })
     .click();
-  await page.getByRole("button", { name: "Conferir" }).click();
+  await page.getByRole("button", { name: "Mostrar resposta" }).click();
   await expect(page.getByRole("status").filter({ hasText: "Correto." })).toBeVisible();
   await page.getByRole("button", { name: /Concluir revisão/ }).click();
   await expect(
@@ -267,7 +267,7 @@ async function reviewWordOffline(page: Page, answer: string) {
     .getByRole("group", { name: "Alternativas" })
     .getByRole("button", { name: answer })
     .click();
-  await page.getByRole("button", { name: "Conferir" }).click();
+  await page.getByRole("button", { name: "Mostrar resposta" }).click();
   await expect(page.getByRole("status").filter({ hasText: "Correto." })).toBeVisible();
   await page.getByRole("button", { name: /Concluir revisão/ }).click();
   await expect(

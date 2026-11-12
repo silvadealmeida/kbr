@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { ButtonLink } from "@/components/ui/Button";
-import { Plate } from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
+import { Card, Plate } from "@/components/ui/Card";
 import { ProgressBar } from "@/components/ui/ProgressBar";
 import {
   courseStepHref,
@@ -14,23 +15,6 @@ import { courseLevelLabel, isCefrLevel } from "@/content/courses/types";
 import { summarizeCourseProgress } from "@/lib/courses";
 import type { Progress } from "@/lib/storage";
 
-function StatusBadge({
-  children,
-  tone = "muted",
-}: {
-  children: React.ReactNode;
-  tone?: "muted" | "brand";
-}) {
-  return (
-    <span
-      className={`shrink-0 rounded-[var(--radius-seal)] px-2.5 py-1 font-mono text-[11px] font-medium uppercase tracking-[0.08em] ${
-        tone === "brand" ? "bg-surface-2 text-accent" : "border border-line text-muted"
-      }`}
-    >
-      {children}
-    </span>
-  );
-}
 
 export function CourseCatalog() {
   const { progressStore, status } = useAuth();
@@ -92,16 +76,20 @@ export function CourseCatalog() {
         </div>
 
         {loading ? (
-          <p role="status" className="rounded-2xl border border-border bg-surface p-4 text-sm text-muted">
-            Carregando seu progresso…
-          </p>
+          <Card className="p-4">
+            <p role="status" className="text-sm text-muted">
+              Carregando seu progresso…
+            </p>
+          </Card>
         ) : null}
 
         {loadError ? (
-          <p role="alert" className="mb-4 rounded-2xl border border-border bg-surface p-4 text-sm text-muted">
-            Não foi possível carregar seu progresso agora. O catálogo continua
-            disponível, mas os números abaixo podem estar incompletos.
-          </p>
+          <Card className="mb-4 p-4">
+            <p role="alert" className="text-sm text-muted">
+              Não foi possível carregar seu progresso agora. O catálogo continua
+              disponível, mas os números abaixo podem estar incompletos.
+            </p>
+          </Card>
         ) : null}
 
         <ul className="flex flex-col gap-4">
@@ -119,7 +107,7 @@ export function CourseCatalog() {
                 <Plate label="Índice de curso" number="01" className="border-accent">
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div className="min-w-0">
-                    <p className="text-sm font-semibold uppercase tracking-wide text-brand">
+                    <p className="text-sm font-semibold uppercase tracking-wide text-accent">
                       {level} · Curso disponível
                     </p>
                     <h3 className="mt-1 text-2xl font-bold">
@@ -133,11 +121,11 @@ export function CourseCatalog() {
                     <p className="mt-1 text-muted">{course.description}</p>
                   </div>
                   {summary?.complete ? (
-                    <StatusBadge tone="brand">Curso concluído</StatusBadge>
+                    <Badge tone="accent">Curso concluído</Badge>
                   ) : summary ? (
-                    <StatusBadge tone="brand">{summary.percent}% concluído</StatusBadge>
+                    <Badge tone="accent">{summary.percent}% concluído</Badge>
                   ) : (
-                    <StatusBadge tone="brand">Disponível</StatusBadge>
+                    <Badge tone="accent">Disponível</Badge>
                   )}
                 </div>
 
@@ -184,7 +172,7 @@ export function CourseCatalog() {
                 ) : null}
 
                 {summary?.complete ? (
-                  <p className="mt-4 rounded-xl bg-soft p-3 text-sm">
+                  <p className="mt-4 rounded-xl bg-surface-2 p-3 text-sm">
                     Você concluiu o curso Hangul. Isso não é certificação CEFR e{" "}
                     <strong>não desbloqueia o A1</strong>; A1–C2 continuam planejados.
                   </p>
@@ -214,7 +202,7 @@ export function CourseCatalog() {
                 </div>
 
                 <details className="mt-5 border-t border-line pt-4">
-                  <summary className="min-h-11 cursor-pointer text-sm font-semibold text-brand">
+                  <summary className="min-h-11 cursor-pointer text-sm font-semibold text-accent">
                     Unidades e passos
                   </summary>
                   <ol className="mt-3 flex flex-col gap-2">
@@ -232,7 +220,7 @@ export function CourseCatalog() {
                       return (
                         <li
                           key={unit.id}
-                          className="rounded-xl border border-border px-3 py-2 text-sm"
+                          className="rounded-xl border border-line px-3 py-2 text-sm"
                         >
                           <p className="font-medium">
                             Unidade {unit.number} · {unit.title}
@@ -276,7 +264,7 @@ export function CourseCatalog() {
                 <span className="mono-label text-accent">
                   {isCefrLevel(course.level) ? `CEFR ${courseLevelLabel(course.level)}` : courseLevelLabel(course.level)}
                 </span>
-                <StatusBadge>Planejado · indisponível</StatusBadge>
+                <Badge>Planejado · indisponível</Badge>
               </div>
               <h3 className="mt-3 text-lg font-semibold">{course.title}</h3>
               <p className="mt-1 text-sm text-muted">{course.description}</p>

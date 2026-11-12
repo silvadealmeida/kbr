@@ -52,6 +52,7 @@ Fases pequenas, cada uma com commit(s) próprio e `npm test` verde antes de avan
 - **iPhone real**: não testável neste ambiente.
 - Perda de progresso (localStorage) → aviso/exportação.
 - **Privacidade/Impressum**: texto técnico sem validação jurídica; identidade, contato e retenção ainda ausentes. Ver `docs/privacy-audit.md`.
+- **Feedback do usuário (Igo)**: resposta correta frequentemente na primeira posição de múltipla escolha e áudio coreano pouco claro (sobretudo ㄹ/vogais) são prioridade alta antes do lançamento público; flashcards de vocabulário ilustrados são trabalho futuro. Observações, verificação, correção proposta e critérios de aceite em `docs/feedback/feedback-igo.md`. Nenhum item foi alterado na 7F.
 
 ## Pós-MVP (não implementar agora)
 FSRS (`ts-fsrs`), cache/offline via service worker, notificações, exercícios com IA, empacotamento nativo.

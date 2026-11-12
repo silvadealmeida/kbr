@@ -128,6 +128,8 @@ Dependências: 7C depende de 7B; 7D de 7B (e reusa primitivas da 7C); 7E de 7D; 
 
 **Risco:** alto. Fazer em sub-fatias: (a) primitivas + lição, (b) composição, (c) pronúncia.
 
+**Status 7D:** implementada e validada localmente. `PlayerHeader` unifica lição/checkpoint; `exercise-ui.tsx` foi dividido em primitivas e `exercise-media.tsx`; a bancada `SyllableBuilder` mostra inicial/vogal/final opcional com prévia C+V e sem drag; `PronunciationLayers` usa as regras/exemplos existentes em h21–h25, com escrita/fala sempre visíveis, status `in-review` e comparação opcional; o feedback ganhou selo, foco e entrada de 220 ms condicionada a reduced motion. Nenhum contrato de conteúdo, `checkAnswer`, nota, `Progress` v1, CAS, SRS, ID ou auth mudou. Validação: 370 Vitest, 349 Playwright (333 executados + 16 skips), typecheck e build; h21 585.252 B/CLS 0,00158; h16 intro 478.193 B e prática 609.490 B. Limites: a bancada é prévia, não editor livre; as transcrições seguem em revisão; iPhone/VoiceOver reais continuam manuais. A conclusão final, o catálogo, o painel e a revisão ficam para 7E/7F.
+
 ## 7. Fase 7E — Superfícies do app e checkpoint
 
 **Objetivo:** revisão, catálogo, visão do Hangul, painel e checkpoint com a nova linguagem.

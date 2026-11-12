@@ -74,7 +74,7 @@
 
 **Fase:** 7C. **Esforço:** S. **Risco:** baixo.
 
-**Status 7C:** landing, SiteHeader/Footer, LandingAuth, AuthControl/AccountCard, Nav, PageHeader e EmptyState implementados; os elementos do catálogo e da lição permanecem para 7E/7D. A ilustração é SVG original de `한`, com movimento CSS opcional e sem fonte coreana pública.
+**Status 7C:** landing, SiteHeader/Footer, LandingAuth, AuthControl/AccountCard, Nav, PageHeader e EmptyState implementados; o catálogo e as demais superfícies permanecem para 7E. A ilustração é SVG original de `한`, com movimento CSS opcional e sem fonte coreana pública. A lição/checkpoint foi implementada na 7D (ver status nas áreas E/F).
 
 ## 4. Área C — Catálogo de cursos
 
@@ -130,6 +130,8 @@
 
 **Fase:** 7D (primitivas + lição), 7E (checkpoint/diagnóstico). **Esforço:** L. **Risco:** alto (regressão funcional).
 
+**Status 7D:** a moldura, o enunciado, as alternativas, o input, o feedback e o progresso foram implementados para lição e checkpoint. `exercise-ui.tsx` mantém `ExerciseView` e extraiu `ChoiceList`, `TextAnswer`, `SyllableBuilder`, `AudioPrompt`, `ReadingPrompt` e `FeedbackPanel`; `exercise-media.tsx` concentra TTS/texto bilíngue e `player-header.tsx` a moldura compartilhada. O diagnóstico detalhado do checkpoint e a conclusão final continuam na 7E/7F. Os contratos de resposta, foco no resultado, Enter, input de 16 px e anti-duplo-envio foram preservados.
+
 ## 7. Área F — Ilustrações interativas de Hangul
 
 **Arquivos novos:** `src/components/hangul/illustrations/` (`SyllableAnatomy.tsx`, `PronunciationLayers.tsx`, `SoundMap.tsx`, `StrokePlayer.tsx`).
@@ -141,6 +143,8 @@
 **Aceite:** 375 px sem overflow; teclado; leitor de tela; reduced motion; conteúdo `in-review` visível.
 
 **Fase:** 7D/7F. **Esforço:** M/L. **Risco:** médio (conteúdo pedagógico).
+
+**Status 7D:** `SyllableBuilder` e `PronunciationLayers` foram implementados em `src/components/hangul/`, com geometria em `src/lib/hangul/layout.ts`; nenhuma dependência nova. A bancada usa HTML/CSS (sem SVG próprio) e a camada é uma lista ordenada estática, sem revelação obrigatória. `SyllableAnatomy`, `SoundMap` e `StrokePlayer` continuam fora da 7D. A comparação por bloco substituiu a revelação passo a passo para garantir que toda a informação já esteja disponível sem animação; o áudio continua sendo o TTS existente.
 
 ## 8. Área G — Revisão Leitner
 

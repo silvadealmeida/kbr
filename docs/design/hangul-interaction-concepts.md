@@ -1,6 +1,8 @@
 # Hangul — conceitos de interação
 
 > Fase 7A. Conceitos originais para tornar a composição do Hangul visível e manipulável, usando os jamo e as lições `h01`–`h25` já existentes. Nenhum conceito altera conteúdo, IDs, respostas corretas ou o modelo de `Progress` v1. Ilustrações e metadados de traço são **proposta** e exigem revisão pedagógica antes da implementação.
+>
+> **Status 7D:** os conceitos 1 (Bancada de composição) e 3 (camadas de pronúncia) foram implementados. A bancada usa zonas e botões (sem drag), com prévia C+V e `aria-live`; as camadas mostram escrita e fala aproximada ao mesmo tempo, com comparação por bloco opcional em vez de revelação passo a passo, para que nenhuma informação dependa de animação. Os conceitos 2, 4, 5 e 7 continuam propostas para 7E/7F; o player de traço continua dependendo de dados revistos.
 
 ## 1. Princípios
 

@@ -71,6 +71,8 @@
 
 **Nunca:** confete, partículas, som automático, contagem de pontos animada, bloqueio do botão “Continuar” durante animação.
 
+**Status 7D:** o feedback entra com fade + 8 px por `feedback-enter` (220 ms) apenas em `prefers-reduced-motion: no-preference`; o selo é estático (não há “carimbo” com escala) para não atrasar a leitura. A barra de progresso anima a largura, mas o valor textual/`aria-valuetext` está disponível imediatamente. O foco no resultado é imediato e usa margem de rolagem para não deixar “Continuar” atrás da nav inferior/safe-area. Não há transição entre itens além da troca de conteúdo; a seleção de alternativa muda borda/fundo em 140 ms. A conclusão final do curso continua reservada à 7F.
+
 ### 3.4 Revisão (Leitner)
 
 - Virada do cartão: 280 ms, `rotateY` 0→180; metade da duração mostra a resposta. Em reduced motion, troca instantânea com fade de 80 ms.

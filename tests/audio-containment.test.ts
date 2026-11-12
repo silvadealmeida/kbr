@@ -1,6 +1,7 @@
 import { mkdtempSync, mkdirSync, readFileSync, writeFileSync, existsSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
+import { execFileSync } from "node:child_process";
 import { describe, expect, test } from "vitest";
 
 import manifest from "@/content/audio/manifest.json";
@@ -47,5 +48,12 @@ describe("contenção do áudio sintético restrito", () => {
     const scripts = JSON.parse(readFileSync(path.join(ROOT, "package.json"), "utf8")).scripts;
     expect(scripts.prebuild).toContain("verify-no-restricted-audio");
     expect(scripts.postbuild).toContain("verify-no-restricted-audio");
+  });
+
+  test("nenhum arquivo de áudio versionado fora de restricted-assets/ (anti-reintrodução)", () => {
+    const tracked = execFileSync("git", ["ls-files", "-z"], { cwd: ROOT, encoding: "utf8" })
+      .split("\0")
+      .filter((f) => /\.(mp3|wav|ogg|m4a|flac|aac)$/i.test(f) && !f.startsWith("restricted-assets/"));
+    expect(tracked).toEqual([]);
   });
 });

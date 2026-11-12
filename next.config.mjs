@@ -34,11 +34,16 @@ const nextConfig = {
         source: "/icons/:path*",
         headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
       },
-      {
-        // MP3s versionados por conteúdo; o caminho muda quando o áudio muda.
-        source: "/audio/:path*",
-        headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
-      },
+      // MP3s versionados por conteúdo. Só com o áudio estático ligado: sem a flag,
+      // /audio/* é 404 e herdaria "immutable" por um ano em navegadores e CDN.
+      ...(process.env.NEXT_PUBLIC_KBR_STATIC_AUDIO === "1"
+        ? [
+            {
+              source: "/audio/:path*",
+              headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
+            },
+          ]
+        : []),
     ];
   },
 };

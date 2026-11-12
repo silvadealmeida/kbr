@@ -10,10 +10,11 @@ import {
   audioAssetCount,
   hasAudioAsset,
   resolveAudioAsset,
+  resolvePublicAudioSrc,
 } from "@/lib/audio/manifest";
 import { audioKey } from "@/lib/audio/text";
 
-const PUBLIC_DIR = path.join(process.cwd(), "public", "audio", "hangul", "v1");
+const PUBLIC_DIR = path.join(process.cwd(), "restricted-assets", "audio", "hangul", "v1");
 
 function sha256(file: string) {
   return createHash("sha256").update(readFileSync(file)).digest("hex");
@@ -57,7 +58,7 @@ describe("manifesto de áudio estático", () => {
   test("cada entrada aponta para um MP3 real, íntegro e dentro do orçamento", () => {
     let totalBytes = 0;
     for (const item of manifest.items) {
-      const file = path.join(process.cwd(), "public", item.src.replace(/^\//, ""));
+      const file = path.join(process.cwd(), "restricted-assets", item.src.replace(/^\//, ""));
       expect(existsSync(file)).toBe(true);
       const bytes = readFileSync(file).byteLength;
       expect(bytes).toBe(item.bytes);
@@ -103,5 +104,12 @@ describe("manifesto de áudio estático", () => {
     expect(manifest.encoding.codec).toBe("libmp3lame");
     expect(manifest.encoding.sampleRate).toBe(44100);
     expect(manifest.encoding.channels).toBe(1);
+  });
+
+  test("com a flag desligada nenhum caminho de MP3 é entregue ao player", () => {
+    expect(resolvePublicAudioSrc("한", false)).toBeNull();
+    expect(resolvePublicAudioSrc("한", true)).toMatch(/^\/audio\/hangul\/v1\/ko-/);
+    // padrão do ambiente de teste: flag ausente
+    expect(resolvePublicAudioSrc("한")).toBeNull();
   });
 });

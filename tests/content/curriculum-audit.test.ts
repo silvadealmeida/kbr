@@ -149,7 +149,7 @@ describe("auditoria 8D — estrutura do currículo", () => {
 
   test("áudio: arquivos são MP3 reais (cabeçalho ID3/frame) e não vazios", () => {
     const bad = manifest.items.filter((i) => {
-      const b = readFileSync(path.join(process.cwd(), "public", i.src));
+      const b = readFileSync(path.join(process.cwd(), "restricted-assets", i.src));
       const id3 = b.subarray(0, 3).toString() === "ID3";
       const frame = b[0] === 0xff && (b[1]! & 0xe0) === 0xe0;
       return b.length < 500 || !(id3 || frame);

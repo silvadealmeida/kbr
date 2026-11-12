@@ -53,14 +53,14 @@ function statusMessage(state: AudioPlaybackState): string | null {
     if (state.source === "asset") return "Reproduzindo áudio sintetizado (referência provisória).";
     return state.fallback
       ? "Áudio do KBR indisponível; usando a voz coreana do navegador."
-      : "Reproduzindo pela voz coreana do navegador.";
+      : "Reproduzindo pela voz coreana do navegador (voz do sistema, sem revisão nativa).";
   }
 
   if (state.status === "ended") {
     if (state.source === "asset") return "Áudio concluído.";
     return state.fallback
       ? "Áudio concluído pela voz coreana do navegador (o arquivo de áudio do KBR não carregou)."
-      : "Áudio concluído pela voz coreana do navegador.";
+      : "Áudio concluído pela voz coreana do navegador (voz do sistema, sem revisão nativa).";
   }
 
   if (state.reason === "unsupported") {

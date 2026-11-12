@@ -48,3 +48,6 @@ next-env.d.ts
 /.agents/
 /.playwright/
 /graphify-out/.graphify_*
+
+# Cópia local de MP3 para testar o áudio estático (scripts/audio/stage-static-audio.mjs); nunca versionar
+/public/audio/

@@ -12,9 +12,9 @@
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1794396964.5514717,
-    "seen": 1794398486.10363,
-    "ast_hash": "914a65f275f9336ebdcd5d6927a2632c",
+    "mtime": 1794487836.602176,
+    "seen": 1794488297.01773,
+    "ast_hash": "5ab5180fc2e2f88844d896e39352419b",
     "semantic_hash": ""
   },
   "playwright.config.ts": {
@@ -96,9 +96,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1794487370.1876535,
-    "seen": 1794487381.616815,
-    "ast_hash": "26b72b70b724b51437fe6e8f65eb13e3",
+    "mtime": 1794488294.5151272,
+    "seen": 1794488297.020941,
+    "ast_hash": "73135006ae55a4a8b31f3719a44aab7c",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -108,9 +108,9 @@
     "semantic_hash": ""
   },
   "docs/architecture.md": {
-    "mtime": 1794487379.745659,
-    "seen": 1794487381.6168172,
-    "ast_hash": "db21b3586ea63d84d8020ee9ce0ef146",
+    "mtime": 1794488003.1276467,
+    "seen": 1794488297.020968,
+    "ast_hash": "385e86fbc7b61f78cea96eb6a16c3540",
     "semantic_hash": ""
   },
   "docs/research.md": {
@@ -120,9 +120,9 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794487370.1876535,
-    "seen": 1794487381.6168332,
-    "ast_hash": "f2295cc9eb3f5a582d40b4ac5611762c",
+    "mtime": 1794488294.5151272,
+    "seen": 1794488297.0214593,
+    "ast_hash": "b457d10a760a450181faa8dadf40eb4d",
     "semantic_hash": ""
   },
   "src/lib/hangul/index.ts": {
@@ -320,13 +320,13 @@
   "supabase/migrations/20261110120000_create_user_progress.sql": {
     "mtime": 1794307613.1113913,
     "seen": 1794398629.5906906,
-    "ast_hash": "b6c73ece2803ac68d4afbb9bcbf3adb1",
+    "ast_hash": "",
     "semantic_hash": ""
   },
   "supabase/tests/user_progress_rls.test.sql": {
     "mtime": 1794307628.261156,
     "seen": 1794398629.5906956,
-    "ast_hash": "54c660b727a6e7d93693694b00ec2cf1",
+    "ast_hash": "",
     "semantic_hash": ""
   },
   "docs/supabase-setup.md": {
@@ -968,19 +968,19 @@
   "supabase/migrations/20261110180000_add_save_user_progress_rpc.sql": {
     "mtime": 1794342744.0068913,
     "seen": 1794398629.5906916,
-    "ast_hash": "c9b6f848e6f2e7af9901943ab5c3fd3f",
+    "ast_hash": "",
     "semantic_hash": ""
   },
   "supabase/tests/local/bootstrap.sql": {
     "mtime": 1794342684.7452528,
     "seen": 1794398629.5906925,
-    "ast_hash": "0d630d1da3bd24a1749a6654f08ff21c",
+    "ast_hash": "",
     "semantic_hash": ""
   },
   "supabase/tests/save_user_progress_rpc.test.sql": {
     "mtime": 1794387272.0560353,
     "seen": 1794398629.5906947,
-    "ast_hash": "78857e182968fd3773cbffaa033e27c8",
+    "ast_hash": "",
     "semantic_hash": ""
   },
   "docs/sync/deployment-runbook.md": {
@@ -1230,9 +1230,9 @@
     "semantic_hash": ""
   },
   "src/components/hangul/exercise-media.tsx": {
-    "mtime": 1794487083.2728603,
-    "seen": 1794487381.6167135,
-    "ast_hash": "521069cf0f056987f9d6eb4394ddd3db",
+    "mtime": 1794487856.7438602,
+    "seen": 1794488297.0184965,
+    "ast_hash": "40bf04896c14300e109c165cc7d8ba90",
     "semantic_hash": ""
   },
   "src/components/hangul/player-header.tsx": {
@@ -1314,9 +1314,9 @@
     "semantic_hash": ""
   },
   "e2e/audio.spec.ts": {
-    "mtime": 1794483085.7364237,
-    "seen": 1794485163.4942222,
-    "ast_hash": "191bfb1aa9da4fffce69ee3fbec6146f",
+    "mtime": 1794488132.8354619,
+    "seen": 1794488297.017423,
+    "ast_hash": "1809ac7c98c25b2942386bd171456868",
     "semantic_hash": ""
   },
   "scripts/audio/build-inventory.mjs": {
@@ -1326,9 +1326,9 @@
     "semantic_hash": ""
   },
   "scripts/audio/encode-audio.py": {
-    "mtime": 1794482647.1031582,
-    "seen": 1794485163.494244,
-    "ast_hash": "5c0b132e28fcedf7346e043f572db139",
+    "mtime": 1794487818.5013757,
+    "seen": 1794488297.017796,
+    "ast_hash": "b883975ea2fd17c2fa748e3038fc309c",
     "semantic_hash": ""
   },
   "scripts/audio/generate-melotts.py": {
@@ -1350,9 +1350,9 @@
     "semantic_hash": ""
   },
   "src/lib/audio/browser.ts": {
-    "mtime": 1794482734.9219215,
-    "seen": 1794485163.494325,
-    "ast_hash": "c4a5a4e19dd09d0bdc4362e1affd50c5",
+    "mtime": 1794487818.5013757,
+    "seen": 1794488297.0197544,
+    "ast_hash": "547e35cf7a4ac54c0bd02b81adfee6a3",
     "semantic_hash": ""
   },
   "src/lib/audio/inventory.ts": {
@@ -1362,9 +1362,9 @@
     "semantic_hash": ""
   },
   "src/lib/audio/manifest.ts": {
-    "mtime": 1794482601.8574164,
-    "seen": 1794485163.4943264,
-    "ast_hash": "681cf220771ca388e1a4f1ddb62748eb",
+    "mtime": 1794487818.5013757,
+    "seen": 1794488297.0197778,
+    "ast_hash": "d80d283f0253019a4219159146c5ed03",
     "semantic_hash": ""
   },
   "src/lib/audio/playback.ts": {
@@ -1380,9 +1380,9 @@
     "semantic_hash": ""
   },
   "tests/audio-manifest.test.ts": {
-    "mtime": 1794482850.179621,
-    "seen": 1794485163.4943566,
-    "ast_hash": "3ad0caabe182ac6ab54ccbc1c007ed5b",
+    "mtime": 1794487856.7438602,
+    "seen": 1794488297.0204635,
+    "ast_hash": "7a1c9060da8fd436d3f6be9f82b0eb0c",
     "semantic_hash": ""
   },
   "tests/audio-playback.test.ts": {
@@ -1392,1731 +1392,9 @@
     "semantic_hash": ""
   },
   "docs/audio/generation-guide.md": {
-    "mtime": 1794487379.745659,
-    "seen": 1794487381.6168196,
-    "ast_hash": "7bac5a6ec5ce44979ef1b8bbc1f19fc9",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-006245a8.mp3": {
-    "mtime": 1794482659.5807586,
-    "seen": 1794485163.4944005,
-    "ast_hash": "8ff6e4f9ebb7c53a04db49a355d9745d",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-00f82c4d.mp3": {
-    "mtime": 1794482664.2283587,
-    "seen": 1794485163.4944012,
-    "ast_hash": "f63bb551bdd6bdc0852200338d26e7d5",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-0120831f.mp3": {
-    "mtime": 1794482667.9579587,
-    "seen": 1794485163.4944017,
-    "ast_hash": "6773247a8668676b277cd08c726010dc",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-02c4c8ee.mp3": {
-    "mtime": 1794482650.2819583,
-    "seen": 1794485163.4944026,
-    "ast_hash": "492f0f8a1791489d27a232ebb0aab006",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-04da1d85.mp3": {
-    "mtime": 1794482657.5323586,
-    "seen": 1794485163.4944031,
-    "ast_hash": "8ca3d2fc5168eef85c25cd37de628709",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-055f664d.mp3": {
-    "mtime": 1794482665.5963588,
-    "seen": 1794485163.4944036,
-    "ast_hash": "b2567f7c0a3000d1ff226c4ff95a6205",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-0673983b.mp3": {
-    "mtime": 1794482659.6491587,
-    "seen": 1794485163.4944043,
-    "ast_hash": "ea8d6e5f7beac1dd35dfa10c8fcc0c77",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-06c2df58.mp3": {
-    "mtime": 1794482669.1207588,
-    "seen": 1794485163.494405,
-    "ast_hash": "26d2e1a6ddbc6bd0e864809a931eddad",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-06f630d4.mp3": {
-    "mtime": 1794482651.6283584,
-    "seen": 1794485163.4944057,
-    "ast_hash": "d907d695d7046cd0701c2da3afe14c7b",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-074a2636.mp3": {
-    "mtime": 1794482666.8023589,
-    "seen": 1794485163.4944062,
-    "ast_hash": "1e379ef5a53381f579deca59f8a5fa9a",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-08015bae.mp3": {
-    "mtime": 1794482650.4871583,
-    "seen": 1794485163.494407,
-    "ast_hash": "0379f2b73553d4aa26386085153048c6",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-09ae9f64.mp3": {
-    "mtime": 1794482656.9167585,
-    "seen": 1794485163.4944077,
-    "ast_hash": "f3d318edcf09349050b867dd7d4c083c",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-0ac460a8.mp3": {
-    "mtime": 1794482659.0407586,
-    "seen": 1794485163.4944081,
-    "ast_hash": "7b2c1e3b13ba2c25dd2f99a9c4a0c7c7",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-0af8e7a2.mp3": {
-    "mtime": 1794482663.5587587,
-    "seen": 1794485163.4944088,
-    "ast_hash": "857093f1feaea08b005d534823f2a78e",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-0b3e0c26.mp3": {
-    "mtime": 1794482666.5323586,
-    "seen": 1794485163.4944096,
-    "ast_hash": "d58786e60399992439f37bc25ce06cd7",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-0b83eec4.mp3": {
-    "mtime": 1794482662.8855586,
-    "seen": 1794485163.49441,
-    "ast_hash": "67834f821c38cacced2131b2cf793b74",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-0c4db4dd.mp3": {
-    "mtime": 1794482664.4299586,
-    "seen": 1794485163.4944108,
-    "ast_hash": "b3d889fad9fc9facce559198c2feba20",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-0d0a33e9.mp3": {
-    "mtime": 1794482660.8047585,
-    "seen": 1794485163.4944112,
-    "ast_hash": "d068bf7bf8bd1988f6672607902b16c6",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-0dd56d03.mp3": {
-    "mtime": 1794482650.6851585,
-    "seen": 1794485163.4944117,
-    "ast_hash": "a6bd9e5ac43b8a5d7c6d4eb97a3eddc2",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-0fd19e92.mp3": {
-    "mtime": 1794482651.0883584,
-    "seen": 1794485163.4944122,
-    "ast_hash": "9c76d8ecbb2e78f4a31a2f0c501820ad",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-0ff843ea.mp3": {
-    "mtime": 1794482664.3651588,
-    "seen": 1794485163.4944131,
-    "ast_hash": "9ae98685893e8974e55666b98e48e467",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-1005c3cd.mp3": {
-    "mtime": 1794482652.2295585,
-    "seen": 1794485163.4944136,
-    "ast_hash": "42cb5968bb0b8740b0dc1317396cc9af",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-10cea929.mp3": {
-    "mtime": 1794482659.9191587,
-    "seen": 1794485163.4944143,
-    "ast_hash": "f46eaabb8268787f78e4b3080f0872d9",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-10fcc2ab.mp3": {
-    "mtime": 1794482662.8171587,
-    "seen": 1794485163.4944148,
-    "ast_hash": "b826e02fabf6742d0fd70ceefc59fd5f",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-11165fc5.mp3": {
-    "mtime": 1794482663.8935587,
-    "seen": 1794485163.4944153,
-    "ast_hash": "76e04ce5aeb46112075edc64542887f6",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-11bc5a40.mp3": {
-    "mtime": 1794482661.1467586,
-    "seen": 1794485163.4944158,
-    "ast_hash": "56e8968287ac4effde849538e569e175",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-12fb0e6e.mp3": {
-    "mtime": 1794482661.0135586,
-    "seen": 1794485163.4944167,
-    "ast_hash": "8992b89f0cd4667901ce91ef734cc14e",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-130e0ef2.mp3": {
-    "mtime": 1794482660.4699585,
-    "seen": 1794485163.4944172,
-    "ast_hash": "24666301c79cbd15f1fbd39cfdb18ffb",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-138cc877.mp3": {
-    "mtime": 1794482654.5947585,
-    "seen": 1794485163.494418,
-    "ast_hash": "7911fa2d480a21177fb90d990c6669a2",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-13d1a4de.mp3": {
-    "mtime": 1794482650.8219583,
-    "seen": 1794485163.4944184,
-    "ast_hash": "ae3d6c1f9c4f7c8b46fb25a10e1009b1",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-13f8f5cd.mp3": {
-    "mtime": 1794482663.7567587,
-    "seen": 1794485163.4944189,
-    "ast_hash": "df0c5245f93776f3b9882ea70d10c0bd",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-14e7ae3f.mp3": {
-    "mtime": 1794482658.2235587,
-    "seen": 1794485163.4944198,
-    "ast_hash": "597129e0196efd038215d015981f94e1",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-1649f304.mp3": {
-    "mtime": 1794482664.4983587,
-    "seen": 1794485163.4944203,
-    "ast_hash": "4164c00b38413c9bebc97858967daf67",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-16d1a997.mp3": {
-    "mtime": 1794482651.0271585,
-    "seen": 1794485163.4944208,
-    "ast_hash": "c48baadefed093b3284c1150edf4de30",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-1739a1dc.mp3": {
-    "mtime": 1794482666.6007588,
-    "seen": 1794485163.4944215,
-    "ast_hash": "64ccecc25d387ba15b8526fc27bf990c",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-18e6c268.mp3": {
-    "mtime": 1794482654.1303585,
-    "seen": 1794485163.494422,
-    "ast_hash": "ab90540d51429cabf1b7ef08edcd1096",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-19ee62c2.mp3": {
-    "mtime": 1794482655.4263585,
-    "seen": 1794485163.4944227,
-    "ast_hash": "6ecfd90538d6ef58b4fd4d40786c17e1",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-1ada4027.mp3": {
-    "mtime": 1794482657.8779585,
-    "seen": 1794485163.4944234,
-    "ast_hash": "97a524474eb84391b6e786820384e982",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-1aeb8948.mp3": {
-    "mtime": 1794482662.4823587,
-    "seen": 1794485163.4944236,
-    "ast_hash": "9e2881e6fcf8065ecfa67cfa4ce0ee4e",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-1af900d2.mp3": {
-    "mtime": 1794482662.9539587,
-    "seen": 1794485163.494424,
-    "ast_hash": "bbd512239369612b232aea462028b92a",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-1cf903f8.mp3": {
-    "mtime": 1794482663.0187588,
-    "seen": 1794485163.4944246,
-    "ast_hash": "a9186108390261a6bd23d3ad5ac5f2e8",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-1cfcd58f.mp3": {
-    "mtime": 1794482662.6875587,
-    "seen": 1794485163.494425,
-    "ast_hash": "352c7e3013d20514c57d32afa78331b8",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-1e7d6be1.mp3": {
-    "mtime": 1794482663.6955588,
-    "seen": 1794485163.4944258,
-    "ast_hash": "c7022230d851482202de4a9039d5c3f3",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-1ef3e4f7.mp3": {
-    "mtime": 1794482654.5263586,
-    "seen": 1794485163.4944263,
-    "ast_hash": "05ee9350c8b5601bf556efe6f80777cc",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-1f09a4a8.mp3": {
-    "mtime": 1794482661.2763586,
-    "seen": 1794485163.494427,
-    "ast_hash": "b41ec2eed9b438044da8a39d100829fb",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-1f2c36ea.mp3": {
-    "mtime": 1794482665.0455587,
-    "seen": 1794485163.4944277,
-    "ast_hash": "a47c90b22438ab78f500bbc5d8ee2a8d",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-1fd1b7c2.mp3": {
-    "mtime": 1794482651.2935584,
-    "seen": 1794485163.4944282,
-    "ast_hash": "d02e7210da26aa9578fdffd3fe1a91b2",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-208980c3.mp3": {
-    "mtime": 1794482656.1067586,
-    "seen": 1794485163.4944286,
-    "ast_hash": "365107b29fd22aa6ddce095a6a68a26f",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-2190b018.mp3": {
-    "mtime": 1794482654.7207584,
-    "seen": 1794485163.4944293,
-    "ast_hash": "346a9445d8eb7095742ed4f3d2d06d8d",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-21cac654.mp3": {
-    "mtime": 1794482650.8903584,
-    "seen": 1794485163.49443,
-    "ast_hash": "b011d5f39da7e706cb3f0c510d63ec4e",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-21f3e9b0.mp3": {
-    "mtime": 1794482654.4579585,
-    "seen": 1794485163.4944308,
-    "ast_hash": "715e82cbd4cf2bb5a7310c36e9742acd",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-22f90d6a.mp3": {
-    "mtime": 1794482663.1555586,
-    "seen": 1794485163.4944313,
-    "ast_hash": "4506050e3c5f2fc9cd3922a5f062774f",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-23c8c3b2.mp3": {
-    "mtime": 1794482651.8983583,
-    "seen": 1794485163.4944317,
-    "ast_hash": "b60f47aa683a34a88ae6f54ebd898657",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-2432863f.mp3": {
-    "mtime": 1794482655.5667584,
-    "seen": 1794485163.4944324,
-    "ast_hash": "6ec0d1bcef9881c582b16bf5bd4de9bd",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-252cebf3.mp3": {
-    "mtime": 1794482664.9807587,
-    "seen": 1794485163.494433,
-    "ast_hash": "a320f3d63155a6367ad4a76c576d9130",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-25aecb78.mp3": {
-    "mtime": 1794482656.9851584,
-    "seen": 1794485163.4944339,
-    "ast_hash": "ad4fd560c59498b4b679edfe1991f061",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-2620702c.mp3": {
-    "mtime": 1794482650.0767584,
-    "seen": 1794485163.4944344,
-    "ast_hash": "2d9e3d9f4863df5578fd4916e6847fca",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-27a202ab.mp3": {
-    "mtime": 1794482657.3235586,
-    "seen": 1794485163.494435,
-    "ast_hash": "e772b665d808cac470cbb82933a563d2",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-27e2aa01.mp3": {
-    "mtime": 1794482653.3527584,
-    "seen": 1794485163.4944355,
-    "ast_hash": "fc1f5f7231d20c6052c6b68975b76338",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-28d1c5ed.mp3": {
-    "mtime": 1794482651.1531584,
-    "seen": 1794485163.494436,
-    "ast_hash": "fa5d5b8fc2f31dc45d971ae4d89da395",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-2bc4531c.mp3": {
-    "mtime": 1794482651.4267585,
-    "seen": 1794485163.494437,
-    "ast_hash": "8b67229bcd33adffccf50ab954ff1714",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-2cc454af.mp3": {
-    "mtime": 1794482651.5635583,
-    "seen": 1794485163.4944375,
-    "ast_hash": "e1707dfd13e4090c9e5b25f5c697994d",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-2cc9bef3.mp3": {
-    "mtime": 1794482658.4935586,
-    "seen": 1794485163.494438,
-    "ast_hash": "c2c2a9faca2364e8412c63ace8ba486b",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-2de35f0a.mp3": {
-    "mtime": 1794482653.1547585,
-    "seen": 1794485163.4944384,
-    "ast_hash": "e9d4bf4fba615716e57176977fe44519",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-2eb356d1.mp3": {
-    "mtime": 1794482656.5747585,
-    "seen": 1794485163.4944391,
-    "ast_hash": "66fd13e4782aca87f0510fd9abb7b6f7",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-2ef9204e.mp3": {
-    "mtime": 1794482663.2851586,
-    "seen": 1794485163.4944396,
-    "ast_hash": "f8a2880c2468ee09aad4baef9f69672e",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-300a6b02.mp3": {
-    "mtime": 1794482660.6031587,
-    "seen": 1794485163.4944406,
-    "ast_hash": "b5eb4103a727de5f5989c96b1a313e4b",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-310e3e2c.mp3": {
-    "mtime": 1794482660.4015586,
-    "seen": 1794485163.494441,
-    "ast_hash": "e664c1675e8550a18f092c7110f4857f",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-31802bbe.mp3": {
-    "mtime": 1794482655.7755585,
-    "seen": 1794485163.4944415,
-    "ast_hash": "ccc04f97bc5685c0ffa0519df7fd865b",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-31b3136d.mp3": {
-    "mtime": 1794482652.2943585,
-    "seen": 1794485163.494442,
-    "ast_hash": "b0cbed9204764492f14c3fe184833d29",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-32f56b7b.mp3": {
-    "mtime": 1794482659.9947586,
-    "seen": 1794485163.4944427,
-    "ast_hash": "7928ccf09518cea8e0de10c5c50cda98",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-33f655fb.mp3": {
-    "mtime": 1794482667.1407588,
-    "seen": 1794485163.4944432,
-    "ast_hash": "758d45a1c0abc932dc97f0730882a18e",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-33fa3ddc.mp3": {
-    "mtime": 1794482656.3767586,
-    "seen": 1794485163.494444,
-    "ast_hash": "21fd796756fb13f6b6d8b939c828214f",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-340428c6.mp3": {
-    "mtime": 1794482652.5607584,
-    "seen": 1794485163.4944446,
-    "ast_hash": "5918f179996de01fb00e9b4dfb769e10",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-345bd887.mp3": {
-    "mtime": 1794482661.6183586,
-    "seen": 1794485163.4944453,
-    "ast_hash": "9eff5ad98eec8912c1ec97180cef8ffb",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-352d0523.mp3": {
-    "mtime": 1794482664.5667586,
-    "seen": 1794485163.4944458,
-    "ast_hash": "fbf29981b7b8bb3de4faa5dd980b0341",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-3580320a.mp3": {
-    "mtime": 1794482655.8403585,
-    "seen": 1794485163.4944463,
-    "ast_hash": "dc7afc25c54a2fd1bd055e8ba376d2e7",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-373e516a.mp3": {
-    "mtime": 1794482666.3991587,
-    "seen": 1794485163.4944475,
-    "ast_hash": "3b19742ea469b5a92f7cf719a5484f17",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-37c7a9a9.mp3": {
-    "mtime": 1794482669.2575588,
-    "seen": 1794485163.494448,
-    "ast_hash": "96ac133a6b7b6ccd96b6e6bf9592c1f9",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-38fd01a3.mp3": {
-    "mtime": 1794482662.6191587,
-    "seen": 1794485163.494449,
-    "ast_hash": "3899fdd856e4ab2974252865689d77fa",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-390a792d.mp3": {
-    "mtime": 1794482660.6715586,
-    "seen": 1794485163.4944496,
-    "ast_hash": "d5a86cfb41e936cf86dedd77ee89066e",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-392d0b6f.mp3": {
-    "mtime": 1794482664.7107587,
-    "seen": 1794485163.49445,
-    "ast_hash": "818345421726f9f8eacb67ee6287eb13",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-3934c28a.mp3": {
-    "mtime": 1794482664.0303588,
-    "seen": 1794485163.4944506,
-    "ast_hash": "240306f878afd784b732520c13ac4cce",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-39d5fa64.mp3": {
-    "mtime": 1794482652.8883584,
-    "seen": 1794485163.4944513,
-    "ast_hash": "a7eb6d9881477fdc90f13b68ef48c76e",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-3b0e4dea.mp3": {
-    "mtime": 1794482660.3331587,
-    "seen": 1794485163.4944518,
-    "ast_hash": "a0e6bd4f4208d79130be637031ee90ba",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-3b7f8fe5.mp3": {
-    "mtime": 1794482655.9051585,
-    "seen": 1794485163.4944525,
-    "ast_hash": "fb9ed5061127adf0a5454518e94a57c8",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-3d8a4160.mp3": {
-    "mtime": 1794482668.3863587,
-    "seen": 1794485163.494453,
-    "ast_hash": "984453ce776edb20377f279a6fab680d",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-3eebc1f4.mp3": {
-    "mtime": 1794482662.4175587,
-    "seen": 1794485163.4944534,
-    "ast_hash": "ca71ff517c1260dbfe757c3f01259d8e",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-3f0e5436.mp3": {
-    "mtime": 1794482659.8507586,
-    "seen": 1794485163.494454,
-    "ast_hash": "e6cf78bfc82a95a752887f3f7421e5e1",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-3f1bdfb6.mp3": {
-    "mtime": 1794482665.9275587,
-    "seen": 1794485163.4944549,
-    "ast_hash": "05273dfce0c0df28726fe78007dbc482",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-3f2d14e1.mp3": {
-    "mtime": 1794482664.8403587,
-    "seen": 1794485163.4944553,
-    "ast_hash": "9bcee2173a1e9f7bf61164ca6394b033",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-3fc4bab5.mp3": {
-    "mtime": 1794482653.6335585,
-    "seen": 1794485163.4944558,
-    "ast_hash": "2914d5ba8986b4dde3191509c29650d2",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-400e55c9.mp3": {
-    "mtime": 1794482660.1315587,
-    "seen": 1794485163.4944563,
-    "ast_hash": "dc6465d062c8f9b414ec2bda5ab90041",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-401c21df.mp3": {
-    "mtime": 1794482655.0627584,
-    "seen": 1794485163.4944568,
-    "ast_hash": "c1e378aa7970a5d5f62454d58dbed72b",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-41e37e86.mp3": {
-    "mtime": 1794482652.9531584,
-    "seen": 1794485163.4944575,
-    "ast_hash": "e9d802b7c2db3ca3a1c6cb5fc8ed7c89",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-42b3764d.mp3": {
-    "mtime": 1794482656.7835586,
-    "seen": 1794485163.4944582,
-    "ast_hash": "2d85069734caa561b2f6ffef1ad08db5",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-43d60a22.mp3": {
-    "mtime": 1794482652.8235586,
-    "seen": 1794485163.494459,
-    "ast_hash": "748ef1f6f73a09ee20ce3a2f787d9490",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-45413172.mp3": {
-    "mtime": 1794482667.5403588,
-    "seen": 1794485163.4944594,
-    "ast_hash": "dd0d353c40b94635c0d410dab0dce8c5",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-46c4c5ba.mp3": {
-    "mtime": 1794482653.8675585,
-    "seen": 1794485163.4944599,
-    "ast_hash": "79aec3ac5e551054cb262dca4cc745a5",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-47c4c74d.mp3": {
-    "mtime": 1794482653.7991586,
-    "seen": 1794485163.4944603,
-    "ast_hash": "3ef53fda1e9c94180032e09f92f618a6",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-48f5ab6a.mp3": {
-    "mtime": 1794482660.0631585,
-    "seen": 1794485163.4944613,
-    "ast_hash": "99a935fef3e88062d60057aa31aace69",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-49c0f8dc.mp3": {
-    "mtime": 1794482653.4823585,
-    "seen": 1794485163.4944618,
-    "ast_hash": "f2467f2f7e65c0d4db6897f73b07bbab",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-4b0e671a.mp3": {
-    "mtime": 1794482659.3791585,
-    "seen": 1794485163.4944623,
-    "ast_hash": "a27d67287d566fe83ad9175d5b2a9663",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-4c0b2c34.mp3": {
-    "mtime": 1794482657.4675586,
-    "seen": 1794485163.4944627,
-    "ast_hash": "891fed590865de0a959e6af891efb6a1",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-4c0e68ad.mp3": {
-    "mtime": 1794482659.7859585,
-    "seen": 1794485163.4944634,
-    "ast_hash": "ed33dc8f7b3dbd4928536a67dcdb34c0",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-4dd619e0.mp3": {
-    "mtime": 1794482652.6255584,
-    "seen": 1794485163.494464,
-    "ast_hash": "720ce8e3f65300f7443551a9290277aa",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-5187ce85.mp3": {
-    "mtime": 1794482668.0299587,
-    "seen": 1794485163.4944644,
-    "ast_hash": "62877d54499a079dd74cbdc4509a89ec",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-530be13b.mp3": {
-    "mtime": 1794482664.7791586,
-    "seen": 1794485163.4944654,
-    "ast_hash": "8bc2a635a1d98a4ba40ab79e44b89354",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-5391aa65.mp3": {
-    "mtime": 1794482655.1311586,
-    "seen": 1794485163.4944658,
-    "ast_hash": "1b4f7a36183f8671d388fba539e88bd4",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-543c0e5c.mp3": {
-    "mtime": 1794482668.8579588,
-    "seen": 1794485163.4944704,
-    "ast_hash": "aa842326b7a1b03f12f8380687f8e168",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-54b392a3.mp3": {
-    "mtime": 1794482656.4415586,
-    "seen": 1794485163.494471,
-    "ast_hash": "cde304fe63f5fccf6b4dc57453a72db2",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-54bade7b.mp3": {
-    "mtime": 1794482651.6967585,
-    "seen": 1794485163.4944718,
-    "ast_hash": "83935351294339f2bbb0a20e4c0b4cff",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-570d2a0b.mp3": {
-    "mtime": 1794482666.6691587,
-    "seen": 1794485163.4944725,
-    "ast_hash": "1a866cc1bb8a43b1d36cbe6c989baf01",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-58b398ef.mp3": {
-    "mtime": 1794482656.3083584,
-    "seen": 1794485163.494473,
-    "ast_hash": "8f4c54461d0f13ae24ff8da9dbc40df2",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-58e3a2bb.mp3": {
-    "mtime": 1794482653.0215585,
-    "seen": 1794485163.4944735,
-    "ast_hash": "d7fb92eddb377655d5f278465d738774",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-5ae77778.mp3": {
-    "mtime": 1794482653.2843585,
-    "seen": 1794485163.494474,
-    "ast_hash": "40343f4b9d9866fe6a25ded3ed209cc8",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-5af51a5c.mp3": {
-    "mtime": 1794482666.9391587,
-    "seen": 1794485163.4944746,
-    "ast_hash": "2c7beaaea0e51a35fe7b0b02dac50f1a",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-5b31128c.mp3": {
-    "mtime": 1794482665.7295587,
-    "seen": 1794485163.4944756,
-    "ast_hash": "47bb78e9ea09eb4cbbf3d7ccef520580",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-5bb39da8.mp3": {
-    "mtime": 1794482656.1715586,
-    "seen": 1794485163.494476,
-    "ast_hash": "6d6ff6b43f5e738013366e0c4e9e5a13",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-5bc91bda.mp3": {
-    "mtime": 1794482651.8299584,
-    "seen": 1794485163.4944768,
-    "ast_hash": "9f6badfc8c2a9766c101e2d0cdbaa2ea",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-5d752e72.mp3": {
-    "mtime": 1794482652.4275584,
-    "seen": 1794485163.4944773,
-    "ast_hash": "b1ebac39775ba369058c9e4b2c5b1a94",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-5db3a0ce.mp3": {
-    "mtime": 1794482655.9735584,
-    "seen": 1794485163.4944777,
-    "ast_hash": "d7c455245aff3d86e3837977e27de9d2",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-5ea25c0a.mp3": {
-    "mtime": 1794482657.0535586,
-    "seen": 1794485163.4944782,
-    "ast_hash": "3bd41d909331109ff9eff493681d4105",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-5ef5acfe.mp3": {
-    "mtime": 1794482668.5231588,
-    "seen": 1794485163.4944792,
-    "ast_hash": "b6f664babe1cdd9d389b1d16dc242977",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-60ccbc2b.mp3": {
-    "mtime": 1794482656.8555586,
-    "seen": 1794485163.4944797,
-    "ast_hash": "2a8608c6dee49c6218f9ff1636056497",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-624f8e48.mp3": {
-    "mtime": 1794482652.6939585,
-    "seen": 1794485163.4944801,
-    "ast_hash": "e060a4e4ab7381127f24c36683b571ac",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-63c4f361.mp3": {
-    "mtime": 1794482653.5507584,
-    "seen": 1794485163.4944806,
-    "ast_hash": "2a89b47015df852632058a2a01f51227",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-63ce7b71.mp3": {
-    "mtime": 1794482660.5347586,
-    "seen": 1794485163.494481,
-    "ast_hash": "2e85ee791f353db6c34f0f1f1a12a15b",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-6591c6bb.mp3": {
-    "mtime": 1794482654.9907584,
-    "seen": 1794485163.4944818,
-    "ast_hash": "f00f4d9ed078fa203af30613be3aea0d",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-6791c9e1.mp3": {
-    "mtime": 1794482654.9259584,
-    "seen": 1794485163.4944825,
-    "ast_hash": "d63bad7ea6b344aae075c8c2d5fffb97",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-67a12b15.mp3": {
-    "mtime": 1794482669.3907588,
-    "seen": 1794485163.494483,
-    "ast_hash": "cbfc29c76b920810a5a7638183d1e43c",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-68699de5.mp3": {
-    "mtime": 1794482650.2099583,
-    "seen": 1794485163.4944835,
-    "ast_hash": "3532047aa8bc895a8aaeec13bf8f2e99",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-6b91d02d.mp3": {
-    "mtime": 1794482654.7891586,
-    "seen": 1794485163.494484,
-    "ast_hash": "a7f3f10070ac8cc5eb0a786f544353d5",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-6bba2a80.mp3": {
-    "mtime": 1794482652.1611583,
-    "seen": 1794485163.4944844,
-    "ast_hash": "d7fe1ab8a4d62b5500d3edaf2f255d17",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-6bc77212.mp3": {
-    "mtime": 1794482668.1775587,
-    "seen": 1794485163.4944851,
-    "ast_hash": "f71c6d0f373e33566d325ef14ab05e24",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-6be7923b.mp3": {
-    "mtime": 1794482653.2231584,
-    "seen": 1794485163.4944859,
-    "ast_hash": "d2c4422c445d6db2ac24bd5c55ce7886",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-6c53bf91.mp3": {
-    "mtime": 1794482666.0607588,
-    "seen": 1794485163.4944863,
-    "ast_hash": "095f0d95f6912c96749b92abb2ff6b62",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-6cecb5f5.mp3": {
-    "mtime": 1794482662.0863585,
-    "seen": 1794485163.4944868,
-    "ast_hash": "ff7d26b201be5cd124a8c896a94f60a3",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-6deb95df.mp3": {
-    "mtime": 1794482653.0863585,
-    "seen": 1794485163.4944875,
-    "ast_hash": "1ceb2e04eb78575dec62b63b61fdff7e",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-6efc3459.mp3": {
-    "mtime": 1794482652.7587585,
-    "seen": 1794485163.494488,
-    "ast_hash": "09d242d4a2a36dea1c8c93dd51370743",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-6f313208.mp3": {
-    "mtime": 1794482665.8627586,
-    "seen": 1794485163.4944885,
-    "ast_hash": "e2bc5ab1a1664587f9f45f754282cfc2",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-72f090fe.mp3": {
-    "mtime": 1794482661.9531586,
-    "seen": 1794485163.4944892,
-    "ast_hash": "64a18ad61a5421555015370ebe383faa",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-78e0eb91.mp3": {
-    "mtime": 1794482664.9123588,
-    "seen": 1794485163.4944897,
-    "ast_hash": "6183901352ced0317f1b177394d99163",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-7940d681.mp3": {
-    "mtime": 1794482658.7635586,
-    "seen": 1794485163.4944901,
-    "ast_hash": "d5c829abbbbd389ed85ffbdcea8effc2",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-7a66ac8b.mp3": {
-    "mtime": 1794482667.2055588,
-    "seen": 1794485163.4944918,
-    "ast_hash": "1eda2a4a6a8ed150fbad0ac557330c47",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-7a8baf26.mp3": {
-    "mtime": 1794482659.7211585,
-    "seen": 1794485163.4944925,
-    "ast_hash": "dfa43d69b45702cfacfebcb3f962f754",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-7abf0ea7.mp3": {
-    "mtime": 1794482667.8859587,
-    "seen": 1794485163.494493,
-    "ast_hash": "48def36f8d85e92c5fc0eec2be3c7602",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-7ae0000c.mp3": {
-    "mtime": 1794482658.4251585,
-    "seen": 1794485163.4944935,
-    "ast_hash": "56e87f818d9c69bf1d4a393678f6c2bb",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-7d5485eb.mp3": {
-    "mtime": 1794482665.9923587,
-    "seen": 1794485163.4944937,
-    "ast_hash": "97ad8534da7a4110d0bcc357ec41f0b7",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-7ef0a3e2.mp3": {
-    "mtime": 1794482661.8847587,
-    "seen": 1794485163.4944942,
-    "ast_hash": "6e55cfb3a584807b4a4e3a5234ebe300",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-7fdf6065.mp3": {
-    "mtime": 1794482651.4951584,
-    "seen": 1794485163.4944947,
-    "ast_hash": "c2a4fb1ba9c1edd3843318e5c47204f9",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-80075416.mp3": {
-    "mtime": 1794482662.7487586,
-    "seen": 1794485163.4944952,
-    "ast_hash": "ee82be3ae2199c68966e05f269db0c78",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-8033e616.mp3": {
-    "mtime": 1794482659.1055586,
-    "seen": 1794485163.4944956,
-    "ast_hash": "1d4b642b4988a47442f695cd7179c4c6",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-80cab332.mp3": {
-    "mtime": 1794482654.8575585,
-    "seen": 1794485163.4944966,
-    "ast_hash": "b7839cd2afb4c17d70d6ce6d4e1f679f",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-82964edc.mp3": {
-    "mtime": 1794482650.9587584,
-    "seen": 1794485163.494497,
-    "ast_hash": "c214712dfb8b3174a6f97bc2c11ea479",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-83a7287e.mp3": {
-    "mtime": 1794482661.3447587,
-    "seen": 1794485163.4944975,
-    "ast_hash": "20b26fabeb4369d77d0bb8e155e80891",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-850f6dff.mp3": {
-    "mtime": 1794482659.3107586,
-    "seen": 1794485163.4944983,
-    "ast_hash": "9404d217f6387623ec5613f31e00ce6b",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-85cd3f31.mp3": {
-    "mtime": 1794482651.7651584,
-    "seen": 1794485163.4944987,
-    "ast_hash": "76ee0a81313621540b8aaee04e2d3299",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-85d895f5.mp3": {
-    "mtime": 1794482665.3911588,
-    "seen": 1794485163.4944994,
-    "ast_hash": "781062adf4d2fef122051c52bdaf0eae",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-873bdebc.mp3": {
-    "mtime": 1794482662.5543587,
-    "seen": 1794485163.4945,
-    "ast_hash": "418aa2e1ac09f4d9c6e3c3849742717d",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-87a716f9.mp3": {
-    "mtime": 1794482657.3991585,
-    "seen": 1794485163.4945004,
-    "ast_hash": "c71f96b319020ffd7f028f4557a749f8",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-87b0ba76.mp3": {
-    "mtime": 1794482668.7247589,
-    "seen": 1794485163.4945009,
-    "ast_hash": "6adaadc3d8b456e2e7677c97549c3a46",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-87dbaf51.mp3": {
-    "mtime": 1794482667.6771588,
-    "seen": 1794485163.4945014,
-    "ast_hash": "eb4bdd6afb580ff2c538ba3a236f7efa",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-87de97c6.mp3": {
-    "mtime": 1794482663.0871587,
-    "seen": 1794485163.4945018,
-    "ast_hash": "5d92d15fb20f72a29807f0bbadbf2179",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-88c364fb.mp3": {
-    "mtime": 1794482662.2807586,
-    "seen": 1794485163.4945023,
-    "ast_hash": "470cc2a93065fd0d63540c9e58760c5b",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-88ece209.mp3": {
-    "mtime": 1794482662.2195587,
-    "seen": 1794485163.4945033,
-    "ast_hash": "da1c4d0e2c3da28d2be78f45bce75d1c",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-88f15f37.mp3": {
-    "mtime": 1794482661.5499587,
-    "seen": 1794485163.4945037,
-    "ast_hash": "da279e747110c61fc39b0c25a982fa91",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-89c5daca.mp3": {
-    "mtime": 1794482653.4175584,
-    "seen": 1794485163.4945042,
-    "ast_hash": "41caffcadf287a056a506508283221eb",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-8adbb40a.mp3": {
-    "mtime": 1794482667.4755588,
-    "seen": 1794485163.4945047,
-    "ast_hash": "06e4d52528c14a2efdfc8879f8e7c448",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-8bdbb59d.mp3": {
-    "mtime": 1794482667.3387587,
-    "seen": 1794485163.4945052,
-    "ast_hash": "800e7940c2246b670cc390b16a9c8a9d",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-8cda1e52.mp3": {
-    "mtime": 1794482666.1291587,
-    "seen": 1794485163.494506,
-    "ast_hash": "09438dc18e9f1e90bcd92e44a8188269",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-8e2cf47a.mp3": {
-    "mtime": 1794482668.1055589,
-    "seen": 1794485163.4945066,
-    "ast_hash": "ef43018754310c39b669afcb7e0c1d91",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-8ebc15e2.mp3": {
-    "mtime": 1794482654.2635584,
-    "seen": 1794485163.494507,
-    "ast_hash": "596320cb6fad3f7d3fcec40b2590fd32",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-8f24c0fa.mp3": {
-    "mtime": 1794482665.5243587,
-    "seen": 1794485163.4945078,
-    "ast_hash": "2abd2cf02e3e437df084cf8c8809c0f5",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-8f25440c.mp3": {
-    "mtime": 1794482665.4595587,
-    "seen": 1794485163.4945083,
-    "ast_hash": "346f39a527c91ce2438a929603ef92f4",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-8f4c9529.mp3": {
-    "mtime": 1794482655.2823584,
-    "seen": 1794485163.4945087,
-    "ast_hash": "6ccddc1c3f020d62e36a7b6e1be04499",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-90c5185d.mp3": {
-    "mtime": 1794482658.6267586,
-    "seen": 1794485163.4945092,
-    "ast_hash": "01ec2df3bfa541beae7686fa6b80688d",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-90eceea1.mp3": {
-    "mtime": 1794482662.3491588,
-    "seen": 1794485163.49451,
-    "ast_hash": "8d96921866f1a5c665bee8710b62fb1b",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-91ca75ee.mp3": {
-    "mtime": 1794482669.3223588,
-    "seen": 1794485163.4945104,
-    "ast_hash": "c03616967ec40a07dd0e1eb1694da184",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-91ed0830.mp3": {
-    "mtime": 1794482667.0723588,
-    "seen": 1794485163.494511,
-    "ast_hash": "0afdb407984f3293dad45e8d6e1442b0",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-92fe3ae8.mp3": {
-    "mtime": 1794482659.1739585,
-    "seen": 1794485163.4945114,
-    "ast_hash": "fe11690363cf2361465ea3775e04b2af",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-93d9def1.mp3": {
-    "mtime": 1794482658.2883587,
-    "seen": 1794485163.494512,
-    "ast_hash": "05f51087f8bb86bcdbca5cbbaf2d389b",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-958fcdb3.mp3": {
-    "mtime": 1794482665.1139586,
-    "seen": 1794485163.4945126,
-    "ast_hash": "64387c17cfc44b2cc79ab11ee349640f",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-96f0c9aa.mp3": {
-    "mtime": 1794482662.0215588,
-    "seen": 1794485163.494513,
-    "ast_hash": "bc6888c775b5f3841351c05a19b46eb2",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-97cc647c.mp3": {
-    "mtime": 1794482650.6203585,
-    "seen": 1794485163.494514,
-    "ast_hash": "79ca4496710405f5c889411871f543b5",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-97ed7597.mp3": {
-    "mtime": 1794482664.1671586,
-    "seen": 1794485163.4945145,
-    "ast_hash": "31a3c2e89add62aef38e15c55fd67466",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-99b4ccbc.mp3": {
-    "mtime": 1794482666.4675589,
-    "seen": 1794485163.494515,
-    "ast_hash": "cbcf3ad372589f0eb75fd5739e72288b",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-99e35528.mp3": {
-    "mtime": 1794482662.1547587,
-    "seen": 1794485163.4945157,
-    "ast_hash": "d42fb4f4775b27668d8c142f2fb441e7",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-99f179fa.mp3": {
-    "mtime": 1794482661.7515585,
-    "seen": 1794485163.4945161,
-    "ast_hash": "33202bd43f1937f4f9641834e6c05245",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-9a308164.mp3": {
-    "mtime": 1794482651.3583584,
-    "seen": 1794485163.4945168,
-    "ast_hash": "1f1cae79260c01801a454a93fe71392d",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-9a843420.mp3": {
-    "mtime": 1794482661.6867588,
-    "seen": 1794485163.4945173,
-    "ast_hash": "6dcfb0c353f1fcfe277d5367be5fcebd",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-9b5ccc18.mp3": {
-    "mtime": 1794482663.3499587,
-    "seen": 1794485163.4945178,
-    "ast_hash": "5f8de22fe9e1481d6eb76b9444fd9dc6",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-9cf17eb3.mp3": {
-    "mtime": 1794482661.4815586,
-    "seen": 1794485163.4945183,
-    "ast_hash": "9f85e450b4ba7e5c40ada7643e55604c",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-9d735e38.mp3": {
-    "mtime": 1794482655.6351585,
-    "seen": 1794485163.4945188,
-    "ast_hash": "c70b5340f145e8a04ff7040b09eecbba",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-9db882bc.mp3": {
-    "mtime": 1794482657.1219585,
-    "seen": 1794485163.4945192,
-    "ast_hash": "1682ddfb6e53e14871917c290cecc696",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-9dbb24cd.mp3": {
-    "mtime": 1794482651.9631584,
-    "seen": 1794485163.4945197,
-    "ast_hash": "3ba01c24b0018f217748827704a3ebe2",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-9dbd1148.mp3": {
-    "mtime": 1794482668.789559,
-    "seen": 1794485163.4945204,
-    "ast_hash": "1a13dedcf34ea899c2392983d096fb03",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-9e0235cc.mp3": {
-    "mtime": 1794482667.0075588,
-    "seen": 1794485163.494521,
-    "ast_hash": "cf91a9b5747eece31e4ae6f2014b7ad0",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-9fdbd519.mp3": {
-    "mtime": 1794482668.5951588,
-    "seen": 1794485163.4945214,
-    "ast_hash": "43d83b576c1fb753d565d5ea15dcd47a",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-9fde35e8.mp3": {
-    "mtime": 1794482653.7343585,
-    "seen": 1794485163.4945219,
-    "ast_hash": "ab4880bdccc0f683a595345e06709c23",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-a07362f1.mp3": {
-    "mtime": 1794482655.7107584,
-    "seen": 1794485163.4945223,
-    "ast_hash": "7ac79e0e49151f54cbaf2d3b6e7de4f2",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-a1db2ca8.mp3": {
-    "mtime": 1794482667.2739587,
-    "seen": 1794485163.4945228,
-    "ast_hash": "e18b45b6b89f3faeeb993d576fbf16d2",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-a2fa61b0.mp3": {
-    "mtime": 1794482652.3627584,
-    "seen": 1794485163.4945233,
-    "ast_hash": "fb4008755538d8703120fb0c9f878250",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-a4096447.mp3": {
-    "mtime": 1794482667.7455587,
-    "seen": 1794485163.494524,
-    "ast_hash": "f75186b614dfaaf34ec70840bcadd703",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-a411f85e.mp3": {
-    "mtime": 1794482656.6467586,
-    "seen": 1794485163.4945245,
-    "ast_hash": "6c8198f12cfab7d8e271a761d0149dd6",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-a5bb3165.mp3": {
-    "mtime": 1794482652.0927584,
-    "seen": 1794485163.494525,
-    "ast_hash": "22b61983d658f21ec6f720ab22f3a25b",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-a5cae2d5.mp3": {
-    "mtime": 1794482660.7363586,
-    "seen": 1794485163.4945254,
-    "ast_hash": "2636a74f11d75d77d3bdc1e7c4233da8",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-a7fe73f3.mp3": {
-    "mtime": 1794482666.8707588,
-    "seen": 1794485163.494526,
-    "ast_hash": "378c0c7f28f0356bef4fe0e8c7369412",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-adbb3dfd.mp3": {
-    "mtime": 1794482652.0315585,
-    "seen": 1794485163.4945264,
-    "ast_hash": "202729f0c0dea697924c24fa554459ea",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-aedbecb6.mp3": {
-    "mtime": 1794482668.3143587,
-    "seen": 1794485163.4945269,
-    "ast_hash": "93d2b356cb22e92d38f263b63d66d26f",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-b396beb3.mp3": {
-    "mtime": 1794482654.6595585,
-    "seen": 1794485163.4945276,
-    "ast_hash": "d3884268315bcf06040832e8bc6f9d39",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-b3f9f84b.mp3": {
-    "mtime": 1794482654.3931584,
-    "seen": 1794485163.494528,
-    "ast_hash": "e0fccccd85db35cffbf6e641c4d340ad",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-b6e6a73f.mp3": {
-    "mtime": 1794482657.1903586,
-    "seen": 1794485163.4945288,
-    "ast_hash": "99d5a1688d77cf76655817cd87f63d1a",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-b736208e.mp3": {
-    "mtime": 1794482665.6611588,
-    "seen": 1794485163.4945292,
-    "ast_hash": "0892d8864e637be392269d763a18e34e",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-b7ce71f9.mp3": {
-    "mtime": 1794482654.0619586,
-    "seen": 1794485163.49453,
-    "ast_hash": "f093fdfe2062c6f4a17856c51e2f49fa",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-b8d06a06.mp3": {
-    "mtime": 1794482650.4151585,
-    "seen": 1794485163.4945307,
-    "ast_hash": "9fa971a7e29b3040d4ea2f2976bea6f0",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-b9408520.mp3": {
-    "mtime": 1794482660.2683587,
-    "seen": 1794485163.4945314,
-    "ast_hash": "5bff62866b1a18710a6fd86d941771db",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-b978077a.mp3": {
-    "mtime": 1794482655.1923585,
-    "seen": 1794485163.4945319,
-    "ast_hash": "8605cfe8ac85a271eb61a737bc032717",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-ba0b4ade.mp3": {
-    "mtime": 1794482654.1987586,
-    "seen": 1794485163.4945323,
-    "ast_hash": "24fbf144487d376954945a09e219740b",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-ba78090d.mp3": {
-    "mtime": 1794482655.3543584,
-    "seen": 1794485163.4945328,
-    "ast_hash": "c3772734c7df3e4597c90a7632d7d7d7",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-badbff9a.mp3": {
-    "mtime": 1794482668.4511588,
-    "seen": 1794485163.4945335,
-    "ast_hash": "190684f3da013e7dc6b710499c88ba7d",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-bbd06ebf.mp3": {
-    "mtime": 1794482650.3467584,
-    "seen": 1794485163.4945343,
-    "ast_hash": "42ddf63114544c4c6f67ae522e11e013",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-bc14d430.mp3": {
-    "mtime": 1794482669.0595589,
-    "seen": 1794485163.4945347,
-    "ast_hash": "80279a63617cd054a68dc55611715273",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-bd1131ee.mp3": {
-    "mtime": 1794482665.7943587,
-    "seen": 1794485163.4945352,
-    "ast_hash": "d43d3610bb501a447882f0a3800179bb",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-bdd071e5.mp3": {
-    "mtime": 1794482650.1415584,
-    "seen": 1794485163.4945357,
-    "ast_hash": "8df6480aee13d2001f3f0bbec8d1cf66",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-bfbdf265.mp3": {
-    "mtime": 1794482668.9263587,
-    "seen": 1794485163.4945364,
-    "ast_hash": "8a830ef058e09bcde5db33b4e7802f8a",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-bfc48808.mp3": {
-    "mtime": 1794482663.4903586,
-    "seen": 1794485163.4945369,
-    "ast_hash": "b5286402f5fbe604ef16b533d8f3d267",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-bfd86a09.mp3": {
-    "mtime": 1794482663.8251586,
-    "seen": 1794485163.4945374,
-    "ast_hash": "d3350cf1c74f6f65e1fd91d4cb4cff30",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-c1d07831.mp3": {
-    "mtime": 1794482650.5555584,
-    "seen": 1794485163.494538,
-    "ast_hash": "6116fbf21be3e91fb9a3e0f4ce5a4059",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-c3750e84.mp3": {
-    "mtime": 1794482664.2967587,
-    "seen": 1794485163.4945385,
-    "ast_hash": "ddeb5ab284697e4855084427fe247ff4",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-c4e44621.mp3": {
-    "mtime": 1794482658.3567586,
-    "seen": 1794485163.494539,
-    "ast_hash": "eb00853f737c8ff277b37b40aaa163b3",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-c66656e4.mp3": {
-    "mtime": 1794482651.2251585,
-    "seen": 1794485163.4945395,
-    "ast_hash": "db5ba3cc9896c9bed35e0847b83ef85b",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-cb916b20.mp3": {
-    "mtime": 1794482663.4183586,
-    "seen": 1794485163.49454,
-    "ast_hash": "5bedd648284862cc661e2cec2b5552d9",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-cdd08b15.mp3": {
-    "mtime": 1794482650.0047584,
-    "seen": 1794485163.4945407,
-    "ast_hash": "ded7e6977d9653c412a611147361d5d4",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-cfa75d0a.mp3": {
-    "mtime": 1794482664.6423588,
-    "seen": 1794485163.4945414,
-    "ast_hash": "37109ea8e06a898873b752d527e6a6f8",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-cfedbc17.mp3": {
-    "mtime": 1794482658.1551585,
-    "seen": 1794485163.494542,
-    "ast_hash": "c99e54ae7adff697c887fd5c92e4d8ee",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-d01d58d6.mp3": {
-    "mtime": 1794482661.4131587,
-    "seen": 1794485163.4945426,
-    "ast_hash": "2be9196a5cce3b549e06d6a3b3fc571a",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-d1ed5b92.mp3": {
-    "mtime": 1794482654.3283584,
-    "seen": 1794485163.494543,
-    "ast_hash": "c06dfb88e2941de6ba882a6bb2aa3716",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-d577f2e0.mp3": {
-    "mtime": 1794482663.2167587,
-    "seen": 1794485163.4945436,
-    "ast_hash": "c56be3605e71e888f11c92a7a7c9f3aa",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-d5a5599e.mp3": {
-    "mtime": 1794482665.3191588,
-    "seen": 1794485163.494544,
-    "ast_hash": "9a6aae0a97cb0571091c713981f209c0",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-d623e80d.mp3": {
-    "mtime": 1794482657.8059585,
-    "seen": 1794485163.4945447,
-    "ast_hash": "ca39b8fe80367f15b4185cdc3047a1ff",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-d7e0aa6f.mp3": {
-    "mtime": 1794482668.6563587,
-    "seen": 1794485163.4945452,
-    "ast_hash": "25d1a3db349fc71043cec27ea8f6f74d",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-d808b4ed.mp3": {
-    "mtime": 1794482655.4947586,
-    "seen": 1794485163.4945457,
-    "ast_hash": "e8c43195b8d822ae6a82b15017c4e2b3",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-d838480b.mp3": {
-    "mtime": 1794482661.8163586,
-    "seen": 1794485163.4945462,
-    "ast_hash": "4d1206c381fbdd3d23dbb5a31dd6c8f6",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-d885d8b5.mp3": {
-    "mtime": 1794482656.2435584,
-    "seen": 1794485163.494547,
-    "ast_hash": "17a0b9e42bb19c478b380cec699d8fb1",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-d8b96b0b.mp3": {
-    "mtime": 1794482657.2551587,
-    "seen": 1794485163.4945474,
-    "ast_hash": "0093cbef558ea7137010ef53d9526e48",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-db93748a.mp3": {
-    "mtime": 1794482659.5123587,
-    "seen": 1794485163.494548,
-    "ast_hash": "3a95de1d92ae605a220302ef20c0eab3",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-de27ff00.mp3": {
-    "mtime": 1794482665.2507586,
-    "seen": 1794485163.4945488,
-    "ast_hash": "c7620d5edb4889e32ab656400d709378",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-de5c5d55.mp3": {
-    "mtime": 1794482667.4071589,
-    "seen": 1794485163.4945495,
-    "ast_hash": "2aa67b4dcb3517b86db96555f4e4cad5",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-defab168.mp3": {
-    "mtime": 1794482656.0419586,
-    "seen": 1794485163.49455,
-    "ast_hash": "d4915ac94c605093c96ba67774ebd424",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-df51dcc3.mp3": {
-    "mtime": 1794482653.9935584,
-    "seen": 1794485163.4945505,
-    "ast_hash": "27604192617a381eb768293946314959",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-df55914c.mp3": {
-    "mtime": 1794482659.4475586,
-    "seen": 1794485163.494551,
-    "ast_hash": "3c23cb42168aaee81c40a86c589d0ce0",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-df65304c.mp3": {
-    "mtime": 1794482666.2623587,
-    "seen": 1794485163.4945517,
-    "ast_hash": "c1ee6d52851fe8f54daa7bd2e7eaebf6",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-e01fac86.mp3": {
-    "mtime": 1794482658.8283587,
-    "seen": 1794485163.4945524,
-    "ast_hash": "4941329abcb8b61576ab53b9ebbe611e",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-e2aec579.mp3": {
-    "mtime": 1794482652.4923584,
-    "seen": 1794485163.494553,
-    "ast_hash": "f4469b0dbaafa71ca7ae2495668c6b5b",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-e30422e6.mp3": {
-    "mtime": 1794482669.189159,
-    "seen": 1794485163.4945536,
-    "ast_hash": "bab5ceb3526510b345021e01e3252d5a",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-e325b569.mp3": {
-    "mtime": 1794482656.7187586,
-    "seen": 1794485163.4945543,
-    "ast_hash": "b4d4f3846be90c8d5bee829898c08063",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-e3c5a0f7.mp3": {
-    "mtime": 1794482656.5099585,
-    "seen": 1794485163.494555,
-    "ast_hash": "8105b417a22496982a243087e7b660bf",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-e5d6157c.mp3": {
-    "mtime": 1794482666.3343587,
-    "seen": 1794485163.4945555,
-    "ast_hash": "15cbe66425325c8119e19a87a0c0da0d",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-e666d481.mp3": {
-    "mtime": 1794482668.2459588,
-    "seen": 1794485163.494556,
-    "ast_hash": "f4db7639fe6c8e5acefaa8ea60d10853",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-e71a6c29.mp3": {
-    "mtime": 1794482660.2035587,
-    "seen": 1794485163.4945567,
-    "ast_hash": "404e449218ad8453dc81b4c67dc6f16c",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-eb49fa22.mp3": {
-    "mtime": 1794482666.7375588,
-    "seen": 1794485163.4945571,
-    "ast_hash": "89fcec1e806eae1f49ad4237befc9b2a",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-ebf80b3e.mp3": {
-    "mtime": 1794482663.9619586,
-    "seen": 1794485163.4945576,
-    "ast_hash": "e6b3a43d30eb33338490c583df0a2c04",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-ec5b44d6.mp3": {
-    "mtime": 1794482666.1939588,
-    "seen": 1794485163.494558,
-    "ast_hash": "d4c838738b7c14fca21451a0a8be2106",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-eec43494.mp3": {
-    "mtime": 1794482658.5583587,
-    "seen": 1794485163.4945588,
-    "ast_hash": "478a671445c9381dee5166586da58b9f",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-ef439e76.mp3": {
-    "mtime": 1794482665.1859586,
-    "seen": 1794485163.4945593,
-    "ast_hash": "9b70d132a9a3c153de0b6a3db6bf1690",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-efceca21.mp3": {
-    "mtime": 1794482653.9287584,
-    "seen": 1794485163.4945598,
-    "ast_hash": "9ba7f9c1bf53beda507bf875bf5107b7",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-efd62adf.mp3": {
-    "mtime": 1794482658.0147586,
-    "seen": 1794485163.4945605,
-    "ast_hash": "595ae5dafed8892bb32facf2b4a8c0c9",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-f0e77593.mp3": {
-    "mtime": 1794482658.0867586,
-    "seen": 1794485163.494561,
-    "ast_hash": "5abb01bc41e0a2130e0395eba4a2fe30",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-f19c043f.mp3": {
-    "mtime": 1794482658.9651587,
-    "seen": 1794485163.4945614,
-    "ast_hash": "fc2c6c9b60d3903c00ed9daad0f865aa",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-f1a537b7.mp3": {
-    "mtime": 1794482657.7375586,
-    "seen": 1794485163.4945621,
-    "ast_hash": "eb10246db544b63e2100cf8722a32e57",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-f2849d82.mp3": {
-    "mtime": 1794482657.6007586,
-    "seen": 1794485163.4945626,
-    "ast_hash": "dc2bd4b3579215a809072d64b6ddf50f",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-f4a53c70.mp3": {
-    "mtime": 1794482657.6691585,
-    "seen": 1794485163.494563,
-    "ast_hash": "07c2b149a80fa260ef8801bebf9223cc",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-f5c218fe.mp3": {
-    "mtime": 1794482668.9911587,
-    "seen": 1794485163.4945638,
-    "ast_hash": "fe90aa81526eab22ee3486f0b04f40a5",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-f70965b0.mp3": {
-    "mtime": 1794482660.9415586,
-    "seen": 1794485163.4945643,
-    "ast_hash": "ead6318ab4e680b367c594eaf3b1cb2e",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-f7c2538a.mp3": {
-    "mtime": 1794482663.6271586,
-    "seen": 1794485163.494565,
-    "ast_hash": "62ac6ef2f75707be6ab626239edaa1b4",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-f7d178ca.mp3": {
-    "mtime": 1794482650.7535584,
-    "seen": 1794485163.4945657,
-    "ast_hash": "93f0dc1540be9cae3f5cd13408c14525",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-f90968d6.mp3": {
-    "mtime": 1794482661.0819585,
-    "seen": 1794485163.4945664,
-    "ast_hash": "2f4cf7255d9b237b142ac8b7b29adebc",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-fad63c30.mp3": {
-    "mtime": 1794482657.9463587,
-    "seen": 1794485163.494567,
-    "ast_hash": "35be8843de2683423d9f28d1f3841a51",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-fba08ae4.mp3": {
-    "mtime": 1794482660.8731587,
-    "seen": 1794485163.4945674,
-    "ast_hash": "09d5a90b003e757ba1dc8a2670fa22ed",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-fc6d8856.mp3": {
-    "mtime": 1794482659.2423587,
-    "seen": 1794485163.494568,
-    "ast_hash": "fde7ecb5c6ec391ad7418ed86010d594",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-fd43be7f.mp3": {
-    "mtime": 1794482664.0987587,
-    "seen": 1794485163.4945686,
-    "ast_hash": "91414c02b95908260c36e5a704f5a9cb",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-fd5a2cc3.mp3": {
-    "mtime": 1794482667.813959,
-    "seen": 1794485163.4945693,
-    "ast_hash": "e74d93a5105cf123d7039813ad3c10e6",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-fdc44c31.mp3": {
-    "mtime": 1794482658.6951585,
-    "seen": 1794485163.4945698,
-    "ast_hash": "163e6c8e1eff7ad3a2e516cc3a84132c",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-feba7f7a.mp3": {
-    "mtime": 1794482667.6087587,
-    "seen": 1794485163.4945703,
-    "ast_hash": "44af5b26e8cf04725ffd8971117e48b7",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-ff097248.mp3": {
-    "mtime": 1794482661.2151587,
-    "seen": 1794485163.494571,
-    "ast_hash": "c93e8cc429a65728636a0e2f76c807bd",
-    "semantic_hash": ""
-  },
-  "public/audio/hangul/v1/ko-ffc44f57.mp3": {
-    "mtime": 1794482658.8967586,
-    "seen": 1794485163.4945714,
-    "ast_hash": "b8315369ccc77a175c1e434abf8e74f5",
+    "mtime": 1794488003.1240466,
+    "seen": 1794488297.0210226,
+    "ast_hash": "b67c8555dc410e35b3fa634122db791e",
     "semantic_hash": ""
   },
   "e2e/speech.spec.ts": {
@@ -3198,9 +1476,9 @@
     "semantic_hash": ""
   },
   "tests/content/curriculum-audit.test.ts": {
-    "mtime": 1794486948.7327023,
-    "seen": 1794487381.6167965,
-    "ast_hash": "0d49d08cd2bd91ae25ec2f1497343548",
+    "mtime": 1794487880.5981877,
+    "seen": 1794488297.020531,
+    "ast_hash": "d919e1ecbab27bdc8c6cc2d89b9af69a",
     "semantic_hash": ""
   },
   "docs/audio/audio-quality-report.md": {
@@ -3210,15 +1488,1785 @@
     "semantic_hash": ""
   },
   "docs/audio/license-audit.md": {
-    "mtime": 1794487219.7800813,
-    "seen": 1794487381.6168208,
-    "ast_hash": "6dddb8e910fdb890b92e5d4b7dccd35b",
+    "mtime": 1794488036.2855034,
+    "seen": 1794488297.0210404,
+    "ast_hash": "2e51226c303055c07837aeb6078413c6",
     "semantic_hash": ""
   },
   "docs/release/beta-readiness.md": {
-    "mtime": 1794487351.1148531,
-    "seen": 1794487381.616832,
-    "ast_hash": "71ef2e57e4e21308e4236e8c58325322",
+    "mtime": 1794488003.1420467,
+    "seen": 1794488297.0214417,
+    "ast_hash": "ce91ebca3e0dff3965bada0fe3d28e1b",
+    "semantic_hash": ""
+  },
+  "scripts/audio/guard-lib.mjs": {
+    "mtime": 1794487836.587776,
+    "seen": 1794488297.017815,
+    "ast_hash": "ba85808702d40151590cf885385c971b",
+    "semantic_hash": ""
+  },
+  "scripts/audio/stage-static-audio.mjs": {
+    "mtime": 1794487836.587776,
+    "seen": 1794488297.0178163,
+    "ast_hash": "0c86e6c94da75323ef8645f0fdc6563e",
+    "semantic_hash": ""
+  },
+  "scripts/audio/verify-no-restricted-audio.mjs": {
+    "mtime": 1794487836.587776,
+    "seen": 1794488297.017817,
+    "ast_hash": "1b9282e8f7f5433f97dc28c5a2cd64c8",
+    "semantic_hash": ""
+  },
+  "src/lib/audio/flags.ts": {
+    "mtime": 1794487818.4905756,
+    "seen": 1794488297.019756,
+    "ast_hash": "1ec1b35c89f08b3884972987e1148807",
+    "semantic_hash": ""
+  },
+  "tests/audio-containment.test.ts": {
+    "mtime": 1794487877.6497877,
+    "seen": 1794488297.020462,
+    "ast_hash": "01b565651d914d91439ac5660d942f13",
+    "semantic_hash": ""
+  },
+  "docs/audio/dependency-licenses.md": {
+    "mtime": 1794487951.477521,
+    "seen": 1794488297.0210216,
+    "ast_hash": "4708cd1e87a6a7f4f11641bf9f98e9b9",
+    "semantic_hash": ""
+  },
+  "docs/audio/permissions/email-drafts.md": {
+    "mtime": 1794487951.4739208,
+    "seen": 1794488297.0210412,
+    "ast_hash": "d2b1e2ff3b87e380486c49778bbf3a2c",
+    "semantic_hash": ""
+  },
+  "docs/audio/tts-alternatives.md": {
+    "mtime": 1794487978.2840462,
+    "seen": 1794488297.0210416,
+    "ast_hash": "f233b5fd83b8213c341ee6021ed2ee68",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-006245a8.mp3": {
+    "mtime": 1794482659.5807586,
+    "seen": 1794488297.0217168,
+    "ast_hash": "8ff6e4f9ebb7c53a04db49a355d9745d",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-00f82c4d.mp3": {
+    "mtime": 1794482664.2283587,
+    "seen": 1794488297.021718,
+    "ast_hash": "f63bb551bdd6bdc0852200338d26e7d5",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-0120831f.mp3": {
+    "mtime": 1794482667.9579587,
+    "seen": 1794488297.0217187,
+    "ast_hash": "6773247a8668676b277cd08c726010dc",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-02c4c8ee.mp3": {
+    "mtime": 1794482650.2819583,
+    "seen": 1794488297.0217197,
+    "ast_hash": "492f0f8a1791489d27a232ebb0aab006",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-04da1d85.mp3": {
+    "mtime": 1794482657.5323586,
+    "seen": 1794488297.0217206,
+    "ast_hash": "8ca3d2fc5168eef85c25cd37de628709",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-055f664d.mp3": {
+    "mtime": 1794482665.5963588,
+    "seen": 1794488297.0217214,
+    "ast_hash": "b2567f7c0a3000d1ff226c4ff95a6205",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-0673983b.mp3": {
+    "mtime": 1794482659.6491587,
+    "seen": 1794488297.0217223,
+    "ast_hash": "ea8d6e5f7beac1dd35dfa10c8fcc0c77",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-06c2df58.mp3": {
+    "mtime": 1794482669.1207588,
+    "seen": 1794488297.021723,
+    "ast_hash": "26d2e1a6ddbc6bd0e864809a931eddad",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-06f630d4.mp3": {
+    "mtime": 1794482651.6283584,
+    "seen": 1794488297.021724,
+    "ast_hash": "d907d695d7046cd0701c2da3afe14c7b",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-074a2636.mp3": {
+    "mtime": 1794482666.8023589,
+    "seen": 1794488297.0217245,
+    "ast_hash": "1e379ef5a53381f579deca59f8a5fa9a",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-08015bae.mp3": {
+    "mtime": 1794482650.4871583,
+    "seen": 1794488297.0217252,
+    "ast_hash": "0379f2b73553d4aa26386085153048c6",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-09ae9f64.mp3": {
+    "mtime": 1794482656.9167585,
+    "seen": 1794488297.021726,
+    "ast_hash": "f3d318edcf09349050b867dd7d4c083c",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-0ac460a8.mp3": {
+    "mtime": 1794482659.0407586,
+    "seen": 1794488297.0217264,
+    "ast_hash": "7b2c1e3b13ba2c25dd2f99a9c4a0c7c7",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-0af8e7a2.mp3": {
+    "mtime": 1794482663.5587587,
+    "seen": 1794488297.021727,
+    "ast_hash": "857093f1feaea08b005d534823f2a78e",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-0b3e0c26.mp3": {
+    "mtime": 1794482666.5323586,
+    "seen": 1794488297.0217278,
+    "ast_hash": "d58786e60399992439f37bc25ce06cd7",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-0b83eec4.mp3": {
+    "mtime": 1794482662.8855586,
+    "seen": 1794488297.0217283,
+    "ast_hash": "67834f821c38cacced2131b2cf793b74",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-0c4db4dd.mp3": {
+    "mtime": 1794482664.4299586,
+    "seen": 1794488297.021729,
+    "ast_hash": "b3d889fad9fc9facce559198c2feba20",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-0d0a33e9.mp3": {
+    "mtime": 1794482660.8047585,
+    "seen": 1794488297.02173,
+    "ast_hash": "d068bf7bf8bd1988f6672607902b16c6",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-0dd56d03.mp3": {
+    "mtime": 1794482650.6851585,
+    "seen": 1794488297.021731,
+    "ast_hash": "a6bd9e5ac43b8a5d7c6d4eb97a3eddc2",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-0fd19e92.mp3": {
+    "mtime": 1794482651.0883584,
+    "seen": 1794488297.0217319,
+    "ast_hash": "9c76d8ecbb2e78f4a31a2f0c501820ad",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-0ff843ea.mp3": {
+    "mtime": 1794482664.3651588,
+    "seen": 1794488297.0217323,
+    "ast_hash": "9ae98685893e8974e55666b98e48e467",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-1005c3cd.mp3": {
+    "mtime": 1794482652.2295585,
+    "seen": 1794488297.021733,
+    "ast_hash": "42cb5968bb0b8740b0dc1317396cc9af",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-10cea929.mp3": {
+    "mtime": 1794482659.9191587,
+    "seen": 1794488297.0217335,
+    "ast_hash": "f46eaabb8268787f78e4b3080f0872d9",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-10fcc2ab.mp3": {
+    "mtime": 1794482662.8171587,
+    "seen": 1794488297.0217342,
+    "ast_hash": "b826e02fabf6742d0fd70ceefc59fd5f",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-11165fc5.mp3": {
+    "mtime": 1794482663.8935587,
+    "seen": 1794488297.021735,
+    "ast_hash": "76e04ce5aeb46112075edc64542887f6",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-11bc5a40.mp3": {
+    "mtime": 1794482661.1467586,
+    "seen": 1794488297.0217357,
+    "ast_hash": "56e8968287ac4effde849538e569e175",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-12fb0e6e.mp3": {
+    "mtime": 1794482661.0135586,
+    "seen": 1794488297.0217364,
+    "ast_hash": "8992b89f0cd4667901ce91ef734cc14e",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-130e0ef2.mp3": {
+    "mtime": 1794482660.4699585,
+    "seen": 1794488297.0217369,
+    "ast_hash": "24666301c79cbd15f1fbd39cfdb18ffb",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-138cc877.mp3": {
+    "mtime": 1794482654.5947585,
+    "seen": 1794488297.0217378,
+    "ast_hash": "7911fa2d480a21177fb90d990c6669a2",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-13d1a4de.mp3": {
+    "mtime": 1794482650.8219583,
+    "seen": 1794488297.0217383,
+    "ast_hash": "ae3d6c1f9c4f7c8b46fb25a10e1009b1",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-13f8f5cd.mp3": {
+    "mtime": 1794482663.7567587,
+    "seen": 1794488297.021739,
+    "ast_hash": "df0c5245f93776f3b9882ea70d10c0bd",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-14e7ae3f.mp3": {
+    "mtime": 1794482658.2235587,
+    "seen": 1794488297.0217395,
+    "ast_hash": "597129e0196efd038215d015981f94e1",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-1649f304.mp3": {
+    "mtime": 1794482664.4983587,
+    "seen": 1794488297.02174,
+    "ast_hash": "4164c00b38413c9bebc97858967daf67",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-16d1a997.mp3": {
+    "mtime": 1794482651.0271585,
+    "seen": 1794488297.021741,
+    "ast_hash": "c48baadefed093b3284c1150edf4de30",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-1739a1dc.mp3": {
+    "mtime": 1794482666.6007588,
+    "seen": 1794488297.0217416,
+    "ast_hash": "64ccecc25d387ba15b8526fc27bf990c",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-18e6c268.mp3": {
+    "mtime": 1794482654.1303585,
+    "seen": 1794488297.021742,
+    "ast_hash": "ab90540d51429cabf1b7ef08edcd1096",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-19ee62c2.mp3": {
+    "mtime": 1794482655.4263585,
+    "seen": 1794488297.0217426,
+    "ast_hash": "6ecfd90538d6ef58b4fd4d40786c17e1",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-1ada4027.mp3": {
+    "mtime": 1794482657.8779585,
+    "seen": 1794488297.0217433,
+    "ast_hash": "97a524474eb84391b6e786820384e982",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-1aeb8948.mp3": {
+    "mtime": 1794482662.4823587,
+    "seen": 1794488297.0217438,
+    "ast_hash": "9e2881e6fcf8065ecfa67cfa4ce0ee4e",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-1af900d2.mp3": {
+    "mtime": 1794482662.9539587,
+    "seen": 1794488297.0217447,
+    "ast_hash": "bbd512239369612b232aea462028b92a",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-1cf903f8.mp3": {
+    "mtime": 1794482663.0187588,
+    "seen": 1794488297.0217452,
+    "ast_hash": "a9186108390261a6bd23d3ad5ac5f2e8",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-1cfcd58f.mp3": {
+    "mtime": 1794482662.6875587,
+    "seen": 1794488297.021746,
+    "ast_hash": "352c7e3013d20514c57d32afa78331b8",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-1e7d6be1.mp3": {
+    "mtime": 1794482663.6955588,
+    "seen": 1794488297.0217466,
+    "ast_hash": "c7022230d851482202de4a9039d5c3f3",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-1ef3e4f7.mp3": {
+    "mtime": 1794482654.5263586,
+    "seen": 1794488297.0217474,
+    "ast_hash": "05ee9350c8b5601bf556efe6f80777cc",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-1f09a4a8.mp3": {
+    "mtime": 1794482661.2763586,
+    "seen": 1794488297.0217483,
+    "ast_hash": "b41ec2eed9b438044da8a39d100829fb",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-1f2c36ea.mp3": {
+    "mtime": 1794482665.0455587,
+    "seen": 1794488297.021749,
+    "ast_hash": "a47c90b22438ab78f500bbc5d8ee2a8d",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-1fd1b7c2.mp3": {
+    "mtime": 1794482651.2935584,
+    "seen": 1794488297.0217495,
+    "ast_hash": "d02e7210da26aa9578fdffd3fe1a91b2",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-208980c3.mp3": {
+    "mtime": 1794482656.1067586,
+    "seen": 1794488297.0217502,
+    "ast_hash": "365107b29fd22aa6ddce095a6a68a26f",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-2190b018.mp3": {
+    "mtime": 1794482654.7207584,
+    "seen": 1794488297.0217507,
+    "ast_hash": "346a9445d8eb7095742ed4f3d2d06d8d",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-21cac654.mp3": {
+    "mtime": 1794482650.8903584,
+    "seen": 1794488297.0217514,
+    "ast_hash": "b011d5f39da7e706cb3f0c510d63ec4e",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-21f3e9b0.mp3": {
+    "mtime": 1794482654.4579585,
+    "seen": 1794488297.021752,
+    "ast_hash": "715e82cbd4cf2bb5a7310c36e9742acd",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-22f90d6a.mp3": {
+    "mtime": 1794482663.1555586,
+    "seen": 1794488297.0217526,
+    "ast_hash": "4506050e3c5f2fc9cd3922a5f062774f",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-23c8c3b2.mp3": {
+    "mtime": 1794482651.8983583,
+    "seen": 1794488297.021753,
+    "ast_hash": "b60f47aa683a34a88ae6f54ebd898657",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-2432863f.mp3": {
+    "mtime": 1794482655.5667584,
+    "seen": 1794488297.0217538,
+    "ast_hash": "6ec0d1bcef9881c582b16bf5bd4de9bd",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-252cebf3.mp3": {
+    "mtime": 1794482664.9807587,
+    "seen": 1794488297.0217543,
+    "ast_hash": "a320f3d63155a6367ad4a76c576d9130",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-25aecb78.mp3": {
+    "mtime": 1794482656.9851584,
+    "seen": 1794488297.0217552,
+    "ast_hash": "ad4fd560c59498b4b679edfe1991f061",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-2620702c.mp3": {
+    "mtime": 1794482650.0767584,
+    "seen": 1794488297.021756,
+    "ast_hash": "2d9e3d9f4863df5578fd4916e6847fca",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-27a202ab.mp3": {
+    "mtime": 1794482657.3235586,
+    "seen": 1794488297.0217564,
+    "ast_hash": "e772b665d808cac470cbb82933a563d2",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-27e2aa01.mp3": {
+    "mtime": 1794482653.3527584,
+    "seen": 1794488297.021757,
+    "ast_hash": "fc1f5f7231d20c6052c6b68975b76338",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-28d1c5ed.mp3": {
+    "mtime": 1794482651.1531584,
+    "seen": 1794488297.0217576,
+    "ast_hash": "fa5d5b8fc2f31dc45d971ae4d89da395",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-2bc4531c.mp3": {
+    "mtime": 1794482651.4267585,
+    "seen": 1794488297.0217583,
+    "ast_hash": "8b67229bcd33adffccf50ab954ff1714",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-2cc454af.mp3": {
+    "mtime": 1794482651.5635583,
+    "seen": 1794488297.0217588,
+    "ast_hash": "e1707dfd13e4090c9e5b25f5c697994d",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-2cc9bef3.mp3": {
+    "mtime": 1794482658.4935586,
+    "seen": 1794488297.0217593,
+    "ast_hash": "c2c2a9faca2364e8412c63ace8ba486b",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-2de35f0a.mp3": {
+    "mtime": 1794482653.1547585,
+    "seen": 1794488297.0217597,
+    "ast_hash": "e9d4bf4fba615716e57176977fe44519",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-2eb356d1.mp3": {
+    "mtime": 1794482656.5747585,
+    "seen": 1794488297.0217605,
+    "ast_hash": "66fd13e4782aca87f0510fd9abb7b6f7",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-2ef9204e.mp3": {
+    "mtime": 1794482663.2851586,
+    "seen": 1794488297.0217612,
+    "ast_hash": "f8a2880c2468ee09aad4baef9f69672e",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-300a6b02.mp3": {
+    "mtime": 1794482660.6031587,
+    "seen": 1794488297.021762,
+    "ast_hash": "b5eb4103a727de5f5989c96b1a313e4b",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-310e3e2c.mp3": {
+    "mtime": 1794482660.4015586,
+    "seen": 1794488297.0217626,
+    "ast_hash": "e664c1675e8550a18f092c7110f4857f",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-31802bbe.mp3": {
+    "mtime": 1794482655.7755585,
+    "seen": 1794488297.021763,
+    "ast_hash": "ccc04f97bc5685c0ffa0519df7fd865b",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-31b3136d.mp3": {
+    "mtime": 1794482652.2943585,
+    "seen": 1794488297.0217636,
+    "ast_hash": "b0cbed9204764492f14c3fe184833d29",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-32f56b7b.mp3": {
+    "mtime": 1794482659.9947586,
+    "seen": 1794488297.021764,
+    "ast_hash": "7928ccf09518cea8e0de10c5c50cda98",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-33f655fb.mp3": {
+    "mtime": 1794482667.1407588,
+    "seen": 1794488297.0217648,
+    "ast_hash": "758d45a1c0abc932dc97f0730882a18e",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-33fa3ddc.mp3": {
+    "mtime": 1794482656.3767586,
+    "seen": 1794488297.0217657,
+    "ast_hash": "21fd796756fb13f6b6d8b939c828214f",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-340428c6.mp3": {
+    "mtime": 1794482652.5607584,
+    "seen": 1794488297.0217662,
+    "ast_hash": "5918f179996de01fb00e9b4dfb769e10",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-345bd887.mp3": {
+    "mtime": 1794482661.6183586,
+    "seen": 1794488297.021767,
+    "ast_hash": "9eff5ad98eec8912c1ec97180cef8ffb",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-352d0523.mp3": {
+    "mtime": 1794482664.5667586,
+    "seen": 1794488297.0217674,
+    "ast_hash": "fbf29981b7b8bb3de4faa5dd980b0341",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-3580320a.mp3": {
+    "mtime": 1794482655.8403585,
+    "seen": 1794488297.0217679,
+    "ast_hash": "dc7afc25c54a2fd1bd055e8ba376d2e7",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-373e516a.mp3": {
+    "mtime": 1794482666.3991587,
+    "seen": 1794488297.0217688,
+    "ast_hash": "3b19742ea469b5a92f7cf719a5484f17",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-37c7a9a9.mp3": {
+    "mtime": 1794482669.2575588,
+    "seen": 1794488297.0217695,
+    "ast_hash": "96ac133a6b7b6ccd96b6e6bf9592c1f9",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-38fd01a3.mp3": {
+    "mtime": 1794482662.6191587,
+    "seen": 1794488297.02177,
+    "ast_hash": "3899fdd856e4ab2974252865689d77fa",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-390a792d.mp3": {
+    "mtime": 1794482660.6715586,
+    "seen": 1794488297.0217705,
+    "ast_hash": "d5a86cfb41e936cf86dedd77ee89066e",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-392d0b6f.mp3": {
+    "mtime": 1794482664.7107587,
+    "seen": 1794488297.0217712,
+    "ast_hash": "818345421726f9f8eacb67ee6287eb13",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-3934c28a.mp3": {
+    "mtime": 1794482664.0303588,
+    "seen": 1794488297.0217721,
+    "ast_hash": "240306f878afd784b732520c13ac4cce",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-39d5fa64.mp3": {
+    "mtime": 1794482652.8883584,
+    "seen": 1794488297.0217726,
+    "ast_hash": "a7eb6d9881477fdc90f13b68ef48c76e",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-3b0e4dea.mp3": {
+    "mtime": 1794482660.3331587,
+    "seen": 1794488297.021783,
+    "ast_hash": "a0e6bd4f4208d79130be637031ee90ba",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-3b7f8fe5.mp3": {
+    "mtime": 1794482655.9051585,
+    "seen": 1794488297.0217836,
+    "ast_hash": "fb9ed5061127adf0a5454518e94a57c8",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-3d8a4160.mp3": {
+    "mtime": 1794482668.3863587,
+    "seen": 1794488297.0217843,
+    "ast_hash": "984453ce776edb20377f279a6fab680d",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-3eebc1f4.mp3": {
+    "mtime": 1794482662.4175587,
+    "seen": 1794488297.0217848,
+    "ast_hash": "ca71ff517c1260dbfe757c3f01259d8e",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-3f0e5436.mp3": {
+    "mtime": 1794482659.8507586,
+    "seen": 1794488297.0217855,
+    "ast_hash": "e6cf78bfc82a95a752887f3f7421e5e1",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-3f1bdfb6.mp3": {
+    "mtime": 1794482665.9275587,
+    "seen": 1794488297.0217862,
+    "ast_hash": "05273dfce0c0df28726fe78007dbc482",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-3f2d14e1.mp3": {
+    "mtime": 1794482664.8403587,
+    "seen": 1794488297.0217867,
+    "ast_hash": "9bcee2173a1e9f7bf61164ca6394b033",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-3fc4bab5.mp3": {
+    "mtime": 1794482653.6335585,
+    "seen": 1794488297.0217872,
+    "ast_hash": "2914d5ba8986b4dde3191509c29650d2",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-400e55c9.mp3": {
+    "mtime": 1794482660.1315587,
+    "seen": 1794488297.021788,
+    "ast_hash": "dc6465d062c8f9b414ec2bda5ab90041",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-401c21df.mp3": {
+    "mtime": 1794482655.0627584,
+    "seen": 1794488297.0217884,
+    "ast_hash": "c1e378aa7970a5d5f62454d58dbed72b",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-41e37e86.mp3": {
+    "mtime": 1794482652.9531584,
+    "seen": 1794488297.0217888,
+    "ast_hash": "e9d802b7c2db3ca3a1c6cb5fc8ed7c89",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-42b3764d.mp3": {
+    "mtime": 1794482656.7835586,
+    "seen": 1794488297.0217898,
+    "ast_hash": "2d85069734caa561b2f6ffef1ad08db5",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-43d60a22.mp3": {
+    "mtime": 1794482652.8235586,
+    "seen": 1794488297.0217903,
+    "ast_hash": "748ef1f6f73a09ee20ce3a2f787d9490",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-45413172.mp3": {
+    "mtime": 1794482667.5403588,
+    "seen": 1794488297.0217907,
+    "ast_hash": "dd0d353c40b94635c0d410dab0dce8c5",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-46c4c5ba.mp3": {
+    "mtime": 1794482653.8675585,
+    "seen": 1794488297.0217915,
+    "ast_hash": "79aec3ac5e551054cb262dca4cc745a5",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-47c4c74d.mp3": {
+    "mtime": 1794482653.7991586,
+    "seen": 1794488297.021792,
+    "ast_hash": "3ef53fda1e9c94180032e09f92f618a6",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-48f5ab6a.mp3": {
+    "mtime": 1794482660.0631585,
+    "seen": 1794488297.0217924,
+    "ast_hash": "99a935fef3e88062d60057aa31aace69",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-49c0f8dc.mp3": {
+    "mtime": 1794482653.4823585,
+    "seen": 1794488297.0217934,
+    "ast_hash": "f2467f2f7e65c0d4db6897f73b07bbab",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-4b0e671a.mp3": {
+    "mtime": 1794482659.3791585,
+    "seen": 1794488297.0217938,
+    "ast_hash": "a27d67287d566fe83ad9175d5b2a9663",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-4c0b2c34.mp3": {
+    "mtime": 1794482657.4675586,
+    "seen": 1794488297.0217943,
+    "ast_hash": "891fed590865de0a959e6af891efb6a1",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-4c0e68ad.mp3": {
+    "mtime": 1794482659.7859585,
+    "seen": 1794488297.021795,
+    "ast_hash": "ed33dc8f7b3dbd4928536a67dcdb34c0",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-4dd619e0.mp3": {
+    "mtime": 1794482652.6255584,
+    "seen": 1794488297.0217957,
+    "ast_hash": "720ce8e3f65300f7443551a9290277aa",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-5187ce85.mp3": {
+    "mtime": 1794482668.0299587,
+    "seen": 1794488297.021797,
+    "ast_hash": "62877d54499a079dd74cbdc4509a89ec",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-530be13b.mp3": {
+    "mtime": 1794482664.7791586,
+    "seen": 1794488297.0217974,
+    "ast_hash": "8bc2a635a1d98a4ba40ab79e44b89354",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-5391aa65.mp3": {
+    "mtime": 1794482655.1311586,
+    "seen": 1794488297.021798,
+    "ast_hash": "1b4f7a36183f8671d388fba539e88bd4",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-543c0e5c.mp3": {
+    "mtime": 1794482668.8579588,
+    "seen": 1794488297.0217984,
+    "ast_hash": "aa842326b7a1b03f12f8380687f8e168",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-54b392a3.mp3": {
+    "mtime": 1794482656.4415586,
+    "seen": 1794488297.021799,
+    "ast_hash": "cde304fe63f5fccf6b4dc57453a72db2",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-54bade7b.mp3": {
+    "mtime": 1794482651.6967585,
+    "seen": 1794488297.0217996,
+    "ast_hash": "83935351294339f2bbb0a20e4c0b4cff",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-570d2a0b.mp3": {
+    "mtime": 1794482666.6691587,
+    "seen": 1794488297.0218003,
+    "ast_hash": "1a866cc1bb8a43b1d36cbe6c989baf01",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-58b398ef.mp3": {
+    "mtime": 1794482656.3083584,
+    "seen": 1794488297.0218008,
+    "ast_hash": "8f4c54461d0f13ae24ff8da9dbc40df2",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-58e3a2bb.mp3": {
+    "mtime": 1794482653.0215585,
+    "seen": 1794488297.0218012,
+    "ast_hash": "d7fb92eddb377655d5f278465d738774",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-5ae77778.mp3": {
+    "mtime": 1794482653.2843585,
+    "seen": 1794488297.0218017,
+    "ast_hash": "40343f4b9d9866fe6a25ded3ed209cc8",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-5af51a5c.mp3": {
+    "mtime": 1794482666.9391587,
+    "seen": 1794488297.0218022,
+    "ast_hash": "2c7beaaea0e51a35fe7b0b02dac50f1a",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-5b31128c.mp3": {
+    "mtime": 1794482665.7295587,
+    "seen": 1794488297.0218027,
+    "ast_hash": "47bb78e9ea09eb4cbbf3d7ccef520580",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-5bb39da8.mp3": {
+    "mtime": 1794482656.1715586,
+    "seen": 1794488297.0218034,
+    "ast_hash": "6d6ff6b43f5e738013366e0c4e9e5a13",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-5bc91bda.mp3": {
+    "mtime": 1794482651.8299584,
+    "seen": 1794488297.021804,
+    "ast_hash": "9f6badfc8c2a9766c101e2d0cdbaa2ea",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-5d752e72.mp3": {
+    "mtime": 1794482652.4275584,
+    "seen": 1794488297.0218048,
+    "ast_hash": "b1ebac39775ba369058c9e4b2c5b1a94",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-5db3a0ce.mp3": {
+    "mtime": 1794482655.9735584,
+    "seen": 1794488297.0218055,
+    "ast_hash": "d7c455245aff3d86e3837977e27de9d2",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-5ea25c0a.mp3": {
+    "mtime": 1794482657.0535586,
+    "seen": 1794488297.021806,
+    "ast_hash": "3bd41d909331109ff9eff493681d4105",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-5ef5acfe.mp3": {
+    "mtime": 1794482668.5231588,
+    "seen": 1794488297.0218065,
+    "ast_hash": "b6f664babe1cdd9d389b1d16dc242977",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-60ccbc2b.mp3": {
+    "mtime": 1794482656.8555586,
+    "seen": 1794488297.0218072,
+    "ast_hash": "2a8608c6dee49c6218f9ff1636056497",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-624f8e48.mp3": {
+    "mtime": 1794482652.6939585,
+    "seen": 1794488297.0218077,
+    "ast_hash": "e060a4e4ab7381127f24c36683b571ac",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-63c4f361.mp3": {
+    "mtime": 1794482653.5507584,
+    "seen": 1794488297.0218081,
+    "ast_hash": "2a89b47015df852632058a2a01f51227",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-63ce7b71.mp3": {
+    "mtime": 1794482660.5347586,
+    "seen": 1794488297.0218086,
+    "ast_hash": "2e85ee791f353db6c34f0f1f1a12a15b",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-6591c6bb.mp3": {
+    "mtime": 1794482654.9907584,
+    "seen": 1794488297.0218093,
+    "ast_hash": "f00f4d9ed078fa203af30613be3aea0d",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-6791c9e1.mp3": {
+    "mtime": 1794482654.9259584,
+    "seen": 1794488297.0218098,
+    "ast_hash": "d63bad7ea6b344aae075c8c2d5fffb97",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-67a12b15.mp3": {
+    "mtime": 1794482669.3907588,
+    "seen": 1794488297.0218108,
+    "ast_hash": "cbfc29c76b920810a5a7638183d1e43c",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-68699de5.mp3": {
+    "mtime": 1794482650.2099583,
+    "seen": 1794488297.0218112,
+    "ast_hash": "3532047aa8bc895a8aaeec13bf8f2e99",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-6b91d02d.mp3": {
+    "mtime": 1794482654.7891586,
+    "seen": 1794488297.021812,
+    "ast_hash": "a7f3f10070ac8cc5eb0a786f544353d5",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-6bba2a80.mp3": {
+    "mtime": 1794482652.1611583,
+    "seen": 1794488297.0218124,
+    "ast_hash": "d7fe1ab8a4d62b5500d3edaf2f255d17",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-6bc77212.mp3": {
+    "mtime": 1794482668.1775587,
+    "seen": 1794488297.0218132,
+    "ast_hash": "f71c6d0f373e33566d325ef14ab05e24",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-6be7923b.mp3": {
+    "mtime": 1794482653.2231584,
+    "seen": 1794488297.0218139,
+    "ast_hash": "d2c4422c445d6db2ac24bd5c55ce7886",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-6c53bf91.mp3": {
+    "mtime": 1794482666.0607588,
+    "seen": 1794488297.0218146,
+    "ast_hash": "095f0d95f6912c96749b92abb2ff6b62",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-6cecb5f5.mp3": {
+    "mtime": 1794482662.0863585,
+    "seen": 1794488297.0218153,
+    "ast_hash": "ff7d26b201be5cd124a8c896a94f60a3",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-6deb95df.mp3": {
+    "mtime": 1794482653.0863585,
+    "seen": 1794488297.0218158,
+    "ast_hash": "1ceb2e04eb78575dec62b63b61fdff7e",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-6efc3459.mp3": {
+    "mtime": 1794482652.7587585,
+    "seen": 1794488297.0218165,
+    "ast_hash": "09d242d4a2a36dea1c8c93dd51370743",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-6f313208.mp3": {
+    "mtime": 1794482665.8627586,
+    "seen": 1794488297.021817,
+    "ast_hash": "e2bc5ab1a1664587f9f45f754282cfc2",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-72f090fe.mp3": {
+    "mtime": 1794482661.9531586,
+    "seen": 1794488297.021818,
+    "ast_hash": "64a18ad61a5421555015370ebe383faa",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-78e0eb91.mp3": {
+    "mtime": 1794482664.9123588,
+    "seen": 1794488297.0218184,
+    "ast_hash": "6183901352ced0317f1b177394d99163",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-7940d681.mp3": {
+    "mtime": 1794482658.7635586,
+    "seen": 1794488297.021819,
+    "ast_hash": "d5c829abbbbd389ed85ffbdcea8effc2",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-7a66ac8b.mp3": {
+    "mtime": 1794482667.2055588,
+    "seen": 1794488297.0218196,
+    "ast_hash": "1eda2a4a6a8ed150fbad0ac557330c47",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-7a8baf26.mp3": {
+    "mtime": 1794482659.7211585,
+    "seen": 1794488297.0218203,
+    "ast_hash": "dfa43d69b45702cfacfebcb3f962f754",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-7abf0ea7.mp3": {
+    "mtime": 1794482667.8859587,
+    "seen": 1794488297.021821,
+    "ast_hash": "48def36f8d85e92c5fc0eec2be3c7602",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-7ae0000c.mp3": {
+    "mtime": 1794482658.4251585,
+    "seen": 1794488297.0218217,
+    "ast_hash": "56e87f818d9c69bf1d4a393678f6c2bb",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-7d5485eb.mp3": {
+    "mtime": 1794482665.9923587,
+    "seen": 1794488297.0218225,
+    "ast_hash": "97ad8534da7a4110d0bcc357ec41f0b7",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-7ef0a3e2.mp3": {
+    "mtime": 1794482661.8847587,
+    "seen": 1794488297.021823,
+    "ast_hash": "6e55cfb3a584807b4a4e3a5234ebe300",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-7fdf6065.mp3": {
+    "mtime": 1794482651.4951584,
+    "seen": 1794488297.0218234,
+    "ast_hash": "c2a4fb1ba9c1edd3843318e5c47204f9",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-80075416.mp3": {
+    "mtime": 1794482662.7487586,
+    "seen": 1794488297.021824,
+    "ast_hash": "ee82be3ae2199c68966e05f269db0c78",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-8033e616.mp3": {
+    "mtime": 1794482659.1055586,
+    "seen": 1794488297.0218248,
+    "ast_hash": "1d4b642b4988a47442f695cd7179c4c6",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-80cab332.mp3": {
+    "mtime": 1794482654.8575585,
+    "seen": 1794488297.0218256,
+    "ast_hash": "b7839cd2afb4c17d70d6ce6d4e1f679f",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-82964edc.mp3": {
+    "mtime": 1794482650.9587584,
+    "seen": 1794488297.021826,
+    "ast_hash": "c214712dfb8b3174a6f97bc2c11ea479",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-83a7287e.mp3": {
+    "mtime": 1794482661.3447587,
+    "seen": 1794488297.0218267,
+    "ast_hash": "20b26fabeb4369d77d0bb8e155e80891",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-850f6dff.mp3": {
+    "mtime": 1794482659.3107586,
+    "seen": 1794488297.0218272,
+    "ast_hash": "9404d217f6387623ec5613f31e00ce6b",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-85cd3f31.mp3": {
+    "mtime": 1794482651.7651584,
+    "seen": 1794488297.021828,
+    "ast_hash": "76ee0a81313621540b8aaee04e2d3299",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-85d895f5.mp3": {
+    "mtime": 1794482665.3911588,
+    "seen": 1794488297.0218284,
+    "ast_hash": "781062adf4d2fef122051c52bdaf0eae",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-873bdebc.mp3": {
+    "mtime": 1794482662.5543587,
+    "seen": 1794488297.021829,
+    "ast_hash": "418aa2e1ac09f4d9c6e3c3849742717d",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-87a716f9.mp3": {
+    "mtime": 1794482657.3991585,
+    "seen": 1794488297.0218296,
+    "ast_hash": "c71f96b319020ffd7f028f4557a749f8",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-87b0ba76.mp3": {
+    "mtime": 1794482668.7247589,
+    "seen": 1794488297.0218303,
+    "ast_hash": "6adaadc3d8b456e2e7677c97549c3a46",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-87dbaf51.mp3": {
+    "mtime": 1794482667.6771588,
+    "seen": 1794488297.0218313,
+    "ast_hash": "eb4bdd6afb580ff2c538ba3a236f7efa",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-87de97c6.mp3": {
+    "mtime": 1794482663.0871587,
+    "seen": 1794488297.0218318,
+    "ast_hash": "5d92d15fb20f72a29807f0bbadbf2179",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-88c364fb.mp3": {
+    "mtime": 1794482662.2807586,
+    "seen": 1794488297.0218325,
+    "ast_hash": "470cc2a93065fd0d63540c9e58760c5b",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-88ece209.mp3": {
+    "mtime": 1794482662.2195587,
+    "seen": 1794488297.0218332,
+    "ast_hash": "da1c4d0e2c3da28d2be78f45bce75d1c",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-88f15f37.mp3": {
+    "mtime": 1794482661.5499587,
+    "seen": 1794488297.0218337,
+    "ast_hash": "da279e747110c61fc39b0c25a982fa91",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-89c5daca.mp3": {
+    "mtime": 1794482653.4175584,
+    "seen": 1794488297.0218341,
+    "ast_hash": "41caffcadf287a056a506508283221eb",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-8adbb40a.mp3": {
+    "mtime": 1794482667.4755588,
+    "seen": 1794488297.0218349,
+    "ast_hash": "06e4d52528c14a2efdfc8879f8e7c448",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-8bdbb59d.mp3": {
+    "mtime": 1794482667.3387587,
+    "seen": 1794488297.0218353,
+    "ast_hash": "800e7940c2246b670cc390b16a9c8a9d",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-8cda1e52.mp3": {
+    "mtime": 1794482666.1291587,
+    "seen": 1794488297.021836,
+    "ast_hash": "09438dc18e9f1e90bcd92e44a8188269",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-8e2cf47a.mp3": {
+    "mtime": 1794482668.1055589,
+    "seen": 1794488297.0218365,
+    "ast_hash": "ef43018754310c39b669afcb7e0c1d91",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-8ebc15e2.mp3": {
+    "mtime": 1794482654.2635584,
+    "seen": 1794488297.0218372,
+    "ast_hash": "596320cb6fad3f7d3fcec40b2590fd32",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-8f24c0fa.mp3": {
+    "mtime": 1794482665.5243587,
+    "seen": 1794488297.0218377,
+    "ast_hash": "2abd2cf02e3e437df084cf8c8809c0f5",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-8f25440c.mp3": {
+    "mtime": 1794482665.4595587,
+    "seen": 1794488297.0218384,
+    "ast_hash": "346f39a527c91ce2438a929603ef92f4",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-8f4c9529.mp3": {
+    "mtime": 1794482655.2823584,
+    "seen": 1794488297.0218391,
+    "ast_hash": "6ccddc1c3f020d62e36a7b6e1be04499",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-90c5185d.mp3": {
+    "mtime": 1794482658.6267586,
+    "seen": 1794488297.0218396,
+    "ast_hash": "01ec2df3bfa541beae7686fa6b80688d",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-90eceea1.mp3": {
+    "mtime": 1794482662.3491588,
+    "seen": 1794488297.02184,
+    "ast_hash": "8d96921866f1a5c665bee8710b62fb1b",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-91ca75ee.mp3": {
+    "mtime": 1794482669.3223588,
+    "seen": 1794488297.0218408,
+    "ast_hash": "c03616967ec40a07dd0e1eb1694da184",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-91ed0830.mp3": {
+    "mtime": 1794482667.0723588,
+    "seen": 1794488297.0218418,
+    "ast_hash": "0afdb407984f3293dad45e8d6e1442b0",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-92fe3ae8.mp3": {
+    "mtime": 1794482659.1739585,
+    "seen": 1794488297.0218422,
+    "ast_hash": "fe11690363cf2361465ea3775e04b2af",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-93d9def1.mp3": {
+    "mtime": 1794482658.2883587,
+    "seen": 1794488297.021843,
+    "ast_hash": "05f51087f8bb86bcdbca5cbbaf2d389b",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-958fcdb3.mp3": {
+    "mtime": 1794482665.1139586,
+    "seen": 1794488297.0218434,
+    "ast_hash": "64387c17cfc44b2cc79ab11ee349640f",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-96f0c9aa.mp3": {
+    "mtime": 1794482662.0215588,
+    "seen": 1794488297.0218441,
+    "ast_hash": "bc6888c775b5f3841351c05a19b46eb2",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-97cc647c.mp3": {
+    "mtime": 1794482650.6203585,
+    "seen": 1794488297.021845,
+    "ast_hash": "79ca4496710405f5c889411871f543b5",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-97ed7597.mp3": {
+    "mtime": 1794482664.1671586,
+    "seen": 1794488297.0218456,
+    "ast_hash": "31a3c2e89add62aef38e15c55fd67466",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-99b4ccbc.mp3": {
+    "mtime": 1794482666.4675589,
+    "seen": 1794488297.021846,
+    "ast_hash": "cbcf3ad372589f0eb75fd5739e72288b",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-99e35528.mp3": {
+    "mtime": 1794482662.1547587,
+    "seen": 1794488297.0218465,
+    "ast_hash": "d42fb4f4775b27668d8c142f2fb441e7",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-99f179fa.mp3": {
+    "mtime": 1794482661.7515585,
+    "seen": 1794488297.0218472,
+    "ast_hash": "33202bd43f1937f4f9641834e6c05245",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-9a308164.mp3": {
+    "mtime": 1794482651.3583584,
+    "seen": 1794488297.021848,
+    "ast_hash": "1f1cae79260c01801a454a93fe71392d",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-9a843420.mp3": {
+    "mtime": 1794482661.6867588,
+    "seen": 1794488297.0218487,
+    "ast_hash": "6dcfb0c353f1fcfe277d5367be5fcebd",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-9b5ccc18.mp3": {
+    "mtime": 1794482663.3499587,
+    "seen": 1794488297.0218492,
+    "ast_hash": "5f8de22fe9e1481d6eb76b9444fd9dc6",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-9cf17eb3.mp3": {
+    "mtime": 1794482661.4815586,
+    "seen": 1794488297.0218496,
+    "ast_hash": "9f85e450b4ba7e5c40ada7643e55604c",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-9d735e38.mp3": {
+    "mtime": 1794482655.6351585,
+    "seen": 1794488297.0218503,
+    "ast_hash": "c70b5340f145e8a04ff7040b09eecbba",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-9db882bc.mp3": {
+    "mtime": 1794482657.1219585,
+    "seen": 1794488297.0218508,
+    "ast_hash": "1682ddfb6e53e14871917c290cecc696",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-9dbb24cd.mp3": {
+    "mtime": 1794482651.9631584,
+    "seen": 1794488297.0218513,
+    "ast_hash": "3ba01c24b0018f217748827704a3ebe2",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-9dbd1148.mp3": {
+    "mtime": 1794482668.789559,
+    "seen": 1794488297.021852,
+    "ast_hash": "1a13dedcf34ea899c2392983d096fb03",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-9e0235cc.mp3": {
+    "mtime": 1794482667.0075588,
+    "seen": 1794488297.0218527,
+    "ast_hash": "cf91a9b5747eece31e4ae6f2014b7ad0",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-9fdbd519.mp3": {
+    "mtime": 1794482668.5951588,
+    "seen": 1794488297.0218532,
+    "ast_hash": "43d83b576c1fb753d565d5ea15dcd47a",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-9fde35e8.mp3": {
+    "mtime": 1794482653.7343585,
+    "seen": 1794488297.0218537,
+    "ast_hash": "ab4880bdccc0f683a595345e06709c23",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-a07362f1.mp3": {
+    "mtime": 1794482655.7107584,
+    "seen": 1794488297.0218544,
+    "ast_hash": "7ac79e0e49151f54cbaf2d3b6e7de4f2",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-a1db2ca8.mp3": {
+    "mtime": 1794482667.2739587,
+    "seen": 1794488297.021855,
+    "ast_hash": "e18b45b6b89f3faeeb993d576fbf16d2",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-a2fa61b0.mp3": {
+    "mtime": 1794482652.3627584,
+    "seen": 1794488297.0218558,
+    "ast_hash": "fb4008755538d8703120fb0c9f878250",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-a4096447.mp3": {
+    "mtime": 1794482667.7455587,
+    "seen": 1794488297.0218565,
+    "ast_hash": "f75186b614dfaaf34ec70840bcadd703",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-a411f85e.mp3": {
+    "mtime": 1794482656.6467586,
+    "seen": 1794488297.021857,
+    "ast_hash": "6c8198f12cfab7d8e271a761d0149dd6",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-a5bb3165.mp3": {
+    "mtime": 1794482652.0927584,
+    "seen": 1794488297.0218575,
+    "ast_hash": "22b61983d658f21ec6f720ab22f3a25b",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-a5cae2d5.mp3": {
+    "mtime": 1794482660.7363586,
+    "seen": 1794488297.021858,
+    "ast_hash": "2636a74f11d75d77d3bdc1e7c4233da8",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-a7fe73f3.mp3": {
+    "mtime": 1794482666.8707588,
+    "seen": 1794488297.021859,
+    "ast_hash": "378c0c7f28f0356bef4fe0e8c7369412",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-adbb3dfd.mp3": {
+    "mtime": 1794482652.0315585,
+    "seen": 1794488297.0218596,
+    "ast_hash": "202729f0c0dea697924c24fa554459ea",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-aedbecb6.mp3": {
+    "mtime": 1794482668.3143587,
+    "seen": 1794488297.0218604,
+    "ast_hash": "93d2b356cb22e92d38f263b63d66d26f",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-b396beb3.mp3": {
+    "mtime": 1794482654.6595585,
+    "seen": 1794488297.021861,
+    "ast_hash": "d3884268315bcf06040832e8bc6f9d39",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-b3f9f84b.mp3": {
+    "mtime": 1794482654.3931584,
+    "seen": 1794488297.0218616,
+    "ast_hash": "e0fccccd85db35cffbf6e641c4d340ad",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-b6e6a73f.mp3": {
+    "mtime": 1794482657.1903586,
+    "seen": 1794488297.0218625,
+    "ast_hash": "99d5a1688d77cf76655817cd87f63d1a",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-b736208e.mp3": {
+    "mtime": 1794482665.6611588,
+    "seen": 1794488297.0218632,
+    "ast_hash": "0892d8864e637be392269d763a18e34e",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-b7ce71f9.mp3": {
+    "mtime": 1794482654.0619586,
+    "seen": 1794488297.021864,
+    "ast_hash": "f093fdfe2062c6f4a17856c51e2f49fa",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-b8d06a06.mp3": {
+    "mtime": 1794482650.4151585,
+    "seen": 1794488297.021865,
+    "ast_hash": "9fa971a7e29b3040d4ea2f2976bea6f0",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-b9408520.mp3": {
+    "mtime": 1794482660.2683587,
+    "seen": 1794488297.0218658,
+    "ast_hash": "5bff62866b1a18710a6fd86d941771db",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-b978077a.mp3": {
+    "mtime": 1794482655.1923585,
+    "seen": 1794488297.0218666,
+    "ast_hash": "8605cfe8ac85a271eb61a737bc032717",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-ba0b4ade.mp3": {
+    "mtime": 1794482654.1987586,
+    "seen": 1794488297.0218673,
+    "ast_hash": "24fbf144487d376954945a09e219740b",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-ba78090d.mp3": {
+    "mtime": 1794482655.3543584,
+    "seen": 1794488297.021868,
+    "ast_hash": "c3772734c7df3e4597c90a7632d7d7d7",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-badbff9a.mp3": {
+    "mtime": 1794482668.4511588,
+    "seen": 1794488297.0218687,
+    "ast_hash": "190684f3da013e7dc6b710499c88ba7d",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-bbd06ebf.mp3": {
+    "mtime": 1794482650.3467584,
+    "seen": 1794488297.02187,
+    "ast_hash": "42ddf63114544c4c6f67ae522e11e013",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-bc14d430.mp3": {
+    "mtime": 1794482669.0595589,
+    "seen": 1794488297.0218706,
+    "ast_hash": "80279a63617cd054a68dc55611715273",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-bd1131ee.mp3": {
+    "mtime": 1794482665.7943587,
+    "seen": 1794488297.0218713,
+    "ast_hash": "d43d3610bb501a447882f0a3800179bb",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-bdd071e5.mp3": {
+    "mtime": 1794482650.1415584,
+    "seen": 1794488297.021872,
+    "ast_hash": "8df6480aee13d2001f3f0bbec8d1cf66",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-bfbdf265.mp3": {
+    "mtime": 1794482668.9263587,
+    "seen": 1794488297.021873,
+    "ast_hash": "8a830ef058e09bcde5db33b4e7802f8a",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-bfc48808.mp3": {
+    "mtime": 1794482663.4903586,
+    "seen": 1794488297.021874,
+    "ast_hash": "b5286402f5fbe604ef16b533d8f3d267",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-bfd86a09.mp3": {
+    "mtime": 1794482663.8251586,
+    "seen": 1794488297.0218747,
+    "ast_hash": "d3350cf1c74f6f65e1fd91d4cb4cff30",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-c1d07831.mp3": {
+    "mtime": 1794482650.5555584,
+    "seen": 1794488297.0218756,
+    "ast_hash": "6116fbf21be3e91fb9a3e0f4ce5a4059",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-c3750e84.mp3": {
+    "mtime": 1794482664.2967587,
+    "seen": 1794488297.0218766,
+    "ast_hash": "ddeb5ab284697e4855084427fe247ff4",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-c4e44621.mp3": {
+    "mtime": 1794482658.3567586,
+    "seen": 1794488297.021877,
+    "ast_hash": "eb00853f737c8ff277b37b40aaa163b3",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-c66656e4.mp3": {
+    "mtime": 1794482651.2251585,
+    "seen": 1794488297.0218778,
+    "ast_hash": "db5ba3cc9896c9bed35e0847b83ef85b",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-cb916b20.mp3": {
+    "mtime": 1794482663.4183586,
+    "seen": 1794488297.0218785,
+    "ast_hash": "5bedd648284862cc661e2cec2b5552d9",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-cdd08b15.mp3": {
+    "mtime": 1794482650.0047584,
+    "seen": 1794488297.021879,
+    "ast_hash": "ded7e6977d9653c412a611147361d5d4",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-cfa75d0a.mp3": {
+    "mtime": 1794482664.6423588,
+    "seen": 1794488297.0218794,
+    "ast_hash": "37109ea8e06a898873b752d527e6a6f8",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-cfedbc17.mp3": {
+    "mtime": 1794482658.1551585,
+    "seen": 1794488297.0218804,
+    "ast_hash": "c99e54ae7adff697c887fd5c92e4d8ee",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-d01d58d6.mp3": {
+    "mtime": 1794482661.4131587,
+    "seen": 1794488297.021881,
+    "ast_hash": "2be9196a5cce3b549e06d6a3b3fc571a",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-d1ed5b92.mp3": {
+    "mtime": 1794482654.3283584,
+    "seen": 1794488297.0218816,
+    "ast_hash": "c06dfb88e2941de6ba882a6bb2aa3716",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-d577f2e0.mp3": {
+    "mtime": 1794482663.2167587,
+    "seen": 1794488297.021882,
+    "ast_hash": "c56be3605e71e888f11c92a7a7c9f3aa",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-d5a5599e.mp3": {
+    "mtime": 1794482665.3191588,
+    "seen": 1794488297.0218828,
+    "ast_hash": "9a6aae0a97cb0571091c713981f209c0",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-d623e80d.mp3": {
+    "mtime": 1794482657.8059585,
+    "seen": 1794488297.0218835,
+    "ast_hash": "ca39b8fe80367f15b4185cdc3047a1ff",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-d7e0aa6f.mp3": {
+    "mtime": 1794482668.6563587,
+    "seen": 1794488297.021884,
+    "ast_hash": "25d1a3db349fc71043cec27ea8f6f74d",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-d808b4ed.mp3": {
+    "mtime": 1794482655.4947586,
+    "seen": 1794488297.0218847,
+    "ast_hash": "e8c43195b8d822ae6a82b15017c4e2b3",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-d838480b.mp3": {
+    "mtime": 1794482661.8163586,
+    "seen": 1794488297.0218852,
+    "ast_hash": "4d1206c381fbdd3d23dbb5a31dd6c8f6",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-d885d8b5.mp3": {
+    "mtime": 1794482656.2435584,
+    "seen": 1794488297.0218856,
+    "ast_hash": "17a0b9e42bb19c478b380cec699d8fb1",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-d8b96b0b.mp3": {
+    "mtime": 1794482657.2551587,
+    "seen": 1794488297.0218863,
+    "ast_hash": "0093cbef558ea7137010ef53d9526e48",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-db93748a.mp3": {
+    "mtime": 1794482659.5123587,
+    "seen": 1794488297.021887,
+    "ast_hash": "3a95de1d92ae605a220302ef20c0eab3",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-de27ff00.mp3": {
+    "mtime": 1794482665.2507586,
+    "seen": 1794488297.0218875,
+    "ast_hash": "c7620d5edb4889e32ab656400d709378",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-de5c5d55.mp3": {
+    "mtime": 1794482667.4071589,
+    "seen": 1794488297.0218883,
+    "ast_hash": "2aa67b4dcb3517b86db96555f4e4cad5",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-defab168.mp3": {
+    "mtime": 1794482656.0419586,
+    "seen": 1794488297.021889,
+    "ast_hash": "d4915ac94c605093c96ba67774ebd424",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-df51dcc3.mp3": {
+    "mtime": 1794482653.9935584,
+    "seen": 1794488297.0218894,
+    "ast_hash": "27604192617a381eb768293946314959",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-df55914c.mp3": {
+    "mtime": 1794482659.4475586,
+    "seen": 1794488297.0218902,
+    "ast_hash": "3c23cb42168aaee81c40a86c589d0ce0",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-df65304c.mp3": {
+    "mtime": 1794482666.2623587,
+    "seen": 1794488297.0218906,
+    "ast_hash": "c1ee6d52851fe8f54daa7bd2e7eaebf6",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-e01fac86.mp3": {
+    "mtime": 1794482658.8283587,
+    "seen": 1794488297.021891,
+    "ast_hash": "4941329abcb8b61576ab53b9ebbe611e",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-e2aec579.mp3": {
+    "mtime": 1794482652.4923584,
+    "seen": 1794488297.0218916,
+    "ast_hash": "f4469b0dbaafa71ca7ae2495668c6b5b",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-e30422e6.mp3": {
+    "mtime": 1794482669.189159,
+    "seen": 1794488297.021892,
+    "ast_hash": "bab5ceb3526510b345021e01e3252d5a",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-e325b569.mp3": {
+    "mtime": 1794482656.7187586,
+    "seen": 1794488297.0218928,
+    "ast_hash": "b4d4f3846be90c8d5bee829898c08063",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-e3c5a0f7.mp3": {
+    "mtime": 1794482656.5099585,
+    "seen": 1794488297.0218933,
+    "ast_hash": "8105b417a22496982a243087e7b660bf",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-e5d6157c.mp3": {
+    "mtime": 1794482666.3343587,
+    "seen": 1794488297.0218942,
+    "ast_hash": "15cbe66425325c8119e19a87a0c0da0d",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-e666d481.mp3": {
+    "mtime": 1794482668.2459588,
+    "seen": 1794488297.0218947,
+    "ast_hash": "f4db7639fe6c8e5acefaa8ea60d10853",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-e71a6c29.mp3": {
+    "mtime": 1794482660.2035587,
+    "seen": 1794488297.0218954,
+    "ast_hash": "404e449218ad8453dc81b4c67dc6f16c",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-eb49fa22.mp3": {
+    "mtime": 1794482666.7375588,
+    "seen": 1794488297.021896,
+    "ast_hash": "89fcec1e806eae1f49ad4237befc9b2a",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-ebf80b3e.mp3": {
+    "mtime": 1794482663.9619586,
+    "seen": 1794488297.0218964,
+    "ast_hash": "e6b3a43d30eb33338490c583df0a2c04",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-ec5b44d6.mp3": {
+    "mtime": 1794482666.1939588,
+    "seen": 1794488297.0218973,
+    "ast_hash": "d4c838738b7c14fca21451a0a8be2106",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-eec43494.mp3": {
+    "mtime": 1794482658.5583587,
+    "seen": 1794488297.021898,
+    "ast_hash": "478a671445c9381dee5166586da58b9f",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-ef439e76.mp3": {
+    "mtime": 1794482665.1859586,
+    "seen": 1794488297.0218987,
+    "ast_hash": "9b70d132a9a3c153de0b6a3db6bf1690",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-efceca21.mp3": {
+    "mtime": 1794482653.9287584,
+    "seen": 1794488297.0218992,
+    "ast_hash": "9ba7f9c1bf53beda507bf875bf5107b7",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-efd62adf.mp3": {
+    "mtime": 1794482658.0147586,
+    "seen": 1794488297.0218997,
+    "ast_hash": "595ae5dafed8892bb32facf2b4a8c0c9",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-f0e77593.mp3": {
+    "mtime": 1794482658.0867586,
+    "seen": 1794488297.0219002,
+    "ast_hash": "5abb01bc41e0a2130e0395eba4a2fe30",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-f19c043f.mp3": {
+    "mtime": 1794482658.9651587,
+    "seen": 1794488297.0219011,
+    "ast_hash": "fc2c6c9b60d3903c00ed9daad0f865aa",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-f1a537b7.mp3": {
+    "mtime": 1794482657.7375586,
+    "seen": 1794488297.0219016,
+    "ast_hash": "eb10246db544b63e2100cf8722a32e57",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-f2849d82.mp3": {
+    "mtime": 1794482657.6007586,
+    "seen": 1794488297.021902,
+    "ast_hash": "dc2bd4b3579215a809072d64b6ddf50f",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-f4a53c70.mp3": {
+    "mtime": 1794482657.6691585,
+    "seen": 1794488297.0219026,
+    "ast_hash": "07c2b149a80fa260ef8801bebf9223cc",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-f5c218fe.mp3": {
+    "mtime": 1794482668.9911587,
+    "seen": 1794488297.0219033,
+    "ast_hash": "fe90aa81526eab22ee3486f0b04f40a5",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-f70965b0.mp3": {
+    "mtime": 1794482660.9415586,
+    "seen": 1794488297.0219042,
+    "ast_hash": "ead6318ab4e680b367c594eaf3b1cb2e",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-f7c2538a.mp3": {
+    "mtime": 1794482663.6271586,
+    "seen": 1794488297.0219047,
+    "ast_hash": "62ac6ef2f75707be6ab626239edaa1b4",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-f7d178ca.mp3": {
+    "mtime": 1794482650.7535584,
+    "seen": 1794488297.0219052,
+    "ast_hash": "93f0dc1540be9cae3f5cd13408c14525",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-f90968d6.mp3": {
+    "mtime": 1794482661.0819585,
+    "seen": 1794488297.021906,
+    "ast_hash": "2f4cf7255d9b237b142ac8b7b29adebc",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-fad63c30.mp3": {
+    "mtime": 1794482657.9463587,
+    "seen": 1794488297.0219064,
+    "ast_hash": "35be8843de2683423d9f28d1f3841a51",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-fba08ae4.mp3": {
+    "mtime": 1794482660.8731587,
+    "seen": 1794488297.0219069,
+    "ast_hash": "09d5a90b003e757ba1dc8a2670fa22ed",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-fc6d8856.mp3": {
+    "mtime": 1794482659.2423587,
+    "seen": 1794488297.0219076,
+    "ast_hash": "fde7ecb5c6ec391ad7418ed86010d594",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-fd43be7f.mp3": {
+    "mtime": 1794482664.0987587,
+    "seen": 1794488297.021908,
+    "ast_hash": "91414c02b95908260c36e5a704f5a9cb",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-fd5a2cc3.mp3": {
+    "mtime": 1794482667.813959,
+    "seen": 1794488297.0219085,
+    "ast_hash": "e74d93a5105cf123d7039813ad3c10e6",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-fdc44c31.mp3": {
+    "mtime": 1794482658.6951585,
+    "seen": 1794488297.021909,
+    "ast_hash": "163e6c8e1eff7ad3a2e516cc3a84132c",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-feba7f7a.mp3": {
+    "mtime": 1794482667.6087587,
+    "seen": 1794488297.0219097,
+    "ast_hash": "44af5b26e8cf04725ffd8971117e48b7",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-ff097248.mp3": {
+    "mtime": 1794482661.2151587,
+    "seen": 1794488297.0219102,
+    "ast_hash": "c93e8cc429a65728636a0e2f76c807bd",
+    "semantic_hash": ""
+  },
+  "restricted-assets/audio/hangul/v1/ko-ffc44f57.mp3": {
+    "mtime": 1794482658.8967586,
+    "seen": 1794488297.0219107,
+    "ast_hash": "b8315369ccc77a175c1e434abf8e74f5",
     "semantic_hash": ""
   },
   "package-lock.json": {

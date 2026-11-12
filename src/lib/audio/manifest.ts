@@ -1,4 +1,5 @@
 import { AUDIO_ENTRIES } from "@/content/audio/entries";
+import { STATIC_AUDIO_ENABLED } from "./flags";
 import { audioKey, normalizeAudioText } from "./text";
 
 export type AudioAsset = {
@@ -31,4 +32,12 @@ export function hasAudioAsset(text: string): boolean {
 
 export function audioAssetCount(): number {
   return Object.keys(AUDIO_ENTRIES).length;
+}
+
+/** Caminho de MP3 que o navegador pode pedir; sempre null com a flag desligada. */
+export function resolvePublicAudioSrc(
+  text: string,
+  enabled: boolean = STATIC_AUDIO_ENABLED,
+): string | null {
+  return enabled ? (resolveAudioAsset(text)?.src ?? null) : null;
 }

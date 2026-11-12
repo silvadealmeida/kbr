@@ -1,6 +1,6 @@
 "use client";
 
-import { resolveAudioAsset } from "./manifest";
+import { resolvePublicAudioSrc } from "./manifest";
 import {
   AudioPlayer,
   type AudioElementLike,
@@ -29,7 +29,7 @@ export function createBrowserAudioPlayer(
       : null;
 
   return new AudioPlayer({
-    resolveAsset: (text) => resolveAudioAsset(text)?.src ?? null,
+    resolveAsset: (text) => resolvePublicAudioSrc(text),
     createAudio: (src) => {
       if (!AudioConstructor) {
         throw new Error("HTMLAudioElement indisponível");

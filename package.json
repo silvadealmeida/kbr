@@ -4,11 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/audio/verify-no-restricted-audio.mjs",
     "build": "next build",
+    "postbuild": "node scripts/audio/verify-no-restricted-audio.mjs",
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "e2e": "playwright test"
+    "e2e": "playwright test",
+    "audio:stage": "node scripts/audio/stage-static-audio.mjs",
+    "audio:unstage": "node scripts/audio/stage-static-audio.mjs --clean"
   },
   "dependencies": {
     "@playwright/test": "^1.65.0",

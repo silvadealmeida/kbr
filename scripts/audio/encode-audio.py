@@ -5,7 +5,7 @@ Uso:
   .audio/venv/bin/python scripts/audio/encode-audio.py
 
 Entrada:  .audio/inventory.json + .audio/raw/<chave>.wav
-Saída:    public/audio/hangul/v1/<chave>.mp3
+Saída:    restricted-assets/audio/hangul/v1/<chave>.mp3
           src/content/audio/entries.ts
           src/content/audio/manifest.json
           .audio/encode-report.json
@@ -31,7 +31,7 @@ ROOT = Path(__file__).resolve().parents[2]
 AUDIO_DIR = ROOT / ".audio"
 RAW_DIR = AUDIO_DIR / "raw"
 WORK_DIR = AUDIO_DIR / "encoded"
-PUBLIC_DIR = ROOT / "public" / "audio" / "hangul" / "v1"
+PUBLIC_DIR = ROOT / "restricted-assets" / "audio" / "hangul" / "v1"
 ENTRIES_FILE = ROOT / "src" / "content" / "audio" / "entries.ts"
 MANIFEST_FILE = ROOT / "src" / "content" / "audio" / "manifest.json"
 REPORT_FILE = AUDIO_DIR / "encode-report.json"

@@ -12,10 +12,17 @@ export const ROUTES = [
  */
 export const LEGACY_PROTECTED_PATHS = ["/licoes"];
 
+/**
+ * Recursos experimentais: protegidos, mas fora da navegação principal para não
+ * interferir no fluxo do curso. A entrada é um link na página do Hangul.
+ */
+export const EXPERIMENTAL_PROTECTED_PATHS = ["/fala"];
+
 /** Rotas que exigem sessão válida; a landing e as páginas legais são públicas. */
 export const PROTECTED_PATHS = [
   ...ROUTES.map((route) => route.href),
   ...LEGACY_PROTECTED_PATHS,
+  ...EXPERIMENTAL_PROTECTED_PATHS,
 ];
 
 export function isProtectedPath(pathname: string): boolean {

@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "playwright.config.ts": {
-    "mtime": 1794482932.58453,
-    "seen": 1794485163.4942417,
-    "ast_hash": "176985b70ecc48814c1fc3cadb3ce66d",
+    "mtime": 1794485753.5906577,
+    "seen": 1794485969.4359765,
+    "ast_hash": "485d9394f5ec4796bce68e9137503e66",
     "semantic_hash": ""
   },
   "postcss.config.mjs": {
@@ -72,15 +72,15 @@
     "semantic_hash": ""
   },
   "src/lib/routes.ts": {
-    "mtime": 1794389035.7417471,
-    "seen": 1794396154.8630939,
-    "ast_hash": "ce94e06d2ef0bd96246d2c6ff56093e6",
+    "mtime": 1794485703.3043118,
+    "seen": 1794485969.4360716,
+    "ast_hash": "3701bad399593487edeb5eb23ecf75c3",
     "semantic_hash": ""
   },
   "tests/routes.test.ts": {
-    "mtime": 1794389089.904006,
-    "seen": 1794396154.8636742,
-    "ast_hash": "f94b1a382cd04cb848e9f96da44967d3",
+    "mtime": 1794485716.513172,
+    "seen": 1794485969.4360993,
+    "ast_hash": "8e7da346d01a38bef9383e9c27a873e3",
     "semantic_hash": ""
   },
   "tsconfig.json": {
@@ -348,9 +348,9 @@
     "semantic_hash": ""
   },
   "src/app/(app)/hangul/page.tsx": {
-    "mtime": 1794318620.8453338,
-    "seen": 1794318985.0748398,
-    "ast_hash": "89c77e7eee325b57a3c68365f431d207",
+    "mtime": 1794485703.3043118,
+    "seen": 1794485969.435985,
+    "ast_hash": "50e53dfcc5eee093aaac4716463cf0d9",
     "semantic_hash": ""
   },
   "src/app/(app)/layout.tsx": {
@@ -3117,6 +3117,66 @@
     "mtime": 1794482658.8967586,
     "seen": 1794485163.4945714,
     "ast_hash": "b8315369ccc77a175c1e434abf8e74f5",
+    "semantic_hash": ""
+  },
+  "e2e/speech.spec.ts": {
+    "mtime": 1794485963.1805859,
+    "seen": 1794485969.4359708,
+    "ast_hash": "db6293701545f0d31d7645e7cedc24fc",
+    "semantic_hash": ""
+  },
+  "src/app/(app)/fala/page.tsx": {
+    "mtime": 1794485691.0175114,
+    "seen": 1794485969.435983,
+    "ast_hash": "5598112cf820f8fefcb3c4ee9e1c0ba9",
+    "semantic_hash": ""
+  },
+  "src/components/speaking/SpeakingPractice.tsx": {
+    "mtime": 1794485691.0139115,
+    "seen": 1794485969.436017,
+    "ast_hash": "0be25cd90a3fd1a40105c451ba779282",
+    "semantic_hash": ""
+  },
+  "src/components/speaking/SpeakingPracticeArea.tsx": {
+    "mtime": 1794485899.0772648,
+    "seen": 1794485969.4360182,
+    "ast_hash": "a84586dbf80fcb8912c149f000ae3f51",
+    "semantic_hash": ""
+  },
+  "src/components/speaking/use-speech-practice.ts": {
+    "mtime": 1794485671.1204338,
+    "seen": 1794485969.436019,
+    "ast_hash": "966d537451784b9e48943e12f5fd198d",
+    "semantic_hash": ""
+  },
+  "src/content/speaking.ts": {
+    "mtime": 1794485671.1204338,
+    "seen": 1794485969.436056,
+    "ast_hash": "28dee8699a12a7084f21151ea8e355c4",
+    "semantic_hash": ""
+  },
+  "src/lib/speech/match.ts": {
+    "mtime": 1794485594.0214615,
+    "seen": 1794485969.436072,
+    "ast_hash": "be99abea9d5b8f388fa1afa52b734945",
+    "semantic_hash": ""
+  },
+  "src/lib/speech/recognition.ts": {
+    "mtime": 1794485594.8638616,
+    "seen": 1794485969.4360733,
+    "ast_hash": "61cecc59d005e7ae33afcad38e273285",
+    "semantic_hash": ""
+  },
+  "tests/speaking-content.test.ts": {
+    "mtime": 1794485716.513172,
+    "seen": 1794485969.4361017,
+    "ast_hash": "3a7af441c5ba765a93b418e77d8245ee",
+    "semantic_hash": ""
+  },
+  "tests/speech.test.ts": {
+    "mtime": 1794485629.955715,
+    "seen": 1794485969.4361024,
+    "ast_hash": "d4df11888d2fc26de00ea3a7a47b1109",
     "semantic_hash": ""
   },
   "package-lock.json": {

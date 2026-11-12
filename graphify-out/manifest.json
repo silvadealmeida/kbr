@@ -3504,9 +3504,9 @@
     "semantic_hash": ""
   },
   "src/components/a1/A1LessonPlayer.tsx": {
-    "mtime": 1794499499.203232,
-    "seen": 1794500238.1090329,
-    "ast_hash": "5dc594190838a41ad6e29056dd83849a",
+    "mtime": 1794500351.8716574,
+    "seen": 1794501752.6653337,
+    "ast_hash": "261e813557da509537d7f55707b302dd",
     "semantic_hash": ""
   },
   "src/content/courses/a1.ts": {

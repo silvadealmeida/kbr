@@ -459,14 +459,6 @@ export function A1LessonPlayer({ lesson }: { lesson: A1LessonContent }) {
         </div>
       </section>
 
-      <LessonVocabulary
-        course="ko-a1"
-        lesson={lesson.id}
-        ids={vocabularyIds}
-        label="Palavras desta lição"
-        audio
-      />
-
       <Plate className="mt-8" label="Prática">
         <h2 className="text-lg font-semibold">Hora de praticar</h2>
         <p className="mt-2 text-sm text-muted">
@@ -490,6 +482,14 @@ export function A1LessonPlayer({ lesson }: { lesson: A1LessonContent }) {
           </Link>
         </div>
       </Plate>
+
+      <LessonVocabulary
+        course="ko-a1"
+        lesson={lesson.id}
+        ids={vocabularyIds}
+        label="Palavras desta lição"
+        audio
+      />
     </article>
   );
 }

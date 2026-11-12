@@ -23,6 +23,8 @@ export {
   syllableCardKey,
   wordCardKey,
   SRS_RULE_IDS,
+  VOCAB_CARD_PREFIX,
+  isVocabCardKey,
   type SrsCardRef,
   type SrsRuleId,
 } from "./cards";

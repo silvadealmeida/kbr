@@ -11,6 +11,10 @@ export type SrsCardRef =
   | { kind: "word"; value: string; key: string }
   | { kind: "rule"; value: SrsRuleId; key: string };
 
+/** Prefixo dos cartões de vocabulário; o SRS do Hangul os ignora. */
+export const VOCAB_CARD_PREFIX = "v:";
+export const isVocabCardKey = (key: string) => key.startsWith(VOCAB_CARD_PREFIX);
+
 export const SRS_RULE_IDS = ["liaison", "nasalization", "aspiration"] as const;
 export type SrsRuleId = (typeof SRS_RULE_IDS)[number];
 

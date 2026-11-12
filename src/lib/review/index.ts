@@ -6,7 +6,7 @@ import type {
   WordRecord,
 } from "@/content/hangul/types";
 import type { ExerciseSpec } from "@/lib/exercises";
-import { leitner, parseSrsCardKey, type ReviewGrade, type SrsState } from "@/lib/srs";
+import { isVocabCardKey, leitner, parseSrsCardKey, type ReviewGrade, type SrsState } from "@/lib/srs";
 import type { Progress } from "@/lib/storage";
 
 /** Teto documentado para uma sessão de revisão (`docs/pedagogy/exercise-design.md`, §11.3). */
@@ -272,6 +272,8 @@ export function buildReviewQueueFromEntries(
 
   const cards = new Map<string, SrsState>();
   for (const [cardId, state] of entries) {
+    // Cartões de vocabulário têm revisão própria (`lib/vocabulary`).
+    if (isVocabCardKey(cardId)) continue;
     if (!cards.has(cardId)) cards.set(cardId, state);
   }
 

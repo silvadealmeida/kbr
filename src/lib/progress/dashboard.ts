@@ -6,7 +6,7 @@ import {
   REVIEW_KIND_LABELS,
   type ReviewKind,
 } from "@/lib/review";
-import { parseSrsCardKey, type LeitnerBox } from "@/lib/srs";
+import { isVocabCardKey, parseSrsCardKey, type LeitnerBox } from "@/lib/srs";
 import type { Progress } from "@/lib/storage";
 import {
   buildCourseSteps,
@@ -443,6 +443,7 @@ function summarizeReview(progress: Progress, now: Date): ReviewSummary {
   let unknownCards = 0;
 
   for (const [cardId, state] of Object.entries(progress.cards ?? {})) {
+    if (isVocabCardKey(cardId)) continue;
     if (
       !state ||
       !Number.isInteger(state.box) ||

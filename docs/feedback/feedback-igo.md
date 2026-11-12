@@ -3,37 +3,46 @@
 Registro recebido fora do código e preservado aqui para não se perder entre fases.
 Cada item separa **observação**, **verificação**, **severidade**, **área de
 investigação**, **correção proposta**, **critérios de aceite** e **fase
-recomendada**. Nada nesta página foi implementado na 7F ou na 7G; os três itens
+recomendada**. O item 1 foi implementado e verificado na Fase 8A; os itens 2 e 3
 seguem abertos. A auditoria técnica do áudio está em `docs/audio/`.
 
 ## 1. Resposta correta costuma aparecer primeiro nas múltiplas escolhas
 
 - **Observação:** em exercícios de múltipla escolha, a alternativa correta
   muitas vezes é a primeira da lista, o que permite acertar por padrão.
-- **Verificação:** não verificada nesta fase. A alegação é plausível porque a
-  ordem das alternativas vem do conteúdo autoral (`ExerciseSpec.options`) e não
-  há embaralhamento em tempo de execução. Não foi feita medição da frequência
-  real em `h01`–`h25`/`c1`–`c4`.
+- **Verificação (Fase 8A, concluída):** a alegação foi confirmada no conteúdo
+  autoral. Em 341 exercícios de escolha única, 330 (96,8%) tinham a correta na
+  primeira posição; em 126 grupos da bancada de composição, 125 (99,2%). Em 25
+  dos 29 passos (`h01`–`h25`, `c1`–`c4`), todas as escolhas únicas tinham a
+  correta primeiro. Não havia duplicatas dentro de um mesmo exercício e a
+  resposta correta sempre existia nas opções. A revisão já usava um `salt`
+  determinístico para variar a posição, mas lições/checkpoints não tinham
+  embaralhamento algum.
 - **Severidade:** alta para a validade pedagógica antes do lançamento público.
   Não bloqueia build, mas enfraquece a avaliação.
-- **Área de investigação:** `src/lib/exercises/**` (ordenação/embaralhamento),
-  `src/content/hangul/**` (ordem autoral das opções), player de lição/checkpoint
-  e testes de correção. Também revisar os tipos `mcq`, `minimal-pair`,
-  `audio-to-char`, `char-to-audio` e `reading` com opções.
-- **Correção proposta:** definir uma política única de ordem de alternativas —
-  preferencialmente embaralhar de forma determinística por tentativa, com seed
-  estável para que recarregar não revele outra ordem no meio da mesma tentativa.
-  A ordem correta não pode depender de posição. Alternativa mínima: distribuir
-  editorialmente a posição correta e cobrir com teste de conteúdo.
-- **Critérios de aceite:**
+- **Área de investigação:** `src/lib/exercises/**`, `src/content/hangul/**`,
+  player de lição/checkpoint, `ChoiceList` e `SyllableBuilder`.
+- **Correção implementada:** embaralhamento Fisher–Yates na apresentação
+  (`src/lib/exercises/shuffle.ts`) para `mcq`, `audio-to-char`,
+  `char-to-audio`, `minimal-pair`, `reading` com escolha e para os grupos
+  inicial/medial/final de `build-syllable`. A ordem é sorteada uma vez por
+  tentativa, mantida durante seleção, feedback, tema, áudio e sync, e renovada
+  ao montar o exercício em uma nova tentativa/revisita. A correção continua
+  comparando IDs/valores; nenhum conteúdo, ID, nota, `Progress` v1, CAS ou SRS
+  mudou.
+- **Critérios de aceite — atendidos:**
   - a posição da alternativa correta não é previsível em uma amostra de
-    exercícios;
-  - a mesma tentativa mantém a ordem ao recarregar ou re-renderizar;
-  - `checkAnswer` continua comparando IDs/valores, nunca posição;
+    exercícios (341 exercícios × 300 tentativas simuladas; distribuição dentro
+    de 3σ para 2, 3, 4 e 6 posições);
+  - a mesma tentativa mantém a ordem ao re-renderizar, trocar o tema ou receber
+    feedback; a ordem só muda em nova montagem/tentativa;
+  - `checkAnswer` continua comparando IDs/valores, nunca posição (teste com
+    todas as permutações representativas);
   - testes cobrem todos os tipos com opções e a distribuição de posições;
-  - nenhuma mudança em IDs, conteúdo coreano ou histórico.
-- **Fase recomendada:** antes do lançamento público; candidata à 7G ou a uma
-  fatia própria de correção. **Não alterar grading nem randomização na 7F.**
+  - nenhuma mudança em IDs, conteúdo coreano, grading, histórico ou banco.
+- **Fase recomendada:** antes do lançamento público. **Implementado na 8A**
+  (`tests/exercise-order.test.ts` e cobertura Playwright em `e2e/hangul.spec.ts`).
+- **Status:** **resolvido na Fase 8A**.
 
 ## 2. Áudio coreano pouco claro, sobretudo ㄹ e algumas vogais
 

@@ -89,12 +89,18 @@
 
 ### 3.6 Conclusão do curso
 
-- Sequência única: régua de 25 marcas preenche (600 ms), selo carimba (360 ms), título entra (240 ms).
-- Total ≤1,2 s; botão “Rever meu percurso” disponível desde o início.
+- Sequência única: o selo carimba (360 ms, após 100 ms), o cabeçalho entra (220 ms) e o restante do painel já está visível. Não há contagem animada da régua.
+- Total <0,5 s; as ações estão disponíveis desde o primeiro frame. A jornada de 29 passos é texto/lista, não animação.
 - Em reduced motion: tudo estático, com o selo já visível.
-- A sequência roda uma vez por sessão de conclusão; revisitar não repete.
+- A sequência roda uma vez ao montar; revisitar não repete e não bloqueia foco/leitura.
 
-### 3.7 Microinterações
+### 3.7 Anatomia da sílaba
+
+- O SVG de `한` nasce montado e estático; “Ver peças separadas” troca as posições instantaneamente.
+- Não há animação de traço, morph ou rotação. O destaque de uma parte muda borda, fundo e cor, mas o texto do botão e `aria-pressed` carregam o mesmo estado.
+- Em reduced motion, nada muda: a explicação ordenada, os nomes, o IPA e as notas já estão visíveis sem interação.
+
+### 3.8 Microinterações
 
 | Elemento | Movimento |
 |---|---|
@@ -127,9 +133,28 @@
 - Não usar `transition: all`. Liste propriedades.
 - `will-change` apenas durante a animação e removido depois; nunca em listas grandes.
 
-### 4.2 View Transitions (React 19.3 / Next 16)
+### 4.2 View Transitions (React 19.3 / Next 16) — avaliado na 7F, adiado
 
-Disponível sem configuração no App Router. Usar apenas para continuidade entre rotas e para o selo de conclusão.
+O App Router em Next 16.4.6 + React 19.3 suporta `<ViewTransition>` sem
+configuração, mas a implementação foi **adiada na 7F**. Motivos:
+
+1. O ganho principal seria o morph cartão do curso → cabeçalho da lição. A
+   navegação atual já preserva estado, foco e histórico; uma transição de rota
+   inteira adicionaria risco de foco/rolagem e de “piscar” em telas longas.
+2. O guia local avisa que a integração usa recursos recentes (transition types e
+   `view-transition-class`) com comportamento variável em Safari; o WebKit
+   automatizado deste projeto não cobre todos os fluxos de navegação.
+3. Voltar/avançar do navegador, abertura em nova aba, prefetch e hidratação
+   precisam de uma matriz que a 7F não tem orçamento para provar sem regressão.
+4. O selo de conclusão já usa uma animação CSS local, sem depender de rota.
+
+A decisão é progressive enhancement futuro, não uma promessa. Se for retomado,
+o desenho mínimo é: par nomeado apenas em cartão/cabeçalho, `default="none"`,
+fallback sem animação, `prefers-reduced-motion` desligando os pseudo-elementos e
+testes em Chromium + WebKit de ida, volta, recarregar e foco. Nenhuma informação
+ou ação pode depender da transição.
+
+O código abaixo fica como referência do que **não** foi ligado na 7F:
 
 ```tsx
 import { ViewTransition } from "react";
@@ -167,9 +192,9 @@ import { ViewTransition } from "react";
 }
 ```
 
-`share="morph"` aplica a classe `.morph` ao grupo; `default="none"` evita que o par anime em transições não relacionadas. Sem o par na mesma transição, não há morph — a navegação continua normal.
-
-**Fallback:** sem suporte, a navegação funciona normalmente, sem animação. Nenhum conteúdo depende disso.
+**Fallback atual:** sem View Transitions, a navegação funciona normalmente, sem
+animação. Nenhum conteúdo depende disso. A decisão está registrada também em
+`docs/architecture.md`.
 
 ### 4.3 Scroll reveal
 
@@ -292,11 +317,19 @@ O bloco global é uma **rede de segurança**; componentes que precisam manter um
 3. Nenhuma animação dura mais de 800 ms, exceto a sequência única de conclusão/hero (≤1,2 s).
 4. Nenhum layout shift causado por animação.
 5. Nenhuma biblioteca de animação no bundle inicial.
-6. View Transitions degradam sem erro em navegadores sem suporte.
+6. View Transitions, se retomadas, degradam sem erro em navegadores sem suporte.
 7. Testes WebKit/Chromium de reduced motion passam.
 8. A landing continua com LCP <2,5 s em 4G e CLS <0,1.
 
-## 9. Ordem de implementação
+## 9. Status 7F (implementado)
+
+- `HangulComposition` desenha quatro grupos de traço em sequência (620 ms + 120 ms de intervalo entre grupos), com `pathLength="1"`; reduced motion mantém o bloco completo.
+- `completion-enter` e `completion-seal` são as únicas animações novas de conclusão; não há contagem de régua, confete, partículas nem áudio automático.
+- `SyllableAnatomy` não anima a troca de bloco/peças; a informação está sempre no DOM e a lista ordenada é textual.
+- View Transitions foram avaliadas e adiadas (ver §4.2). Nenhuma dependência de animação foi adicionada.
+- Medição local: landing 289.720 B/CLS 0,000156; atlas do Hangul 603.048 B/CLS 0,002010; conclusão do `c4` 498.591 B/CLS 0,002010; painel 504.448 B/CLS 0,008682. Números locais, não field data.
+
+## 10. Ordem de implementação
 
 1. Tokens e bloco global de reduced motion (7B — **implementado**; nenhuma coreografia de página foi adicionada).
 2. Microinterações de botão, foco, nav e toast (7C).

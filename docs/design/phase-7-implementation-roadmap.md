@@ -55,7 +55,7 @@
  │
 7E  superfícies: revisão, catálogo, visão Hangul, painel, checkpoint
  │
-7F  movimento + ilustrações + conclusão
+7F  movimento + ilustrações + conclusão       ✅ concluída
  │
 7G  hardening: limpeza, performance, a11y, docs
 ```
@@ -169,6 +169,8 @@ Dependências: 7C depende de 7B; 7D de 7B (e reusa primitivas da 7C); 7E de 7D; 
 **Testes:** reduced motion em Chromium/WebKit; performance (CPU 4×, Fast 3G); e2e de conclusão/revisita; axe; screenshots.
 
 **Saída:** nenhuma tarefa bloqueada por animação; 100% da informação disponível com reduced motion; LCP/CLS dentro do orçamento.
+
+**Status 7F:** implementada e validada localmente. O herói da landing ganhou uma sequência curta de quatro grupos de traços com `pathLength="1"` e marcas de registro; `SyllableAnatomy` usa `한` com partes como botões e descrição textual; `SoundMap` entrega a versão compacta de 40 jamo em `<details>` nativos; `CourseCompletionPanel`/`CourseJourney` renderizam a jornada de 29 passos, selo, resumo real e ações, com variantes completa/incompleta/compacta e o `c4` preservando os textos de contrato. O relatório de conclusão passou a expor `journey`, `completedSteps`, `totalSteps`, `currentStepId` e `nextStep`, todos derivados de `Progress` v1. `completion-enter`/`completion-seal` e o stagger do herói só rodam sem reduced motion. View Transitions foram avaliadas e adiadas por risco de integração/foco/WebKit, documentado em `motion-design-spec.md` §4.2. Nenhum conteúdo, ID, grading, `Progress` v1, CAS, SRS, auth, PWA ou Supabase mudou. Validação: 380 Vitest, typecheck, build e Playwright completo (365 testes: 343 executados + 22 skips); landing 289.720 B/CLS 0,000156; Hangul 603.048 B/CLS 0,002010; `c4` completo 498.591 B/CLS 0,002010; dashboard 504.448 B/CLS 0,008682. Limites: mapa compacto; player de traço fora; iPhone/VoiceOver reais manuais; axe não é certificação WCAG.
 
 ## 9. Fase 7G — Hardening e limpeza
 

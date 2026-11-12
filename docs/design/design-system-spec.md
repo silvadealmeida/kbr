@@ -428,12 +428,16 @@ Implementado em `src/app/globals.css`, `src/app/layout.tsx` e `src/components/ui
 3. **Raios com nomes por papel:** `--radius-seal`, `--radius-field`, `--radius-plate`, `--radius-panel`, `--radius-hero`, `--radius-pill`. Sobrescrever `--radius-sm/md/lg/xl` do Tailwind mudaria 130+ superfícies existentes; os valores aprovados (4/8/12/16/24/999 px) foram preservados nos nomes por papel. A 7C–7G migra as classes antigas.
 4. **Tipografia:** Archivo variável e IBM Plex Mono 400/500 via `next/font` (self-hosted no build, sem requisição ao Google em runtime), `preload: false`. Archivo usa `display: "optional"` na 7B: com `swap`, a troca de métricas na landing produziu CLS 0,154; com `optional`, a medição local ficou em **0,00065**. IBM Plex Mono só é baixada quando um componente mono aparece. Noto Sans KR continua restrita a `(app)`.
 5. **Escala tipográfica:** tokens `--text-display-xl`…`--text-mono-data` em `@theme`; `text-sm`, `text-base` e a escala existente não foram sobrescritos.
-6. **Sheet/Dialog adiado:** nenhum fluxo atual precisa de overlay; a primitiva será criada na fase que introduzir o primeiro dialog real (7E/7F), com foco preso e retorno ao gatilho.
+6. **Sheet/Dialog adiado:** nenhum fluxo atual precisa de overlay; a primitiva será criada quando um fluxo real exigir dialog, com foco preso e retorno ao gatilho. Até a 7F, nenhum fluxo exigiu.
 7. **Medição local (7B, desktop 1280, build de produção):** landing **278.444 B** no total (JS **212.310 B**, CSS **10.148 B**, **1** fonte/**35.240 B**, CLS **0,00065**); painel **479.026 B**, **6** fontes/**134.544 B**, CLS **0,00426** (limite 1,2 MB). O teste passou a aceitar ≤2 fontes/≤60 KB na landing, com verificação explícita de que Noto Sans KR não é carregada.
 
 ### 8.5 Status 7D
 
 A lição/checkpoint usam `Plate`, `Badge`, `PlayerHeader`, `ChoiceList`, `TextAnswer`, `SyllableBuilder`, `PronunciationLayers` e `FeedbackPanel` com os tokens existentes; nenhuma primitiva nova de UI foi necessária e o Sheet/Dialog continua adiado. A bancada usa bordas tracejadas, raio de selo e botões de 48 px; as camadas usam `success-soft` + `accent` + texto oculto, não apenas cor. A medição do player em 1280 ficou em 585.252 B (h21, 12 fontes), 478.193 B (h16 intro) e 609.490 B (h16 prática), CLS ≤0,00197, abaixo do limite de 1,2 MB. Nenhuma fonte ou dependência nova foi adicionada.
+
+### 8.6 Status 7F
+
+A 7F não adicionou primitivas de UI, fontes ou dependências. A conclusão reutiliza `Seal`, `Ruler`/`ProgressBar`, `Badge` (na jornada) e `ButtonLink`; `CourseJourney` acrescenta uma lista ordenada + régua decorativa. `SyllableAnatomy` usa SVG inline e `SoundMap` usa `details/summary` nativos. O movimento novo (`completion-enter`, `completion-seal` e o stagger do herói) fica em `globals.css`, condicionado a `prefers-reduced-motion: no-preference`. A landing mediu 289.720 B/CLS 0,000156; Hangul 603.048 B/CLS 0,002010; `c4` completo 498.591 B/CLS 0,002010; painel 504.448 B/CLS 0,008682.
 
 ## 9. Acessibilidade
 

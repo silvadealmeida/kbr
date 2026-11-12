@@ -152,6 +152,8 @@
 
 **Status 7D:** `SyllableBuilder` e `PronunciationLayers` foram implementados em `src/components/hangul/`, com geometria em `src/lib/hangul/layout.ts`; nenhuma dependência nova. A bancada usa HTML/CSS (sem SVG próprio) e a camada é uma lista ordenada estática, sem revelação obrigatória. `SyllableAnatomy`, `SoundMap` e `StrokePlayer` continuam fora da 7D. A comparação por bloco substituiu a revelação passo a passo para garantir que toda a informação já esteja disponível sem animação; o áudio continua sendo o TTS existente.
 
+**Status 7F:** `SyllableAnatomy` e `SoundMap` foram implementados em `src/components/hangul/` e aparecem em `/hangul`, sem conteúdo novo. A anatomia usa `한`, partes como botões (inicial/medial/final), estado estático com opção de separar, “Ouvir a sílaba 한” e descrição textual; o mapa compacto lista os 40 jamo de `JAMO` em `<details>` nativos, com nome, IPA e nota, sem áudio por item. `StrokePlayer` continua fora: depende de dados de ordem revisados.
+
 ## 8. Área G — Revisão Leitner
 
 **Arquivo:** `src/components/review/ReviewArea.tsx`.
@@ -210,6 +212,8 @@
 
 **Status 7E:** o `c4` completo e o `CourseCompletionPanel` foram deixados intocados; a única mudança no caminho é a apresentação do checkpoint que os precede. A celebração/percurso de 25 lâminas continua na 7F.
 
+**Status 7F:** implementada. `CourseCompletionReport` passou a expor `journey`, `completedSteps`, `totalSteps`, `currentStepId` e `nextStep`, todos derivados de `Progress` v1. `CourseJourney` intercala 25 lições e 4 checkpoints em lista ordenada e régua decorativa; `CourseCompletionPanel` tem variantes completa, incompleta (`allowIncomplete`) e compacta, com selo, resumo real, foco no painel de conclusão e ações “Retomar jornada em hNN”, “Refazer checkpoint” ou “Voltar ao painel”. O `c4` mantém o `<h1>` “Módulo Hangul concluído”, 29 itens e a única sequência de selo; `/hangul` usa a variante compacta e o diagnóstico por item continua sem persistência.
+
 ## 11. Área J — Navegação e responsividade
 
 **Arquivos:** `Nav.tsx`, `(app)/layout.tsx`, `(site)/layout.tsx`, `globals.css`.
@@ -249,8 +253,8 @@ Durante a 7B, criar aliases para que a aparência antiga continue funcionando; a
 | 3 | Lição: header, enunciado, respostas, feedback | 7D | L |
 | 4 | Composição + camadas de pronúncia | 7D | M |
 | 5 | Revisão, catálogo, Hangul overview, painel | 7E (feita) | L |
-| 6 | Checkpoint, conclusão, anatomia, mapa | 7E (checkpoint feito); 7F (conclusão/anatomia/mapa) | M |
-| 7 | Movimento, View Transitions, polimento | 7F | M |
+| 6 | Checkpoint, conclusão, anatomia, mapa | 7E (checkpoint); 7F (feita) | M |
+| 7 | Movimento, View Transitions, polimento | 7F (feita; View Transitions adiadas) | M |
 | 8 | Limpeza de tokens, testes, docs | 7G | S/M |
 
 ## 14. Matriz de testes por área

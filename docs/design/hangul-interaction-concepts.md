@@ -2,7 +2,11 @@
 
 > Fase 7A. Conceitos originais para tornar a composição do Hangul visível e manipulável, usando os jamo e as lições `h01`–`h25` já existentes. Nenhum conceito altera conteúdo, IDs, respostas corretas ou o modelo de `Progress` v1. Ilustrações e metadados de traço são **proposta** e exigem revisão pedagógica antes da implementação.
 >
-> **Status 7D:** os conceitos 1 (Bancada de composição) e 3 (camadas de pronúncia) foram implementados. A bancada usa zonas e botões (sem drag), com prévia C+V e `aria-live`; as camadas mostram escrita e fala aproximada ao mesmo tempo, com comparação por bloco opcional em vez de revelação passo a passo, para que nenhuma informação dependa de animação. Os conceitos 2, 4, 5 e 7 continuam propostas para 7E/7F; o player de traço continua dependendo de dados revistos.
+> **Status 7D:** os conceitos 1 (Bancada de composição) e 3 (camadas de pronúncia) foram implementados. A bancada usa zonas e botões (sem drag), com prévia C+V e `aria-live`; as camadas mostram escrita e fala aproximada ao mesmo tempo, com comparação por bloco opcional em vez de revelação passo a passo, para que nenhuma informação dependa de animação.
+>
+> **Status 7E:** o conceito 6 (cartão de revisão) foi implementado como cartão-prancha com “Mostrar resposta”.
+>
+> **Status 7F:** os conceitos 2 (Anatomia da sílaba), 4 (Mapa de sons) e 7 (Percurso de 25 lâminas) foram implementados com conteúdo existente. A anatomia usa `한` e nomes de posição já presentes, com estado estático, partes como botões e descrição textual; o mapa entrega a versão compacta verificada (40 jamo em `<details>` nativos, sem áudio por item); o percurso virou a jornada de 29 passos da conclusão, derivada de `Progress` v1. O player de traço (conceito 5) continua proposto e depende de dados de ordem revisados.
 
 ## 1. Princípios
 
@@ -70,9 +74,9 @@
 
 **Visual:** o bloco permanece; as partes se separam 12–16 px (não 100 px), com linhas de chamada e rótulos em mono. A sílaba nunca sai do centro.
 
-**Acessibilidade:** cada zona é um botão com nome completo; a decomposição também existe como lista textual (`초성 ㅎ`, `중성 ㅏ`, `종성 ㄴ`) para leitores de tela. Nada essencial depende de posição espacial.
+**Acessibilidade:** cada zona é um botão com nome completo; a decomposição também existe como lista textual em pt-BR (`Inicial ㅎ`, `Medial ㅏ`, `Final ㄴ`) para leitores de tela. Nada essencial depende de posição espacial.
 
-**Técnica:** SVG ou HTML posicionado; sem canvas. **Prioridade P1.**
+**Técnica:** SVG ou HTML posicionado; sem canvas. **Prioridade P1.** **Status 7F:** implementado em `src/components/hangul/SyllableAnatomy.tsx` com `한`, geometria esquemática, botões de parte, “Ouvir a sílaba 한”, descrição textual e controles de teclado/toque; sem caligrafia e sem fonologia inventada.
 
 ## 5. Conceito 3 — Régua de leitura e camadas de pronúncia
 
@@ -111,7 +115,7 @@
 
 **Acessibilidade:** o grid é uma tabela semântica ou lista de grupos com headings; navegação por setas opcional, Tab funcional. Não usar posição absoluta como única informação.
 
-**Técnica:** HTML/CSS grid; TTS existente; sem dependência. **Prioridade P1**, desde que não introduza conteúdo novo — usar apenas jamo e exemplos já presentes.
+**Técnica:** HTML/CSS grid; TTS existente; sem dependência. **Prioridade P1**, desde que não introduza conteúdo novo — usar apenas jamo e exemplos já presentes. **Status 7F:** entregue em versão compacta (`SoundMap.tsx`) a partir de `JAMO`: 40 entradas em `<details>` nativos, agrupadas por classe, com nome, IPA e nota; sem filtros, pares mínimos ou áudio por item. A prancha completa com comparação continua backlog.
 
 ## 7. Conceito 5 — Player de traço
 
@@ -131,7 +135,7 @@
 
 **Acessibilidade:** botões de controle rotulados; `aria-live` anuncia o traço atual; a ordem também está em lista textual. Não depender de hover. Play não inicia sozinho.
 
-**Técnica:** SVG + WAAPI/CSS; `pathLength="1"`. **Dependência:** dados de ordem de traço para cada jamo, com revisão pedagógica. **Prioridade P2** — não bloquear a 7B–7E por isso. Na landing, usar apenas um traço decorativo sem pretensão de ensino.
+**Técnica:** SVG + WAAPI/CSS; `pathLength="1"`. **Dependência:** dados de ordem de traço para cada jamo, com revisão pedagógica. **Prioridade P2** — não bloqueou a 7B–7F. Na landing, usa-se apenas um traço decorativo sem pretensão de ensino; um player completo fica para depois da 7G.
 
 ## 8. Conceito 6 — Cartão de revisão tipográfico
 
@@ -164,7 +168,7 @@
 
 **Acessibilidade:** lista ordenada com status textual; a régua é decorativa (`aria-hidden`) e a informação está na lista.
 
-**Técnica:** componente existente `CourseCompletionPanel` reestilizado; sem novos dados. **Prioridade P2.**
+**Técnica:** componente existente `CourseCompletionPanel` reestilizado; sem novos dados. **Prioridade P2.** **Status 7F:** implementado como `CourseJourney` intercalado de 25 lições e 4 checkpoints, com lista ordenada, status textual, selo e resumo real; a régua é decorativa (`aria-hidden`) e a informação está na lista. A conclusão incompleta usa o mesmo percurso e só aparece quando `allowIncomplete` é intencional.
 
 ## 10. Ilustração de Hangul — regras
 
@@ -183,11 +187,11 @@
 |---|---|---|---|---|
 | Bancada de composição | Alto | Médio | Nenhuma | 7D |
 | Régua/camadas de pronúncia | Alto | Médio | Conteúdo existente | 7D |
-| Anatomia da sílaba | Alto | Médio | Nenhuma | 7E |
-| Cartão de revisão | Médio | Baixo | Nenhuma | 7E |
-| Mapa de sons | Médio | Médio | Conteúdo existente | 7E/7F |
-| Percurso de 25 lâminas | Médio | Baixo | Nenhuma | 7F |
-| Player de traço | Alto | Alto | Dados + revisão | 7F+ |
+| Anatomia da sílaba | Alto | Médio | Nenhuma | 7F (feita) |
+| Cartão de revisão | Médio | Baixo | Nenhuma | 7E (feito) |
+| Mapa de sons | Médio | Médio | Conteúdo existente | 7F (compacto); completo depois |
+| Percurso de 25 lâminas | Médio | Baixo | Nenhuma | 7F (feito) |
+| Player de traço | Alto | Alto | Dados + revisão | depois da 7G |
 
 ## 12. Critérios de aceite
 

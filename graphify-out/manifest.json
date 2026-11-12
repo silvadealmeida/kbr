@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "playwright.config.ts": {
-    "mtime": 1794490252.0131943,
-    "seen": 1794490856.8395848,
-    "ast_hash": "55c49377040a0dd1dfd705142a05cc67",
+    "mtime": 1794508080.4935987,
+    "seen": 1794508284.6994927,
+    "ast_hash": "d7f4b62c0f6819140deec574a3c077e6",
     "semantic_hash": ""
   },
   "postcss.config.mjs": {
@@ -96,9 +96,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1794507619.9232264,
-    "seen": 1794507789.4221847,
-    "ast_hash": "c53c9a121338491cb123501cdc229f1d",
+    "mtime": 1794508268.906281,
+    "seen": 1794508284.699696,
+    "ast_hash": "da0e1f5fa9d9fabf0005e5277bd774b8",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -108,9 +108,9 @@
     "semantic_hash": ""
   },
   "docs/architecture.md": {
-    "mtime": 1794507662.4914296,
-    "seen": 1794507789.4221866,
-    "ast_hash": "831be4070d7030ade52c20613b003798",
+    "mtime": 1794508268.906281,
+    "seen": 1794508284.6996982,
+    "ast_hash": "88b01cc7554324a5a142537ff7a4a871",
     "semantic_hash": ""
   },
   "docs/research.md": {
@@ -120,9 +120,9 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794507991.074239,
-    "seen": 1794507992.4012203,
-    "ast_hash": "2240b8b9a656c97f381388c84cab5854",
+    "mtime": 1794508268.906281,
+    "seen": 1794508284.699721,
+    "ast_hash": "db7d30207f690834dafd630ca998a4ed",
     "semantic_hash": ""
   },
   "src/lib/hangul/index.ts": {

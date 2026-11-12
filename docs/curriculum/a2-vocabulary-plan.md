@@ -21,7 +21,7 @@ Além disso, o curso retoma **115 identidades distintas** do A1/Hangul em contex
 - Linhas por módulo: `src/content/vocabulary/a2-m01.ts` … `a2-m08.ts`.
 - Tipo de linha: `A2VocabRow` em `a2-shared.ts`.
 - Registro canônico: `VOCAB_ENTRIES` e `VOCAB_SENTENCES` em `src/content/vocabulary/index.ts`.
-- Referências de lição: `A2_STEP_IDS` em `CoursesLessonIds` com a chave `ko-a2`.
+- Referências de lição: `A2_STEP_IDS` em `COURSE_LESSON_IDS` com a chave `ko-a2`.
 - Prática: `/vocabulario` e `/vocabulario/revisao` usam o mesmo Leitner e o mesmo formato `v:`.
 
 ## 4. Cobertura por módulo

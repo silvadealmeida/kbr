@@ -138,6 +138,17 @@ A 7F adicionou movimento pedagógico, ilustrações e a conclusão do curso sem 
 
 Limites: o mapa de sons é a versão compacta; o player de traço continua fora por falta de dados revisados; View Transitions ficam para depois da 7G; axe não é certificação WCAG; iPhone/Chrome iOS/VoiceOver reais continuam manuais; a revisão humana do conteúdo coreano segue pendente.
 
+## Hardening e limpeza (Fase 7G)
+A 7G não adicionou funcionalidade, conteúdo, dependência ou migração. Ela removeu a compatibilidade temporária da 7B e fechou as auditorias antes do lançamento: aliases, consistência visual, acessibilidade, desempenho e áudio.
+
+- **Aliases:** `bg-soft`, `border-border`, `text-brand`, `bg-brand` e `text-brand-fg` foram migrados para as classes semânticas (`bg-surface-2`, `border-line`, `text-accent`, `bg-accent`, `text-accent-fg`) nas 35 ocorrências restantes. `--brand`, `--brand-fg`, `--border`, `--accent-soft` e os tokens Tailwind `--color-brand*`, `--color-border` e `--color-soft` saíram de `globals.css`. `--seal` continua distinto de `--accent`; nenhum significado visual foi trocado às cegas. `tests/design-system.test.ts` falha se um token ou classe legada voltar.
+- **Consistência:** a introdução da lição passou a envolver `objective`, `objectives` e `panel.body` em `BilingualText`, o que aplica `lang="ko"` e `font-ko` apenas aos trechos coreanos. O texto, a ordem e os IDs não mudaram. A revisão visual em 390/1280, claro/escuro, não encontrou overflow horizontal nem layout quebrado.
+- **Acessibilidade:** o helper de axe espera animações finitas de entrada antes de medir contraste. Isso evita o falso positivo do `completion-enter` durante o fade; as regras, cores e estados do produto não foram afrouxados. Páginas públicas, área autenticada, tema claro/escuro, skip link e alternador passam em Chromium 390/1280 e WebKit 390.
+- **Desempenho (Chromium 1280, build local):** landing 289.623 B/CLS 0,000139; dashboard 505.281 B/CLS 0,005916; cursos 450.494 B/CLS 0,022503; Hangul 605.229 B/CLS 0,001582; `c4` completo 768.391 B/CLS 0,001595; h21 697.998 B/CLS 0,001614. O `c4` completo baixa 19 subsets do Noto Sans KR (sílabas únicas da conclusão) e h21 baixa 16 (texto coreano da introdução agora em `font-ko`); ambos seguem abaixo de 1,2 MB/CLS 0,1. A landing continua com 2 arquivos/≤60 KB.
+- **Áudio:** `docs/audio/current-audio-audit.md` confirma TTS via `speechSynthesis`, sem asset/API externa, com 547 `audioText` (265 únicos) e nenhum jamo isolado; o app não verifica voz coreana nem trata erro. `docs/audio/korean-tts-options.md` compara as alternativas e `docs/audio/audio-quality-roadmap.md` propõe a 8B (gravação nativa + fallback TTS). Nenhuma engine foi trocada.
+
+Limitações: axe não prova conformidade WCAG; iPhone/Chrome iOS/VoiceOver reais continuam manuais; a voz `ko-KR` e o relato de ㄹ/vogais não foram reproduzidos em dispositivo real; a revisão nativa do conteúdo/áudio segue pendente; a 8B não foi iniciada; a posição da resposta correta nas múltiplas escolhas continua como dívida de prioridade alta.
+
 ## Revisão
 `/revisao` é funcional desde a Fase 4A e não altera `Progress` v1, auth, migração, tabela ou RLS.
 
@@ -180,6 +191,8 @@ Desde a 6B, cada requisição remota (leitura da tabela e RPC CAS) tem limite pa
 
 ## Voz
 O player usa `window.speechSynthesis` com `lang="ko-KR"`, rate 0.85, sob demanda (sem autoplay). Como a disponibilidade de voz coreana varia por sistema, todo item de escuta exibe uma dica textual (`fallback`) que descreve o som sem entregar a resposta escrita. A bancada de composição oferece “Ouvir a sílaba montada” e as camadas de pronúncia oferecem “Ouvir a forma falada”, ambos reutilizando o mesmo TTS e o mesmo aviso de indisponibilidade. Não há arquivos de áudio, avaliação de pronúncia nem módulo próprio de voz nesta fase.
+
+A auditoria da 7G está em `docs/audio/current-audio-audit.md`: o app não escolhe voz, não verifica voz coreana, não trata `onerror`/`onend` e anuncia “Áudio solicitado” só pela existência da API. O conteúdo falado tem 547 `audioText` (265 únicos) e nenhum jamo isolado; o relato de ㄹ/vogais não foi reproduzido em dispositivo real. `docs/audio/korean-tts-options.md` compara as alternativas e `docs/audio/audio-quality-roadmap.md` propõe a 8B: gravação nativa dos 265 itens como fonte principal, TTS apenas como fallback. Nenhuma engine foi trocada e nenhum asset foi criado na 7G.
 
 ## UI/UX
 - Mobile-first: nav inferior fixa, alvos ≥48px, safe-area (`env(safe-area-inset-*)`), `100dvh`; verificado também em 320 px e paisagem 667×375.

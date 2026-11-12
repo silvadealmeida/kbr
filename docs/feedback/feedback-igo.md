@@ -3,8 +3,8 @@
 Registro recebido fora do código e preservado aqui para não se perder entre fases.
 Cada item separa **observação**, **verificação**, **severidade**, **área de
 investigação**, **correção proposta**, **critérios de aceite** e **fase
-recomendada**. Nada nesta página foi implementado na 7F; o objetivo é transformar
-o relato em trabalho verificável.
+recomendada**. Nada nesta página foi implementado na 7F ou na 7G; os três itens
+seguem abertos. A auditoria técnica do áudio está em `docs/audio/`.
 
 ## 1. Resposta correta costuma aparecer primeiro nas múltiplas escolhas
 
@@ -39,11 +39,14 @@ o relato em trabalho verificável.
 
 - **Observação:** o áudio soa confuso ou pouco natural em alguns itens,
   especialmente ㄹ e certas vogais.
-- **Verificação:** não verificada com falante nativo nem em dispositivo real
-  nesta fase. O app usa `speechSynthesis` do navegador (`ko-KR`), cuja voz,
-  velocidade e disponibilidade variam por sistema; não há arquivo de áudio
-  dedicado. A qualidade percebida pode ser da voz sintética, da pronúncia
-  isolada de jamo ou de uma transcrição didática em revisão.
+- **Verificação:** não verificada com falante nativo nem em dispositivo real.
+  A auditoria da 7G (`docs/audio/current-audio-audit.md`) confirmou que o app usa
+  somente `speechSynthesis` do navegador (`ko-KR`, `rate = 0.85`), sem arquivo de
+  áudio dedicado, sem escolha explícita de voz e sem checagem de voz coreana. O
+  texto falado tem 547 `audioText` (265 únicos) e não contém jamo isolado; o
+  relato pode vir da voz do sistema, de prosódia de item isolado, de `rate = 0.85`
+  ou de fusões reais do coreano moderno (ㅐ/ㅔ, ㅚ/ㅙ/ㅞ), não de texto malformado.
+  A qualidade percebida continua sem reprodução em iPhone/Android/Windows reais.
 - **Severidade:** alta para compreensão oral e confiança no conteúdo antes do
   lançamento público. O texto e o IPA permanecem disponíveis como alternativa.
 - **Área de investigação:** `src/components/hangul/exercise-media.tsx`
@@ -51,10 +54,10 @@ o relato em trabalho verificável.
   `char-to-audio`, `minimal-pair`; registros de `JAMO`/`SYLLABLES` com ㄹ e
   vogais; checklist de revisão nativa em `docs/roadmap.md`.
 - **Correção proposta:** curto prazo, revisar as transcrições e oferecer sempre
-  a forma escrita + IPA + dica textual; médio prazo, avaliar arquivos de áudio
-  gravados por falante nativo (ou TTS premium) para jamo/sílabas críticas, com
-  fallback para a voz do sistema. Não prometer pronúncia definitiva enquanto o
-  conteúdo estiver `in-review`.
+  a forma escrita + IPA + dica textual; médio prazo, gravar os 265 itens únicos
+  com falante nativo e usar TTS apenas como fallback (proposta em
+  `docs/audio/audio-quality-roadmap.md`). Não prometer pronúncia definitiva
+  enquanto o conteúdo estiver `in-review`.
 - **Critérios de aceite:**
   - itens com ㄹ e vogais críticas têm alternativa textual completa;
   - a UI não afirma que a voz sintética é a pronúncia oficial;

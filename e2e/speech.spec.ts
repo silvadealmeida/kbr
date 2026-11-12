@@ -1,3 +1,4 @@
+import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type BrowserContext, type Page } from "@playwright/test";
 import { createTestUser, testAuthCookie } from "./mock-supabase.mjs";
 
@@ -223,5 +224,64 @@ test.describe("prática de fala (reconhecedor simulado)", () => {
     expect(stored).not.toContain("transcript");
     // "엄마" pode existir no progresso do curso; o que não pode existir é chave de fala.
     expect(stored.toLowerCase()).not.toMatch(/speech|fala|consent/);
+  });
+});
+
+test.describe("acessibilidade da prática de fala (axe)", () => {
+  async function expectNoViolations(page: Page, label: string) {
+    // Igual ao helper de a11y.spec: não medir contraste no meio de uma
+    // transição de cor/opacidade (ex.: botão que acabou de ser habilitado).
+    await page.evaluate(async () => {
+      const deadline = performance.now() + 1500;
+      let quiet = 0;
+      while (performance.now() < deadline) {
+        await new Promise(requestAnimationFrame);
+        const running = document.getAnimations().some((a) => {
+          const t = a.effect?.getTiming();
+          return a.playState === "running" && t?.iterations !== Infinity;
+        });
+        quiet = running ? 0 : quiet + 1;
+        if (quiet >= 4) return;
+      }
+    });
+    const results = await new AxeBuilder({ page })
+      .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+      .analyze();
+    const summary = results.violations.map((v) => ({
+      id: v.id,
+      nodes: v.nodes.map((n) => n.target.join(" ")),
+    }));
+    expect(summary, `${label}: ${JSON.stringify(summary, null, 2)}`).toEqual([]);
+  }
+
+  for (const scheme of ["light", "dark"] as const) {
+    test(`estados principais sem violações em ${scheme}`, async ({ page, context }) => {
+      await authenticate(context);
+      await page.emulateMedia({ colorScheme: scheme });
+      await installFakeSpeech(page, "unavailable");
+      await page.goto("/fala");
+      await expect(page.getByRole("heading", { level: 1, name: "Prática de fala" })).toBeVisible();
+      await expect(page.getByText("O navegador pode enviar sua voz a um serviço externo")).toBeVisible();
+      await expectNoViolations(page, `${scheme} consentimento`);
+
+      await page.getByRole("button", { name: "Permitir reconhecimento pelo navegador" }).click();
+      await page.getByRole("button", { name: "Falar" }).first().click();
+      await expect(page.getByText("Ouvindo… fale agora.")).toBeVisible();
+      await expectNoViolations(page, `${scheme} ouvindo`);
+
+      await page.evaluate(() => (window as never as { __say: (...a: string[]) => void }).__say("아빠"));
+      await page.evaluate(() => (window as never as { __end: () => void }).__end());
+      await expect(page.getByText("Reconhecemos:")).toBeVisible();
+      await page.getByText("Prefere digitar ou usar o ditado do teclado?").first().click();
+      await expectNoViolations(page, `${scheme} resultado`);
+    });
+  }
+
+  test("estado sem suporte sem violações", async ({ page, context }) => {
+    await authenticate(context);
+    await installFakeSpeech(page, "none");
+    await page.goto("/fala");
+    await expect(page.getByText("Reconhecimento de fala indisponível")).toBeVisible();
+    await expectNoViolations(page, "sem suporte");
   });
 });

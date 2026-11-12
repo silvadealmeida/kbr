@@ -60,6 +60,18 @@ O teste `tests/site.test.ts` varre `src/` e falha se um rastreador conhecido, ba
 
 Respostas de `/auth/*` e das rotas privadas (`/dashboard`, `/cursos`, `/hangul`, `/vocabulario`, `/revisao`, `/licoes`) recebem `Cache-Control: private, no-store, max-age=0`. Isso impede que HTML de sessão/progresso fique em cache compartilhado ou seja reutilizado após logout/troca de conta. O manifesto usa `public, max-age=0, must-revalidate`; os ícones usam cache imutável de um ano. Não há cache próprio de respostas de API, JWT, tokens ou snapshots de progresso — o navegador e o Supabase seguem suas próprias regras para requisições `fetch`, e não há service worker para interceptá-las.
 
+### 3.2 Microfone e reconhecimento de fala (Fase 8C)
+
+`/fala` usa `SpeechRecognition` do navegador, só após clique e, no modo
+remoto/desconhecido, após consentimento explícito em memória. O KBR não acessa,
+grava, armazena, registra nem transmite áudio; só recebe do navegador o texto
+reconhecido, mantido no estado do componente. Se o navegador processa a fala
+remotamente (por exemplo Google ou Apple), isso ocorre sob a política do
+fabricante e é informado ao aluno antes do uso. Nenhum cookie, chave de
+`localStorage`/`sessionStorage` ou analytics novo. Revisar a política de
+privacidade pública (`/privacidade`) e a revisão jurídica antes do lançamento
+público. Detalhes: `docs/speech/speech-recognition.md`.
+
 ## 4. Avaliação de consentimento
 
 Situação atual: apenas cookies estritamente necessários (sessão/autenticação e retorno do login) e armazenamento local necessário ao funcionamento e à preferência de tema. Não há rastreamento não essencial.

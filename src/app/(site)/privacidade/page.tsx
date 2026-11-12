@@ -234,6 +234,19 @@ export default function PrivacyPage() {
             endereço solicitado e mensagens de erro. O KBR não usa esses registros para
             publicidade ou perfilamento comportamental.
           </p>
+
+          <h3 className="text-lg font-semibold text-fg">
+            2.4 Microfone e prática de fala (experimental)
+          </h3>
+          <p>
+            A página de prática de fala só liga o microfone depois que você toca em “Falar”. O
+            reconhecimento é feito pelo seu navegador: dependendo do navegador e do aparelho, o
+            áudio pode ser processado no próprio aparelho ou enviado ao serviço do fabricante do
+            navegador, sob a política de privacidade dele. Quando não conseguimos confirmar que o
+            reconhecimento é local, pedimos sua permissão antes de começar. O KBR não grava, não
+            guarda e não envia o seu áudio; ele recebe do navegador apenas o texto reconhecido, que
+            fica na tela e não é salvo no seu progresso.
+          </p>
         </Section>
 
         <Section id="armazenamento" title="3. Cookies e armazenamento local">

@@ -1,5 +1,6 @@
 import { CHECKPOINTS } from "@/content/hangul/checkpoints";
 import { LESSONS } from "@/content/hangul/lessons";
+import { A1_LESSON_IDS } from "@/content/curriculum/a1";
 import { HANGUL_VOCABULARY } from "./hangul";
 import { VOCAB_SENTENCES } from "./sentences";
 import { validateVocabulary } from "./validate";
@@ -18,6 +19,7 @@ export { VOCAB_SENTENCES };
 /** Lições/checkpoints existentes por curso, para validar referências. */
 export const COURSE_LESSON_IDS: ReadonlyMap<string, ReadonlySet<string>> = new Map([
   ["hangul", new Set<string>([...LESSONS.map((l) => l.id), ...CHECKPOINTS.map((c) => c.id)])],
+  ["ko-a1", A1_LESSON_IDS],
 ]);
 
 const BY_ID = new Map(VOCAB_ENTRIES.map((e) => [e.id, e]));

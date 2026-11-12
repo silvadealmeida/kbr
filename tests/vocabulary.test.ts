@@ -51,6 +51,43 @@ describe("conteúdo — validação ESTRUTURAL (não prova correção linguísti
     expect(new Set(VOCAB_SENTENCES.map((s) => s.id)).size).toBe(VOCAB_SENTENCES.length);
   });
 
+  it("aceita sentidos homógrafos qualificados sem quebrar IDs legados", () => {
+    const base = VOCAB_ENTRIES[0];
+    const eye = { ...base, id: "ko:눈#eye", ko: "눈", pt: "olho", sense: "eye", audioText: "눈" };
+    const snow = { ...base, id: "ko:눈#snow", ko: "눈", pt: "neve", sense: "snow", audioText: "눈" };
+    const eyeSentence = {
+      ...VOCAB_SENTENCES[0], id: "test-eye", vocabId: eye.id, ko: "눈이 아파요", pt: "Meu olho dói.", target: "눈", contextMeaning: "olho",
+    };
+    const snowSentence = {
+      ...VOCAB_SENTENCES[0], id: "test-snow", vocabId: snow.id, ko: "눈이 와요", pt: "Está nevando.", target: "눈", contextMeaning: "neve",
+    };
+
+    expect(validateVocabulary([eye, snow], [eyeSentence, snowSentence], COURSE_LESSON_IDS)).toEqual([]);
+    expect(
+      validateVocabulary([{ ...eye, id: "ko:눈", sense: undefined }, snow], [], COURSE_LESSON_IDS)
+        .map((issue) => issue.message).join(),
+    ).toContain("exigem sense");
+    expect(
+      validateVocabulary([eye, { ...snow, id: eye.id, sense: eye.sense }], [], COURSE_LESSON_IDS)
+        .map((issue) => issue.message).join(),
+    ).toContain("sense duplicado");
+  });
+
+  it("o schema de vocabulário já reconhece IDs de lição A1 sem registrar conteúdo", () => {
+    const entry = {
+      ...VOCAB_ENTRIES[0],
+      id: "ko:안녕하세요",
+      ko: "안녕하세요",
+      pt: "olá",
+      course: "ko-a1",
+      lesson: "a1-l01",
+      audioText: "안녕하세요",
+    };
+    expect(COURSE_LESSON_IDS.get("ko-a1")?.size).toBe(40);
+    expect(validateVocabulary([entry], [], COURSE_LESSON_IDS)).toEqual([]);
+    expect(VOCAB_ENTRIES.some((item) => item.course === "ko-a1")).toBe(false);
+  });
+
   it("todo item vem de um WordRecord existente do Hangul, sem formas flexionadas", () => {
     const kos = new Set(WORDS.map((w) => w.ko));
     expect(VOCAB_ENTRIES.every((e) => kos.has(e.ko))).toBe(true);

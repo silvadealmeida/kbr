@@ -7,11 +7,16 @@ export type VocabPos = "substantivo" | "verbo" | "pronome" | "advérbio" | "inte
  * de aluno (isso vive em `Progress.cards`, chave `v:<id>`).
  */
 export type VocabEntry = {
-  /** Estável e único: `ko:<forma de dicionário>`. Nunca muda depois de publicado. */
+  /**
+   * Estável e único: `ko:<forma>` ou `ko:<forma>#<sentido>` para homógrafos
+   * separados antes da publicação. Nunca muda depois de publicado.
+   */
   id: string;
   ko: string;
   /** Glosa em português; sentidos separados por "; ". */
   pt: string;
+  /** Slug semântico estável quando a mesma forma precisa de cartões distintos. */
+  sense?: string;
   pos?: VocabPos;
   course: string;
   /** Lição/checkpoint onde o item é apresentado pela primeira vez. */

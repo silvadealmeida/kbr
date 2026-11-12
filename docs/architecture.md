@@ -179,6 +179,8 @@ Limitações: o sorteio é uniforme por permutação, mas uma nova tentativa pod
 
 Registro canônico em `src/content/vocabulary` (itens derivados de `WORDS` do Hangul + 25 frases originais), lógica pura em `src/lib/vocabulary`, UI em `src/components/vocabulary`, rotas `/vocabulario` e `/vocabulario/revisao`. O estado do aluno é **um cartão Leitner por palavra salva** em `Progress.cards["v:<id>"]`; remoção = marca (`due` = `9999-12-31…`) para sobreviver ao merge por união. **Sem mudança em `Progress` v1, CAS, SQL ou migração**; o SRS e o painel do Hangul ignoram chaves `v:`. Regra de ajuda (tradução/pista → acerto repete a caixa) e demais detalhes: `docs/vocabulary/{architecture,content-schema,review-behavior,contextual-practice}.md`.
 
+Desde a 9A, `VocabEntry` aceita `sense` opcional e ID `ko:<forma>#<sense>` quando sentidos homógrafos **novos** exigem agendas separadas; todas as entradas da mesma forma precisam de sentidos únicos. IDs amplos já publicados permanecem imutáveis e usam `contextMeaning`, pois dividi-los exigiria migração explícita de cartões. `COURSE_LESSON_IDS` reconhece as 40 lições planejadas A1 para validar conteúdo futuro, mas `VOCAB_ENTRIES`/`VOCAB_SENTENCES` continuam sem itens A1 nesta fase.
+
 ## Revisão
 `/revisao` é funcional desde a Fase 4A e não altera `Progress` v1, auth, migração, tabela ou RLS.
 

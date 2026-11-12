@@ -6,9 +6,10 @@ Tipos em `src/content/vocabulary/types.ts`. Conteúdo é dado puro (`content/` s
 
 | Campo | Regra |
 |---|---|
-| `id` | `ko:<forma de dicionário>`, único e **imutável** (é a chave do cartão do aluno: `v:<id>`). |
+| `id` | `ko:<forma de dicionário>`; para sentidos homógrafos separados antes da publicação, `ko:<forma>#<sense>`. Único e **imutável** (é a chave do cartão: `v:<id>`). |
 | `ko` | Hangul, sem espaços. Forma de dicionário; nada de formas com partícula ou conjugadas. |
 | `pt` | Glosa em português; sentidos separados por `; `. Homógrafos (`눈`: olho; neve) são **um** item/cartão; o sentido da frase vem em `contextMeaning`. |
+| `sense` | Opcional. Slug semântico estável (`eye`, `snow` etc.) quando sentidos novos precisam de cartões distintos. Se uma forma tem mais de uma entrada, todas precisam de `sense` único. |
 | `pos` | Opcional: substantivo, verbo, pronome, advérbio, interjeição, numeral. |
 | `course`, `lesson` | Origem; `lesson` precisa existir no curso (validado). |
 | `audioText` | Texto para a voz do navegador. |
@@ -16,6 +17,8 @@ Tipos em `src/content/vocabulary/types.ts`. Conteúdo é dado puro (`content/` s
 | `review` | `ReviewMeta` (`in-review` até revisão nativa). |
 
 Romanização não é usada.
+
+Política de compatibilidade: IDs amplos já publicados (incluindo homógrafos combinados da 9A-V) não são divididos automaticamente, porque isso fragmentaria cartões existentes. Neles, `contextMeaning` continua desambiguando a frase. Conteúdo novo pode usar sentidos qualificados desde a primeira publicação; dividir um ID legado exige fase de migração explícita.
 
 ## `VocabSentence`
 
@@ -30,7 +33,7 @@ Regras validadas: o alvo ocorre **exatamente uma vez** e no **início de uma pal
 ## Como um curso A1–C2 fornece vocabulário
 
 1. Exportar `VocabEntry[]` (e `VocabSentence[]`) do curso, com `course` igual ao id do curso e `lesson` apontando para uma lição real.
-2. Acrescentar o array a `VOCAB_ENTRIES` (e as frases a `VOCAB_SENTENCES`) em `src/content/vocabulary/index.ts` e o curso a `COURSE_LESSON_IDS`.
+2. Acrescentar o array a `VOCAB_ENTRIES` (e as frases a `VOCAB_SENTENCES`) em `src/content/vocabulary/index.ts`. O A1 já usa `A1_LESSON_IDS` em `COURSE_LESSON_IDS`; isso não registra conteúdo nem torna o curso jogável.
 3. Rodar `npm test`: a validação estrutural acusa ids duplicados, referências inválidas, alvo ausente/duplicado e variantes ambíguas.
 4. Opcional: mostrar o resumo da lição com `vocabForLesson(course, lesson)` e o botão "Salvar as N palavras desta lição" (já existe em `/vocabulario` com o filtro de lição). Salvar é sempre ação do aluno.
 5. Marcar `review.status: "in-review"` até revisão nativa. Não gerar áudio: a voz do sistema cobre.

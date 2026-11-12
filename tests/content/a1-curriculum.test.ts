@@ -10,6 +10,7 @@ import {
 } from "@/content/curriculum/a1";
 import { courseStepHref, getCourse } from "@/content/courses";
 import { VOCAB_ENTRIES } from "@/content/vocabulary";
+import { COURSE_LESSON_IDS } from "@/content/vocabulary";
 import { summarizeCourseProgress } from "@/lib/courses";
 import { EXERCISE_TYPE_REGISTRY } from "@/lib/exercises/registry";
 import { createEmptyProgress } from "@/lib/storage";
@@ -54,6 +55,7 @@ describe("blueprint curricular A1", () => {
       expect(lesson).not.toHaveProperty("vocabularyEntries");
     }
     expect(VOCAB_ENTRIES.filter((entry) => entry.course === "ko-a1")).toEqual([]);
+    expect(COURSE_LESSON_IDS.get("ko-a1")).toEqual(A1_LESSON_IDS);
   });
 
   test("módulos cobrem cada passo uma vez e checkpoints não permitem atalhos", () => {

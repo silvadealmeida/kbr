@@ -36,6 +36,9 @@ Thumbs.db
 # Gerados / config local de agentes
 next-env.d.ts
 /graphify-out/cache/
+# Medição/inspeção local da fase 7D (scripts temporários, não versionar)
+/*.tmp.mjs
+/tmp/
 /.claude/
 /.codex/
 /.opencode/

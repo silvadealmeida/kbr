@@ -1,5 +1,6 @@
 import { describe, expect, test } from "vitest";
 import {
+  MEDIALS,
   composeSyllable,
   decomposeSyllable,
   isFinal,
@@ -9,6 +10,7 @@ import {
   isMedial,
   normalizeHangul,
 } from "@/lib/hangul";
+import { medialShape } from "@/lib/hangul/layout";
 
 describe("Hangul", () => {
   test("compõe sílabas sem e com consoante final", () => {
@@ -30,6 +32,46 @@ describe("Hangul", () => {
     expect(isHangulSyllable("한")).toBe(true);
     expect(isHangulSyllable("ㄴ")).toBe(false);
     expect(isHangulSyllable("한국")).toBe(false);
+  });
+});
+
+describe("geometria das vogais", () => {
+  test("classifica as 21 vogais sem deixar a composta na base", () => {
+    const shapes = Object.fromEntries(
+      MEDIALS.map((medial) => [medial, medialShape(medial).kind]),
+    );
+
+    expect(shapes).toMatchObject({
+      "ㅏ": "vertical",
+      "ㅐ": "vertical",
+      "ㅑ": "vertical",
+      "ㅒ": "vertical",
+      "ㅓ": "vertical",
+      "ㅔ": "vertical",
+      "ㅕ": "vertical",
+      "ㅖ": "vertical",
+      "ㅣ": "vertical",
+      "ㅗ": "horizontal",
+      "ㅛ": "horizontal",
+      "ㅜ": "horizontal",
+      "ㅠ": "horizontal",
+      "ㅡ": "horizontal",
+      "ㅘ": "compound",
+      "ㅙ": "compound",
+      "ㅚ": "compound",
+      "ㅝ": "compound",
+      "ㅞ": "compound",
+      "ㅟ": "compound",
+      "ㅢ": "compound",
+    });
+    expect(Object.keys(shapes)).toHaveLength(MEDIALS.length);
+  });
+
+  test("decompõe as vogais compostas em base e traço lateral", () => {
+    expect(medialShape("ㅘ")).toEqual({ kind: "compound", base: "ㅗ", side: "ㅏ" });
+    expect(medialShape("ㅚ")).toEqual({ kind: "compound", base: "ㅗ", side: "ㅣ" });
+    expect(medialShape("ㅝ")).toEqual({ kind: "compound", base: "ㅜ", side: "ㅓ" });
+    expect(medialShape("ㅢ")).toEqual({ kind: "compound", base: "ㅡ", side: "ㅣ" });
   });
 });
 

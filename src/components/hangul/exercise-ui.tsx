@@ -2,74 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { DetailedCheckResult, ExerciseAnswer, ExerciseSpec } from "@/lib/exercises";
-import { composeSyllable, type Final, type Initial, type Medial } from "@/lib/hangul";
+import { composeSyllable } from "@/lib/hangul";
+import { RULES } from "@/content/hangul/rules";
+import { SyllableBuilder } from "./SyllableBuilder";
+import { PronunciationLayers } from "./PronunciationLayers";
+import { AudioControl, BilingualText } from "./exercise-media";
 
-const HANGUL = /[\u3131-\u318E\uAC00-\uD7A3]/;
-
-export function BilingualText({ text }: { text: string }) {
-  return (
-    <>
-      {text.split(/(\s+)/).map((part, index) =>
-        HANGUL.test(part) ? (
-          <span key={index} lang="ko" className="font-ko">
-            {part}
-          </span>
-        ) : (
-          part
-        ),
-      )}
-    </>
-  );
-}
-
-export function speakKorean(text: string): boolean {
-  if (typeof window === "undefined" || !("speechSynthesis" in window)) return false;
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = "ko-KR";
-  utterance.rate = 0.85;
-  window.speechSynthesis.cancel();
-  window.speechSynthesis.speak(utterance);
-  return true;
-}
-
-export function AudioControl({ text, fallback }: { text: string; fallback?: string }) {
-  const [spoken, setSpoken] = useState(false);
-  const [unavailable, setUnavailable] = useState(false);
-
-  const play = () => {
-    const ok = speakKorean(text);
-    setSpoken(ok);
-    setUnavailable(!ok);
-  };
-
-  return (
-    <div className="rounded-xl border border-border bg-soft/60 p-3">
-      <button
-        type="button"
-        onClick={play}
-        className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-border bg-surface px-5 font-semibold text-fg hover:bg-soft"
-      >
-        <span aria-hidden>▶</span>
-        Ouvir o áudio
-      </button>
-      {unavailable && (
-        <p role="status" className="mt-2 text-sm text-muted">
-          Este navegador não conseguiu reproduzir a voz coreana.
-        </p>
-      )}
-      {spoken && (
-        <p role="status" className="mt-2 text-sm text-muted">
-          Áudio solicitado. Se não ouvir, confira o volume ou use a dica abaixo.
-        </p>
-      )}
-      {fallback ? (
-        <p className="mt-2 text-sm text-muted">
-          <span className="font-semibold text-fg">Dica de som:</span> <BilingualText text={fallback} />
-        </p>
-      ) : null}
-    </div>
-  );
-}
+export { AudioControl, BilingualText, speakKorean } from "./exercise-media";
 
 type AnswerAreaProps = {
   exercise: ExerciseSpec;
@@ -79,12 +18,24 @@ type AnswerAreaProps = {
   onSubmit(): void;
 };
 
+const KIND_LABEL: Record<ExerciseSpec["type"], string> = {
+  mcq: "Escolha",
+  cloze: "Complete",
+  "build-syllable": "Composição",
+  listen: "Escuta",
+  translate: "Tradução",
+  "audio-to-char": "Escuta",
+  "char-to-audio": "Escolha",
+  "minimal-pair": "Contraste",
+  reading: "Leitura",
+};
+
 function optionClass(active: boolean, state: "idle" | "correct" | "wrong") {
-  if (state === "correct") return "border-emerald-600 bg-emerald-50 text-emerald-900 dark:bg-emerald-950 dark:text-emerald-100";
-  if (state === "wrong") return "border-red-600 bg-red-50 text-red-900 dark:bg-red-950 dark:text-red-100";
+  if (state === "correct") return "border-success bg-success-soft text-fg";
+  if (state === "wrong") return "border-danger bg-danger-soft text-fg";
   return active
-    ? "border-brand bg-soft text-fg"
-    : "border-border bg-surface text-fg hover:bg-soft";
+    ? "border-accent bg-surface-2 text-fg"
+    : "border-line-strong bg-surface text-fg hover:bg-surface-2";
 }
 
 function choiceState(
@@ -98,41 +49,133 @@ function choiceState(
   return "idle";
 }
 
+function ChoiceList({
+  options,
+  selected,
+  correctId,
+  result,
+  disabled,
+  onSelect,
+}: {
+  options: readonly { id: string; label: string }[];
+  selected: string | null;
+  correctId: string;
+  result: DetailedCheckResult | null;
+  disabled: boolean;
+  onSelect(id: string): void;
+}) {
+  // Alternativas curtas (jamo, sílabas, palavras) cabem em duas colunas; frases
+  // longas ficam em uma coluna para preservar a leitura.
+  const compact = options.every((option) => option.label.length <= 14);
+
+  return (
+    <div
+      role="group"
+      aria-label="Alternativas"
+      className={`grid gap-2 ${compact ? "sm:grid-cols-2" : ""}`}
+    >
+      {options.map((option) => {
+        const chosen = selected === option.id;
+        const state = choiceState(result, option.id === correctId, chosen);
+        return (
+          <button
+            key={option.id}
+            type="button"
+            aria-pressed={chosen}
+            disabled={disabled}
+            onClick={() => onSelect(option.id)}
+            className={`flex min-h-14 items-start gap-3 rounded-[var(--radius-field)] border-2 px-4 py-3 text-left text-base font-medium transition-[background-color,border-color,color] duration-[var(--motion-fast)] disabled:cursor-default ${optionClass(chosen, state)}`}
+          >
+            <span
+              aria-hidden
+              className={`mt-0.5 grid size-5 shrink-0 place-items-center rounded-full border font-mono text-[11px] ${
+                state === "correct"
+                  ? "border-success text-success"
+                  : state === "wrong"
+                    ? "border-danger text-danger"
+                    : "border-line-strong text-muted"
+              }`}
+            >
+              {state === "correct" ? "✓" : state === "wrong" ? "✗" : "○"}
+            </span>
+            <span className="min-w-0 break-words">
+              <BilingualText text={option.label} />
+            </span>
+            {result && option.id === correctId ? (
+              <span className="sr-only"> Resposta correta.</span>
+            ) : null}
+            {result && chosen && option.id !== correctId ? (
+              <span className="sr-only"> Sua resposta, incorreta.</span>
+            ) : null}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+function TextAnswer({
+  disabled,
+  onChange,
+  onSubmit,
+}: Pick<AnswerAreaProps, "disabled" | "onChange" | "onSubmit">) {
+  const [text, setText] = useState("");
+
+  return (
+    <div>
+      <label htmlFor="resposta" className="mb-2 block text-sm font-semibold text-fg">
+        Sua resposta
+      </label>
+      <input
+        id="resposta"
+        type="text"
+        value={text}
+        disabled={disabled}
+        aria-describedby="resposta-ajuda"
+        onChange={(event) => {
+          setText(event.target.value);
+          onChange(
+            event.target.value.trim()
+              ? { kind: "text", value: event.target.value }
+              : null,
+          );
+        }}
+        onKeyDown={(event) => {
+          if (event.key === "Enter" && !disabled && text.trim()) {
+            event.preventDefault();
+            onSubmit();
+          }
+        }}
+        className="min-h-14 w-full rounded-[var(--radius-field)] border-2 border-line-strong bg-surface px-4 text-base text-fg placeholder:text-muted disabled:cursor-not-allowed disabled:opacity-60"
+        autoComplete="off"
+        autoCapitalize="off"
+        autoCorrect="off"
+        enterKeyHint="done"
+        spellCheck={false}
+      />
+      <p id="resposta-ajuda" className="mt-2 text-xs text-muted">
+        Digite e toque em Conferir, ou pressione Enter.
+      </p>
+    </div>
+  );
+}
+
 function AnswerArea({ exercise, result, disabled, onChange, onSubmit }: AnswerAreaProps) {
   const [optionId, setOptionId] = useState<string | null>(null);
-  const [text, setText] = useState("");
-  const [parts, setParts] = useState<{
-    initial?: Initial;
-    medial?: Medial;
-    final?: string;
-  }>({});
 
   if (exercise.type === "mcq") {
     return (
-      <div role="group" aria-label="Alternativas" className="flex flex-col gap-3">
-        {exercise.options.map((option) => {
-          const chosen = optionId === option;
-          const state = choiceState(result, option === exercise.correctAnswer, chosen);
-          return (
-            <button
-              key={option}
-              type="button"
-              aria-pressed={chosen}
-              disabled={disabled}
-              onClick={() => {
-                setOptionId(option);
-                onChange({ kind: "text", value: option });
-              }}
-              className={`min-h-14 rounded-xl border-2 px-4 py-3 text-left text-base font-medium ${optionClass(chosen, state)}`}
-            >
-              <span aria-hidden className="mr-2 font-mono text-sm text-muted">
-                {state === "correct" ? "✓" : state === "wrong" ? "✗" : "○"}
-              </span>
-              <BilingualText text={option} />
-            </button>
-          );
-        })}
-      </div>
+      <ChoiceList
+        options={exercise.options.map((value) => ({ id: value, label: value }))}
+        selected={optionId}
+        correctId={exercise.correctAnswer}
+        result={result}
+        disabled={disabled}
+        onSelect={(value) => {
+          setOptionId(value);
+          onChange({ kind: "text", value });
+        }}
+      />
     );
   }
 
@@ -145,37 +188,19 @@ function AnswerArea({ exercise, result, disabled, onChange, onSubmit }: AnswerAr
     const options =
       exercise.type === "audio-to-char"
         ? exercise.options.map((option) => ({ id: option.id, label: option.jamo }))
-        : exercise.type === "char-to-audio"
-          ? exercise.options.map((option) => ({ id: option.id, label: option.label }))
-          : exercise.type === "minimal-pair"
-            ? exercise.options.map((option) => ({ id: option.id, label: option.label }))
-            : (exercise.options ?? []);
-
+        : exercise.options ?? [];
     return (
-      <div role="group" aria-label="Alternativas" className="flex flex-col gap-3">
-        {options.map((option) => {
-          const chosen = optionId === option.id;
-          const state = choiceState(result, option.id === exercise.correctOptionId, chosen);
-          return (
-            <button
-              key={option.id}
-              type="button"
-              aria-pressed={chosen}
-              disabled={disabled}
-              onClick={() => {
-                setOptionId(option.id);
-                onChange({ kind: "choice", optionId: option.id });
-              }}
-              className={`min-h-14 rounded-xl border-2 px-4 py-3 text-left text-base font-medium ${optionClass(chosen, state)}`}
-            >
-              <span aria-hidden className="mr-2 font-mono text-sm text-muted">
-                {state === "correct" ? "✓" : state === "wrong" ? "✗" : "○"}
-              </span>
-              <BilingualText text={option.label} />
-            </button>
-          );
-        })}
-      </div>
+      <ChoiceList
+        options={options}
+        selected={optionId}
+        correctId={exercise.correctOptionId ?? ""}
+        result={result}
+        disabled={disabled}
+        onSelect={(value) => {
+          setOptionId(value);
+          onChange({ kind: "choice", optionId: value });
+        }}
+      />
     );
   }
 
@@ -189,7 +214,7 @@ function AnswerArea({ exercise, result, disabled, onChange, onSubmit }: AnswerAr
           setOptionId("done");
           onChange({ kind: "self-check", confidence: "medium" });
         }}
-        className={`min-h-14 rounded-xl border-2 px-4 py-3 text-left font-medium ${optionClass(optionId === "done", "idle")}`}
+        className={`min-h-14 rounded-[var(--radius-field)] border-2 px-4 py-3 text-left font-medium transition-colors duration-[var(--motion-fast)] disabled:cursor-default ${optionClass(optionId === "done", "idle")}`}
       >
         {exercise.selfCheckLabel ?? "Já li em voz alta (prática, não conta nota)"}
       </button>
@@ -197,154 +222,180 @@ function AnswerArea({ exercise, result, disabled, onChange, onSubmit }: AnswerAr
   }
 
   if (exercise.type === "build-syllable") {
-    const initials = exercise.initialOptions ?? [exercise.initial];
-    const medials = exercise.medialOptions ?? [exercise.medial];
-    const finals = exercise.finalOptions ?? [];
-    const complete = Boolean(parts.initial && parts.medial && (finals.length === 0 || parts.final === exercise.final));
-    const preview =
-      parts.initial && parts.medial && complete
-        ? composeSyllable(parts.initial, parts.medial, (parts.final ?? "") as Final)
-        : null;
-
     return (
-      <div className="flex flex-col gap-4">
-        <fieldset>
-          <legend className="mb-2 text-sm font-semibold text-muted">Consoante inicial</legend>
-          <div className="flex flex-wrap gap-2">
-            {initials.map((initial) => (
-              <button
-                key={initial}
-                type="button"
-                aria-pressed={parts.initial === initial}
-                disabled={disabled}
-                onClick={() => {
-                  const next = { ...parts, initial };
-                  setParts(next);
-                  onChange(
-                    next.initial && next.medial && (finals.length === 0 || next.final === exercise.final)
-                      ? {
-                          kind: "syllable",
-                          initial: next.initial,
-                          medial: next.medial,
-                          final: (next.final ?? "") as Final,
-                        }
-                      : null,
-                  );
-                }}
-                className={`min-h-14 min-w-14 rounded-xl border-2 px-4 font-ko text-xl ${optionClass(parts.initial === initial, "idle")}`}
-                lang="ko"
-              >
-                {initial}
-              </button>
-            ))}
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend className="mb-2 text-sm font-semibold text-muted">Vogal</legend>
-          <div className="flex flex-wrap gap-2">
-            {medials.map((medial) => (
-              <button
-                key={medial}
-                type="button"
-                aria-pressed={parts.medial === medial}
-                disabled={disabled}
-                onClick={() => {
-                  const next = { ...parts, medial };
-                  setParts(next);
-                  onChange(
-                    next.initial && next.medial && (finals.length === 0 || next.final === exercise.final)
-                      ? {
-                          kind: "syllable",
-                          initial: next.initial,
-                          medial: next.medial,
-                          final: (next.final ?? "") as Final,
-                        }
-                      : null,
-                  );
-                }}
-                className={`min-h-14 min-w-14 rounded-xl border-2 px-4 font-ko text-xl ${optionClass(parts.medial === medial, "idle")}`}
-                lang="ko"
-              >
-                {medial}
-              </button>
-            ))}
-          </div>
-        </fieldset>
-
-        {finals.length > 0 && (
-          <fieldset>
-            <legend className="mb-2 text-sm font-semibold text-muted">Consoante final</legend>
-            <div className="flex flex-wrap gap-2">
-              {finals.map((final) => (
-                <button
-                  key={final || "none"}
-                  type="button"
-                  aria-pressed={parts.final === final}
-                  disabled={disabled}
-                  onClick={() => {
-                    const next = { ...parts, final };
-                    setParts(next);
-                    onChange(
-                      next.initial && next.medial
-                        ? {
-                            kind: "syllable",
-                            initial: next.initial,
-                            medial: next.medial,
-                            final: (next.final ?? "") as Final,
-                          }
-                        : null,
-                    );
-                  }}
-                  className={`min-h-14 min-w-14 rounded-xl border-2 px-4 font-ko text-xl ${optionClass(parts.final === final, "idle")}`}
-                  lang="ko"
-                >
-                  {final || "—"}
-                </button>
-              ))}
-            </div>
-          </fieldset>
-        )}
-
-        <p aria-live="polite" className="text-muted">
-          Sua sílaba:{" "}
-          <span lang="ko" className="font-ko text-2xl font-semibold text-fg">
-            {preview ?? "—"}
-          </span>
-        </p>
-      </div>
+      <SyllableBuilder
+        exercise={exercise}
+        disabled={disabled}
+        onChange={onChange}
+      />
     );
   }
 
+  return <TextAnswer disabled={disabled} onChange={onChange} onSubmit={onSubmit} />;
+}
+
+function answerLabel(
+  exercise: ExerciseSpec,
+  answer: ExerciseAnswer | null,
+): string | null {
+  if (!answer) return null;
+  if (answer.kind === "text") return answer.value;
+  if (answer.kind === "syllable") {
+    return composeSyllable(answer.initial, answer.medial, answer.final);
+  }
+  if (answer.kind === "self-check") return null;
+  if (exercise.type === "audio-to-char") {
+    return exercise.options.find((option) => option.id === answer.optionId)?.jamo ?? null;
+  }
+  if (exercise.type === "char-to-audio" || exercise.type === "minimal-pair") {
+    return exercise.options.find((option) => option.id === answer.optionId)?.label ?? null;
+  }
+  if (exercise.type === "reading") {
+    return exercise.options?.find((option) => option.id === answer.optionId)?.label ?? null;
+  }
+  return null;
+}
+
+function FeedbackPanel({
+  exercise,
+  draft,
+  result,
+  resultRef,
+}: {
+  exercise: ExerciseSpec;
+  draft: ExerciseAnswer | null;
+  result: DetailedCheckResult;
+  resultRef: React.RefObject<HTMLDivElement | null>;
+}) {
+  const given = answerLabel(exercise, draft);
+  const showGiven = !result.correct && given !== null && given !== result.expected;
+
   return (
-    <div>
-      <label htmlFor="resposta" className="mb-2 block text-sm font-semibold text-muted">
-        Sua resposta
-      </label>
-      <input
-        id="resposta"
-        type="text"
-        value={text}
-        disabled={disabled}
-        onChange={(event) => {
-          setText(event.target.value);
-          onChange(event.target.value.trim() ? { kind: "text", value: event.target.value } : null);
-        }}
-        onKeyDown={(event) => {
-          if (event.key === "Enter" && !disabled && text.trim()) {
-            event.preventDefault();
-            onSubmit();
-          }
-        }}
-        className="min-h-14 w-full rounded-xl border-2 border-border bg-surface px-4 text-base"
-        autoComplete="off"
-        autoCapitalize="off"
-        autoCorrect="off"
-        enterKeyHint="done"
-        spellCheck={false}
-      />
+    <div
+      ref={resultRef}
+      tabIndex={-1}
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+      className={`feedback-enter mt-6 scroll-mb-[calc(8rem+env(safe-area-inset-bottom))] rounded-[var(--radius-panel)] border-l-4 p-5 outline-none ${
+        result.correct
+          ? "border-success bg-success-soft text-fg"
+          : "border-danger bg-danger-soft text-fg"
+      }`}
+    >
+      <div className="flex items-start gap-3">
+        <span
+          aria-hidden
+          className={`mt-0.5 grid size-10 shrink-0 -rotate-3 place-items-center rounded-[var(--radius-seal)] border-2 bg-surface font-mono text-lg font-bold ${
+            result.correct ? "border-success text-success" : "border-danger text-danger"
+          }`}
+        >
+          {result.correct ? "✓" : "×"}
+        </span>
+        <div className="min-w-0">
+          <p className="mono-label text-muted">Resultado</p>
+          <p className="text-lg font-semibold leading-tight">
+            {result.correct ? "Correto." : "Ainda não."}
+          </p>
+          {showGiven ? (
+            <p className="mt-2 text-sm">
+              Sua resposta:{" "}
+              <strong className="font-semibold">
+                <BilingualText text={given} />
+              </strong>
+            </p>
+          ) : null}
+          {!result.correct ? (
+            <p className="mt-1 text-sm">
+              Resposta correta:{" "}
+              <strong className="font-semibold">
+                <BilingualText text={result.expected} />
+              </strong>
+            </p>
+          ) : null}
+          {result.explanation ? (
+            <p className="mt-2 text-sm leading-relaxed">
+              <BilingualText text={result.explanation} />
+            </p>
+          ) : null}
+          {result.scored === false ? (
+            <p className="mt-2 text-xs text-muted">
+              Item de prática: não entra na nota.
+            </p>
+          ) : null}
+          {result.errorTags?.includes("answer-kind") ? (
+            <p className="mt-1 text-sm">
+              Tente responder com o tipo de alternativa pedido.
+            </p>
+          ) : null}
+        </div>
+      </div>
     </div>
   );
+}
+
+function AudioPrompt({ text, fallback }: { text: string; fallback?: string }) {
+  return (
+    <div className="mt-4">
+      <AudioControl text={text} fallback={fallback} />
+    </div>
+  );
+}
+
+function ReadingPrompt({
+  exercise,
+}: {
+  exercise: Extract<ExerciseSpec, { type: "reading" }>;
+}) {
+  return (
+    <div className="mt-4 rounded-[var(--radius-panel)] border border-line bg-surface-2 p-4 sm:p-6">
+      <p className="mono-label text-muted">Texto para ler</p>
+      <p lang="ko" className="mt-2 break-words font-ko text-4xl font-semibold tracking-wide sm:text-5xl">
+        {exercise.text}
+      </p>
+      {exercise.audioText ? (
+        <div className="mt-3">
+          <AudioControl text={exercise.audioText} />
+        </div>
+      ) : null}
+      {exercise.question ? (
+        <p className="mt-4 border-t border-line pt-3 font-medium">
+          <BilingualText text={exercise.question} />
+        </p>
+      ) : null}
+    </div>
+  );
+}
+
+function ruleLayers(exercise: ExerciseSpec) {
+  if (!exercise.tags?.some((tag) => tag.startsWith("rule:"))) return [];
+
+  // O exemplo pode estar no enunciado, no texto de leitura, na dica de áudio,
+  // no alvo de composição ou nas alternativas. Reunimos tudo sem alterar o
+  // exercício; a regra só aparece quando há um exemplo real do conteúdo.
+  const source: string[] = [exercise.prompt, exercise.explanation ?? ""];
+  if ("text" in exercise && typeof exercise.text === "string") source.push(exercise.text);
+  if ("audioText" in exercise && typeof exercise.audioText === "string") {
+    source.push(exercise.audioText);
+  }
+  if ("target" in exercise && typeof exercise.target === "string") {
+    source.push(exercise.target);
+  }
+  if ("options" in exercise && Array.isArray(exercise.options)) {
+    for (const option of exercise.options) {
+      if ("jamo" in option && typeof option.jamo === "string") source.push(option.jamo);
+      if ("label" in option && typeof option.label === "string") source.push(option.label);
+      if ("audioText" in option && typeof option.audioText === "string") {
+        source.push(option.audioText);
+      }
+    }
+  }
+
+  const haystack = source.join(" ");
+  return RULES.filter((rule) => exercise.tags?.includes(rule.id)).flatMap((rule) => {
+    const example = rule.examples.find((item) => haystack.includes(item.written));
+    return example ? [{ rule, example }] : [];
+  });
 }
 
 export function ExerciseView({
@@ -377,6 +428,8 @@ export function ExerciseView({
 }) {
   const headingRef = useRef<HTMLHeadingElement>(null);
   const resultRef = useRef<HTMLDivElement>(null);
+  const completed = Math.round((index / total) * 100);
+  const layers = result && !result.correct ? ruleLayers(exercise) : [];
 
   // Cada item é uma nova tarefa: leve o foco (e a rolagem) ao enunciado para
   // leitores de tela e para quem responde no celular.
@@ -400,11 +453,11 @@ export function ExerciseView({
 
   return (
     <section aria-labelledby="exercise-prompt" className="mt-6">
-      <div className="flex items-center justify-between text-sm text-muted">
-        <span>
-          Item {index + 1} de {total}
-        </span>
-        <span>{Math.round((index / total) * 100)}% da {progressLabel}</span>
+      <div className="flex items-end justify-between gap-3">
+        <p className="mono-label text-muted">
+          Item <span className="text-fg">{index + 1}</span> de {total}
+        </p>
+        <p className="mono-data text-muted">{completed}% concluído</p>
       </div>
       <div
         role="progressbar"
@@ -412,63 +465,52 @@ export function ExerciseView({
         aria-valuemin={0}
         aria-valuemax={total}
         aria-valuenow={index}
-        aria-valuetext={`${index} de ${total}`}
-        className="mt-2 h-2 overflow-hidden rounded-full bg-border"
+        aria-valuetext={`${index} de ${total} concluídos`}
+        className="mt-2 h-1.5 overflow-hidden bg-line"
       >
         <div
-          className="h-full rounded-full bg-brand transition-[width] duration-200 motion-reduce:transition-none"
+          className="h-full bg-accent transition-[width] duration-[var(--motion-slow)] ease-[var(--ease-standard)] motion-reduce:transition-none"
           style={{ width: `${(index / total) * 100}%` }}
         />
       </div>
 
-      <h2
-        id="exercise-prompt"
-        ref={headingRef}
-        tabIndex={-1}
-        className="mt-6 scroll-mt-4 break-words text-xl font-semibold leading-snug"
-      >
-        <BilingualText text={exercise.prompt} />
-      </h2>
+      <div className="mt-6 border-l-2 border-accent pl-4 sm:pl-5">
+        <p className="mono-label text-muted">
+          {KIND_LABEL[exercise.type]} · responda uma vez
+        </p>
+        <h2
+          id="exercise-prompt"
+          ref={headingRef}
+          tabIndex={-1}
+          className="mt-2 scroll-mt-4 break-words text-2xl font-semibold leading-snug outline-none sm:text-3xl"
+        >
+          <BilingualText text={exercise.prompt} />
+        </h2>
+      </div>
 
       {exercise.type === "audio-to-char" ? (
-        <div className="mt-4">
-          <AudioControl text={exercise.audioText} fallback={exercise.fallback} />
-        </div>
+        <AudioPrompt text={exercise.audioText} fallback={exercise.fallback} />
       ) : null}
+      {exercise.type === "listen" ? <AudioPrompt text={exercise.audioText} /> : null}
       {exercise.type === "minimal-pair" && exercise.presentation === "audio" ? (
-        <div className="mt-4">
-          <AudioControl text={exercise.audioText ?? ""} fallback={exercise.fallback} />
-        </div>
+        <AudioPrompt text={exercise.audioText ?? ""} fallback={exercise.fallback} />
       ) : null}
       {exercise.type === "char-to-audio" ? (
-        <p lang="ko" className="mt-4 font-ko text-4xl font-semibold tracking-wide">
-          {exercise.text}
-        </p>
-      ) : null}
-      {exercise.type === "reading" ? (
-        <div className="mt-4 rounded-xl border border-border bg-soft/60 p-4">
-          <p lang="ko" className="font-ko text-4xl font-semibold tracking-wide">
+        <div className="mt-4 rounded-[var(--radius-panel)] border border-line bg-surface-2 p-4 text-center sm:p-6">
+          <p className="mono-label text-muted">Leia a sílaba</p>
+          <p lang="ko" className="mt-2 font-ko text-5xl font-semibold tracking-wide">
             {exercise.text}
           </p>
-          {exercise.audioText ? (
-            <div className="mt-3">
-              <AudioControl text={exercise.audioText} />
-            </div>
-          ) : null}
-          {exercise.question ? (
-            <p className="mt-3 font-medium">
-              <BilingualText text={exercise.question} />
-            </p>
-          ) : null}
         </div>
       ) : null}
+      {exercise.type === "reading" ? <ReadingPrompt exercise={exercise} /> : null}
       {exercise.type === "minimal-pair" && exercise.presentation === "text" ? (
-        <p className="mt-4 font-medium">
+        <p className="mt-4 rounded-[var(--radius-panel)] border border-line bg-surface-2 p-4 font-medium">
           <BilingualText text={exercise.text ?? ""} />
         </p>
       ) : null}
 
-      <div className="mt-5">
+      <div className="mt-6">
         <AnswerArea
           exercise={exercise}
           result={result}
@@ -479,40 +521,29 @@ export function ExerciseView({
       </div>
 
       {result ? (
-        <div
-          ref={resultRef}
-          tabIndex={-1}
-          role="status"
-          aria-live="polite"
-          className={`mt-5 rounded-xl border-2 p-4 ${
-            result.correct
-              ? "border-emerald-600 bg-emerald-50 text-emerald-900 dark:bg-emerald-950 dark:text-emerald-100"
-              : "border-red-600 bg-red-50 text-red-900 dark:bg-red-950 dark:text-red-100"
-          }`}
-        >
-          <p className="font-semibold">{result.correct ? "Correto." : "Ainda não."}</p>
-          {!result.correct && (
-            <p className="mt-1">
-              Resposta correta:{" "}
-              <strong>
-                <BilingualText text={result.expected} />
-              </strong>
-            </p>
-          )}
-          {result.explanation ? (
-            <p className="mt-1 text-sm">
-              <BilingualText text={result.explanation} />
-            </p>
-          ) : null}
-          {result.errorTags?.includes("answer-kind") ? (
-            <p className="mt-1 text-sm">Tente responder com o tipo de alternativa pedido.</p>
-          ) : null}
-        </div>
+        <FeedbackPanel
+          exercise={exercise}
+          draft={draft}
+          result={result}
+          resultRef={resultRef}
+        />
       ) : (
         <p className="mt-4 text-sm text-muted">
           Responda para ver o resultado. A primeira tentativa é a que conta.
         </p>
       )}
+
+      {layers.length > 0 ? (
+        <div className="mt-4 space-y-3">
+          {layers.map(({ rule, example }) => (
+            <PronunciationLayers
+              key={rule.id}
+              rule={rule}
+              example={example}
+            />
+          ))}
+        </div>
+      ) : null}
 
       {footer ? <div className="mt-4">{footer}</div> : null}
 
@@ -521,16 +552,17 @@ export function ExerciseView({
           <button
             type="button"
             onClick={onContinue}
-            className="inline-flex min-h-12 items-center justify-center rounded-xl bg-brand px-6 font-semibold text-brand-fg"
+            className="inline-flex min-h-12 items-center justify-center rounded-[var(--radius-field)] bg-fg px-6 font-semibold text-bg transition-colors duration-[var(--motion-fast)] hover:opacity-90"
           >
             {isLast ? lastLabel : "Continuar"}
+            <span aria-hidden>→</span>
           </button>
         ) : (
           <button
             type="button"
             onClick={onSubmit}
             disabled={!draft}
-            className="inline-flex min-h-12 items-center justify-center rounded-xl bg-brand px-6 font-semibold text-brand-fg disabled:cursor-not-allowed disabled:opacity-50"
+            className="inline-flex min-h-12 items-center justify-center rounded-[var(--radius-field)] bg-fg px-6 font-semibold text-bg transition-colors duration-[var(--motion-fast)] hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-45"
           >
             Conferir
           </button>

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { Lesson } from "@/content/hangul/types";
+import { RULES } from "@/content/hangul/rules";
 import { useAuth } from "@/components/auth/AuthProvider";
 import {
   checkAnswer,
@@ -21,6 +22,9 @@ import { scheduleMissedReview } from "@/lib/srs";
 import { type Progress } from "@/lib/storage";
 import { DiagnosticsList } from "./DiagnosticsList";
 import { BilingualText, ExerciseView } from "./exercise-ui";
+import { PronunciationLayers } from "./PronunciationLayers";
+import { PlayerHeader } from "./player-header";
+import { Plate } from "@/components/ui/Card";
 
 export function LessonPlayer({
   lesson,
@@ -141,25 +145,28 @@ export function LessonPlayer({
 
   if (status === "loading" || (loadingProgress && !progress)) {
     return (
-      <div className="rounded-2xl border border-border bg-surface p-6">
+      <Plate label="Lâmina de estudo">
         <p role="status" className="text-muted">
           Preparando seu progresso…
         </p>
-      </div>
+      </Plate>
     );
   }
 
   if (!progress) {
     return (
-      <div className="rounded-2xl border border-border bg-surface p-6">
-        <p className="font-semibold">Não foi possível carregar seu progresso.</p>
+      <Plate label="Lâmina de estudo">
+        <p className="text-lg font-semibold">Não foi possível carregar seu progresso.</p>
         <p className="mt-1 text-muted">
           Verifique se o armazenamento do navegador está disponível e tente novamente.
         </p>
-        <Link href="/hangul" className="mt-4 inline-flex min-h-12 items-center font-semibold text-brand">
+        <Link
+          href="/hangul"
+          className="mt-4 inline-flex min-h-12 items-center font-semibold text-accent underline-offset-4 hover:underline"
+        >
           Voltar para Hangul
         </Link>
-      </div>
+      </Plate>
     );
   }
 
@@ -168,48 +175,63 @@ export function LessonPlayer({
 
   if (!alreadyDone && !isLessonUnlocked(progress, lesson)) {
     return (
-      <div className="rounded-2xl border border-border bg-surface p-6">
-        <p className="text-sm font-semibold text-brand">Lição bloqueada</p>
-        <h1 className="mt-1 text-2xl font-bold">{lesson.title}</h1>
-        <p className="mt-2 text-muted">
-          Conclua antes:{" "}
-          <strong>{lesson.prerequisites.join(", ")}</strong>. As lições seguem a ordem do
-          currículo para que você encontre apenas conteúdo já ensinado.
-        </p>
-        <Link
-          href="/hangul"
-          className="mt-4 inline-flex min-h-12 items-center justify-center rounded-xl bg-brand px-5 font-semibold text-brand-fg"
-        >
-          Ver lições disponíveis
-        </Link>
-      </div>
+      <article aria-labelledby="lesson-title" className="mx-auto w-full max-w-[680px] pb-4">
+        <PlayerHeader
+          code={`lição ${lesson.id}`}
+          eyebrow="Lição bloqueada"
+          title={lesson.title}
+          titleId="lesson-title"
+          meta={<span>Unidade {lesson.unit}</span>}
+        />
+        <Plate className="mt-5">
+          <p className="text-muted">
+            Conclua antes:{" "}
+            <strong className="font-mono text-fg">{lesson.prerequisites.join(", ")}</strong>.
+            As lições seguem a ordem do currículo para que você encontre apenas conteúdo já
+            ensinado.
+          </p>
+          <Link
+            href="/hangul"
+            className="mt-4 inline-flex min-h-12 items-center justify-center rounded-[var(--radius-field)] bg-fg px-5 font-semibold text-bg"
+          >
+            Ver lições disponíveis
+          </Link>
+        </Plate>
+      </article>
     );
   }
 
   if (phase === "intro" && alreadyDone) {
     return (
-      <article aria-labelledby="lesson-title" className="pb-4">
-        <Link href="/hangul" className="text-sm font-semibold text-brand">
-          ← Hangul
-        </Link>
-        <p className="mt-4 text-sm font-semibold text-brand">Lição concluída</p>
-        <h1 id="lesson-title" className="mt-1 text-3xl font-bold tracking-tight">
-          {lesson.title}
-        </h1>
-        <div className="mt-4 rounded-2xl border border-border bg-surface p-5">
+      <article aria-labelledby="lesson-title" className="mx-auto w-full max-w-[680px] pb-4">
+        <PlayerHeader
+          code={`lição ${lesson.id}`}
+          eyebrow="Lição concluída"
+          title={lesson.title}
+          titleId="lesson-title"
+          meta={
+            <>
+              <span>Unidade {lesson.unit}</span>
+              <span aria-hidden>·</span>
+              <span>{lesson.estimatedMinutes} min</span>
+            </>
+          }
+        />
+        <Plate className="mt-5" label="Resultado registrado">
           <p className="text-lg">
-            Seu melhor resultado registrado é <strong>{record?.score ?? 0}%</strong>.
+            Seu melhor resultado registrado é{" "}
+            <strong className="font-mono tabular-nums">{record?.score ?? 0}%</strong>.
           </p>
           <p className="mt-2 text-muted">
             Você já concluiu esta lição. Pode seguir para a próxima etapa ou refazer a
             prática; o app mantém o maior score e não apaga o histórico.
           </p>
-        </div>
-        <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+        </Plate>
+        <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           {nextStep ? (
             <Link
               href={`/hangul/${nextStep.id}`}
-              className="inline-flex min-h-12 items-center justify-center rounded-xl bg-brand px-5 font-semibold text-brand-fg"
+              className="inline-flex min-h-12 items-center justify-center rounded-[var(--radius-field)] bg-fg px-5 font-semibold text-bg"
             >
               Próximo: {nextStep.id} · {nextStep.title}
             </Link>
@@ -217,13 +239,13 @@ export function LessonPlayer({
           <button
             type="button"
             onClick={restart}
-            className="inline-flex min-h-12 items-center justify-center rounded-xl border border-border px-5 font-semibold hover:bg-soft"
+            className="inline-flex min-h-12 items-center justify-center rounded-[var(--radius-field)] border border-line-strong px-5 font-semibold hover:bg-surface-2"
           >
             Refazer lição
           </button>
           <Link
             href="/hangul"
-            className="inline-flex min-h-12 items-center justify-center rounded-xl border border-border px-5 font-semibold hover:bg-soft"
+            className="inline-flex min-h-12 items-center justify-center rounded-[var(--radius-field)] border border-line-strong px-5 font-semibold hover:bg-surface-2"
           >
             Voltar para Hangul
           </Link>
@@ -234,51 +256,87 @@ export function LessonPlayer({
 
   if (phase === "intro") {
     return (
-      <article aria-labelledby="lesson-title" className="pb-4">
-        <Link href="/hangul" className="text-sm font-semibold text-brand">
-          ← Hangul
-        </Link>
-        <p className="mt-4 text-sm font-semibold text-muted">
-          Unidade {lesson.unit} · {lesson.estimatedMinutes} min ·{" "}
-          <span className="rounded-full bg-soft px-2 py-0.5 text-brand">Conteúdo em revisão</span>
-        </p>
-        <h1 id="lesson-title" className="mt-1 text-3xl font-bold tracking-tight">
-          {lesson.title}
-        </h1>
-        <p className="mt-3 text-lg text-muted">{lesson.objective}</p>
+      <article aria-labelledby="lesson-title" className="mx-auto w-full max-w-[680px] pb-4">
+        <PlayerHeader
+          code={`lição ${lesson.id}`}
+          eyebrow="Lâmina de estudo"
+          title={lesson.title}
+          titleId="lesson-title"
+          meta={
+            <>
+              <span>Unidade {lesson.unit}</span>
+              <span aria-hidden>·</span>
+              <span>{lesson.estimatedMinutes} min</span>
+              <span aria-hidden>·</span>
+              <span className="rounded-[var(--radius-seal)] bg-surface-2 px-2 py-0.5 text-accent">
+                Conteúdo em revisão
+              </span>
+            </>
+          }
+        />
+        <p className="mt-4 text-lg leading-relaxed text-muted">{lesson.objective}</p>
 
-        <div className="mt-6 rounded-2xl border border-border bg-surface p-5">
-          <h2 className="text-lg font-semibold">Objetivos</h2>
-          <ul className="mt-2 list-disc space-y-1 pl-5 text-muted">
+        <Plate className="mt-6" label="Objetivos">
+          <h2 className="sr-only">Objetivos</h2>
+          <ul className="list-disc space-y-1.5 pl-5 text-muted">
             {lesson.objectives.map((objective) => (
               <li key={objective}>{objective}</li>
             ))}
           </ul>
-        </div>
+        </Plate>
 
         <div className="mt-4 flex flex-col gap-3">
-          {lesson.intro.map((panel) => (
-            <section key={panel.title} className="rounded-2xl border border-border bg-surface p-5">
+          {lesson.intro.map((panel, index) => (
+            <Plate
+              key={panel.title}
+              label={`${String(index + 1).padStart(2, "0")} / explicação`}
+            >
               <h2 className="text-lg font-semibold">{panel.title}</h2>
               <p className="mt-2 text-muted">{panel.body}</p>
               {panel.ko ? (
-                <p lang="ko" className="mt-3 font-ko text-3xl font-semibold tracking-wide text-brand">
+                <p
+                  lang="ko"
+                  className="mt-3 break-words font-ko text-3xl font-semibold tracking-wide text-accent"
+                >
                   {panel.ko}
                 </p>
               ) : null}
-            </section>
+            </Plate>
           ))}
         </div>
 
-        <div className="mt-6">
+        {lesson.unit === 7 ? (
+          <div className="mt-8 space-y-3">
+            <div>
+              <p className="mono-label text-muted">Camadas de pronúncia</p>
+              <h2 className="mt-1 text-xl font-semibold">Escrita e pronúncia</h2>
+              <p className="mt-1 text-sm text-muted">
+                Compare a forma escrita com a transcrição didática. A escrita não muda;
+                o que muda é a fala.
+              </p>
+            </div>
+            {(lesson.id === "h24" || lesson.id === "h25"
+              ? RULES
+              : RULES.filter((rule) => rule.introducedIn === lesson.id)
+            ).map((rule) => (
+              <PronunciationLayers
+                key={rule.id}
+                rule={rule}
+                examples={rule.examples}
+              />
+            ))}
+          </div>
+        ) : null}
+
+        <Plate className="mt-8" label="Prática">
           <button
             type="button"
             onClick={() => setPhase("run")}
-            className="inline-flex min-h-12 w-full items-center justify-center rounded-xl bg-brand px-6 font-semibold text-brand-fg sm:w-auto"
+            className="inline-flex min-h-12 w-full items-center justify-center rounded-[var(--radius-field)] bg-fg px-6 font-semibold text-bg transition-colors duration-[var(--motion-fast)] hover:opacity-90 sm:w-auto"
           >
             Começar a prática
           </button>
-          <p className="mt-2 text-sm text-muted">
+          <p className="mt-3 text-sm text-muted">
             {total} itens. Para concluir, acerte pelo menos {requiredCorrect} de {total}{" "}
             ({lesson.completion.minScore}% documentado).
           </p>
@@ -289,22 +347,25 @@ export function LessonPlayer({
               ))}
             </ul>
           ) : null}
-        </div>
+        </Plate>
       </article>
     );
   }
 
   if (phase === "done" && lessonResult) {
     return (
-      <article aria-labelledby="completion-title" className="pb-4">
-        <p className="text-sm font-semibold text-brand">Fim da prática</p>
-        <h1 id="completion-title" className="mt-1 text-3xl font-bold tracking-tight">
-          {lessonResult.passed ? "Lição concluída" : "Quase lá"}
-        </h1>
-        <div className="mt-4 rounded-2xl border border-border bg-surface p-5">
+      <article aria-labelledby="completion-title" className="mx-auto w-full max-w-[680px] pb-4">
+        <PlayerHeader
+          code={`lição ${lesson.id}`}
+          eyebrow="Fim da prática"
+          title={lessonResult.passed ? "Lição concluída" : "Quase lá"}
+          titleId="completion-title"
+          meta={<span>{lesson.title}</span>}
+        />
+        <Plate className="mt-5" label="Resultado">
           <p className="text-lg">
             Você acertou{" "}
-            <strong>
+            <strong className="font-mono tabular-nums">
               {lessonResult.correct} de {lessonResult.total}
             </strong>{" "}
             ({lessonResult.score}%).
@@ -335,35 +396,39 @@ export function LessonPlayer({
             </div>
           ) : null}
           {saveWarning ? (
-            <p role="status" className="mt-3 rounded-xl bg-soft p-3 text-sm">
+            <p role="status" className="mt-3 rounded-[var(--radius-field)] bg-surface-2 p-3 text-sm">
               O progresso foi salvo neste dispositivo, mas a sincronização com a conta pode
               estar pendente. Isso não apaga o que você fez.
             </p>
           ) : null}
-        </div>
+        </Plate>
 
         <DiagnosticsList categories={lessonResult.diagnostics} />
 
-        <ul className="mt-4 flex flex-col gap-2 text-sm text-muted">
-          {lesson.exercises.map((item) => {
-            const answer = answers[item.id];
-            return (
-              <li key={item.id} className="flex items-start gap-2">
-                <span aria-hidden>{answer?.correct ? "✓" : "✗"}</span>
-                <span>
-                  <span className="sr-only">{answer?.correct ? "Correto: " : "Incorreto: "}</span>
-                  <BilingualText text={item.prompt} />
-                </span>
-              </li>
-            );
-          })}
-        </ul>
+        <Plate className="mt-4" label="Revisão dos itens">
+          <ul className="flex flex-col gap-2 text-sm text-muted">
+            {lesson.exercises.map((item) => {
+              const answer = answers[item.id];
+              return (
+                <li key={item.id} className="flex items-start gap-2">
+                  <span aria-hidden className={answer?.correct ? "text-success" : "text-danger"}>
+                    {answer?.correct ? "✓" : "✗"}
+                  </span>
+                  <span>
+                    <span className="sr-only">{answer?.correct ? "Correto: " : "Incorreto: "}</span>
+                    <BilingualText text={item.prompt} />
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
+        </Plate>
 
-        <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+        <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           {lessonResult.passed && nextStep ? (
             <Link
               href={`/hangul/${nextStep.id}`}
-              className="inline-flex min-h-12 items-center justify-center rounded-xl bg-brand px-5 font-semibold text-brand-fg"
+              className="inline-flex min-h-12 items-center justify-center rounded-[var(--radius-field)] bg-fg px-5 font-semibold text-bg"
             >
               Próximo: {nextStep.id} · {nextStep.title}
             </Link>
@@ -372,7 +437,7 @@ export function LessonPlayer({
             <button
               type="button"
               onClick={restart}
-              className="inline-flex min-h-12 items-center justify-center rounded-xl bg-brand px-5 font-semibold text-brand-fg"
+              className="inline-flex min-h-12 items-center justify-center rounded-[var(--radius-field)] bg-fg px-5 font-semibold text-bg"
             >
               Refazer lição
             </button>
@@ -380,14 +445,14 @@ export function LessonPlayer({
             <button
               type="button"
               onClick={restart}
-              className="inline-flex min-h-12 items-center justify-center rounded-xl border border-border px-5 font-semibold hover:bg-soft"
+              className="inline-flex min-h-12 items-center justify-center rounded-[var(--radius-field)] border border-line-strong px-5 font-semibold hover:bg-surface-2"
             >
               Refazer mesmo assim
             </button>
           )}
           <Link
             href="/hangul"
-            className="inline-flex min-h-12 items-center justify-center rounded-xl border border-border px-5 font-semibold hover:bg-soft"
+            className="inline-flex min-h-12 items-center justify-center rounded-[var(--radius-field)] border border-line-strong px-5 font-semibold hover:bg-surface-2"
           >
             Voltar para Hangul
           </Link>
@@ -399,14 +464,14 @@ export function LessonPlayer({
   if (!exercise) return null;
 
   return (
-    <article aria-labelledby="exercise-prompt" className="pb-4">
-      <div className="flex items-center justify-between gap-3">
-        <Link href="/hangul" className="text-sm font-semibold text-brand">
-          ← Hangul
-        </Link>
-        <span className="text-sm text-muted">Lição {lesson.id}</span>
-      </div>
-      <h1 className="mt-3 text-2xl font-bold tracking-tight">{lesson.title}</h1>
+    <article aria-labelledby="lesson-title" className="mx-auto w-full max-w-[680px] pb-4">
+      <PlayerHeader
+        compact
+        code={`lição ${lesson.id}`}
+        eyebrow={`Lâmina de estudo / unidade ${lesson.unit}`}
+        title={lesson.title}
+        titleId="lesson-title"
+      />
       <ExerciseView
         key={exercise.id}
         exercise={exercise}
@@ -420,7 +485,7 @@ export function LessonPlayer({
         isLast={index + 1 === total}
       />
       {saveWarning ? (
-        <p role="status" className="mt-4 rounded-xl bg-soft p-3 text-sm text-muted">
+        <p role="status" className="mt-4 rounded-[var(--radius-field)] bg-surface-2 p-3 text-sm text-muted">
           Progresso local salvo; a sincronização com a conta pode estar pendente.
         </p>
       ) : null}

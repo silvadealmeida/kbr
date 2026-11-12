@@ -23,6 +23,8 @@ import type { Progress } from "@/lib/storage";
 import { CourseCompletionPanel } from "./CourseCompletionPanel";
 import { DiagnosticsList } from "./DiagnosticsList";
 import { BilingualText, ExerciseView } from "./exercise-ui";
+import { PlayerHeader } from "./player-header";
+import { Plate } from "@/components/ui/Card";
 
 export function CheckpointPlayer({
   checkpoint,
@@ -141,25 +143,28 @@ export function CheckpointPlayer({
 
   if (status === "loading" || (loadingProgress && !progress)) {
     return (
-      <div className="rounded-2xl border border-border bg-surface p-6">
+      <Plate label="Checkpoint">
         <p role="status" className="text-muted">
           Preparando seu progresso…
         </p>
-      </div>
+      </Plate>
     );
   }
 
   if (!progress) {
     return (
-      <div className="rounded-2xl border border-border bg-surface p-6">
-        <p className="font-semibold">Não foi possível carregar seu progresso.</p>
+      <Plate label="Checkpoint">
+        <p className="text-lg font-semibold">Não foi possível carregar seu progresso.</p>
         <p className="mt-1 text-muted">
           Verifique se o armazenamento do navegador está disponível e tente novamente.
         </p>
-        <Link href="/hangul" className="mt-4 inline-flex min-h-12 items-center font-semibold text-brand">
+        <Link
+          href="/hangul"
+          className="mt-4 inline-flex min-h-12 items-center font-semibold text-accent underline-offset-4 hover:underline"
+        >
           Voltar para Hangul
         </Link>
-      </div>
+      </Plate>
     );
   }
 
@@ -186,33 +191,41 @@ export function CheckpointPlayer({
       (id) => progress.lessons[id]?.done !== true,
     );
     return (
-      <div className="rounded-2xl border border-border bg-surface p-6">
-        <p className="text-sm font-semibold text-brand">Checkpoint bloqueado</p>
-        <h1 className="mt-1 text-2xl font-bold">{checkpoint.title}</h1>
-        <p className="mt-2 text-muted">
-          Conclua as lições do escopo e os checkpoints anteriores antes de fazer esta
-          avaliação.
-        </p>
-        <p className="mt-2 text-sm text-muted">
-          Pendentes: {[...missingCheckpoints, ...missingLessons].join(", ")}.
-        </p>
-        {missingCheckpoints.length > 0 ? (
-          <p className="mt-1 text-sm text-muted">
-            Checkpoints anteriores: {missingCheckpoints.join(", ")}.
+      <article aria-labelledby="checkpoint-title" className="mx-auto w-full max-w-[680px] pb-4">
+        <PlayerHeader
+          tone="checkpoint"
+          code={`checkpoint ${checkpoint.id}`}
+          eyebrow="Checkpoint bloqueado"
+          title={checkpoint.title}
+          titleId="checkpoint-title"
+          meta={<span>Unidade {checkpoint.unit}</span>}
+        />
+        <Plate className="mt-5">
+          <p className="text-muted">
+            Conclua as lições do escopo e os checkpoints anteriores antes de fazer esta
+            avaliação.
           </p>
-        ) : null}
-        {missingLessons.length > 0 ? (
-          <p className="mt-1 text-sm text-muted">
-            Lições do escopo: {missingLessons.join(", ")}.
+          <p className="mt-2 text-sm text-muted">
+            Pendentes: {[...missingCheckpoints, ...missingLessons].join(", ")}.
           </p>
-        ) : null}
-        <Link
-          href="/hangul"
-          className="mt-4 inline-flex min-h-12 items-center justify-center rounded-xl bg-brand px-5 font-semibold text-brand-fg"
-        >
-          Ver lições disponíveis
-        </Link>
-      </div>
+          {missingCheckpoints.length > 0 ? (
+            <p className="mt-1 text-sm text-muted">
+              Checkpoints anteriores: {missingCheckpoints.join(", ")}.
+            </p>
+          ) : null}
+          {missingLessons.length > 0 ? (
+            <p className="mt-1 text-sm text-muted">
+              Lições do escopo: {missingLessons.join(", ")}.
+            </p>
+          ) : null}
+          <Link
+            href="/hangul"
+            className="mt-4 inline-flex min-h-12 items-center justify-center rounded-[var(--radius-field)] bg-fg px-5 font-semibold text-bg"
+          >
+            Ver lições disponíveis
+          </Link>
+        </Plate>
+      </article>
     );
   }
 
@@ -258,23 +271,25 @@ export function CheckpointPlayer({
 
   if (phase === "intro" && alreadyDone) {
     return (
-      <article aria-labelledby="checkpoint-title" className="pb-4">
-        <Link href="/hangul" className="text-sm font-semibold text-brand">
-          ← Hangul
-        </Link>
-        <p className="mt-4 text-sm font-semibold text-brand">Checkpoint concluído</p>
-        <h1 id="checkpoint-title" className="mt-1 text-3xl font-bold tracking-tight">
-          {checkpoint.title}
-        </h1>
-        <div className="mt-4 rounded-2xl border border-border bg-surface p-5">
+      <article aria-labelledby="checkpoint-title" className="mx-auto w-full max-w-[680px] pb-4">
+        <PlayerHeader
+          tone="checkpoint"
+          code={`checkpoint ${checkpoint.id}`}
+          eyebrow="Checkpoint concluído"
+          title={checkpoint.title}
+          titleId="checkpoint-title"
+          meta={<span>Unidade {checkpoint.unit}</span>}
+        />
+        <Plate className="mt-5" label="Resultado registrado">
           <p className="text-lg">
-            Seu melhor resultado registrado é <strong>{record?.score ?? 0}%</strong>.
+            Seu melhor resultado registrado é{" "}
+            <strong className="font-mono tabular-nums">{record?.score ?? 0}%</strong>.
           </p>
           <p className="mt-2 text-muted">
             Você já concluiu este checkpoint. Pode seguir para a próxima etapa ou refazer
             a avaliação; o app mantém o maior score e não apaga o histórico.
           </p>
-        </div>
+        </Plate>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
           {nextStep ? (
             <Link
@@ -312,49 +327,57 @@ export function CheckpointPlayer({
 
   if (phase === "intro") {
     return (
-      <article aria-labelledby="checkpoint-title" className="pb-4">
-        <Link href="/hangul" className="text-sm font-semibold text-brand">
-          ← Hangul
-        </Link>
-        <p className="mt-4 text-sm font-semibold text-muted">
-          Unidade {checkpoint.unit} · {checkpoint.estimatedMinutes} min ·{" "}
-          <span className="rounded-full bg-soft px-2 py-0.5 text-brand">Conteúdo em revisão</span>
-        </p>
-        <h1 id="checkpoint-title" className="mt-1 text-3xl font-bold tracking-tight">
-          {checkpoint.title}
-        </h1>
-        <p className="mt-3 text-lg text-muted">{checkpoint.objective}</p>
+      <article aria-labelledby="checkpoint-title" className="mx-auto w-full max-w-[680px] pb-4">
+        <PlayerHeader
+          tone="checkpoint"
+          code={`checkpoint ${checkpoint.id}`}
+          eyebrow="Checkpoint / avaliação"
+          title={checkpoint.title}
+          titleId="checkpoint-title"
+          meta={
+            <>
+              <span>Unidade {checkpoint.unit}</span>
+              <span aria-hidden>·</span>
+              <span>{checkpoint.estimatedMinutes} min</span>
+              <span aria-hidden>·</span>
+              <span className="rounded-[var(--radius-seal)] bg-surface-2 px-2 py-0.5 text-accent">
+                Conteúdo em revisão
+              </span>
+            </>
+          }
+        />
+        <p className="mt-4 text-lg leading-relaxed text-muted">{checkpoint.objective}</p>
 
-        <section className="mt-6 rounded-2xl border border-border bg-surface p-5">
+        <Plate className="mt-6">
           <h2 className="text-lg font-semibold">Como funciona</h2>
-          <ul className="mt-2 list-disc space-y-1 pl-5 text-muted">
+          <ul className="mt-2 list-disc space-y-1.5 pl-5 text-muted">
             {checkpoint.instructions.map((instruction) => (
               <li key={instruction}>{instruction}</li>
             ))}
           </ul>
-        </section>
+        </Plate>
 
-        <section className="mt-4 rounded-2xl border border-border bg-surface p-5">
+        <Plate className="mt-4">
           <h2 className="text-lg font-semibold">Escopo</h2>
           <p className="mt-2 text-muted">
             Lições incluídas: {checkpoint.lessonIds.join(", ")}. A avaliação não introduz
             conteúdo novo.
           </p>
-        </section>
+        </Plate>
 
-        <div className="mt-6">
+        <Plate className="mt-6" label="Início da avaliação">
           <button
             type="button"
             onClick={() => setPhase("run")}
-            className="inline-flex min-h-12 w-full items-center justify-center rounded-xl bg-brand px-6 font-semibold text-brand-fg sm:w-auto"
+            className="inline-flex min-h-12 w-full items-center justify-center rounded-[var(--radius-field)] bg-fg px-6 font-semibold text-bg transition-colors duration-[var(--motion-fast)] hover:opacity-90 sm:w-auto"
           >
             Começar checkpoint
           </button>
-          <p className="mt-2 text-sm text-muted">
+          <p className="mt-3 text-sm text-muted">
             {total} itens. Aprovação com pelo menos {requiredCorrect} de {total}{" "}
             ({checkpoint.passingScore}% documentado).
           </p>
-        </div>
+        </Plate>
       </article>
     );
   }
@@ -374,15 +397,22 @@ export function CheckpointPlayer({
           ? "Checkpoint concluído"
           : "Quase lá";
     return (
-      <article aria-labelledby="checkpoint-completion-title" className="pb-4">
-        <p className="text-sm font-semibold text-brand">Fim do checkpoint</p>
-        <h1 id="checkpoint-completion-title" className="mt-1 text-3xl font-bold tracking-tight">
-          {heading}
-        </h1>
-        <div className="mt-4 rounded-2xl border border-border bg-surface p-5">
+      <article
+        aria-labelledby="checkpoint-completion-title"
+        className="mx-auto w-full max-w-[680px] pb-4"
+      >
+        <PlayerHeader
+          tone="checkpoint"
+          code={`checkpoint ${checkpoint.id}`}
+          eyebrow="Fim do checkpoint"
+          title={heading}
+          titleId="checkpoint-completion-title"
+          meta={<span>{checkpoint.title}</span>}
+        />
+        <Plate className="mt-5" label="Resultado">
           <p className="text-lg">
             Você acertou{" "}
-            <strong>
+            <strong className="font-mono tabular-nums">
               {checkpointResult.correct} de {checkpointResult.total}
             </strong>{" "}
             ({checkpointResult.score}%).
@@ -399,12 +429,12 @@ export function CheckpointPlayer({
               : `Refaça quando quiser: seu melhor resultado não é perdido.`}
           </p>
           {saveWarning ? (
-            <p role="status" className="mt-3 rounded-xl bg-soft p-3 text-sm">
+            <p role="status" className="mt-3 rounded-[var(--radius-field)] bg-surface-2 p-3 text-sm">
               O progresso foi salvo neste dispositivo, mas a sincronização com a conta pode
               estar pendente. Isso não apaga o que você fez.
             </p>
           ) : null}
-        </div>
+        </Plate>
 
         <DiagnosticsList
           categories={checkpointResult.diagnostics}
@@ -412,26 +442,32 @@ export function CheckpointPlayer({
           linkLessons
         />
 
-        <ul className="mt-4 flex flex-col gap-2 text-sm text-muted">
-          {checkpoint.exercises.map((item) => {
-            const answer = answers[item.id];
-            return (
-              <li key={item.id} className="flex items-start gap-2">
-                <span aria-hidden>{answer?.correct ? "✓" : "✗"}</span>
-                <span>
-                  <span className="sr-only">{answer?.correct ? "Correto: " : "Incorreto: "}</span>
-                  <BilingualText text={item.prompt} />
-                </span>
-              </li>
-            );
-          })}
-        </ul>
+        <Plate className="mt-4" label="Revisão dos itens">
+          <ul className="flex flex-col gap-2 text-sm text-muted">
+            {checkpoint.exercises.map((item) => {
+              const answer = answers[item.id];
+              return (
+                <li key={item.id} className="flex items-start gap-2">
+                  <span aria-hidden className={answer?.correct ? "text-success" : "text-danger"}>
+                    {answer?.correct ? "✓" : "✗"}
+                  </span>
+                  <span>
+                    <span className="sr-only">
+                      {answer?.correct ? "Correto: " : "Incorreto: "}
+                    </span>
+                    <BilingualText text={item.prompt} />
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
+        </Plate>
 
         <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           {done && nextStep ? (
             <Link
               href={`/hangul/${nextStep.id}`}
-              className="inline-flex min-h-12 items-center justify-center rounded-xl bg-brand px-5 font-semibold text-brand-fg"
+              className="inline-flex min-h-12 items-center justify-center rounded-[var(--radius-field)] bg-fg px-5 font-semibold text-bg"
             >
               Próximo: {nextStep.id} · {nextStep.title}
             </Link>
@@ -439,7 +475,7 @@ export function CheckpointPlayer({
           {incorrect > 0 ? (
             <Link
               href="/revisao"
-              className="inline-flex min-h-12 items-center justify-center rounded-xl border border-border px-5 font-semibold hover:bg-soft"
+              className="inline-flex min-h-12 items-center justify-center rounded-[var(--radius-field)] border border-line-strong px-5 font-semibold hover:bg-surface-2"
             >
               Revisar cartões
             </Link>
@@ -447,17 +483,17 @@ export function CheckpointPlayer({
           <button
             type="button"
             onClick={restart}
-            className={`inline-flex min-h-12 items-center justify-center rounded-xl px-5 font-semibold ${
+            className={`inline-flex min-h-12 items-center justify-center rounded-[var(--radius-field)] px-5 font-semibold ${
               done
-                ? "border border-border hover:bg-soft"
-                : "bg-brand text-brand-fg"
+                ? "border border-line-strong hover:bg-surface-2"
+                : "bg-fg text-bg"
             }`}
           >
             {done ? "Refazer mesmo assim" : "Refazer checkpoint"}
           </button>
           <Link
             href="/hangul"
-            className="inline-flex min-h-12 items-center justify-center rounded-xl border border-border px-5 font-semibold hover:bg-soft"
+            className="inline-flex min-h-12 items-center justify-center rounded-[var(--radius-field)] border border-line-strong px-5 font-semibold hover:bg-surface-2"
           >
             Voltar para Hangul
           </Link>
@@ -469,14 +505,24 @@ export function CheckpointPlayer({
   if (!exercise) return null;
 
   return (
-    <article aria-labelledby="exercise-prompt" className="pb-4">
-      <div className="flex items-center justify-between gap-3">
-        <Link href="/hangul" className="text-sm font-semibold text-brand">
-          ← Hangul
-        </Link>
-        <span className="text-sm text-muted">Checkpoint {checkpoint.id}</span>
-      </div>
-      <h1 className="mt-3 text-2xl font-bold tracking-tight">{checkpoint.title}</h1>
+    <article aria-labelledby="checkpoint-title" className="mx-auto w-full max-w-[680px] pb-4">
+      <PlayerHeader
+        tone="checkpoint"
+        compact
+        code={`checkpoint ${checkpoint.id}`}
+        eyebrow="Checkpoint / avaliação"
+        title={checkpoint.title}
+        titleId="checkpoint-title"
+        meta={
+          <>
+            <span className="rounded-[var(--radius-seal)] bg-surface-2 px-2 py-0.5 text-seal">
+              Avaliação
+            </span>
+            <span aria-hidden>·</span>
+            <span>Aprovação {requiredCorrect}/{total}</span>
+          </>
+        }
+      />
       <ExerciseView
         key={exercise.id}
         exercise={exercise}

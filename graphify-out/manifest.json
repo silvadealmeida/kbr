@@ -96,9 +96,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1794478253.7549105,
-    "seen": 1794478279.727602,
-    "ast_hash": "d46e21f10b9171a62403f42bb32a6a56",
+    "mtime": 1794479953.5004885,
+    "seen": 1794479978.1661549,
+    "ast_hash": "69b32b4fea29965a73cd0f256b73b1f3",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -108,9 +108,9 @@
     "semantic_hash": ""
   },
   "docs/architecture.md": {
-    "mtime": 1794478253.8053105,
-    "seen": 1794478279.7276037,
-    "ast_hash": "e7304201350f2c1cf88ca7373faceee0",
+    "mtime": 1794479941.8148882,
+    "seen": 1794479978.1661568,
+    "ast_hash": "4616ed6b3a6ae084a72ab7f02d5ac0f7",
     "semantic_hash": ""
   },
   "docs/research.md": {
@@ -120,9 +120,9 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794478983.2059584,
-    "seen": 1794478989.0775936,
-    "ast_hash": "0c47421df29b0240ee237984d591e0e6",
+    "mtime": 1794479922.4677784,
+    "seen": 1794479978.1661713,
+    "ast_hash": "e80ea1e04f4f70977a6fb36c46771d0b",
     "semantic_hash": ""
   },
   "src/lib/hangul/index.ts": {
@@ -546,9 +546,9 @@
     "semantic_hash": ""
   },
   "src/components/hangul/LessonPlayer.tsx": {
-    "mtime": 1794437112.866403,
-    "seen": 1794464129.3319285,
-    "ast_hash": "b168d85f830b9f00e09f3d16a8e206d1",
+    "mtime": 1794479519.3323605,
+    "seen": 1794479978.1660664,
+    "ast_hash": "8fe63500f764dd0e2c8a7d584a421c65",
     "semantic_hash": ""
   },
   "src/content/hangul/index.ts": {
@@ -1068,9 +1068,9 @@
     "semantic_hash": ""
   },
   "e2e/a11y.spec.ts": {
-    "mtime": 1794412743.2664323,
-    "seen": 1794413287.556895,
-    "ast_hash": "74a1483e93da014b2431963b2b5d4143",
+    "mtime": 1794479464.7607446,
+    "seen": 1794479978.1660142,
+    "ast_hash": "8964ed8666ca706bec3bd0434cbe8582",
     "semantic_hash": ""
   },
   "e2e/mobile.spec.ts": {
@@ -1254,9 +1254,9 @@
     "semantic_hash": ""
   },
   "docs/feedback/feedback-igo.md": {
-    "mtime": 1794477110.7581732,
-    "seen": 1794477117.175935,
-    "ast_hash": "2f212ce7a8e84b0355128fefa9b2e2f4",
+    "mtime": 1794479681.6392884,
+    "seen": 1794479978.1661654,
+    "ast_hash": "0ea61be6d028807c54069a68a99ca3af",
     "semantic_hash": ""
   },
   "src/components/hangul/CourseJourney.tsx": {
@@ -1275,6 +1275,24 @@
     "mtime": 1794477278.332537,
     "seen": 1794478279.7275214,
     "ast_hash": "3c549b80379d7d7ddce855feebcfa88f",
+    "semantic_hash": ""
+  },
+  "docs/audio/audio-quality-roadmap.md": {
+    "mtime": 1794479676.8764882,
+    "seen": 1794479978.1661577,
+    "ast_hash": "ff2fabae2baea02c302f8c1f38172976",
+    "semantic_hash": ""
+  },
+  "docs/audio/current-audio-audit.md": {
+    "mtime": 1794479625.3524654,
+    "seen": 1794479978.166159,
+    "ast_hash": "4fe88ca41f91439d291e128047cadcf8",
+    "semantic_hash": ""
+  },
+  "docs/audio/korean-tts-options.md": {
+    "mtime": 1794479651.2584085,
+    "seen": 1794479978.1661594,
+    "ast_hash": "5347ac7e178e941716009efd09dd585d",
     "semantic_hash": ""
   },
   "package-lock.json": {

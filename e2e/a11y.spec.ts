@@ -6,6 +6,23 @@ const BASE_URL = "http://localhost:3100";
 const AXE_TAGS = ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"];
 
 async function expectNoAxeViolations(page: Page, context: string) {
+  // A varredura de contraste precisa do estado visual estável. As entradas da
+  // 7D/7F animam opacity; rodar o axe no meio do fade produz um falso positivo
+  // de contraste (o texto ainda está transparente). Esperar as animações finitas
+  // terminar não altera o produto nem ignora violações reais.
+  await page.evaluate(async () => {
+    const deadline = performance.now() + 1500;
+    let quietFrames = 0;
+    while (performance.now() < deadline) {
+      await new Promise(requestAnimationFrame);
+      const running = document.getAnimations().some((animation) => {
+        const timing = animation.effect?.getTiming();
+        return animation.playState === "running" && timing?.iterations !== Infinity;
+      });
+      quietFrames = running ? 0 : quietFrames + 1;
+      if (quietFrames >= 4) return;
+    }
+  });
   const results = await new AxeBuilder({ page }).withTags(AXE_TAGS).analyze();
   const summary = results.violations.map((violation) => ({
     id: violation.id,

@@ -274,13 +274,17 @@ export function LessonPlayer({
             </>
           }
         />
-        <p className="mt-4 text-lg leading-relaxed text-muted">{lesson.objective}</p>
+        <p className="mt-4 text-lg leading-relaxed text-muted">
+          <BilingualText text={lesson.objective} />
+        </p>
 
         <Plate className="mt-6" label="Objetivos">
           <h2 className="sr-only">Objetivos</h2>
           <ul className="list-disc space-y-1.5 pl-5 text-muted">
             {lesson.objectives.map((objective) => (
-              <li key={objective}>{objective}</li>
+              <li key={objective}>
+                <BilingualText text={objective} />
+              </li>
             ))}
           </ul>
         </Plate>
@@ -292,7 +296,9 @@ export function LessonPlayer({
               label={`${String(index + 1).padStart(2, "0")} / explicação`}
             >
               <h2 className="text-lg font-semibold">{panel.title}</h2>
-              <p className="mt-2 text-muted">{panel.body}</p>
+              <p className="mt-2 text-muted">
+                <BilingualText text={panel.body} />
+              </p>
               {panel.ko ? (
                 <p
                   lang="ko"

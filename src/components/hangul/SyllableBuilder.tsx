@@ -5,6 +5,7 @@ import type { BuildSyllableExercise, ExerciseAnswer } from "@/lib/exercises";
 import { composeSyllable, type Final, type Initial, type Medial } from "@/lib/hangul";
 import { medialShape } from "@/lib/hangul/layout";
 import { AudioControl } from "./exercise-media";
+import { useShuffledOrder } from "./use-shuffled-order";
 
 type Parts = { initial?: Initial; medial?: Medial; final?: Final };
 
@@ -92,6 +93,20 @@ export function SyllableBuilder({
     : exercise.final
       ? [exercise.final]
       : [];
+  // Cada grupo recebe uma ordem nova por tentativa. A correção compara os
+  // valores escolhidos, não a posição do botão.
+  const orderedInitials = useShuffledOrder(
+    initials,
+    `initial\u001f${initials.join("\u001f")}`,
+  );
+  const orderedMedials = useShuffledOrder(
+    medials,
+    `medial\u001f${medials.join("\u001f")}`,
+  );
+  const orderedFinals = useShuffledOrder(
+    finals,
+    `final\u001f${finals.join("\u001f")}`,
+  );
   const hasFinal = finals.length > 0;
   const ready = Boolean(
     parts.initial && parts.medial && (!hasFinal || parts.final !== undefined),
@@ -244,14 +259,14 @@ export function SyllableBuilder({
         <div className="w-full min-w-0 max-w-md space-y-4">
           <PieceGroup
             title="Consoante inicial"
-            values={initials}
+            values={orderedInitials}
             selected={parts.initial}
             disabled={disabled}
             onSelect={(value) => select({ ...parts, initial: value as Initial })}
           />
           <PieceGroup
             title="Vogal"
-            values={medials}
+            values={orderedMedials}
             selected={parts.medial}
             disabled={disabled}
             onSelect={(value) => select({ ...parts, medial: value as Medial })}
@@ -259,7 +274,7 @@ export function SyllableBuilder({
           {hasFinal ? (
             <PieceGroup
               title="Consoante final"
-              values={finals}
+              values={orderedFinals}
               selected={parts.final}
               disabled={disabled}
               onSelect={(value) => select({ ...parts, final: value as Final })}

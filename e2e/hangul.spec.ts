@@ -231,6 +231,64 @@ test.describe("Hangul autenticado", () => {
     await expect(feedback).toContainText("아");
     await expect(page.getByRole("button", { name: "Continuar" })).toBeVisible();
   });
+
+  test("mantém a ordem das alternativas na tentativa e sorteia outra ao recomeçar", async ({
+    page,
+  }) => {
+    const optionLabels = () =>
+      page
+        .getByRole("group", { name: "Alternativas" })
+        .getByRole("button")
+        .evaluateAll((buttons) =>
+          buttons.map(
+            (button) => button.querySelector("span.min-w-0")?.textContent?.trim() ?? "",
+          ),
+        );
+
+    await page.goto("/hangul/h01");
+    await page.getByRole("button", { name: "Começar a prática" }).click();
+
+    const group = page.getByRole("group", { name: "Alternativas" });
+    const options = group.getByRole("button");
+    await expect(options).toHaveCount(3);
+
+    const firstOrder = await optionLabels();
+    expect([...firstOrder].sort()).toEqual(["1 bloco", "2 blocos", "3 blocos"]);
+    for (const option of await options.all()) {
+      const box = await option.boundingBox();
+      expect(box?.height ?? 0).toBeGreaterThanOrEqual(44);
+    }
+
+    // Selecionar uma alternativa não pode reordenar as demais.
+    await group.getByRole("button", { name: "1 bloco", exact: true }).click();
+    expect(await optionLabels()).toEqual(firstOrder);
+
+    // Tema e áudio provocam re-render; a ordem da tentativa deve permanecer.
+    await page.getByRole("button", { name: /Ativar tema/ }).first().click();
+    expect(await optionLabels()).toEqual(firstOrder);
+    await page.getByRole("button", { name: /Ativar tema/ }).first().click();
+    expect(await optionLabels()).toEqual(firstOrder);
+
+    // O feedback também re-renderiza o mesmo item, sem reembaralhar.
+    await page.getByRole("button", { name: "Conferir" }).click();
+    await expect(page.getByRole("status").filter({ hasText: "Ainda não." })).toBeVisible();
+    expect(await optionLabels()).toEqual(firstOrder);
+    expect(
+      await group.getByRole("button", { name: /1 bloco/ }).getAttribute("aria-pressed"),
+    ).toBe("true");
+
+    // Recomeçar depois de recarregar é uma tentativa nova. Seis ordens
+    // possíveis; oito tentativas tornam uma repetição integral improvável.
+    let foundDifferentOrder = false;
+    for (let attempt = 0; attempt < 8 && !foundDifferentOrder; attempt += 1) {
+      await page.goto("/hangul/h01");
+      await page.getByRole("button", { name: "Começar a prática" }).click();
+      const order = await optionLabels();
+      expect([...order].sort()).toEqual([...firstOrder].sort());
+      foundDifferentOrder = order.join("|") !== firstOrder.join("|");
+    }
+    expect(foundDifferentOrder).toBe(true);
+  });
 });
 
 const COMPLETED_LESSONS = Array.from(

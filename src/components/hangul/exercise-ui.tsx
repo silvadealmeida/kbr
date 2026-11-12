@@ -7,6 +7,7 @@ import { RULES } from "@/content/hangul/rules";
 import { SyllableBuilder } from "./SyllableBuilder";
 import { PronunciationLayers } from "./PronunciationLayers";
 import { AudioControl, BilingualText } from "./exercise-media";
+import { useShuffledOrder } from "./use-shuffled-order";
 
 export { AudioControl, BilingualText, speakKorean } from "./exercise-media";
 
@@ -67,6 +68,11 @@ function ChoiceList({
   // Alternativas curtas (jamo, sílabas, palavras) cabem em duas colunas; frases
   // longas ficam em uma coluna para preservar a leitura.
   const compact = options.every((option) => option.label.length <= 14);
+  // A ordem é sorteada uma vez por tentativa; IDs e rótulos não mudam.
+  const orderedOptions = useShuffledOrder(
+    options,
+    options.map((option) => option.id).join("\u001f"),
+  );
 
   return (
     <div
@@ -74,7 +80,7 @@ function ChoiceList({
       aria-label="Alternativas"
       className={`grid gap-2 ${compact ? "sm:grid-cols-2" : ""}`}
     >
-      {options.map((option) => {
+      {orderedOptions.map((option) => {
         const chosen = selected === option.id;
         const state = choiceState(result, option.id === correctId, chosen);
         return (

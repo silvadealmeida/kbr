@@ -319,14 +319,14 @@
   },
   "supabase/migrations/20261110120000_create_user_progress.sql": {
     "mtime": 1794307613.1113913,
-    "seen": 1794398629.5906906,
-    "ast_hash": "",
+    "seen": 1794488309.6576662,
+    "ast_hash": "b6c73ece2803ac68d4afbb9bcbf3adb1",
     "semantic_hash": ""
   },
   "supabase/tests/user_progress_rls.test.sql": {
     "mtime": 1794307628.261156,
-    "seen": 1794398629.5906956,
-    "ast_hash": "",
+    "seen": 1794488309.6576712,
+    "ast_hash": "54c660b727a6e7d93693694b00ec2cf1",
     "semantic_hash": ""
   },
   "docs/supabase-setup.md": {
@@ -967,20 +967,20 @@
   },
   "supabase/migrations/20261110180000_add_save_user_progress_rpc.sql": {
     "mtime": 1794342744.0068913,
-    "seen": 1794398629.5906916,
-    "ast_hash": "",
+    "seen": 1794488309.6576676,
+    "ast_hash": "c9b6f848e6f2e7af9901943ab5c3fd3f",
     "semantic_hash": ""
   },
   "supabase/tests/local/bootstrap.sql": {
     "mtime": 1794342684.7452528,
-    "seen": 1794398629.5906925,
-    "ast_hash": "",
+    "seen": 1794488309.657668,
+    "ast_hash": "0d630d1da3bd24a1749a6654f08ff21c",
     "semantic_hash": ""
   },
   "supabase/tests/save_user_progress_rpc.test.sql": {
     "mtime": 1794387272.0560353,
-    "seen": 1794398629.5906947,
-    "ast_hash": "",
+    "seen": 1794488309.6576705,
+    "ast_hash": "78857e182968fd3773cbffaa033e27c8",
     "semantic_hash": ""
   },
   "docs/sync/deployment-runbook.md": {

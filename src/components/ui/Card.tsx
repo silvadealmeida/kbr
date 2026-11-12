@@ -33,9 +33,7 @@ export function Plate({
 }) {
   return (
     <div
-      className={`relative rounded-[var(--radius-plate)] border border-line bg-surface p-5 ${
-        number ? "pr-14" : ""
-      } ${className}`}
+      className={`relative rounded-[var(--radius-plate)] border border-line bg-surface p-5 ${className}`}
     >
       <span aria-hidden className="pointer-events-none absolute inset-2.5">
         <span className="absolute left-0 top-0 size-2 border-l border-t border-line-strong" />
@@ -46,7 +44,13 @@ export function Plate({
       {number ? (
         <span className="mono-label absolute right-4 top-3 text-muted">{number}</span>
       ) : null}
-      {label ? <p className="mono-label mb-2 text-muted">{label}</p> : null}
+      {label ? (
+        // O número fica na mesma linha do rótulo: reserva espaço só ali, sem
+        // estreitar o corpo do cartão (padding assimétrico à direita).
+        <p className={`mono-label mb-2 text-muted ${number ? "pr-12" : ""}`}>
+          {label}
+        </p>
+      ) : null}
       {children}
     </div>
   );

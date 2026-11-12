@@ -54,9 +54,9 @@
     "semantic_hash": ""
   },
   "src/components/ui/Card.tsx": {
-    "mtime": 1794412125.520566,
-    "seen": 1794413287.5570102,
-    "ast_hash": "9a453cb53ca018e44acb2cb6a2f308bf",
+    "mtime": 1794486017.316283,
+    "seen": 1794486081.1088915,
+    "ast_hash": "3d011ca6b1df640eea5cfe1b2e628025",
     "semantic_hash": ""
   },
   "src/components/ui/EmptyState.tsx": {
@@ -120,9 +120,9 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794483885.9879792,
-    "seen": 1794485163.494394,
-    "ast_hash": "2636f7a1cdfd1a905f2aa5f5c9537cad",
+    "mtime": 1794485978.1633554,
+    "seen": 1794485979.9903233,
+    "ast_hash": "21936ce0e57f6f26dd9a6f4a8dee9ecb",
     "semantic_hash": ""
   },
   "src/lib/hangul/index.ts": {
@@ -3177,6 +3177,12 @@
     "mtime": 1794485629.955715,
     "seen": 1794485969.4361024,
     "ast_hash": "d4df11888d2fc26de00ea3a7a47b1109",
+    "semantic_hash": ""
+  },
+  "e2e/catalog-layout.spec.ts": {
+    "mtime": 1794486061.7431266,
+    "seen": 1794486081.1088264,
+    "ast_hash": "77ab67980dae9fa73f3fd2f94afcaf64",
     "semantic_hash": ""
   },
   "package-lock.json": {

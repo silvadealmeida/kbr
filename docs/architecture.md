@@ -80,6 +80,14 @@ A Fase 5 introduziu a arquitetura multi-curso sem adicionar conteúdo A1–C2, s
 
 Limites atuais: o registro é estático; não há CMS, banco, rota genérica `/cursos/[curso]/[passo]`, player compartilhado entre cursos nem conteúdo A1–C2. O catálogo não calcula nível CEFR, não emite certificado e não libera o próximo curso. A conclusão do Hangul continua sendo a conclusão do módulo Pré-A1, não um marco CEFR.
 
+## Blueprint curricular A1 (Fase 9A)
+
+`src/content/curriculum/a1/` é um scaffold editorial separado do curso jogável: tipos, 8 módulos, 40 lições planejadas, 8 checkpoints, dependências e validação estrutural. Ele contém metas, temas, gramática, cenários, objetivos de escuta/escrita, tipos de exercício adequados, revisão, critérios e esforço — **não** contém diálogos, frases, `VocabEntry`, `VocabSentence` ou exercícios finais.
+
+`ko-a1` permanece `status: "planned"` no `COURSE_REGISTRY`, com `steps: []`, `basePath: null` e sem prefixo SRS. Portanto os IDs `a1-l01`–`a1-l40`/`a1-c01`–`a1-c08` não entram na navegação nem no cálculo de conclusão; até um `Progress` legado com essas chaves continua produzindo 0 passos/0% para o curso planejado. A separação impede publicação ou desbloqueio acidental e evita criar uma terceira condição no catálogo apenas para planejamento interno.
+
+`validateA1Blueprint` verifica namespace/ordem/unicidade, campos obrigatórios, carga lexical, tipos conhecidos, módulos, escopo e pré-requisitos cumulativos dos checkpoints e dependências de revisão. É validação estrutural: naturalidade, correção coreana, tradução, registro e cultura continuam dependentes de revisão humana. O mapa e as fontes estão em `docs/curriculum/`.
+
 ## Hangul
 Composição por Unicode: `0xAC00 + (L*21 + V)*28 + T` — sem tabela de sílabas; testes unitários. `decomposeSyllable`, `isHangulText` e `normalizeHangul` completam as funções puras (round-trip e NFC).
 

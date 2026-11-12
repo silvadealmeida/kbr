@@ -91,7 +91,7 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section aria-labelledby={id} className="scroll-mt-24 border-t border-border pt-8">
+    <section aria-labelledby={id} className="scroll-mt-24 border-t border-line pt-8">
       <h2 id={id} className="text-2xl font-bold tracking-tight">
         {title}
       </h2>
@@ -102,7 +102,7 @@ function Section({
 
 function Pending({ children }: { children: React.ReactNode }) {
   return (
-    <span className="rounded-md bg-soft px-2 py-0.5 text-xs font-semibold text-brand">
+    <span className="rounded-md bg-surface-2 px-2 py-0.5 text-xs font-semibold text-accent">
       {children}
     </span>
   );
@@ -111,7 +111,7 @@ function Pending({ children }: { children: React.ReactNode }) {
 export default function PrivacyPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-12 pb-20 sm:px-6 sm:py-16">
-      <p className="text-sm font-semibold uppercase tracking-[0.16em] text-brand">
+      <p className="text-sm font-semibold uppercase tracking-[0.16em] text-accent">
         Transparência
       </p>
       <h1 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
@@ -125,7 +125,7 @@ export default function PrivacyPage() {
         Última atualização: {updated}. Documento em revisão antes do lançamento público.
       </p>
 
-      <div className="mt-8 rounded-2xl border border-border bg-surface p-5 text-sm leading-relaxed">
+      <div className="mt-8 rounded-2xl border border-line bg-surface p-5 text-sm leading-relaxed">
         <p className="font-semibold">O KBR está em desenvolvimento.</p>
         <p className="mt-2 text-muted">
           Esta política descreve o que o aplicativo faz hoje. Informações que ainda dependem de
@@ -134,7 +134,7 @@ export default function PrivacyPage() {
         </p>
       </div>
 
-      <nav aria-label="Nesta página" className="mt-8 rounded-2xl border border-border p-5 text-sm">
+      <nav aria-label="Nesta página" className="mt-8 rounded-2xl border border-line p-5 text-sm">
         <h2 className="font-semibold">Nesta página</h2>
         <ul className="mt-3 grid gap-2 sm:grid-cols-2">
           {[
@@ -149,7 +149,7 @@ export default function PrivacyPage() {
             ["contato", "Contato"],
           ].map(([id, label]) => (
             <li key={id}>
-              <a href={`#${id}`} className="text-brand underline underline-offset-2">
+              <a href={`#${id}`} className="text-accent underline underline-offset-2">
                 {label}
               </a>
             </li>
@@ -164,7 +164,7 @@ export default function PrivacyPage() {
             português. O responsável pelo tratamento (controlador) será identificado aqui antes
             do lançamento público.
           </p>
-          <dl className="grid gap-3 rounded-2xl border border-border bg-surface p-5 text-sm">
+          <dl className="grid gap-3 rounded-2xl border border-line bg-surface p-5 text-sm">
             <div>
               <dt className="font-semibold text-fg">Controlador</dt>
               <dd>
@@ -246,13 +246,13 @@ export default function PrivacyPage() {
             role="region"
             aria-label="Tabela de cookies e chaves de armazenamento local"
             tabIndex={0}
-            className="overflow-x-auto rounded-2xl border border-border bg-surface"
+            className="overflow-x-auto rounded-2xl border border-line bg-surface"
           >
             <table className="w-full min-w-[42rem] text-left text-sm">
               <caption className="sr-only">
                 Cookies e chaves de armazenamento local usados pelo KBR
               </caption>
-              <thead className="border-b border-border text-xs uppercase tracking-wide text-muted">
+              <thead className="border-b border-line text-xs uppercase tracking-wide text-muted">
                 <tr>
                   <th scope="col" className="px-4 py-3 font-semibold">Nome</th>
                   <th scope="col" className="px-4 py-3 font-semibold">Tipo</th>
@@ -262,7 +262,7 @@ export default function PrivacyPage() {
               </thead>
               <tbody>
                 {storageRows.map((row) => (
-                  <tr key={row.name} className="border-b border-border last:border-0">
+                  <tr key={row.name} className="border-b border-line last:border-0">
                     <td className="px-4 py-3 align-top">
                       <code className="break-all text-xs">{row.name}</code>
                     </td>
@@ -292,11 +292,11 @@ export default function PrivacyPage() {
             role="region"
             aria-label="Tabela de finalidades e bases legais"
             tabIndex={0}
-            className="overflow-x-auto rounded-2xl border border-border bg-surface"
+            className="overflow-x-auto rounded-2xl border border-line bg-surface"
           >
             <table className="w-full min-w-[38rem] text-left text-sm">
               <caption className="sr-only">Finalidades e bases legais do tratamento</caption>
-              <thead className="border-b border-border text-xs uppercase tracking-wide text-muted">
+              <thead className="border-b border-line text-xs uppercase tracking-wide text-muted">
                 <tr>
                   <th scope="col" className="px-4 py-3 font-semibold">Finalidade</th>
                   <th scope="col" className="px-4 py-3 font-semibold">Base legal</th>
@@ -304,7 +304,7 @@ export default function PrivacyPage() {
               </thead>
               <tbody>
                 {legalBasis.map((row) => (
-                  <tr key={row.purpose} className="border-b border-border last:border-0">
+                  <tr key={row.purpose} className="border-b border-line last:border-0">
                     <td className="px-4 py-3 align-top">{row.purpose}</td>
                     <td className="px-4 py-3 align-top text-muted">{row.basis}</td>
                   </tr>
@@ -407,14 +407,14 @@ export default function PrivacyPage() {
           <p>
             Contato de privacidade: <Pending>a confirmar</Pending>. Aviso legal e informações
             exigidas na Alemanha: consulte a página de{" "}
-            <Link href="/impressum" className="text-brand underline underline-offset-2">
+            <Link href="/impressum" className="text-accent underline underline-offset-2">
               Aviso legal / Impressum
             </Link>
             .
           </p>
         </Section>
 
-        <section className="rounded-2xl border border-border bg-surface p-5">
+        <section className="rounded-2xl border border-line bg-surface p-5">
           <h2 className="text-lg font-semibold">Pendências para revisão jurídica</h2>
           <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-muted">
             <li>Identidade legal do controlador e endereço.</li>
@@ -428,7 +428,7 @@ export default function PrivacyPage() {
       </div>
 
       <p className="mt-10 text-sm">
-        <Link href="/" className="text-brand underline underline-offset-2">
+        <Link href="/" className="text-accent underline underline-offset-2">
           ← Voltar para a página inicial
         </Link>
       </p>

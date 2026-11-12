@@ -1,8 +1,20 @@
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
+import { join } from "node:path";
+import { fileURLToPath } from "node:url";
 import { describe, expect, test } from "vitest";
 
 const read = (path: string) =>
   readFileSync(new URL(`../src/${path}`, import.meta.url), "utf8");
+
+const srcRoot = fileURLToPath(new URL("../src", import.meta.url));
+
+function sourceFiles(dir: string): string[] {
+  return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+    const path = join(dir, entry.name);
+    if (entry.isDirectory()) return sourceFiles(path);
+    return /\.(?:ts|tsx|css)$/.test(entry.name) ? [path] : [];
+  });
+}
 
 const globals = read("app/globals.css");
 const layout = read("app/layout.tsx");
@@ -102,14 +114,32 @@ describe("tokens de cor e contraste (7B)", () => {
     }
   });
 
-  test("mantém aliases legados até a 7G", () => {
-    expect(globals).toContain("--brand: var(--accent)");
-    expect(globals).toContain("--brand-fg: var(--accent-fg)");
-    expect(globals).toContain("--border: var(--line)");
-    expect(globals).toContain("--accent-soft: var(--surface-2)");
-    expect(globals).toContain("--color-brand: var(--brand)");
-    expect(globals).toContain("--color-border: var(--border)");
-    expect(globals).toContain("--color-soft: var(--accent-soft)");
+  test("não mantém aliases legados depois da 7G", () => {
+    for (const token of [
+      "--brand:",
+      "--brand-fg:",
+      "--border:",
+      "--accent-soft:",
+      "--color-brand:",
+      "--color-brand-fg:",
+      "--color-border:",
+      "--color-soft:",
+    ]) {
+      expect(globals).not.toContain(token);
+    }
+  });
+
+  test("nenhum arquivo em src reintroduz classes ou aliases legados", () => {
+    const legacyClass =
+      /\b(?:bg-soft|border-border|text-brand|bg-brand|text-brand-fg)\b/;
+    const legacyToken =
+      /\B--(?:brand|brand-fg|border|accent-soft|color-brand|color-brand-fg|color-border|color-soft)\b/;
+    const offenders = sourceFiles(srcRoot).filter((file) => {
+      const text = readFileSync(file, "utf8");
+      return legacyClass.test(text) || legacyToken.test(text);
+    });
+
+    expect(offenders).toEqual([]);
   });
 });
 

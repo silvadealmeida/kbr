@@ -10,8 +10,8 @@ import { useAuth } from "./AuthProvider";
 function GateCard({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="flex min-h-dvh items-center justify-center px-4 pb-[env(safe-area-inset-bottom)] pt-[env(safe-area-inset-top)]">
-      <div className="w-full max-w-md rounded-2xl border border-border bg-surface p-6 text-center">
-        <p lang="ko" aria-hidden className="font-ko text-3xl font-bold text-brand">
+      <div className="w-full max-w-md rounded-2xl border border-line bg-surface p-6 text-center">
+        <p lang="ko" aria-hidden className="font-ko text-3xl font-bold text-accent">
           잠시만요
         </p>
         <h1 className="mt-2 text-xl font-semibold">{title}</h1>
@@ -49,7 +49,7 @@ export function ProtectedArea({ children }: { children: React.ReactNode }) {
         <p>O serviço de login está indisponível agora. Tente novamente em instantes.</p>
         <Link
           href="/"
-          className="mt-4 inline-flex min-h-12 items-center justify-center rounded-xl border border-border px-5 font-semibold text-fg hover:bg-soft"
+          className="mt-4 inline-flex min-h-12 items-center justify-center rounded-xl border border-line px-5 font-semibold text-fg hover:bg-surface-2"
         >
           Voltar à página inicial
         </Link>

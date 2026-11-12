@@ -14,7 +14,7 @@ export function ConnectionNotice() {
   return (
     <p
       role="status"
-      className="mb-4 rounded-2xl border border-border bg-soft p-4 text-sm text-fg"
+      className="mb-4 rounded-2xl border border-line bg-surface-2 p-4 text-sm text-fg"
     >
       <span className="font-semibold">Sem conexão.</span> O que você já abriu continua
       nesta tela e o progresso fica salvo neste dispositivo. A sincronização com sua

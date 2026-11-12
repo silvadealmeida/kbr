@@ -5,10 +5,8 @@
    KBR — Fundação visual “Composição” (Fase 7B)
 
    Primitivos e tokens semânticos aprovados em docs/design/design-system-spec.md.
-   A aplicação continua usando os nomes antigos (--bg, --surface, --fg, --muted,
-   --border, --brand, --brand-fg, --accent-soft) via aliases até a Fase 7G.
-   --brand permanece celadon na 7B para não transformar todos os links e botões
-   existentes em vermelho-selo; o selo tem token próprio (--seal).
+   A 7G removeu os aliases da 7B. Links e rótulos editoriais usam --accent;
+   o selo usa --seal. O teste de design system bloqueia a reintrodução.
    ========================================================================== */
 
 :root {
@@ -62,12 +60,6 @@
   --focus: var(--celadon-700);
   --selection: #e8cdbf;
 
-  /* Aliases legados (7B–7G). Não criar código novo com eles. */
-  --brand: var(--accent);
-  --brand-fg: var(--accent-fg);
-  --border: var(--line);
-  --accent-soft: var(--surface-2);
-
   /* Forma — nomes por papel para não sobrescrever a escala rounded-* existente. */
   --radius-seal: 4px;
   --radius-field: 8px;
@@ -120,11 +112,6 @@
   --info-soft: var(--surface-2);
   --focus: var(--mint-300);
   --selection: #3a4a41;
-
-  --brand: var(--accent);
-  --brand-fg: var(--accent-fg);
-  --border: var(--line);
-  --accent-soft: var(--surface-2);
 }
 
 @theme inline {
@@ -150,12 +137,6 @@
   --color-info-soft: var(--info-soft);
   --color-focus: var(--focus);
   --color-selection: var(--selection);
-
-  /* Aliases expostos ao Tailwind até a 7G. */
-  --color-brand: var(--brand);
-  --color-brand-fg: var(--brand-fg);
-  --color-border: var(--border);
-  --color-soft: var(--accent-soft);
 
   /* @theme inline: as famílias são resolvidas no elemento que recebe a classe
      do next/font (body para Archivo/Plex Mono; shell de (app) para Noto Sans KR). */

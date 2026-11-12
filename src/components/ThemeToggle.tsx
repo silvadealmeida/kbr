@@ -24,7 +24,7 @@ export function ThemeToggle() {
       aria-label={label}
       aria-pressed={dark}
       title={label}
-      className="flex size-12 items-center justify-center rounded-xl text-xl hover:bg-soft"
+      className="flex size-12 items-center justify-center rounded-xl text-xl hover:bg-surface-2"
     >
       <span aria-hidden className="dark:hidden">☾</span>
       <span aria-hidden className="hidden dark:inline">☀</span>

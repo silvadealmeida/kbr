@@ -20,7 +20,7 @@ const pendingItems = [
 export default function ImpressumPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-12 pb-20 sm:px-6 sm:py-16">
-      <p className="text-sm font-semibold uppercase tracking-[0.16em] text-brand">
+      <p className="text-sm font-semibold uppercase tracking-[0.16em] text-accent">
         Informações legais
       </p>
       <h1 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
@@ -31,7 +31,7 @@ export default function ImpressumPage() {
         será concluída antes do lançamento público.
       </p>
 
-      <div className="mt-8 rounded-2xl border border-border bg-surface p-5 text-sm leading-relaxed">
+      <div className="mt-8 rounded-2xl border border-line bg-surface p-5 text-sm leading-relaxed">
         <p className="font-semibold">Documento incompleto — revisão jurídica pendente</p>
         <p className="mt-2 text-muted">
           Os campos abaixo não foram preenchidos porque os dados ainda não estão confirmados. Não
@@ -40,7 +40,7 @@ export default function ImpressumPage() {
         </p>
       </div>
 
-      <section aria-labelledby="provedor" className="mt-10 border-t border-border pt-8">
+      <section aria-labelledby="provedor" className="mt-10 border-t border-line pt-8">
         <h2 id="provedor" className="text-2xl font-bold tracking-tight">
           Identificação do provedor
         </h2>
@@ -48,12 +48,12 @@ export default function ImpressumPage() {
           Informações exigidas pelo § 5º da Lei Alemã de Serviços Digitais (DDG), quando
           aplicável:
         </p>
-        <dl className="mt-5 grid gap-3 rounded-2xl border border-border bg-surface p-5 text-sm">
+        <dl className="mt-5 grid gap-3 rounded-2xl border border-line bg-surface p-5 text-sm">
           {pendingItems.map(([label, value]) => (
             <div key={label} className="grid gap-1 sm:grid-cols-[1.2fr_0.8fr] sm:gap-4">
               <dt className="font-semibold">{label}</dt>
               <dd>
-                <span className="rounded-md bg-soft px-2 py-0.5 text-xs font-semibold text-brand">
+                <span className="rounded-md bg-surface-2 px-2 py-0.5 text-xs font-semibold text-accent">
                   {value}
                 </span>
               </dd>
@@ -62,7 +62,7 @@ export default function ImpressumPage() {
         </dl>
       </section>
 
-      <section aria-labelledby="avaliacao" className="mt-10 border-t border-border pt-8">
+      <section aria-labelledby="avaliacao" className="mt-10 border-t border-line pt-8">
         <h2 id="avaliacao" className="text-2xl font-bold tracking-tight">
           Por que esta página existe
         </h2>
@@ -83,7 +83,7 @@ export default function ImpressumPage() {
           <p>
             Enquanto isso, o contato de privacidade e os demais dados do controlador também estão
             pendentes na{" "}
-            <Link href="/privacidade" className="text-brand underline underline-offset-2">
+            <Link href="/privacidade" className="text-accent underline underline-offset-2">
               política de privacidade
             </Link>
             .
@@ -91,7 +91,7 @@ export default function ImpressumPage() {
         </div>
       </section>
 
-      <section aria-labelledby="conteudo" className="mt-10 border-t border-border pt-8">
+      <section aria-labelledby="conteudo" className="mt-10 border-t border-line pt-8">
         <h2 id="conteudo" className="text-2xl font-bold tracking-tight">
           Conteúdo e responsabilidade
         </h2>
@@ -108,7 +108,7 @@ export default function ImpressumPage() {
       </section>
 
       <p className="mt-10 text-sm">
-        <Link href="/" className="text-brand underline underline-offset-2">
+        <Link href="/" className="text-accent underline underline-offset-2">
           ← Voltar para a página inicial
         </Link>
       </p>

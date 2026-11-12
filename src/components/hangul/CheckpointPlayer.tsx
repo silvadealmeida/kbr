@@ -254,15 +254,15 @@ export function CheckpointPlayer({
       aria-labelledby="checkpoint-completion-title"
       className="pb-4"
     >
-      <Link href="/hangul" className="text-sm font-semibold text-brand">
+      <Link href="/hangul" className="text-sm font-semibold text-accent">
         ← Hangul
       </Link>
-      <p className="mt-4 text-sm font-semibold text-brand">Fim do checkpoint</p>
+      <p className="mt-4 text-sm font-semibold text-accent">Fim do checkpoint</p>
       <h1 id="checkpoint-completion-title" className="mt-1 text-3xl font-bold tracking-tight">
         Módulo Hangul concluído
       </h1>
       {saveWarning ? (
-        <p role="status" className="mt-3 rounded-xl bg-soft p-3 text-sm">
+        <p role="status" className="mt-3 rounded-xl bg-surface-2 p-3 text-sm">
           O progresso foi salvo neste dispositivo, mas a sincronização com a conta pode
           estar pendente. Isso não apaga o que você fez.
         </p>
@@ -274,13 +274,13 @@ export function CheckpointPlayer({
         <button
           type="button"
           onClick={restart}
-          className="inline-flex min-h-12 items-center justify-center rounded-xl border border-border px-5 font-semibold hover:bg-soft"
+          className="inline-flex min-h-12 items-center justify-center rounded-xl border border-line px-5 font-semibold hover:bg-surface-2"
         >
           Refazer checkpoint
         </button>
         <Link
           href="/hangul"
-          className="inline-flex min-h-12 items-center justify-center rounded-xl border border-border px-5 font-semibold hover:bg-soft"
+          className="inline-flex min-h-12 items-center justify-center rounded-xl border border-line px-5 font-semibold hover:bg-surface-2"
         >
           Voltar para Hangul
         </Link>

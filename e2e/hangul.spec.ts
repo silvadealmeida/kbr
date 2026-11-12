@@ -557,6 +557,13 @@ test.describe("Unidade 6 e checkpoint c3 autenticados", () => {
     ).toBeVisible();
     await page.getByRole("button", { name: "Começar a prática" }).click();
 
+    // A bancada mostra sempre as três zonas, mas só pede o final quando o
+    // exercício tem batchim. A sílaba C+V é pré-visualizada antes de conferir.
+    await expect(page.getByText("final opcional")).toBeVisible();
+    await expect(
+      page.getByRole("group", { name: "Consoante final" }),
+    ).toHaveCount(0);
+
     const initial = page
       .getByRole("button", { name: "ㄱ", exact: true })
       .first();
@@ -570,6 +577,7 @@ test.describe("Unidade 6 e checkpoint c3 autenticados", () => {
     await medial.focus();
     await page.keyboard.press("Enter");
     await expect(medial).toHaveAttribute("aria-pressed", "true");
+    await expect(page.getByText("Sua sílaba:")).toContainText("가");
 
     await page.getByRole("button", { name: "Conferir" }).focus();
     await page.keyboard.press("Enter");
@@ -578,6 +586,33 @@ test.describe("Unidade 6 e checkpoint c3 autenticados", () => {
     ).toBeVisible();
     await expect(page.getByRole("button", { name: "Continuar" })).toBeVisible();
 
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= window.innerWidth,
+      ),
+    ).toBe(true);
+  });
+
+  test("bancada C+V permanece utilizável em 320 px", async ({ page }, testInfo) => {
+    test.skip(testInfo.project.name !== "desktop-1280", "Medição única em 320 px.");
+    await seedCompletedLessons(page, COMPLETED_THROUGH_H20);
+    await page.setViewportSize({ width: 320, height: 667 });
+    await page.goto("/hangul/h16");
+    await page.getByRole("button", { name: "Refazer lição" }).click();
+
+    await expect(page.getByText("Bancada de composição")).toBeVisible();
+    await expect(page.getByText("final opcional")).toBeVisible();
+    const initial = page
+      .getByRole("group", { name: "Consoante inicial" })
+      .getByRole("button", { name: "ㄱ", exact: true });
+    const box = await initial.boundingBox();
+    expect(box?.height ?? 0).toBeGreaterThanOrEqual(44);
+    await initial.click();
+    await page
+      .getByRole("group", { name: "Vogal" })
+      .getByRole("button", { name: "ㅏ", exact: true })
+      .click();
+    await expect(page.getByText("Sua sílaba:")).toContainText("가");
     expect(
       await page.evaluate(
         () => document.documentElement.scrollWidth <= window.innerWidth,
@@ -789,6 +824,40 @@ test.describe("Unidade 7 e checkpoint c4 autenticados", () => {
     await expect(
       page.getByRole("heading", { level: 1, name: /Ligação/ }),
     ).toBeVisible();
+
+    // As camadas são estáticas: escrita, fala aproximada e explicação já estão
+    // visíveis, com o status de revisão. A comparação por bloco é opcional.
+    const layer = page.getByRole("region", {
+      name: /Camadas de pronúncia: 한국어/,
+    });
+    await expect(layer.getByText("Forma escrita")).toBeVisible();
+    await expect(layer.locator("ol > li").nth(0).locator('[lang="ko"]')).toHaveText([
+      "한",
+      "국",
+      "어",
+    ]);
+    await expect(layer.locator("ol > li").nth(1).locator('[lang="ko"]')).toHaveText([
+      "한",
+      "구",
+      "거",
+    ]);
+    await expect(layer.getByText(/ㄱ de 국 passa/)).toBeVisible();
+    await expect(layer.getByText("em revisão", { exact: true })).toBeVisible();
+    await layer.getByRole("combobox", { name: "Exemplo" }).selectOption({
+      label: "밥을",
+    });
+    const selected = page.getByRole("region", {
+      name: /Camadas de pronúncia: 밥을/,
+    });
+    await expect(selected.locator("ol > li").nth(1).locator('[lang="ko"]')).toHaveText([
+      "바",
+      "블",
+    ]);
+    await selected.getByRole("button", { name: "Ver comparação por bloco" }).click();
+    await expect(selected.getByText("Bloco 2:")).toBeVisible();
+    await selected.getByRole("button", { name: "Ocultar comparação por bloco" }).click();
+    await expect(selected.getByText("Bloco 2:")).toHaveCount(0);
+
     await page.getByRole("button", { name: "Começar a prática" }).click();
 
     const option = page.getByRole("button", { name: /한구거/ }).first();

@@ -158,6 +158,45 @@ test.describe("WebKit/iOS automatizado (sem dispositivo físico)", () => {
     ).toBeVisible();
   });
 
+  test("bancada e camadas de pronúncia com teclado e foco", async ({ context, page }) => {
+    const user = await authenticate(context);
+    const completed = [
+      ...Array.from({ length: 20 }, (_, index) => `h${String(index + 1).padStart(2, "0")}`),
+      "c1", "c2", "c3",
+    ];
+    await seedProgress(context, user.id, { lessons: lessonProgress(completed) });
+    await page.goto("/hangul/h16");
+    await page.getByRole("button", { name: "Refazer lição" }).click();
+    await expect(page.getByText("Bancada de composição")).toBeVisible();
+    const initial = page.getByRole("group", { name: "Consoante inicial" }).getByRole("button", { name: "ㄱ" });
+    await initial.focus();
+    await page.keyboard.press("Enter");
+    await page.getByRole("group", { name: "Vogal" }).getByRole("button", { name: "ㅏ" }).click();
+    await expect(page.getByText("Sua sílaba:")).toContainText("가");
+    await page.getByRole("button", { name: "Conferir" }).click();
+    await expect(page.getByRole("status").filter({ hasText: "Correto." })).toBeFocused();
+    await noHorizontalOverflow(page);
+
+    await page.goto("/hangul/h21");
+    const layer = page.getByRole("region", { name: /Camadas de pronúncia: 한국어/ });
+    const rails = layer.locator("ol > li");
+    await expect(rails.nth(0).locator('[lang="ko"]')).toHaveText(["한", "국", "어"]);
+    await expect(rails.nth(1).locator('[lang="ko"]')).toHaveText(["한", "구", "거"]);
+    await expect(layer.getByText(/ㄱ de 국 passa/)).toBeVisible();
+    await expect(layer.getByText(/som final passa/)).toBeVisible();
+    await layer.getByRole("button", { name: "Ver comparação por bloco" }).click();
+    await expect(layer.getByText("Bloco 2:")).toBeVisible();
+    await layer.getByRole("button", { name: "Ocultar comparação por bloco" }).click();
+    await expect(layer.getByText("Bloco 2:")).toHaveCount(0);
+    await layer.getByRole("combobox", { name: "Exemplo" }).selectOption({ label: "음악" });
+    const musicLayer = page.getByRole("region", { name: /Camadas de pronúncia: 음악/ });
+    await expect(musicLayer.locator("ol > li").nth(1).locator('[lang="ko"]')).toHaveText([
+      "으",
+      "막",
+    ]);
+    await noHorizontalOverflow(page);
+  });
+
   test("lição, foco do feedback, Enter, histórico único e retorno ao curso", async ({
     context,
     page,
@@ -368,6 +407,19 @@ test.describe("WebKit/iOS automatizado (sem dispositivo físico)", () => {
       return { property: style.transitionProperty, duration: style.transitionDuration };
     });
     expect(transition.property).toBe("none");
+
+    // O selo de feedback não anima quando reduced motion está ativo; o texto
+    // continua sendo o mesmo, então nenhuma informação depende do movimento.
+    await page
+      .getByRole("group", { name: "Alternativas" })
+      .getByRole("button", { name: "2 blocos", exact: true })
+      .click();
+    await page.getByRole("button", { name: "Conferir" }).click();
+    const feedback = page.getByRole("status").filter({ hasText: "Correto." });
+    await expect(feedback).toBeVisible();
+    expect(
+      await feedback.evaluate((element) => getComputedStyle(element).animationName),
+    ).toBe("none");
   });
 
   test("viewport estreito e resposta textual não criam rolagem horizontal", async ({

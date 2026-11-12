@@ -9,6 +9,73 @@ async function authenticate(context: BrowserContext) {
   return user;
 }
 
+async function seedHangulProgress(context: BrowserContext, userId: string) {
+  const completed = [
+    ...Array.from({ length: 20 }, (_, index) => `h${String(index + 1).padStart(2, "0")}`),
+    "c1",
+    "c2",
+    "c3",
+  ];
+  await context.addInitScript(
+    ({ key, lessons }) => {
+      try {
+        window.localStorage.setItem(
+          key,
+          JSON.stringify({
+            v: 1,
+            lessons,
+            cards: {},
+            history: [],
+            streak: 0,
+            dailyGoal: 10,
+            lastActive: "2026-11-10T12:00:00.000Z",
+          }),
+        );
+      } catch {
+        /* documento sem origem utilizável */
+      }
+    },
+    {
+      key: `kbr:user:${userId}:v1`,
+      lessons: Object.fromEntries(
+        completed.map((id) => [id, { done: true, score: 100 }]),
+      ),
+    },
+  );
+}
+
+async function noOverflow(page: Page, label: string) {
+  expect(
+    await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth),
+    label,
+  ).toBe(true);
+}
+
+/** Avança a h04 até o primeiro item de resposta textual (cloze). */
+async function advanceToTextAnswer(page: Page) {
+  const choice = async (name: string) => {
+    await page
+      .getByRole("group", { name: "Alternativas" })
+      .getByRole("button", { name, exact: true })
+      .click();
+    await page.getByRole("button", { name: "Conferir" }).click();
+    await page.getByRole("button", { name: "Continuar" }).click();
+  };
+  const build = async (initial: string, medial: string) => {
+    await page.getByRole("button", { name: initial, exact: true }).first().click();
+    await page.getByRole("button", { name: medial, exact: true }).first().click();
+    await page.getByRole("button", { name: "Conferir" }).click();
+    await page.getByRole("button", { name: "Continuar" }).click();
+  };
+
+  await choice("나");
+  await choice("고");
+  await choice("ㄱ + ㅗ e ㄱ + ㅣ");
+  await choice("가 e 구");
+  await build("ㄴ", "ㅏ");
+  await build("ㄱ", "ㅗ");
+}
+
 async function measure(page: Page) {
   return page.evaluate(() => {
     const navigation = performance.getEntriesByType("navigation")[0] as
@@ -104,22 +171,92 @@ test.describe("Orçamento de desempenho local", () => {
     expect(result.bytes, "transferência total do painel").toBeLessThan(1_200_000);
   });
 
-  test("320/375/390/768/1280 não criam rolagem horizontal", async ({
+  test("player de lição mantém orçamento autenticado e feedback sem CLS grosseiro", async ({
+    context,
+    page,
+  }, testInfo) => {
+    test.skip(testInfo.project.name !== "desktop-1280", "Medição única em 1280 px.");
+    const user = await authenticate(context);
+    await seedHangulProgress(context, user.id);
+    await page.addInitScript({ content: clsObserver });
+    await page.goto("/hangul/h16", { waitUntil: "networkidle" });
+    await page.getByRole("button", { name: "Refazer lição" }).click();
+    await expect(page.getByText("Bancada de composição")).toBeVisible();
+    await page.waitForTimeout(300);
+
+    const result = await measure(page);
+    await testInfo.attach("player-metrics.json", {
+      body: JSON.stringify(result, null, 2),
+      contentType: "application/json",
+    });
+    expect(result.cls, "CLS do player").toBeLessThan(0.1);
+    expect(result.bytes, "transferência total do player").toBeLessThan(1_200_000);
+  });
+
+  test("320/375/390/640/768/1280 não criam rolagem horizontal", async ({
     context,
     page,
   }, testInfo) => {
     test.skip(testInfo.project.name !== "desktop-1280", "Matriz única em 1280 px.");
-    await authenticate(context);
-    for (const width of [320, 375, 390, 768, 1280]) {
+    const user = await authenticate(context);
+    await seedHangulProgress(context, user.id);
+    // 640 px de largura CSS equivale a 200% de zoom numa janela de 1280 px.
+    for (const width of [320, 375, 390, 640, 768, 1280]) {
       await page.setViewportSize({ width, height: width < 768 ? 667 : 900 });
       for (const path of ["/", "/cursos", "/hangul", "/hangul/h04", "/revisao"]) {
         await page.goto(path);
-        expect(
-          await page.evaluate(
-            () => document.documentElement.scrollWidth <= window.innerWidth,
+        await noOverflow(page, `${path} em ${width}px`);
+      }
+
+      await page.goto("/hangul/h21");
+      await expect(page.getByRole("heading", { level: 1, name: /Ligação/ })).toBeVisible();
+      await noOverflow(page, `/hangul/h21 em ${width}px`);
+
+      await page.goto("/hangul/h16");
+      await page.getByRole("button", { name: "Refazer lição" }).click();
+      await expect(page.getByText("Bancada de composição")).toBeVisible();
+      await noOverflow(page, `/hangul/h16 (prática) em ${width}px`);
+
+      const undersized = await page.evaluate(() => {
+        const targets = Array.from(
+          document.querySelectorAll(
+            "article button[aria-pressed], article button:not([disabled])",
           ),
-          `${path} em ${width}px`,
-        ).toBe(true);
+        ).filter((element) => {
+          const rect = element.getBoundingClientRect();
+          return rect.width > 0 && rect.height > 0;
+        });
+        return targets
+          .map((element) => {
+            const rect = element.getBoundingClientRect();
+            return {
+              label: (element.getAttribute("aria-label") ?? element.textContent ?? "")
+                .trim()
+                .slice(0, 40),
+              width: Math.round(rect.width),
+              height: Math.round(rect.height),
+            };
+          })
+          .filter((target) => target.width < 44 || target.height < 44);
+      });
+      expect(undersized, `alvos de toque em ${width}px`).toEqual([]);
+
+      if (width === 320) {
+        await page.goto("/hangul/h04");
+        await page.getByRole("button", { name: "Refazer lição" }).click();
+        await advanceToTextAnswer(page);
+        const input = page.locator("#resposta");
+        await expect(input).toBeVisible();
+        const field = await input.evaluate((element) => {
+          const style = getComputedStyle(element);
+          const rect = element.getBoundingClientRect();
+          return {
+            fontSize: Number.parseFloat(style.fontSize),
+            height: rect.height,
+          };
+        });
+        expect(field.fontSize, "fonte do campo em 320 px").toBeGreaterThanOrEqual(16);
+        expect(field.height, "altura do campo em 320 px").toBeGreaterThanOrEqual(44);
       }
     }
   });

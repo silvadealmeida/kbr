@@ -76,7 +76,7 @@ O `kykim/bert-kor-base` **não declara licença** no repositório do Hugging Fac
 2. substituir o encoder por um modelo com licença clara; ou
 3. migrar a referência principal para gravação nativa.
 
-Este documento não é parecer jurídico e não afirma que o pipeline esteja liberado para uso comercial.
+Este documento não é parecer jurídico e não afirma que o pipeline esteja liberado para uso comercial. **A auditoria da 8D (`docs/audio/license-audit.md`) confirmou que o encoder é necessário na geração e manteve a distribuição pública/comercial como BLOQUEADA.**
 
 ## Preparação do ambiente
 

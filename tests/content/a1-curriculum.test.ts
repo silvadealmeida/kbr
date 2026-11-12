@@ -10,7 +10,7 @@ import {
   type A1CurriculumBlueprint,
   type A1LessonContent,
 } from "@/content/curriculum/a1";
-import { courseStepHref, getCourse } from "@/content/courses";
+import { courseStepHref, getCourse, validateCourseRegistry } from "@/content/courses";
 import { VOCAB_ENTRIES, type VocabEntry, type VocabSentence } from "@/content/vocabulary";
 import { COURSE_LESSON_IDS } from "@/content/vocabulary";
 import { summarizeCourseProgress } from "@/lib/courses";
@@ -142,6 +142,16 @@ describe("blueprint curricular A1", () => {
     });
   });
 
+  test("o scaffold A1 não altera o curso Hangul nem o registro multi-curso", () => {
+    const hangul = getCourse("hangul")!;
+    expect(validateCourseRegistry()).toEqual([]);
+    expect(hangul.status).toBe("available");
+    expect(hangul.steps).toHaveLength(29);
+    expect(hangul.steps.at(0)?.id).toBe("h01");
+    expect(hangul.steps.at(-1)?.id).toBe("c4");
+    expect(getCourse("ko-a1")?.status).toBe("planned");
+  });
+
   test.each([
     ["pré-requisito pendente", {
       ...A1_CURRICULUM,
@@ -198,6 +208,41 @@ describe("contrato do conteúdo A1 futuro", () => {
       "exercise-id",
       "completion",
       "review-evidence",
+    ]));
+  });
+
+  test("rejeita frases sem tradução, dica, alvo, lacuna ou revisão válidos", () => {
+    const badSentences: readonly VocabSentence[] = FIXTURE_SENTENCES.map((sentence, index) => {
+      if (index === 0) return { ...sentence, pt: " " };
+      if (index === 1) return { ...sentence, contextMeaning: "" };
+      if (index === 2) return { ...sentence, target: "다른말" };
+      if (index === 3) return { ...sentence, ko: "no hangul", target: "no" };
+      if (index === 4) return { ...sentence, ko: `${sentence.target} ${sentence.target}` };
+      if (index === 5) return { ...sentence, review: { status: "reviewed" as const } };
+      return sentence;
+    });
+    const content: A1LessonContent = {
+      ...VALID_CONTENT,
+      dialogue: [
+        { ...VALID_CONTENT.dialogue[0]!, review: { status: "reviewed" as const } },
+        VALID_CONTENT.dialogue[1]!,
+      ],
+      grammar: [{
+        ...VALID_CONTENT.grammar[0]!,
+        examples: [{ ko: "no hangul", pt: "Exemplo inválido.", audioText: "no hangul" }],
+        review: { status: "reviewed" as const },
+      }],
+    };
+
+    const codes = validateA1LessonContent([content], A1_CURRICULUM, FIXTURE_ENTRIES, badSentences).map((issue) => issue.code);
+    expect(codes).toEqual(expect.arrayContaining([
+      "sentence-translation",
+      "sentence-cue",
+      "sentence-target",
+      "sentence-korean",
+      "sentence-gap",
+      "review-evidence",
+      "grammar-example-korean",
     ]));
   });
 });

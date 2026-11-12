@@ -108,9 +108,9 @@
     "semantic_hash": ""
   },
   "docs/architecture.md": {
-    "mtime": 1794493795.034565,
-    "seen": 1794493803.316698,
-    "ast_hash": "201b1628fb535cada85bf5df1dd80861",
+    "mtime": 1794495590.7400548,
+    "seen": 1794495761.8211198,
+    "ast_hash": "e5c5b9fda977dc15c796d317ce5471b5",
     "semantic_hash": ""
   },
   "docs/research.md": {
@@ -120,9 +120,9 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794493790.8009648,
-    "seen": 1794493803.316722,
-    "ast_hash": "337353240064293f7726b44a4b07e722",
+    "mtime": 1794495610.7829425,
+    "seen": 1794495761.821142,
+    "ast_hash": "e3ebd1fd2d75c2aba4413b1aa17d081d",
     "semantic_hash": ""
   },
   "src/lib/hangul/index.ts": {
@@ -3413,12 +3413,6 @@
     "ast_hash": "198834f4b876905a89b20c6375b4be29",
     "semantic_hash": ""
   },
-  "PLAN.md": {
-    "mtime": 1794492995.4529524,
-    "seen": 1794492997.7496254,
-    "ast_hash": "0a79569459525c40df332ea5096c9cde",
-    "semantic_hash": ""
-  },
   "docs/curriculum/a1-exercise-plan.md": {
     "mtime": 1794492328.345819,
     "seen": 1794492387.1740646,
@@ -3474,15 +3468,15 @@
     "semantic_hash": ""
   },
   "tests/content/a1-curriculum.test.ts": {
-    "mtime": 1794493624.269692,
-    "seen": 1794493803.3166747,
-    "ast_hash": "a41fcbb1f17f3fe29338e867de491938",
+    "mtime": 1794495577.8232546,
+    "seen": 1794495761.8210878,
+    "ast_hash": "a050f8b6f8ea989904f807f22acdd52e",
     "semantic_hash": ""
   },
   "src/content/curriculum/a1/validate-content.ts": {
-    "mtime": 1794492961.0966625,
-    "seen": 1794492997.7495403,
-    "ast_hash": "d557f4af203a6468d550e059a09b7d93",
+    "mtime": 1794495542.2189777,
+    "seen": 1794495761.8209863,
+    "ast_hash": "7e194d9c6d12ab4d838ae31db516a103",
     "semantic_hash": ""
   },
   "src/content/curriculum/a1/ids.ts": {

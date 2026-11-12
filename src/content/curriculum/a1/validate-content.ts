@@ -1,3 +1,5 @@
+import type { ReviewMeta } from "@/content/hangul/types";
+import { targetPosition } from "@/content/vocabulary/validate";
 import type { VocabEntry, VocabSentence } from "@/content/vocabulary/types";
 import { isImplementedExerciseType } from "@/lib/exercises/registry";
 import type {
@@ -5,6 +7,8 @@ import type {
   A1CurriculumBlueprint,
   A1LessonContent,
 } from "./types";
+
+const HANGUL = /[가-힣]/;
 
 /**
  * Valida relações de um dataset A1 futuro. Continua estrutural: não prova
@@ -18,6 +22,11 @@ export function validateA1LessonContent(
 ): A1ContentIssue[] {
   const issues: A1ContentIssue[] = [];
   const add = (code: string, path: string, message: string) => issues.push({ code, path, message });
+  const checkReview = (review: ReviewMeta, path: string) => {
+    if (review.status === "reviewed" && (!review.reviewedBy || !review.reviewedAt)) {
+      add("review-evidence", path, "Conteúdo revisado exige revisor e data.");
+    }
+  };
   const lessonPositions = new Map(blueprint.lessons.map((lesson, index) => [lesson.id, index]));
   const entryById = new Map(entries.map((entry) => [entry.id, entry]));
   const sentenceById = new Map(sentences.map((sentence) => [sentence.id, sentence]));
@@ -38,7 +47,8 @@ export function validateA1LessonContent(
       if (dialogueIds.has(line.id)) add("dialogue-id", linePath, `Fala duplicada: ${line.id}.`);
       dialogueIds.add(line.id);
       if (!line.speaker.trim() || !line.ko.trim() || !line.pt.trim() || !line.audioText.trim()) add("dialogue-field", linePath, "Fala exige locutor, coreano, tradução e áudio.");
-      if (!/[가-힣]/.test(line.ko) || !/[가-힣]/.test(line.audioText)) add("dialogue-korean", linePath, "Fala e áudio precisam conter Hangul.");
+      if (!HANGUL.test(line.ko) || !HANGUL.test(line.audioText)) add("dialogue-korean", linePath, "Fala e áudio precisam conter Hangul.");
+      checkReview(line.review, linePath);
     });
 
     const newIds = new Set(lesson.vocabulary.newIds);
@@ -68,6 +78,13 @@ export function validateA1LessonContent(
       if (!sentence) { add("sentence-unknown", path, `Frase inexistente: ${id}.`); continue; }
       if (!newIds.has(sentence.vocabId) && !reusedIds.has(sentence.vocabId)) add("sentence-vocab", path, `Frase aponta para item fora da lição: ${id}.`);
       if (newIds.has(sentence.vocabId)) coveredNewIds.add(sentence.vocabId);
+      if (!sentence.pt.trim()) add("sentence-translation", path, `Frase sem tradução completa: ${id}.`);
+      if (!sentence.contextMeaning.trim()) add("sentence-cue", path, `Frase sem dica de sentido: ${id}.`);
+      if (!HANGUL.test(sentence.ko)) add("sentence-korean", path, `Frase sem Hangul: ${id}.`);
+      const entry = entryById.get(sentence.vocabId);
+      if (entry && sentence.target !== entry.ko) add("sentence-target", path, `Alvo não corresponde ao item canônico: ${id}.`);
+      if (targetPosition(sentence) === null) add("sentence-gap", path, `Alvo deve ocorrer uma vez, no início de palavra: ${id}.`);
+      checkReview(sentence.review, path);
     }
     for (const id of newIds) if (!coveredNewIds.has(id)) add("sentence-coverage", path, `Item novo sem frase contextual: ${id}.`);
 
@@ -77,7 +94,11 @@ export function validateA1LessonContent(
       if (grammarIds.has(note.id)) add("grammar-id", notePath, `Nota duplicada: ${note.id}.`);
       grammarIds.add(note.id);
       if (!note.titlePt.trim() || !note.form.trim() || !note.explanationPt.trim() || note.examples.length === 0) add("grammar-field", notePath, "Nota gramatical incompleta.");
-      for (const example of note.examples) if (!example.ko.trim() || !example.pt.trim() || !example.audioText.trim()) add("grammar-example", notePath, "Exemplo exige coreano, tradução e áudio.");
+      for (const example of note.examples) {
+        if (!example.ko.trim() || !example.pt.trim() || !example.audioText.trim()) add("grammar-example", notePath, "Exemplo exige coreano, tradução e áudio.");
+        if (!HANGUL.test(example.ko) || !HANGUL.test(example.audioText)) add("grammar-example-korean", notePath, "Exemplo e áudio precisam conter Hangul.");
+      }
+      checkReview(note.review, notePath);
     });
 
     const exerciseIds = new Set<string>();
@@ -90,7 +111,7 @@ export function validateA1LessonContent(
     }
     if (lesson.exercises.length > 0 && (lesson.completion.minCorrect < 0 || lesson.completion.minCorrect > lesson.exercises.length)) add("completion", path, "Mínimo de acertos não cabe nos exercícios.");
     if (lesson.completion.minScore < 0 || lesson.completion.minScore > 100) add("completion", path, "Nota mínima precisa ficar entre 0 e 100.");
-    if (lesson.review.status === "reviewed" && (!lesson.review.reviewedBy || !lesson.review.reviewedAt)) add("review-evidence", path, "Conteúdo revisado exige revisor e data.");
+    checkReview(lesson.review, path);
   });
 
   return issues;

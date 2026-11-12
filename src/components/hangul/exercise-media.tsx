@@ -1,6 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { createBrowserAudioPlayer } from "@/lib/audio/browser";
+import type {
+  AudioPlaybackState,
+  AudioPlayer,
+} from "@/lib/audio/playback";
 
 const HANGUL = /[\u3131-\u318E\uAC00-\uD7A3]/;
 
@@ -19,17 +24,6 @@ export function BilingualText({ text }: { text: string }) {
       )}
     </>
   );
-}
-
-/** TTS nativo; retorna `false` quando o navegador não expõe a API. */
-export function speakKorean(text: string): boolean {
-  if (typeof window === "undefined" || !("speechSynthesis" in window)) return false;
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = "ko-KR";
-  utterance.rate = 0.85;
-  window.speechSynthesis.cancel();
-  window.speechSynthesis.speak(utterance);
-  return true;
 }
 
 function SpeakerIcon() {
@@ -51,29 +45,100 @@ function SpeakerIcon() {
   );
 }
 
+function statusMessage(state: AudioPlaybackState): string | null {
+  if (state.status === "idle") return null;
+  if (state.status === "loading") return "Carregando áudio…";
+
+  if (state.status === "playing") {
+    if (state.source === "asset") return "Reproduzindo áudio gravado.";
+    return state.fallback
+      ? "Áudio gravado indisponível; usando a voz coreana do navegador."
+      : "Reproduzindo pela voz coreana do navegador.";
+  }
+
+  if (state.status === "ended") {
+    if (state.source === "asset") return "Áudio concluído.";
+    return state.fallback
+      ? "Áudio concluído pela voz coreana do navegador (o arquivo gravado não carregou)."
+      : "Áudio concluído pela voz coreana do navegador.";
+  }
+
+  if (state.reason === "unsupported") {
+    return "Este navegador não consegue reproduzir áudio.";
+  }
+  if (state.reason === "no-korean-voice") {
+    return "Este navegador não tem uma voz coreana instalada. Use a dica de som abaixo.";
+  }
+  return "Não foi possível reproduzir o áudio neste navegador. Use a dica de som abaixo.";
+}
+
 /**
  * Áudio sob demanda, sempre com alternativa textual. O player nunca inicia
  * reprodução sozinho e o status é anunciado sem ocupar o foco.
+ *
+ * A ordem é: MP3 estático do corpus → voz coreana do sistema. A voz do
+ * sistema só entra quando existe uma voz coreana explícita; caso contrário o
+ * controle informa a indisponibilidade em vez de fingir sucesso.
  */
 export function AudioControl({
   text,
+  src,
   fallback,
   compact = false,
   label = "Ouvir o áudio",
 }: {
   text: string;
+  /** `audioSrc` explícito do conteúdo; tem prioridade sobre o mapa estático. */
+  src?: string;
   fallback?: string;
   compact?: boolean;
   label?: string;
 }) {
-  const [spoken, setSpoken] = useState(false);
-  const [unavailable, setUnavailable] = useState(false);
+  const [state, setState] = useState<AudioPlaybackState>({ status: "idle" });
+  const [slow, setSlow] = useState(false);
+  const playerRef = useRef<AudioPlayer | null>(null);
+
+  useEffect(() => {
+    const player = createBrowserAudioPlayer(setState);
+    playerRef.current = player;
+    return () => {
+      player?.destroy();
+      playerRef.current = null;
+    };
+  }, []);
+
+  useEffect(() => {
+    playerRef.current?.stop();
+    setState({ status: "idle" });
+  }, [text, src]);
 
   const play = () => {
-    const ok = speakKorean(text);
-    setSpoken(ok);
-    setUnavailable(!ok);
+    const player = playerRef.current;
+    if (!player) {
+      setState({ status: "unavailable", reason: "unsupported" });
+      return;
+    }
+    void player.play(text, { rate: slow ? 0.75 : 1, src });
   };
+
+  const toggleSlow = () => {
+    const next = !slow;
+    setSlow(next);
+    if (state.status === "playing" || state.status === "loading") {
+      void playerRef.current?.play(text, {
+        rate: next ? 0.75 : 1,
+        src,
+      });
+    }
+  };
+
+  const message = statusMessage(state);
+  const playing = state.status === "playing";
+  const buttonLabel = playing
+    ? "Reproduzindo…"
+    : state.status === "ended"
+      ? "Ouvir novamente"
+      : label;
 
   return (
     <div
@@ -83,22 +148,37 @@ export function AudioControl({
           : "rounded-[var(--radius-panel)] border border-line bg-surface-2 p-3 sm:p-4"
       }
     >
-      <button
-        type="button"
-        onClick={play}
-        className="inline-flex min-h-12 items-center justify-center gap-2 rounded-[var(--radius-field)] border border-line-strong bg-surface px-4 font-semibold text-fg transition-colors duration-[var(--motion-fast)] hover:bg-surface-2"
-      >
-        <SpeakerIcon />
-        {label}
-      </button>
-      {unavailable ? (
+      <div className="flex flex-wrap items-center gap-2">
+        <button
+          type="button"
+          onClick={play}
+          aria-busy={state.status === "loading"}
+          className="inline-flex min-h-12 items-center justify-center gap-2 rounded-[var(--radius-field)] border border-line-strong bg-surface px-4 font-semibold text-fg transition-colors duration-[var(--motion-fast)] hover:bg-surface-2"
+        >
+          <SpeakerIcon />
+          {buttonLabel}
+        </button>
+        <button
+          type="button"
+          onClick={toggleSlow}
+          aria-pressed={slow}
+          aria-label={
+            slow
+              ? "Velocidade lenta ativada; voltar à velocidade normal"
+              : "Usar velocidade lenta, 0,75 vezes"
+          }
+          className={`inline-flex min-h-12 items-center justify-center rounded-[var(--radius-field)] border px-3 text-sm font-semibold transition-colors duration-[var(--motion-fast)] ${
+            slow
+              ? "border-accent bg-success-soft text-fg"
+              : "border-line bg-surface text-muted hover:text-fg"
+          }`}
+        >
+          0,75×
+        </button>
+      </div>
+      {message ? (
         <p role="status" className="mt-2 text-sm text-muted">
-          Este navegador não conseguiu reproduzir a voz coreana.
-        </p>
-      ) : null}
-      {spoken ? (
-        <p role="status" className="mt-2 text-sm text-muted">
-          Áudio solicitado. Se não ouvir, confira o volume ou use a dica abaixo.
+          {message}
         </p>
       ) : null}
       {fallback ? (

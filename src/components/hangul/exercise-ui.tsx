@@ -9,7 +9,7 @@ import { PronunciationLayers } from "./PronunciationLayers";
 import { AudioControl, BilingualText } from "./exercise-media";
 import { useShuffledOrder } from "./use-shuffled-order";
 
-export { AudioControl, BilingualText, speakKorean } from "./exercise-media";
+export { AudioControl, BilingualText } from "./exercise-media";
 
 type AnswerAreaProps = {
   exercise: ExerciseSpec;
@@ -340,10 +340,18 @@ function FeedbackPanel({
   );
 }
 
-function AudioPrompt({ text, fallback }: { text: string; fallback?: string }) {
+function AudioPrompt({
+  text,
+  src,
+  fallback,
+}: {
+  text: string;
+  src?: string;
+  fallback?: string;
+}) {
   return (
     <div className="mt-4">
-      <AudioControl text={text} fallback={fallback} />
+      <AudioControl text={text} src={src} fallback={fallback} />
     </div>
   );
 }
@@ -361,7 +369,7 @@ function ReadingPrompt({
       </p>
       {exercise.audioText ? (
         <div className="mt-3">
-          <AudioControl text={exercise.audioText} />
+          <AudioControl text={exercise.audioText} src={exercise.audioSrc} />
         </div>
       ) : null}
       {exercise.question ? (
@@ -498,11 +506,21 @@ export function ExerciseView({
       </div>
 
       {exercise.type === "audio-to-char" ? (
-        <AudioPrompt text={exercise.audioText} fallback={exercise.fallback} />
+        <AudioPrompt
+          text={exercise.audioText}
+          src={exercise.audioSrc}
+          fallback={exercise.fallback}
+        />
       ) : null}
-      {exercise.type === "listen" ? <AudioPrompt text={exercise.audioText} /> : null}
+      {exercise.type === "listen" ? (
+        <AudioPrompt text={exercise.audioText} src={exercise.audioSrc} />
+      ) : null}
       {exercise.type === "minimal-pair" && exercise.presentation === "audio" ? (
-        <AudioPrompt text={exercise.audioText ?? ""} fallback={exercise.fallback} />
+        <AudioPrompt
+          text={exercise.audioText ?? ""}
+          src={exercise.audioSrc}
+          fallback={exercise.fallback}
+        />
       ) : null}
       {exercise.type === "char-to-audio" ? (
         <div className="mt-4 rounded-[var(--radius-panel)] border border-line bg-surface-2 p-4 text-center sm:p-6">

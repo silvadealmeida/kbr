@@ -5,6 +5,8 @@
 **Escopo:** inventariar o áudio existente, rastrear o caminho de reprodução, diagnosticar o relato de ㄹ/vogais e separar fatos verificados de hipóteses.  
 **Fora de escopo:** trocar TTS, instalar dependências, criar arquivos de áudio, alterar conteúdo, `Progress` v1, CAS, Supabase, auth ou PWA.
 
+> **Atualização da 8B (2026-11-12):** esta auditoria descreve o estado da **7G** e foi preservada como registro histórico. A 8B implementou o caminho principal com **287 MP3 estáticos** gerados por MeloTTS-Korean, resolveu a seleção explícita de voz coreana, `voiceschanged`, timeouts, erros, replay, cancelamento e status honesto, e manteve a Web Speech API apenas como fallback. Os achados 1–3 abaixo estão resolvidos no código; a qualidade nativa de ㄹ/vogais e a reprodução em iPhone real continuam **não verificadas**. Ver `docs/audio/generation-guide.md`, `docs/audio/audio-quality-roadmap.md` e `docs/roadmap.md` §Status Fase 8B.
+
 ## Resumo executivo
 
 1. O app **não tem áudio próprio**. Toda fala vem da Web Speech API do navegador (`speechSynthesis`), sem arquivo, sem CDN e sem API externa. `audioSrc` existe no tipo, mas nunca é lido e não há nenhum arquivo em `public/audio/`.

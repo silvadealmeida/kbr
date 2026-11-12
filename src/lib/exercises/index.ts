@@ -43,6 +43,7 @@ export type BuildSyllableExercise = ExerciseBase & {
 export type ListenExercise = TextAnswerExercise & {
   type: "listen";
   audioText: string;
+  audioSrc?: string;
 };
 
 export type TranslateExercise = TextAnswerExercise & {
@@ -83,6 +84,7 @@ export type MinimalPairExercise = ExerciseBase & {
   type: "minimal-pair";
   presentation: "audio" | "text";
   audioText?: string;
+  audioSrc?: string;
   text?: string;
   fallback?: string;
   options: readonly { id: string; label: string }[];
@@ -99,6 +101,7 @@ export type ReadingExercise = ExerciseBase & {
   options?: readonly ChoiceOption[];
   correctOptionId?: string;
   audioText?: string;
+  audioSrc?: string;
   /** Texto do botão de autoavaliação; padrão: leitura em voz alta. */
   selfCheckLabel?: string;
   tags: readonly string[];

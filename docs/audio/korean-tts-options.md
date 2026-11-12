@@ -2,7 +2,7 @@
 
 **Data:** 2026-11-12  
 **Pergunta:** qual caminho dá áudio coreano confiável, revisável e sustentável para um app web mobile-first, sem transformar pronúncia em dependência de nuvem?  
-**Natureza:** pesquisa e recomendação. Nenhuma dependência foi instalada e nenhuma engine foi trocada.
+**Natureza:** pesquisa e recomendação da 7G. A 8B instalou o MeloTTS-Korean em ambiente local e publicou assets sintéticos provisórios; a recomendação de gravação nativa como fonte principal continua válida. Ver `docs/audio/generation-guide.md`.
 
 ## Critérios
 
@@ -50,6 +50,8 @@ Valores e limites de nuvem mudam; conferir a página de preços na data de contr
 **Limites:** não é referência nativa; pode errar ㄹ posicional, grupos consonantais e prosódia de frase; exige instalação Python/CPU ou GPU fora do app; a licença MIT dos pesos não dispensa revisar os termos dos dados de treino e manter atribuição.
 
 **Papel recomendado:** gerar candidatos para revisão, nunca publicar como pronúncia final sem escuta nativa. Se usado, marcar os itens como “áudio sintetizado em revisão”.
+
+**Uso na 8B:** o MeloTTS-Korean foi escolhido para a referência provisória e rodou em CPU, com revisões fixadas. O resultado está em `public/audio/hangul/v1/` (287 MP3, 1,38 MB) e documentado em `docs/audio/generation-guide.md`. A imagem Docker `hangrylabs/melotts` foi avaliada e **rejeitada** por licença AGPL-3.0-only, suporte apenas `amd64`, tamanho (~8,3 GB comprimida) e pacote coreano com aceite manual. O ponto pendente é o encoder `kykim/bert-kor-base`, que **não declara licença**; isso impede tratar o pipeline como liberado para produção comercial sem revisão jurídica.
 
 **Referência:** <https://huggingface.co/myshell-ai/MeloTTS-Korean>
 
@@ -140,6 +142,8 @@ Valores e limites de nuvem mudam; conferir a página de preços na data de contr
 **Trilha principal:** gravar nativamente os 265 `audioText` únicos + as formas `spoken` das três regras + os itens de anatomia/montagem que não estiverem cobertos. Publicar como assets estáticos, com revisão nativa e fallback para TTS.
 
 **Trilha de apoio:** usar **MeloTTS-Korean (MIT)** apenas para gerar rascunhos e testar duração/cobertura; nunca como pronúncia final sem escuta nativa. Se a qualidade não bastar, gerar candidatos no Google Cloud/Azure e revisar, mas sem runtime de nuvem.
+
+**Na 8B:** o MeloTTS-Korean gerou os 287 assets provisórios, com revisões fixadas e sem dependência em runtime. Isso deu estabilidade entre dispositivos e permitiu testar o player, o fallback e o orçamento. A gravação nativa continua sendo a fonte principal e o critério para marcar o áudio como aprovado.
 
 **Não usar:** Piper KSS (NC), XTTS v2 (CPML NC), Kokoro (sem coreano) e qualquer engine que não permita redistribuir o áudio.
 

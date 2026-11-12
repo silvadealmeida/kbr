@@ -1,14 +1,14 @@
-# Roadmap de qualidade de áudio — proposta para a Fase 8B
+# Roadmap de qualidade de áudio — Fase 8B
 
 **Data:** 2026-11-12  
-**Status:** proposta. Nada aqui foi implementado na 7G.  
+**Status:** **parcialmente implementado na 8B local**. A camada de assets, o player e o fallback estão prontos com TTS neural provisório; gravação e QA por falante nativo continuam pendentes.  
 **Objetivo:** substituir a dependência de voz do sistema por uma referência de pronúncia estável, revisada por falante nativo e compatível com o orçamento do app.
 
 ## Decisão de arquitetura
 
 **Gravação nativa é a fonte principal; TTS é fallback.**
 
-O corpus atual é pequeno: **265 `audioText` únicos, 411 caracteres**, além das formas `spoken` das regras de pronúncia. Não há justificativa para depender de uma voz sintética diferente em cada dispositivo quando é possível gravar todos os itens e servi-los como assets estáticos.
+O corpus atual é pequeno: **265 `audioText` únicos, 411 caracteres**, além das formas `spoken` das regras de pronúncia. O inventário automático da 8B, que inclui `spoken` e alvos de montagem, encontrou **287 textos únicos**. Não há justificativa para depender de uma voz sintética diferente em cada dispositivo quando é possível gravar todos os itens e servi-los como assets estáticos.
 
 TTS continua útil para:
 
@@ -17,6 +17,28 @@ TTS continua útil para:
 - diagnóstico e demonstração.
 
 TTS **não** deve ser a referência oficial de ㄹ, vogais ou contrastes críticos.
+
+## Estado da implementação (8B local)
+
+A 8B foi implementada em código local com **MeloTTS-Korean sintético como referência provisória**, não como gravação nativa. O que está pronto:
+
+- inventário reproduzível com **287 textos únicos** (266 da camada de dados + 23 formas `spoken` − 2 sobreposições), 156 de prioridade 1 e 131 de prioridade 2;
+- **287 MP3** em `public/audio/hangul/v1/`, **1.384.146 bytes** no total, **153,39 s**, 64 kbps mono 44,1 kHz; maior arquivo **13.393 bytes**;
+- manifesto versionado com SHA-256, duração, loudness, fontes, passos, tags e prioridade; mapa compacto `texto → src` separado para o cliente;
+- player **asset → voz do sistema**, com seleção explícita de voz coreana, espera por `voiceschanged`, timeouts, erros, replay, cancelamento e limpeza;
+- controle **0,75×** com preservação de pitch e status acessível que só anuncia reprodução depois de `play()`/`onstart`;
+- nenhum áudio no carregamento inicial; cache HTTP imutável por um ano;
+- testes de manifesto, integridade, cobertura, playback, fallback, erros e E2E.
+
+O que **não** está pronto e continua sendo o critério de fechamento real da 8B:
+
+- gravação com falante nativo e consentimento;
+- escuta cega e aprovação item a item;
+- revisão das transcrições didáticas de ㄹ/vogais;
+- verificação em iPhone/Chrome iOS/VoiceOver reais;
+- licença declarada do encoder BERT usado pelo MeloTTS.
+
+Detalhes de reprodução, licenças e limpeza em `docs/audio/generation-guide.md`.
 
 ## Inventário e prioridade
 
@@ -84,6 +106,8 @@ Como o corpus inteiro é pequeno, a meta é **gravar tudo**, não só os itens c
 - Versionar o manifesto e os assets; não versionar tomadas brutas. Guardar as tomadas brutas em armazenamento do projeto, fora do repositório.
 - Cache: `Cache-Control: public, max-age=31536000, immutable` para `/audio/hangul/v1/*`. Como não há service worker, o cache é apenas HTTP; offline continua fora de escopo.
 
+**Implementação local (8B):** o formato publicado é **MP3 64 kbps mono 44,1 kHz**, não AAC/WebM. A decisão foi tomada depois de medir o corpus: 287 clipes somam **1,38 MB** e o maior tem **13,4 KB**, muito abaixo do orçamento; um único formato universal reduz complexidade de encode, manifesto e fallback sem ganho material de tamanho. O AAC/WebM continua sendo a escolha preferida quando houver gravação nativa em alta qualidade. O `Cache-Control` imutável foi aplicado em `next.config.mjs` para `/audio/:path*`.
+
 ### 8B.3 — Camada de reprodução
 
 O tipo `audioSrc` já existe em `src/lib/exercises/index.ts:65,76`; a 8B deve finalmente consumi-lo.
@@ -103,6 +127,8 @@ Requisitos:
 - Não bloquear “Conferir”/“Continuar” enquanto o áudio carrega.
 - Em iOS, o primeiro `play()` precisa de gesto do usuário; o botão já é um gesto, mas o asset deve ser carregado no mesmo handler.
 - Se o item tiver `audioSrc` e o arquivo não existir, o fallback precisa ser testado.
+
+**Implementação local (8B):** o elemento de áudio é criado no clique e o asset é buscado sob demanda; nenhum MP3 entra no carregamento da página. O player tenta o asset por até **4 s**; se o arquivo falhar, não iniciar ou não existir, cai para a voz do sistema. A voz só é usada se houver uma variante coreana explícita (`ko`, `ko-KR` etc.); a espera por `voiceschanged` é de **1,5 s** e a fala precisa começar em **2 s**. Um novo play cancela o anterior; `destroy()` remove listeners e timers. O status só vira “Reproduzindo” depois de `play()` resolver ou `onstart` disparar.
 
 ### 8B.4 — QA com falante nativo
 
@@ -164,23 +190,25 @@ Requisitos:
 
 ## Critérios de aceite da 8B
 
-- [ ] Inventário reproduzível cobre todos os `audioText` e formas `spoken`.
-- [ ] 100% dos itens de escuta e contrastes críticos têm asset aprovado por falante nativo.
-- [ ] Todo `audioSrc` aponta para arquivo existente; teste falha se faltar.
-- [ ] Player toca asset, cai para TTS e, sem TTS, mostra fallback textual.
-- [ ] Nenhum áudio carrega no inicial; orçamento por clipe e total documentados.
-- [ ] UI não afirma sucesso antes de `play()`; erros são anunciados.
+Os itens marcados foram atendidos pela implementação local com áudio sintético; os demais exigem gravação/revisão nativa ou dispositivo real.
+
+- [x] Inventário reproduzível cobre todos os `audioText` e formas `spoken` (287 textos; teste de cobertura).
+- [ ] 100% dos itens de escuta e contrastes críticos têm asset **aprovado por falante nativo** — os 287 assets existem, mas são sintéticos e seguem `in-review`.
+- [x] Todo `audioSrc` aponta para arquivo existente; teste falha se faltar (SHA-256 e bytes verificados).
+- [x] Player toca asset, cai para TTS e, sem TTS, mostra fallback textual.
+- [x] Nenhum áudio carrega no inicial; orçamento por clipe e total documentados (maior 13,4 KB; total 1,38 MB).
+- [x] UI não afirma sucesso antes de `play()`; erros são anunciados.
 - [ ] iPhone/Chrome iOS/VoiceOver reais verificados no checklist manual.
-- [ ] Licenças, consentimento e atribuições registrados.
-- [ ] `Progress` v1, CAS, auth, PWA e conteúdo permanecem intactos.
+- [ ] Licenças, consentimento e atribuições registrados — MeloTTS-Korean é MIT, mas o encoder BERT não declara licença e não há consentimento de voz humana.
+- [x] `Progress` v1, CAS, auth, PWA e conteúdo permanecem intactos.
 
 ## Sequência sugerida
 
-1. 8B.0 inventário + script de verificação.
-2. 8B.1 gravação nativa (sessão externa).
-3. 8B.2 edição + manifesto + assets.
-4. 8B.3 playback + fallback + testes.
-5. 8B.4 QA nativo + correções.
-6. 8B.5 documentação, orçamento e fechamento.
+1. 8B.0 inventário + script de verificação — **feito**.
+2. 8B.1 gravação nativa (sessão externa) — **pendente**.
+3. 8B.2 edição + manifesto + assets — **feito com MeloTTS provisório**; refazer com gravação nativa.
+4. 8B.3 playback + fallback + testes — **feito**.
+5. 8B.4 QA nativo + correções — **pendente**.
+6. 8B.5 documentação, orçamento e fechamento — **documentação feita**; fechamento depende de 8B.1/8B.4.
 
-A 8B só deve começar depois da 7G e antes do lançamento público, junto com a correção da posição da resposta correta. As duas pendências de prioridade alta de `docs/feedback/feedback-igo.md` continuam abertas até lá.
+A 8B começou depois da 7G. A implementação local resolveu a estabilidade do áudio e a honestidade do fallback, mas **não** substitui a revisão nativa. O item 1 de `docs/feedback/feedback-igo.md` foi resolvido na 8A; o item 2 está parcialmente resolvido e só fecha com gravação/escuta nativa. O item 3 (flashcards ilustrados) segue aberto.

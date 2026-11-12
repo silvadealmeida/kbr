@@ -33,6 +33,9 @@ Thumbs.db
 # Playwright CLI output (may contain credentials)
 .playwright-cli/
 
+# Ambiente local de geração de áudio (venv, modelos e WAVs; não versionar)
+/.audio/
+
 # Gerados / config local de agentes
 next-env.d.ts
 /graphify-out/cache/

@@ -6,6 +6,7 @@ import { PronunciationLayers } from "@/components/hangul/PronunciationLayers";
 import { SoundMap } from "@/components/hangul/SoundMap";
 import { SyllableAnatomy } from "@/components/hangul/SyllableAnatomy";
 import { SyllableBuilder } from "@/components/hangul/SyllableBuilder";
+import { AudioControl } from "@/components/hangul/exercise-media";
 import { ExerciseView } from "@/components/hangul/exercise-ui";
 import { PlayerHeader } from "@/components/hangul/player-header";
 import { RULES } from "@/content/hangul/rules";
@@ -148,7 +149,7 @@ describe("anatomia da sílaba", () => {
     expect(html).toContain("Conteúdo em revisão · h18");
     expect(html).toContain('lang="ko"');
     expect(html).toContain("Ouvir a sílaba 한");
-    expect(html).toContain("voz é gerada pelo sistema");
+    expect(html).toContain("O áudio gravado tem prioridade");
     expect(html).toContain("Conteúdo em revisão");
     expect(html).not.toContain("draggable");
   });
@@ -363,5 +364,22 @@ describe("moldura do player", () => {
     expect(html).toContain("text-xl");
     expect(html).toContain('id="checkpoint-title"');
     expect(html).toContain("← Hangul");
+  });
+});
+
+describe("controle de áudio", () => {
+  test("renderiza botão principal, velocidade lenta e nenhum sucesso falso", () => {
+    const html = render(
+      createElement(AudioControl, {
+        text: "한",
+        label: "Ouvir a sílaba 한",
+      }),
+    );
+
+    expect(html).toContain("Ouvir a sílaba 한");
+    expect(html).toContain("0,75×");
+    expect(html).toContain('aria-pressed="false"');
+    expect(html).not.toContain("Reproduzindo");
+    expect(html).not.toContain("<audio");
   });
 });

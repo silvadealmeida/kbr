@@ -1,7 +1,7 @@
 # Prontidão para beta controlado — Fase 8D (atualizado na 8E e na 8F)
 
 **Data:** 2026-11-12  
-**Veredito:** o KBR **não está pronto para produção pública**. Há um bloqueio material aberto (licença do áudio sintético) e pendências jurídicas de privacidade. Para um **beta fechado**, o código está estável, mas a decisão de distribuir os 287 MP3 depende do dono do projeto (ver `docs/audio/license-audit.md`). Nada aqui foi testado em dispositivo real.
+**Veredito:** o KBR **não está pronto para produção pública**. A licença do áudio sintético continua não esclarecida (risco aceito pelo dono do projeto em 2026-11-12; ver `docs/audio/license-audit.md` §11) e há pendências jurídicas de privacidade. Para um **beta fechado**, o código está estável e o corpus de 287 MP3 está servido; 2.907 textos falados são inventariados e usam a voz do sistema quando não há MP3. Nada aqui foi testado em dispositivo real.
 
 Legenda: **PASS** (verificado nesta fase com evidência) · **BLOCKED** (impede o uso indicado) · **MANUAL TEST REQUIRED** (só aparelho/serviço real decide) · **DEFERRED** (fora do escopo, decisão registrada).
 
@@ -9,10 +9,10 @@ Legenda: **PASS** (verificado nesta fase com evidência) · **BLOCKED** (impede 
 
 | # | Item | Status | Evidência / observação |
 |---|---|---|---|
-| 1 | Licença do áudio sintético (MeloTTS + `kykim/bert-kor-base`) | **BLOCKED** (público/comercial; **contido no deploy desde a 8E**, mas ainda servido pelo deployment antigo e presente no repositório público) | `license-audit.md`: encoder sem licença no repositório baixado; README do autor diz Apache-2.0 **e** exige MOU para uso comercial; treino da voz não documentado. Beta fechado = decisão do dono |
-| 1a | Contenção do deploy (8E): MP3 fora de `public/`, flag desligada, guarda de build | **PASS** (local e produção `kbr-amber.vercel.app`) · **MANUAL TEST REQUIRED** (deployments antigos e variável de ambiente na Vercel) | `tests/audio-containment.test.ts`; `postbuild` verifica `.next` (0 MP3); em 2026-11-12, `curl -I` na produção → **404** nos MP3 (8F). Painel da Vercel não acessado |
-| 1b | Exposição existente: repositório GitHub público e deployments anteriores | **BLOCKED** | `restricted-assets/audio/` segue em `origin/main` (HTTP 200) e na história; deployments antigos não verificados; plano em `docs/audio/exposure-and-removal-plan.md` |
-| 2 | Integridade dos 287 MP3 (cobertura, SHA-256, órfãos, corrupção, duplicados) | **PASS** | `audio-quality-report.md` §1 |
+| 1 | Licença do áudio sintético (MeloTTS + `kykim/bert-kor-base`) | **RISCO ACEITO PELO DONO** (público/comercial; não esclarecida) | `license-audit.md`: encoder sem licença no repositório baixado; README do autor diz Apache-2.0 **e** exige MOU para uso comercial; treino da voz não documentado. Beta fechado = decisão do dono |
+| 1a | Contenção do deploy (8E) | **REVERTIDA** (decisão de 2026-11-12) | MP3 voltaram para `public/audio/v1/`; `NEXT_PUBLIC_KBR_STATIC_AUDIO=0` é kill switch; guarda de build, stage/unstage e teste de contenção removidos |
+| 1b | Exposição existente: repositório GitHub público e deployments anteriores | **RISCO ACEITO** | o corpus é público no repositório e na história; deployments antigos não verificados; plano em `docs/audio/exposure-and-removal-plan.md` |
+| 2 | Integridade dos 287 MP3 e inventário de 2.907 textos (SHA-256, órfãos, corrupção, duplicados) | **PASS** | `audio-quality-report.md` §1; `tests/audio-manifest.test.ts`; textos sem MP3 usam TTS |
 | 3 | Reprodução honesta (sem falso sucesso, voz `ko` explícita, fallback) | **PASS** (código + simulado) | revisão de `playback.ts`; 453 Vitest; real-device pendente (item 17) |
 | 4 | Rótulo do áudio como sintético | **PASS** (corrigido na 8D) | "gravado" → "sintetizado (referência provisória)" |
 | 5 | Qualidade fonética por falante nativo | **DEFERRED** | impossível sem revisor; todos os itens seguem `in-review`; bloqueia a promessa de "pronúncia correta", não o beta rotulado |
@@ -118,6 +118,6 @@ Voz única (`KR`), ritmo de item isolado, 0,75× como velocidade lenta, escolha 
 
 ## 7. Fase 8F — encerramento da infraestrutura de áudio
 
-- Produção contida (404 verificado); **GitHub continua expondo** o corpus em `restricted-assets/` e na história; deployments antigos da Vercel **não verificados**. Plano e comandos: `docs/audio/exposure-and-removal-plan.md`.
+- A contenção da 8E foi revertida em 2026-11-12: o corpus está em `public/audio/v1/` e é servido por padrão. A licença do encoder continua não esclarecida e o risco foi aceito pelo dono (`docs/audio/license-audit.md` §11). Plano histórico: `docs/audio/exposure-and-removal-plan.md`.
 - Fallback do navegador: voz coreana explícita (`pickKoreanVoice`), "indisponível" tratado sem fingir sucesso, rótulos "voz do sistema, sem revisão nativa" (`exercise-media.tsx`), progressão da lição independente do áudio. Verificado por revisão de código e testes simulados; **não** em aparelho real.
 - Próximo foco: currículo (`docs/release/curriculum-handoff.md`). Licença/pronúncia não bloqueiam conteúdo original local.

@@ -99,18 +99,19 @@ Separação pedida: **licença de código** (MeloTTS MIT, g2pkk Apache-2.0 etc.)
 - Fallback: voz coreana explícita do sistema; sem voz, dica textual. A mensagem diz "voz do sistema, sem revisão nativa".
 - Reativação: `docs/audio/generation-guide.md` ("Contenção e como reativar").
 
-## 9. Exposição que a contenção NÃO remove
+## 9. Exposição que a contenção NÃO remove (atualizado na 8F)
 
-A mudança afeta apenas **builds futuros**. Em 2026-11-12, antes de qualquer redeploy:
+> **Correção da 8F (2026-11-12):** a versão da 8E (escrita antes do deploy) dizia que a produção ainda servia os MP3. O push de `daf4f12` já ocorreu, a Vercel implantou (status `success`) e a **produção responde 404** nos MP3. O que continua exposto é o **GitHub** e, possivelmente, **deployments antigos**. Evidências, comandos e plano completo: [`exposure-and-removal-plan.md`](exposure-and-removal-plan.md).
 
-| Superfície | Evidência | Estado |
-|---|---|---|
-| Produção Vercel | `curl -I https://kbr-amber.vercel.app/audio/hangul/v1/ko-cdd08b15.mp3` e `ko-2620702c.mp3` → **HTTP 200**, `audio/mpeg`, `cache-control: public, max-age=31536000, immutable` | **exposto** até novo deploy; o cache imutável pode manter cópias em navegadores/CDN |
-| Deployments anteriores da Vercel (URLs imutáveis por deploy) | não consultados (sem acesso à Vercel) | **provavelmente expostos**: continuam servindo seus arquivos até serem removidos ou protegidos |
-| Repositório GitHub público `silvadealmeida/kbr` | `raw.githubusercontent.com/.../main/public/audio/hangul/v1/ko-cdd08b15.mp3` → **HTTP 200**; adicionados no commit `f0b2f43` ("`.audios`", 2026-11-12), presentes em `origin/main`. Após a 8E ainda estão no HEAD em `restricted-assets/` e em toda a história | **expostos** — redistribuição em si, independente do site |
-| Forks/clones/caches de terceiros | desconhecido | irreversível se já copiados |
+| Superfície | Estado em 2026-11-12 |
+|---|---|
+| Produção `kbr-amber.vercel.app` | **contida**: `/audio/hangul/v1/*.mp3` → 404 (a `max-age=1 ano, immutable` servida por `f0b2f43` até o deploy pode ter ficado em navegadores/CDN de terceiros) |
+| Deployments anteriores da Vercel | **não verificado** (sem acesso à Vercel); aliases do projeto redirecionam para SSO; exige o dono (plano §4) |
+| GitHub `main` | **exposto** em `restricted-assets/audio/` (HTTP 200); `public/audio/` já dá 404 |
+| GitHub, histórico (`f0b2f43`, `a8a7fb0`…) | **exposto** (287 blobs; 574 caminhos) |
+| Rede do repositório | público, 0 forks, 1 stargazer; cópias de terceiros desconhecidas e irreversíveis |
 
-Opções, **todas dependem do dono** (nada foi feito): (a) tornar o repositório privado até a licença ser resolvida; (b) remover os arquivos do HEAD e reescrever o histórico (`git filter-repo`) com force-push, o que apaga a única cópia versionada, então só após backup externo; (c) manter, aceitando o risco. Para a Vercel: fazer o deploy desta mudança, depois remover/proteger deployments antigos e conferir `curl -I` em produção retornando 404.
+Opções (todas dependem do dono; nada foi feito): (a) tornar o repositório privado — mais barata e reversível; (b) `git rm -r --cached restricted-assets/audio` + `.gitignore` com backup privado (remove do HEAD, não da história); (c) `git filter-repo` + force-push (só após backup; invalida SHAs); (d) manter, aceitando o risco. Detalhes no plano.
 
 ## 10. Estado de distribuição (8E)
 
@@ -118,5 +119,6 @@ Opções, **todas dependem do dono** (nada foi feito): (a) tornar o repositório
 |---|---|
 | Desenvolvimento local / testes | permitido |
 | Novo build do site | **sem MP3** (guardado por teste e por `postbuild`) |
-| Site já publicado e repositório público | **ainda expõem** os MP3 (§9) |
+| Site publicado (produção) | **sem MP3** (404 verificado na 8F); deployments antigos não verificados |
+| Repositório público | **ainda expõe** os MP3 em `restricted-assets/` e na história (§9) |
 | Lançamento público ou comercial | **BLOQUEADO** |

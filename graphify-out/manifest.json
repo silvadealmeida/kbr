@@ -6,9 +6,9 @@
     "semantic_hash": ""
   },
   "next.config.mjs": {
-    "mtime": 1794482767.1388783,
-    "seen": 1794485163.49424,
-    "ast_hash": "dd82701becf43565eb8722c9116b27b1",
+    "mtime": 1794488563.06603,
+    "seen": 1794488715.803374,
+    "ast_hash": "e0e05a0f2ea2a870336719d62bc1d512",
     "semantic_hash": ""
   },
   "package.json": {
@@ -96,9 +96,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1794488294.5151272,
-    "seen": 1794488297.020941,
-    "ast_hash": "73135006ae55a4a8b31f3719a44aab7c",
+    "mtime": 1794488714.0740466,
+    "seen": 1794488715.8035135,
+    "ast_hash": "550bd3fb193f2cbe1202851485c32efe",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -120,9 +120,9 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794488294.5151272,
-    "seen": 1794488297.0214593,
-    "ast_hash": "b457d10a760a450181faa8dadf40eb4d",
+    "mtime": 1794488709.4984465,
+    "seen": 1794488715.8035371,
+    "ast_hash": "8d1e4939e973fc41be3dd0b7636f28c6",
     "semantic_hash": ""
   },
   "src/lib/hangul/index.ts": {
@@ -1488,15 +1488,15 @@
     "semantic_hash": ""
   },
   "docs/audio/license-audit.md": {
-    "mtime": 1794488036.2855034,
-    "seen": 1794488297.0210404,
-    "ast_hash": "2e51226c303055c07837aeb6078413c6",
+    "mtime": 1794488675.6134114,
+    "seen": 1794488715.803522,
+    "ast_hash": "18ecebe95d834b7dfc295bfe9c26c975",
     "semantic_hash": ""
   },
   "docs/release/beta-readiness.md": {
-    "mtime": 1794488003.1420467,
-    "seen": 1794488297.0214417,
-    "ast_hash": "ce91ebca3e0dff3965bada0fe3d28e1b",
+    "mtime": 1794488709.4984465,
+    "seen": 1794488715.8035352,
+    "ast_hash": "ab5da066584912fee571178e7bf06063",
     "semantic_hash": ""
   },
   "scripts/audio/guard-lib.mjs": {
@@ -1524,9 +1524,9 @@
     "semantic_hash": ""
   },
   "tests/audio-containment.test.ts": {
-    "mtime": 1794487877.6497877,
-    "seen": 1794488297.020462,
-    "ast_hash": "01b565651d914d91439ac5660d942f13",
+    "mtime": 1794488563.06603,
+    "seen": 1794488715.803491,
+    "ast_hash": "d9c15997618760a5ed425c5df5de3a1e",
     "semantic_hash": ""
   },
   "docs/audio/dependency-licenses.md": {
@@ -3267,6 +3267,18 @@
     "mtime": 1794482658.8967586,
     "seen": 1794488297.0219107,
     "ast_hash": "b8315369ccc77a175c1e434abf8e74f5",
+    "semantic_hash": ""
+  },
+  "docs/audio/exposure-and-removal-plan.md": {
+    "mtime": 1794488644.8017213,
+    "seen": 1794488715.8035195,
+    "ast_hash": "def2c596078b783e7d8b09b409ad0ab0",
+    "semantic_hash": ""
+  },
+  "docs/release/curriculum-handoff.md": {
+    "mtime": 1794488660.9621217,
+    "seen": 1794488715.803536,
+    "ast_hash": "03909512eae007fa99f6aebc7b669fd0",
     "semantic_hash": ""
   },
   "package-lock.json": {

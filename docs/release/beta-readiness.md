@@ -1,4 +1,4 @@
-# Prontidão para beta controlado — Fase 8D (atualizado na 8E)
+# Prontidão para beta controlado — Fase 8D (atualizado na 8E e na 8F)
 
 **Data:** 2026-11-12  
 **Veredito:** o KBR **não está pronto para produção pública**. Há um bloqueio material aberto (licença do áudio sintético) e pendências jurídicas de privacidade. Para um **beta fechado**, o código está estável, mas a decisão de distribuir os 287 MP3 depende do dono do projeto (ver `docs/audio/license-audit.md`). Nada aqui foi testado em dispositivo real.
@@ -10,8 +10,8 @@ Legenda: **PASS** (verificado nesta fase com evidência) · **BLOCKED** (impede 
 | # | Item | Status | Evidência / observação |
 |---|---|---|---|
 | 1 | Licença do áudio sintético (MeloTTS + `kykim/bert-kor-base`) | **BLOCKED** (público/comercial; **contido no deploy desde a 8E**, mas ainda servido pelo deployment antigo e presente no repositório público) | `license-audit.md`: encoder sem licença no repositório baixado; README do autor diz Apache-2.0 **e** exige MOU para uso comercial; treino da voz não documentado. Beta fechado = decisão do dono |
-| 1a | Contenção do deploy (8E): MP3 fora de `public/`, flag desligada, guarda de build | **PASS** (local) · **MANUAL TEST REQUIRED** (Vercel) | `tests/audio-containment.test.ts`; `postbuild` verifica `.next`; a Vercel não foi acessada: o deployment de produção anterior **continua servindo** os MP3 até novo deploy e remoção dos antigos |
-| 1b | Exposição existente: repositório GitHub público e deployments anteriores | **BLOCKED** | `curl -I https://kbr-amber.vercel.app/audio/hangul/v1/ko-cdd08b15.mp3` → HTTP 200 em 2026-11-12; ver `license-audit.md` §9 |
+| 1a | Contenção do deploy (8E): MP3 fora de `public/`, flag desligada, guarda de build | **PASS** (local e produção `kbr-amber.vercel.app`) · **MANUAL TEST REQUIRED** (deployments antigos e variável de ambiente na Vercel) | `tests/audio-containment.test.ts`; `postbuild` verifica `.next` (0 MP3); em 2026-11-12, `curl -I` na produção → **404** nos MP3 (8F). Painel da Vercel não acessado |
+| 1b | Exposição existente: repositório GitHub público e deployments anteriores | **BLOCKED** | `restricted-assets/audio/` segue em `origin/main` (HTTP 200) e na história; deployments antigos não verificados; plano em `docs/audio/exposure-and-removal-plan.md` |
 | 2 | Integridade dos 287 MP3 (cobertura, SHA-256, órfãos, corrupção, duplicados) | **PASS** | `audio-quality-report.md` §1 |
 | 3 | Reprodução honesta (sem falso sucesso, voz `ko` explícita, fallback) | **PASS** (código + simulado) | revisão de `playback.ts`; 453 Vitest; real-device pendente (item 17) |
 | 4 | Rótulo do áudio como sintético | **PASS** (corrigido na 8D) | "gravado" → "sintetizado (referência provisória)" |
@@ -40,6 +40,17 @@ Legenda: **PASS** (verificado nesta fase com evidência) · **BLOCKED** (impede 
 | `npm test` | **453/453** em 30 arquivos (445 anteriores + 8 da auditoria estrutural) |
 | `npm run build` | verde |
 | `npm run e2e` | **452 passaram, 22 skips intencionais** (Chromium 375/390/768/1280 + WebKit 390), execução repetida depois das correções de texto |
+
+### 2.1 Reexecução na 8F (2026-11-12, flag desligada, sem alteração de lógica de progresso/grading/sync)
+
+| Comando | Resultado |
+|---|---|
+| `npm run typecheck` | limpo |
+| `npm test` | **460/460** em 31 arquivos (+1 teste: nenhum áudio versionado fora de `restricted-assets/`) |
+| `npm run build` | verde; `[audio-guard] OK` em prebuild e postbuild; `find .next -iname '*.mp3'` → 0 |
+| `npm run e2e` | **446 passaram, 33 skips intencionais** (Chromium 375/390/768/1280 + WebKit 390); mesma contagem da 8E. Falhas: nenhuma |
+
+Mudança de código da 8F: apenas `next.config.mjs` (cabeçalho `immutable` de `/audio/*` agora só com a flag ligada) e o teste acima. Nada em `Progress` v1, CAS, grading, sync ou migrações.
 
 Cobertura **simulada × real**:
 
@@ -101,6 +112,12 @@ Voz única (`KR`), ritmo de item isolado, 0,75× como velocidade lenta, escolha 
 2. **Privacidade/Impressum** (item 15) — preencher controlador, contato, retenção; revisão jurídica.
 3. (Para promessa de qualidade, não para beta rotulado) revisão nativa do áudio e do conteúdo.
 
-## 6. Próxima fase recomendada
+## 6. Próxima fase recomendada (histórico da 8D/8E; a decisão atual está em `curriculum-handoff.md`)
 
 *(A 8E executou os itens (b) e (c); abaixo, o plano original.)* **8E — Resolução de licença e contenção do áudio**, sem conteúdo novo: (a) enviar R1/R2 e registrar respostas — **rascunhos prontos**, não enviados (`docs/audio/permissions/email-drafts.md`); (b) contenção R3 — **feita na 8E** (ver acima); (c) auditoria R6 — **feita na 8E** (`docs/audio/dependency-licenses.md`); (d) o dono executa a matriz do §14 do checklist em pelo menos um iPhone e um Android/Windows; (e) só depois decidir entre manter o MeloTTS, trocar de TTS ou gravar com falante nativo.
+
+## 7. Fase 8F — encerramento da infraestrutura de áudio
+
+- Produção contida (404 verificado); **GitHub continua expondo** o corpus em `restricted-assets/` e na história; deployments antigos da Vercel **não verificados**. Plano e comandos: `docs/audio/exposure-and-removal-plan.md`.
+- Fallback do navegador: voz coreana explícita (`pickKoreanVoice`), "indisponível" tratado sem fingir sucesso, rótulos "voz do sistema, sem revisão nativa" (`exercise-media.tsx`), progressão da lição independente do áudio. Verificado por revisão de código e testes simulados; **não** em aparelho real.
+- Próximo foco: currículo (`docs/release/curriculum-handoff.md`). Licença/pronúncia não bloqueiam conteúdo original local.

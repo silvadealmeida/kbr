@@ -167,6 +167,10 @@ A 8A corrigiu a posição previsível da resposta sem tocar em conteúdo, IDs, g
 
 Limitações: o sorteio é uniforme por permutação, mas uma nova tentativa pode coincidir com a anterior — isso é aceitável e não é forçado a mudar. A ordem não é persistida entre recarregamentos porque a tentativa ativa também não é. A distribuição é verificada estatisticamente, não por uma garantia de cotas. iPhone/Chrome iOS/VoiceOver reais e a revisão nativa do conteúdo continuam manuais.
 
+## Vocabulário e prática contextual (Fase 9A-V)
+
+Registro canônico em `src/content/vocabulary` (itens derivados de `WORDS` do Hangul + 25 frases originais), lógica pura em `src/lib/vocabulary`, UI em `src/components/vocabulary`, rotas `/vocabulario` e `/vocabulario/revisao`. O estado do aluno é **um cartão Leitner por palavra salva** em `Progress.cards["v:<id>"]`; remoção = marca (`due` = `9999-12-31…`) para sobreviver ao merge por união. **Sem mudança em `Progress` v1, CAS, SQL ou migração**; o SRS e o painel do Hangul ignoram chaves `v:`. Regra de ajuda (tradução/pista → acerto repete a caixa) e demais detalhes: `docs/vocabulary/{architecture,content-schema,review-behavior,contextual-practice}.md`.
+
 ## Revisão
 `/revisao` é funcional desde a Fase 4A e não altera `Progress` v1, auth, migração, tabela ou RLS.
 

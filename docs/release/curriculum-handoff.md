@@ -38,6 +38,12 @@
 
 R1/R2 (e-mails em `docs/audio/permissions/email-drafts.md`, **não enviados**), piloto de TTS alternativo (~20 clipes), gravação com falante nativo (`audio-quality-roadmap.md`), matriz manual §14 do checklist de iPhone, decisão formal sobre manter ou substituir o MeloTTS. Nenhuma depende de código novo agora.
 
+## 5b. Vocabulário (Fase 9A-V, feita)
+
+Infraestrutura de vocabulário pronta para o A1: registro `src/content/vocabulary` (cada curso entrega `VocabEntry[]` + frases; passos em `docs/vocabulary/content-schema.md`), `/vocabulario` (busca, filtros, salvar/remover, detalhes), revisão diária contextual (frase com lacuna + dica de sentido + tradução opcional antes e obrigatória depois), cartões simples e Leitner reaproveitado em `Progress.cards["v:<id>"]` (sem migração). Limites: só 25 frases (todas em revisão nativa), sem sentidos separados por homógrafo, sem ligação automática nas lições, sincronização remota não verificada em Supabase real. Isto **não** abre lições A1.
+
 ## 6. Primeira fase recomendada
 
-**9A — Esquema e esqueleto do curso A1 (sem lições ainda):** definir o esquema de conteúdo para vocabulário/frases/gramática/diálogo, o mapa A1 (unidades, objetivos, vocabulário-alvo, notas de gramática e quais tipos de exercício existentes cobrem cada habilidade), a política de fonte original e revisão nativa, e a ativação do curso no registro — **com 0 lições escritas**. Só depois **9B**, a primeira lição (cumprimentos/apresentação, `이에요/예요`), usando voz do sistema.
+**9A — Esquema e esqueleto do curso A1 (sem lições ainda; o esquema de vocabulário já existe em 9A-V — reutilizar):** definir o esquema de conteúdo para vocabulário/frases/gramática/diálogo, o mapa A1 (unidades, objetivos, vocabulário-alvo, notas de gramática e quais tipos de exercício existentes cobrem cada habilidade), a política de fonte original e revisão nativa, e a ativação do curso no registro — **com 0 lições escritas**. Só depois **9B**, a primeira lição (cumprimentos/apresentação, `이에요/예요`), usando voz do sistema.
+
+**Depois da 9A-V:** a 9B (primeira lição A1) deve declarar o vocabulário como `VocabEntry`/`VocabSentence`, exibir o resumo da lição com `vocabForLesson` e oferecer "Salvar as palavras desta lição" — sem enrolar palavras automaticamente.

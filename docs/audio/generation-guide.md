@@ -2,8 +2,30 @@
 
 **Fase:** 8B  
 **Data:** 2026-11-12  
-**Status:** pipeline reproduzível em ambiente local; assets publicados em `public/audio/hangul/v1/`.  
+**Status (8E):** pipeline reproduzível em ambiente local. Os MP3 ficam **contidos** em `restricted-assets/audio/hangul/v1/` (fora de `public/`, não servidos) por causa da licença não resolvida; ver "Contenção e como reativar" abaixo.  
 **Natureza do áudio:** síntese neural, **não** gravação nativa. Todo o conteúdo coreano continua `in-review`; estes arquivos são a referência estável provisória e ainda precisam de escuta e aprovação de falante nativo.
+
+## Contenção e como reativar (8E)
+
+Os 287 MP3 e o manifesto estão **preservados**. Desde a 8E eles vivem em `restricted-assets/audio/hangul/v1/` (movidos com `git mv`; o histórico do Git está intacto) e **não são servidos**: o Next serve tudo em `public/`, então a contenção é estrutural, não só de UI.
+
+- Padrão: `NEXT_PUBLIC_KBR_STATIC_AUDIO` ausente → o player nunca pede MP3 e usa a voz coreana do sistema (ou a dica textual). `npm run build` roda `scripts/audio/verify-no-restricted-audio.mjs` antes e depois e **falha** se encontrar qualquer MP3 do corpus (por extensão, por caminho ou por SHA-256, inclusive renomeado) em `public/`, `.next/` ou `.vercel/output`.
+- `encode-audio.py` agora grava em `restricted-assets/`, nunca em `public/`.
+
+**Para testar o áudio estático localmente (sem implantar):**
+```bash
+export NEXT_PUBLIC_KBR_STATIC_AUDIO=1
+npm run audio:stage           # copia restricted-assets/audio -> public/audio (gitignored), conferindo SHA-256
+npm run build && npx playwright test e2e/audio.spec.ts
+npm run audio:unstage         # remove só a cópia; a fonte não é tocada
+```
+
+**Para reativar em produção, somente depois de a licença estar resolvida por escrito** (resposta guardada em `docs/audio/permissions/`, bloqueio removido em `docs/release/beta-readiness.md`):
+1. Registrar a decisão em `docs/audio/license-audit.md` e remover o BLOQUEIO.
+2. Mover de volta: `git mv restricted-assets/audio public/audio` (e remover `/public/audio/` do `.gitignore`).
+3. Definir `NEXT_PUBLIC_KBR_STATIC_AUDIO=1` no ambiente de build da Vercel; o guarda então só avisa.
+4. Fazer o deploy de preview, conferir `curl -I <preview>/audio/hangul/v1/<chave>.mp3` e `npm test`; só então promover.
+Reverter a contenção é, portanto, um `git mv` + uma variável de ambiente; nada foi apagado.
 
 ## Resultado
 
@@ -170,7 +192,7 @@ Comportamento:
 
 1. Se há `audioSrc` explícito no conteúdo, ele tem prioridade; senão, o mapa estático é consultado.
 2. O MP3 é tocado sob demanda (`preload="auto"` no elemento criado no clique; nenhum áudio no carregamento da página).
-3. Se o asset falhar, não iniciar em **4 s** ou não existir, cai para a voz do sistema.
+3. Com a flag desligada (padrão) o passo do MP3 é pulado. Se o asset falhar, não iniciar em **4 s** ou não existir, cai para a voz do sistema.
 4. A voz do sistema só é usada se houver uma voz **coreana explícita** (`ko`, `ko-KR` ou outra variante). Sem voz coreana, a UI mostra indisponibilidade e mantém a dica textual; nunca finge sucesso.
 5. A espera por `voiceschanged` é de **1,5 s**; se a fala não começar em **2 s**, o estado vira erro.
 6. Um novo play cancela o anterior; `destroy()` remove listeners e timers. O replay reinicia o mesmo asset.

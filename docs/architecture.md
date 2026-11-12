@@ -36,7 +36,7 @@ src/
     progress/               # score de lição, tentativas e desbloqueio (puro)
     audio/                  # inventário, resolução de assets e player (sem React)
   types/
-public/audio/hangul/v1/     # 287 MP3 gerados; cache imutável, carregados sob demanda
+restricted-assets/audio/hangul/v1/  # 287 MP3 (contidos, NÃO servidos; 8E). Cópia para teste local: public/audio (gitignored)
 scripts/audio/              # inventário, geração MeloTTS e encode/QC reproduzíveis
 tests/  (vitest)   e2e/ (playwright; Supabase mock para fluxo autenticado)
 docs/
@@ -216,7 +216,7 @@ A 8B trocou o caminho principal de áudio por **assets estáticos gerados offlin
 currículo (audioText/spoken)
   → scripts/audio/build-inventory.mjs → .audio/inventory.json (287 textos)
   → scripts/audio/generate-melotts.py → .audio/raw/*.wav
-  → scripts/audio/encode-audio.py → public/audio/hangul/v1/*.mp3
+  → scripts/audio/encode-audio.py → restricted-assets/audio/hangul/v1/*.mp3
                                    → src/content/audio/manifest.json
                                    → src/content/audio/entries.ts
   → src/lib/audio/manifest.ts (texto NFC → src)
@@ -225,7 +225,7 @@ currículo (audioText/spoken)
 ```
 
 - **Inventário:** 287 textos únicos (266 da camada de dados + 23 formas `spoken` − 2 sobreposições), 156 de prioridade 1 e 131 de prioridade 2. O script falha em colisão de chave FNV-1a e registra fontes, passos, tags e prioridade.
-- **Assets:** 287 MP3 em `public/audio/hangul/v1/`, **1.384.146 bytes**, **153,39 s**, 64 kbps mono 44,1 kHz; maior arquivo 13.393 bytes. O manifesto guarda SHA-256, bytes, duração, loudness, fontes, passos, tags e prioridade; o mapa `entries.ts` é a única parte que entra no bundle do cliente. Nenhum peso, venv, WAV bruto ou cache é versionado.
+- **Assets:** 287 MP3 em `restricted-assets/audio/hangul/v1/`, **1.384.146 bytes**, **153,39 s**, 64 kbps mono 44,1 kHz; maior arquivo 13.393 bytes. O manifesto guarda SHA-256, bytes, duração, loudness, fontes, passos, tags e prioridade; o mapa `entries.ts` é a única parte que entra no bundle do cliente. Nenhum peso, venv, WAV bruto ou cache é versionado.
 - **Geração:** MeloTTS `209145371cff8fc3bd60d7be902ea69cbdb7965a`, voz `myshell-ai/MeloTTS-Korean@0207e5adfc90129a51b6b03d89be6d84360ed323`, encoder `kykim/bert-kor-base@1779cc0982ada0216dd6de0dd4e86fb78201926d`, `device="cpu"`, speaker `KR`, speed `1.0`, seed 0. O encode remove silêncio, normaliza RMS para −18 dBFS com pico ≤ −1 dBFS, aplica fades e codifica MP3. Comandos, hashes e ambiente em `docs/audio/generation-guide.md`.
 - **Resolução:** `src/lib/audio/text.ts` normaliza NFC + trim e gera a chave; `src/lib/audio/manifest.ts` resolve o asset sem alterar o texto exibido; `src/lib/audio/inventory.ts` reconstrói o inventário a partir do currículo para testes de cobertura.
 - **Player:** `src/lib/audio/playback.ts` é uma classe sem React. O asset tem prioridade; `audioSrc` explícito do conteúdo vence o mapa estático. Se o MP3 falhar, não iniciar em 4 s ou não existir, o player tenta a voz do sistema **somente** se houver variante coreana explícita (`ko`, `ko-KR` etc.). A espera por `voiceschanged` é de 1,5 s e a fala precisa começar em 2 s; sem isso, o estado vira indisponibilidade/erro. Um novo play cancela o anterior; `destroy()` remove listeners e timers.
@@ -235,7 +235,8 @@ currículo (audioText/spoken)
 - **Desempenho e cache:** nenhum MP3 é baixado no carregamento inicial; o elemento é criado no clique e o asset é buscado sob demanda. `/audio/:path*` responde `public, max-age=31536000, immutable`. Medição local: landing 289.631 B/CLS 0,000302; painel 510.812 B/CLS 0,008682; player 621.686 B/CLS 0,001980; `c4` 771.396 B/CLS 0,002025 — todos abaixo dos orçamentos.
 - **Formato:** MP3 64 kbps mono, em vez de AAC/WebM. O corpus inteiro cabe em 1,38 MB e um único formato universal reduz a complexidade de encode, manifesto e fallback sem ganho material de tamanho. AAC/WebM continua preferível quando houver gravação nativa em alta qualidade.
 - **Privacidade:** a geração é offline/local; em runtime, o caminho principal serve MP3 do próprio app e nenhum texto coreano vai para TTS de terceiros. O fallback pode usar uma voz remota do sistema operacional/navegador, se existir; a UI a trata como voz do navegador, não como áudio gravado. Não há telemetria de áudio.
-- **Licença do áudio (8D):** os MP3 são síntese neural, rotulados como tal na UI. O encoder `kykim/bert-kor-base` é parte necessária da geração e não tem licença no repositório do Hugging Face; a distribuição pública/comercial está **bloqueada** até esclarecimento por escrito ou substituição (`docs/audio/license-audit.md`). `public/` é servido diretamente: desligar o asset no player não impede o acesso por URL; a contenção real exige excluir `public/audio/**` do deploy.
+- **Licença do áudio (8D):** os MP3 são síntese neural, rotulados como tal na UI. O encoder `kykim/bert-kor-base` é parte necessária da geração e não tem licença no repositório do Hugging Face; a distribuição pública/comercial está **bloqueada** até esclarecimento por escrito ou substituição (`docs/audio/license-audit.md`). `public/` é servido diretamente: desligar o asset no player não impede o acesso por URL; a contenção real exige que os arquivos não estejam em `public/`.
+- **Contenção (8E):** os MP3 foram movidos (`git mv`) para `restricted-assets/` e a flag de build `NEXT_PUBLIC_KBR_STATIC_AUDIO=1` (`src/lib/audio/flags.ts`, aplicada em `resolvePublicAudioSrc`) é a única forma de o player pedir MP3. `prebuild`/`postbuild` executam `scripts/audio/verify-no-restricted-audio.mjs`, que falha o build se o corpus (por extensão, caminho ou SHA-256) aparecer em `public/`, `.next/` ou `.vercel/output`. Sem a flag o padrão é voz coreana do sistema → dica textual. O repositório GitHub é público e a história ainda contém os MP3: a contenção cobre o **deploy**, não o repositório (ver `docs/audio/license-audit.md` §9).
 - **Licenças:** MeloTTS e o modelo coreano são MIT, mas `kykim/bert-kor-base` **não declara licença**. Isso é um risco material para distribuição pública/comercial e não permite afirmar que o pipeline está liberado. A imagem Docker `hangrylabs/melotts:v1.0.1` foi rejeitada (AGPL-3.0-only, só `amd64`, ~8,3 GB comprimida, pacote coreano com aceite manual e o mesmo encoder).
 - **Testes:** `tests/audio-manifest.test.ts` (7) cobre cobertura, integridade, unicidade, órfãos e loudness; `tests/audio-playback.test.ts` (16) cobre asset, `audioSrc` explícito, 0,75×, fallback, timeout, `voiceschanged`, ausência de voz, erro, cancelamento, replay e limpeza; `e2e/audio.spec.ts` cobre MP3 real, repetição, 0,75× e o cenário sem MP3 e sem voz coreana nos cinco projetos. O E2E em Chromium pegou um `Illegal invocation` real dos timers nativos chamados como métodos; os wrappers foram corrigidos.
 - **Limitações:** o áudio é sintético e não foi aprovado por falante nativo; a qualidade de ㄹ/vogais e a naturalidade das frases seguem sem verificação; o construtor livre de sílabas não tem asset para toda combinação e usa o fallback; iPhone/Chrome iOS/VoiceOver reais continuam manuais; não há service worker nem áudio offline; a licença do encoder e a revisão nativa são pendências de lançamento.

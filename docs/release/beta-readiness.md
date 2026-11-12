@@ -1,4 +1,4 @@
-# Prontidão para beta controlado — Fase 8D
+# Prontidão para beta controlado — Fase 8D (atualizado na 8E)
 
 **Data:** 2026-11-12  
 **Veredito:** o KBR **não está pronto para produção pública**. Há um bloqueio material aberto (licença do áudio sintético) e pendências jurídicas de privacidade. Para um **beta fechado**, o código está estável, mas a decisão de distribuir os 287 MP3 depende do dono do projeto (ver `docs/audio/license-audit.md`). Nada aqui foi testado em dispositivo real.
@@ -9,7 +9,9 @@ Legenda: **PASS** (verificado nesta fase com evidência) · **BLOCKED** (impede 
 
 | # | Item | Status | Evidência / observação |
 |---|---|---|---|
-| 1 | Licença do áudio sintético (MeloTTS + `kykim/bert-kor-base`) | **BLOCKED** (público/comercial) | `license-audit.md`: encoder sem licença no repositório baixado; README do autor diz Apache-2.0 **e** exige MOU para uso comercial; treino da voz não documentado. Beta fechado = decisão do dono |
+| 1 | Licença do áudio sintético (MeloTTS + `kykim/bert-kor-base`) | **BLOCKED** (público/comercial; **contido no deploy desde a 8E**, mas ainda servido pelo deployment antigo e presente no repositório público) | `license-audit.md`: encoder sem licença no repositório baixado; README do autor diz Apache-2.0 **e** exige MOU para uso comercial; treino da voz não documentado. Beta fechado = decisão do dono |
+| 1a | Contenção do deploy (8E): MP3 fora de `public/`, flag desligada, guarda de build | **PASS** (local) · **MANUAL TEST REQUIRED** (Vercel) | `tests/audio-containment.test.ts`; `postbuild` verifica `.next`; a Vercel não foi acessada: o deployment de produção anterior **continua servindo** os MP3 até novo deploy e remoção dos antigos |
+| 1b | Exposição existente: repositório GitHub público e deployments anteriores | **BLOCKED** | `curl -I https://kbr-amber.vercel.app/audio/hangul/v1/ko-cdd08b15.mp3` → HTTP 200 em 2026-11-12; ver `license-audit.md` §9 |
 | 2 | Integridade dos 287 MP3 (cobertura, SHA-256, órfãos, corrupção, duplicados) | **PASS** | `audio-quality-report.md` §1 |
 | 3 | Reprodução honesta (sem falso sucesso, voz `ko` explícita, fallback) | **PASS** (código + simulado) | revisão de `playback.ts`; 453 Vitest; real-device pendente (item 17) |
 | 4 | Rótulo do áudio como sintético | **PASS** (corrigido na 8D) | "gravado" → "sintetizado (referência provisória)" |
@@ -101,4 +103,4 @@ Voz única (`KR`), ritmo de item isolado, 0,75× como velocidade lenta, escolha 
 
 ## 6. Próxima fase recomendada
 
-**8E — Resolução de licença e contenção do áudio**, sem conteúdo novo: (a) enviar R1/R2 e registrar respostas; (b) implementar a contenção R3 (flag + exclusão de `public/audio/**` do deploy, voz do sistema como padrão) com testes, **sem apagar** os MP3; (c) auditar as licenças restantes da cadeia (R6); (d) o dono executa a matriz do §14 do checklist em pelo menos um iPhone e um Android/Windows; (e) só depois decidir entre manter o MeloTTS, trocar de TTS ou gravar com falante nativo.
+*(A 8E executou os itens (b) e (c); abaixo, o plano original.)* **8E — Resolução de licença e contenção do áudio**, sem conteúdo novo: (a) enviar R1/R2 e registrar respostas — **rascunhos prontos**, não enviados (`docs/audio/permissions/email-drafts.md`); (b) contenção R3 — **feita na 8E** (ver acima); (c) auditoria R6 — **feita na 8E** (`docs/audio/dependency-licenses.md`); (d) o dono executa a matriz do §14 do checklist em pelo menos um iPhone e um Android/Windows; (e) só depois decidir entre manter o MeloTTS, trocar de TTS ou gravar com falante nativo.

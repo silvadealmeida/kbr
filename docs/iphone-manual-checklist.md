@@ -127,6 +127,20 @@ Esperado: a nova versão carrega de forma confiável (o app não usa service wor
 a atualização segue o cache HTTP normal). Se ficar preso em versão antiga, registrar
 como bug.
 
+## 13. Prática de fala experimental (`/fala`) e catálogo (Fase 8C)
+
+- [ ] `/cursos` em iPhone: o texto do cartão do curso ocupa a largura útil, sem
+      faixa vazia à direita; claro e escuro; sem rolagem horizontal.
+- [ ] `/fala` abre sem pedir microfone. Ouvir o modelo não liga o microfone.
+- [ ] Safari iOS (Siri/Ditado ativos): aviso de origem desconhecida; Falar sem
+      permitir não liga o microfone; após permitir, o prompt do sistema aparece e
+      "엄마" é reconhecido ou o erro é claro. Repetir com Siri/Ditado desativados.
+- [ ] Web app na Tela de Início: aviso de indisponível + campo de texto.
+- [ ] Chrome iOS: registrar se a API existe; se não, aviso + campo de texto.
+- [ ] Parar/Cancelar/sair da página: o indicador de gravação do sistema some.
+- [ ] Campo "Texto em coreano" com ditado do teclado funciona e compara.
+- [ ] VoiceOver anuncia "Ouvindo… fale agora." e o resultado.
+
 ## Registro
 
 | Item | Modelo / iOS / navegador | Data | Resultado | Observações |

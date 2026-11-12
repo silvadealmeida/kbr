@@ -96,9 +96,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1794480801.7022805,
-    "seen": 1794480860.1562922,
-    "ast_hash": "ebdb90f1381a3cc683d9e8c1a9e37256",
+    "mtime": 1794486515.5723822,
+    "seen": 1794486517.3860006,
+    "ast_hash": "12b903814c41677063ddc644c53ce39c",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -108,9 +108,9 @@
     "semantic_hash": ""
   },
   "docs/architecture.md": {
-    "mtime": 1794483962.7304912,
-    "seen": 1794485163.4943786,
-    "ast_hash": "39c0bd070fb1fc8b3b6f7c3bd00bde9a",
+    "mtime": 1794486144.0499818,
+    "seen": 1794486517.3860028,
+    "ast_hash": "ab871d9249bbefd4b2a051d28ff208c8",
     "semantic_hash": ""
   },
   "docs/research.md": {
@@ -120,9 +120,9 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794485978.1633554,
-    "seen": 1794485979.9903233,
-    "ast_hash": "21936ce0e57f6f26dd9a6f4a8dee9ecb",
+    "mtime": 1794486515.5723822,
+    "seen": 1794486517.386016,
+    "ast_hash": "6246610e19b6f575b055e7c2166d9481",
     "semantic_hash": ""
   },
   "src/lib/hangul/index.ts": {
@@ -402,9 +402,9 @@
     "semantic_hash": ""
   },
   "src/app/(site)/privacidade/page.tsx": {
-    "mtime": 1794478951.176706,
-    "seen": 1794478989.0774815,
-    "ast_hash": "3876028d8af618a3b4a406e8f76898da",
+    "mtime": 1794486202.40096,
+    "seen": 1794486517.3858762,
+    "ast_hash": "71ce6f4296018ca68c87d68d6fe49962",
     "semantic_hash": ""
   },
   "src/components/auth/AccountCard.tsx": {
@@ -462,9 +462,9 @@
     "semantic_hash": ""
   },
   "docs/privacy-audit.md": {
-    "mtime": 1794398317.1310148,
-    "seen": 1794398486.1065447,
-    "ast_hash": "b11a259dc1b835a4e1c7a6e6e04b5482",
+    "mtime": 1794486144.0499818,
+    "seen": 1794486517.386015,
+    "ast_hash": "1b9acae9ef33b02ffda790481f41c004",
     "semantic_hash": ""
   },
   "src/components/site/LandingRedirect.tsx": {
@@ -1116,9 +1116,9 @@
     "semantic_hash": ""
   },
   "docs/iphone-manual-checklist.md": {
-    "mtime": 1794401299.885905,
-    "seen": 1794402242.5988665,
-    "ast_hash": "659533170932939105013ff0300e0b9d",
+    "mtime": 1794486144.0499818,
+    "seen": 1794486517.386011,
+    "ast_hash": "ecee40dea4bc062b7c786b5d5d97eec3",
     "semantic_hash": ""
   },
   "docs/offline-pwa-decision.md": {
@@ -1254,9 +1254,9 @@
     "semantic_hash": ""
   },
   "docs/feedback/feedback-igo.md": {
-    "mtime": 1794480720.367398,
-    "seen": 1794480860.1563015,
-    "ast_hash": "4a0c6e08c345a4755a3fc8995af6fc80",
+    "mtime": 1794486144.0499818,
+    "seen": 1794486517.3860102,
+    "ast_hash": "a6464b9d966bb9a93375c92e4cc27d02",
     "semantic_hash": ""
   },
   "src/components/hangul/CourseJourney.tsx": {
@@ -3120,9 +3120,9 @@
     "semantic_hash": ""
   },
   "e2e/speech.spec.ts": {
-    "mtime": 1794485963.1805859,
-    "seen": 1794485969.4359708,
-    "ast_hash": "db6293701545f0d31d7645e7cedc24fc",
+    "mtime": 1794486320.001816,
+    "seen": 1794486517.3858526,
+    "ast_hash": "175c969f5bb0b25e7b45a3bd8cbed485",
     "semantic_hash": ""
   },
   "src/app/(app)/fala/page.tsx": {
@@ -3183,6 +3183,12 @@
     "mtime": 1794486061.7431266,
     "seen": 1794486081.1088264,
     "ast_hash": "77ab67980dae9fa73f3fd2f94afcaf64",
+    "semantic_hash": ""
+  },
+  "docs/speech/speech-recognition.md": {
+    "mtime": 1794486515.5795822,
+    "seen": 1794486517.386017,
+    "ast_hash": "7c2b8075691a23c3a389eb716c1ce491",
     "semantic_hash": ""
   },
   "package-lock.json": {

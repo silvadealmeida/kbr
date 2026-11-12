@@ -97,3 +97,21 @@ seguem abertos. A auditoria técnica do áudio está em `docs/audio/`.
   - funcionalidade não depende só de imagem ou áudio;
   - orçamento de desempenho e acessibilidade documentado.
 - **Fase recomendada:** futuro, junto de conteúdo A1–C2. **Fora da 7F.**
+
+## 4. Prática de fala nativa e cartão do catálogo no iPhone (Fase 8C)
+
+- **Pedido:** treinar fala coreana com o reconhecimento nativo do aparelho/
+  navegador (sem Whisper nem backend) e corrigir o espaço vazio à direita do
+  cartão do curso em `/cursos`, visto em iPhone real.
+- **Verificação do layout:** medido em 320/375/390/768/1280 px, claro e escuro:
+  sem overflow horizontal; o conteúdo do cartão começava a 21 px da borda
+  esquerda e terminava a 57 px da direita. Causa: `Plate` aplicava `pr-14` ao
+  cartão inteiro sempre que recebia `number`. Corrigido reservando espaço só no
+  rótulo; teste de regressão em `e2e/catalog-layout.spec.ts`.
+- **Prática de fala:** implementada como recurso **experimental** em `/fala`
+  (`docs/speech/speech-recognition.md`). Exibe o texto reconhecido e se
+  corresponde ao esperado; não avalia pronúncia, não altera progresso e não
+  bloqueia lições.
+- **Aberto:** confirmar em iPhone/Safari, Chrome iOS, Chrome Android e Chrome
+  Windows (checklist `docs/iphone-manual-checklist.md` §13 e o roteiro do doc de
+  fala); só o reconhecedor simulado foi testado automaticamente.

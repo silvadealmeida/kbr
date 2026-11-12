@@ -120,9 +120,9 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794510686.9921944,
-    "seen": 1794510689.397046,
-    "ast_hash": "3b944bfd1a052673c6ac404caa6b03f4",
+    "mtime": 1794510819.4992933,
+    "seen": 1794510821.9456968,
+    "ast_hash": "59858f19314a350e6f5988f28cd21f73",
     "semantic_hash": ""
   },
   "src/lib/hangul/index.ts": {
@@ -3888,9 +3888,9 @@
     "semantic_hash": ""
   },
   "src/content/curriculum/a2/content.ts": {
-    "mtime": 1794510678.2513943,
-    "seen": 1794510689.396767,
-    "ast_hash": "037a10a452e060c39802189863ccdee2",
+    "mtime": 1794510814.5600932,
+    "seen": 1794510821.945548,
+    "ast_hash": "bd9cb44a0fdcfe283320202f3223640e",
     "semantic_hash": ""
   },
   "src/content/curriculum/a2/ids.ts": {
@@ -4233,6 +4233,42 @@
     "mtime": 1794510670.5861495,
     "seen": 1794510689.3967927,
     "ast_hash": "e02c33eba13513b126774429495592bb",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/a2/checkpoints/a2-c08.ts": {
+    "mtime": 1794510807.2147472,
+    "seen": 1794510821.9455469,
+    "ast_hash": "ebc31559ed3a760c90470493f2489ac1",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/a2/lessons/a2-l36.ts": {
+    "mtime": 1794510725.5472891,
+    "seen": 1794510821.9455736,
+    "ast_hash": "62430d2827ae108d5a56bc0911b456d2",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/a2/lessons/a2-l37.ts": {
+    "mtime": 1794510725.5472891,
+    "seen": 1794510821.9455748,
+    "ast_hash": "e63a30b073bb55d08c987974d47d89b9",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/a2/lessons/a2-l38.ts": {
+    "mtime": 1794510761.2359738,
+    "seen": 1794510821.9455752,
+    "ast_hash": "62e88e85c08ac59a3d25f5764def9342",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/a2/lessons/a2-l39.ts": {
+    "mtime": 1794510761.2359738,
+    "seen": 1794510821.945576,
+    "ast_hash": "ed0f60597d2d9f51204b8d1a03181ecb",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/a2/lessons/a2-l40.ts": {
+    "mtime": 1794510783.1379468,
+    "seen": 1794510821.9455764,
+    "ast_hash": "eba7a149b776ab5e5a4554d83f8aeb85",
     "semantic_hash": ""
   },
   "package-lock.json": {

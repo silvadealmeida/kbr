@@ -7,6 +7,7 @@ import { A2_C04 } from "./checkpoints/a2-c04";
 import { A2_C05 } from "./checkpoints/a2-c05";
 import { A2_C06 } from "./checkpoints/a2-c06";
 import { A2_C07 } from "./checkpoints/a2-c07";
+import { A2_C08 } from "./checkpoints/a2-c08";
 import { A2_L01 } from "./lessons/a2-l01";
 import { A2_L02 } from "./lessons/a2-l02";
 import { A2_L03 } from "./lessons/a2-l03";
@@ -42,6 +43,11 @@ import { A2_L32 } from "./lessons/a2-l32";
 import { A2_L33 } from "./lessons/a2-l33";
 import { A2_L34 } from "./lessons/a2-l34";
 import { A2_L35 } from "./lessons/a2-l35";
+import { A2_L36 } from "./lessons/a2-l36";
+import { A2_L37 } from "./lessons/a2-l37";
+import { A2_L38 } from "./lessons/a2-l38";
+import { A2_L39 } from "./lessons/a2-l39";
+import { A2_L40 } from "./lessons/a2-l40";
 import type { A2CheckpointContent, A2ContentIssue, A2LessonContent } from "./types";
 import {
   validateA2CheckpointContent,
@@ -85,6 +91,11 @@ export const A2_IMPLEMENTED_LESSONS: readonly A2LessonContent[] = [
   A2_L33,
   A2_L34,
   A2_L35,
+  A2_L36,
+  A2_L37,
+  A2_L38,
+  A2_L39,
+  A2_L40,
 ];
 
 export const A2_IMPLEMENTED_CHECKPOINTS: readonly A2CheckpointContent[] = [
@@ -95,6 +106,7 @@ export const A2_IMPLEMENTED_CHECKPOINTS: readonly A2CheckpointContent[] = [
   A2_C05,
   A2_C06,
   A2_C07,
+  A2_C08,
 ];
 
 const LESSON_BY_ID = new Map(A2_IMPLEMENTED_LESSONS.map((lesson) => [lesson.id, lesson]));

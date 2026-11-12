@@ -812,6 +812,28 @@ test.describe("Unidade 6 e checkpoint c3 autenticados", () => {
     ).toBe(true);
   });
 
+  test("arrasta a vogal para a caixa de composição", async ({ page }, testInfo) => {
+    test.skip(testInfo.project.name !== "desktop-1280", "Arrastar com mouse em viewport desktop.");
+    await seedCompletedLessons(page, COMPLETED_THROUGH_C2);
+    await page.goto("/hangul/h16");
+    await page.getByRole("button", { name: "Começar a prática" }).click();
+
+    const initial = page
+      .getByRole("group", { name: "Consoante inicial" })
+      .getByRole("button", { name: "ㄱ", exact: true });
+    await initial.click();
+
+    const vowel = page
+      .getByRole("group", { name: "Vogal" })
+      .getByRole("button", { name: "ㅏ", exact: true });
+    const dropZone = page.getByTestId("syllable-drop-zone");
+    await vowel.dragTo(dropZone);
+
+    await expect(page.getByText("Sua sílaba:")).toContainText("가");
+    await expect(vowel).toHaveAttribute("aria-pressed", "true");
+    await expect(page.getByText(/ㅏ é uma vogal vertical/)).toBeVisible();
+  });
+
   test("bancada C+V permanece utilizável em 320 px", async ({ page }, testInfo) => {
     test.skip(testInfo.project.name !== "desktop-1280", "Medição única em 320 px.");
     await seedCompletedLessons(page, COMPLETED_THROUGH_H20);

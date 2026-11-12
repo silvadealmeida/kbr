@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useId, useRef, useState } from "react";
 import type { BuildSyllableExercise, ExerciseAnswer } from "@/lib/exercises";
 import { composeSyllable, type Final, type Initial, type Medial } from "@/lib/hangul";
 import { medialShape } from "@/lib/hangul/layout";
@@ -82,6 +82,8 @@ export function SyllableBuilder({
   onChange(answer: ExerciseAnswer | null): void;
 }) {
   const [parts, setParts] = useState<Parts>({});
+  const [draggingOver, setDraggingOver] = useState(false);
+  const dropRef = useRef<HTMLDivElement | null>(null);
   const titleId = useId();
   const helpId = useId();
   const initials =
@@ -144,6 +146,24 @@ export function SyllableBuilder({
     onChange(null);
   }
 
+  function dropPiece(kind: string, value: string) {
+    if (disabled) return;
+    if (kind === "initial" && initials.includes(value as Initial)) {
+      select({ ...parts, initial: value as Initial });
+    } else if (kind === "medial" && medials.includes(value as Medial)) {
+      select({ ...parts, medial: value as Medial });
+    } else if (kind === "final" && finals.includes(value as Final)) {
+      select({ ...parts, final: value as Final });
+    }
+  }
+
+  function handleDrop(event: React.DragEvent<HTMLDivElement>) {
+    event.preventDefault();
+    setDraggingOver(false);
+    const [kind, value] = event.dataTransfer.getData("text/plain").split("\u001f");
+    if (kind && value !== undefined) dropPiece(kind, value);
+  }
+
   const touched =
     parts.initial !== undefined || parts.medial !== undefined || parts.final !== undefined;
 
@@ -160,16 +180,43 @@ export function SyllableBuilder({
         <p className="mono-data text-muted">inicial + medial + final</p>
       </div>
       <p id={helpId} className="mt-2 text-sm text-muted">
-        Escolha inicial e medial; quando o item pedir, escolha também o final. Use Tab e
-        Enter no teclado ou toque nos botões; a prévia não envia a resposta.
+        Escolha inicial e medial; quando o item pedir, escolha também o final.
+        Arraste uma peça até a caixa ou use Tab/Enter e toque nos botões. A prévia
+        não envia a resposta.
       </p>
 
       <div className="mt-5 flex flex-col items-center gap-5 sm:flex-row sm:items-start sm:gap-7">
-        <div className="w-40 shrink-0 min-[380px]:w-44 sm:w-48">
+        <div className="flex w-40 shrink-0 flex-col items-center min-[380px]:w-44 sm:w-48">
+          <div
+            ref={dropRef}
+            data-testid="syllable-drop-zone"
+            onDragEnter={(event) => {
+              event.preventDefault();
+              setDraggingOver(true);
+            }}
+            onDragOver={(event) => {
+              event.preventDefault();
+              event.dataTransfer.dropEffect = "copy";
+              setDraggingOver(true);
+            }}
+            onDragLeave={(event) => {
+              if (!dropRef.current?.contains(event.relatedTarget as Node | null)) {
+                setDraggingOver(false);
+              }
+            }}
+            onDrop={handleDrop}
+            className={`w-full rounded-[var(--radius-panel)] transition-[box-shadow,border-color] duration-[var(--motion-fast)] ${
+              draggingOver ? "ring-4 ring-accent/25" : ""
+            }`}
+          >
           <div
             aria-hidden
             className={`relative grid aspect-square grid-rows-[minmax(0,3fr)_minmax(0,1.35fr)] gap-1 rounded-[var(--radius-panel)] border-2 bg-bg p-2 ${
-              ready ? "border-accent" : "border-line-strong"
+              ready
+                ? "border-accent"
+                : draggingOver
+                  ? "border-accent border-dashed"
+                  : "border-line-strong"
             }`}
           >
             <div
@@ -202,6 +249,7 @@ export function SyllableBuilder({
               emptyLabel={hasFinal ? "—" : "sem final"}
               className={hasFinal ? "" : "opacity-80"}
             />
+          </div>
           </div>
 
           <div aria-live="polite" className="mt-3 text-center text-sm text-muted">
@@ -258,26 +306,32 @@ export function SyllableBuilder({
 
         <div className="w-full min-w-0 max-w-md space-y-4">
           <PieceGroup
+            kind="initial"
             title="Consoante inicial"
             values={orderedInitials}
             selected={parts.initial}
             disabled={disabled}
             onSelect={(value) => select({ ...parts, initial: value as Initial })}
+            onDropPiece={dropPiece}
           />
           <PieceGroup
+            kind="medial"
             title="Vogal"
             values={orderedMedials}
             selected={parts.medial}
             disabled={disabled}
             onSelect={(value) => select({ ...parts, medial: value as Medial })}
+            onDropPiece={dropPiece}
           />
           {hasFinal ? (
             <PieceGroup
+              kind="final"
               title="Consoante final"
               values={orderedFinals}
               selected={parts.final}
               disabled={disabled}
               onSelect={(value) => select({ ...parts, final: value as Final })}
+              onDropPiece={dropPiece}
             />
           ) : null}
 
@@ -307,22 +361,26 @@ export function SyllableBuilder({
 }
 
 function PieceGroup({
+  kind,
   title,
   values,
   selected,
   disabled,
   onSelect,
+  onDropPiece,
 }: {
+  kind: "initial" | "medial" | "final";
   title: string;
   values: readonly string[];
   selected?: string;
   disabled: boolean;
   onSelect(value: string): void;
+  onDropPiece(kind: string, value: string): void;
 }) {
   return (
     <fieldset>
-      <legend className="mono-label mb-2 text-muted">{title}</legend>
-      <div className="flex flex-wrap gap-2">
+      <legend className="mono-label mb-2 text-center text-muted">{title}</legend>
+      <div className="flex flex-wrap justify-center gap-2">
         {values.map((value) => {
           const active = selected === value;
           return (
@@ -333,8 +391,14 @@ function PieceGroup({
               aria-label={value ? undefined : "sem consoante final"}
               aria-pressed={active}
               disabled={disabled}
+              draggable={!disabled}
+              onDragStart={(event) => {
+                event.dataTransfer.effectAllowed = "copy";
+                event.dataTransfer.setData("text/plain", `${kind}\u001f${value}`);
+              }}
               onClick={() => onSelect(value)}
-              className={`min-h-12 min-w-12 rounded-[var(--radius-field)] border-2 px-3 font-ko text-xl transition-[background-color,border-color,color] duration-[var(--motion-fast)] disabled:cursor-not-allowed disabled:opacity-55 ${
+              onDoubleClick={() => onDropPiece(kind, value)}
+              className={`min-h-12 min-w-12 cursor-grab rounded-[var(--radius-field)] border-2 px-3 font-ko text-xl transition-[background-color,border-color,color] duration-[var(--motion-fast)] active:cursor-grabbing disabled:cursor-not-allowed disabled:opacity-55 ${
                 active
                   ? "border-accent bg-surface-2 text-fg"
                   : "border-line-strong bg-surface text-fg hover:bg-surface-2"

@@ -1,6 +1,6 @@
 # Transição para o A1 — handoff após as Fases 9A–9H
 
-**Decisão vigente:** os cursos **A1 e A2 estão completos no currículo interno do KBR** — 40 lições, 8 checkpoints e 48 passos jogáveis cada. `a1-l01` foi preservada. A entrada do A2 exige `a1-c08`. A próxima frente é **B1 — planejamento editorial e primeira fatia**, ou uma correção/native review do A1/A2 explicitamente pedida. A infraestrutura de áudio está **encerrada**: pendências de licença/pronúncia não bloqueiam conteúdo original, mas impedem distribuir os MP3 sintéticos.
+**Decisão vigente:** os cursos **A1, A2 e B1 estão completos no currículo interno do KBR** — 40 lições, 8 checkpoints e 48 passos jogáveis cada. `a1-l01` foi preservada. A entrada do A2 exige `a1-c08`; a do B1 exige `a2-c08`. A próxima frente é **B2 — planejamento editorial e primeira fatia**, ou uma correção/native review do A1/A2 explicitamente pedida. A infraestrutura de áudio está **encerrada**: o dono aceitou o risco da licença do encoder e os 287 MP3 do Hangul são servidos de `public/audio/v1/`; `NEXT_PUBLIC_KBR_STATIC_AUDIO=0` é o kill switch. O B1 usa TTS e não gerou MP3 novo.
 
 ## 1. Pronto para desenvolvimento contínuo
 
@@ -9,10 +9,12 @@
 | Módulo Hangul completo (`h01`–`h25`, `c1`–`c4`) | conteúdo `in-review`, estável | `src/content/hangul`, `tests/content/*` |
 | Curso A1 completo (`a1-l01`–`a1-l40`, `a1-c01`–`a1-c08`) | 48 passos, `in-review`, disponível | `src/content/curriculum/a1`, `/a1/[lessonId]` |
 | Curso A2 completo (`a2-l01`–`a2-l40`, `a2-c01`–`a2-c08`) | 48 passos, `in-review`, disponível após `a1-c08` | `src/content/curriculum/a2`, `/a2/[lessonId]` |
-| Registro multi-curso (Hangul, A1 e A2 disponíveis; B1–C2 planejados) | tipado e validado, com `entryPrerequisites` | `src/content/courses/{types,registry,a1,a2,planned,hangul}.ts` |
+| Curso B1 completo (`b1-l01`–`b1-l40`, `b1-c01`–`b1-c08`) | 48 passos, `in-review`, disponível após `a2-c08`, produção independente opcional | `src/content/curriculum/b1`, `/b1/[lessonId]` |
+| Registro multi-curso (Hangul, A1, A2 e B1 disponíveis; B2–C2 planejados) | tipado e validado, com `entryPrerequisites` | `src/content/courses/{types,registry,a1,a2,b1,planned,hangul}.ts` |
 | Blueprint A1 | 8 módulos, 40 lições, 8 checkpoints; tipado e validado | `src/content/curriculum/a1`, `docs/curriculum/` |
 | Vocabulário A1 | 443 identidades novas, 443 frases; 52 reusos do Hangul (495 distintas) | `src/content/vocabulary/{a1,a1-course}.ts` |
 | Vocabulário A2 | 400 identidades novas, 400 frases; 115 reusos distintos (515 ensinadas/retomadas) | `src/content/vocabulary/a2-*.ts` |
+| Vocabulário B1 | 320 identidades novas, 320 frases; 96 reusos distintos (416 ensinadas/retomadas) | `src/content/vocabulary/b1-*.ts` |
 | Contrato de conteúdo A1 | lição, checkpoint, vocabulário contextual, exercícios com etapa, revisão | `A1LessonContent`, `A1CheckpointContent`, `validateA1*` |
 | Tipos de exercício | 9 implementados, 3 planejados (`order-words`, `short-answer`, `dialogue-choice`) | `src/lib/exercises/registry.ts` |
 | Progresso e SRS | `Progress` v1 + Leitner por erro, cartões `v:` opt-in, CAS multi-dispositivo | `src/lib/{storage,srs,progress,supabase}` |
@@ -63,16 +65,16 @@ Infraestrutura pronta: registro `src/content/vocabulary` (cada curso entrega `Vo
 
 Critério cumprido: o curso está jogável em `/a1`, a conclusão só aparece com 48/48, o Hangul e o vocabulário existente permanecem intactos e nenhum áudio restrito foi reativado. **Limite:** revisão nativa e licença de áudio continuam pendentes.
 
-## 7. A2 concluído
+## 7. A2 e B1 concluídos
 
-O A2 está implementado em `src/content/curriculum/a2` com 40 lições, 8 checkpoints, 400 identidades novas e 400 frases. A rota `/a2` e o player reutilizam os componentes do A1 parametrizados por `CourseClientView`; a entrada exige `a1-c08`. Os documentos `docs/curriculum/a2-*.md` registram pesquisa, resultados, syllabus, vocabulário e exercícios. A revisão nativa de todo o conteúdo A2 continua pendente.
+O A2 está implementado em `src/content/curriculum/a2` com 40 lições, 8 checkpoints, 400 identidades novas e 400 frases. O B1 está em `src/content/curriculum/b1`, com 40 lições, 8 checkpoints, 320 identidades novas e uma produção independente opcional por lição. Os documentos estão em `docs/curriculum/b1-*.md`; a revisão nativa de A1, A2, B1 e Hangul continua pendente. As rotas `/a2` e `/b1` reutilizam os componentes do A1 parametrizados por `CourseClientView`; as entradas exigem `a1-c08` e `a2-c08`. Os documentos `docs/curriculum/a2-*.md` registram pesquisa, resultados, syllabus, vocabulário e exercícios. A revisão nativa de todo o conteúdo A2/B1 continua pendente.
 
-## 8. Padrão para B1
+## 8. Padrão para B2
 
-1. Criar um blueprint B1 validado (módulos, lições, checkpoints, dependências, resultados), sem copiar o A2.
-2. Criar `src/content/curriculum/b1/` com IDs `b1-*`, contratos/validadores próprios e registrar somente datasets completos.
-3. Derivar `B1_COURSE` do blueprint, com `entryPrerequisites: ["a2-c08"]`, `requiresAllSteps`/`finalStepId` somente quando todos os passos existirem e namespace SRS `b1:`.
-4. Vocabulário B1 no registro canônico, com IDs `ko:<forma>` estáveis, frases contextuais e reusos do A1/A2/Hangul quando forma e sentido coincidirem.
+1. Criar um blueprint B2 validado (módulos, lições, checkpoints, dependências, resultados), sem copiar o B1.
+2. Criar `src/content/curriculum/b2/` com IDs `b2-*`, contratos/validadores próprios e registrar somente datasets completos.
+3. Derivar `B2_COURSE` do blueprint, com `entryPrerequisites: ["b1-c08"]`, `requiresAllSteps`/`finalStepId` somente quando todos os passos existirem e namespace SRS `b2:`.
+4. Vocabulário B2 no registro canônico, com IDs `ko:<forma>` estáveis, frases contextuais e reusos do A1/A2/B1/Hangul quando forma e sentido coincidirem.
 5. Reutilizar os players parametrizados, `ExerciseView`, áudio do sistema, `LessonVocabulary`, `Progress` v1 e a conclusão derivada.
 6. Progressão por pré-requisitos no player e no catálogo; nenhum passo futuro ganha link ou conclusão antes do dataset.
 7. Cobrir validação, referências, gabaritos, bloqueios, conclusão, opt-in, 320–1280 e axe; atualizar docs no mesmo commit.

@@ -10,7 +10,7 @@ export default function Page() {
       <PageHeader
         ko="과정"
         title="Cursos"
-        subtitle="Hangul, Coreano A1 e Coreano A2 disponíveis; B1–C2 em planejamento."
+        subtitle="Hangul, Coreano A1, A2 e B1 disponíveis; C1–C2 em planejamento."
       />
       <CourseCatalog />
     </>

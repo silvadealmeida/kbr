@@ -1,0 +1,38 @@
+import { cloze, defineB1Checkpoint, listen, mcq, reading, translate } from "../lessons/shared";
+
+/** Checkpoint do Módulo 7 do B1. */
+export const B1_C07 = defineB1Checkpoint({
+  id: "b1-c07", number: 7, moduleId: "b1-m07", title: "Checkpoint · Mídia, informação e interpretação",
+  objective: "Avaliar fonte, tese, fato/opinião e interpretação de dados do Módulo 7.",
+  instructions: ["São 25 itens de escuta, leitura, vocabulário e gramática em contexto.", "A aprovação exige pelo menos 20 acertos (80%).", "A produção aberta é opcional e não entra na nota automática.", "O checkpoint retoma módulos anteriores em contexto."],
+  lessonIds: ["b1-l31", "b1-l32", "b1-l33", "b1-l34", "b1-l35"],
+  prerequisites: ["b1-l31", "b1-l32", "b1-l33", "b1-l34", "b1-l35", "b1-c01", "b1-c02", "b1-c03", "b1-c04", "b1-c05", "b1-c06"],
+  estimatedMinutes: 45, minCorrect: 20,
+  exercises: [
+    listen("Ouça e escreva a fonte da notícia.", "기사에 따르면 이용자가 늘었어요.", "기사에 따르면 이용자가 늘었어요.", "Segundo a notícia, os usuários aumentaram.", ["기사에 따르면 이용자가 늘었어요"]),
+    listen("Ouça e escreva a tese do texto.", "글의 요지는 접근성 개선이에요.", "글의 요지는 접근성 개선이에요.", "A ideia central do texto é melhorar a acessibilidade.", ["글의 요지는 접근성 개선이에요"]),
+    listen("Ouça e escreva a distinção fato/opinião.", "그 기사는 사실과 의견을 섞고 있어요.", "그 기사는 사실과 의견을 섞고 있어요.", "A notícia mistura fatos e opiniões.", ["그 기사는 사실과 의견을 섞고 있어요"]),
+    listen("Ouça e escreva a tendência dos dados.", "판매량이 두 달 연속 하락했어요.", "판매량이 두 달 연속 하락했어요.", "As vendas caíram por dois meses seguidos.", ["판매량이 두 달 연속 하락했어요"]),
+    listen("Ouça e escreva a correção.", "기사 정정을 요청했어요.", "기사 정정을 요청했어요.", "Solicitei a correção do artigo.", ["기사 정정을 요청했어요"]),
+    listen("Ouça e escreva a responsabilidade.", "매체의 영향력을 고려해야 해요.", "매체의 영향력을 고려해야 해요.", "É preciso considerar a influência dos veículos.", ["매체의 영향력을 고려해야 해요"]),
+    reading("기사에 따르면 지난해 이용자는 20% 늘었어요. 하지만 조사 대상이 일부 지역에 한정되어 있어요.", "Qual é a ressalva?", ["A amostra é limitada a algumas regiões.", "O aumento é falso.", "Não houve pesquisa."], "A amostra é limitada a algumas regiões.", "조사 대상이 일부 지역에 한정되어 있어요."),
+    reading("글의 요지는 대중교통 접근성 개선이에요. 예시로 버스 노선 확대와 정류장 개선이 제시됐어요.", "Qual é a tese?", ["Melhorar o acesso ao transporte público.", "Aumentar o preço das passagens.", "Reduzir o número de ônibus."], "Melhorar o acesso ao transporte público.", "접근성 개선이 요지예요."),
+    reading("이 문장은 사실이 아니라 필자의 추론이에요. 근거가 명시되지 않았어요.", "O que falta?", ["Evidência explícita.", "Título.", "Data."], "Evidência explícita.", "근거가 명시되지 않았어요."),
+    reading("작년에 비해 이용률은 올랐지만 평균 대기 시간도 늘었어요. 그래서 단순한 증가라고 보기 어려워요.", "Por que a conclusão é cautelosa?", ["Porque o tempo de espera também aumentou.", "Porque a pesquisa foi cancelada.", "Porque ninguém usou o serviço."], "Porque o tempo de espera também aumentou.", "평균 대기 시간도 늘었어요."),
+    reading("잘못된 정보가 빠르게 확산됐어요. 매체는 오보를 인정하고 정정 기사를 냈어요.", "O que o veículo fez?", ["Reconheceu o erro e publicou correção.", "Ignorou a reclamação.", "Culpou os leitores."], "Reconheceu o erro e publicou correção.", "오보를 인정하고 정정했어요."),
+    reading("여론은 빠르게 변할 수 있어요. 따라서 하나의 기사만으로 전체 의견을 판단하면 위험해요.", "Qual é a conclusão?", ["Não se deve julgar a opinião pública por uma única notícia.", "Toda notícia é falsa.", "A opinião pública nunca muda."], "Não se deve julgar a opinião pública por uma única notícia.", "하나의 기사만으로 판단하면 위험해요."),
+    mcq("Qual expressão introduz fonte?", ["에 따르면", "에 비해", "에 대해"], "에 따르면", "에 따르면 introduz fonte."),
+    mcq("Qual termo é opinião?", ["논조", "비율", "통계"], "논조", "논조 é linha argumentativa."),
+    mcq("Qual termo é correção?", ["정정", "확산", "오보"], "정정", "정정 é retificação."),
+    cloze("Complete a fonte: 기사___ 따르면 이용자가 늘었어요.", "에", "기사에 따르면."),
+    cloze("Complete a tese: 글의 ___는 접근성 개선이에요.", "요지", "요지."),
+    cloze("Complete a tendência: 판매량이 두 달 연속 ___했어요.", "하락", "하락했어요."),
+    cloze("Complete a correção: 기사 ___을 요청했어요.", "정정", "정정."),
+    cloze("Complete a influência: 매체의 ___을 고려해야 해요.", "영향력", "영향력."),
+    translate("pt-ko", "Traduza: “Segundo a notícia, os usuários aumentaram.”", "기사에 따르면 이용자가 늘었어요.", "에 따르면.", ["기사에 따르면 이용자가 증가했어요."]),
+    translate("ko-pt", "Traduza: 글의 요지는 접근성 개선이에요.", "A ideia central do texto é melhorar a acessibilidade.", "요지.", ["A tese do texto é a melhoria da acessibilidade."]),
+    translate("ko-pt", "Traduza: 판매량이 두 달 연속 하락했어요.", "As vendas caíram por dois meses seguidos.", "하락했어요.", ["As vendas diminuíram por dois meses consecutivos."]),
+    translate("pt-ko", "Traduza: “O veículo reconheceu o erro e publicou uma correção.”", "매체가 오보를 인정하고 정정 기사를 냈어요.", "오보, 정정.", ["매체는 오보를 인정하고 정정했어요."]),
+    translate("pt-ko", "Traduza: “É preciso considerar a influência dos veículos.”", "매체의 영향력을 고려해야 해요.", "영향력.", ["매체의 영향력을 고려해야 합니다."]),
+  ],
+});

@@ -1,0 +1,38 @@
+import { cloze, defineB1Checkpoint, listen, mcq, reading, translate } from "../lessons/shared";
+
+/** Checkpoint do Módulo 6 do B1. */
+export const B1_C06 = defineB1Checkpoint({
+  id: "b1-c06", number: 6, moduleId: "b1-m06", title: "Checkpoint · Viagem, serviços e imprevistos",
+  objective: "Avaliar reservas, imprevistos, reclamações e relatos de viagem do Módulo 6.",
+  instructions: ["São 25 itens de escuta, leitura, vocabulário e gramática em contexto.", "A aprovação exige pelo menos 20 acertos (80%).", "A produção aberta é opcional e não entra na nota automática.", "O checkpoint retoma módulos anteriores em contexto."],
+  lessonIds: ["b1-l26", "b1-l27", "b1-l28", "b1-l29", "b1-l30"],
+  prerequisites: ["b1-l26", "b1-l27", "b1-l28", "b1-l29", "b1-l30", "b1-c01", "b1-c02", "b1-c03", "b1-c04", "b1-c05"],
+  estimatedMinutes: 45, minCorrect: 20,
+  exercises: [
+    listen("Ouça e escreva a mudança de reserva.", "숙박 기간을 하루 늘렸어요.", "숙박 기간을 하루 늘렸어요.", "Estendi a hospedagem em um dia.", ["숙박 기간을 하루 늘렸어요"]),
+    listen("Ouça e escreva o cancelamento.", "폭풍 때문에 항공편이 결항됐어요.", "폭풍 때문에 항공편이 결항됐어요.", "O voo foi cancelado por causa da tempestade.", ["폭풍 때문에 항공편이 결항됐어요"]),
+    listen("Ouça e escreva a reclamação.", "손실에 대한 배상을 요구했어요.", "손실에 대한 배상을 요구했어요.", "Exigi indenização pelo prejuízo.", ["손실에 대한 배상을 요구했어요"]),
+    listen("Ouça e escreva a recomendação.", "가성비가 좋은 숙소를 추천해요.", "가성비가 좋은 숙소를 추천해요.", "Recomendo uma hospedagem com bom custo-benefício.", ["가성비가 좋은 숙소를 추천해요"]),
+    listen("Ouça e escreva a impressão da viagem.", "그 장면이 아직 생생해요.", "그 장면이 아직 생생해요.", "Aquela cena ainda é vívida.", ["그 장면이 아직 생생해요"]),
+    listen("Ouça e escreva a condição.", "예약이 확정되면 문자로 알려 주세요.", "예약이 확정되면 문자로 알려 주세요.", "Quando a reserva for confirmada, avise por mensagem.", ["예약이 확정되면 문자로 알려 주세요"]),
+    reading("숙박을 하루 늘리려고 했지만 변경 수수료가 비쌌어요. 그래서 원래 예약을 유지했어요.", "O que a pessoa fez?", ["Manteve a reserva original.", "Cancelou tudo.", "Mudou de hotel."], "Manteve a reserva original.", "원래 예약을 유지했어요."),
+    reading("폭풍으로 항공편이 결항됐어요. 승객들은 안전하게 대피했고, 회사는 다음 날 대체편을 제공했어요.", "O que a empresa fez?", ["Ofereceu um voo alternativo.", "Cancelou sem aviso.", "Pediu para os passageiros voltarem a pé."], "Ofereceu um voo alternativo.", "대체편을 제공했어요."),
+    reading("호텔은 사과했지만 배상은 거절했어요. 고객은 공식 답변과 재발 방지 조치를 요구했어요.", "O que o cliente pediu?", ["Resposta oficial e prevenção de recorrência.", "Um quarto maior.", "Um novo destino."], "Resposta oficial e prevenção de recorrência.", "공식 답변과 재발 방지 조치."),
+    reading("이 호텔은 역과 가까워서 접근성이 좋아요. 다만 주말에는 가격이 비싸요.", "Qual é a ressalva?", ["Preço alto no fim de semana.", "Falta de transporte.", "Quarto sujo."], "Preço alto no fim de semana.", "주말에는 가격이 비싸요."),
+    reading("여행은 힘들었지만 낯익은 골목을 다시 보니 감회가 새로웠어요. 다음에 재방문하고 싶어요.", "Como a pessoa se sentiu?", ["Com emoção renovada.", "Arrependida.", "Indiferente."], "Com emoção renovada.", "감회가 새로웠어요."),
+    reading("결항이나 연착이 생기면 먼저 안내를 확인하고, 필요하면 직원에게 대체편을 요청하세요.", "Qual é o primeiro passo?", ["Verificar as informações.", "Comprar outra passagem sem perguntar.", "Sair do aeroporto."], "Verificar as informações.", "먼저 안내를 확인하세요."),
+    mcq("Qual termo significa reembolso?", ["환불", "결항", "숙박"], "환불", "환불 é reembolso."),
+    mcq("Qual termo significa atraso?", ["연착", "확정", "대기"], "연착", "연착 é atraso de transporte."),
+    mcq("Qual termo significa custo-benefício?", ["가성비", "평점", "수수료"], "가성비", "가성비 é custo-benefício."),
+    cloze("Complete a hospedagem: 숙박 기간을 하루 ___어요.", "늘렸", "늘렸어요."),
+    cloze("Complete o cancelamento: 폭풍 때문에 항공편이 ___됐어요.", "결항", "결항됐어요."),
+    cloze("Complete a indenização: 손실에 대한 ___을 요구했어요.", "배상", "배상을 요구했어요."),
+    cloze("Complete a recomendação: 가성비가 ___ 숙소를 추천해요.", "좋은", "가성비가 좋은."),
+    cloze("Complete a impressão: 그 장면이 아직 ___.", "생생해요", "생생해요."),
+    translate("pt-ko", "Traduza: “Estendi a hospedagem em um dia.”", "숙박 기간을 하루 늘렸어요.", "숙박 기간.", ["숙박을 하루 연장했어요."]),
+    translate("ko-pt", "Traduza: 폭풍 때문에 항공편이 결항됐어요.", "O voo foi cancelado por causa da tempestade.", "결항됐어요.", ["Devido à tempestade, o voo foi cancelado."]),
+    translate("ko-pt", "Traduza: 손실에 대한 배상을 요구했어요.", "Exigi indenização pelo prejuízo.", "배상을 요구했어요.", ["Pedi indenização pelos danos."]),
+    translate("pt-ko", "Traduza: “Recomendo uma hospedagem com bom custo-benefício.”", "가성비가 좋은 숙소를 추천해요.", "가성비가 좋은.", ["가성비 좋은 숙소를 추천해요."]),
+    translate("pt-ko", "Traduza: “Aquela cena ainda é vívida.”", "그 장면이 아직 생생해요.", "생생해요.", ["그 장면이 아직 생생합니다."]),
+  ],
+});

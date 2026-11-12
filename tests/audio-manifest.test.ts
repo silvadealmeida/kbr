@@ -48,7 +48,7 @@ describe("manifesto de áudio estático", () => {
       ),
     );
 
-    expect(inventory).toHaveLength(2907);
+    expect(inventory).toHaveLength(3547);
     expect(manifest.count).toBe(287);
     expect(audioAssetCount()).toBe(manifest.count);
     expect(hangul.length).toBeGreaterThan(0);

@@ -1,5 +1,6 @@
 import { A1_COURSE } from "./a1";
 import { A2_COURSE } from "./a2";
+import { B1_COURSE } from "./b1";
 import { HANGUL_COURSE } from "./hangul";
 import { PLANNED_COURSES } from "./planned";
 import {
@@ -12,13 +13,14 @@ const COURSE_ID = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const SRS_PREFIX = /^[a-z0-9]+:$/i;
 
 /**
- * Registro estático de cursos. Hangul, A1 e A2 estão disponíveis; B1–C2 seguem
+ * Registro estático de cursos. Hangul, A1, A2 e B1 estão disponíveis; C1–C2 seguem
  * como entradas de planejamento sem passos, rotas ou conteúdo.
  */
 export const COURSE_REGISTRY: readonly CourseDefinition[] = [
   HANGUL_COURSE,
   A1_COURSE,
   A2_COURSE,
+  B1_COURSE,
   ...PLANNED_COURSES,
 ];
 

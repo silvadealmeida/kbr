@@ -1,0 +1,38 @@
+import { cloze, defineB1Checkpoint, listen, mcq, reading, translate } from "../lessons/shared";
+
+/** Checkpoint do Módulo 1 do B1. */
+export const B1_C01 = defineB1Checkpoint({
+  id: "b1-c01", number: 1, moduleId: "b1-m01", title: "Checkpoint · Histórias e conexões",
+  objective: "Avaliar narração, voz indireta, hipóteses e imprevistos do Módulo 1.",
+  instructions: ["São 25 itens de escuta, leitura, vocabulário e gramática em contexto.", "A aprovação exige pelo menos 20 acertos (80%).", "A produção aberta é opcional e não entra na nota automática.", "Você pode repetir o checkpoint; o app preserva o maior score."],
+  lessonIds: ["b1-l01", "b1-l02", "b1-l03", "b1-l04", "b1-l05"],
+  prerequisites: ["b1-l01", "b1-l02", "b1-l03", "b1-l04", "b1-l05"],
+  estimatedMinutes: 45, minCorrect: 20,
+  exercises: [
+    listen("Ouça e escreva a impressão da viagem.", "바다가 정말 넓더라고요.", "바다가 정말 넓더라고요.", "O mar era realmente imenso.", ["바다가 정말 넓더라고요"]),
+    listen("Ouça e escreva o que aconteceu no trajeto.", "지하철에서 내리다가 넘어졌어요.", "지하철에서 내리다가 넘어졌어요.", "Caiu ao descer do metrô.", ["지하철에서 내리다가 넘어졌어요"]),
+    listen("Ouça e escreva a fala relatada.", "내일 온다고 했어요.", "내일 온다고 했어요.", "Ele disse que vem amanhã.", ["내일 온다고 했어요"]),
+    listen("Ouça e escreva a pergunta relatada.", "몇 시에 오냐고 물었어요.", "몇 시에 오냐고 물었어요.", "Perguntei a que horas ele viria.", ["몇 시에 오냐고 물었어요"]),
+    listen("Ouça e escreva a hipótese passada.", "시간을 되돌릴 수 있다면 좋겠어요.", "시간을 되돌릴 수 있다면 좋겠어요.", "Seria bom se eu pudesse voltar o tempo.", ["시간을 되돌릴 수 있다면 좋겠어요"]),
+    listen("Ouça e escreva a mudança inesperada.", "계획이 완전히 뒤바뀌었어요.", "계획이 완전히 뒤바뀌었어요.", "O plano virou completamente do avesso.", ["계획이 완전히 뒤바뀌었어요"]),
+    reading("수진은 첫 해외여행에서 길을 잃었지만 현지 사람이 도와줬어요. 그 친절이 오래 기억에 남았어요.", "O que ficou na memória?", ["A gentileza de uma pessoa local.", "O preço do hotel.", "A comida apimentada."], "A gentileza de uma pessoa local.", "그 친절이 오래 기억에 남았어요."),
+    reading("수진은 지하철에서 내리다가 넘어졌어요. 약국에 가자마자 약을 샀고 바로 회사로 갔어요.", "Qual foi a ordem?", ["Caiu, comprou remédio, foi ao trabalho.", "Foi ao hospital, voltou para casa.", "Perdeu o metrô e faltou."], "Caiu, comprou remédio, foi ao trabalho.", "내리다가 → 약국 → 회사."),
+    reading("민수는 내일 회의에 못 온다고 했어요. 수진이 이유를 물었지만 그는 대답하지 않았어요.", "O que Minsu não fez?", ["Não explicou o motivo.", "Não recebeu o recado.", "Não foi ao médico."], "Não explicou o motivo.", "대답하지 않았어요."),
+    reading("수진은 그 선택을 아직도 후회해요. 시간을 되돌릴 수는 없지만 그때 더 용기를 냈으면 좋겠다고 말했어요.", "O que Sujin deseja?", ["Ter tido mais coragem.", "Ter comprado outro presente.", "Ter chegado mais cedo."], "Ter tido mais coragem.", "더 용기를 냈으면 좋겠다고 했어요."),
+    reading("갑작스러운 이사 때문에 계획이 엉망이 되었어요. 가족은 결국 새집에 적응하고 말았어요.", "Como terminou a história?", ["A família acabou se adaptando.", "A família desistiu da mudança.", "A família voltou para a casa antiga."], "A família acabou se adaptando.", "적응하고 말았어요."),
+    reading("소문을 그대로 전하면 오해가 생길 수 있어요. 누가 말했는지, 정확히 무엇을 말했는지 확인하는 게 중요해요.", "Qual é o conselho?", ["Confirmar a fonte e o conteúdo.", "Repetir tudo rapidamente.", "Evitar os amigos."], "Confirmar a fonte e o conteúdo.", "누가 말했는지 확인해요."),
+    mcq("Qual frase relata uma descoberta pessoal?", ["바다가 넓더라고요.", "바다가 넓어요.", "바다가 넓을 거예요."], "바다가 넓더라고요.", "-더라고요 marca experiência pessoal."),
+    mcq("Qual forma relata uma pergunta?", ["어디에 가냐고 했어요.", "어디에 간다고 했어요.", "어디에 갔어요."], "어디에 가냐고 했어요.", "-냐고 relata pergunta."),
+    mcq("Qual frase expressa arrependimento?", ["그때 더 공부했으면 좋겠어요.", "그때 더 공부했어요.", "그때 더 공부할 거예요."], "그때 더 공부했으면 좋겠어요.", "-았으면 좋겠어요 expressa desejo/arrependimento."),
+    cloze("Complete a descoberta: 바다가 넓___.", "더라고요", "넓더라고요."),
+    cloze("Complete a interrupção: 내리___ 넘어졌어요.", "다가", "내리다가."),
+    cloze("Complete o relato: 내일 온___ 했어요.", "다고", "온다고 했어요."),
+    cloze("Complete a pergunta relatada: 몇 시에 오___ 물었어요.", "냐고", "오냐고 물었어요."),
+    cloze("Complete a mudança involuntária: 적응하고 ___.", "말았어요", "적응하고 말았어요."),
+    translate("pt-ko", "Traduza: “A viagem mudou minha forma de ver o mundo.”", "그 여행이 제가 세상을 보는 방식을 바꿨어요.", "세상을 보는 방식.", ["그 여행은 제가 세상을 보는 방식을 바꿨어요."]),
+    translate("ko-pt", "Traduza: 걷다가 친구를 만났어요.", "Encontrei um amigo enquanto caminhava.", "걷다가 interrompe a ação.", ["Enquanto caminhava, encontrei um amigo."]),
+    translate("ko-pt", "Traduza: 바쁘다고 말했어요.", "Ele disse que estava ocupado.", "바쁘다고 relata fala.", ["Ele disse que está ocupado."]),
+    translate("pt-ko", "Traduza: “Seria bom se eu pudesse voltar o tempo.”", "시간을 되돌릴 수 있다면 좋겠어요.", "있다면 좋겠어요 expressa desejo.", ["시간을 되돌릴 수 있으면 좋겠어요."]),
+    translate("pt-ko", "Traduza: “No fim, ficou como uma boa lembrança.”", "결국 좋은 기억으로 남았어요.", "결국 marca o desfecho.", ["결국 좋은 기억으로 남았어요."]),
+  ],
+});

@@ -59,15 +59,15 @@ export function CourseCatalog() {
         <p className="mt-2">
           O KBR organiza o estudo em cursos. O Hangul é um curso introdutório de{" "}
           <strong>Pré-A1</strong> e não corresponde a um nível oficial do CEFR. O{" "}
-          <strong>Coreano A1</strong> e o <strong>Coreano A2</strong> estão
-          completos no currículo interno do KBR, com conteúdo original em
-          revisão. B1–C2 aparecem apenas como planejamento editorial e ainda não
-          têm lições, atividades ou avaliações.
+          <strong>Coreano A1</strong>, o <strong>Coreano A2</strong> e o{" "}
+          <strong>Coreano B1</strong> estão completos no currículo interno do KBR,
+          com conteúdo original em revisão. C1–C2 aparecem apenas como
+          planejamento editorial e ainda não têm lições, atividades ou avaliações.
         </p>
         <p className="mt-2">
           Concluir um curso no KBR não emite certificado CEFR e não comprova
-          proficiência oficial. O A2 exige o A1 concluído; os demais níveis não
-          são liberados automaticamente.
+          proficiência oficial. O A2 exige o A1 concluído e o B1 exige o A2; os
+          demais níveis não são liberados automaticamente.
         </p>
       </section>
 
@@ -135,7 +135,7 @@ export function CourseCatalog() {
                   {summary?.complete ? (
                     <Badge tone="accent">Curso concluído</Badge>
                   ) : !entryOpen ? (
-                    <Badge tone="warning">Requer A1 concluído</Badge>
+                    <Badge tone="warning">Requer o nível anterior</Badge>
                   ) : summary ? (
                     <Badge tone="accent">{summary.percent}% concluído</Badge>
                   ) : (
@@ -201,7 +201,7 @@ export function CourseCatalog() {
                       ? "A conclusão do Hangul não desbloqueia o A1 automaticamente."
                       : course.id === "ko-a1"
                         ? "A conclusão do A1 libera a entrada do A2 neste app, sem certificação."
-                        : "A conclusão do A2 exige os 48 passos e não libera B1."}
+                        : "A conclusão do B1 exige os 48 passos e não libera C1."}
                   </p>
                 ) : summary?.nextStep && nextHref ? (
                   <p className="mt-4 text-sm text-muted">
@@ -379,7 +379,7 @@ export function CourseCatalog() {
             Em planejamento
           </h2>
           <p className="mt-1 text-sm text-muted">
-            B1–C2 são referências de organização futura, não uma promessa de
+            C1–C2 são referências de organização futura, não uma promessa de
             lançamento. Nenhum destes níveis tem lição ou link disponível.
           </p>
         </div>

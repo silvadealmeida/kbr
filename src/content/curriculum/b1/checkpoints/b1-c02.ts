@@ -1,0 +1,38 @@
+import { cloze, defineB1Checkpoint, listen, mcq, reading, translate } from "../lessons/shared";
+
+/** Checkpoint do Módulo 2 do B1. */
+export const B1_C02 = defineB1Checkpoint({
+  id: "b1-c02", number: 2, moduleId: "b1-m02", title: "Checkpoint · Planos e decisões",
+  objective: "Avaliar planos provisórios, prioridades, condições e decisões do Módulo 2.",
+  instructions: ["São 25 itens de escuta, leitura, vocabulário e gramática em contexto.", "A aprovação exige pelo menos 20 acertos (80%).", "A produção aberta é opcional e não entra na nota automática.", "O checkpoint retoma o Módulo 1 em contexto."],
+  lessonIds: ["b1-l06", "b1-l07", "b1-l08", "b1-l09", "b1-l10"],
+  prerequisites: ["b1-l06", "b1-l07", "b1-l08", "b1-l09", "b1-l10", "b1-c01"],
+  estimatedMinutes: 45, minCorrect: 20,
+  exercises: [
+    listen("Ouça e escreva o plano provisório.", "주말에 등산을 갈까 해요.", "주말에 등산을 갈까 해요.", "Penso em ir fazer trilha no fim de semana.", ["주말에 등산을 갈까 해요"]),
+    listen("Ouça e escreva o objetivo.", "효율을 높이기 위해 과정을 줄였어요.", "효율을 높이기 위해 과정을 줄였어요.", "Reduzi o processo para aumentar a eficiência.", ["효율을 높이기 위해 과정을 줄였어요"]),
+    listen("Ouça e escreva a alternativa.", "비싼 호텔 대신 작은 숙소를 골랐어요.", "비싼 호텔 대신 작은 숙소를 골랐어요.", "Escolhi uma hospedagem pequena em vez de um hotel caro.", ["비싼 호텔 대신 작은 숙소를 골랐어요"]),
+    listen("Ouça e escreva a condição.", "예산이 있는 한 이 계획을 유지할 수 있어요.", "예산이 있는 한 이 계획을 유지할 수 있어요.", "Enquanto houver orçamento, podemos manter este plano.", ["예산이 있는 한 이 계획을 유지할 수 있어요"]),
+    listen("Ouça e escreva a decisão difícil.", "그 일을 맡지 않을 수 없었어요.", "그 일을 맡지 않을 수 없었어요.", "Não tive escolha a não ser assumir aquele trabalho.", ["그 일을 맡지 않을 수 없었어요"]),
+    listen("Ouça e escreva a prioridade.", "지금은 안전이 최우선이에요.", "지금은 안전이 최우선이에요.", "Agora a segurança é a prioridade máxima.", ["지금은 안전이 최우선이에요"]),
+    reading("마르코는 다음 달에 이사할 예정이에요. 아직 집을 정하지 못해서 이번 주에 몇 곳을 볼 거예요.", "O que Marco já decidiu?", ["Que vai se mudar no mês que vem.", "Qual casa vai comprar.", "Que não vai se mudar."], "Que vai se mudar no mês que vem.", "이사할 예정이에요."),
+    reading("팀은 보고서를 줄이고 대신에 발표를 늘리기로 했어요. 시간이 부족했기 때문이에요.", "O que a equipe fez?", ["Trocou parte do relatório por apresentação.", "Cancelou a apresentação.", "Aumentou o relatório."], "Trocou parte do relatório por apresentação.", "보고서를 줄이고 대신에 발표를 늘렸어요."),
+    reading("비가 오더라도 행사는 진행해요. 다만 야외 프로그램은 취소할 수 있어요.", "O que acontece mesmo com chuva?", ["O evento continua.", "Tudo é cancelado.", "O evento muda de cidade."], "O evento continua.", "비가 오더라도 행사는 진행해요."),
+    reading("수진은 새 일을 맡지 않을 수 없었어요. 다른 사람이 없었고 일정이 임박했기 때문이에요.", "Por que Sujin aceitou?", ["Não havia outra pessoa e o prazo estava próximo.", "Ela queria férias.", "O salário era baixo."], "Não havia outra pessoa e o prazo estava próximo.", "다른 사람이 없었고 일정이 임박했어요."),
+    reading("두 선택의 장단점을 비교한 뒤, 팀은 비용이 낮은 대안을 선택했어요. 품질은 조금 낮아질 수 있어요.", "Qual foi o trade-off?", ["Custo menor, possível queda de qualidade.", "Custo maior, qualidade igual.", "Nenhuma mudança."], "Custo menor, possível queda de qualidade.", "비용이 낮은 대안; 품질은 낮아질 수 있어요."),
+    reading("회의에서 합의가 되지 않아 결정이 당분간 미뤄졌어요. 다음 주에 다시 논의할 예정이에요.", "Quando vão decidir?", ["Na próxima semana.", "Hoje à noite.", "No próximo ano."], "Na próxima semana.", "다음 주에 다시 논의할 예정이에요."),
+    mcq("Qual frase expressa plano provisório?", ["갈까 해요.", "가기로 했어요.", "갔어요."], "갈까 해요.", "-을까 하다 é plano ainda aberto."),
+    mcq("Qual forma expressa finalidade?", ["높이기 위해", "높이지만", "높이면"], "높이기 위해", "-기 위해 expressa finalidade."),
+    mcq("Qual forma expressa condição/limite?", ["있는 한", "있는 대신", "있더라도"], "있는 한", "-는 한 expressa limite."),
+    cloze("Complete o plano provisório: 주말에 등산을 갈___ 해요.", "까", "갈까 해요."),
+    cloze("Complete a finalidade: 효율을 높이___ 과정을 줄였어요.", "기 위해", "높이기 위해."),
+    cloze("Complete a alternativa: 비싼 호텔 ___ 작은 숙소를 골랐어요.", "대신", "대신 significa “em vez de”."),
+    cloze("Complete a condição: 예산이 있___ 이 계획을 유지할 수 있어요.", "는 한", "있는 한."),
+    cloze("Complete a decisão: 그 일을 맡지 않을 수 ___ 않았어요.", "없", "맡지 않을 수 없었어요."),
+    translate("pt-ko", "Traduza: “Penso em mudar de casa no mês que vem.”", "다음 달에 이사할까 해요.", "할까 해요 expressa plano provisório.", ["다음 달에 이사할 예정이에요."]),
+    translate("ko-pt", "Traduza: 효율을 높이기 위해 과정을 줄였어요.", "Reduzi o processo para aumentar a eficiência.", "기 위해 expressa finalidade.", ["Reduzi o processo para melhorar a eficiência."]),
+    translate("ko-pt", "Traduza: 비싼 호텔 대신 작은 숙소를 골랐어요.", "Escolhi uma hospedagem pequena em vez de um hotel caro.", "대신 marca a alternativa.", ["Em vez de um hotel caro, escolhi uma pousada pequena."]),
+    translate("pt-ko", "Traduza: “Agora a segurança é a prioridade máxima.”", "지금은 안전이 최우선이에요.", "최우선 é prioridade máxima.", ["지금은 안전이 가장 중요해요."]),
+    translate("pt-ko", "Traduza: “Não tive escolha a não ser assumir o trabalho.”", "그 일을 맡지 않을 수 없었어요.", "않을 수 없었어요 expressa impossibilidade de evitar.", ["그 일을 맡을 수밖에 없었어요."]),
+  ],
+});

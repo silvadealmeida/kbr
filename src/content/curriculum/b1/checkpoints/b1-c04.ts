@@ -1,0 +1,38 @@
+import { cloze, defineB1Checkpoint, listen, mcq, reading, translate } from "../lessons/shared";
+
+/** Checkpoint do Módulo 4 do B1. */
+export const B1_C04 = defineB1Checkpoint({
+  id: "b1-c04", number: 4, moduleId: "b1-m04", title: "Checkpoint · Trabalho e estudo",
+  objective: "Avaliar responsabilidades, reuniões, candidatura, estudo e conflitos do Módulo 4.",
+  instructions: ["São 25 itens de escuta, leitura, vocabulário e gramática em contexto.", "A aprovação exige pelo menos 20 acertos (80%).", "A produção aberta é opcional e não entra na nota automática.", "O checkpoint retoma módulos anteriores em contexto."],
+  lessonIds: ["b1-l16", "b1-l17", "b1-l18", "b1-l19", "b1-l20"],
+  prerequisites: ["b1-l16", "b1-l17", "b1-l18", "b1-l19", "b1-l20", "b1-c01", "b1-c02", "b1-c03"],
+  estimatedMinutes: 45, minCorrect: 20,
+  exercises: [
+    listen("Ouça e escreva a responsabilidade.", "안전 교육은 모든 직원의 의무예요.", "안전 교육은 모든 직원의 의무예요.", "A formação em segurança é dever de todos.", ["안전 교육은 모든 직원의 의무예요"]),
+    listen("Ouça e escreva a pauta.", "오늘 회의 안건은 세 가지예요.", "오늘 회의 안건은 세 가지예요.", "A pauta de hoje tem três itens.", ["오늘 회의 안건은 세 가지예요"]),
+    listen("Ouça e escreva a condição de trabalho.", "연봉과 복지를 함께 비교했어요.", "연봉과 복지를 함께 비교했어요.", "Comparei salário e benefícios juntos.", ["연봉과 복지를 함께 비교했어요"]),
+    listen("Ouça e escreva o objetivo de estudo.", "역량을 키우기 위해서는 실습이 중요해요.", "역량을 키우기 위해서는 실습이 중요해요.", "Para desenvolver competências, a prática é importante.", ["역량을 키우기 위해서는 실습이 중요해요"]),
+    listen("Ouça e escreva o conflito.", "일정이 갑자기 바뀌는 바람에 팀이 힘들었어요.", "일정이 갑자기 바뀌는 바람에 팀이 힘들었어요.", "A equipe passou por dificuldades porque a agenda mudou de repente.", ["일정이 갑자기 바뀌는 바람에 팀이 힘들었어요"]),
+    listen("Ouça e escreva o acordo.", "회의 후에 업무 분담을 다시 정했어요.", "회의 후에 업무 분담을 다시 정했어요.", "Depois da reunião, redefinimos a divisão de tarefas.", ["회의 후에 업무 분담을 다시 정했어요"]),
+    reading("각자의 역할을 분명히 하고, 최종 확인은 책임자가 하기로 했어요.", "Quem faz a verificação final?", ["O responsável.", "Todos os clientes.", "Ninguém."], "O responsável.", "최종 확인은 책임자가 해요."),
+    reading("회의에서 합의가 되지 않아 결정이 당분간 미뤄졌어요. 다음 주에 다시 논의할 예정이에요.", "Quando vão decidir?", ["Na próxima semana.", "Hoje à noite.", "No próximo ano."], "Na próxima semana.", "다음 주에 다시 논의할 예정이에요."),
+    reading("계약직으로 시작했지만 1년 후 정규직으로 전환됐어요. 연봉과 복지도 조금 좋아졌어요.", "O que mudou?", ["Houve efetivação e melhoria de benefícios.", "A pessoa pediu demissão.", "O salário diminuiu."], "Houve efetivação e melhoria de benefícios.", "정규직으로 전환됐어요."),
+    reading("논문 연구와 실습을 병행하기는 쉽지 않아요. 하지만 두 경험이 서로를 보완해요.", "Qual é a ideia?", ["Teoria e prática se complementam.", "Só a teoria importa.", "Só a prática importa."], "Teoria e prática se complementam.", "두 경험이 서로를 보완해요."),
+    reading("불만을 말로 표현하지 않으면 갈등이 커져요. 먼저 사실을 정리하고 협상을 시작하는 게 좋아요.", "Qual é o conselho?", ["Organizar os fatos antes de negociar.", "Ignorar o conflito.", "Evitar qualquer conversa."], "Organizar os fatos antes de negociar.", "사실을 정리하고 협상을 시작해요."),
+    reading("규정 위반에는 징계가 따를 수 있어요. 그래서 교육과 예방이 중요해요.", "O que pode acontecer?", ["Medida disciplinar.", "Promoção automática.", "Férias extras."], "Medida disciplinar.", "징계가 따를 수 있어요."),
+    mcq("Qual expressão indica obrigação?", ["의무예요", "취미예요", "선택이에요"], "의무예요", "의무 significa dever."),
+    mcq("Qual expressão indica pauta?", ["안건", "연봉", "논문"], "안건", "안건 é item de pauta."),
+    mcq("Qual expressão indica conflito?", ["갈등", "복지", "승인"], "갈등", "갈등 é conflito."),
+    cloze("Complete a obrigação: 안전 교육은 모든 직원의 ___예요.", "의무", "의무예요."),
+    cloze("Complete a pauta: 오늘 회의 ___은 세 가지예요.", "안건", "회의 안건."),
+    cloze("Complete a causa: 일정이 바뀌는 ___에 팀이 힘들었어요.", "바람", "바람에 indica causa negativa."),
+    cloze("Complete o acordo: 업무 ___을 다시 정했어요.", "분담", "업무 분담."),
+    cloze("Complete a regra: 규정 ___에는 징계가 따를 수 있어요.", "위반", "규정 위반."),
+    translate("pt-ko", "Traduza: “A formação em segurança é dever de todos.”", "안전 교육은 모든 직원의 의무예요.", "의무예요.", ["안전 교육은 모든 직원의 의무입니다."]),
+    translate("ko-pt", "Traduza: 연봉과 복지를 함께 비교했어요.", "Comparei salário e benefícios juntos.", "연봉 e 복지.", ["Comparei o salário e os benefícios."]),
+    translate("ko-pt", "Traduza: 일정이 바뀌는 바람에 팀이 힘들었어요.", "A equipe passou por dificuldades porque a agenda mudou.", "바람에 indica causa.", ["A equipe sofreu porque a agenda mudou de repente."]),
+    translate("pt-ko", "Traduza: “Precisamos organizar os fatos antes de negociar.”", "협상 전에 사실을 정리해야 해요.", "사실을 정리해야 해요.", ["협상을 시작하기 전에 사실을 정리해야 해요."]),
+    translate("pt-ko", "Traduza: “O responsável faz a verificação final.”", "최종 확인은 책임자가 해요.", "책임자.", ["최종 확인은 담당자가 해요."]),
+  ],
+});

@@ -73,6 +73,19 @@ export type CourseExerciseStage = "guided" | "independent";
 export type CourseLessonExercise = ExerciseSpec & { stage: CourseExerciseStage };
 
 /** Dataset jogável de uma lição. */
+/**
+ * Tarefa de produção independente. Fica fora da nota automática e não é
+ * persistida no `Progress` v1: o texto do aluno não é enviado nem sincronizado.
+ */
+export type CourseProductionTask = {
+  titlePt: string;
+  promptPt: string;
+  promptKo?: string;
+  guidance: readonly string[];
+  checklist: readonly string[];
+  minWords?: number;
+};
+
 export type CourseLessonContent = {
   id: string;
   number: number;
@@ -91,6 +104,11 @@ export type CourseLessonContent = {
   exercises: readonly CourseLessonExercise[];
   /** Fechamento em pt-BR; não substitui a revisão humana do conteúdo. */
   summary: readonly string[];
+  /**
+   * Produção aberta opcional. Nunca entra no denominador dos itens avaliados;
+   * o aluno usa a rubrica para autoavaliação ou revisão humana.
+   */
+  production?: CourseProductionTask;
   completion: { minScore: number; minCorrect: number };
   review: ReviewMeta;
 };
@@ -107,6 +125,7 @@ export type CourseCheckpointContent = {
   prerequisites: readonly string[];
   estimatedMinutes: number;
   exercises: readonly CourseLessonExercise[];
+  production?: CourseProductionTask;
   passingScore: number;
   minCorrect: number;
   review: ReviewMeta;

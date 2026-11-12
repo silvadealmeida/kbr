@@ -6,6 +6,7 @@ import { useAuth } from "@/components/auth/AuthProvider";
 import { AudioControl, BilingualText, ExerciseView } from "@/components/hangul/exercise-ui";
 import { PlayerHeader } from "@/components/hangul/player-header";
 import { LessonVocabulary } from "@/components/vocabulary/LessonVocabulary";
+import { ProductionTask } from "@/components/curriculum/ProductionTask";
 import { Badge } from "@/components/ui/Badge";
 import { Button, ButtonLink } from "@/components/ui/Button";
 import { Plate } from "@/components/ui/Card";
@@ -388,6 +389,8 @@ export function A1LessonPlayer({
           audio
         />
 
+        {lesson.production ? <ProductionTask task={lesson.production} /> : null}
+
         <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           {lessonResult.passed && nextUnlocked && nextStep ? (
             <ButtonLink href={`${coursePath}/${nextStep.id}`}>
@@ -482,8 +485,9 @@ export function A1LessonPlayer({
       <Plate className="mt-4" label="Diálogo" number={`${lesson.dialogue.length}`}>
         <h2 className="text-lg font-semibold">{lesson.dialogueTitle}</h2>
         <p className="mt-1 text-sm text-muted">
-          Toque no áudio apenas se quiser ouvir. A voz é a coreana do seu
-          navegador quando disponível.
+          Toque no áudio apenas se quiser ouvir. O KBR usa áudio sintetizado
+          próprio; se ele não tocar, o navegador usa a voz coreana do sistema
+          quando disponível.
         </p>
         <ol className="mt-4 flex flex-col gap-4">
           {lesson.dialogue.map((line) => (
@@ -576,6 +580,7 @@ export function A1LessonPlayer({
         label="Palavras desta lição"
         audio
       />
+      {lesson.production ? <ProductionTask task={lesson.production} /> : null}
     </article>
   );
 }

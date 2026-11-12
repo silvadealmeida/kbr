@@ -38,6 +38,7 @@ const COURSE_LABEL: Record<string, string> = {
   hangul: "Hangul",
   "ko-a1": "Coreano A1",
   "ko-a2": "Coreano A2",
+  "ko-b1": "Coreano B1",
 };
 
 function Stat({ label, value }: { label: string; value: number }) {

@@ -1,0 +1,38 @@
+import { cloze, defineB1Checkpoint, listen, mcq, reading, translate } from "../lessons/shared";
+
+/** Checkpoint do Módulo 5 do B1. */
+export const B1_C05 = defineB1Checkpoint({
+  id: "b1-c05", number: 5, moduleId: "b1-m05", title: "Checkpoint · Sociedade, cultura e relações",
+  objective: "Avaliar tendências sociais, cultura, limites e direitos do Módulo 5.",
+  instructions: ["São 25 itens de escuta, leitura, vocabulário e gramática em contexto.", "A aprovação exige pelo menos 20 acertos (80%).", "A produção aberta é opcional e não entra na nota automática.", "O checkpoint retoma módulos anteriores em contexto."],
+  lessonIds: ["b1-l21", "b1-l22", "b1-l23", "b1-l24", "b1-l25"],
+  prerequisites: ["b1-l21", "b1-l22", "b1-l23", "b1-l24", "b1-l25", "b1-c01", "b1-c02", "b1-c03", "b1-c04"],
+  estimatedMinutes: 45, minCorrect: 20,
+  exercises: [
+    listen("Ouça e escreva a tendência.", "1인 가구가 증가하는 경향이 있어요.", "1인 가구가 증가하는 경향이 있어요.", "Há uma tendência de aumento de domicílios unipessoais.", ["1인 가구가 증가하는 경향이 있어요"]),
+    listen("Ouça e escreva a comparação cultural.", "이 관행은 지역마다 달라요.", "이 관행은 지역마다 달라요.", "Esta prática varia de região para região.", ["이 관행은 지역마다 달라요"]),
+    listen("Ouça e escreva o limite.", "관계에도 분명한 경계가 필요해요.", "관계에도 분명한 경계가 필요해요.", "Até nas relações, limites claros são necessários.", ["관계에도 분명한 경계가 필요해요"]),
+    listen("Ouça e escreva o problema urbano.", "정전 때문에 엘리베이터가 멈췄어요.", "정전 때문에 엘리베이터가 멈췄어요.", "O elevador parou por causa da queda de energia.", ["정전 때문에 엘리베이터가 멈췄어요"]),
+    listen("Ouça e escreva o direito.", "의견을 말할 권리가 있어요.", "의견을 말할 권리가 있어요.", "Você tem o direito de expressar sua opinião.", ["의견을 말할 권리가 있어요"]),
+    listen("Ouça e escreva o dever.", "우리는 규칙을 지켜야 할 의무가 있어요.", "우리는 규칙을 지켜야 할 의무가 있어요.", "Temos o dever de seguir as regras.", ["우리는 규칙을 지켜야 할 의무가 있어요"]),
+    reading("도시 인구는 늘고 있지만 지방 인구는 감소하는 경향이 있어요. 지역 격차도 커지고 있어요.", "Qual é a tendência?", ["Crescimento urbano e queda regional.", "Crescimento igual em todo o país.", "Queda urbana."], "Crescimento urbano e queda regional.", "도시 인구는 늘고 지방은 감소해요."),
+    reading("명절에는 가족이 모이지만 모든 가족이 같은 관행을 따르지는 않아요. 세대에 따라 방식이 달라요.", "O que o texto ressalta?", ["Variação entre famílias e gerações.", "Uma regra única.", "O fim dos feriados."], "Variação entre famílias e gerações.", "세대에 따라 방식이 달라요."),
+    reading("친밀감이 높아도 경계는 필요해요. 서로의 시간을 존중할 때 관계가 오래 유지돼요.", "Qual é a ideia?", ["Intimidade não elimina limites.", "Limites acabam com a amizade.", "Tempo juntos é irrelevante."], "Intimidade não elimina limites.", "경계는 필요해요."),
+    reading("누수와 소란 같은 문제는 예방이 중요해요. 문제가 생기면 관리실에 바로 알리는 게 좋아요.", "O que fazer?", ["Prevenir e avisar a administração.", "Esperar o problema piorar.", "Ignorar o vazamento."], "Prevenir e avisar a administração.", "예방이 중요해요."),
+    reading("평등한 기회를 보장하려면 차별을 줄이는 노력이 필요해요. 권리와 의무는 함께 논의되어야 해요.", "O que é necessário?", ["Reduzir discriminação e equilibrar direitos/deveres.", "Aumentar a discriminação.", "Discutir só direitos."], "Reduzir discriminação e equilibrar direitos/deveres.", "차별을 줄이는 노력이 필요해요."),
+    reading("여론은 빠르게 변할 수 있어요. 그래서 사회 문제를 볼 때 다양한 자료를 확인해야 해요.", "Por que verificar várias fontes?", ["Porque a opinião pública muda rapidamente.", "Porque uma fonte basta.", "Porque notícias são sempre falsas."], "Porque a opinião pública muda rapidamente.", "여론은 빠르게 변할 수 있어요."),
+    mcq("Qual expressão indica tendência?", ["경향이 있어요", "의무가 있어요", "권리가 있어요"], "경향이 있어요", "경향이 있다 indica tendência."),
+    mcq("Qual expressão indica direito?", ["권리", "징계", "누수"], "권리", "권리 é direito."),
+    mcq("Qual problema é urbano?", ["교통 체증", "학위", "논문"], "교통 체증", "교통 체증 é congestionamento."),
+    cloze("Complete a tendência: 증가하는 ___이 있어요.", "경향", "증가하는 경향이 있어요."),
+    cloze("Complete a variação: 지역___ 달라요.", "마다", "지역마다 달라요."),
+    cloze("Complete o limite: 관계에도 분명한 ___가 필요해요.", "경계", "경계가 필요해요."),
+    cloze("Complete o direito: 의견을 말할 ___가 있어요.", "권리", "권리가 있어요."),
+    cloze("Complete a prevenção: 문제를 ___하는 게 중요해요.", "예방", "예방하는 게 중요해요."),
+    translate("pt-ko", "Traduza: “Há uma tendência de aumento de domicílios unipessoais.”", "1인 가구가 증가하는 경향이 있어요.", "경향이 있어요.", ["1인 가구가 늘어나는 경향이 있어요."]),
+    translate("ko-pt", "Traduza: 이 관행은 지역마다 달라요.", "Esta prática varia de região para região.", "지역마다.", ["Essa prática varia conforme a região."]),
+    translate("ko-pt", "Traduza: 관계에도 분명한 경계가 필요해요.", "Até nas relações, limites claros são necessários.", "경계가 필요해요.", ["Relações também precisam de limites claros."]),
+    translate("pt-ko", "Traduza: “Você tem o direito de expressar sua opinião.”", "의견을 말할 권리가 있어요.", "권리가 있어요.", ["의견을 말할 수 있는 권리가 있어요."]),
+    translate("pt-ko", "Traduza: “Temos o dever de seguir as regras.”", "우리는 규칙을 지켜야 할 의무가 있어요.", "의무가 있어요.", ["우리는 규칙을 지킬 의무가 있어요."]),
+  ],
+});

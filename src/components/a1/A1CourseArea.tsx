@@ -189,8 +189,9 @@ export function A1CourseArea({
       </Plate>
 
       <p className="border-l-2 border-accent bg-surface-2 p-4 text-sm text-muted">
-        Conteúdo coreano original em revisão por falante nativo. A voz é a coreana do
-        navegador, sob clique; não há MP3 novo nem microfone obrigatório. A conclusão
+        Conteúdo coreano original em revisão por falante nativo. O áudio é sintetizado
+        pelo KBR, sob clique, com a voz coreana do sistema como fallback; não há
+        microfone obrigatório. A conclusão
         do {levelLabel} é interna do KBR, não certifica CEFR ou TOPIK e não libera
         o próximo nível automaticamente.
       </p>

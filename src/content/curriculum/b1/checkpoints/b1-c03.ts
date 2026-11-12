@@ -1,0 +1,38 @@
+import { cloze, defineB1Checkpoint, listen, mcq, reading, translate } from "../lessons/shared";
+
+/** Checkpoint do Módulo 3 do B1. */
+export const B1_C03 = defineB1Checkpoint({
+  id: "b1-c03", number: 3, moduleId: "b1-m03", title: "Checkpoint · Opiniões e argumentos",
+  objective: "Avaliar opinião, comparação, argumento e discordância do Módulo 3.",
+  instructions: ["São 25 itens de escuta, leitura, vocabulário e gramática em contexto.", "A aprovação exige pelo menos 20 acertos (80%).", "A produção aberta é opcional e não entra na nota automática.", "O checkpoint retoma módulos anteriores em contexto."],
+  lessonIds: ["b1-l11", "b1-l12", "b1-l13", "b1-l14", "b1-l15"],
+  prerequisites: ["b1-l11", "b1-l12", "b1-l13", "b1-l14", "b1-l15", "b1-c01", "b1-c02"],
+  estimatedMinutes: 45, minCorrect: 20,
+  exercises: [
+    listen("Ouça e escreva a opinião.", "저는 이 변화가 긍정적이라고 생각해요.", "저는 이 변화가 긍정적이라고 생각해요.", "Penso que esta mudança é positiva.", ["저는 이 변화가 긍정적이라고 생각해요"]),
+    listen("Ouça e escreva a comparação.", "이 방법은 저 방법에 비해 효율적이에요.", "이 방법은 저 방법에 비해 효율적이에요.", "Este método é eficiente comparado àquele.", ["이 방법은 저 방법에 비해 효율적이에요"]),
+    listen("Ouça e escreva a adição de argumento.", "비용뿐만 아니라 시간도 절약돼요.", "비용뿐만 아니라 시간도 절약돼요.", "Economiza não só custo, mas também tempo.", ["비용뿐만 아니라 시간도 절약돼요"]),
+    listen("Ouça e escreva a discordância cortês.", "그 의견도 이해하지만 저는 다르게 생각해요.", "그 의견도 이해하지만 저는 다르게 생각해요.", "Entendo essa opinião, mas penso de forma diferente.", ["그 의견도 이해하지만 저는 다르게 생각해요"]),
+    listen("Ouça e escreva a tese.", "교통 정책은 접근성을 기준으로 평가해야 해요.", "교통 정책은 접근성을 기준으로 평가해야 해요.", "A política de transporte deve ser avaliada pela acessibilidade.", ["교통 정책은 접근성을 기준으로 평가해야 해요"]),
+    listen("Ouça e escreva a evidência.", "통계에 따르면 이용자가 늘었어요.", "통계에 따르면 이용자가 늘었어요.", "Segundo as estatísticas, os usuários aumentaram.", ["통계에 따르면 이용자가 늘었어요"]),
+    reading("A mudança reduziu o custo, mas aumentou o tempo de espera. 따라서 장단점을 함께 봐야 해요.", "Qual é a conclusão?", ["É preciso considerar vantagens e desvantagens.", "A mudança foi totalmente ruim.", "O custo não importa."], "É preciso considerar vantagens e desvantagens.", "장단점을 함께 봐야 해요."),
+    reading("주말에는 조용한 반면 평일에는 매우 붐벼요. 방문 시간을 잘 고르는 게 좋아요.", "Como é o lugar?", ["Tranquilo no fim de semana e cheio nos dias úteis.", "Sempre vazio.", "Sempre barulhento."], "Tranquilo no fim de semana e cheio nos dias úteis.", "조용한 반면 붐벼요."),
+    reading("그 주장은 근거가 부족해요. 사례는 있지만 전체를 설명하지는 못해요.", "Qual é a crítica?", ["A evidência não explica o todo.", "A tese é curta demais.", "O autor não tem opinião."], "A evidência não explica o todo.", "전체를 설명하지는 못해요."),
+    reading("저는 찬성하기는 하지만 비용 문제는 더 논의해야 한다고 생각해요.", "Qual é a posição?", ["Concorda com ressalva.", "Discorda totalmente.", "Não tem opinião."], "Concorda com ressalva.", "찬성하기는 하지만."),
+    reading("이 정책은 비용이 낮다는 점에서 장점이 있어요. 다만 품질 저하를 우려하는 목소리도 있어요.", "Qual é a ressalva?", ["Preocupação com queda de qualidade.", "Custo alto.", "Falta de transporte."], "Preocupação com queda de qualidade.", "품질 저하를 우려해요."),
+    reading("A는 B보다 빠르지만 비싸요. 예산이 제한된 경우에는 B가 더 적합할 수 있어요.", "Quando B é mais adequado?", ["Quando o orçamento é limitado.", "Quando o tempo é infinito.", "Quando o preço não importa."], "Quando o orçamento é limitado.", "예산이 제한된 경우."),
+    mcq("Qual frase expressa opinião pessoal?", ["저는 그렇게 생각해요.", "그렇게 생각했어요.", "그렇게 생각할 거예요."], "저는 그렇게 생각해요.", "생각해요 apresenta opinião."),
+    mcq("Qual expressão compara?", ["에 비해", "에 따라", "에 대해"], "에 비해", "에 비해 significa “comparado a”."),
+    mcq("Qual expressão adiciona argumento?", ["뿐만 아니라", "대신에", "그럼에도"], "뿐만 아니라", "뿐만 아니라 adiciona."),
+    cloze("Complete a opinião: 긍정적___ 생각해요.", "이라고", "긍정적이라고 생각해요."),
+    cloze("Complete a comparação: 저 방법___ 비해 효율적이에요.", "에", "저 방법에 비해."),
+    cloze("Complete a adição: 비용___ 아니라 시간도 절약돼요.", "뿐만", "비용뿐만 아니라."),
+    cloze("Complete a concessão: 찬성하기___ 하지만 비용은 논의해야 해요.", "는", "찬성하기는 하지만."),
+    cloze("Complete a evidência: 통계___ 따르면 이용자가 늘었어요.", "에", "통계에 따르면."),
+    translate("pt-ko", "Traduza: “Penso que esta mudança é positiva.”", "이 변화가 긍정적이라고 생각해요.", "이라고 생각해요.", ["저는 이 변화가 긍정적이라고 생각해요."]),
+    translate("ko-pt", "Traduza: 이 방법은 저 방법에 비해 효율적이에요.", "Este método é eficiente comparado àquele.", "에 비해 compara.", ["Este método é mais eficiente em comparação com aquele."]),
+    translate("ko-pt", "Traduza: 비용뿐만 아니라 시간도 절약돼요.", "Economiza não só custo, mas também tempo.", "뿐만 아니라 adiciona.", ["Economiza tempo, não só dinheiro."]),
+    translate("pt-ko", "Traduza: “Entendo, mas penso de forma diferente.”", "이해하지만 저는 다르게 생각해요.", "지만 introduz contraste.", ["그 의견도 이해하지만 저는 다르게 생각해요."]),
+    translate("pt-ko", "Traduza: “A evidência é insuficiente.”", "근거가 부족해요.", "근거가 부족해요.", ["근거가 충분하지 않아요."]),
+  ],
+});

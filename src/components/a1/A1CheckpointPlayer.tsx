@@ -26,6 +26,7 @@ import { checkAnswer, type DetailedCheckResult, type ExerciseAnswer } from "@/li
 import { recordAttempt, type AnswerRecord } from "@/lib/progress/lesson";
 import type { Progress } from "@/lib/storage";
 import { A1CompletionPanel } from "./A1CompletionPanel";
+import { ProductionTask } from "@/components/curriculum/ProductionTask";
 
 /**
  * Checkpoint A1: avaliação cumulativa determinística, na mesma entrada
@@ -427,6 +428,10 @@ export function A1CheckpointPlayer({
             ))}
           </ol>
         </Plate>
+
+        {checkpoint.production ? (
+          <ProductionTask task={checkpoint.production} />
+        ) : null}
 
         <Plate className="mt-6" label="Início da avaliação">
           <Button className="w-full sm:w-auto" onClick={() => setPhase("run")}>

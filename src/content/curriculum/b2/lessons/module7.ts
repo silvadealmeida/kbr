@@ -95,7 +95,7 @@ export const B2_L32 = defineB2Lesson({
   ],
   dialogue: [
     ["아나", "이번 프로젝트, 기한 안에 끝날 수 있을까요?", "Este projeto consegue terminar dentro do prazo?"],
-    ["민수", "가능성은 반반이에요. 성공을 장담할 수 없지만, 실패 가능성은 희박해요.", "A possibilidade é cinquenta por cento. Não dá para garantir o sucesso, mas a possibilidade de fracasso é baixa."],
+    ["민수", "가능성은 반반이에요. 성공을 장담할 수 없지만, 실패 가능성도 배제할 수 없어요.", "A possibilidade é cinquenta por cento. Não dá para garantir o sucesso, mas a possibilidade de fracasso também não pode ser descartada."],
     ["아나", "아직 불확실한 게 많아요?", "Ainda há muita coisa incerta?"],
     ["민수", "네. 그래서 지금 결론을 속단하면 안 돼요. 지난 자료를 바탕으로 일정을 다시 추측했어요.", "Sim. Por isso, não se deve tirar uma conclusão precipitada agora. Estimei o cronograma de novo com base nos dados anteriores."],
     ["아나", "가장 유력한 시나리오는 뭐예요?", "Qual é o cenário mais provável?"],
@@ -106,7 +106,7 @@ export const B2_L32 = defineB2Lesson({
   readingText: {
     titlePt: "Dizer “talvez” com precisão",
     paragraphs: [
-      "프로젝트가 기한 안에 끝날 가능성은 반반이었다. 성공을 장담할 수 없었지만, 실패 가능성이 희박하다는 의견도 있었다. 결과가 아직 불확실했기 때문이다.",
+      "프로젝트가 기한 안에 끝날 가능성은 반반이었다. 성공을 장담할 수 없었고, 실패 가능성도 배제할 수 없었다. 결과가 아직 불확실했기 때문이다. 따라서 성공과 실패를 모두 가능한 범위에 두고 논의를 시작했다.",
       "팀은 섣불리 속단하지 않았다. 대신 지난 자료를 바탕으로 일정을 다시 추측했다. 가장 유력한 시나리오는 두 주 지연이었고, 최선의 경우는 일주일 안에 끝나는 것이었다.",
       "예상했던 것보다 변수가 많았다. 그래서 보고서에는 “가능성이 있다”와 “확실하다”를 구분해 썼다. 확신이 없을 때는 그 사실을 인정하는 편이 더 정확하다. 또한 팀은 매주 일정을 다시 확인하기로 했다. 작은 변화도 기록하면 예측이 더 정확해진다. 예측은 계속 바뀐다.",
     ],
@@ -122,7 +122,7 @@ export const B2_L32 = defineB2Lesson({
     mcq("Qual é a probabilidade de terminar no prazo?", ["Cinquenta por cento.", "Cem por cento.", "Zero."], "Cinquenta por cento.", "가능성은 반반이에요."),
     cloze("Complete a aparência: 일정이 조금 늦어질 ___해요.", "듯", "늦어질 듯해요 = parece que vai atrasar."),
     listen("Ouça e escreva a probabilidade.", "성공 가능성은 반반이에요.", "성공 가능성은 반반이에요.", "A possibilidade de sucesso é de cinquenta por cento."),
-    reading("프로젝트가 기한 안에 끝날 가능성은 반반이었다. 성공을 장담할 수 없었지만, 실패 가능성이 희박하다는 의견도 있었다. 결과가 아직 불확실했기 때문이다.", "Como estava a situação?", ["Incerta, com possibilidade dividida.", "Já concluída com sucesso.", "Cancelada."], "Incerta, com possibilidade dividida.", "가능성은 반반이고 결과는 불확실했어요."),
+    reading("프로젝트가 기한 안에 끝날 가능성은 반반이었다. 성공을 장담할 수 없었고, 실패 가능성도 배제할 수 없었다. 결과가 아직 불확실했기 때문이다. 따라서 성공과 실패를 모두 가능한 범위에 두고 논의를 시작했다.", "Como estava a situação?", ["Incerta, com possibilidade dividida.", "Já concluída com sucesso.", "Cancelada."], "Incerta, com possibilidade dividida.", "가능성은 반반이고 결과는 불확실했어요."),
     translate("pt-ko", "Traduza: “Parece que o cronograma vai atrasar um pouco.”", "일정이 조금 늦어질 듯해요.", "-ㄹ 듯하다 expressa aparência.", ["일정이 조금 늦어질 것 같아요."]),
   ],
   independent: [
@@ -160,7 +160,7 @@ export const B2_L33 = defineB2Lesson({
     ["아나", "주변에서 그만두라고 하지 않았어요?", "As pessoas ao redor não disseram para ele desistir?"],
     ["민수", "많이 했어요. 경제적인 어려움도 있었어요. 그런데 그는 강한 의지로 버텼어요.", "Muito. Também havia dificuldades financeiras. Mas ele resistiu com forte vontade."],
     ["아나", "건강 문제도 있었다면서요?", "Ouvi dizer que também houve problema de saúde."],
-    ["민수", "네. 장애가 있었지만 극복했어요. 역경 속에서도 웃음을 잃지 않았고, 끈기 있게 문제를 풀었어요.", "Sim. Havia um obstáculo, mas ele superou. Mesmo na adversidade, não perdeu o sorriso e resolvia os problemas com persistência."],
+    ["민수", "네. 어려움이 있었지만 극복했어요. 역경 속에서도 웃음을 잃지 않았고, 끈기 있게 문제를 풀었어요.", "Sim. Havia um obstáculo, mas ele superou. Mesmo na adversidade, não perdeu o sorriso e resolvia os problemas com persistência."],
     ["아나", "결국 합격했죠?", "E no fim passou, certo?"],
     ["민수", "세 번째 시험에서 합격했어요. 그런데 자신을 특별한 사람이라고 말하지 않았어요. 매일 조금씩 버티는 게 가장 큰 힘이었다고 했어요.", "Passou na terceira prova. Mas não disse que era uma pessoa especial. Disse que resistir um pouco todos os dias foi a maior força."],
   ],
@@ -168,7 +168,7 @@ export const B2_L33 = defineB2Lesson({
     titlePt: "O que a persistência não apaga",
     paragraphs: [
       "그는 두 번 시험에 떨어졌지만 그럼에도 계속 공부했다. 여전히 같은 시간에 도서관에 갔고, 끈기 있게 문제를 풀었다. 주변 사람들은 이제 그만두라고 말하기도 했다.",
-      "그는 강한 의지로 버텼다. 경제적인 어려움과 건강 문제라는 장애가 있었지만, 극복할 수 있다고 믿었다. 역경 속에서도 웃음을 잃지 않았다.",
+      "그는 강한 의지로 버텼다. 경제적인 어려움과 건강 문제라는 어려움이 있었지만, 극복할 수 있다고 믿었다. 역경 속에서도 웃음을 잃지 않았다.",
       "세 번째 시험에서 그는 합격했다. 그러나 그는 자신을 특별한 사람이라고 말하지 않았다. 매일 조금씩 버티는 것이 결국 가장 큰 힘이었다고 했다. 그는 지금도 후배들에게 같은 말을 한다. 힘든 날에도 한 걸음씩 나아가면 된다고. 그 말에는 자신의 경험이 담겨 있다. 그 말은 아직도 기억에 남는다.",
     ],
     pt: "Ele reprovou duas vezes, mas, apesar disso, continuou estudando. Ainda ia à biblioteca no mesmo horário e resolvia os problemas com persistência. As pessoas ao redor às vezes diziam para ele desistir. Ele resistiu com forte vontade. Havia obstáculos financeiros e de saúde, mas acreditava que podia superá-los. Mesmo na adversidade, não perdeu o sorriso. Na terceira prova, passou. No entanto, não disse que era uma pessoa especial. Disse que resistir um pouco todos os dias acabou sendo a maior força.",
@@ -183,13 +183,13 @@ export const B2_L33 = defineB2Lesson({
     mcq("Quantas vezes ele reprovou antes de passar?", ["Duas vezes.", "Uma vez.", "Nenhuma."], "Duas vezes.", "두 번 떨어졌어요."),
     cloze("Complete a concessão: 어려운 상황인 ___ 그는 계속 공부했어요.", "데도", "상황인 데도 = apesar de a situação ser difícil."),
     listen("Ouça e escreva a persistência.", "시험에 떨어지고서도 포기하지 않았어요.", "시험에 떨어지고서도 포기하지 않았어요.", "Mesmo depois de reprovar no exame, não desistiu."),
-    reading("그는 두 번 시험에 떨어졌지만 그럼에도 계속 공부했다. 여전히 같은 시간에 도서관에 갔고, 끈기 있게 문제를 풀었다. 주변 사람들은 이제 그만두라고 말하기도 했다.", "O que ele manteve apesar das reprovações?", ["O horário e a persistência nos estudos.", "O emprego.", "A viagem."], "O horário e a persistência nos estudos.", "같은 시간에 도서관에 갔고 끈기 있게 공부했어요."),
+    reading("그는 두 번 시험에 떨어졌지만 그럼에도 계속 공부했다. 여전히 같은 시간에 도서관에 갔고, 끈기 있게 문제를 풀었다. 주변 사람들은 이제 그만두라고 말하기도 했다.", "O que ele manteve apesar das reprovações?", ["O horário e a persistência nos estudos.", "O emprego que ele conseguiu no ano anterior.", "A viagem de que falava com os colegas."], "O horário e a persistência nos estudos.", "같은 시간에 도서관에 갔고 끈기 있게 공부했어요."),
     translate("pt-ko", "Traduza: “Mesmo depois de reprovar no exame, não desistiu.”", "시험에 떨어지고서도 포기하지 않았어요.", "-고서도 = mesmo depois de fazer.", ["시험에 떨어지고서도 포기하지 않았습니다."]),
   ],
   independent: [
     mcq("Qual frase expressa concessão factual?", ["비가 오는 데도 많은 사람이 나왔어요.", "비가 와서 사람이 나왔어요.", "비가 오면 사람이 나올 거예요."], "비가 오는 데도 많은 사람이 나왔어요.", "-는 데도 = apesar de."),
     cloze("Complete a concessão: 약속하___ 지키지 않았어요.", "고서도", "약속하고서도 = mesmo depois de prometer."),
-    listen("Ouça e escreva o obstáculo superado.", "장애가 있었지만 극복했어요.", "장애가 있었지만 극복했어요.", "Havia um obstáculo, mas ele superou."),
+    listen("Ouça e escreva o obstáculo superado.", "어려움이 있었지만 극복했어요.", "어려움이 있었지만 극복했어요.", "Havia um obstáculo, mas ele superou."),
     translate("ko-pt", "Traduza: 역경 속에서도 웃음을 잃지 않았어요.", "Mesmo na adversidade, não perdeu o sorriso.", "역경 = adversidade; 잃다 = perder.", ["Não perdeu o sorriso nem na adversidade."]),
     reading("세 번째 시험에서 그는 합격했다. 그러나 그는 자신을 특별한 사람이라고 말하지 않았다. 매일 조금씩 버티는 것이 결국 가장 큰 힘이었다고 했다. 그는 지금도 후배들에게 같은 말을 한다. 힘든 날에도 한 걸음씩 나아가면 된다고. 그 말에는 자신의 경험이 담겨 있다. 그 말은 아직도 기억에 남는다.", "O que ele considerou sua maior força?", ["Resistir um pouco todos os dias.", "A sorte.", "O talento natural."], "Resistir um pouco todos os dias.", "매일 조금씩 버티는 것."),
   ],
@@ -237,7 +237,7 @@ export const B2_L34 = defineB2Lesson({
   },
   reusedIds: ["ko:회의", "ko:의미", "ko:상황"],
   grammar: [
-    ["-거나 다름없다 — é como se fosse", "명사/동사 + -거나 다름없다", "Significa “é como se fosse”, “não é diferente de”. Indica equivalência prática entre duas coisas. Compare com -나 마찬가지다 (é o mesmo que) e -에 지나지 않는다 (não passa de). Registro: neutro a formal.", [["그 말은 거절이나 다름없었어요.", "Aquelas palavras não eram diferentes de uma recusa."], ["매일 늦는 것은 약속을 안 지키는 것이나 다름없습니다.", "Chegar atrasado todos os dias é como não cumprir o combinado."]]],
+    ["-거나 다름없다 — é como se fosse", "동사 + -거나 다름없다 / 명사 + -(이)나 다름없다", "Significa “é como se fosse”, “não é diferente de”. Indica equivalência prática entre duas coisas. Compare com -나 마찬가지다 (é o mesmo que) e -에 지나지 않는다 (não passa de). Registro: neutro a formal.", [["그 말은 거절이나 다름없었어요.", "Aquelas palavras não eram diferentes de uma recusa."], ["매일 늦는 것은 약속을 안 지키는 것이나 다름없습니다.", "Chegar atrasado todos os dias é como não cumprir o combinado."]]],
     ["-ㄴ/는 셈이다 — pode-se dizer que", "동사/형용사 + -ㄴ/는 셈이다", "Significa “pode-se dizer que”, “equivale a”. Resume uma conclusão a partir dos fatos. Compare com -는 것이다 (é que) e -거나 다름없다 (é como se). Registro: neutro.", [["결국 혼자 결정한 셈이에요.", "No fim, pode-se dizer que decidi sozinho."], ["돈을 두 배로 낸 셈입니다.", "Pode-se dizer que pagamos o dobro."]]],
   ],
   guided: [
@@ -273,7 +273,7 @@ export const B2_L35 = defineB2Lesson({
   objective: "Interpretar nuances interpessoais e lidar com mal-entendidos.",
   prerequisites: ["b2-l34"], estimatedMinutes: 75, dialogueTitle: "O \"está tudo bem\"",
   intro: [
-    { title: "Fingir que", body: "-ㄴ/는 척하다 significa “fingir que...”. Use -는 척 com verbos e -ㄴ/은 척 com adjetivos. Compare com -는 체하다 (fingir, mais formal) e -는 듯하다 (parecer, sem intenção de enganar). Registro: neutro.", ko: "그는 아무 일도 없다고 체했어요." },
+    { title: "Fingir que", body: "-ㄴ/는 척하다 significa “fingir que...”. Use -는 척 com verbos e -ㄴ/은 척 com adjetivos. Compare com -는 체하다 (fingir, mais formal) e -는 듯하다 (parecer, sem intenção de enganar). Registro: neutro.", ko: "그는 아무 일도 없는 척했어요." },
     { title: "Não há como", body: "-ㄹ 리가 없다 significa “não há como...”, “é impossível que...”. Nega uma expectativa com forte convicção. Compare com -ㄹ 수 없다 (não poder) e -지 않을 리가 없다 (não há como não). Registro: neutro.", ko: "그가 화난 걸 모를 리가 없어요." },
   ],
   dialogue: [
@@ -284,26 +284,26 @@ export const B2_L35 = defineB2Lesson({
     ["아나", "그럼 어떻게 물어봐야 해요?", "Então como devo perguntar?"],
     ["민수", "“정말 괜찮아?”라고 직접 물어보세요. 괜찮은 척하는 마음은 이해할 수 있지만, 혼자 감당할 필요는 없어요.", "Pergunte diretamente: “Você está mesmo bem?”. Entendo a vontade de fingir que está tudo bem, mas não é preciso aguentar sozinha."],
     ["아나", "제가 너무 캐물으면 어때요?", "E se eu insistir demais?"],
-    ["민수", "한 번에 다 말하라고 하지 마세요. 기다리면 속마음을 털어놓을 거예요. 거짓말이 결국 들켰지만, 당신을 속이고 싶지 않았다는 점도 이해해 주세요.", "Não exija que ela conte tudo de uma vez. Se esperar, ela vai confidenciar o que sente. Mesmo que a mentira tenha acabado aparecendo, entenda que ela não queria enganar você."],
+    ["민수", "한 번에 다 말하라고 하지 마세요. 기다리면 속마음을 털어놓을 거예요. 거짓말이 결국 들켰지만, 아나 씨를 속이고 싶지 않았대요. 그 점도 이해해 주세요.", "Não exija que ela conte tudo de uma vez. Se esperar, ela vai confidenciar o que sente. Mesmo que a mentira tenha acabado aparecendo, entenda que ela não queria enganar você."],
   ],
   readingText: {
     titlePt: "Quando o “está tudo bem” não é bem",
     paragraphs: [
       "친구가 “괜찮아”라고 했지만, 표정은 밝지 않았다. 그는 아무 일도 없다고 체했지만, 목소리는 떨렸다. 나는 속마음을 드러내지 않는 친구를 오래 봐 왔다.",
       "억누른 감정은 사라지지 않는다. 슬픔을 숨기고 웃어도, 대화는 어색하게 끝난다. 그때 나는 “정말 괜찮아?”라고 물었고, 친구는 잠시 망설이다 속마음을 털어놓았다.",
-      "거짓말이 결국 들켰지만, 나는 친구를 속이고 싶지 않았다. 서로 솔직해지자 분위기가 풀렸다. 괜찮은 척하는 마음은 이해할 수 있지만, 혼자 감당할 필요는 없다. 그날 우리는 오래 이야기했고, 다음부터는 괜찮지 않을 때 먼저 말하기로 했다. 솔직함이 관계를 더 편하게 만든다.",
+      "거짓말이 결국 들켰지만, 친구는 나를 속이고 싶지 않았던 것이다. 서로 솔직해지자 분위기가 풀렸다. 괜찮은 척하는 마음은 이해할 수 있지만, 혼자 감당할 필요는 없다. 그날 우리는 오래 이야기했고, 다음부터는 괜찮지 않을 때 먼저 말하기로 했다. 솔직함이 관계를 더 편하게 만든다.",
     ],
     pt: "A amiga disse “estou bem”, mas o rosto não estava claro. Ela fingiu que não havia nada, mas a voz tremia. Eu conhecia há muito tempo aquela amiga que não revelava o que sentia. Emoção reprimida não desaparece. Mesmo escondendo a tristeza e sorrindo, a conversa termina de forma estranha. Naquele momento, perguntei: “Você está mesmo bem?”. Ela hesitou e, depois, confidenciou o que sentia. A mentira acabou aparecendo, mas ela não queria enganar o amigo. Quando ficamos sinceros um com o outro, o clima se desanuviou. Entendo a vontade de fingir que está tudo bem, mas não é preciso aguentar sozinho.",
     objective: "Reconhecer o que é fingido, o que é sentido e a pista que revela o desconforto.",
   },
   reusedIds: ["ko:감정", "ko:친구", "ko:웃다"],
   grammar: [
-    ["-ㄴ/는 척하다 — fingir que", "동사 + -는 척하다 / 형용사 + -ㄴ/은 척하다", "Significa “fingir que...”. Use -는 척 com verbos e -ㄴ/은 척 com adjetivos. Compare com -는 체하다 (fingir, mais formal) e -는 듯하다 (parecer, sem intenção de enganar). Registro: neutro.", [["그는 아무 일도 없다고 체했어요.", "Ele fingiu que não havia nada."], ["모르는 척하지 말고 말해 주세요.", "Não finja que não sabe; por favor, diga."]]],
+    ["-ㄴ/는 척하다 — fingir que", "동사 + -는 척하다 / 형용사 + -ㄴ/은 척하다", "Significa “fingir que...”. Use -는 척 com verbos e -ㄴ/은 척 com adjetivos. Compare com -는 체하다 (fingir, mais formal) e -는 듯하다 (parecer, sem intenção de enganar). Registro: neutro.", [["그는 아무 일도 없는 척했어요.", "Ele fingiu que não havia nada."], ["모르는 척하지 말고 말해 주세요.", "Não finja que não sabe; por favor, diga."]]],
     ["-ㄹ 리가 없다 — não há como", "동사/형용사 + -ㄹ 리가 없다", "Significa “não há como...”, “é impossível que...”. Nega uma expectativa com forte convicção. Compare com -ㄹ 수 없다 (não poder) e -지 않을 리가 없다 (não há como não). Registro: neutro.", [["그가 화난 걸 모를 리가 없어요.", "Não há como ele não saber que ela está irritada."], ["그 사람이 약속을 잊을 리가 없습니다.", "Não há como ele esquecer o combinado."]]],
   ],
   guided: [
-    mcq("O que Jimin estava fazendo?", ["Fingindo que estava tudo bem.", "Contando toda a verdade.", "Pedindo desculpas."], "Fingindo que estava tudo bem.", "아무 일도 없다고 체했어요."),
-    cloze("Complete a aparência fingida: 그는 아무 일도 없___ 체했어요.", "다고", "없다고 체했어요 = fingiu que não havia nada."),
+    mcq("O que Jimin estava fazendo?", ["Fingindo que estava tudo bem.", "Contando toda a verdade.", "Pedindo desculpas."], "Fingindo que estava tudo bem.", "아무 일도 없는 척했어요."),
+    cloze("Complete a aparência fingida: 그는 아무 일도 없___ 척했어요.", "는", "없는 척했어요 = fingiu que não havia nada."),
     listen("Ouça e escreva a convicção.", "그가 화난 걸 모를 리가 없어요.", "그가 화난 걸 모를 리가 없어요.", "Não há como ele não saber que ela está irritada."),
     reading("친구가 “괜찮아”라고 했지만, 표정은 밝지 않았다. 그는 아무 일도 없다고 체했지만, 목소리는 떨렸다. 나는 속마음을 드러내지 않는 친구를 오래 봐 왔다.", "Qual pista revelava o desconforto?", ["A voz tremia, apesar do “estou bem”.", "Ela estava rindo alto.", "Ela não disse nada."], "A voz tremia, apesar do “estou bem”.", "목소리가 떨렸어요."),
     translate("pt-ko", "Traduza: “Não há como ele não saber que ela está irritada.”", "그가 화난 걸 모를 리가 없어요.", "-ㄹ 리가 없다 expressa forte convicção negativa.", ["그가 화난 걸 모를 리가 없습니다."]),
@@ -313,7 +313,7 @@ export const B2_L35 = defineB2Lesson({
     cloze("Complete a convicção: 그 사람이 약속을 잊을 ___가 없습니다.", "리", "잊을 리가 없다 = não há como esquecer."),
     listen("Ouça e escreva o que ela confidenciou.", "결국 속마음을 털어놓았어요.", "결국 속마음을 털어놓았어요.", "No fim, ela confidenciou o que sentia."),
     translate("ko-pt", "Traduza: 억누른 감정은 사라지지 않아요.", "Emoção reprimida não desaparece.", "억누르다 = reprimir; 사라지다 = desaparecer.", ["Sentimentos reprimidos não somem."]),
-    reading("거짓말이 결국 들켰지만, 나는 친구를 속이고 싶지 않았다. 서로 솔직해지자 분위기가 풀렸다. 괜찮은 척하는 마음은 이해할 수 있지만, 혼자 감당할 필요는 없다. 그날 우리는 오래 이야기했고, 다음부터는 괜찮지 않을 때 먼저 말하기로 했다. 솔직함이 관계를 더 편하게 만든다.", "O que ajudou a resolver o mal-entendido?", ["Sinceridade mútua e tempo para falar.", "Insistir imediatamente.", "Ignorar o desconforto."], "Sinceridade mútua e tempo para falar.", "서로 솔직해지자 분위기가 풀렸어요."),
+    reading("거짓말이 결국 들켰지만, 친구는 나를 속이고 싶지 않았던 것이다. 서로 솔직해지자 분위기가 풀렸다. 괜찮은 척하는 마음은 이해할 수 있지만, 혼자 감당할 필요는 없다. 그날 우리는 오래 이야기했고, 다음부터는 괜찮지 않을 때 먼저 말하기로 했다. 솔직함이 관계를 더 편하게 만든다.", "O que ajudou a resolver o mal-entendido?", ["Sinceridade mútua e tempo para falar.", "Insistir imediatamente.", "Ignorar o desconforto."], "Sinceridade mútua e tempo para falar.", "서로 솔직해지자 분위기가 풀렸어요."),
   ],
   summary: ["-ㄴ/는 척하다 significa fingir que.", "-ㄹ 리가 없다 nega com convicção.", "Nuance interpessoal exige pista e cuidado.", "Conteúdo novo permanece em revisão."],
   production: production(

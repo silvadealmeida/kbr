@@ -344,7 +344,7 @@ export const A1_L01: A1LessonContent = {
       id: "a1-l01-e10",
       type: "listen",
       stage: "independent",
-      prompt: "Ouça a pergunta e escreva o que ouviu.",
+      prompt: "Ouça e escreva a frase completa que ouviu.",
       audioText: "이름이 뭐예요?",
       answer: "이름이 뭐예요?",
       acceptedAnswers: ["이름이 뭐예요"],

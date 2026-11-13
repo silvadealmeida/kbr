@@ -423,7 +423,7 @@ export function A1LessonPlayer({
         <p className="mt-4 border-l-2 border-accent bg-surface-2 p-3 text-sm text-muted">
           <strong className="text-fg">Percurso:</strong>{" "}
           {lessonResult.passed
-            ? "seu resultado foi gravado nesta lição. A conclusão do {levelLabel} exige todos os passos do curso."
+            ? `seu resultado foi gravado nesta lição. A conclusão do ${levelLabel} exige todos os passos do curso.`
             : "esta tentativa não desbloqueia o próximo passo. Refaça para atingir o mínimo."}
         </p>
       </article>

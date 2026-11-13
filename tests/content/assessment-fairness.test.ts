@@ -3,6 +3,9 @@ import { describe, expect, test } from "vitest";
 import { A1_IMPLEMENTED_CHECKPOINTS, A1_IMPLEMENTED_LESSONS } from "@/content/curriculum/a1/content";
 import { A2_IMPLEMENTED_CHECKPOINTS, A2_IMPLEMENTED_LESSONS } from "@/content/curriculum/a2/content";
 import { B1_IMPLEMENTED_CHECKPOINTS, B1_IMPLEMENTED_LESSONS } from "@/content/curriculum/b1/content";
+import { B2_IMPLEMENTED_CHECKPOINTS, B2_IMPLEMENTED_LESSONS } from "@/content/curriculum/b2/content";
+import { C1_IMPLEMENTED_CHECKPOINTS, C1_IMPLEMENTED_LESSONS } from "@/content/curriculum/c1/content";
+import { C2_IMPLEMENTED_CHECKPOINTS, C2_IMPLEMENTED_LESSONS } from "@/content/curriculum/c2/content";
 import { checkAnswer } from "@/lib/exercises";
 import {
   sameAnswerText,
@@ -16,6 +19,12 @@ const ALL_EXERCISES = [
   ...A2_IMPLEMENTED_CHECKPOINTS.flatMap((checkpoint) => checkpoint.exercises),
   ...B1_IMPLEMENTED_LESSONS.flatMap((lesson) => lesson.exercises),
   ...B1_IMPLEMENTED_CHECKPOINTS.flatMap((checkpoint) => checkpoint.exercises),
+  ...B2_IMPLEMENTED_LESSONS.flatMap((lesson) => lesson.exercises),
+  ...B2_IMPLEMENTED_CHECKPOINTS.flatMap((checkpoint) => checkpoint.exercises),
+  ...C1_IMPLEMENTED_LESSONS.flatMap((lesson) => lesson.exercises),
+  ...C1_IMPLEMENTED_CHECKPOINTS.flatMap((checkpoint) => checkpoint.exercises),
+  ...C2_IMPLEMENTED_LESSONS.flatMap((lesson) => lesson.exercises),
+  ...C2_IMPLEMENTED_CHECKPOINTS.flatMap((checkpoint) => checkpoint.exercises),
 ];
 
 function textExercises(exercises: typeof ALL_EXERCISES) {
@@ -50,7 +59,7 @@ describe("justiça de correção — pontuação final", () => {
     expect(sameAnswerText("저는  학생이에요", "저는 학생이에요")).toBe(true);
   });
 
-  test("todo item digitado de A1, A2 e B1 aceita a forma sem pontuação final", () => {
+  test("todo item digitado de A1 a C2 aceita a forma sem pontuação final", () => {
     const strict = textExercises(ALL_EXERCISES).flatMap((exercise) => {
       if (exercise.type === "cloze" || exercise.type === "listen" || exercise.type === "translate") {
         const variants = terminalPunctuationVariants(exercise.answer);

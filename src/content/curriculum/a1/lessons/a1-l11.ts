@@ -96,7 +96,7 @@ export const A1_L11: A1LessonContent = defineA1Lesson({
     cloze(
       "a1-l11-e01",
       "guided",
-      "Complete com “mãe”: 이 사람은 제 ___이에요.",
+      "Complete com “mãe”: 이 사람은 제 ___예요.",
       "어머니",
       "어머니 significa “mãe”; a forma é 어머니예요.",
     ),

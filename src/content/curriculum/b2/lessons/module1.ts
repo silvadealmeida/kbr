@@ -40,7 +40,7 @@ export const B2_L01 = defineB2Lesson({
     ["지민", "퇴근길에 우연히 옛 동료를 마주친 것도 그날이었지?", "Foi nesse dia também que você encontrou por acaso um ex-colega no caminho de casa?"],
     ["수진", "맞아. 그 친구가 새 공고를 알려 줬어. 지금 돌아보면 그게 전환점이었어.", "Isso. Ele me contou sobre uma nova vaga. Olhando para trás, aquele foi o ponto de virada."],
     ["지민", "그 실패가 다시 공부를 시작한 계기가 된 거네.", "Então aquele fracasso se tornou o motivo para você voltar a estudar."],
-    ["수진", "응. 그 경험을 좋은 기회로 여겼고, 스무 살 무렵의 꿈으로 돌아섰어.", "Sim. Encarei aquela experiência como uma boa oportunidade e voltei ao sonho dos meus vinte anos."],
+    ["수진", "응. 그 경험을 좋은 기회로 여겼고, 스무 살 무렵의 꿈을 다시 좇았어.", "Sim. Encarei aquela experiência como uma boa oportunidade e voltei ao sonho dos meus vinte anos."],
   ],
   readingText: {
     titlePt: "O que aquele dia deixou",
@@ -229,10 +229,10 @@ export const B2_L04 = defineB2Lesson({
     titlePt: "Arrependimento tardio, começo tardio",
     paragraphs: [
       "서른 살 무렵, 나는 좋지 않은 회사에 계속 다녔다. 더 나은 조건을 제안받았지만, 안정을 이유로 거절했다. 지금 돌이켜 보면 그 결정에는 두려움이 크게 작용했다.",
-      "한참 후에야 나는 그 선택을 되새기며 내가 무엇을 두려워했는지 인정했다. 스스로를 자책하는 데 시간을 쓰기보다, 늦게라도 배운 것을 만회하고 싶었다.",
+      "한참 후에야 나는 그 선택을 되새기며 내가 무엇을 두려워했는지 인정했다. 스스로를 자책하는 데 시간을 쓰기보다, 늦게라도 배우지 못한 것을 만회하고 싶었다.",
       "나는 그때의 나를 받아들이기로 했다. 후회스러운 말은 여전히 남아 있지만, 그 경험을 통해 내 태도를 성찰할 수 있었다. 후회는 끝이 아니라 다음 선택을 준비하는 과정이었다. 그래서 지금은 같은 실수를 반복하지 않으려고 노력한다. 그 결정 덕분에 지금의 제가 있다고 생각한다. 지금도 그렇게 생각한다.",
     ],
-    pt: "Aos trinta anos, eu continuava numa empresa ruim. Recebi uma proposta com condições melhores, mas recusei por causa da estabilidade. Olhando para trás, o medo teve um peso grande naquela decisão. Só muito depois é que remoí aquela escolha e admiti o que eu temia. Em vez de gastar tempo me culpando, quis compensar, mesmo tarde, o que tinha aprendido. Percebi que deveria ter conversado com mais honestidade na época. Decidi aceitar quem eu era então. As palavras de que me arrependo ainda permanecem, mas aquela experiência me fez refletir sobre minha postura. O arrependimento não era o fim, e sim o processo de preparar a próxima escolha.",
+    pt: "Aos trinta anos, eu continuava numa empresa ruim. Recebi uma proposta com condições melhores, mas recusei por causa da estabilidade. Olhando para trás, o medo teve um peso grande naquela decisão. Só muito depois é que remoí aquela escolha e admiti o que eu temia. Em vez de gastar tempo me culpando, quis compensar, mesmo tarde, o que não tinha aprendido. Decidi aceitar quem eu era naquela época. As palavras de que me arrependo ainda permanecem, mas aquela experiência me fez refletir sobre minha postura. O arrependimento não era o fim, e sim o processo de preparar a próxima escolha. Acho que foi graças àquela decisão que sou quem sou hoje. Ainda penso assim.",
     objective: "Distinguir o arrependimento, a hipótese contrafactual e a avaliação atual da narradora.",
   },
   reusedIds: ["ko:후회", "ko:시간", "ko:선택"],

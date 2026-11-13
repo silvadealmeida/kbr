@@ -131,7 +131,7 @@ export const A1_C01: A1CheckpointContent = {
     reading(
       "a1-c01-e11",
       "independent",
-      "아나: 죄송합니다, 뭐라고요? 민수: 다시 말해 주세요.",
+      "아나: 죄송합니다, 뭐라고요? 민수: 다시 말씀드릴게요.",
       "O que Ana faz?",
       choices(
         "Pede que a pessoa repita.",

@@ -9,7 +9,7 @@ export const B2_M01_ROWS: readonly B2VocabRow[] = [
   ["b2-l01", "당황하다", "ficar desconcertado; perder a calma", "verbo", "당황했어요", "갑작스러운 질문에 당황했어요.", "Fiquei desconcertado com a pergunta repentina.", "ficar desconcertado", "Forma de dicionário; a frase usa 당황했어요."],
   ["b2-l01", "여기다", "considerar; encarar como", "verbo", "여겼어요", "저는 그 경험을 좋은 기회로 여겼어요.", "Encarei aquela experiência como uma boa oportunidade.", "considerar", "Forma de dicionário; a frase usa 여겼어요."],
   ["b2-l01", "무렵", "por volta de; época de", "substantivo", "무렵", "스무 살 무렵에 처음 혼자 여행했어요.", "Por volta dos vinte anos, viajei sozinho pela primeira vez.", "por volta de"],
-  ["b2-l01", "돌아서다", "virar-se; mudar de direção ou de atitude", "verbo", "돌아섰어요", "어려운 시기를 겪고 나서 그는 다시 공부 쪽으로 돌아섰어요.", "Depois de passar por um período difícil, ele voltou a se dirigir aos estudos.", "mudar de direção", "Forma de dicionário; a frase usa 돌아섰어요."],
+  ["b2-l01", "돌아서다", "virar-se; dar as costas", "verbo", "돌아섰어요", "그는 뒤도 돌아보지 않고 돌아섰어요.", "Ele deu as costas sem olhar para trás.", "virar-se para o lado oposto", "Forma de dicionário; a frase usa 돌아섰어요."],
 
   ["b2-l02", "초래하다", "causar; acarretar", "verbo", "초래했어요", "작은 오해가 큰 문제를 초래했어요.", "Um pequeno mal-entendido causou um grande problema.", "causar", "Forma de dicionário; a frase usa 초래했어요."],
   ["b2-l02", "발단", "origem; início de um incidente", "substantivo", "발단", "그 갈등의 발단은 작은 약속이었어요.", "A origem daquele conflito foi um pequeno compromisso.", "origem", "Forma de dicionário; a frase usa 발단은."],

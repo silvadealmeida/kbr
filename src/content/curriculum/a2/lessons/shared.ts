@@ -96,6 +96,16 @@ export function cloze(
   };
 }
 
+/**
+ * Mantém o enunciado alinhado à unidade de resposta: se o gabarito tem mais de
+ * uma palavra, o aluno precisa saber que deve escrever a frase inteira.
+ */
+function withCompleteSentencePrompt(prompt: string, answer: string): string {
+  if (/frase completa/i.test(prompt)) return prompt;
+  if (answer.trim().split(/\s+/).filter(Boolean).length < 2) return prompt;
+  return `${prompt} Escreva a frase completa que ouvir.`;
+}
+
 export function listen(
   prompt: string,
   audioText: string,
@@ -105,7 +115,7 @@ export function listen(
 ): ExerciseDraft {
   return {
     type: "listen",
-    prompt,
+    prompt: withCompleteSentencePrompt(prompt, answer),
     audioText,
     answer,
     ...(acceptedAnswers ? { acceptedAnswers } : {}),

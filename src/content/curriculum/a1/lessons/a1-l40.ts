@@ -152,7 +152,7 @@ export const A1_L40: A1LessonContent = defineA1Lesson({
     reading(
       "a1-l40-e07",
       "independent",
-      "아나: 이해가 안 돼요. 민수: 다시 한번 말해 주세요.",
+      "아나: 이해가 안 돼요. 다시 한번 말해 주세요. 민수: 네, 다시 말해 줄게요.",
       "O que acontece?",
       choices(
         "Ana não entende e pede para repetir.",

@@ -5,7 +5,7 @@
 **HEAD corrigido:** registrado no commit da fase 12A.  
 **Política:** nenhum MP3 foi apagado ou regerado. Textos corrigidos sem MP3 caem na voz coreana do navegador; o corpus antigo permanece intacto em `public/audio/v1/`.
 
-## 1. Textos corrigidos sem MP3 (12)
+## 1. Textos corrigidos sem MP3 (14)
 
 | Texto novo | Origem | Motivo |
 |---|---|---|
@@ -21,8 +21,10 @@
 | `죄송해요. 회의가 길어져서 연락을 못 했어요.` | `a2-l04` diálogo | removeu `-았/어야 했어요` cobrado antes do ensino |
 | `해외에 가고 싶어요.` | `sent:a2-l02:해외` | alvo `해외` estava dentro de `해외여행`; frase reescrita |
 | `회의가 길어졌지만 연락을 못 했어요.` | `a2-l04` gramática | removeu `-았/어야 했어요` do exemplo de `-지만` |
+| `간단한 문제를 설명하고 도움을 요청하는 데 자신이 있어요. 아직 뉴스는 어려워요.` | `a2-l40` diálogo/leitura | corrigiu a regência de `자신이 있다` |
+| `저는 거실 청소를 할게요. 수진 씨는 화장실 청소를 해 주세요.` | `a2-l12` diálogo | corrigiu a colocação de `청소를 하다` |
 
-## 2. MP3 antigos preservados, sem uso pelo texto atual (10)
+## 2. MP3 antigos preservados, sem uso pelo texto atual (12)
 
 | Texto antigo | Substituído por |
 |---|---|
@@ -36,11 +38,13 @@
 | `죄송해요. 회의가 길어졌지만 연락을 했어야 했어요.` | `죄송해요. 회의가 길어져서 연락을 못 했어요.` |
 | `해외여행을 좋아해요.` | `해외에 가고 싶어요.` |
 | `회의가 길어졌지만 연락했어야 했어요.` | `회의가 길어졌지만 연락을 못 했어요.` |
+| `간단한 문제를 설명하고 도움을 요청하는 것이 자신 있어요. 아직 뉴스는 어려워요.` | `간단한 문제를 설명하고 도움을 요청하는 데 자신이 있어요. 아직 뉴스는 어려워요.` |
+| `저는 거실 청소를 할게요. 수진 씨는 화장실을 해 주세요.` | `저는 거실 청소를 할게요. 수진 씨는 화장실 청소를 해 주세요.` |
 
 ## 3. Efeito verificável
 
 - Inventário atual: **2.909 textos**; manifesto: **2.907 MP3**.
-- `tests/audio-manifest.test.ts` fixa exatamente essas 12 lacunas e 10 sobras; qualquer nova lacuna falha.
+- `tests/audio-manifest.test.ts` fixa exatamente essas 14 lacunas e 12 sobras; qualquer nova lacuna falha.
 - `tests/fixtures/stale-audio.json` é a fonte única dessa dívida.
 - O player usa `resolvePublicAudioSrc`, que devolve `null` sem `NEXT_PUBLIC_KBR_STATIC_AUDIO=1`; o texto corrigido nunca toca o MP3 antigo por engano.
 - Não houve regeneração de áudio: a licença do encoder `kykim/bert-kor-base` continua não esclarecida.

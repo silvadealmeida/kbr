@@ -36,7 +36,7 @@ export const A2_L40 = defineA2Lesson({
     ["지민", "수진 씨, 에이 투 과정을 거의 다 끝냈네요. 어땠어요?", "Sujin, você está quase terminando o curso A2. Como foi?"],
     ["수진", "처음에는 과거 이야기가 어려웠어요. 그런데 여행 이야기를 하면서 많이 익숙해졌어요.", "No começo, falar do passado era difícil. Mas, contando histórias de viagem, fiquei muito mais à vontade."],
     ["지민", "이제 가장 자신 있는 게 뭐예요?", "O que você se sente mais confiante em fazer agora?"],
-    ["수진", "간단한 문제를 설명하고 도움을 요청하는 것이 자신 있어요. 아직 뉴스는 어려워요.", "Tenho confiança em explicar problemas simples e pedir ajuda. Ainda acho notícias difíceis."],
+    ["수진", "간단한 문제를 설명하고 도움을 요청하는 데 자신이 있어요. 아직 뉴스는 어려워요.", "Tenho confiança em explicar problemas simples e pedir ajuda. Ainda acho notícias difíceis."],
     ["지민", "그건 자연스러운 것 같아요. 저도 계속 연습하려고 해요.", "Isso parece natural. Eu também pretendo continuar praticando."],
     ["수진", "좋아요. 우리 같이 다음 단계도 천천히 준비해요.", "Legal. Vamos nos preparar juntos para a próxima etapa, com calma."],
   ],
@@ -90,7 +90,7 @@ export const A2_L40 = defineA2Lesson({
       ["아직 뉴스는 어려워요"],
     ),
     reading(
-      "수진은 과거 이야기를 연습하면서 많이 익숙해졌어요. 간단한 문제를 설명하고 도움을 요청하는 것도 자신 있어요. 하지만 뉴스는 아직 어려워요.",
+      "수진은 과거 이야기를 연습하면서 많이 익숙해졌어요. 간단한 문제를 설명하고 도움을 요청하는 데도 자신이 있어요. 하지만 뉴스는 아직 어려워요.",
       "O que Sujin ainda acha difícil?",
       ["Notícias.", "Pedir ajuda.", "Falar do passado."],
       "Notícias.",
@@ -125,9 +125,9 @@ export const A2_L40 = defineA2Lesson({
     ),
     translate(
       "ko-pt",
-      "Traduza para o português: 간단한 문제를 설명하고 도움을 요청하는 것이 자신 있어요.",
+      "Traduza para o português: 간단한 문제를 설명하고 도움을 요청하는 데 자신이 있어요.",
       "Tenho confiança em explicar problemas simples e pedir ajuda.",
-      "자신 있어요 significa “tenho confiança”.",
+      "자신이 있어요 significa “tenho confiança”.",
       ["Sinto confiança para explicar problemas simples e pedir ajuda."],
     ),
     reading(

@@ -13,7 +13,7 @@ export const B1_L16 = defineB1Lesson({
     ["지민", "이번 프로젝트에서 역할을 다시 정리할까요?", "Vamos reorganizar as funções neste projeto?"],
     ["민수", "네. 지난번에는 팀 안에서 업무가 겹쳐서 문제가 생겼어요.", "Sim. Da última vez, as tarefas se sobrepuseram na equipe e surgiu um problema."],
     ["지민", "그러면 업무 배분에 따라 다시 확인해 주세요. 저는 예산 승인을 맡을게요.", "Então confira novamente conforme a distribuição de tarefas. Eu fico responsável pela aprovação do orçamento."],
-    ["민수", "알겠습니다. 저는 자료 조사를 맡도록 하겠습니다.", "Entendido. Eu vou garantir a pesquisa de materiais."],
+    ["민수", "알겠습니다. 저는 자료 조사를 맡도록 하겠습니다.", "Entendido. Eu vou me encarregar da pesquisa de materiais."],
     ["지민", "좋아요. 다만 최종 결정은 책임자에게 확인하도록 하세요.", "Certo. Só confirme a decisão final com o responsável."],
     ["민수", "네, 제 권한 밖의 일은 혼자 처리하지 않겠습니다.", "Sim, não vou tratar sozinho assuntos fora da minha autoridade."],
   ],
@@ -203,7 +203,7 @@ export const B1_L20 = defineB1Lesson({
     cloze("Complete a causa: 확인을 늦게 하는 ___ 팀 전체가 다시 작업했어요.", "바람에", "하는 바람에 introduz a causa involuntária do problema."),
     listen("Ouça e escreva a promessa de Minsu.", "징계를 받더라도 책임은 제가 지겠습니다.", "징계를 받더라도 책임은 제가 지겠습니다.", "Mesmo com uma possível medida disciplinar, ele assume a responsabilidade.", ["징계를 받더라도 책임은 제가 지겠습니다"]),
     reading("민수는 보고서 숫자를 늦게 확인하는 바람에 팀 전체가 다시 작업했어요. 다행히 고객에게 보내기 전이었어요. 그는 먼저 해명하고 재발 방지 계획을 세우기로 했어요.", "O que Minsu decidiu fazer?", ["Esclarecer o erro e criar um plano de prevenção.", "Culpar outro colega.", "Pedir demissão imediatamente."], "Esclarecer o erro e criar um plano de prevenção.", "먼저 해명하고 재발 방지 계획을 세우기로 했어요."),
-    translate("pt-ko", "Traduza: “Mesmo que seja difícil, vou esclarecer o erro.”", "어렵더라도 실수를 해명하겠습니다.", "어렵더라도 mantém a decisão apesar da dificuldade."),
+    translate("pt-ko", "Traduza: “Mesmo que seja difícil, vou esclarecer o erro.”", "어렵더라도 실수한 경위를 해명하겠습니다.", "어렵더라도 mantém a decisão apesar da dificuldade."),
   ],
   independent: [
     mcq("Qual frase usa -는 바람에 com causa e resultado negativo?", ["늦게 도착하는 바람에 회의에 못 들어갔어요.", "늦게 도착해서 회의에 들어갔어요.", "늦게 도착하더라도 회의에 들어갈게요."], "늦게 도착하는 바람에 회의에 못 들어갔어요.", "-는 바람에 liga a causa involuntária ao resultado negativo."),

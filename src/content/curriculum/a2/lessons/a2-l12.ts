@@ -40,7 +40,7 @@ export const A2_L12 = defineA2Lesson({
   ],
   dialogue: [
     ["수진", "우리 집 청소는 어떻게 할까요?", "Como vamos dividir a limpeza da casa?"],
-    ["마르코", "저는 거실 청소를 할게요. 수진 씨는 화장실을 해 주세요.", "Eu limpo a sala. Sujin, você limpa o banheiro, por favor."],
+    ["마르코", "저는 거실 청소를 할게요. 수진 씨는 화장실 청소를 해 주세요.", "Eu limpo a sala. Sujin, você limpa o banheiro, por favor."],
     ["수진", "좋아요. 쓰레기는 매일 버려야 해요.", "Certo. O lixo precisa ser jogado fora todos os dias."],
     ["마르코", "설거지는 제가 하지 않아도 돼요?", "Eu não preciso lavar a louça?"],
     ["수진", "아니요, 설거지는 같이 하는 게 좋겠어요.", "Não, seria bom lavarmos a louça juntos."],

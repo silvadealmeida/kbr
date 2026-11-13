@@ -57,14 +57,14 @@ export const A2_C08 = defineA2Checkpoint({
     // Leitura — 10
     reading("지난주에 비가 와서 캠핑을 못 갔어요. 그래서 집에서 영화를 봤어요.", "O que a pessoa fez por causa da chuva?", ["Ficou em casa e viu um filme.", "Foi acampar mesmo assim.", "Foi ao museu."], "Ficou em casa e viu um filme.", "비가 와서 캠핑을 못 갔어요. 그래서 집에서 영화를 봤어요."),
     reading("아나는 일본에 두 번 갔어요. 온천에도 가 봤어요. 지우는 해외에서 산 적이 없어요.", "Quem já foi a uma fonte termal?", ["Ana.", "Jiwoo.", "As duas."], "Ana.", "아나는 온천에도 가 봤어요."),
-    reading("지우의 동생은 지우보다 키가 커요. 얼굴은 비슷하지만 성격은 아주 달라요.", "O que é diferente entre os irmãos?", ["A personalidade.", "O rosto.", "A altura."], "A personalidade.", "성격은 아주 달라요."),
+    reading("지우의 동생은 지우와 키가 비슷해요. 얼굴도 비슷하지만 성격은 아주 달라요.", "O que é diferente entre os irmãos?", ["A personalidade.", "O rosto.", "A altura."], "A personalidade.", "성격은 아주 달라요."),
     reading("민수는 회사 일 때문에 약속에 가지 못했어요. 연락을 못 해서 미안해했어요.", "Por que Minsu se desculpou?", ["Por não ter avisado.", "Por não ter dinheiro.", "Por ter chegado cedo."], "Por não ter avisado.", "연락을 못 해서 미안해했어요."),
     reading("수진은 지난달에 서울로 이사했어요. 처음에는 낯설었지만 지금은 적응하고 있어요.", "Como Sujin está agora?", ["Está se adaptando.", "Quer voltar imediatamente.", "Ainda não chegou."], "Está se adaptando.", "지금은 적응하고 있어요."),
     reading("수진은 윗집 소음 때문에 잠을 못 자요. 이웃은 아이가 늦게까지 뛰어서 미안해해요.", "Qual é a causa do barulho?", ["O filho do vizinho corre até tarde.", "A televisão está alta.", "Há obras no prédio."], "O filho do vizinho corre até tarde.", "아이가 늦게까지 뛰어서요."),
     reading("환자는 일주일 전부터 허리가 아파요. 하루에 여덟 시간 앉아 있고 운동은 거의 안 해요.", "O que pode estar relacionado à dor?", ["Ficar muito tempo sentado.", "Dormir demais.", "Beber pouca água."], "Ficar muito tempo sentado.", "여덟 시간 앉아 있고 운동은 거의 안 해요."),
     reading("수진은 목요일 오후까지 자료를 정리해야 해요. 금요일 발표 전에 같이 확인해요.", "Quando os dados precisam estar prontos?", ["Até quinta à tarde.", "Até sexta de manhã.", "Até quarta à noite."], "Até quinta à tarde.", "목요일 오후까지 자료를 정리해야 해요."),
     reading("해운대는 무료이고 경치가 좋아요. 그런데 주말에는 사람이 아주 많아요. 아침 일찍 가는 게 좋아요.", "Qual é a desvantagem de Haeundae no fim de semana?", ["Muita gente.", "Entrada cara.", "Fechado."], "Muita gente.", "주말에는 사람이 아주 많아요."),
-    reading("수진은 과거 이야기를 연습하면서 많이 익숙해졌어요. 간단한 문제를 설명하고 도움을 요청하는 것도 자신 있어요. 하지만 뉴스는 아직 어려워요.", "O que Sujin ainda acha difícil?", ["Notícias.", "Pedir ajuda.", "Falar do passado."], "Notícias.", "아직 뉴스는 어려워요."),
+    reading("수진은 과거 이야기를 연습하면서 많이 익숙해졌어요. 간단한 문제를 설명하고 도움을 요청하는 데도 자신이 있어요. 하지만 뉴스는 아직 어려워요.", "O que Sujin ainda acha difícil?", ["Notícias.", "Pedir ajuda.", "Falar do passado."], "Notícias.", "아직 뉴스는 어려워요."),
 
     // Gramática e vocabulário — 10
     cloze("Complete o passado: 토요일에 전시를 ___.", "봤어요", "봤어요 é o passado de 보다.", ["봤어요."]),

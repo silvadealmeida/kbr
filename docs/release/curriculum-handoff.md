@@ -11,7 +11,7 @@
 | Curso A2 completo (`a2-l01`–`a2-l40`, `a2-c01`–`a2-c08`) | 48 passos, `in-review`, disponível após `a1-c08` | `src/content/curriculum/a2`, `/a2/[lessonId]` |
 | Curso B1 completo (`b1-l01`–`b1-l40`, `b1-c01`–`b1-c08`) | 48 passos, `in-review`, disponível após `a2-c08`, produção independente opcional | `src/content/curriculum/b1`, `/b1/[lessonId]` |
 | Curso B2 completo (`b2-l01`–`b2-l40`, `b2-c01`–`b2-c08`) | 48 passos, `in-review`, disponível após `b1-c08`, leitura longa e produção com rubrica | `src/content/curriculum/b2`, `/b2/[lessonId]` |
-| Registro multi-curso (Hangul, A1, A2, B1 e B2 disponíveis; C1–C2 planejados) | tipado e validado, com `entryPrerequisites` | `src/content/courses/{types,registry,a1,a2,b1,b2,planned,hangul}.ts` |
+| Registro multi-curso (Hangul e A1–C2 disponíveis) | tipado e validado, com `entryPrerequisites` | `src/content/courses/{types,registry,a1,a2,b1,b2,c1,c2,planned,hangul}.ts` |
 | Blueprint A1 | 8 módulos, 40 lições, 8 checkpoints; tipado e validado | `src/content/curriculum/a1`, `docs/curriculum/` |
 | Vocabulário A1 | 443 identidades novas, 443 frases; 52 reusos do Hangul (495 distintas) | `src/content/vocabulary/{a1,a1-course}.ts` |
 | Vocabulário A2 | 400 identidades novas, 400 frases; 115 reusos distintos (515 ensinadas/retomadas) | `src/content/vocabulary/a2-*.ts` |

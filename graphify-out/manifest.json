@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "playwright.config.ts": {
-    "mtime": 1794579242.9953024,
-    "seen": 1794579646.8861656,
-    "ast_hash": "58dc34d9a03b2165cc775484b1e98615",
+    "mtime": 1794586481.3830602,
+    "seen": 1794587561.3250287,
+    "ast_hash": "4666fc609bd0d18de97c5cc6a42f0419",
     "semantic_hash": ""
   },
   "postcss.config.mjs": {
@@ -72,9 +72,9 @@
     "semantic_hash": ""
   },
   "src/lib/routes.ts": {
-    "mtime": 1794573183.483679,
-    "seen": 1794573643.4031696,
-    "ast_hash": "f3a298fd3ec2b3e4e15394fad8cbc65c",
+    "mtime": 1794583387.81361,
+    "seen": 1794584140.961371,
+    "ast_hash": "642fc5768d290b0a7b4117e4f906c62b",
     "semantic_hash": ""
   },
   "tests/routes.test.ts": {
@@ -108,9 +108,9 @@
     "semantic_hash": ""
   },
   "docs/architecture.md": {
-    "mtime": 1794579484.9001648,
-    "seen": 1794579646.8865743,
-    "ast_hash": "54a0ea8a746efe70bdd0a05904b4cc7b",
+    "mtime": 1794587508.7743359,
+    "seen": 1794587561.3255234,
+    "ast_hash": "acb786388bd5c3ffe40403c8853a12a5",
     "semantic_hash": ""
   },
   "docs/research.md": {
@@ -120,9 +120,9 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794579561.5265415,
-    "seen": 1794579646.8866646,
-    "ast_hash": "8e5f7dd2714558ed02c00a2157a4a00c",
+    "mtime": 1794587520.7240295,
+    "seen": 1794587561.3256264,
+    "ast_hash": "08228b00c9518d05d3c48cb6a0be9a0f",
     "semantic_hash": ""
   },
   "src/lib/hangul/index.ts": {
@@ -990,9 +990,9 @@
     "semantic_hash": ""
   },
   "e2e/courses.spec.ts": {
-    "mtime": 1794578751.2793672,
-    "seen": 1794579646.8861332,
-    "ast_hash": "bf630672c408c2fca8a5a44a2080e696",
+    "mtime": 1794586369.9168339,
+    "seen": 1794587561.325005,
+    "ast_hash": "77c1103136c9919df72bf912aa3be6ff",
     "semantic_hash": ""
   },
   "src/app/(app)/cursos/page.tsx": {
@@ -1002,9 +1002,9 @@
     "semantic_hash": ""
   },
   "src/components/courses/CourseCatalog.tsx": {
-    "mtime": 1794523795.5052354,
-    "seen": 1794524801.4407184,
-    "ast_hash": "b0f81fb2856000461c80725dc55860d0",
+    "mtime": 1794586345.7716582,
+    "seen": 1794587561.3250804,
+    "ast_hash": "f5761b914bb3dea6e02a509edc658310",
     "semantic_hash": ""
   },
   "src/content/courses/hangul.ts": {
@@ -1014,21 +1014,21 @@
     "semantic_hash": ""
   },
   "src/content/courses/index.ts": {
-    "mtime": 1794573172.3254154,
-    "seen": 1794573643.3905766,
-    "ast_hash": "fea09627fc5447fc71634ce1b7e6c718",
+    "mtime": 1794583387.81361,
+    "seen": 1794584140.961083,
+    "ast_hash": "c75c5663925c604266ddb75a9b70cde4",
     "semantic_hash": ""
   },
   "src/content/courses/planned.ts": {
-    "mtime": 1794573172.3254154,
-    "seen": 1794573643.3905783,
-    "ast_hash": "749029883d7b69dd94f1b86ee9241bb2",
+    "mtime": 1794587375.7337377,
+    "seen": 1794587561.3251333,
+    "ast_hash": "40d201bbe47d1703a8bdbe60d7113470",
     "semantic_hash": ""
   },
   "src/content/courses/registry.ts": {
-    "mtime": 1794573172.345375,
-    "seen": 1794573643.3905797,
-    "ast_hash": "44e7afd386d10511e52337e9953982c9",
+    "mtime": 1794583387.81361,
+    "seen": 1794584140.9610844,
+    "ast_hash": "c2162de407d30030618a5f5dd80a2d68",
     "semantic_hash": ""
   },
   "src/content/courses/types.ts": {
@@ -1062,9 +1062,9 @@
     "semantic_hash": ""
   },
   "tests/courses.test.ts": {
-    "mtime": 1794573359.1085224,
-    "seen": 1794573643.4051106,
-    "ast_hash": "42b67e8ea3858d55ff3695be1e2db3ad",
+    "mtime": 1794584357.3845112,
+    "seen": 1794587561.3254945,
+    "ast_hash": "dec0d56b03bc355e6f3338b0d3e5081d",
     "semantic_hash": ""
   },
   "e2e/a11y.spec.ts": {
@@ -1530,9 +1530,9 @@
     "semantic_hash": ""
   },
   "docs/release/curriculum-handoff.md": {
-    "mtime": 1794579303.5917408,
-    "seen": 1794579646.886663,
-    "ast_hash": "b4ac9356fddf4412a04d5ca05587291e",
+    "mtime": 1794587375.7337377,
+    "seen": 1794587561.3256252,
+    "ast_hash": "bca170440d69f5068d35ab602f7b4c3e",
     "semantic_hash": ""
   },
   "e2e/vocabulary.spec.ts": {
@@ -1590,9 +1590,9 @@
     "semantic_hash": ""
   },
   "src/content/vocabulary/index.ts": {
-    "mtime": 1794573142.094319,
-    "seen": 1794573643.4019957,
-    "ast_hash": "ba8e8211b756e22479f6e1cb69cd45ba",
+    "mtime": 1794583406.911975,
+    "seen": 1794584140.9613447,
+    "ast_hash": "6e41bd9917d0dc2884184cc9e448a1e7",
     "semantic_hash": ""
   },
   "src/content/vocabulary/sentences.ts": {
@@ -1722,9 +1722,9 @@
     "semantic_hash": ""
   },
   "tests/content/a1-curriculum.test.ts": {
-    "mtime": 1794573333.0865538,
-    "seen": 1794573643.4048228,
-    "ast_hash": "018da333e55864e995fba39c9d051708",
+    "mtime": 1794584360.4680595,
+    "seen": 1794587561.3254795,
+    "ast_hash": "d8f2425b224b814ad23c5a144e639e95",
     "semantic_hash": ""
   },
   "src/content/curriculum/a1/validate-content.ts": {
@@ -1758,9 +1758,9 @@
     "semantic_hash": ""
   },
   "src/components/a1/A1LessonPlayer.tsx": {
-    "mtime": 1794572565.162932,
-    "seen": 1794573643.388609,
-    "ast_hash": "533040b193b6b953c1d0fe3a01815df8",
+    "mtime": 1794584554.5007477,
+    "seen": 1794587561.3250744,
+    "ast_hash": "8fbcd2d887c52094dad51456403f430b",
     "semantic_hash": ""
   },
   "src/content/courses/a1.ts": {
@@ -1776,9 +1776,9 @@
     "semantic_hash": ""
   },
   "src/content/curriculum/a1/lessons/a1-l01.ts": {
-    "mtime": 1794530125.7684498,
-    "seen": 1794531310.5850906,
-    "ast_hash": "b90f39ab74cec79142b1ffda810ed80a",
+    "mtime": 1794586130.6241212,
+    "seen": 1794587561.3251455,
+    "ast_hash": "3a8058c88e5a8182df1f0903559048ca",
     "semantic_hash": ""
   },
   "src/content/vocabulary/a1.ts": {
@@ -1818,9 +1818,9 @@
     "semantic_hash": ""
   },
   "src/content/curriculum/a1/checkpoints/a1-c01.ts": {
-    "mtime": 1794530125.75765,
-    "seen": 1794531310.5850182,
-    "ast_hash": "e2cbf392b4944853af8ac5bf9f5a5738",
+    "mtime": 1794586884.3386197,
+    "seen": 1794587561.3251367,
+    "ast_hash": "fcf6c8eb3050fc53a5669c90c487c8ed",
     "semantic_hash": ""
   },
   "src/content/curriculum/a1/checkpoints/a1-c02.ts": {
@@ -1860,9 +1860,9 @@
     "semantic_hash": ""
   },
   "src/content/curriculum/a1/checkpoints/a1-c08.ts": {
-    "mtime": 1794530125.75765,
-    "seen": 1794531310.585024,
-    "ast_hash": "270defe400b72d25493a0d687c400921",
+    "mtime": 1794586884.3425906,
+    "seen": 1794587561.3251424,
+    "ast_hash": "2eea97eb930c3ea34f0889daf81919af",
     "semantic_hash": ""
   },
   "src/content/curriculum/a1/lessons/a1-l02.ts": {
@@ -1920,9 +1920,9 @@
     "semantic_hash": ""
   },
   "src/content/curriculum/a1/lessons/a1-l11.ts": {
-    "mtime": 1794530125.76485,
-    "seen": 1794531310.585144,
-    "ast_hash": "b54f0402456f756ce66d2fc22d4dd1a8",
+    "mtime": 1794586884.3386197,
+    "seen": 1794587561.3251536,
+    "ast_hash": "5f53bc665e55d3adce72490253279ad1",
     "semantic_hash": ""
   },
   "src/content/curriculum/a1/lessons/a1-l12.ts": {
@@ -2094,15 +2094,15 @@
     "semantic_hash": ""
   },
   "src/content/curriculum/a1/lessons/a1-l40.ts": {
-    "mtime": 1794506168.7610881,
-    "seen": 1794507789.422096,
-    "ast_hash": "140c25592e869a734a501235459e6160",
+    "mtime": 1794586884.3386197,
+    "seen": 1794587561.325175,
+    "ast_hash": "a403b512a52fe3408e349bbb1db48154",
     "semantic_hash": ""
   },
   "src/content/curriculum/a1/lessons/shared.ts": {
-    "mtime": 1794503282.953314,
-    "seen": 1794507789.4220967,
-    "ast_hash": "b68669468cc7c2ac474eccb658624e2c",
+    "mtime": 1794586026.2897394,
+    "seen": 1794587561.3251758,
+    "ast_hash": "85efb76961816d5e8e1c9b77f29d27a7",
     "semantic_hash": ""
   },
   "src/content/vocabulary/a1-course.ts": {
@@ -2124,9 +2124,9 @@
     "semantic_hash": ""
   },
   "src/content/curriculum/a2/checkpoints/a2-c01.ts": {
-    "mtime": 1794530125.7756498,
-    "seen": 1794531310.585643,
-    "ast_hash": "627fed2d2d0649534d7f1a2fc63c905d",
+    "mtime": 1794586884.3386197,
+    "seen": 1794587561.3251812,
+    "ast_hash": "907a356179a4e9b2ca164fceeac5b17d",
     "semantic_hash": ""
   },
   "src/content/curriculum/a2/checkpoints/a2-c02.ts": {
@@ -2160,8 +2160,8 @@
     "semantic_hash": ""
   },
   "src/content/curriculum/a2/lessons/a2-l01.ts": {
-    "mtime": 1794530125.7792497,
-    "seen": 1794531310.585737,
+    "mtime": 1794586884.3425906,
+    "seen": 1794587561.3251913,
     "ast_hash": "0c1a06b5f072ec3c76c734de043e832e",
     "semantic_hash": ""
   },
@@ -2226,9 +2226,9 @@
     "semantic_hash": ""
   },
   "src/content/curriculum/a2/lessons/a2-l12.ts": {
-    "mtime": 1794530125.7756498,
-    "seen": 1794531310.5857487,
-    "ast_hash": "1f546c88c785e88bd35929e42338becb",
+    "mtime": 1794586884.3425906,
+    "seen": 1794587561.3252,
+    "ast_hash": "36583760857b2d1420b1d24355e55e94",
     "semantic_hash": ""
   },
   "src/content/curriculum/a2/lessons/a2-l13.ts": {
@@ -2250,9 +2250,9 @@
     "semantic_hash": ""
   },
   "src/content/curriculum/a2/lessons/shared.ts": {
-    "mtime": 1794530002.635682,
-    "seen": 1794531310.585771,
-    "ast_hash": "0ed570fd6e488709b152244e0b7182c0",
+    "mtime": 1794586017.7043254,
+    "seen": 1794587561.3252225,
+    "ast_hash": "795a9da36617bf251dfe39d601009dcf",
     "semantic_hash": ""
   },
   "src/content/curriculum/a2/types.ts": {
@@ -2274,9 +2274,9 @@
     "semantic_hash": ""
   },
   "src/content/curriculum/course-types.ts": {
-    "mtime": 1794572535.9010735,
-    "seen": 1794573643.398746,
-    "ast_hash": "16d430cf3efe6073514edb4726c90cf3",
+    "mtime": 1794582993.4328887,
+    "seen": 1794584140.9612615,
+    "ast_hash": "a6940a1b49f5f495413a5ca4bcd5aadc",
     "semantic_hash": ""
   },
   "src/content/vocabulary/a2-course.ts": {
@@ -2478,8 +2478,8 @@
     "semantic_hash": ""
   },
   "src/content/curriculum/a2/lessons/a2-l34.ts": {
-    "mtime": 1794530258.956828,
-    "seen": 1794531310.5857658,
+    "mtime": 1794586531.588303,
+    "seen": 1794587561.3252175,
     "ast_hash": "ed01be89194a036927f148f1e57f712f",
     "semantic_hash": ""
   },
@@ -2490,9 +2490,9 @@
     "semantic_hash": ""
   },
   "src/content/curriculum/a2/checkpoints/a2-c08.ts": {
-    "mtime": 1794530125.7756498,
-    "seen": 1794531310.5856528,
-    "ast_hash": "b04677702537f8b10af1dc20513dd615",
+    "mtime": 1794586884.3425906,
+    "seen": 1794587561.325188,
+    "ast_hash": "d5c1b02a58c3b313e7339a5f1caf5467",
     "semantic_hash": ""
   },
   "src/content/curriculum/a2/lessons/a2-l36.ts": {
@@ -2520,9 +2520,9 @@
     "semantic_hash": ""
   },
   "src/content/curriculum/a2/lessons/a2-l40.ts": {
-    "mtime": 1794530283.1671,
-    "seen": 1794531310.5857701,
-    "ast_hash": "a199b4bc9c41066ffd1856ecf0bdeb37",
+    "mtime": 1794586884.3425906,
+    "seen": 1794587561.3252215,
+    "ast_hash": "e5065983a4358f09714050eaf8af0a05",
     "semantic_hash": ""
   },
   "e2e/a2.spec.ts": {
@@ -4446,9 +4446,9 @@
     "semantic_hash": ""
   },
   "src/content/curriculum/b1/lessons/module4.ts": {
-    "mtime": 1794570072.6452737,
-    "seen": 1794570883.963561,
-    "ast_hash": "c2b73d9fc8cf20aad8b8f4cc342eb433",
+    "mtime": 1794586884.3425906,
+    "seen": 1794587561.3252442,
+    "ast_hash": "bcd91bfdd89546a041b51e778373fed7",
     "semantic_hash": ""
   },
   "src/content/curriculum/b1/lessons/module5.ts": {
@@ -4836,9 +4836,9 @@
     "semantic_hash": ""
   },
   "tests/content/assessment-fairness.test.ts": {
-    "mtime": 1794565273.057849,
-    "seen": 1794566403.8102992,
-    "ast_hash": "630e8796e970091208f5d33896d83f2b",
+    "mtime": 1794584826.929696,
+    "seen": 1794587561.3254812,
+    "ast_hash": "1b6917c53f2a57dd9ebcdd09ef0b97f9",
     "semantic_hash": ""
   },
   "tests/content/curriculum-corrections.test.ts": {
@@ -4854,9 +4854,9 @@
     "semantic_hash": ""
   },
   "tests/content/reuse-audit.test.ts": {
-    "mtime": 1794573552.0940738,
-    "seen": 1794573643.4050758,
-    "ast_hash": "46d5420d36cdb5a1b72cf77afb6e9f2b",
+    "mtime": 1794584831.7689033,
+    "seen": 1794587561.3254936,
+    "ast_hash": "31453453fec1acc34d832e85defd9eb5",
     "semantic_hash": ""
   },
   "tests/fixtures/reused-ids-baseline.json": {
@@ -4866,15 +4866,15 @@
     "semantic_hash": ""
   },
   "tests/fixtures/stale-audio.json": {
-    "mtime": 1794531366.848167,
-    "seen": 1794531409.5567145,
-    "ast_hash": "1def9fb3da8cf61ab92a5d3ae76818fe",
+    "mtime": 1794587081.568535,
+    "seen": 1794587561.3254993,
+    "ast_hash": "eda2dd19d6f5778547244992bec11a7e",
     "semantic_hash": ""
   },
   "docs/audio/stale-audio-manifest.md": {
-    "mtime": 1794531022.2080286,
-    "seen": 1794531310.58942,
-    "ast_hash": "988a12db6e59bd76c03d4318a4a8f9d2",
+    "mtime": 1794587081.568535,
+    "seen": 1794587561.3255322,
+    "ast_hash": "be54e8e84cebb96290be5b33c13d5055",
     "semantic_hash": ""
   },
   "docs/audits/a0-a2/README.md": {
@@ -21120,9 +21120,9 @@
     "semantic_hash": ""
   },
   "src/content/curriculum/b2/lessons/module1.ts": {
-    "mtime": 1794573581.3397446,
-    "seen": 1794573643.3987374,
-    "ast_hash": "cb910718ec62f80d9779f441adc48e6a",
+    "mtime": 1794586906.6571,
+    "seen": 1794587561.3252635,
+    "ast_hash": "8ad45c29477e89f6bea145d74b6f8ab5",
     "semantic_hash": ""
   },
   "src/content/curriculum/b2/lessons/shared.ts": {
@@ -21156,9 +21156,9 @@
     "semantic_hash": ""
   },
   "src/content/vocabulary/b2-m01.ts": {
-    "mtime": 1794573082.9728649,
-    "seen": 1794573643.4019504,
-    "ast_hash": "5137896b1a3dc173289c49aaec39967a",
+    "mtime": 1794586906.6571,
+    "seen": 1794587561.325396,
+    "ast_hash": "ba1f9373a303294b6d67b7122ec1dc63",
     "semantic_hash": ""
   },
   "src/content/vocabulary/b2-m02.ts": {
@@ -21168,9 +21168,9 @@
     "semantic_hash": ""
   },
   "src/content/vocabulary/b2-m03.ts": {
-    "mtime": 1794574414.2201297,
-    "seen": 1794574552.8464642,
-    "ast_hash": "8b5e79600ed1eb2a576002ded8d25291",
+    "mtime": 1794586906.6571,
+    "seen": 1794587561.3253975,
+    "ast_hash": "6c2fb14007376217ed68f2157510203d",
     "semantic_hash": ""
   },
   "src/content/vocabulary/b2-m04.ts": {
@@ -21264,9 +21264,9 @@
     "semantic_hash": ""
   },
   "src/content/curriculum/b2/lessons/module3.ts": {
-    "mtime": 1794574499.976014,
-    "seen": 1794574552.8463767,
-    "ast_hash": "1727ad06ad65ed43f23391d7f81366a1",
+    "mtime": 1794586906.6531243,
+    "seen": 1794587561.3252819,
+    "ast_hash": "37d84398c432efc9111ec08ab9defbf8",
     "semantic_hash": ""
   },
   "src/content/curriculum/b2/checkpoints/b2-c04.ts": {
@@ -21306,15 +21306,15 @@
     "semantic_hash": ""
   },
   "src/content/curriculum/b2/checkpoints/b2-c07.ts": {
-    "mtime": 1794576061.927756,
-    "seen": 1794576215.264813,
-    "ast_hash": "24cd6b1c8f9082f924379e983a69634c",
+    "mtime": 1794586531.592307,
+    "seen": 1794587561.325258,
+    "ast_hash": "ae516d758da34bc7af0c6728115657b1",
     "semantic_hash": ""
   },
   "src/content/curriculum/b2/lessons/module7.ts": {
-    "mtime": 1794576155.5549316,
-    "seen": 1794576215.2648368,
-    "ast_hash": "fdfec7bfef94bcea346dd09d35a6876e",
+    "mtime": 1794586932.059873,
+    "seen": 1794587561.3252878,
+    "ast_hash": "8aeb2becf8173ee6b147a455505a7709",
     "semantic_hash": ""
   },
   "e2e/b2.spec.ts": {
@@ -21324,9 +21324,9 @@
     "semantic_hash": ""
   },
   "src/content/curriculum/b2/checkpoints/b2-c08.ts": {
-    "mtime": 1794578484.3327956,
-    "seen": 1794579646.886388,
-    "ast_hash": "aaaf8e0b661690e139308cfa3167ffa2",
+    "mtime": 1794586531.592307,
+    "seen": 1794587561.3252585,
+    "ast_hash": "b3cf52c1af6c32fa8b9c822a7bb71141",
     "semantic_hash": ""
   },
   "src/content/curriculum/b2/lessons/module8.ts": {
@@ -21345,6 +21345,636 @@
     "mtime": 1794578652.6548865,
     "seen": 1794579646.8865392,
     "ast_hash": "6adb8e0b1dea17f39cd1679694ab3cbf",
+    "semantic_hash": ""
+  },
+  "src/app/(app)/c1/[lessonId]/page.tsx": {
+    "mtime": 1794583415.6407044,
+    "seen": 1794584140.960994,
+    "ast_hash": "505ef0a017bbbbdc54884f707b10ea19",
+    "semantic_hash": ""
+  },
+  "src/app/(app)/c1/page.tsx": {
+    "mtime": 1794583415.6407044,
+    "seen": 1794584140.9609962,
+    "ast_hash": "e8d2eb0aa65d3f59f7597629638a7d0e",
+    "semantic_hash": ""
+  },
+  "src/app/(app)/c2/[lessonId]/page.tsx": {
+    "mtime": 1794583415.6446834,
+    "seen": 1794584140.9609969,
+    "ast_hash": "75e97e34c5594ff048f82852b6d0a60c",
+    "semantic_hash": ""
+  },
+  "src/app/(app)/c2/page.tsx": {
+    "mtime": 1794583415.6446834,
+    "seen": 1794584140.9609983,
+    "ast_hash": "14ec319f29e13e8fc5af81e048fb211f",
+    "semantic_hash": ""
+  },
+  "src/content/courses/c1.ts": {
+    "mtime": 1794586663.1073394,
+    "seen": 1794587561.3251286,
+    "ast_hash": "fb98c7ac80a3ea5e1c2e6899db105795",
+    "semantic_hash": ""
+  },
+  "src/content/courses/c2.ts": {
+    "mtime": 1794586663.1073394,
+    "seen": 1794587561.3251297,
+    "ast_hash": "78644c97d25a64fda5f00409415e7bee",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/advanced/shared.ts": {
+    "mtime": 1794584441.4497688,
+    "seen": 1794587561.3252258,
+    "ast_hash": "c6390c8371aa98247d072201a0ee0620",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/advanced/types.ts": {
+    "mtime": 1794582987.1104503,
+    "seen": 1794584140.9611967,
+    "ast_hash": "ef1b61a2f8fb7542095bc38ffc43138b",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/advanced/validate-content.ts": {
+    "mtime": 1794584441.4497688,
+    "seen": 1794587561.325228,
+    "ast_hash": "5a091a391bea1aefb0fdf271644ea3d4",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/advanced/validate.ts": {
+    "mtime": 1794585356.0063548,
+    "seen": 1794587561.32523,
+    "ast_hash": "67ffcfed4412ef2c92baa880a400c5a7",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c1/blueprint.ts": {
+    "mtime": 1794586837.5117664,
+    "seen": 1794587561.3252945,
+    "ast_hash": "11ab9aa5173b62d1a1635a9d9196c763",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c1/checkpoints/c1-c01.ts": {
+    "mtime": 1794584099.069021,
+    "seen": 1794584140.9612463,
+    "ast_hash": "88dea1cd816b68a7c034abe692d2c661",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c1/content.ts": {
+    "mtime": 1794583403.3425426,
+    "seen": 1794584140.9612474,
+    "ast_hash": "3a7f7b60baec6a957549a3693fc8e2ad",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c1/ids.ts": {
+    "mtime": 1794583270.6941338,
+    "seen": 1794584140.9612484,
+    "ast_hash": "7d5d171e7971465dd06c1cddd47cb68d",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c1/index.ts": {
+    "mtime": 1794583403.3425426,
+    "seen": 1794584140.9612494,
+    "ast_hash": "4d5d830ab2f67800156b22be4afe63e9",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c1/lessons/module1.ts": {
+    "mtime": 1794586837.5157518,
+    "seen": 1794587561.3253078,
+    "ast_hash": "55d8249efb16daf1f400d5fb5abcf262",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c1/shared.ts": {
+    "mtime": 1794583270.6901135,
+    "seen": 1794584140.9612515,
+    "ast_hash": "1a329ab4f9e89c5aea29542ca5073dd8",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c1/types.ts": {
+    "mtime": 1794583270.6901135,
+    "seen": 1794584140.9612527,
+    "ast_hash": "fad055a3fab2afc0a4f4d8f1fe258395",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c1/validate-content.ts": {
+    "mtime": 1794583277.770509,
+    "seen": 1794584140.9612534,
+    "ast_hash": "4de8e7f883dfba5b007bfaeb06225702",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c1/validate.ts": {
+    "mtime": 1794583277.770509,
+    "seen": 1794584140.9612544,
+    "ast_hash": "0a61f9292e53687eba18e9a7ffc56a99",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c2/blueprint.ts": {
+    "mtime": 1794586994.9694684,
+    "seen": 1794587561.3253179,
+    "ast_hash": "d33fca696cc5a039a902995e8ef9007c",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c2/content.ts": {
+    "mtime": 1794583403.350513,
+    "seen": 1794584140.9612558,
+    "ast_hash": "3da58bac82c670403ae40b8c7a7194f0",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c2/ids.ts": {
+    "mtime": 1794583361.3038766,
+    "seen": 1794584140.9612567,
+    "ast_hash": "dccd247fd7f502f9a0319c1aaf852ae0",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c2/index.ts": {
+    "mtime": 1794583403.350513,
+    "seen": 1794584140.9612575,
+    "ast_hash": "2aa35dc46bcc2c89594d9ec49251d8fc",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c2/shared.ts": {
+    "mtime": 1794583361.2998648,
+    "seen": 1794584140.9612582,
+    "ast_hash": "530ec2278e54a3329cdc5ec62e635a92",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c2/types.ts": {
+    "mtime": 1794583361.2998648,
+    "seen": 1794584140.9612586,
+    "ast_hash": "6c05877a6408a103b2bacbf73db2cb77",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c2/validate-content.ts": {
+    "mtime": 1794583361.3038766,
+    "seen": 1794584140.9612598,
+    "ast_hash": "f7e60272326f72e5079375950cba7119",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c2/validate.ts": {
+    "mtime": 1794583361.3038766,
+    "seen": 1794584140.9612606,
+    "ast_hash": "c091096f66a2003e5314737c44dfbad0",
+    "semantic_hash": ""
+  },
+  "src/content/vocabulary/c1-course.ts": {
+    "mtime": 1794583373.2459326,
+    "seen": 1794584140.9613392,
+    "ast_hash": "0cda68bfda0867d4e57377e668c4f3e7",
+    "semantic_hash": ""
+  },
+  "src/content/vocabulary/c1-m01.ts": {
+    "mtime": 1794584117.2018206,
+    "seen": 1794584140.9613404,
+    "ast_hash": "9f86f00416939d17862bbef251301735",
+    "semantic_hash": ""
+  },
+  "src/content/vocabulary/c1-shared.ts": {
+    "mtime": 1794583373.2459326,
+    "seen": 1794584140.9613411,
+    "ast_hash": "29b04fdc18f17ad80808f295e30a6a5d",
+    "semantic_hash": ""
+  },
+  "src/content/vocabulary/c2-course.ts": {
+    "mtime": 1794583373.2539022,
+    "seen": 1794584140.9613419,
+    "ast_hash": "cfee3da833a95b43e9171abcca52658b",
+    "semantic_hash": ""
+  },
+  "src/content/vocabulary/c2-shared.ts": {
+    "mtime": 1794583373.2539022,
+    "seen": 1794584140.9613428,
+    "ast_hash": "8576fdbf4645a364b2675018b106fb8f",
+    "semantic_hash": ""
+  },
+  "docs/audits/phase-13/findings.json": {
+    "mtime": 1794587289.5108523,
+    "seen": 1794587561.324987,
+    "ast_hash": "e5790df8bc95fb02aebf1ee2419e59b2",
+    "semantic_hash": ""
+  },
+  "e2e/c1.spec.ts": {
+    "mtime": 1794584566.376487,
+    "seen": 1794587561.3249986,
+    "ast_hash": "e475362d1153873e4998da0f68d55622",
+    "semantic_hash": ""
+  },
+  "e2e/c2.spec.ts": {
+    "mtime": 1794586287.3921895,
+    "seen": 1794587561.3250012,
+    "ast_hash": "bcc6812a235c67ad2006c4aeff24434f",
+    "semantic_hash": ""
+  },
+  "e2e/visual-audit.spec.ts": {
+    "mtime": 1794587230.6118898,
+    "seen": 1794587561.3250215,
+    "ast_hash": "9bd08f8299aa28911fa7532c53e5439b",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c1/checkpoints/c1-c02.ts": {
+    "mtime": 1794584470.2406452,
+    "seen": 1794587561.3252966,
+    "ast_hash": "0563bbd438aebdb271460167089e2f05",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c1/checkpoints/c1-c03.ts": {
+    "mtime": 1794584661.9591353,
+    "seen": 1794587561.3252976,
+    "ast_hash": "07b68366e4c74e6b3af876f5108cb8b5",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c1/checkpoints/c1-c04.ts": {
+    "mtime": 1794584811.0312047,
+    "seen": 1794587561.325299,
+    "ast_hash": "f06a7227deb695daa4e9b7ecefefac05",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c1/checkpoints/c1-c05.ts": {
+    "mtime": 1794584429.6132748,
+    "seen": 1794587561.3253002,
+    "ast_hash": "f6ce15abb9387dd9f7d1a420f14f1cd1",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c1/checkpoints/c1-c06.ts": {
+    "mtime": 1794584525.6783323,
+    "seen": 1794587561.325301,
+    "ast_hash": "1604231cf92945b05efc755f5e011e66",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c1/checkpoints/c1-c07.ts": {
+    "mtime": 1794586758.0987666,
+    "seen": 1794587561.3253021,
+    "ast_hash": "5c0528c8b5652ff4925f4ae8a82e2660",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c1/checkpoints/c1-c08.ts": {
+    "mtime": 1794586718.6357045,
+    "seen": 1794587561.3253028,
+    "ast_hash": "5be2e880345aebf18fe6eadd41aad501",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c1/lessons/module2.ts": {
+    "mtime": 1794586837.5037959,
+    "seen": 1794587561.3253086,
+    "ast_hash": "5f4ebfcee04726be9993f103c10316e2",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c1/lessons/module3.ts": {
+    "mtime": 1794586861.0471327,
+    "seen": 1794587561.32531,
+    "ast_hash": "49db1464d21a8904a25eaabf177b1984",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c1/lessons/module4.ts": {
+    "mtime": 1794586837.5157518,
+    "seen": 1794587561.3253107,
+    "ast_hash": "c4b693d7a90e9fef924d56ec04313455",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c1/lessons/module5.ts": {
+    "mtime": 1794586750.1362014,
+    "seen": 1794587561.3253112,
+    "ast_hash": "f738e78d421b10141aa9e827a57a977d",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c1/lessons/module6.ts": {
+    "mtime": 1794586718.6317208,
+    "seen": 1794587561.3253117,
+    "ast_hash": "64e7fff43ed3dbd61919423ea7f42c97",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c1/lessons/module7.ts": {
+    "mtime": 1794586758.0987666,
+    "seen": 1794587561.3253121,
+    "ast_hash": "50a2eed84a0106361b13d0349f489fe8",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c1/lessons/module8.ts": {
+    "mtime": 1794586718.6357045,
+    "seen": 1794587561.325313,
+    "ast_hash": "1c138504fdf583431d7c349328d79aa3",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c2/checkpoints/c2-c01.ts": {
+    "mtime": 1794584555.1410744,
+    "seen": 1794587561.3253195,
+    "ast_hash": "2a9d264e92486eb481be4832c39f2db8",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c2/checkpoints/c2-c02.ts": {
+    "mtime": 1794585425.5473552,
+    "seen": 1794587561.3253205,
+    "ast_hash": "f45b12b13f4973b88f4a99d0935b439a",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c2/checkpoints/c2-c03.ts": {
+    "mtime": 1794586984.4684978,
+    "seen": 1794587561.3253212,
+    "ast_hash": "41347aa989fcf858542e7b7d35ca2313",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c2/checkpoints/c2-c04.ts": {
+    "mtime": 1794586984.4684978,
+    "seen": 1794587561.3253217,
+    "ast_hash": "c7fe20cbb0069bdfcc7c211532652d26",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c2/checkpoints/c2-c05.ts": {
+    "mtime": 1794585896.4391494,
+    "seen": 1794587561.3253224,
+    "ast_hash": "f4367f4233242fd6425ca3ae121d9366",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c2/checkpoints/c2-c06.ts": {
+    "mtime": 1794586019.5769424,
+    "seen": 1794587561.3253236,
+    "ast_hash": "88cbeea58da492d0863f3630e1ddd818",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c2/checkpoints/c2-c07.ts": {
+    "mtime": 1794587021.1522748,
+    "seen": 1794587561.3253243,
+    "ast_hash": "c80ceb3f04676dbf63b9d25259342a1c",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c2/checkpoints/c2-c08.ts": {
+    "mtime": 1794587021.1522748,
+    "seen": 1794587561.3253248,
+    "ast_hash": "e59a1f1c2b55bcc5a275acf2912b7c9f",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c2/lessons/module1.ts": {
+    "mtime": 1794586984.4684978,
+    "seen": 1794587561.3253286,
+    "ast_hash": "5ef747c1eba54af9190be8d9dba69e6f",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c2/lessons/module2.ts": {
+    "mtime": 1794586984.4684978,
+    "seen": 1794587561.3253293,
+    "ast_hash": "c6157f4d6a0d652399663a65da8fded6",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c2/lessons/module3.ts": {
+    "mtime": 1794586984.472494,
+    "seen": 1794587561.32533,
+    "ast_hash": "fb1488528830cb2a7d45307a31531ef3",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c2/lessons/module4.ts": {
+    "mtime": 1794586984.4645019,
+    "seen": 1794587561.325331,
+    "ast_hash": "3e34ddcb541b5079712ccdc7219b644b",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c2/lessons/module5.ts": {
+    "mtime": 1794587021.1522748,
+    "seen": 1794587561.3253314,
+    "ast_hash": "bc054d8cf3d0bb96817676d275da5fd0",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c2/lessons/module6.ts": {
+    "mtime": 1794587021.1522748,
+    "seen": 1794587561.3253322,
+    "ast_hash": "3dbc91653caaa72786257479868ad567",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c2/lessons/module7.ts": {
+    "mtime": 1794587021.1522748,
+    "seen": 1794587561.3253326,
+    "ast_hash": "93033c4df19715353154f8d8422bef2c",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/c2/lessons/module8.ts": {
+    "mtime": 1794587038.8990808,
+    "seen": 1794587561.3253338,
+    "ast_hash": "9365aab0e2a0e4d6d66a12b3018dfd47",
+    "semantic_hash": ""
+  },
+  "src/content/vocabulary/c1-m02.ts": {
+    "mtime": 1794586847.3191242,
+    "seen": 1794587561.3254044,
+    "ast_hash": "b375c84c79af88f7868a77c3f87059ec",
+    "semantic_hash": ""
+  },
+  "src/content/vocabulary/c1-m03.ts": {
+    "mtime": 1794586837.5157518,
+    "seen": 1794587561.3254054,
+    "ast_hash": "1aa66ce8925ee7017d8ce64baa66b439",
+    "semantic_hash": ""
+  },
+  "src/content/vocabulary/c1-m04.ts": {
+    "mtime": 1794584741.5469806,
+    "seen": 1794587561.3254066,
+    "ast_hash": "bd6f469b6be2946e4808b3082c8cc3e6",
+    "semantic_hash": ""
+  },
+  "src/content/vocabulary/c1-m05.ts": {
+    "mtime": 1794586718.6396883,
+    "seen": 1794587561.3254073,
+    "ast_hash": "f548341d7d6de7ba00ccb0447cee964b",
+    "semantic_hash": ""
+  },
+  "src/content/vocabulary/c1-m06.ts": {
+    "mtime": 1794584689.6723535,
+    "seen": 1794587561.325408,
+    "ast_hash": "d7dba4692ae81e1efedee07d74f6b66f",
+    "semantic_hash": ""
+  },
+  "src/content/vocabulary/c1-m07.ts": {
+    "mtime": 1794586725.523489,
+    "seen": 1794587561.3254087,
+    "ast_hash": "59b42534dad75bb719fd58d9b9960160",
+    "semantic_hash": ""
+  },
+  "src/content/vocabulary/c1-m08.ts": {
+    "mtime": 1794586718.6396883,
+    "seen": 1794587561.3254097,
+    "ast_hash": "dc0e9cdabd2de36d508c465e8215d552",
+    "semantic_hash": ""
+  },
+  "src/content/vocabulary/c2-m01.ts": {
+    "mtime": 1794585529.0369072,
+    "seen": 1794587561.3254125,
+    "ast_hash": "4d905b7ad41011fcb932824e77e007a5",
+    "semantic_hash": ""
+  },
+  "src/content/vocabulary/c2-m02.ts": {
+    "mtime": 1794586984.472494,
+    "seen": 1794587561.3254135,
+    "ast_hash": "abd1ad1a78d492354b63f1dd0839766d",
+    "semantic_hash": ""
+  },
+  "src/content/vocabulary/c2-m03.ts": {
+    "mtime": 1794584835.6900272,
+    "seen": 1794587561.3254142,
+    "ast_hash": "a5130b8e8605fed356d07d49b900af9f",
+    "semantic_hash": ""
+  },
+  "src/content/vocabulary/c2-m04.ts": {
+    "mtime": 1794585083.4364915,
+    "seen": 1794587561.325415,
+    "ast_hash": "979b39cf657a01a1a6dec8a53f318f2d",
+    "semantic_hash": ""
+  },
+  "src/content/vocabulary/c2-m05.ts": {
+    "mtime": 1794585330.9049199,
+    "seen": 1794587561.3254158,
+    "ast_hash": "a04ff45f85ef5bd180a878ee7181514b",
+    "semantic_hash": ""
+  },
+  "src/content/vocabulary/c2-m06.ts": {
+    "mtime": 1794587021.1522748,
+    "seen": 1794587561.3254168,
+    "ast_hash": "546a0f9eb8ec003d7a37c211b0ba4602",
+    "semantic_hash": ""
+  },
+  "src/content/vocabulary/c2-m07.ts": {
+    "mtime": 1794585287.9732096,
+    "seen": 1794587561.3254178,
+    "ast_hash": "0fbdd488d96f0e5d79cb7e06d3330557",
+    "semantic_hash": ""
+  },
+  "src/content/vocabulary/c2-m08.ts": {
+    "mtime": 1794585098.264065,
+    "seen": 1794587561.3254182,
+    "ast_hash": "d58a245f7980a32876a162d0027a0839",
+    "semantic_hash": ""
+  },
+  "tests/c1-lesson.test.ts": {
+    "mtime": 1794584324.2030475,
+    "seen": 1794587561.3254771,
+    "ast_hash": "0c051fb5544eac350e0e6e370c5524b9",
+    "semantic_hash": ""
+  },
+  "tests/c2-lesson.test.ts": {
+    "mtime": 1794584336.9396574,
+    "seen": 1794587561.3254778,
+    "ast_hash": "8791bcf01c5efefb8efc5c46d1ea09b7",
+    "semantic_hash": ""
+  },
+  "tests/content/c1-curriculum.test.ts": {
+    "mtime": 1794584324.2030475,
+    "seen": 1794587561.3254874,
+    "ast_hash": "d75b4b437e6a4b09023f9848c4c6e1ed",
+    "semantic_hash": ""
+  },
+  "tests/content/c2-curriculum.test.ts": {
+    "mtime": 1794584336.9396574,
+    "seen": 1794587561.325488,
+    "ast_hash": "2f7532371792fc8b20d1427dc56075d0",
+    "semantic_hash": ""
+  },
+  "tests/content/phase13-audit.test.ts": {
+    "mtime": 1794585981.4915247,
+    "seen": 1794587561.3254926,
+    "ast_hash": "9029c148acd4c807f7e51656818f4338",
+    "semantic_hash": ""
+  },
+  "docs/audits/phase-13/README.md": {
+    "mtime": 1794587389.086545,
+    "seen": 1794587561.32558,
+    "ast_hash": "61876767fd5cbe7f6a10587a69d9eb7e",
+    "semantic_hash": ""
+  },
+  "docs/audits/phase-13/executive-summary.md": {
+    "mtime": 1794587295.3012168,
+    "seen": 1794587561.3255806,
+    "ast_hash": "0fca4bf2687e7e77a62706c2d6021774",
+    "semantic_hash": ""
+  },
+  "docs/audits/phase-13/human-review-required.md": {
+    "mtime": 1794586608.7224088,
+    "seen": 1794587561.3255813,
+    "ast_hash": "ef7e1d0cfc2ed8d6a910f327bf289202",
+    "semantic_hash": ""
+  },
+  "docs/audits/phase-13/plan.md": {
+    "mtime": 1794584416.076756,
+    "seen": 1794587561.325582,
+    "ast_hash": "7ae07e363b753a8e9b1c302862732a06",
+    "semantic_hash": ""
+  },
+  "docs/audits/phase-13/progression-matrix.md": {
+    "mtime": 1794586596.3747098,
+    "seen": 1794587561.3255827,
+    "ast_hash": "e5dfeb6f112642976c3ebc3568c75a22",
+    "semantic_hash": ""
+  },
+  "docs/audits/phase-13/references.md": {
+    "mtime": 1794584479.2461846,
+    "seen": 1794587561.3255837,
+    "ast_hash": "b8deb808e587803e427b97c5dba360d2",
+    "semantic_hash": ""
+  },
+  "docs/audits/phase-13/reviewer-findings.md": {
+    "mtime": 1794587342.3481832,
+    "seen": 1794587561.3255844,
+    "ast_hash": "b28bcca5a61ee928e84df5ff63f9fcff",
+    "semantic_hash": ""
+  },
+  "docs/audits/phase-13/technical-audit.md": {
+    "mtime": 1794587520.7280495,
+    "seen": 1794587561.3255851,
+    "ast_hash": "19a3373774c21132bac94c9c6b685cee",
+    "semantic_hash": ""
+  },
+  "docs/curriculum/c1-exercise-plan.md": {
+    "mtime": 1794584249.3809814,
+    "seen": 1794587561.3256023,
+    "ast_hash": "eb096c66cc4c05ca594f5c5ad35cf35d",
+    "semantic_hash": ""
+  },
+  "docs/curriculum/c1-learning-outcomes.md": {
+    "mtime": 1794584222.9015534,
+    "seen": 1794587561.325603,
+    "ast_hash": "08d6022e10b961999ff2d4d96bd6f9ea",
+    "semantic_hash": ""
+  },
+  "docs/curriculum/c1-research.md": {
+    "mtime": 1794584210.2036393,
+    "seen": 1794587561.3256044,
+    "ast_hash": "911dadef70d6210c17197897d5e00dda",
+    "semantic_hash": ""
+  },
+  "docs/curriculum/c1-syllabus.md": {
+    "mtime": 1794584236.3468947,
+    "seen": 1794587561.325605,
+    "ast_hash": "d518687ee3349783488c16abd762cf68",
+    "semantic_hash": ""
+  },
+  "docs/curriculum/c1-vocabulary-plan.md": {
+    "mtime": 1794584249.3809814,
+    "seen": 1794587561.3256056,
+    "ast_hash": "72a7fe5bd2d6923a9a5badf06e26b9f1",
+    "semantic_hash": ""
+  },
+  "docs/curriculum/c2-exercise-plan.md": {
+    "mtime": 1794584298.3173316,
+    "seen": 1794587561.3256066,
+    "ast_hash": "854cd3d058f0de2374b05f687fa912cb",
+    "semantic_hash": ""
+  },
+  "docs/curriculum/c2-learning-outcomes.md": {
+    "mtime": 1794584274.9927456,
+    "seen": 1794587561.3256075,
+    "ast_hash": "b82bac8de36a8ae751ccfe3297daf86f",
+    "semantic_hash": ""
+  },
+  "docs/curriculum/c2-research.md": {
+    "mtime": 1794584262.128607,
+    "seen": 1794587561.325608,
+    "ast_hash": "bc1f716b044ac4719fd2b08e27602f24",
+    "semantic_hash": ""
+  },
+  "docs/curriculum/c2-syllabus.md": {
+    "mtime": 1794584287.8253863,
+    "seen": 1794587561.3256087,
+    "ast_hash": "f5fb6dda553fc590771c6ebef039cddd",
+    "semantic_hash": ""
+  },
+  "docs/curriculum/c2-vocabulary-plan.md": {
+    "mtime": 1794584298.3173316,
+    "seen": 1794587561.3256094,
+    "ast_hash": "6e7e0aacd93f5e1f7b8eba601a249af8",
     "semantic_hash": ""
   },
   "package-lock.json": {

@@ -13,7 +13,7 @@ export const B2_M03_ROWS: readonly B2VocabRow[] = [
 
   ["b2-l12", "편견", "preconceito", "substantivo", "편견", "편견 없이 상대를 대하려고 해요.", "Procuro tratar o outro sem preconceito.", "preconceito", "Forma de dicionário; a frase usa 편견 없이."],
   ["b2-l12", "고정관념", "estereótipo; ideia fixa", "substantivo", "고정관념", "고정관념으로 사람을 판단하면 안 돼요.", "Não se deve julgar uma pessoa por estereótipo.", "estereótipo", "Forma de dicionário; a frase usa 고정관념으로."],
-  ["b2-l12", "접근하다", "abordar; aproximar-se de um tema", "verbo", "접근해서", "문제를 다르게 접근해서 풀었어요.", "Resolvi o problema abordando-o de outra forma.", "abordar", "Forma de dicionário; a frase usa 접근해서."],
+  ["b2-l12", "접근하다", "aproximar-se de; abordar", "verbo", "접근해서", "문제에 다르게 접근해서 풀었어요.", "Resolvi o problema abordando-o de outra forma.", "abordar", "Forma de dicionário; a frase usa 접근해서."],
   ["b2-l12", "포용", "acolhimento; inclusão", "substantivo", "포용", "포용은 갈등을 줄여요.", "O acolhimento reduz o conflito.", "acolhimento", "Forma de dicionário; a frase usa 포용은."],
   ["b2-l12", "공존", "coexistência", "substantivo", "공존", "서로 다른 문화의 공존이 가능해요.", "A coexistência de culturas diferentes é possível.", "coexistência", "Forma de dicionário; a frase usa 공존이."],
   ["b2-l12", "상호", "mútuo; recíproco", "advérbio", "상호", "상호 이해가 먼저 필요해요.", "A compreensão mútua é necessária antes de tudo.", "mutuamente", "Forma de dicionário; a frase usa 상호 이해."],

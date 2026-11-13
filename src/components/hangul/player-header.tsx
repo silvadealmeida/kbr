@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { BilingualText } from "./exercise-media";
 
 export type PlayerTone = "lesson" | "checkpoint";
 
@@ -70,7 +71,7 @@ export function PlayerHeader({
           compact ? "text-xl sm:text-2xl" : "text-3xl sm:text-4xl"
         }`}
       >
-        {title}
+        <BilingualText text={title} />
       </h1>
       {meta ? (
         <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted">

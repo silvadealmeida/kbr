@@ -234,7 +234,7 @@ export function LessonPlayer({
               href={`/hangul/${nextStep.id}`}
               className="inline-flex min-h-12 items-center justify-center rounded-[var(--radius-field)] bg-fg px-5 font-semibold text-bg"
             >
-              Próximo: {nextStep.id} · {nextStep.title}
+              Próximo: {nextStep.id} · <BilingualText text={nextStep.title} />
             </Link>
           ) : null}
           <button
@@ -268,7 +268,6 @@ export function LessonPlayer({
               <span>Unidade {lesson.unit}</span>
               <span aria-hidden>·</span>
               <span>{lesson.estimatedMinutes} min</span>
-              <span aria-hidden>·</span>
               <span className="rounded-[var(--radius-seal)] bg-surface-2 px-2 py-0.5 text-accent">
                 Conteúdo em revisão
               </span>
@@ -296,7 +295,9 @@ export function LessonPlayer({
               key={panel.title}
               label={`${String(index + 1).padStart(2, "0")} / explicação`}
             >
-              <h2 className="text-lg font-semibold">{panel.title}</h2>
+              <h2 className="text-lg font-semibold">
+                <BilingualText text={panel.title} />
+              </h2>
               <p className="mt-2 text-muted">
                 <BilingualText text={panel.body} />
               </p>
@@ -367,7 +368,7 @@ export function LessonPlayer({
           eyebrow="Fim da prática"
           title={lessonResult.passed ? "Lição concluída" : "Quase lá"}
           titleId="completion-title"
-          meta={<span>{lesson.title}</span>}
+          meta={<span><BilingualText text={lesson.title} /></span>}
         />
         <Plate className="mt-5" label="Resultado">
           <p className="text-lg">
@@ -439,7 +440,7 @@ export function LessonPlayer({
               href={`/hangul/${nextStep.id}`}
               className="inline-flex min-h-12 items-center justify-center rounded-[var(--radius-field)] bg-fg px-5 font-semibold text-bg"
             >
-              Próximo: {nextStep.id} · {nextStep.title}
+              Próximo: {nextStep.id} · <BilingualText text={nextStep.title} />
             </Link>
           ) : null}
           {!lessonResult.passed ? (

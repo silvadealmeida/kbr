@@ -16,6 +16,7 @@ import {
 } from "@/lib/progress/lesson";
 import type { Progress } from "@/lib/storage";
 import { CourseCompletionPanel } from "./CourseCompletionPanel";
+import { BilingualText } from "./exercise-media";
 import { SoundMap } from "./SoundMap";
 import { SyllableAnatomy } from "./SyllableAnatomy";
 
@@ -123,7 +124,9 @@ export function HangulCourse() {
                     >
                       <span className="flex min-w-0 flex-col">
                         <span className="text-xs font-semibold text-muted">{outline.id}</span>
-                        <span className="truncate text-muted">{outline.title}</span>
+                        <span className="truncate text-muted">
+                          <BilingualText text={outline.title} />
+                        </span>
                       </span>
                       <Badge>Em breve</Badge>
                     </li>
@@ -142,7 +145,7 @@ export function HangulCourse() {
                         {outline.id} · {lesson.estimatedMinutes} min
                       </span>
                       <span className={`line-clamp-2 font-medium ${unlocked ? "text-fg" : "text-muted"}`}>
-                        {outline.title}
+                        <BilingualText text={outline.title} />
                       </span>
                     </span>
                     {record?.done ? (
@@ -195,7 +198,7 @@ export function HangulCourse() {
                             {checkpoint.id} · {checkpoint.estimatedMinutes} min · checkpoint
                           </span>
                           <span className={`line-clamp-2 font-medium ${unlocked ? "text-fg" : "text-muted"}`}>
-                            {checkpoint.title}
+                            <BilingualText text={checkpoint.title} />
                           </span>
                         </span>
                         {record?.done ? (

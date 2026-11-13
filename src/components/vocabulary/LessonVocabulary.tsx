@@ -51,44 +51,46 @@ export function LessonVocabulary({
           return (
             <li
               key={entry.id}
-              className="flex flex-wrap items-center justify-between gap-2 py-2 first:pt-0 last:pb-0"
+              className="py-3 first:pt-0 last:pb-0"
             >
-              <span className="min-w-0">
-                <span lang="ko" className="font-ko font-semibold">
-                  {entry.ko}
-                </span>{" "}
-                <span className="text-sm text-muted">{entry.pt}</span>
-                {audio ? (
-                  <AudioControl
-                    text={entry.audioText}
-                    compact
-                    label="Ouvir a palavra"
-                  />
-                ) : null}
-              </span>
-              <span className="flex flex-wrap items-center gap-2">
-                {saved ? (
-                  <span className="mono-label text-success">Salva</span>
-                ) : null}
-                <Button
-                  variant="ghost"
-                  size="md"
-                  aria-label={
-                    saved
-                      ? `Remover ${entry.ko} do meu vocabulário`
-                      : `Salvar ${entry.ko} no meu vocabulário`
-                  }
-                  onClick={() =>
-                    update((current, now) =>
+              <div className="flex items-start justify-between gap-3">
+                <div className="min-w-0">
+                  <span lang="ko" className="font-ko text-lg font-semibold">
+                    {entry.ko}
+                  </span>{" "}
+                  <span className="text-sm text-muted">{entry.pt}</span>
+                </div>
+                <div className="flex shrink-0 items-center gap-2">
+                  {saved ? (
+                    <span className="mono-label text-success">Salva</span>
+                  ) : null}
+                  <Button
+                    variant="secondary"
+                    size="sm"
+                    aria-label={
                       saved
-                        ? removeVocab(current, entry.id, now)
-                        : saveVocab(current, entry.id, now),
-                    )
-                  }
-                >
-                  {saved ? "Remover" : "Salvar"}
-                </Button>
-              </span>
+                        ? `Remover ${entry.ko} do meu vocabulário`
+                        : `Salvar ${entry.ko} no meu vocabulário`
+                    }
+                    onClick={() =>
+                      update((current, now) =>
+                        saved
+                          ? removeVocab(current, entry.id, now)
+                          : saveVocab(current, entry.id, now),
+                      )
+                    }
+                  >
+                    {saved ? "Remover" : "Salvar"}
+                  </Button>
+                </div>
+              </div>
+              {audio ? (
+                <AudioControl
+                  text={entry.audioText}
+                  compact
+                  label="Ouvir a palavra"
+                />
+              ) : null}
             </li>
           );
         })}

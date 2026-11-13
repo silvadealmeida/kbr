@@ -34,7 +34,7 @@ export function CourseJourney({
   const checkpoints = journey.length - lessons;
 
   return (
-    <section aria-labelledby="course-journey-title" className="mt-6">
+    <section aria-labelledby="course-journey-title" className="mt-5 border-t border-line pt-5">
       <div className="flex flex-wrap items-baseline justify-between gap-2">
         <h3 id="course-journey-title" className="text-lg font-semibold">
           Jornada do módulo

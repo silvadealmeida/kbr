@@ -1,6 +1,7 @@
 "use client";
 
 import { useId, useState } from "react";
+import { BilingualText } from "@/components/hangul/exercise-media";
 import type { CourseProductionTask } from "@/content/curriculum/course-types";
 
 /**
@@ -18,17 +19,19 @@ export function ProductionTask({ task }: { task: CourseProductionTask }) {
     <section
       aria-labelledby={titleId}
       aria-describedby={helpId}
-      className="mt-4 rounded-[var(--radius-panel)] border border-accent/40 bg-surface-2 p-4"
+      className="mt-4 rounded-[var(--radius-panel)] border border-accent/40 bg-surface-2 p-4 sm:p-5"
     >
       <h2 id={titleId} className="text-lg font-semibold">
-        {task.titlePt}
+        <BilingualText text={task.titlePt} />
       </h2>
       <p id={helpId} className="mt-1 text-sm text-muted">
         Produção independente opcional. Não entra na nota, não é enviada e não é
         salva no progresso. Use a rubrica para se autoavaliar; uma revisão humana
         continua necessária.
       </p>
-      <p className="mt-3 text-muted">{task.promptPt}</p>
+      <p className="mt-3 text-muted">
+        <BilingualText text={task.promptPt} />
+      </p>
       {task.promptKo ? (
         <p lang="ko" className="mt-2 font-ko text-lg font-semibold">
           {task.promptKo}
@@ -36,7 +39,9 @@ export function ProductionTask({ task }: { task: CourseProductionTask }) {
       ) : null}
       <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-muted">
         {task.guidance.map((item) => (
-          <li key={item}>{item}</li>
+          <li key={item}>
+            <BilingualText text={item} />
+          </li>
         ))}
       </ul>
       <label htmlFor={`${titleId}-draft`} className="mt-4 block text-sm font-semibold">
@@ -61,12 +66,14 @@ export function ProductionTask({ task }: { task: CourseProductionTask }) {
       </div>
       <fieldset className="mt-4">
         <legend className="text-sm font-semibold">Rubrica de autoavaliação</legend>
-        <ul className="mt-2 flex flex-col gap-2">
+        <ul className="mt-2 flex flex-col gap-1">
           {task.checklist.map((item) => (
             <li key={item}>
-              <label className="flex items-start gap-2 text-sm text-muted">
-                <input type="checkbox" className="mt-1 size-4 accent-[var(--accent)]" />
-                <span>{item}</span>
+              <label className="flex min-h-11 cursor-pointer items-center gap-3 py-1.5 text-sm text-muted">
+                <input type="checkbox" className="size-5 shrink-0 accent-[var(--accent)]" />
+                <span>
+                  <BilingualText text={item} />
+                </span>
               </label>
             </li>
           ))}

@@ -7,6 +7,7 @@ import { BilingualText, ExerciseView } from "@/components/hangul/exercise-ui";
 import { Badge } from "@/components/ui/Badge";
 import { Button, ButtonLink } from "@/components/ui/Button";
 import { Card, Plate } from "@/components/ui/Card";
+import { PageHeader } from "@/components/ui/PageHeader";
 import { checkAnswer, type DetailedCheckResult, type ExerciseAnswer } from "@/lib/exercises";
 import { applyReview, buildReviewQueue, REVIEW_KIND_LABELS, type ReviewItem, type ReviewQueue } from "@/lib/review";
 import type { Progress } from "@/lib/storage";
@@ -173,30 +174,44 @@ export function ReviewArea() {
   const synced = authSynced && !offline;
   const syncing = authSyncing && !offline;
 
+  const overviewHeader = (
+    <PageHeader
+      ko="복습"
+      title="Revisão"
+      subtitle="Revise o que já estudou no tempo certo, sem consultar a resposta."
+    />
+  );
+
   if (status === "loading" || (loading && !progress && !loadError)) {
     return (
-      <Card>
-        <p role="status" className="text-muted">
-          Preparando seus cartões…
-        </p>
-      </Card>
+      <>
+        {overviewHeader}
+        <Card>
+          <p role="status" className="text-muted">
+            Preparando seus cartões…
+          </p>
+        </Card>
+      </>
     );
   }
 
   if (loadError || (!loading && !progress)) {
     return (
-      <Card>
-        <p className="font-semibold">Não foi possível carregar seus cartões.</p>
-        <p className="mt-1 text-muted">
-          Verifique se o armazenamento do navegador está disponível e tente novamente.
-        </p>
-        <Link
-          href="/dashboard"
-          className="mt-4 inline-flex min-h-12 items-center font-semibold text-accent underline-offset-4 hover:underline"
-        >
-          Voltar ao painel
-        </Link>
-      </Card>
+      <>
+        {overviewHeader}
+        <Card>
+          <p className="font-semibold">Não foi possível carregar seus cartões.</p>
+          <p className="mt-1 text-muted">
+            Verifique se o armazenamento do navegador está disponível e tente novamente.
+          </p>
+          <Link
+            href="/dashboard"
+            className="mt-4 inline-flex min-h-12 items-center font-semibold text-accent underline-offset-4 hover:underline"
+          >
+            Voltar ao painel
+          </Link>
+        </Card>
+      </>
     );
   }
 
@@ -325,6 +340,7 @@ export function ReviewArea() {
 
   return (
     <>
+      {overviewHeader}
       <Plate className="mb-6" label="Fila Leitner" number={String(totalDue).padStart(2, "0")}>
         {totalDue > 0 ? (
           <>

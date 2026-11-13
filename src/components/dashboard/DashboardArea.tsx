@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { CourseCompletionPanel } from "@/components/hangul/CourseCompletionPanel";
+import { BilingualText } from "@/components/hangul/exercise-media";
 import { Button, ButtonLink } from "@/components/ui/Button";
 import { Card, Plate } from "@/components/ui/Card";
 import { ProgressBar } from "@/components/ui/ProgressBar";
@@ -115,7 +116,9 @@ function ActivityList({ items }: { items: readonly DashboardActivity[] }) {
             className="flex items-start justify-between gap-3 py-3 first:pt-0 last:pb-0"
           >
             <div className="min-w-0">
-              <p className="truncate font-medium">{activity.label}</p>
+              <p className="truncate font-medium">
+                <BilingualText text={activity.label} />
+              </p>
               <p className="mt-0.5 text-xs text-muted">
                 {activity.detail} ·{" "}
                 <time dateTime={activity.at}>{formatActivityDate(activity.at)}</time>
@@ -274,7 +277,9 @@ export function DashboardArea() {
             {course.nextStep.kind === "checkpoint" ? "Próximo checkpoint" : "Próxima lição"}:{" "}
             {course.nextStep.id}
           </h2>
-          <p className="mt-1 font-medium">{course.nextStep.title}</p>
+          <p className="mt-1 font-medium">
+            <BilingualText text={course.nextStep.title} />
+          </p>
           <p className="mt-1 text-sm text-muted">
             {course.nextStep.kind === "checkpoint" ? "Checkpoint" : "Lição"} ·{" "}
             {course.nextStep.estimatedMinutes} min
@@ -291,7 +296,9 @@ export function DashboardArea() {
               ? "O módulo Hangul está concluído; o próximo módulo ainda não está disponível."
               : "Há passos bloqueados por pré-requisitos não concluídos. Abra o curso para ver o que falta."}
           </p>
-          <ButtonLink href="/hangul">Abrir Hangul</ButtonLink>
+          <ButtonLink href="/hangul" className="mt-4">
+            Abrir Hangul
+          </ButtonLink>
         </Card>
       )}
 
@@ -307,7 +314,7 @@ export function DashboardArea() {
           lições e 8 checkpoints no currículo interno do KBR; {PLANNED_LEVELS} seguem
           em planejamento e ainda não têm lições.
         </p>
-        <ButtonLink href="/cursos" variant="ghost">
+        <ButtonLink href="/cursos" variant="secondary" className="mt-4">
           Ver catálogo de cursos
         </ButtonLink>
       </Card>
@@ -334,7 +341,7 @@ export function DashboardArea() {
             <p className="mt-1 text-sm text-muted">
               {review.overdue} antes de hoje · {review.dueToday} vencem hoje.
             </p>
-            <ButtonLink href="/revisao">
+            <ButtonLink href="/revisao" className="mt-4">
               Revisar {review.due} {review.due === 1 ? "cartão" : "cartões"}
             </ButtonLink>
           </>
@@ -345,7 +352,7 @@ export function DashboardArea() {
                 ? `Nada vencido agora. O próximo cartão vence em ${formatDate(review.nextDue)}.`
                 : "Nada vencido agora. Você ainda não tem cartões de revisão: erros nas lições e checkpoints criam cartões automaticamente."}
             </p>
-            <ButtonLink href="/revisao" variant="ghost">
+            <ButtonLink href="/revisao" variant="secondary" className="mt-4">
               Abrir revisão
             </ButtonLink>
           </>
@@ -424,13 +431,15 @@ export function DashboardArea() {
           </Card>
         ) : (
           <Card>
-            <ul className="grid grid-cols-5 gap-2">
+            <ul className="grid grid-cols-5 gap-1.5 sm:gap-2">
               {BOXES.map((box) => {
                 const count = review.cardsByBox[box];
                 return (
                   <li key={box} className="flex flex-col items-center gap-1 text-center">
-                    <span className="text-xs text-muted">Caixa {box}</span>
-                    <span className="text-xl font-bold">{count}</span>
+                    <span className="whitespace-nowrap text-[11px] text-muted sm:text-xs">
+                      Caixa {box}
+                    </span>
+                    <span className="font-mono text-xl font-bold tabular-nums">{count}</span>
                     <span aria-hidden className="flex h-2 w-full overflow-hidden rounded-full bg-surface-2">
                       <span
                         className="h-full rounded-full bg-accent"

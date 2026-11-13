@@ -173,22 +173,22 @@ export function SyllableBuilder({
       aria-describedby={helpId}
       className="overflow-hidden rounded-[var(--radius-panel)] border border-line bg-surface"
     >
-      <div className="border-b border-line bg-surface-2/70 px-4 py-3 sm:px-6">
+      <div className="border-b border-line bg-surface-2/70 px-3.5 py-2.5 sm:px-6 sm:py-3">
         <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
           <h3 id={titleId} className="mono-label text-accent">
             Bancada de composição
           </h3>
           <p className="mono-data text-muted">inicial + medial + final</p>
         </div>
-        <p id={helpId} className="mt-2 text-sm leading-relaxed text-muted">
+        <p id={helpId} className="mt-1.5 text-xs leading-relaxed text-muted sm:mt-2 sm:text-sm">
           Escolha inicial e medial; quando o item pedir, escolha também o final.
           Arraste uma peça até a caixa ou use Tab/Enter e toque nos botões. A prévia
           não envia a resposta.
         </p>
       </div>
 
-      <div className="grid gap-6 p-4 sm:p-6 lg:grid-cols-[minmax(0,15rem)_minmax(0,1fr)] lg:items-start">
-        <div className="mx-auto flex w-full max-w-[18rem] flex-col items-center lg:mx-0">
+      <div className="grid gap-3.5 p-3.5 sm:gap-6 sm:p-6 lg:grid-cols-[minmax(0,15rem)_minmax(0,1fr)] lg:items-start">
+        <div className="mx-auto flex w-full max-w-[13rem] flex-col items-center sm:max-w-[16rem] lg:mx-0 lg:max-w-[15rem]">
           <div
             ref={dropRef}
             data-testid="syllable-drop-zone"
@@ -213,7 +213,7 @@ export function SyllableBuilder({
           >
             <div
               aria-hidden
-              className={`relative grid aspect-square grid-rows-[minmax(0,3fr)_minmax(0,1.35fr)] gap-1 rounded-[var(--radius-panel)] border-2 bg-bg p-2.5 shadow-[inset_0_1px_0_rgb(255_255_255/0.35)] ${
+              className={`relative grid aspect-[3/2] grid-rows-[minmax(0,2.6fr)_minmax(0,1.25fr)] gap-1 rounded-[var(--radius-panel)] border-2 bg-bg p-1.5 shadow-[inset_0_1px_0_rgb(255_255_255/0.35)] sm:aspect-square sm:grid-rows-[minmax(0,3fr)_minmax(0,1.35fr)] sm:p-2.5 ${
                 ready
                   ? "border-accent"
                   : draggingOver
@@ -256,19 +256,19 @@ export function SyllableBuilder({
 
           <div
             aria-live="polite"
-            className="mt-3 w-full rounded-[var(--radius-field)] border border-line bg-bg px-3 py-2 text-center text-sm text-muted"
+            className="mt-2 w-full rounded-[var(--radius-field)] border border-line bg-bg px-3 py-1.5 text-center text-sm text-muted sm:mt-3 sm:py-2"
           >
             {ready ? (
               <>
                 Sua sílaba:{" "}
-                <strong lang="ko" className="font-ko text-3xl text-fg">
+                <strong lang="ko" className="font-ko text-2xl text-fg sm:text-3xl">
                   {syllable}
                 </strong>
               </>
             ) : cvSyllable ? (
               <>
                 Prévia C+V:{" "}
-                <strong lang="ko" className="font-ko text-3xl text-fg">
+                <strong lang="ko" className="font-ko text-2xl text-fg sm:text-3xl">
                   {cvSyllable}
                 </strong>
                 <span className="block text-xs">Escolha o final para completar.</span>
@@ -276,13 +276,13 @@ export function SyllableBuilder({
             ) : (
               <>
                 Sua sílaba:{" "}
-                <strong lang="ko" className="font-ko text-2xl text-fg">
+                <strong lang="ko" className="font-ko text-xl text-fg sm:text-2xl">
                   —
                 </strong>
               </>
             )}
           </div>
-          <p className="mt-2 text-center text-xs leading-relaxed text-muted">
+          <p className="mt-1.5 text-center text-xs leading-relaxed text-muted sm:mt-2">
             {parts.initial || parts.medial || parts.final !== undefined ? (
               <>
                 Inicial <span lang="ko" className="font-ko">{parts.initial ?? "—"}</span>
@@ -301,7 +301,9 @@ export function SyllableBuilder({
             )}
           </p>
           {syllable ? (
-            <AudioControl text={syllable} compact label="Ouvir" />
+            <div className="w-full">
+              <AudioControl text={syllable} compact label="Ouvir" />
+            </div>
           ) : null}
         </div>
 

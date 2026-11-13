@@ -173,7 +173,7 @@ export function ContextualCard({ entry, sentence, isLast, onGrade, onNext }: Pro
 
           {hintOpen ? (
             <p className="rounded-[var(--radius-field)] border border-warning bg-warning-soft p-3 text-sm">
-              <strong>Pista:</strong> {hintFor(entry)}
+              <strong>Pista:</strong> <BilingualText text={hintFor(entry)} />
             </p>
           ) : null}
 

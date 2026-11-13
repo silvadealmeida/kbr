@@ -201,6 +201,9 @@ export function A1CheckpointPlayer({
   const entryMissing = missingCourseEntryPrerequisites(progress, course);
 
   if (entryMissing.length > 0) {
+    const requiredLevel = course.entryPrerequisites?.some((id) => id.startsWith("a2-"))
+      ? "A2"
+      : "A1";
     return (
       <article aria-labelledby="checkpoint-title" className="mx-auto w-full max-w-[680px] pb-4">
         <PlayerHeader
@@ -383,7 +386,6 @@ export function A1CheckpointPlayer({
               <span>Módulo {checkpoint.number}</span>
               <span aria-hidden>·</span>
               <span>{checkpoint.estimatedMinutes} min</span>
-              <span aria-hidden>·</span>
               <span className="rounded-[var(--radius-seal)] bg-surface-2 px-2 py-0.5 text-accent">
                 Conteúdo em revisão
               </span>

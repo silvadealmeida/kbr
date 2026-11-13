@@ -5,7 +5,7 @@ import { JAMO } from "@/content/hangul/jamo";
 import { SYLLABLES } from "@/content/hangul/syllables";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
-import { AudioControl } from "./exercise-media";
+import { AudioControl, BilingualText } from "./exercise-media";
 
 type PartKey = "initial" | "medial" | "final";
 
@@ -87,7 +87,9 @@ export function SyllableAnatomy() {
       aria-labelledby={headingId}
       className="border border-line bg-surface p-4 sm:p-5"
     >
-      <p className="mono-label text-accent">Anatomia · 한</p>
+      <p className="mono-label text-accent">
+        Anatomia · <span lang="ko" className="font-ko">한</span>
+      </p>
       <h2 id={headingId} className="mt-1 text-xl font-semibold tracking-tight">
         Uma sílaba, três posições
       </h2>
@@ -184,9 +186,13 @@ export function SyllableAnatomy() {
               {exploded ? "Ver bloco montado" : "Ver peças separadas"}
             </Button>
             <p className="text-sm text-muted">
-              {exploded
-                ? "Peças separadas: ㅎ, ㅏ e ㄴ em suas posições no bloco."
-                : "Bloco montado: ㅎ e ㅏ formam 하; ㄴ fecha a sílaba 한."}
+              <BilingualText
+                text={
+                  exploded
+                    ? "Peças separadas: ㅎ, ㅏ e ㄴ em suas posições no bloco."
+                    : "Bloco montado: ㅎ e ㅏ formam 하; ㄴ fecha a sílaba 한."
+                }
+              />
             </p>
           </div>
 
@@ -241,7 +247,9 @@ export function SyllableAnatomy() {
                       · {part.jamo.ipa.join(" / ")} · introduzido em{" "}
                       {part.jamo.introducedIn}
                     </p>
-                    <p className="mt-1">{part.jamo.notes}</p>
+                    <p className="mt-1">
+                      <BilingualText text={part.jamo.notes ?? ""} />
+                    </p>
                   </div>
                 ) : null}
               </li>
@@ -252,7 +260,8 @@ export function SyllableAnatomy() {
           </p>
           <p className="sr-only" role="status">
             {exploded ? "Peças separadas." : "Bloco montado."}{" "}
-            {PART_LABELS[selected]} destacada: {parts.find((part) => part.key === selected)?.symbol}.
+            {PART_LABELS[selected]} destacada:{" "}
+            <span lang="ko">{parts.find((part) => part.key === selected)?.symbol}</span>.
           </p>
         </div>
       </div>

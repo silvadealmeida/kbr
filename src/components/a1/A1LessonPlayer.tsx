@@ -201,6 +201,9 @@ export function A1LessonPlayer({
   const entryMissing = missingCourseEntryPrerequisites(progress, course);
 
   if (entryMissing.length > 0) {
+    const requiredLevel = course.entryPrerequisites?.some((id) => id.startsWith("a2-"))
+      ? "A2"
+      : "A1";
     return (
       <article aria-labelledby="lesson-title" className="mx-auto w-full max-w-[680px] pb-4">
         <PlayerHeader
@@ -373,7 +376,9 @@ export function A1LessonPlayer({
           <ul className="flex flex-col gap-2 text-sm">
             {lesson.grammar.map((note) => (
               <li key={note.id} className="border-l-2 border-line-strong pl-3">
-                <p className="font-semibold">{note.titlePt}</p>
+                <p className="font-semibold">
+                  <BilingualText text={note.titlePt} />
+                </p>
                 <p lang="ko" className="font-ko text-muted">
                   {note.form}
                 </p>
@@ -405,7 +410,7 @@ export function A1LessonPlayer({
         <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           {lessonResult.passed && nextUnlocked && nextStep ? (
             <ButtonLink href={`${coursePath}/${nextStep.id}`}>
-              Próximo: {nextStep.id} · {nextStep.title}
+              Próximo: {nextStep.id} · <BilingualText text={nextStep.title} />
             </ButtonLink>
           ) : null}
           {lessonResult.passed && nextStep && !nextUnlocked ? (
@@ -442,7 +447,6 @@ export function A1LessonPlayer({
             <span>Lição {lesson.number} de {totalLessons}</span>
             <span aria-hidden>·</span>
             <span>≈ {lesson.estimatedMinutes} min</span>
-            <span aria-hidden>·</span>
             <span className="rounded-[var(--radius-seal)] bg-surface-2 px-2 py-0.5 text-accent">
               Conteúdo em revisão
             </span>
@@ -474,7 +478,9 @@ export function A1LessonPlayer({
             key={panel.title}
             label={`${String(panelIndex + 1).padStart(2, "0")} / explicação`}
           >
-            <h2 className="text-lg font-semibold">{panel.title}</h2>
+            <h2 className="text-lg font-semibold">
+              <BilingualText text={panel.title} />
+            </h2>
             <p className="mt-2 text-muted">
               <BilingualText text={panel.body} />
             </p>
@@ -564,7 +570,9 @@ export function A1LessonPlayer({
               key={note.id}
               label={`${String(noteIndex + 1).padStart(2, "0")} / gramática`}
             >
-              <h3 className="text-lg font-semibold">{note.titlePt}</h3>
+              <h3 className="text-lg font-semibold">
+                <BilingualText text={note.titlePt} />
+              </h3>
               <p lang="ko" className="mt-1 break-words font-ko text-base font-semibold text-accent">
                 {note.form}
               </p>

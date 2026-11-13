@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { AudioControl } from "@/components/hangul/exercise-media";
+import { AudioControl, BilingualText } from "@/components/hangul/exercise-media";
 import { Badge, type BadgeTone } from "@/components/ui/Badge";
 import { Button, ButtonLink } from "@/components/ui/Button";
 import { Card, Plate } from "@/components/ui/Card";
@@ -90,7 +90,11 @@ function Row({
           <p className="text-muted">
             {entry.pos ? `${entry.pos} · ` : ""}apresentada em {COURSE_LABEL[entry.course] ?? entry.course} · lição {entry.lesson} · conteúdo em revisão
           </p>
-          {entry.notes ? <p className="text-muted">{entry.notes}</p> : null}
+          {entry.notes ? (
+            <p className="text-muted">
+              <BilingualText text={entry.notes} />
+            </p>
+          ) : null}
           <AudioControl text={entry.audioText} label="Ouvir a palavra" compact />
           {sentences.length ? (
             <ul className="space-y-2">
@@ -192,8 +196,8 @@ export function VocabularyArea() {
               {LESSONS.filter((l) => !course || l.startsWith(`${course}/`)).map((l) => <option key={l} value={l}>{l.split("/")[1]}</option>)}
             </select>
           </div>
-          <label className="flex min-h-11 items-center gap-2 text-sm min-[560px]:col-span-2">
-            <input type="checkbox" checked={onlySaved} onChange={(e) => { setOnlySaved(e.target.checked); setLimit(PAGE); }} className="size-5" />
+          <label className="flex min-h-11 cursor-pointer items-center gap-2.5 text-sm min-[560px]:col-span-2">
+            <input type="checkbox" checked={onlySaved} onChange={(e) => { setOnlySaved(e.target.checked); setLimit(PAGE); }} className="size-5 shrink-0 accent-[var(--accent)]" />
             Mostrar só as salvas
           </label>
         </form>

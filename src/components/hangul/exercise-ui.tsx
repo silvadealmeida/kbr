@@ -579,7 +579,7 @@ export function ExerciseView({
           <button
             type="button"
             onClick={onContinue}
-            className="inline-flex min-h-12 items-center justify-center rounded-[var(--radius-field)] bg-fg px-6 font-semibold text-bg transition-colors duration-[var(--motion-fast)] hover:opacity-90"
+            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-[var(--radius-field)] bg-fg px-6 font-semibold text-bg transition-colors duration-[var(--motion-fast)] hover:opacity-90"
           >
             {isLast ? lastLabel : "Continuar"}
             <span aria-hidden>→</span>

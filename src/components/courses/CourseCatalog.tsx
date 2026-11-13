@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useAuth } from "@/components/auth/AuthProvider";
+import { BilingualText } from "@/components/hangul/exercise-media";
 import { ButtonLink } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { Card, Plate } from "@/components/ui/Card";
@@ -100,7 +101,7 @@ export function CourseCatalog() {
         ) : null}
 
         <ul className="flex flex-col gap-4">
-          {available.map((course) => {
+          {available.map((course, index) => {
             const summary =
               progress && !loading ? summarizeCourseProgress(progress, course) : null;
             const entryMissing = progress
@@ -117,7 +118,11 @@ export function CourseCatalog() {
 
             return (
               <li key={course.id}>
-                <Plate label="Índice de curso" number="01" className="border-accent">
+                <Plate
+                  label="Índice de curso"
+                  number={String(index + 1).padStart(2, "0")}
+                  className="border-accent"
+                >
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div className="min-w-0">
                     <p className="text-sm font-semibold uppercase tracking-wide text-accent">
@@ -202,19 +207,24 @@ export function CourseCatalog() {
                       ? "A conclusão do Hangul não desbloqueia o A1 automaticamente."
                       : course.id === "ko-a1"
                         ? "A conclusão do A1 libera a entrada do A2 neste app, sem certificação."
-                        : course.id === "ko-b2"
-                          ? "A conclusão do B2 libera a entrada do C1 neste app, sem certificação."
-                          : course.id === "ko-c1"
-                            ? "A conclusão do C1 libera a entrada do C2 neste app, sem certificação."
-                            : course.id === "ko-c2"
-                              ? "A conclusão do C2 encerra o percurso interno disponível; não há nível seguinte nem certificação."
-                              : "A conclusão deste nível libera a entrada do próximo neste app, sem certificação."}
+                        : course.id === "ko-a2"
+                          ? "A conclusão do A2 libera a entrada do B1 neste app, sem certificação."
+                          : course.id === "ko-b1"
+                            ? "A conclusão do B1 libera a entrada do B2 neste app, sem certificação."
+                            : course.id === "ko-b2"
+                              ? "A conclusão do B2 libera a entrada do C1 neste app, sem certificação."
+                              : course.id === "ko-c1"
+                                ? "A conclusão do C1 libera a entrada do C2 neste app, sem certificação."
+                                : course.id === "ko-c2"
+                                  ? "A conclusão do C2 encerra o percurso interno disponível; não há nível seguinte nem certificação."
+                                  : "A conclusão deste nível libera a entrada do próximo neste app, sem certificação."}
                   </p>
                 ) : summary?.nextStep && nextHref ? (
                   <p className="mt-4 text-sm text-muted">
                     Próximo passo:{" "}
                     <strong className="text-fg">
-                      {summary.nextStep.id} · {summary.nextStep.title}
+                      {summary.nextStep.id} ·{" "}
+                      <BilingualText text={summary.nextStep.title} />
                     </strong>
                   </p>
                 ) : summary ? (
@@ -368,7 +378,7 @@ export function CourseCatalog() {
                     <p className="mt-4 text-sm text-muted">
                       Disponível agora:{" "}
                       <strong className="text-fg">
-                        {step.id} · {step.title}
+                        {step.id} · <BilingualText text={step.title} />
                       </strong>
                     </p>
                   ) : null}

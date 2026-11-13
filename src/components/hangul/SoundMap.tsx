@@ -1,4 +1,5 @@
 import { JAMO } from "@/content/hangul/jamo";
+import { BilingualText } from "./exercise-media";
 
 function JamoGroup({
   title,
@@ -27,7 +28,11 @@ function JamoGroup({
               </span>{" "}
               · {jamo.ipa.join(" / ")} · {jamo.introducedIn}
             </p>
-            {jamo.notes ? <p className="mt-1 text-xs">{jamo.notes}</p> : null}
+            {jamo.notes ? (
+              <p className="mt-1 text-xs">
+                <BilingualText text={jamo.notes} />
+              </p>
+            ) : null}
           </li>
         ))}
       </ul>

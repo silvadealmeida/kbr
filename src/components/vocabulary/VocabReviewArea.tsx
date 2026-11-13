@@ -5,6 +5,8 @@ import { useState } from "react";
 import { Badge } from "@/components/ui/Badge";
 import { Button, ButtonLink } from "@/components/ui/Button";
 import { Card, Plate } from "@/components/ui/Card";
+import { PageHeader } from "@/components/ui/PageHeader";
+import { ProgressBar } from "@/components/ui/ProgressBar";
 import { sentencesFor } from "@/content/vocabulary";
 import { buildVocabQueue, reviewVocab, type VocabOutcome, type VocabQueueItem } from "@/lib/vocabulary";
 import { ContextualCard } from "./ContextualCard";
@@ -21,19 +23,33 @@ export function VocabReviewArea() {
   const [outcomes, setOutcomes] = useState<VocabOutcome[]>([]);
   const [graded, setGraded] = useState(false);
 
+  const overviewHeader = (
+    <PageHeader
+      ko="복습"
+      title="Revisão diária"
+      subtitle="Sessões curtas de frases e cartões."
+    />
+  );
+
   if (loading) {
     return (
-      <Card>
-        <p role="status" className="text-muted">Preparando seu vocabulário…</p>
-      </Card>
+      <>
+        {overviewHeader}
+        <Card>
+          <p role="status" className="text-muted">Preparando seu vocabulário…</p>
+        </Card>
+      </>
     );
   }
   if (loadError || !progress) {
     return (
-      <Card>
-        <p className="font-semibold">Não foi possível carregar seu vocabulário.</p>
-        <p className="mt-1 text-muted">Verifique se o armazenamento do navegador está disponível e tente novamente.</p>
-      </Card>
+      <>
+        {overviewHeader}
+        <Card>
+          <p className="font-semibold">Não foi possível carregar seu vocabulário.</p>
+          <p className="mt-1 text-muted">Verifique se o armazenamento do navegador está disponível e tente novamente.</p>
+        </Card>
+      </>
     );
   }
 
@@ -80,7 +96,12 @@ export function VocabReviewArea() {
           </span>
         </div>
         <h1 id="vocab-session-title" className="mt-3 text-2xl font-bold tracking-tight">Revisão diária</h1>
-        <progress className="mt-2 h-1.5 w-full accent-[var(--color-accent)]" value={index + (graded ? 1 : 0)} max={session.length} aria-label="Progresso da sessão" />
+        <ProgressBar
+          value={((index + (graded ? 1 : 0)) / session.length) * 100}
+          label="Progresso da sessão"
+          valueText={`${index + (graded ? 1 : 0)} de ${session.length} concluídos`}
+          className="mt-2"
+        />
         {item.mode === "context" && item.sentence ? (
           <ContextualCard
             key={item.vocabId}
@@ -135,6 +156,7 @@ export function VocabReviewArea() {
 
   return (
     <>
+      {overviewHeader}
       <Plate className="mb-6" label="Revisão diária" number={String(queue.totalDue).padStart(2, "0")}>
         {queue.totalDue > 0 ? (
           <>

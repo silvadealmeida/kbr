@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useAuth } from "@/components/auth/AuthProvider";
+import { BilingualText } from "@/components/hangul/exercise-media";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Card, Plate } from "@/components/ui/Card";
@@ -102,7 +103,7 @@ export function A1CourseArea({
           <h2 className="text-lg font-semibold">Curso bloqueado</h2>
           <p className="mt-1 text-muted">
             {course.title} abre depois de concluir o {entryCourseLabel}. Abrir o
-            endereço direto não libera as lições; o app usa o mesmo `Progress` v1.
+            endereço direto não libera as lições; o app usa o mesmo Progress v1.
           </p>
         </div>
         <p className="text-sm text-muted">Requisitos pendentes: {entryMissing.join(", ")}.</p>
@@ -187,7 +188,9 @@ export function A1CourseArea({
             Próximo passo:{" "}
             <strong className="text-fg">
               {currentStepId} ·{" "}
-              {course.steps.find((step) => step.id === currentStepId)?.title}
+              <BilingualText
+                text={course.steps.find((step) => step.id === currentStepId)?.title ?? ""}
+              />
             </strong>
           </p>
         ) : null}
@@ -237,7 +240,7 @@ export function A1CourseArea({
                           unlocked ? "text-fg" : "text-muted"
                         }`}
                       >
-                        {step.title}
+                        <BilingualText text={step.title} />
                       </span>
                     </span>
                     {record?.done ? (

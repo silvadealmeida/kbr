@@ -120,9 +120,9 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794531391.488749,
-    "seen": 1794531409.5567985,
-    "ast_hash": "e11f1bb425356cef9f03cb2059886f77",
+    "mtime": 1794557101.637192,
+    "seen": 1794557129.2896748,
+    "ast_hash": "b5d73f63f9e3068672c5d192e210863c",
     "semantic_hash": ""
   },
   "src/lib/hangul/index.ts": {
@@ -20835,6 +20835,210 @@
     "mtime": 1794531525.5687306,
     "seen": 1794531551.2217138,
     "ast_hash": "5768b1c7db8a77dd6ab7b5490a2477bf",
+    "semantic_hash": ""
+  },
+  "docs/audits/b1/data/coverage-matrix.json": {
+    "mtime": 1794557016.0124824,
+    "seen": 1794557129.2714024,
+    "ast_hash": "0190a3c4df89c0f6dee6496f9b77ac37",
+    "semantic_hash": ""
+  },
+  "docs/audits/b1/data/findings.json": {
+    "mtime": 1794557016.0565026,
+    "seen": 1794557129.2714052,
+    "ast_hash": "2ee5ac67678480611d6a74c760a9490d",
+    "semantic_hash": ""
+  },
+  "docs/audits/b1/data/lexicon-origin-findings.json": {
+    "mtime": 1794557015.9324374,
+    "seen": 1794557129.2714067,
+    "ast_hash": "56aa782b4b695e7ef7711123daa9691d",
+    "semantic_hash": ""
+  },
+  "docs/audits/b1/data/listen-prompt-findings.json": {
+    "mtime": 1794557014.899829,
+    "seen": 1794557129.2714076,
+    "ast_hash": "9eb6364eec10839d5c2a2d0fd230e00d",
+    "semantic_hash": ""
+  },
+  "docs/audits/b1/data/particle-findings.json": {
+    "mtime": 1794557014.8077638,
+    "seen": 1794557129.2714088,
+    "ast_hash": "836075e4b02d462ae94d4ca660f7bf52",
+    "semantic_hash": ""
+  },
+  "docs/audits/b1/data/progression-findings.json": {
+    "mtime": 1794557015.860396,
+    "seen": 1794557129.2714102,
+    "ast_hash": "bbca224ae0c945e11da641b3e902700a",
+    "semantic_hash": ""
+  },
+  "docs/audits/b1/data/shared-validators.json": {
+    "mtime": 1794556247.2896326,
+    "seen": 1794557129.2714112,
+    "ast_hash": "34b9000cddf7b07d3983d44778d1ea96",
+    "semantic_hash": ""
+  },
+  "docs/audits/b1/data/structure-findings.json": {
+    "mtime": 1794557014.7116957,
+    "seen": 1794557129.271413,
+    "ast_hash": "83dad58287c0ab178b1703f33cc363d4",
+    "semantic_hash": ""
+  },
+  "docs/audits/b1/data/typed-normalization.json": {
+    "mtime": 1794557014.995897,
+    "seen": 1794557129.2714145,
+    "ast_hash": "89f65925bf003471756c18abd4c9fdb0",
+    "semantic_hash": ""
+  },
+  "docs/audits/b1/data/vocabulary-findings.json": {
+    "mtime": 1794557015.0999582,
+    "seen": 1794557129.2714164,
+    "ast_hash": "a05e7e6dd0a9e2d8b59901bd85324ebb",
+    "semantic_hash": ""
+  },
+  "docs/audits/b1/tools/analyze-lexicon-origin.cjs": {
+    "mtime": 1794551924.9498947,
+    "seen": 1794557129.2714176,
+    "ast_hash": "8b5bc767ead63975b2849e74537f09f3",
+    "semantic_hash": ""
+  },
+  "docs/audits/b1/tools/analyze-listen-prompts.cjs": {
+    "mtime": 1794550644.434116,
+    "seen": 1794557129.2714188,
+    "ast_hash": "f4402e0df71cda7b1bd29525bf539b64",
+    "semantic_hash": ""
+  },
+  "docs/audits/b1/tools/analyze-particles.cjs": {
+    "mtime": 1794550623.4441936,
+    "seen": 1794557129.2714202,
+    "ast_hash": "ae417220e254fc007cbe4da38ee5b7ce",
+    "semantic_hash": ""
+  },
+  "docs/audits/b1/tools/analyze-progression.cjs": {
+    "mtime": 1794555799.3019536,
+    "seen": 1794557129.271421,
+    "ast_hash": "3daaa02356d612505b82822a50983994",
+    "semantic_hash": ""
+  },
+  "docs/audits/b1/tools/analyze-structure.cjs": {
+    "mtime": 1794550600.2167695,
+    "seen": 1794557129.271422,
+    "ast_hash": "9d9f09784579b7bf052e787b96c049a8",
+    "semantic_hash": ""
+  },
+  "docs/audits/b1/tools/analyze-typed-normalization.cjs": {
+    "mtime": 1794550649.8825068,
+    "seen": 1794557129.2714229,
+    "ast_hash": "b9c0a98620a46ee0bf01968f2cd4c7cd",
+    "semantic_hash": ""
+  },
+  "docs/audits/b1/tools/analyze-vocabulary.cjs": {
+    "mtime": 1794550814.8728726,
+    "seen": 1794557129.2714238,
+    "ast_hash": "1116c0a06b4e4065863c9a23f8daa762",
+    "semantic_hash": ""
+  },
+  "docs/audits/b1/tools/build-findings.cjs": {
+    "mtime": 1794556886.739623,
+    "seen": 1794557129.2714252,
+    "ast_hash": "292a9bd23a85c4b63754f1b9ac0ebcac",
+    "semantic_hash": ""
+  },
+  "docs/audits/b1/tools/content/dump-content.test.ts": {
+    "mtime": 1794550487.1112008,
+    "seen": 1794557129.2714272,
+    "ast_hash": "6478d368ff7a49c3a35ed45117c99b17",
+    "semantic_hash": ""
+  },
+  "docs/audits/b1/tools/content/shared-validators.test.ts": {
+    "mtime": 1794550745.8095734,
+    "seen": 1794557129.2714286,
+    "ast_hash": "96bb666fca14edc9259d4ae0dc998305",
+    "semantic_hash": ""
+  },
+  "docs/audits/b1/tools/make-coverage.cjs": {
+    "mtime": 1794552289.1019652,
+    "seen": 1794557129.2714298,
+    "ast_hash": "fc2a4b46514f7b0d2c5a6c3e14dd0412",
+    "semantic_hash": ""
+  },
+  "docs/audits/b1/tools/make-ledger.cjs": {
+    "mtime": 1794556272.59207,
+    "seen": 1794557129.271432,
+    "ast_hash": "c4cc8acd7bf7a17aa8b69b0705e48565",
+    "semantic_hash": ""
+  },
+  "docs/audits/b1/tools/vitest.config.mts": {
+    "mtime": 1794556239.5352318,
+    "seen": 1794557129.2714334,
+    "ast_hash": "8feaec44f20266b437d42fbafa6b7fc1",
+    "semantic_hash": ""
+  },
+  "docs/audits/b1/README.md": {
+    "mtime": 1794557007.9505293,
+    "seen": 1794557129.2885804,
+    "ast_hash": "326924a3520f547298dc4b6839a7b841",
+    "semantic_hash": ""
+  },
+  "docs/audits/b1/correction-proposals.md": {
+    "mtime": 1794556941.6798487,
+    "seen": 1794557129.2885823,
+    "ast_hash": "8dc1f41d1707a6ded8f167019747c015",
+    "semantic_hash": ""
+  },
+  "docs/audits/b1/coverage-ledger.md": {
+    "mtime": 1794557016.148545,
+    "seen": 1794557129.2885842,
+    "ast_hash": "d0e11c1fde5fac0a838e990184b3aaab",
+    "semantic_hash": ""
+  },
+  "docs/audits/b1/data/review-sheet.md": {
+    "mtime": 1794551540.086244,
+    "seen": 1794557129.2885854,
+    "ast_hash": "0d02f6ae15b05a71fca03890967b9dab",
+    "semantic_hash": ""
+  },
+  "docs/audits/b1/executive-summary.md": {
+    "mtime": 1794556964.2333217,
+    "seen": 1794557129.2885869,
+    "ast_hash": "f409d9609e1d09c66de1af647d3abca0",
+    "semantic_hash": ""
+  },
+  "docs/audits/b1/exercise-findings.md": {
+    "mtime": 1794556782.354596,
+    "seen": 1794557129.2885883,
+    "ast_hash": "3d5f993e690b5c16fd9cccb84aaecb26",
+    "semantic_hash": ""
+  },
+  "docs/audits/b1/inventory.md": {
+    "mtime": 1794556698.2805462,
+    "seen": 1794557129.2885892,
+    "ast_hash": "773775da2bf061647a61510dfa6fa035",
+    "semantic_hash": ""
+  },
+  "docs/audits/b1/linguistic-findings.md": {
+    "mtime": 1794556755.0767212,
+    "seen": 1794557129.288591,
+    "ast_hash": "a317cd216e00cf8ec72ea7694128be2c",
+    "semantic_hash": ""
+  },
+  "docs/audits/b1/production-task-findings.md": {
+    "mtime": 1794556870.0987337,
+    "seen": 1794557129.2885919,
+    "ast_hash": "7e7eeca570768a40def22d955212052d",
+    "semantic_hash": ""
+  },
+  "docs/audits/b1/progression-findings.md": {
+    "mtime": 1794556730.4291623,
+    "seen": 1794557129.2885938,
+    "ast_hash": "3ce7c22093d88b98b4b10cb9c40c398f",
+    "semantic_hash": ""
+  },
+  "docs/audits/b1/vocabulary-findings.md": {
+    "mtime": 1794556852.195538,
+    "seen": 1794557129.288596,
+    "ast_hash": "950eb2446b401e15f4b4d39db4e0046e",
     "semantic_hash": ""
   },
   "package-lock.json": {

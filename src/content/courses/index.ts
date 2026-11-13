@@ -16,6 +16,8 @@ export { A1_COURSE } from "./a1";
 export { A2_COURSE } from "./a2";
 export { B1_COURSE } from "./b1";
 export { B2_COURSE } from "./b2";
+export { C1_COURSE } from "./c1";
+export { C2_COURSE } from "./c2";
 export { HANGUL_COURSE } from "./hangul";
 export { PLANNED_COURSES } from "./planned";
 export {

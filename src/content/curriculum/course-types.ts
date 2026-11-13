@@ -74,7 +74,22 @@ export type CourseReadingText = {
 };
 
 export type CourseProductionRubricCriterion = {
-  criterion: "task" | "organization" | "vocabulary" | "grammar" | "argument";
+  /**
+   * Critérios núcleo do B2 e critérios discursivos adicionais usados em C1/C2
+   * (`synthesis`, `source`, `mediation`, `register`, `editing`). A união é
+   * aditiva: nenhum curso anterior precisa mudar.
+   */
+  criterion:
+    | "task"
+    | "organization"
+    | "vocabulary"
+    | "grammar"
+    | "argument"
+    | "synthesis"
+    | "source"
+    | "mediation"
+    | "register"
+    | "editing";
   labelPt: string;
   descriptorPt: string;
 };

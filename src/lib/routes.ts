@@ -20,9 +20,9 @@ export const EXPERIMENTAL_PROTECTED_PATHS = ["/fala"];
 
 /**
  * Rotas curriculares acessadas pelo catálogo, não pela navegação principal.
- * A1 e A2 são cursos internos com progresso em `Progress` v1.
+ * A1–C2 são cursos internos com progresso em `Progress` v1.
  */
-export const CURRICULUM_PROTECTED_PATHS = ["/a1", "/a2", "/b1", "/b2"];
+export const CURRICULUM_PROTECTED_PATHS = ["/a1", "/a2", "/b1", "/b2", "/c1", "/c2"];
 
 /** Rotas que exigem sessão válida; a landing e as páginas legais são públicas. */
 export const PROTECTED_PATHS = [

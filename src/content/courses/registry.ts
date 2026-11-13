@@ -2,6 +2,8 @@ import { A1_COURSE } from "./a1";
 import { A2_COURSE } from "./a2";
 import { B1_COURSE } from "./b1";
 import { B2_COURSE } from "./b2";
+import { C1_COURSE } from "./c1";
+import { C2_COURSE } from "./c2";
 import { HANGUL_COURSE } from "./hangul";
 import { PLANNED_COURSES } from "./planned";
 import {
@@ -14,9 +16,9 @@ const COURSE_ID = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const SRS_PREFIX = /^[a-z0-9]+:$/i;
 
 /**
- * Registro estático de cursos. Hangul, A1, A2 e B1 estão disponíveis; o B2 é
- * registrado pelo seu próprio módulo (em desenvolvimento ou disponível), e
- * C1–C2 seguem como entradas de planejamento sem passos, rotas ou conteúdo.
+ * Registro estático de cursos. Hangul e A1–C2 são registrados pelos próprios
+ * módulos; cada nível avançado só entra em "disponível" com os 48 passos,
+ * rota e conteúdo reais.
  */
 export const COURSE_REGISTRY: readonly CourseDefinition[] = [
   HANGUL_COURSE,
@@ -24,6 +26,8 @@ export const COURSE_REGISTRY: readonly CourseDefinition[] = [
   A2_COURSE,
   B1_COURSE,
   B2_COURSE,
+  C1_COURSE,
+  C2_COURSE,
   ...PLANNED_COURSES,
 ];
 

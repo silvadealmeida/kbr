@@ -1,5 +1,7 @@
 # Ledger de cobertura — Fase 12B (auditoria B1)
 
+> **Atualização 12D:** a cobertura de itens avaliados continua integral (40 lições, 8 checkpoints, 615 itens, 320+320 de vocabulário, 40 produções). A 12D fechou os 14 INCERTOS editorialmente e adicionou um painel de registro na l23 (80 → 81 painéis de intro), sem remover ou reamostrar nenhuma categoria. As decisões e os testes estão em [`final-editorial-decisions.md`](final-editorial-decisions.md); os dados de máquina foram regenerados a partir do conteúdo pós-12D. O restante deste ledger preserva a medição original da 12B.
+
 > **Atualização 12C:** a cobertura continua integral (40 lições, 8 checkpoints, 615 itens, 320+320 de vocabulário, 40 produções). As correções aplicadas e os testes de regressão estão em [`correction-ledger.md`](correction-ledger.md); nenhuma categoria foi reamostrada ou removida. O ledger abaixo preserva a medição original da 12B.
 
 Baseline: `6e5d38b`. Método: cada passo (48) foi lido INTEGRALMENTE pelo agente-lead e por um revisor independente por fatia; as categorias abaixo foram cruzadas por scripts determinísticos (PASS A) e reverificadas linha a linha (PASS D). Nada foi amostrado.

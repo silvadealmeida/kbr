@@ -1,6 +1,6 @@
 {
   "inventory": {
-    "baseline": "6e5d38b (12B) · conteúdo pós-12C",
+    "baseline": "6e5d38b (12B) · conteúdo pós-12D",
     "b1": {
       "lessons": 40,
       "checkpoints": 8,
@@ -8,7 +8,7 @@
       "dialogueLines": 238,
       "grammarBlocks": 80,
       "grammarExamples": 160,
-      "introPanels": 80,
+      "introPanels": 81,
       "productionTasks": 40,
       "newVocab": 320,
       "b1Sentences": 320,

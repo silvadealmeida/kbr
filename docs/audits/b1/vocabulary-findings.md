@@ -26,5 +26,5 @@ Escopo: 320 identidades `ko:` + 320 frases contextuais (`src/content/vocabulary/
 
 ## Política aplicada
 
-- Conteúdo é original do curso; **nenhum achado desta auditoria constitui aprovação nativa** — itens marcados INCERTO vão para a fila de revisão humana (`correction-proposals.md §Fila`).
+- Conteúdo é original do curso; **nenhum achado desta auditoria constitui aprovação nativa** — os 14 INCERTOS linguísticos foram fechados editorialmente na 12D (`final-editorial-decisions.md`); a revisão nativa do conteúdo geral continua como risco separado.
 - Frases corrigidas não têm MP3 estático (áudio é opt-in; TTS cobre); nada foi regenerado nesta fase.

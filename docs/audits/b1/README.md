@@ -1,9 +1,9 @@
 # Auditoria 12B — B1 (coreano A0–A2 → B1), somente leitura
 
-**Status: CONCLUÍDA (12B) e EXECUTADA (12C).** A auditoria linguística e pedagógica completa do B1 implementado não alterou conteúdo na 12B. Na 12C as correções verificadas foram aplicadas localmente: 3 dos 4 CRÍTICO corrigidos, C001 rejeitado (`것으로` é a forma correta), fairness sistêmica resolvida, progressão por micro-ensino e 65 `reusedIds` congeladas. O ledger de execução é [`correction-ledger.md`](correction-ledger.md); nenhum conteúdo foi marcado como revisado por nativo.
+**Status: CONCLUÍDA (12B), EXECUTADA (12C) e FECHADA EDITORIALMENTE (12D).** A auditoria linguística e pedagógica completa do B1 implementado não alterou conteúdo na 12B. Na 12C as correções verificadas foram aplicadas localmente: 3 dos 4 CRÍTICO corrigidos, C001 rejeitado (`것으로` é a forma correta), fairness sistêmica resolvida, progressão por micro-ensino e 65 `reusedIds` congeladas. Na 12D os 14 INCERTOS (`U001`–`U014`) receberam disposição final `EDITORIALLY_RESOLVED_AI`, sem alegação de revisão nativa. O ledger de execução é [`correction-ledger.md`](correction-ledger.md); as decisões finais estão em [`final-editorial-decisions.md`](final-editorial-decisions.md).
 
 - Linha de base: `6e5d38bf8e9ec89c86d4d3236301a114ff2a0f45` · Branch local `audit/b1-phase-12b` (sem push — decisão do dono).
-- Escopo medido: 40 lições, 8 checkpoints, **615 itens avaliados** (381 digitados; 132 listen), 80 blocos de gramática (160 exemplos), 80 painéis de intro, 238 linhas de diálogo, 40 tarefas de produção, 320 identidades + 320 frases de vocabulário, 164 `reusedIds`.
+- Escopo medido: 40 lições, 8 checkpoints, **615 itens avaliados** (381 digitados; 132 listen), 80 blocos de gramática (160 exemplos), 80 painéis de intro na 12B (81 após o painel de registro da 12D), 238 linhas de diálogo, 40 tarefas de produção, 320 identidades + 320 frases de vocabulário, 164 `reusedIds`.
 - Veredito agregado: **4 CRÍTICO · 25 MAJOR · 20 MINOR · 14 UNCERTAIN** + 9 classes de falso positivo rejeitadas. Comece por [`executive-summary.md`](executive-summary.md).
 
 ## Protocolo de severidade (mesmo da 12A)
@@ -38,8 +38,9 @@ Nenhuma categoria foi amostrada — cobertura integral está afirmada com evidê
 | `vocabulary-findings.md` | 320 cartões + relação vocab×itens |
 | `production-task-findings.md` | 40 tarefas (sem grading automático; defeitos pedagógicos) |
 | `progression-findings.md` | cluster de formas/léxico cobrados sem ensino + dívida 12A |
-| `correction-proposals.md` | plano de correção priorizado em 5 níveis + fila nativa (execução 12C registrada no topo) |
-| `correction-ledger.md` | **ledger de execução da 12C**: achado, correção real, evidência, teste, status e impacto de áudio |
+| `correction-proposals.md` | plano de correção priorizado em 5 níveis + fila nativa (execução 12C registrada no topo; 12D fechou os 14 INCERTOS) |
+| `correction-ledger.md` | **ledger de execução da 12C e da 12D**: achado, correção real, evidência, teste, status e impacto de áudio |
+| `final-editorial-decisions.md` | **decisões finais U001–U014 da 12D**, com antes/depois, racional, teste, áudio e status `EDITORIALLY_RESOLVED_AI` |
 | `data/findings.json` | ledger canônico legível por máquina (fonte da verdade dos IDs `B1-12B-*`) |
 | `data/*.json` | evidências: `content-dump`, `structure-findings`, `particle-findings`, `listen-prompt-findings`, `typed-normalization`, `vocabulary-findings`, `progression-findings`, `lexicon-origin-findings`, `shared-validators`, `coverage-matrix` |
 | `data/review-sheet.md` | despejo de leitura humana do corpus (linhas por lição) usado nos passes B/D |

@@ -1,4 +1,6 @@
-# B1 — propostas de correção ordenadas (Fase 12B → execução 12C)
+# B1 — propostas de correção ordenadas (Fase 12B → execução 12C/12D)
+
+> **Atualização 12D (2026-11-13):** os 14 INCERTOS (`U001`–`U014`) foram fechados editorialmente com `EDITORIALLY_RESOLVED_AI`; o dono decidiu não exigir uma fase separada de revisão humana/nativa para este backlog. As decisões finais, o antes/depois e os testes estão em [`final-editorial-decisions.md`](final-editorial-decisions.md). Resumo: `U001`, `U003`, `U009` e `U012` preservam formas válidas com esclarecimento; `U005` foi rejeitado como uso válido; `U002`, `U004`, `U006`, `U008` e `U013` receberam correções pontuais; `U007`, `U010`, `U011` e `U014` receberam esclarecimento contextual/metalinguístico. Nenhum item foi marcado como revisado por nativo.
 
 > **Atualização 12C (2026-11-13):** este documento deixou de ser somente proposta. O ledger de execução, com evidência, teste e impacto de áudio por achado, está em [`correction-ledger.md`](correction-ledger.md). Resumo: **3 dos 4 CRÍTICO corrigidos**; o C001 foi **rejeitado** porque `것` tem batchim ㅅ e `것으로` é a forma correta (a 12B propunha `것로`, agramatical). Todos os MAJOR de conteúdo local, fairness, progressão por micro-ensino e higiene de dados foram tratados; M022 foi **congelado** como dívida de 65 referências (heurística de flexão), sem deletar IDs. Minors executados e adiados estão listados no ledger. Nada foi marcado como revisado por nativo.
 
@@ -60,6 +62,6 @@ Cada linha tem duas saídas (A=reinserar ensino, B=trocar cobrança). Recomenda�
 
 N001 (`introduce` → `introduz`), N002 (`processe` → `trate`), N003 (`trade-off(s)` → `contrapartida(s)`, 4×), N004 (`indoor` → `em ambiente fechado`, 5×), N005 (pessoa da variante), N006 (comma splices `por outro lado`, 6×), N007 (aspecto l02-e05), N008 (`Perdi-me` → `Eu me perdi`), N009 (política de backshift única), N012 (gênero 지민), N013/N016/N023 (glosas), N014 (6 citações de explanation → substring literal), N017 (glosa `예정`), N018 (doc de risco homógrafo), N019/N020 (dívida de input), N021 (nota de escopo c02), N022 (variante `가구`).
 
-## Fila de revisão humana/nativa (pré-requisito para fechar INCERTOS)
+## Fila de revisão humana/nativa — encerrada editorialmente na 12D
 
-U001 `-더라면` (l04) · U002 `비에 미끄러져서` · U003 `더 용기를`/`뭐를` · U004 `두 번밖에` · U005 registro da avó · U006 `못 온다고` · U007 반말 l23 · U008/U009 `-ㅂ니다` isolado · U010/U011 notas metalinguísticas ambíguas · U012 `대신` sem `-에` · U013 `-기에` em fala · U014 `대피` sem cenário. **Itens para segundo-model-review (regra da auditoria): U001, M002, M011, M012, M021b** — os demais MAJOR têm evidência de fonte direta.
+U001 `-더라면` (l04) · U002 `비에 미끄러져서` · U003 `더 용기를`/`뭐를` · U004 `두 번밖에` · U005 registro da avó · U006 `못 온다고` · U007 반말 l23 · U008/U009 `-ㅂ니다` isolado · U010/U011 notas metalinguísticas ambíguas · U012 `대신` sem `-에` · U013 `-기에` em fala · U014 `대피` sem cenário. **Todos receberam disposição final na 12D** (ver `final-editorial-decisions.md`); não há mais fila aberta para estes 14. A revisão nativa do conteúdo geral de Hangul/A1/A2/B1 continua como risco separado, sem bloquear o fechamento deste backlog. Não há alegação de aprovação nativa.

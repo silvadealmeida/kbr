@@ -333,8 +333,18 @@ if (fs.existsSync(findingsPath)) {
   const byId = new Map((previous.findings || []).map((f) => [f.id, f]));
   for (const finding of findings) {
     const old = byId.get(finding.id);
-    if (old?.status) finding.status = old.status;
-    if (old?.resolution) finding.resolution = old.resolution;
+    if (!old) continue;
+    for (const key of [
+      "status",
+      "resolution",
+      "finalDisposition",
+      "resolvedIn",
+      "regressionTest",
+      "audioImpact",
+      "finalStatus",
+    ]) {
+      if (old[key] !== undefined) finding[key] = old[key];
+    }
   }
 }
 
@@ -344,8 +354,8 @@ const relatorio = {
   baseline: "6e5d38bf8e9ec89c86d4d3236301a114ff2a0f45",
   branch: "audit/b1-phase-12b",
   gerado: "2026-11-13",
-  natureza: "ledger canônico da auditoria 12B; o campo status reflete a execução da 12C e as correções vivem em correction-ledger.md",
-  escopo: "auditoria de conteúdo educacional B1; achados verificados na fonte, com correções aplicadas na 12C",
+  natureza: "ledger canônico da auditoria 12B; o campo status reflete a execução da 12C e o fechamento editorial da 12D (sem revisão nativa); as correções vivem em correction-ledger.md e final-editorial-decisions.md",
+  escopo: "auditoria de conteúdo educacional B1; achados verificados na fonte, com correções aplicadas na 12C e decisões editoriais finais na 12D",
   counts: {
     lecoes: 40, checkpoints: 8, itensAvaliados: 615, itensDigitados: 381, itensListen: 132,
     vocabNovas: 320, vocabFrases: 320, reusedRefsDeclaradas: 164, reusedDistinct: 96,

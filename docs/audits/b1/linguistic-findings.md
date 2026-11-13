@@ -105,7 +105,9 @@ Cada caso: forma nunca ensinada em bloco gramatical (A1/A2/B1) exigida como resp
 - **B1-12B-N014** explicações de reading citando paráfrase em vez de substring do texto (6 itens listados em exercise-findings §explicações).
 - **B1-12B-N022** `l21-e09` aceita "famílias" para `가구` (domicílios) — variante longínqua; manter ou restringir.
 
-## INCERTO (revisão nativa/humana obrigatória)
+## INCERTO (14) — registro 12B, fechados na 12D
+
+> **12D:** os 14 receberam disposição final `EDITORIALLY_RESOLVED_AI`; ver [`final-editorial-decisions.md`](final-editorial-decisions.md). A lista abaixo é o registro histórico da 12B e não deve ser reaberta sem nova evidência concreta de erro.
 
 Conjunto canônico = `B1-12B-U001` … `U014` em `data/findings.json` (cada um com ko, problema, duas saídas e confiança explícita):
 

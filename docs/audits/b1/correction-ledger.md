@@ -1,6 +1,8 @@
-# B1 — ledger de correção (Fase 12C)
+# B1 — ledger de correção (Fases 12C e 12D)
 
 **Status:** correções aplicadas localmente na branch `audit/b1-phase-12b` (sem push, sem deploy). A 12B foi somente leitura; este ledger registra o que foi verificado, corrigido, rejeitado ou adiado. Nenhum conteúdo foi marcado como revisado por falante nativo.
+
+> **Atualização 12D (2026-11-13):** os 14 INCERTOS (`U001`–`U014`) foram fechados editorialmente com `EDITORIALLY_RESOLVED_AI`. O registro completo, com antes/depois, racional, teste e áudio por achado, está em [`final-editorial-decisions.md`](final-editorial-decisions.md). A seção 12C abaixo foi preservada como histórico; o estado atual dos 14 é o da tabela 12D.
 
 ## Como ler
 
@@ -71,16 +73,35 @@
 
 | ID | Motivo |
 |---|---|
-| N009 | Política de backshift pt-BR (disse que vem/estava) exige decisão editorial; ambas são aceitáveis |
+| N009 | Política de backshift pt-BR: U006 fixou a escolha natural em l03 (“não pode vir/ir”, com “não poderá” aceito); os demais casos (c01/c08) continuam aceitos e não foram reescritos |
 | N014 | 6 explicações de leitura citam paráfrase; corrigir exige revisão item a item, sem impacto de correção |
 | N018 | Documentar homógrafos intra-forma (`부상`, `대기`, `정전`…) é decisão de schema/revisão humana |
 | N019 | `-다는 점에서` em input antes do bloco l15: dívida de input, não cobrança |
 | N020 | `-기에는` em input antes do bloco l26: dívida de input, não cobrança |
 | N021 | Nota de escopo do c02 sobre variante fora do escopo: cosmético |
 
-## UNCERTAIN (14) — não alterados
+## UNCERTAIN (14) — fechados editorialmente na 12D
 
-`U001`–`U014` permanecem como estavam. Nenhum foi tratado como aprovado; a fila de revisão nativa continua em `linguistic-findings.md` e `correction-proposals.md`. Em particular, `U001` (`-더라면`) e `U007` (registro da l23) não foram “corrigidos” por IA.
+**Histórico 12C:** `U001`–`U014` permaneceram intocados; nenhum foi tratado como aprovado, e a fila de revisão nativa continuava em `linguistic-findings.md` e `correction-proposals.md`. Em particular, `U001` (`-더라면`) e `U007` (registro da l23) não foram “corrigidos” por IA naquela fase.
+
+**12D:** o dono decidiu não exigir uma fase separada de revisão humana/nativa para encerrar este backlog. As decisões finais foram aplicadas com o status `EDITORIALLY_RESOLVED_AI` (sem `native-reviewed`, `human-approved` ou `certified`). Detalhes completos em [`final-editorial-decisions.md`](final-editorial-decisions.md); o teste dedicado é `tests/content/b1-editorial-decisions.test.ts`.
+
+| ID | Decisão final | Status | Arquivos | Antes → depois | Racional (resumo) | Teste | Áudio |
+|---|---|---|---|---|---|---|---|
+| U001 | **KEEP + CLARIFY** | `EDITORIALLY_RESOLVED_AI` | `module1.ts` (l04 intro/g2/MCQ) | nota sem variante → nota com `-았/었더라면`; `알더라면` → `알았더라면`; `있더라면` e cloze `더라면` mantidos | condição contrafactual de estado/possibilidade; passado concluído pede `-았/었더라면` | U001 | TTS (exemplo gramatical) |
+| U002 | **CORRECT** | `EDITORIALLY_RESOLVED_AI` | `b1-m01.ts` (`ko:넘어지다`) | `비에 미끄러져서` → `빗길에 미끄러져서`; pt “na rua molhada” | colocação padrão para escorregar na rua molhada | U002 | TTS (frase do cartão) |
+| U003 | **KEEP** | `EDITORIALLY_RESOLVED_AI` | `module1.ts` (`b1-l04-e05`, d03) | aceita `용기를 더 냈으면`; `뭐를` preservado | ordem e `뭐를` são variantes válidas; sem normalização global | U003 | nenhum |
+| U004 | **CORRECT** | `EDITORIALLY_RESOLVED_AI` | `module7.ts` (l32 d4/e03/e04/e08) | `두 번밖에 없다` → `두 번밖에 안 오다`; pt “duas vezes pela manhã” | `두 번` é frequência, não contagem de veículos | U004 | TTS (diálogo e 2 listens) |
+| U005 | **REJECTED — VALID USAGE** | `EDITORIALLY_RESOLVED_AI` | `module5.ts` (l22) | sem mudança | avó pode usar 해라체 com neto; `-다고들 해요` é relato válido | U005 | nenhum |
+| U006 | **CORRECT (pt only)** | `EDITORIALLY_RESOLVED_AI` | `module1.ts` (l03 d2/e01/e09) | “não poderá” → “não pode”; coreano intacto | relato coreano correto; pt escolhe forma natural para evento futuro | U006 | nenhum texto coreano |
+| U007 | **CLARIFY** | `EDITORIALLY_RESOLVED_AI` | `module5.ts` (l23 intro) | 2 → 3 painéis; painel “Registro: 반말 entre amigos” | uso intencional entre amigos; faltava orientação de registro | U007 | nenhum (painel não é áudio) |
+| U008 | **CORRECT** | `EDITORIALLY_RESOLVED_AI` | `module2.ts` (l07 d6) | `좋습니다` → `좋아요` | `-ㅂ니다` isolado sem propósito em diálogo 해요체 | U008 | TTS (diálogo) |
+| U009 | **KEEP + CLARIFY** | `EDITORIALLY_RESOLVED_AI` | `module4.ts` (l17/l20 summaries e leituras) | `필요했습니다`/`낫습니다` preservados; notas de registro | registro escrito formal é válido em prosa de leitura | U009 | nenhum texto avaliado |
+| U010 | **CLARIFY** | `EDITORIALLY_RESOLVED_AI` | `module1.ts` (`b1-l02-g2`) | “não aceita ordem” → restrição específica de `-자마자` | “ordem” era ambíguo; não generalizar para `-자`/conectores | U010 | nenhum |
+| U011 | **CLARIFY** | `EDITORIALLY_RESOLVED_AI` | `module1.ts` (`b1-l03-g2`) | “verbos de movimento…” → final `-냐고`, entonação e pontuação | separa final gramatical, fala e escrita | U011 | nenhum |
+| U012 | **KEEP + CLARIFY** | `EDITORIALLY_RESOLVED_AI` | `module2.ts` (`b1-l08-g1`) | nota só de adjetivo → V/Adj/N + `에` opcional | `비싼 대신에` é correta; faltava cobrir substantivo | U012 | nenhum |
+| U013 | **CORRECT (register)** | `EDITORIALLY_RESOLVED_AI` | `module4.ts` (l18 d6/g2/intro) | `하기에` → `하니까` na fala; `-기에` mantido no ensino/cloze | `-기에` é válido, mas formal/escrito para colegas em conversa | U013 | TTS (diálogo) |
+| U014 | **CLARIFY** | `EDITORIALLY_RESOLVED_AI` | `module6.ts` (`b1-l27-e08`; achado citava e09) | enunciado ganha “após o aviso de emergência” | evacuação precisa de cenário de perigo; gabarito intacto | U014 | nenhum (`audioText` igual) |
 
 ## Impacto de áudio
 
@@ -92,7 +113,8 @@
 ## Verificação
 
 - `npm run typecheck` — limpo.
-- `npm test` — 43 arquivos / **613 testes** (595 da base + 18 novos da 12C), todos passando.
+- `npm test` — 12C: 43 arquivos / **613 testes** (595 da base + 18 novos); 12D: 44 arquivos / **630 testes** (613 da base + 17 novos), todos passando.
 - `npm run build` com `NEXT_PUBLIC_KBR_STATIC_AUDIO=0` — verde e **`[audio-guard] OK`**: `public/audio/` fora do deploy, nenhum MP3 em `.next/`.
-- `npm run e2e` — **619 executados + 27 skips intencionais** (646 no total), Chromium 375/390/768/1280 + WebKit 390. O webServer liga `NEXT_PUBLIC_KBR_STATIC_AUDIO=1` explicitamente para exercitar o caminho de MP3.
+- `npm run e2e` — **619 executados + 27 skips intencionais** (646 no total), Chromium 375/390/768/1280 + WebKit 390.
 - Auditoria: `analyze-typed-normalization` **0/381** exigindo pontuação exata; `analyze-listen-prompts` **0/132** fora do padrão; `analyze-structure` **0 achados**; `shared-validators` **0 issues**; `findUnusedReusedRefs` **65 congeladas** (297 A1/A2 + 65 B1 = 362 no baseline).
+- 12D: `npx vitest run --config docs/audits/b1/tools/vitest.config.mts` — **2/2**; `analyze-structure` 40/8/615/238/80/160/**81** painéis/320+320/164; `analyze-vocabulary` 0 colisões, 0 homógrafos, 0 `idFormMismatch`, 0 `reusedButUntaught`; `analyze-progression` sem nova regressão de ordem; cartões e IDs preservados.

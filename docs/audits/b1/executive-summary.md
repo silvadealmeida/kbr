@@ -1,4 +1,6 @@
-# B1 — resumo executivo (Fase 12B, executado na 12C)
+# B1 — resumo executivo (Fases 12B, 12C e 12D)
+
+> **Resultado da 12D:** os 14 INCERTOS (`U001`–`U014`) foram fechados editorialmente com `EDITORIALLY_RESOLVED_AI`. O dono decidiu não exigir uma fase separada de revisão humana/nativa para este backlog; isso não é aprovação nativa. Resultado: **5 correções pontuais** (U002, U004, U006, U008, U013), **4 preservações** (U001, U003, U009, U012), com esclarecimento em U001/U009/U012, **1 rejeição por uso válido** (U005) e **4 esclarecimentos contextuais/metalinguísticos** (U007, U010, U011, U014). O teste dedicado tem **17 casos**; a suíte completa passou com **630 testes / 44 arquivos**. Ver [`final-editorial-decisions.md`](final-editorial-decisions.md) e a seção 12D de [`correction-ledger.md`](correction-ledger.md).
 
 > **Resultado da 12C:** as correções verificadas foram aplicadas localmente. **3 CRÍTICO corrigidos e 1 rejeitado** (C001: `것으로` é a forma correta; a proposta `것로` era agramatical). Fairness sistêmica resolvida: **0/381** itens digitados exigem pontuação final exata e **0/132** `listen` pedem fragmento contra gabarito de frase inteira. Progressão: as 9 formas do cluster ganharam micro-ensino ou substituição por forma ensinada. Dados: 3 `acceptedAnswers` redundantes removidos, `checkRedundantAccepted` ligado no B1 e 65 `reusedIds` congeladas no baseline (297 A1/A2 + 65 B1). A UI da bancada de composição foi redesenhada e o áudio local passou a usar o corpus quando a flag opt-in está ligada. Detalhes e testes em [`correction-ledger.md`](correction-ledger.md). Nada foi marcado como revisado por nativo; B2/C1/C2 não foram tocados.
 
@@ -39,8 +41,16 @@ Rejeições documentadas: 9+ alegações de revisores sem existência na fonte, 
 - `npm run e2e` — **619 executados + 27 skips intencionais** (646), Chromium 375/390/768/1280 + WebKit 390.
 - Medições: 0/381 digitados com pontuação exata obrigatória; 0/132 `listen` fora do padrão de frase completa; `shared-validators` 0 issues; `analyze-structure` 0 achados; 65 `reusedIds` congeladas.
 
-## Pendências fora da 12B
+## Verificação da execução 12D
 
-- Revisão nativa dos 14 INCERTOS (fila em `correction-proposals.md`).
-- Segundo-model-review sugerido para: U001 (`-더라면`), M002 (`-고 말다`), M011, M012, M021b.
-- Conteúdo não coberto (fora do escopo declarado da fase): B2/C1/C2 (não existem), áudio estático B1 (opt-in, sem corpus), páginas de UI que consomem o B1 (cobertas pelos e2es da base).
+- `npm run typecheck` limpo.
+- `npm test` — **630 testes / 44 arquivos** (613 da base + 17 novos da 12D).
+- `npm run build` com áudio estático desligado — verde e `[audio-guard] OK` (0 MP3 em `.next/`).
+- `npm run e2e` — **619 executados + 27 skips intencionais** (646 no total), Chromium 375/390/768/1280 + WebKit 390.
+- Auditoria B1 — 2/2; `analyze-structure` 0 achados (81 painéis de intro após o painel de registro da l23); `analyze-typed-normalization` 0/381; `analyze-listen-prompts` 0/132; `analyze-vocabulary` 320/320, 0 colisões e 0 homógrafos; `analyze-progression` sem nova regressão de ordem; guarda de áudio OK.
+
+## Pendências fora da 12B/12C/12D
+
+- Revisão nativa do conteúdo geral de Hangul, A1, A2 e B1 (status `in-review`) continua como risco separado. Os 14 INCERTOS do B1 **não** estão mais nessa fila: foram fechados editorialmente na 12D, sem alegação de aprovação nativa.
+- B2/C1/C2 continuam fora de escopo; B2 só por pedido explícito.
+- O áudio B1 continua em TTS; não há corpus MP3 de B1.

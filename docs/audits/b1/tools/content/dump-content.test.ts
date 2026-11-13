@@ -16,7 +16,7 @@ test("auditoria 12B: dump de conteúdo B1 (+A1/A2 para progressão)", () => {
   writeFileSync(
     "docs/audits/b1/data/content-dump.json",
     JSON.stringify({
-      baseline: "6e5d38b (12B) · conteúdo pós-12C",
+      baseline: "6e5d38b (12B) · conteúdo pós-12D",
       b1Blueprint: B1_CURRICULUM,
       b1Lessons: B1_IMPLEMENTED_LESSONS,
       b1Checkpoints: B1_IMPLEMENTED_CHECKPOINTS,

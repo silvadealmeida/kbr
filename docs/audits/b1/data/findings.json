@@ -4,8 +4,8 @@
   "baseline": "6e5d38bf8e9ec89c86d4d3236301a114ff2a0f45",
   "branch": "audit/b1-phase-12b",
   "gerado": "2026-11-13",
-  "natureza": "ledger canônico da auditoria 12B; o campo status reflete a execução da 12C e as correções vivem em correction-ledger.md",
-  "escopo": "auditoria de conteúdo educacional B1; achados verificados na fonte, com correções aplicadas na 12C",
+  "natureza": "ledger canônico da auditoria 12B; o campo status reflete a execução da 12C e o fechamento editorial da 12D (sem revisão nativa); as correções vivem em correction-ledger.md e final-editorial-decisions.md",
+  "escopo": "auditoria de conteúdo educacional B1; achados verificados na fonte, com correções aplicadas na 12C e decisões editoriais finais na 12D",
   "counts": {
     "lecoes": 40,
     "checkpoints": 8,
@@ -1037,7 +1037,13 @@
       "evidence": "6 linhas lidas (module1.ts); gramáticas de referência descrevem -더라면 como memória de fato.",
       "confidence": "baixa-média — EXIGE NATIVO",
       "crossCourseImpact": "l04; eco em c01-e05/e24 (que usam -ㄴ다면 — ver M010).",
-      "status": "uncertain-12c"
+      "status": "EDITORIALLY_RESOLVED_AI",
+      "resolution": "Mantido 있더라면 no contexto contrafactual de estado/possibilidade; documentado -았/었더라면 para passado concluído e ajustado o exemplo 알더라면 → 알았더라면. Cloze b1-l04-e07 continua com resposta 더라면.",
+      "finalDisposition": "KEEP + CLARIFY",
+      "resolvedIn": "12D",
+      "regressionTest": "tests/content/b1-editorial-decisions.test.ts › U001",
+      "audioImpact": "B1 TTS; exemplo gramatical alterado, sem MP3 de B1.",
+      "finalStatus": "EDITORIALLY_RESOLVED_AI"
     },
     {
       "id": "B1-12B-U002",
@@ -1056,7 +1062,13 @@
       "evidence": "grep.",
       "confidence": "baixa-média — EXIGE NATIVO",
       "crossCourseImpact": "cartão de vocabulário.",
-      "status": "uncertain-12c"
+      "status": "EDITORIALLY_RESOLVED_AI",
+      "resolution": "Frase do cartão ko:넘어지다 passou de 비에 미끄러져서 para 빗길에 미끄러져서, com pt 'Escorreguei na rua molhada e caí.'",
+      "finalDisposition": "CORRECT",
+      "resolvedIn": "12D",
+      "regressionTest": "tests/content/b1-editorial-decisions.test.ts › U002",
+      "audioImpact": "B1 TTS; frase do cartão alterada, sem MP3 de B1.",
+      "finalStatus": "EDITORIALLY_RESOLVED_AI"
     },
     {
       "id": "B1-12B-U003",
@@ -1076,7 +1088,13 @@
       "evidence": "grep.",
       "confidence": "baixa — EXIGE NATIVO",
       "crossCourseImpact": "l04.",
-      "status": "uncertain-12c"
+      "status": "EDITORIALLY_RESOLVED_AI",
+      "resolution": "더 용기를 냈으면 e 뭐를 são variantes válidas; b1-l04-e05 passou a aceitar também 용기를 더 냈으면 e a combinação com 그때. Nenhuma normalização global.",
+      "finalDisposition": "KEEP",
+      "resolvedIn": "12D",
+      "regressionTest": "tests/content/b1-editorial-decisions.test.ts › U003",
+      "audioImpact": "Nenhum texto coreano alterado.",
+      "finalStatus": "EDITORIALLY_RESOLVED_AI"
     },
     {
       "id": "B1-12B-U004",
@@ -1095,7 +1113,13 @@
       "evidence": "linha lida na revisão m7.",
       "confidence": "baixa — EXIGE NATIVO",
       "crossCourseImpact": "l32.",
-      "status": "uncertain-12c"
+      "status": "EDITORIALLY_RESOLVED_AI",
+      "resolution": "Frequência explicitada: 두 번밖에 없다 → 두 번밖에 안 오다 no diálogo, listening e reading da l32; pt passou a 'duas vezes pela manhã'.",
+      "finalDisposition": "CORRECT",
+      "resolvedIn": "12D",
+      "regressionTest": "tests/content/b1-editorial-decisions.test.ts › U004",
+      "audioImpact": "B1 TTS; diálogo e dois listens alterados, sem MP3 de B1.",
+      "finalStatus": "EDITORIALLY_RESOLVED_AI"
     },
     {
       "id": "B1-12B-U005",
@@ -1114,7 +1138,13 @@
       "evidence": "leitura do diálogo.",
       "confidence": "baixa — EXIGE NATIVO",
       "crossCourseImpact": "l22.",
-      "status": "uncertain-12c"
+      "status": "EDITORIALLY_RESOLVED_AI",
+      "resolution": "Registro da avó (해라체 + -다고들 해요) é válido para fala familiar; nenhuma inconsistência demonstrada. Nenhum texto alterado.",
+      "finalDisposition": "REJECTED — VALID USAGE",
+      "resolvedIn": "12D",
+      "regressionTest": "tests/content/b1-editorial-decisions.test.ts › U005",
+      "audioImpact": "Nenhum.",
+      "finalStatus": "EDITORIALLY_RESOLVED_AI"
     },
     {
       "id": "B1-12B-U006",
@@ -1133,7 +1163,13 @@
       "evidence": "linha lida.",
       "confidence": "baixa",
       "crossCourseImpact": "l03 + N009.",
-      "status": "uncertain-12c"
+      "status": "EDITORIALLY_RESOLVED_AI",
+      "resolution": "Coreano 못 온다고 했어요 preservado; pt do diálogo, MCQ e translate passou a 'não pode vir/ir', com 'não poderá' aceito como variante.",
+      "finalDisposition": "CORRECT (pt only)",
+      "resolvedIn": "12D",
+      "regressionTest": "tests/content/b1-editorial-decisions.test.ts › U006",
+      "audioImpact": "Nenhum texto coreano alterado.",
+      "finalStatus": "EDITORIALLY_RESOLVED_AI"
     },
     {
       "id": "B1-12B-U007",
@@ -1152,7 +1188,13 @@
       "evidence": "grep.",
       "confidence": "baixa — EXIGE NATIVO",
       "crossCourseImpact": "l23; política de registro do B1.",
-      "status": "uncertain-12c"
+      "status": "EDITORIALLY_RESOLVED_AI",
+      "resolution": "Adicionado painel 'Registro: 반말 entre amigos' na l23, explicando relação, diferença para 해요체 e quando evitar 반말; diálogo e gabaritos preservados.",
+      "finalDisposition": "CLARIFY",
+      "resolvedIn": "12D",
+      "regressionTest": "tests/content/b1-editorial-decisions.test.ts › U007",
+      "audioImpact": "Nenhum; painel tem exemplo ko, mas não é audioText.",
+      "finalStatus": "EDITORIALLY_RESOLVED_AI"
     },
     {
       "id": "B1-12B-U008",
@@ -1171,7 +1213,13 @@
       "evidence": "leitura m2.",
       "confidence": "baixa — EXIGE NATIVO",
       "crossCourseImpact": "l07.",
-      "status": "uncertain-12c"
+      "status": "EDITORIALLY_RESOLVED_AI",
+      "resolution": "좋습니다 → 좋아요 no diálogo da l07, harmonizando com o 해요체; pt inalterado.",
+      "finalDisposition": "CORRECT",
+      "resolvedIn": "12D",
+      "regressionTest": "tests/content/b1-editorial-decisions.test.ts › U008",
+      "audioImpact": "B1 TTS; diálogo alterado, sem MP3 de B1.",
+      "finalStatus": "EDITORIALLY_RESOLVED_AI"
     },
     {
       "id": "B1-12B-U009",
@@ -1192,7 +1240,13 @@
       "evidence": "leitura.",
       "confidence": "baixa",
       "crossCourseImpact": "l17/l20.",
-      "status": "uncertain-12c"
+      "status": "EDITORIALLY_RESOLVED_AI",
+      "resolution": "필요했습니다 e 낫습니다 preservados como registro escrito formal; notas de registro adicionadas aos resumos de l17/l20.",
+      "finalDisposition": "KEEP + CLARIFY",
+      "resolvedIn": "12D",
+      "regressionTest": "tests/content/b1-editorial-decisions.test.ts › U009",
+      "audioImpact": "Nenhum texto avaliado alterado.",
+      "finalStatus": "EDITORIALLY_RESOLVED_AI"
     },
     {
       "id": "B1-12B-U010",
@@ -1211,7 +1265,13 @@
       "evidence": "grep.",
       "confidence": "média (como ambiguidade)",
       "crossCourseImpact": "l02.",
-      "status": "uncertain-12c"
+      "status": "EDITORIALLY_RESOLVED_AI",
+      "resolution": "Nota de -자마자 reescrita: a segunda oração não pode ser ordem, pedido nem proposta; restrição específica de -자마자, não de -자 ou de todo conector temporal.",
+      "finalDisposition": "CLARIFY",
+      "resolvedIn": "12D",
+      "regressionTest": "tests/content/b1-editorial-decisions.test.ts › U010",
+      "audioImpact": "Nenhum.",
+      "finalStatus": "EDITORIALLY_RESOLVED_AI"
     },
     {
       "id": "B1-12B-U011",
@@ -1230,7 +1290,13 @@
       "evidence": "grep.",
       "confidence": "média (como ambiguidade)",
       "crossCourseImpact": "l03.",
-      "status": "uncertain-12c"
+      "status": "EDITORIALLY_RESOLVED_AI",
+      "resolution": "Nota de -냐고 하다 reescrita para separar final interrogativo gramatical, entonação e ponto de interrogação escrito.",
+      "finalDisposition": "CLARIFY",
+      "resolvedIn": "12D",
+      "regressionTest": "tests/content/b1-editorial-decisions.test.ts › U011",
+      "audioImpact": "Nenhum.",
+      "finalStatus": "EDITORIALLY_RESOLVED_AI"
     },
     {
       "id": "B1-12B-U012",
@@ -1249,7 +1315,13 @@
       "evidence": "—",
       "confidence": "baixa — EXIGE NATIVO (confirmação)",
       "crossCourseImpact": "l08.",
-      "status": "uncertain-12c"
+      "status": "EDITORIALLY_RESOLVED_AI",
+      "resolution": "비싼 대신에 e 비싼 대신 preservados; nota passou a cobrir V-는 대신(에), Adj-(으)ㄴ 대신(에) e N 대신(에), com 에 opcional.",
+      "finalDisposition": "KEEP + CLARIFY",
+      "resolvedIn": "12D",
+      "regressionTest": "tests/content/b1-editorial-decisions.test.ts › U012",
+      "audioImpact": "Nenhum exemplo avaliado alterado.",
+      "finalStatus": "EDITORIALLY_RESOLVED_AI"
     },
     {
       "id": "B1-12B-U013",
@@ -1268,7 +1340,13 @@
       "evidence": "—",
       "confidence": "baixa — EXIGE NATIVO (confirmação)",
       "crossCourseImpact": "l18.",
-      "status": "uncertain-12c"
+      "status": "EDITORIALLY_RESOLVED_AI",
+      "resolution": "Fala da l18 passou de 생각해야 하기에 para 생각해야 하니까; -기에 continua ensinado e no cloze b1-l18-e07. Nota registra que -기에 é mais formal/escrito.",
+      "finalDisposition": "CORRECT (register)",
+      "resolvedIn": "12D",
+      "regressionTest": "tests/content/b1-editorial-decisions.test.ts › U013",
+      "audioImpact": "B1 TTS; diálogo alterado, sem MP3 de B1.",
+      "finalStatus": "EDITORIALLY_RESOLVED_AI"
     },
     {
       "id": "B1-12B-U014",
@@ -1287,7 +1365,13 @@
       "evidence": "grep.",
       "confidence": "baixa",
       "crossCourseImpact": "l27.",
-      "status": "uncertain-12c"
+      "status": "EDITORIALLY_RESOLVED_AI",
+      "resolution": "Enunciado do listen b1-l27-e08 (o achado citava e09) passou a mencionar 'após o aviso de emergência'; resposta 승객들은 안전하게 대피했어요 preservada.",
+      "finalDisposition": "CLARIFY",
+      "resolvedIn": "12D",
+      "regressionTest": "tests/content/b1-editorial-decisions.test.ts › U014",
+      "audioImpact": "Apenas o enunciado; audioText e gabarito inalterados.",
+      "finalStatus": "EDITORIALLY_RESOLVED_AI"
     },
     {
       "id": "B1-12B-N022",

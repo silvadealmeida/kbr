@@ -1,7 +1,7 @@
 import type { ReviewMeta } from "@/content/hangul/types";
+import type { C1CurriculumBlueprint } from "./types";
 import type {
   AdvancedCheckpointBlueprint,
-  AdvancedCurriculumBlueprint,
   AdvancedLessonBlueprint,
   AdvancedModuleBlueprint,
 } from "../advanced/types";
@@ -12,7 +12,7 @@ const IN_REVIEW: ReviewMeta = {
     "Conteúdo original do KBR para o curso C1; naturalidade, tradução, registro e adequação pedagógica aguardam revisão de falante nativo.",
 };
 
-const C1_MODULES: readonly AdvancedModuleBlueprint[] = [
+export const C1_MODULES: readonly AdvancedModuleBlueprint[] = [
   { id: "c1-m01", number: 1, title: "Argumentação e persuasão", communicativeArc: "Da tese ao apelo: sustentar, refutar e delimitar o alcance do argumento.", stepIds: ["c1-l01", "c1-l02", "c1-l03", "c1-l04", "c1-l05", "c1-c01"] },
   { id: "c1-m02", number: 2, title: "Leitura crítica e síntese", communicativeArc: "Ler fontes, comparar evidências e sintetizar divergências sem apagá-las.", stepIds: ["c1-l06", "c1-l07", "c1-l08", "c1-l09", "c1-l10", "c1-c02"] },
   { id: "c1-m03", number: 3, title: "Discurso acadêmico e profissional", communicativeArc: "Apresentar, negociar e escrever em contextos institucionais.", stepIds: ["c1-l11", "c1-l12", "c1-l13", "c1-l14", "c1-l15", "c1-c03"] },
@@ -49,7 +49,7 @@ function lesson(seed: LessonSeed): AdvancedLessonBlueprint {
   };
 }
 
-const C1_LESSONS: readonly AdvancedLessonBlueprint[] = [
+export const C1_LESSONS: readonly AdvancedLessonBlueprint[] = [
   // ── Módulo 1 — argumentação e persuasão ─────────────────────────────────
   lesson({
     id: "c1-l01", number: 1, moduleId: "c1-m01", title: "A tese e seu limite",
@@ -240,7 +240,7 @@ const C1_LESSONS: readonly AdvancedLessonBlueprint[] = [
     goal: "Reformular uma posição alheia e responder sem distorcer o que foi dito.",
     prerequisites: ["c1-l12"], previousKnowledge: ["C1: -ㄴ/는 것으로 판단된다", "B2: -라는 점을 감안하면"],
     themes: ["reunião", "reformulação", "acordo"],
-    grammar: ["-라는 점을 감안하면 — considerando que", "-ㄴ/는 즉 — isto é; ou seja (registro formal)"],
+    grammar: ["-라는 점을 감안하면 — considerando que", "즉 — isto é; ou seja (advérbio de reformulação)"],
     discourse: ["reformulação fiel", "turnos de fala e retomada"],
     dialogueScenario: "Uma equipe discorda de uma proposta e reformula o argumento antes de responder.",
     readingScenario: "Uma ata de reunião com posições, reformulação e decisão parcial.",
@@ -253,7 +253,7 @@ const C1_LESSONS: readonly AdvancedLessonBlueprint[] = [
   lesson({
     id: "c1-l14", number: 14, moduleId: "c1-m03", title: "Negociar com premissas",
     goal: "Negociar condições explicitando premissas, limites e o que não está incluído.",
-    prerequisites: ["c1-l13"], previousKnowledge: ["C1: -라는 점을 감안하면, -ㄴ/는 즉", "B2: -는 조건으로, -는 선에서"],
+    prerequisites: ["c1-l13"], previousKnowledge: ["C1: -라는 점을 감안하면, 즉", "B2: -는 조건으로, -는 선에서"],
     themes: ["negociação", "premissa", "limite"],
     grammar: ["-ㄹ 것을 전제로 — sob a premissa de que", "-지 않는 한 — a menos que"],
     discourse: ["premissa antes da oferta", "limite e alternativa"],
@@ -720,7 +720,7 @@ TITLES.forEach((title, index) => {
 
 export const C1_CHECKPOINTS: readonly AdvancedCheckpointBlueprint[] = checkpoints;
 
-export const C1_CURRICULUM: AdvancedCurriculumBlueprint = {
+export const C1_CURRICULUM: C1CurriculumBlueprint = {
   version: 1, courseId: "ko-c1", status: "blueprint", prerequisite: "ko-b2",
   entryPrerequisiteStep: "b2-c08",
   modules: C1_MODULES, lessons: C1_LESSONS, checkpoints: C1_CHECKPOINTS, review: IN_REVIEW,

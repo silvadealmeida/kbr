@@ -59,10 +59,11 @@ export function CourseCatalog() {
         <p className="mt-2">
           O KBR organiza o estudo em cursos. O Hangul é um curso introdutório de{" "}
           <strong>Pré-A1</strong> e não corresponde a um nível oficial do CEFR. O{" "}
-          <strong>Coreano A1</strong>, o <strong>Coreano A2</strong> e o{" "}
-          <strong>Coreano B1</strong> estão completos no currículo interno do KBR,
-          com conteúdo original em revisão. C1–C2 aparecem apenas como
-          planejamento editorial e ainda não têm lições, atividades ou avaliações.
+          <strong>Coreano A1</strong>, o <strong>Coreano A2</strong>, o{" "}
+          <strong>Coreano B1</strong>, o <strong>Coreano B2</strong>, o{" "}
+          <strong>Coreano C1</strong> e o <strong>Coreano C2</strong> estão completos
+          no currículo interno do KBR, com conteúdo original em revisão. Nenhum
+          nível é uma certificação oficial.
         </p>
         <p className="mt-2">
           Concluir um curso no KBR não emite certificado CEFR e não comprova
@@ -187,9 +188,9 @@ export function CourseCatalog() {
 
                 {!entryOpen ? (
                   <p className="mt-4 rounded-xl bg-surface-2 p-3 text-sm">
-                    A entrada do {course.title} exige o A1 concluído. Concluir o
-                    A1 é uma etapa interna do KBR; não há certificação CEFR ou
-                    TOPIK.
+                    A entrada do {course.title} exige o passo anterior do percurso.
+                    Concluir um nível é uma etapa interna do KBR; não há
+                    certificação CEFR ou TOPIK.
                   </p>
                 ) : null}
 
@@ -201,7 +202,13 @@ export function CourseCatalog() {
                       ? "A conclusão do Hangul não desbloqueia o A1 automaticamente."
                       : course.id === "ko-a1"
                         ? "A conclusão do A1 libera a entrada do A2 neste app, sem certificação."
-                        : "A conclusão do B1 exige os 48 passos e não libera C1."}
+                        : course.id === "ko-b2"
+                          ? "A conclusão do B2 libera a entrada do C1 neste app, sem certificação."
+                          : course.id === "ko-c1"
+                            ? "A conclusão do C1 libera a entrada do C2 neste app, sem certificação."
+                            : course.id === "ko-c2"
+                              ? "A conclusão do C2 encerra o percurso interno disponível; não há nível seguinte nem certificação."
+                              : "A conclusão deste nível libera a entrada do próximo neste app, sem certificação."}
                   </p>
                 ) : summary?.nextStep && nextHref ? (
                   <p className="mt-4 text-sm text-muted">
@@ -373,14 +380,15 @@ export function CourseCatalog() {
       </section>
       ) : null}
 
+      {planned.length > 0 ? (
       <section aria-labelledby="courses-planned-title">
         <div className="mb-3">
           <h2 id="courses-planned-title" className="text-lg font-semibold">
             Em planejamento
           </h2>
           <p className="mt-1 text-sm text-muted">
-            C1–C2 são referências de organização futura, não uma promessa de
-            lançamento. Nenhum destes níveis tem lição ou link disponível.
+            Níveis futuros são referências de organização, não uma promessa de
+            lançamento. Nenhum deles tem lição ou link disponível.
           </p>
         </div>
 
@@ -405,6 +413,7 @@ export function CourseCatalog() {
           ))}
         </ul>
       </section>
+      ) : null}
     </div>
   );
 }

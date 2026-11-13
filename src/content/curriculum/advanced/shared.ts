@@ -11,7 +11,7 @@ import type {
   CourseLessonExercise,
   CourseProductionTask,
   CourseReadingText,
-} from "../../course-types";
+} from "../course-types";
 
 type DistributiveOmit<T, K extends PropertyKey> = T extends unknown
   ? Omit<T, K>

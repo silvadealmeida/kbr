@@ -1,0 +1,49 @@
+import type { C2VocabRow } from "./c2-shared";
+
+/** Vocabulário do Módulo 8 do C2 — projeto, artigo, defesa, edição e portfólio. */
+export const C2_M08_ROWS: readonly C2VocabRow[] = [
+  ["c2-l36", "연구질문", "pergunta de pesquisa", "substantivo", "연구질문", "연구질문 없이 자료를 모으면 분석의 방향이 흔들려요.", "Se reunimos dados sem uma pergunta de pesquisa, a direção da análise vacila.", "pergunta que orienta a investigação", "Forma de dicionário; a frase usa 연구질문."],
+  ["c2-l36", "실행가능성", "viabilidade; exequibilidade", "substantivo", "실행가능성", "계획의 실행가능성을 먼저 따져야 무리한 일정을 피할 수 있어요.", "É preciso avaliar primeiro a viabilidade do plano para evitar um cronograma inviável.", "possibilidade real de executar", "Forma de dicionário; a frase usa 실행가능성."],
+  ["c2-l36", "범위", "escopo; alcance", "substantivo", "범위", "이번 조사의 범위를 좁히면 대답의 정확도가 높아져요.", "Se delimitamos o escopo desta investigação, a precisão das respostas aumenta.", "limite do que se investiga", "Forma de dicionário; a frase usa 범위를."],
+  ["c2-l36", "실증", "comprovação empírica", "substantivo", "실증", "가설을 실증으로 확인하기 전에는 결론을 내릴 수 없어요.", "Não se pode concluir antes de confirmar a hipótese com comprovação empírica.", "confirmação por evidência", "Forma de dicionário; a frase usa 실증으로."],
+  ["c2-l36", "지수", "índice; medida sintética", "substantivo", "지수", "만족도를 하나의 지수로만 재면 중요한 차이를 놓쳐요.", "Se medimos a satisfação com um único índice, perdemos diferenças importantes.", "medida que resume vários fatores", "Forma de dicionário; a frase usa 지수로만."],
+  ["c2-l36", "서지", "bibliografia; referências", "substantivo", "서지", "서지 정보를 정확히 적어야 인용의 신뢰가 생겨요.", "Só registrando com precisão os dados bibliográficos nasce a confiança na citação.", "lista de referências", "Forma de dicionário; a frase usa 서지."],
+  ["c2-l36", "독창성", "originalidade", "substantivo", "독창성", "독창성은 새로운 주제보다 새로운 질문에서 나와요.", "A originalidade nasce mais de uma pergunta nova do que de um tema novo.", "caráter do que é original", "Forma de dicionário; a frase usa 독창성은."],
+  ["c2-l36", "규명", "esclarecimento; apuração", "substantivo", "규명", "원인 규명에 필요한 자료가 아직 부족해요.", "Ainda faltam dados necessários para esclarecer a causa.", "apuração de um fato", "Forma de dicionário; a frase usa 규명에."],
+
+  ["c2-l37", "사설", "editorial (de jornal)", "substantivo", "사설", "사설은 사실을 전하는 기사와 달리 필자의 판단을 전면에 세워요.", "O editorial, diferente da notícia que transmite fatos, coloca o juízo do autor em primeiro plano.", "texto de opinião do jornal", "Forma de dicionário; a frase usa 사설은."],
+  ["c2-l37", "집필진", "equipe de redação; autores", "substantivo", "집필진", "집필진은 첫 문단에서 자신의 입장을 분명히 밝혀요.", "A equipe de redação deixa clara a própria posição já no primeiro parágrafo.", "quem escreve o texto", "Forma de dicionário; a frase usa 집필진은."],
+  ["c2-l37", "단언하다", "afirmar categoricamente; asseverar", "verbo", "단언했어요", "그는 근거 없이 정책이 성공할 것이라고 단언했어요.", "Ele afirmou categoricamente, sem base, que a política daria certo.", "afirmar sem hesitação", "Forma de dicionário; a frase usa 단언했어요."],
+  ["c2-l37", "기고", "artigo enviado; colaboração", "substantivo", "기고", "기고를 보내기 전에 편집 방향을 확인했어요.", "Antes de enviar o artigo, confirmei a linha editorial.", "texto enviado a um veículo", "Forma de dicionário; a frase usa 기고를."],
+  ["c2-l37", "주필", "editor-chefe de opinião", "substantivo", "주필", "주필은 논조가 한쪽으로 쏠리지 않도록 균형을 잡아요.", "O editor-chefe equilibra para que a linha editorial não penda para um lado.", "responsável pela linha editorial", "Forma de dicionário; a frase usa 주필은."],
+  ["c2-l37", "설전", "debate acalorado; embate verbal", "substantivo", "설전", "두 논객의 설전이 사흘째 이어졌어요.", "O embate entre os dois articulistas já durava três dias.", "troca intensa de argumentos", "Forma de dicionário; a frase usa 설전이."],
+  ["c2-l37", "논객", "articulista; debatedor", "substantivo", "논객", "논객마다 같은 사안을 다른 가치로 해석했어요.", "Cada articulista interpretou o mesmo assunto por valores diferentes.", "quem argumenta em público", "Forma de dicionário; a frase usa 논객마다."],
+  ["c2-l37", "표명하다", "manifestar; declarar", "verbo", "표명했지만", "편집국은 유감을 표명했지만 책임은 인정하지 않았어요.", "A redação manifestou pesar, mas não reconheceu responsabilidade.", "tornar pública uma posição", "Forma de dicionário; a frase usa 표명했지만."],
+
+  ["c2-l38", "구술", "exposição oral; prova oral", "substantivo", "구술", "구술 시험에서는 답의 속도보다 논리의 순서가 중요해요.", "Na prova oral, a ordem da argumentação importa mais que a velocidade da resposta.", "avaliação falada", "Forma de dicionário; a frase usa 구술."],
+  ["c2-l38", "침착하다", "ser calmo; manter a compostura", "adjetivo", "침착했어요", "그는 압박 질문에도 침착했어요.", "Ele manteve a compostura mesmo diante de perguntas de pressão.", "sem se alterar", "Forma de dicionário; a frase usa 침착했어요."],
+  ["c2-l38", "되묻다", "perguntar de volta; retrucar", "verbo", "되물었어요", "질문의 전제가 틀렸다고 느끼면 곧바로 되물었어요.", "Ao sentir que a premissa da pergunta estava errada, ele perguntou de volta na hora.", "devolver a pergunta", "Forma de dicionário; a frase usa 되물었어요."],
+  ["c2-l38", "추궁", "questionamento insistente; interpelação", "substantivo", "추궁", "위원의 추궁은 자료의 출처를 겨냥했어요.", "A interpelação do membro da banca mirava a origem dos dados.", "cobrança insistente", "Forma de dicionário; a frase usa 추궁은."],
+  ["c2-l38", "동요", "abalo; hesitação", "substantivo", "동요", "날카로운 지적에도 동요하지 않고 답했어요.", "Respondeu sem se abalar nem diante da crítica mais afiada.", "perda de firmeza", "Forma de dicionário; a frase usa 동요하지."],
+  ["c2-l38", "즉답", "resposta imediata", "substantivo", "즉답", "모든 질문에 즉답을 하면 한계를 놓치기 쉬워요.", "Se respondemos de imediato a todas as perguntas, é fácil deixar passar os limites.", "resposta sem reflexão", "Forma de dicionário; a frase usa 즉답을."],
+  ["c2-l38", "궁색하다", "ficar sem saída; soar embaraçado", "adjetivo", "궁색했어요", "자료를 외우기만 한 답변은 궁색했어요.", "A resposta que apenas decorava os dados soou sem saída.", "sem margem de defesa", "Forma de dicionário; a frase usa 궁색했어요."],
+  ["c2-l38", "변론", "defesa; argumentação em defesa", "substantivo", "변론", "변론은 상대의 주장을 왜곡하지 않을 때 설득력을 얻어요.", "A defesa ganha força quando não distorce o argumento do outro.", "defesa de uma posição", "Forma de dicionário; a frase usa 변론은."],
+
+  ["c2-l39", "개고", "reescrita; revisão de fundo", "substantivo", "개고", "개고를 거치면서 글의 논점이 선명해졌어요.", "Depois da reescrita, o ponto central do texto ficou mais nítido.", "revisão que altera o texto", "Forma de dicionário; a frase usa 개고를."],
+  ["c2-l39", "오탈자", "erro de digitação; erro tipográfico", "substantivo", "오탈자", "오탈자를 고치는 일은 논지를 확인한 뒤에 해야 해요.", "Corrigir erros de digitação deve vir depois de confirmar a tese.", "erro de forma na linha", "Forma de dicionário; a frase usa 오탈자를."],
+  ["c2-l39", "두서", "ordem; nexo", "substantivo", "두서", "글의 두서를 잡은 뒤에야 문장을 다듬었어요.", "Só depois de estabelecer o nexo do texto é que poliu as frases.", "organização das ideias", "Forma de dicionário; a frase usa 두서를."],
+  ["c2-l39", "매끄럽다", "ser fluente; correr bem", "adjetivo", "매끄러웠어요", "접속어를 바꾸자 문장이 훨씬 매끄러웠어요.", "Depois de trocar os conectivos, as frases correram muito melhor.", "sem tropeços", "Forma de dicionário; a frase usa 매끄러웠어요."],
+  ["c2-l39", "밀도", "densidade", "substantivo", "밀도", "군더더기를 덜어 내자 문단의 밀도가 높아졌어요.", "Ao retirar o excesso, a densidade do parágrafo aumentou.", "concentração de informação", "Forma de dicionário; a frase usa 밀도가."],
+  ["c2-l39", "뜯어고치다", "refazer por completo", "verbo", "뜯어고쳤어요", "결론이 약해서 마지막 두 문단을 뜯어고쳤어요.", "Como a conclusão estava fraca, refiz por completo os dois últimos parágrafos.", "reformular profundamente", "Forma de dicionário; a frase usa 뜯어고쳤어요."],
+  ["c2-l39", "리듬", "ritmo", "substantivo", "리듬", "같은 길이의 문장만 이어지면 리듬이 단조로워져요.", "Se só se sucedem frases do mesmo tamanho, o ritmo fica monótono.", "cadência da frase", "Forma de dicionário; a frase usa 리듬이."],
+  ["c2-l39", "정련", "refinamento; apuro", "substantivo", "정련", "표현의 정련은 뜻을 바꾸지 않고 이루어져야 해요.", "O refinamento da expressão deve ocorrer sem mudar o sentido.", "aprimoramento da forma", "Forma de dicionário; a frase usa 정련은."],
+
+  ["c2-l40", "완성도", "grau de acabamento", "substantivo", "완성도", "완성도는 분량보다 일관된 기준에서 드러나요.", "O acabamento se revela mais em um critério consistente do que no volume.", "qualidade de texto concluído", "Forma de dicionário; a frase usa 완성도는."],
+  ["c2-l40", "지향", "orientação; vocação", "substantivo", "지향", "포트폴리오의 지향을 한 문장으로 밝혀 보세요.", "Tente declarar em uma frase a orientação do portfólio.", "direção de um percurso", "Forma de dicionário; a frase usa 지향을."],
+  ["c2-l40", "후속", "continuidade; desdobramento posterior", "substantivo", "후속", "후속 연구에서 다룰 질문을 마지막에 적었어요.", "No final, registrei as perguntas a serem tratadas em pesquisa posterior.", "o que vem depois", "Forma de dicionário; a frase usa 후속."],
+  ["c2-l40", "궤적", "trajetória; percurso", "substantivo", "궤적", "이력의 궤적을 보면 어떤 질문이 반복되었는지 알 수 있어요.", "Pela trajetória do histórico, é possível ver quais perguntas se repetiram.", "linha do percurso", "Forma de dicionário; a frase usa 궤적을."],
+  ["c2-l40", "주도성", "protagonismo; iniciativa", "substantivo", "주도성", "주도성은 스스로 기준을 세우고 점검하는 데서 드러나요.", "O protagonismo aparece quando se estabelece e se revisa o próprio critério.", "capacidade de conduzir", "Forma de dicionário; a frase usa 주도성은."],
+  ["c2-l40", "환류", "retroalimentação", "substantivo", "환류", "평가 결과를 다음 학습에 환류해야 수정이 실제로 일어나요.", "A correção só acontece de fato quando o resultado da avaliação retroalimenta o aprendizado seguinte.", "retorno que alimenta o processo", "Forma de dicionário; a frase usa 환류해야."],
+  ["c2-l40", "매듭", "arremate; fecho", "substantivo", "매듭", "글의 매듭은 요약이 아니라 다음 질문을 여는 일이에요.", "O fecho de um texto não é resumir, mas abrir a próxima pergunta.", "conclusão que amarra", "Forma de dicionário; a frase usa 매듭은."],
+  ["c2-l40", "자립", "autonomia; independência", "substantivo", "자립", "자립은 도움을 받지 않는 것이 아니라 도움을 고를 수 있는 상태예요.", "Autonomia não é não receber ajuda, mas poder escolher a ajuda.", "capacidade de se sustentar", "Forma de dicionário; a frase usa 자립은."],
+];

@@ -54,13 +54,17 @@ export function validateAdvancedBlueprint(
     if (lesson.assessment.automaticItems !== 10) add("lesson-assessment", path, "A lição precisa de 10 itens automáticos.");
     if (lesson.assessment.minCorrect !== 8) add("lesson-assessment-min", path, "A lição usa mínimo de 8/10.");
     if (lesson.estimatedMinutes < 75) add("lesson-duration", path, "A lição avançada pede ao menos 75 minutos.");
-    if (index > 0) {
-      const previous = blueprint.lessons[index - 1]!;
-      if (!lesson.prerequisites.includes(previous.id)) {
-        add("lesson-prerequisite", path, "A lição precisa encadear a anterior.");
-      }
-    } else if (lesson.prerequisites.length > 0) {
-      add("lesson-prerequisite", path, "A primeira lição não tem pré-requisito interno.");
+    const expectedPrerequisite = index === 0
+      ? []
+      : index % 5 === 0
+        ? [`${expectedPrefix}-c${String(index / 5).padStart(2, "0")}`]
+        : [blueprint.lessons[index - 1]!.id];
+    if (lesson.prerequisites.join(",") !== expectedPrerequisite.join(",")) {
+      add(
+        "lesson-prerequisite",
+        path,
+        `Pré-requisito esperado: ${expectedPrerequisite.join(", ") || "nenhum"}.`,
+      );
     }
   });
 

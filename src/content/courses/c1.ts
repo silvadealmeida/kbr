@@ -1,18 +1,15 @@
 import { isImplementedExerciseType } from "@/lib/exercises/registry";
 import { C1_CHECKPOINTS, C1_LESSONS, C1_MODULES } from "@/content/curriculum/c1/blueprint";
-import {
-  C1_IMPLEMENTED_CHECKPOINTS,
-  C1_IMPLEMENTED_LESSONS,
-} from "@/content/curriculum/c1/content";
 import type { CourseDefinition, CourseStepDefinition } from "./types";
 
 const LESSON_BY_ID = new Map(C1_LESSONS.map((lesson) => [lesson.id, lesson]));
 const CHECKPOINT_BY_ID = new Map(C1_CHECKPOINTS.map((checkpoint) => [checkpoint.id, checkpoint]));
 
-const IMPLEMENTED = new Set<string>([
-  ...C1_IMPLEMENTED_LESSONS.map((lesson) => lesson.id),
-  ...C1_IMPLEMENTED_CHECKPOINTS.map((checkpoint) => checkpoint.id),
-]);
+/**
+ * O registro usa apenas o blueprint leve. Importar `content` aqui puxaria
+ * todas as lições e o vocabulário para o bundle do catálogo.
+ */
+const IMPLEMENTED = new Set<string>(C1_LESSONS.map((lesson) => lesson.id).concat(C1_CHECKPOINTS.map((checkpoint) => checkpoint.id)));
 
 function toStep(stepId: string): CourseStepDefinition {
   const lesson = LESSON_BY_ID.get(stepId);
@@ -29,7 +26,7 @@ const units = C1_MODULES
   .filter((module) => module.stepIds.length > 0);
 
 const steps = units.flatMap((module) => module.stepIds.map(toStep));
-const complete = C1_IMPLEMENTED_LESSONS.length === 40 && C1_IMPLEMENTED_CHECKPOINTS.length === 8;
+const complete = C1_LESSONS.length === 40 && C1_CHECKPOINTS.length === 8;
 
 const exerciseTypes = [...new Set(C1_LESSONS.flatMap((lesson) => lesson.exerciseTypes.filter(isImplementedExerciseType)))] as CourseDefinition["exerciseTypes"];
 

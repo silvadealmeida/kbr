@@ -30,9 +30,8 @@ function plannedCourse(level: CefrLevel): CourseDefinition {
 }
 
 /**
- * C1–C2 são apenas entradas de planejamento. Não há conteúdo, rota, lição ou
- * desbloqueio automático associado a elas. A1 e A2 são registrados como cursos
- * disponíveis, cada um com 40 lições e 8 checkpoints.
+ * Nenhum nível CEFR permanece em planejamento depois de A1–C2. O helper fica
+ * disponível para cursos futuros, mas a lista atual é vazia.
  */
 export const PLANNED_COURSES: readonly CourseDefinition[] = CEFR_LEVELS.filter(
   (level) =>

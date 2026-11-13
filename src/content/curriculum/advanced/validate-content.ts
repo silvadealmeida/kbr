@@ -2,8 +2,8 @@ import type { ReviewMeta } from "@/content/hangul/types";
 import { targetBoundaryIssue, targetPosition } from "@/content/vocabulary/validate";
 import type { VocabEntry, VocabSentence } from "@/content/vocabulary/types";
 import { isImplementedExerciseType } from "@/lib/exercises/registry";
-import type { CourseLessonExercise } from "../../course-types";
-import { validateExerciseSpec } from "../../validate-exercises";
+import type { CourseLessonExercise } from "../course-types";
+import { validateExerciseSpec } from "../validate-exercises";
 import type {
   AdvancedCheckpointContent,
   AdvancedContentIssue,

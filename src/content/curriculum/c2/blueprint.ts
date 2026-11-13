@@ -1,7 +1,7 @@
 import type { ReviewMeta } from "@/content/hangul/types";
+import type { C2CurriculumBlueprint } from "./types";
 import type {
   AdvancedCheckpointBlueprint,
-  AdvancedCurriculumBlueprint,
   AdvancedLessonBlueprint,
   AdvancedModuleBlueprint,
 } from "../advanced/types";
@@ -12,7 +12,7 @@ const IN_REVIEW: ReviewMeta = {
     "Conteúdo original do KBR para o curso C2; naturalidade, tradução, registro e adequação pedagógica aguardam revisão de falante nativo.",
 };
 
-const C2_MODULES: readonly AdvancedModuleBlueprint[] = [
+export const C2_MODULES: readonly AdvancedModuleBlueprint[] = [
   { id: "c2-m01", number: 1, title: "Pragmática fina e implicatura", communicativeArc: "Ler ironia, pressuposição, atenuação e ambiguidade em contexto.", stepIds: ["c2-l01", "c2-l02", "c2-l03", "c2-l04", "c2-l05", "c2-c01"] },
   { id: "c2-m02", number: 2, title: "Registro, estilo e voz", communicativeArc: "Reconhecer e produzir vozes literária, pública, política, coloquial e jornalística.", stepIds: ["c2-l06", "c2-l07", "c2-l08", "c2-l09", "c2-l10", "c2-c02"] },
   { id: "c2-m03", number: 3, title: "Argumentação retórica complexa", communicativeArc: "Trabalhar premissa oculta, analogia, reductio, concessão e apelo.", stepIds: ["c2-l11", "c2-l12", "c2-l13", "c2-l14", "c2-l15", "c2-c03"] },
@@ -49,7 +49,7 @@ function lesson(seed: LessonSeed): AdvancedLessonBlueprint {
   };
 }
 
-const C2_LESSONS: readonly AdvancedLessonBlueprint[] = [
+export const C2_LESSONS: readonly AdvancedLessonBlueprint[] = [
   // ── Módulo 1 — pragmática fina ─────────────────────────────────────────
   lesson({
     id: "c2-l01", number: 1, moduleId: "c2-m01", title: "Ironia e sarcasmo",
@@ -287,7 +287,7 @@ const C2_LESSONS: readonly AdvancedLessonBlueprint[] = [
     goal: "Interpretar expressões idiomáticas pelo contexto e evitar tradução literal.",
     prerequisites: ["c2-c03"], previousKnowledge: ["C2: retórica", "C1: léxico avançado"],
     themes: ["idiomatismo", "contexto", "tradução"],
-    grammar: ["-ㄴ/는 감이 있다 — tem um quê de; dá a impressão de", "-ㄹ 맛이 나다 — tem gosto de; parece"],
+    grammar: ["-ㄴ/는 감이 있다 — tem um quê de; dá a impressão de", "-는 맛이 나다 — tem um gosto de; soa como"],
     discourse: ["sentido composicional e idiomático", "equivalência sem literalidade"],
     dialogueScenario: "Duas pessoas comentam um filme com expressões idiomáticas e uma delas entende ao pé da letra.",
     readingScenario: "Uma crítica de cinema com expressões idiomáticas em contexto.",
@@ -720,7 +720,7 @@ TITLES.forEach((title, index) => {
 
 export const C2_CHECKPOINTS: readonly AdvancedCheckpointBlueprint[] = checkpoints;
 
-export const C2_CURRICULUM: AdvancedCurriculumBlueprint = {
+export const C2_CURRICULUM: C2CurriculumBlueprint = {
   version: 1, courseId: "ko-c2", status: "blueprint", prerequisite: "ko-c1",
   entryPrerequisiteStep: "c1-c08",
   modules: C2_MODULES, lessons: C2_LESSONS, checkpoints: C2_CHECKPOINTS, review: IN_REVIEW,

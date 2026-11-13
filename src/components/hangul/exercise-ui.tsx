@@ -301,7 +301,7 @@ function FeedbackPanel({
         <div className="min-w-0">
           <p className="mono-label text-muted">Resultado</p>
           <p className="text-lg font-semibold leading-tight">
-            {result.correct ? "Correto." : "Ainda não."}
+            {result.correct ? "Correto." : "Não foi dessa vez."}
           </p>
           {showGiven ? (
             <p className="mt-2 text-sm">

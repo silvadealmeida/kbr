@@ -226,7 +226,7 @@ test.describe("Hangul autenticado", () => {
     await page.getByRole("button", { name: "어" }).click();
     await page.getByRole("button", { name: "Conferir" }).click();
 
-    const feedback = page.getByRole("status").filter({ hasText: "Ainda não." });
+    const feedback = page.getByRole("status").filter({ hasText: "Não foi dessa vez." });
     await expect(feedback).toBeVisible();
     await expect(feedback).toContainText("아");
     await expect(page.getByRole("button", { name: "Continuar" })).toBeVisible();
@@ -271,7 +271,7 @@ test.describe("Hangul autenticado", () => {
 
     // O feedback também re-renderiza o mesmo item, sem reembaralhar.
     await page.getByRole("button", { name: "Conferir" }).click();
-    await expect(page.getByRole("status").filter({ hasText: "Ainda não." })).toBeVisible();
+    await expect(page.getByRole("status").filter({ hasText: "Não foi dessa vez." })).toBeVisible();
     expect(await optionLabels()).toEqual(firstOrder);
     expect(
       await group.getByRole("button", { name: /1 bloco/ }).getAttribute("aria-pressed"),
@@ -483,7 +483,7 @@ test.describe("Checkpoint c1 autenticado", () => {
       }
       await page.getByRole("button", { name: "Conferir" }).click();
       await expect(
-        page.getByRole("status").filter({ hasText: "Ainda não." }),
+        page.getByRole("status").filter({ hasText: "Não foi dessa vez." }),
       ).toBeVisible();
       await page
         .getByRole("button", {
@@ -1037,7 +1037,7 @@ async function playC4(page: Page, options: { wrongFirst?: boolean } = {}) {
     await expect(
       page
         .getByRole("status")
-        .filter({ hasText: wrong ? "Ainda não." : "Correto." }),
+        .filter({ hasText: wrong ? "Não foi dessa vez." : "Correto." }),
     ).toBeVisible();
     await page
       .getByRole("button", {

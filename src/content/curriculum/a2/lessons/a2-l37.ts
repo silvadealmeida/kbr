@@ -74,7 +74,7 @@ export const A2_L37 = defineA2Lesson({
       "않는데요 introduz o problema de forma suave.",
     ),
     listen(
-      "Ouça e escreva a solução oferecida.",
+      "Ouça e escreva a frase completa que contém a solução oferecida.",
       "교환해 드릴 수 있어요.",
       "교환해 드릴 수 있어요.",
       "A loja pode trocar o produto.",
@@ -112,7 +112,7 @@ export const A2_L37 = defineA2Lesson({
       "켜지지 않아요 significa “não liga”.",
     ),
     listen(
-      "Ouça e escreva o documento emitido.",
+      "Ouça e escreva a frase completa que contém o documento emitido.",
       "확인서를 발급해 드리겠습니다.",
       "확인서를 발급해 드리겠습니다.",
       "A loja vai emitir um comprovante.",
@@ -126,7 +126,7 @@ export const A2_L37 = defineA2Lesson({
       ["Sinto muito pelo incômodo."],
     ),
     reading(
-      "제품을 교환할 때는 영수증과 확인서를 준비하세요. 새 제품의 보증 기간도 확인하는 게 좋아요.",
+      "제품을 교환하면 영수증과 확인서를 준비하세요. 새 제품의 보증 기간도 확인하는 게 좋아요.",
       "O que deve ser verificado?",
       ["A garantia do novo produto.", "O nome do gerente.", "A cor da loja."],
       "A garantia do novo produto.",

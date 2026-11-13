@@ -74,7 +74,7 @@ export const A2_L23 = defineA2Lesson({
       "합니다 é a forma formal de 하다.",
     ),
     listen(
-      "Ouça e escreva o motivo de Sujin.",
+      "Ouça e escreva a frase completa que contém o motivo de Sujin.",
       "사람들을 돕는 일을 좋아하기 때문입니다.",
       "사람들을 돕는 일을 좋아하기 때문입니다.",
       "Ela gosta de ajudar pessoas.",
@@ -108,7 +108,7 @@ export const A2_L23 = defineA2Lesson({
       "무엇입니까 é a pergunta formal de “o que é?”.",
     ),
     listen(
-      "Ouça e escreva a apresentação formal.",
+      "Ouça e escreva a frase completa que contém a apresentação formal.",
       "저는 수진이라고 합니다.",
       "저는 수진이라고 합니다.",
       "A candidata se apresenta formalmente como Sujin.",

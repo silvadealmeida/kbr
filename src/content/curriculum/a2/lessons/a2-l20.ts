@@ -74,7 +74,7 @@ export const A2_L20 = defineA2Lesson({
       "걷고 있어요 significa “tenho caminhado”.",
     ),
     listen(
-      "Ouça e escreva a meta de Jimin.",
+      "Ouça e escreva a frase completa que contém a meta de Jimin.",
       "일주일에 세 번 운동하려고 해요.",
       "일주일에 세 번 운동하려고 해요.",
       "Jimin pretende se exercitar três vezes por semana.",
@@ -108,7 +108,7 @@ export const A2_L20 = defineA2Lesson({
       "운동하려고 해요 expressa intenção.",
     ),
     listen(
-      "Ouça e escreva o conselho para começar.",
+      "Ouça e escreva a frase completa que contém o conselho para começar.",
       "처음에는 가볍게 시작하는 게 좋아요.",
       "처음에는 가볍게 시작하는 게 좋아요.",
       "No começo, é bom começar leve.",

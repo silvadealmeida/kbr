@@ -1,7 +1,7 @@
-# Prontidão para beta controlado — Fase 8D (atualizado na 8E e na 8F)
+# Prontidão para beta controlado — Fase 8D (atualizado na 8E, 8F e 12A)
 
-**Data:** 2026-11-12  
-**Veredito:** o KBR **não está pronto para produção pública**. A licença do áudio sintético continua não esclarecida (risco aceito pelo dono do projeto em 2026-11-12; ver `docs/audio/license-audit.md` §11) e há pendências jurídicas de privacidade. Para um **beta fechado**, o código está estável e o corpus de 287 MP3 está servido; 2.907 textos falados são inventariados e usam a voz do sistema quando não há MP3. Nada aqui foi testado em dispositivo real.
+**Data:** 2026-11-13  
+**Veredito:** o KBR **não está pronto para produção pública**. A licença do áudio sintético continua não esclarecida e há pendências jurídicas de privacidade. Na 12A o áudio estático voltou a ser **opt-in** (`NEXT_PUBLIC_KBR_STATIC_AUDIO=1`) e `public/audio/` foi excluído do deploy por `.vercelignore`; os 2.907 MP3 continuam versionados e o corpus é preservado. Para um **beta fechado**, o código está estável; textos corrigidos sem MP3 usam a voz do sistema. Nada aqui foi testado em dispositivo real.
 
 Legenda: **PASS** (verificado nesta fase com evidência) · **BLOCKED** (impede o uso indicado) · **MANUAL TEST REQUIRED** (só aparelho/serviço real decide) · **DEFERRED** (fora do escopo, decisão registrada).
 
@@ -10,9 +10,9 @@ Legenda: **PASS** (verificado nesta fase com evidência) · **BLOCKED** (impede 
 | # | Item | Status | Evidência / observação |
 |---|---|---|---|
 | 1 | Licença do áudio sintético (MeloTTS + `kykim/bert-kor-base`) | **RISCO ACEITO PELO DONO** (público/comercial; não esclarecida) | `license-audit.md`: encoder sem licença no repositório baixado; README do autor diz Apache-2.0 **e** exige MOU para uso comercial; treino da voz não documentado. Beta fechado = decisão do dono |
-| 1a | Contenção do deploy (8E) | **REVERTIDA** (decisão de 2026-11-12) | MP3 voltaram para `public/audio/v1/`; `NEXT_PUBLIC_KBR_STATIC_AUDIO=0` é kill switch; guarda de build, stage/unstage e teste de contenção removidos |
+| 1a | Contenção do deploy (8E) | **RESTAURADA NA 12A** (sem apagar o corpus) | MP3 seguem em `public/audio/v1/`; `public/audio/` está no `.vercelignore`; `STATIC_AUDIO_ENABLED` é opt-in (`NEXT_PUBLIC_KBR_STATIC_AUDIO=1`); guarda em `prebuild`/`postbuild` e `tests/audio-containment.test.ts`; E2E liga a flag explicitamente |
 | 1b | Exposição existente: repositório GitHub público e deployments anteriores | **RISCO ACEITO** | o corpus é público no repositório e na história; deployments antigos não verificados; plano em `docs/audio/exposure-and-removal-plan.md` |
-| 2 | Integridade dos 287 MP3 e inventário de 2.907 textos (SHA-256, órfãos, corrupção, duplicados) | **PASS** | `audio-quality-report.md` §1; `tests/audio-manifest.test.ts`; textos sem MP3 usam TTS |
+| 2 | Integridade dos 2.907 MP3 e inventário de 2.909 textos (SHA-256, órfãos, corrupção, duplicados) | **PASS**, com 12 lacunas documentadas | `audio-quality-report.md` §1; `tests/audio-manifest.test.ts`; `docs/audio/stale-audio-manifest.md`; textos sem MP3 usam TTS |
 | 3 | Reprodução honesta (sem falso sucesso, voz `ko` explícita, fallback) | **PASS** (código + simulado) | revisão de `playback.ts`; 453 Vitest; real-device pendente (item 17) |
 | 4 | Rótulo do áudio como sintético | **PASS** (corrigido na 8D) | "gravado" → "sintetizado (referência provisória)" |
 | 5 | Qualidade fonética por falante nativo | **DEFERRED** | impossível sem revisor; todos os itens seguem `in-review`; bloqueia a promessa de "pronúncia correta", não o beta rotulado |
@@ -27,7 +27,7 @@ Legenda: **PASS** (verificado nesta fase com evidência) · **BLOCKED** (impede 
 | 14 | Acessibilidade | **PASS** (axe wcag2a/aa/21a/21aa) · **MANUAL TEST REQUIRED** (VoiceOver/TalkBack/NVDA) | sem alegação de conformidade WCAG completa |
 | 15 | Privacidade / jurídico | **BLOCKED** (público) | `/privacidade` e `/impressum` têm campos "a confirmar" (controlador, contato, retenção, DPAs); revisão jurídica pendente (`docs/privacy-audit.md`). A seção de microfone existe (§2.4) |
 | 16 | Segurança | **PASS** (escopo da fase) | cabeçalhos globais, `no-store` em rotas privadas, sem `Permissions-Policy` que bloqueie o microfone; sem bloqueio de segurança identificado. **Não é pentest** |
-| 17 | Testes automatizados | **PASS** | §2 |
+| 17 | Testes automatizados | **PASS** | §2 e §8 (12A) |
 | 18 | Dispositivos reais (iPhone Safari/Chrome, Android Chrome, Windows Chrome/Edge) | **MANUAL TEST REQUIRED** | nenhum teste físico existe |
 
 **Não marcar como pronto para produção** enquanto os itens 1 e 15 estiverem BLOCKED.
@@ -118,6 +118,18 @@ Voz única (`KR`), ritmo de item isolado, 0,75× como velocidade lenta, escolha 
 
 ## 7. Fase 8F — encerramento da infraestrutura de áudio
 
-- A contenção da 8E foi revertida em 2026-11-12: o corpus está em `public/audio/v1/` e é servido por padrão. A licença do encoder continua não esclarecida e o risco foi aceito pelo dono (`docs/audio/license-audit.md` §11). Plano histórico: `docs/audio/exposure-and-removal-plan.md`.
+- **[Histórico]** A contenção da 8E foi revertida em 2026-11-12 e o corpus passou a ser servido por padrão. A licença do encoder continua não esclarecida e o risco foi aceito pelo dono (`docs/audio/license-audit.md` §11). **A 12A restaurou o padrão seguro:** áudio opt-in, `public/audio/` no `.vercelignore` e guarda de build; ver §8. Plano histórico: `docs/audio/exposure-and-removal-plan.md`.
 - Fallback do navegador: voz coreana explícita (`pickKoreanVoice`), "indisponível" tratado sem fingir sucesso, rótulos "voz do sistema, sem revisão nativa" (`exercise-media.tsx`), progressão da lição independente do áudio. Verificado por revisão de código e testes simulados; **não** em aparelho real.
 - Próximo foco: currículo (`docs/release/curriculum-handoff.md`). Licença/pronúncia não bloqueiam conteúdo original local.
+
+## 8. Fase 12A — correções linguísticas e contenção (2026-11-13)
+
+- **Escopo:** correções verificadas da auditoria A0–A2, validadores de regressão e restauração do padrão seguro de áudio; **sem B2/C1/C2, sem migração, sem mudança em `Progress` v1/CAS/Leitner, sem apagar áudio, sem push/deploy.**
+- **Críticos corrigidos:** 6/6 verificados (`a2-l02-e01`, `a1-l11-e06`/`a1-c03-e13`, `a1-l25`, `a1-l01-e03`, `h21-e02`/`rule:liaison`, `ko:따라서`). `A1M1-002` (ambiguidade de `a1-l03-e09`) também foi corrigido e rebaixado a MAJOR; `V0-001` continua rejeitado.
+- **Avaliação:** 126 itens digitados do A2 deixaram de exigir pontuação final; 188 ocorrências de `listen` com enunciado de fragmento e gabarito de frase inteira foram alinhadas; variantes válidas (`계셔요`, `뵀어요`, `삼층이에요`, `은`, `보아요`, `면`, `는 것이`) passaram a ser aceitas; 6 `acceptedAnswers` redundantes do A1/A2 foram removidas (3 do B1 ficaram intactas).
+- **Progressão:** `-았/어야 했어요`, `-(으)ㄹ 때`, `-라고 하다` e `-면서` deixaram de ser cobrados antes do ensino; `-면서` ganhou bloco próprio em `a2-l40`.
+- **Validadores novos:** gabarito de MCQ fora das opções, referência de escolha/leitura inexistente, partícula fixa incompatível com o batchim, resposta vazia/redundante, `listen` com áudio divergente, alvo contextual dentro de palavra maior e dívida congelada de `reusedIds`. Fixtures positivas e negativas em `tests/content/curriculum-validators.test.ts`, `assessment-fairness.test.ts` e `reuse-audit.test.ts`.
+- **B1:** conteúdo linguístico não foi alterado; o validador compartilhado roda com `checkRedundantAccepted: false` para não reescrever a dívida do B1. A suíte B1 e a E2E B1 passaram.
+- **Áudio:** 2.907 MP3 preservados; 12 textos corrigidos sem MP3 e 10 MP3 antigos órfãos documentados em `docs/audio/stale-audio-manifest.md`; fallback de voz do navegador. Licença do encoder continua não esclarecida e o deploy público continua bloqueado.
+- **Validação:** typecheck limpo; **598 Vitest / 45 arquivos**; build verde com `[audio-guard] OK`; **646 Playwright (619 executados + 27 skips; Chromium 375/390/768/1280 + WebKit 390)**.
+- **Limites:** revisão nativa do coreano continua pendente; B1 ainda precisa de auditoria linguística própria; iPhone/Chrome iOS/VoiceOver reais não foram testados; a licença do áudio não foi resolvida.

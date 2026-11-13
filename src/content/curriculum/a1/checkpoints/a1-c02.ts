@@ -40,7 +40,7 @@ export const A1_C02: A1CheckpointContent = {
     listen(
       "a1-c02-e01",
       "independent",
-      "Ouça e escreva a idade que você ouviu.",
+      "Ouça e escreva a frase completa que contém a idade que você ouviu.",
       "저는 스무 살이에요.",
       "저는 스무 살이에요.",
       "스무 살 significa “vinte anos”.",
@@ -58,7 +58,7 @@ export const A1_C02: A1CheckpointContent = {
     listen(
       "a1-c02-e03",
       "independent",
-      "Ouça e escreva o dia da semana que você ouviu.",
+      "Ouça e escreva a frase completa que contém o dia da semana que você ouviu.",
       "오늘은 수요일이에요.",
       "오늘은 수요일이에요.",
       "수요일 é quarta-feira.",
@@ -67,7 +67,7 @@ export const A1_C02: A1CheckpointContent = {
     listen(
       "a1-c02-e04",
       "independent",
-      "Ouça e escreva a ação que você ouviu.",
+      "Ouça e escreva a frase completa que contém a ação que você ouviu.",
       "저는 아침에 공부해요.",
       "저는 아침에 공부해요.",
       "A pessoa estuda de manhã.",
@@ -85,7 +85,7 @@ export const A1_C02: A1CheckpointContent = {
     listen(
       "a1-c02-e06",
       "independent",
-      "Ouça e escreva o intervalo que você ouviu.",
+      "Ouça e escreva a frase completa que contém o intervalo que você ouviu.",
       "아홉 시부터 다섯 시까지 바빠요.",
       "아홉 시부터 다섯 시까지 바빠요.",
       "O intervalo vai das nove às cinco.",

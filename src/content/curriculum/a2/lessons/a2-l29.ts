@@ -74,7 +74,7 @@ export const A2_L29 = defineA2Lesson({
       "좋지만 introduz a ressalva.",
     ),
     listen(
-      "Ouça e escreva a dica para evitar multidão.",
+      "Ouça e escreva a frase completa que contém a dica para evitar multidão.",
       "아침 일찍 가는 게 좋겠어요.",
       "아침 일찍 가는 게 좋겠어요.",
       "Seria bom ir cedo de manhã.",
@@ -109,10 +109,11 @@ export const A2_L29 = defineA2Lesson({
     cloze(
       "Complete a recomendação: 조용한 곳을 가___ 좋겠어요.",
       "는 게",
-      "가는 게 좋겠어요 significa “seria bom ir”.",
+      "가는 게 좋겠어요 significa “seria bom ir”; 가면 e 가는 것이 também são válidos.",
+      ["면", "는 것이"],
     ),
     listen(
-      "Ouça e escreva o preço da atração.",
+      "Ouça e escreva a frase completa que contém o preço da atração.",
       "입장료는 무료예요.",
       "입장료는 무료예요.",
       "A entrada é gratuita.",

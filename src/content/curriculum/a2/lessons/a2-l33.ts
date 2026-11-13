@@ -71,10 +71,11 @@ export const A2_L33 = defineA2Lesson({
     cloze(
       "Complete o honorífico: 할머니께서 지금 ___.",
       "계세요",
-      "계세요 é a forma honorífica de 있어요.",
+      "계세요 é a forma honorífica de 있어요; 계셔요 é variante padrão.",
+      ["계셔요"],
     ),
     listen(
-      "Ouça e escreva a forma de tratamento usada por Jimin.",
+      "Ouça e escreva a frase completa que contém a forma de tratamento usada por Jimin.",
       "처음 뵙는 분이라서 긴장돼요.",
       "처음 뵙는 분이라서 긴장돼요.",
       "Jimin está nervoso porque vai encontrar a pessoa pela primeira vez.",
@@ -105,10 +106,11 @@ export const A2_L33 = defineA2Lesson({
     cloze(
       "Complete a forma humilde: 할머니를 오랜만에 ___.",
       "뵈었어요",
-      "뵈었어요 é a forma humilde de encontrar.",
+      "뵈었어요 é a forma humilde de encontrar; 뵀어요 é a contração padrão.",
+      ["뵀어요"],
     ),
     listen(
-      "Ouça e escreva o conselho de Sujin.",
+      "Ouça e escreva a frase completa que contém o conselho de Sujin.",
       "공손하게 인사하시면 돼요.",
       "공손하게 인사하시면 돼요.",
       "Basta cumprimentar com respeito.",

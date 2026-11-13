@@ -74,7 +74,7 @@ export const A2_L36 = defineA2Lesson({
       "있어서 indica a causa da mudança de plano.",
     ),
     listen(
-      "Ouça e escreva o aprendizado de Sujin.",
+      "Ouça e escreva a frase completa que contém o aprendizado de Sujin.",
       "그 일 이후로 덜 걱정하게 되었어요.",
       "그 일 이후로 덜 걱정하게 되었어요.",
       "Depois disso, ela passou a se preocupar menos.",
@@ -108,7 +108,7 @@ export const A2_L36 = defineA2Lesson({
       "걱정하게 되었어요 significa “passei a me preocupar”.",
     ),
     listen(
-      "Ouça e escreva o problema inicial.",
+      "Ouça e escreva a frase completa que contém o problema inicial.",
       "비행기가 갑자기 취소되었어요.",
       "비행기가 갑자기 취소되었어요.",
       "O voo foi cancelado de repente.",

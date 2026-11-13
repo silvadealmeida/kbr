@@ -108,7 +108,7 @@ export const A1_L15: A1LessonContent = defineA1Lesson({
     listen(
       "a1-l15-e03",
       "guided",
-      "Ouça e escreva a oferta que você ouviu.",
+      "Ouça e escreva a frase completa que contém a oferta que você ouviu.",
       "물 드세요.",
       "물 드세요.",
       "A frase oferece água de modo respeitoso.",
@@ -154,7 +154,7 @@ export const A1_L15: A1LessonContent = defineA1Lesson({
     listen(
       "a1-l15-e08",
       "independent",
-      "Ouça e escreva a saudação que você ouviu.",
+      "Ouça e escreva a frase completa que contém a saudação que você ouviu.",
       "어서 오세요.",
       "어서 오세요.",
       "A saudação é 어서 오세요, “bem-vindo”.",

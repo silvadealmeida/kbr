@@ -143,7 +143,7 @@ export const A1_L02: A1LessonContent = defineA1Lesson({
     listen(
       "a1-l02-e03",
       "guided",
-      "Ouça e escreva a ocupação que você ouviu.",
+      "Ouça e escreva a frase completa que contém a ocupação que você ouviu.",
       "저는 유학생이에요.",
       "저는 유학생이에요.",
       "유학생 é “estudante estrangeiro/estrangeira”; a frase completa é “Eu sou estudante estrangeiro”.",
@@ -205,10 +205,10 @@ export const A1_L02: A1LessonContent = defineA1Lesson({
       "a1-l02-e10",
       "independent",
       "pt-ko",
-      "Traduza para o coreano polido: “Eu sou brasileiro.”",
-      "저는 브라질 사람이에요.",
-      "브라질 사람 é “pessoa brasileira”; a forma é 사람이에요 porque 사람 termina em consoante.",
-      ["저는 브라질 사람이에요"],
+      "Traduza para o coreano polido: “Eu sou coreano.”",
+      "저는 한국 사람이에요.",
+      "한국 사람 é “pessoa coreana”; a forma é 사람이에요 porque 사람 termina em consoante.",
+      ["저는 한국 사람이에요"],
     ),
   ],
   summary: [

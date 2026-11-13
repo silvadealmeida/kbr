@@ -15,6 +15,8 @@ export default defineConfig({
       NEXT_PUBLIC_SUPABASE_URL: E2E_SUPABASE_URL,
       NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: "e2e-publishable-key",
       NEXT_PUBLIC_SUPABASE_AUTH_CALLBACK_URL: `${E2E_SUPABASE_URL}/auth/v1/callback`,
+      // O E2E exercita o caminho de MP3 explicitamente; produção fica sem opt-in.
+      NEXT_PUBLIC_KBR_STATIC_AUDIO: "1",
     },
   },
   use: { baseURL: "http://localhost:3100" },

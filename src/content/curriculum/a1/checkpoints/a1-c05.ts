@@ -43,7 +43,7 @@ export const A1_C05: A1CheckpointContent = {
     listen(
       "a1-c05-e01",
       "independent",
-      "Ouça e escreva o destino que você ouviu.",
+      "Ouça e escreva a frase completa que contém o destino que você ouviu.",
       "저는 도서관에 가요.",
       "저는 도서관에 가요.",
       "A pessoa vai à biblioteca.",
@@ -52,7 +52,7 @@ export const A1_C05: A1CheckpointContent = {
     listen(
       "a1-c05-e02",
       "independent",
-      "Ouça e escreva o meio de transporte.",
+      "Ouça e escreva a frase completa que contém o meio de transporte.",
       "저는 버스로 가요.",
       "저는 버스로 가요.",
       "A pessoa vai de ônibus.",
@@ -61,7 +61,7 @@ export const A1_C05: A1CheckpointContent = {
     listen(
       "a1-c05-e03",
       "independent",
-      "Ouça e escreva a duração que você ouviu.",
+      "Ouça e escreva a frase completa que contém a duração que você ouviu.",
       "삼십 분 걸려요.",
       "삼십 분 걸려요.",
       "O trajeto leva trinta minutos.",

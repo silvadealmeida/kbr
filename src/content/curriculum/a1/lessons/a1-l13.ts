@@ -157,7 +157,7 @@ export const A1_L13: A1LessonContent = defineA1Lesson({
     listen(
       "a1-l13-e08",
       "independent",
-      "Ouça e escreva a localização que você ouviu.",
+      "Ouça e escreva a frase completa que contém a localização que você ouviu.",
       "냉장고가 부엌에 있어요.",
       "냉장고가 부엌에 있어요.",
       "A geladeira está na cozinha.",

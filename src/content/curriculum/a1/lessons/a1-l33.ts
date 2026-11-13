@@ -110,7 +110,7 @@ export const A1_L33: A1LessonContent = defineA1Lesson({
     listen(
       "a1-l33-e03",
       "guided",
-      "Ouça e escreva o sintoma que você ouviu.",
+      "Ouça e escreva a frase completa que contém o sintoma que você ouviu.",
       "어깨가 아파요.",
       "어깨가 아파요.",
       "O ombro dói.",

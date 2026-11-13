@@ -125,6 +125,11 @@ Opções (todas dependem do dono; nada foi feito): (a) tornar o repositório pri
 
 ## 11. Decisão do dono do projeto (2026-11-12): uso liberado no app
 
+> **Nota da 12A (2026-11-13):** esta decisão de risco continua registrada, mas o padrão
+> técnico de deploy foi revertido para contenção na §12. O texto abaixo é histórico e
+> não deve ser lido como licença nem como autorização de distribuição pública.
+
+
 **Decisão:** o dono do projeto determinou que as restrições técnicas de uso sejam removidas e que o áudio
 sintético seja servido normalmente no app, incluindo todo o curso A2. A contenção da 8E foi revertida.
 
@@ -140,3 +145,16 @@ sintético seja servido normalmente no app, incluindo todo o curso A2. A conten�
 licença declarada no Hugging Face e a contradição Apache-2.0 × MOU do repositório do autor não foi
 resolvida. A decisão acima é de risco aceito pelo dono do projeto, **não** um parecer jurídico nem uma
 confirmação de licença. Antes de lançamento comercial, as ações R1/R2/R5 do §6 continuam recomendadas.
+
+## 12. Fase 12A (2026-11-13) — contenção restaurada como padrão seguro
+
+A decisão de risco do dono (§11) continua registrada, mas **não é uma licença** e não foi tratada como tal nesta fase. Como o encoder `kykim/bert-kor-base` segue sem licença declarada e a contradição Apache-2.0 × MOU não foi resolvida, o padrão voltou a ser conservador:
+
+- `STATIC_AUDIO_ENABLED` agora é **opt-in**: só vale com `NEXT_PUBLIC_KBR_STATIC_AUDIO=1`. Sem a flag, o player usa a voz coreana do navegador e nunca resolve caminho de MP3.
+- `.vercelignore` exclui `public/audio/` do artefato de deploy. Os MP3 continuam versionados em `public/audio/v1/` e não foram apagados.
+- `scripts/audio/verify-audio-containment.mjs` roda em `prebuild`/`postbuild`: exige a linha `public/audio/` no `.vercelignore` e falha se houver MP3 em `.next/` ou `.vercel/output/` sem opt-in explícito.
+- `tests/audio-containment.test.ts` cobre a exclusão, a preservação dos arquivos e o fallback; `tests/audio-manifest.test.ts` fixa as 12 lacunas e 10 sobras de texto corrigido (`docs/audio/stale-audio-manifest.md`).
+- O E2E liga a flag explicitamente para exercitar o caminho de MP3; isso é teste local, não autorização de distribuição.
+- Textos corrigidos sem MP3 usam TTS do navegador; nenhum MP3 foi regenerado, movido ou removido.
+
+**O que isso não resolve:** o repositório público e a história do Git continuam expondo o corpus; deployments antigos da Vercel não foram verificados; a licença do encoder continua não esclarecida. O lançamento público/comercial continua **BLOQUEADO** até R1/R2/R5 do §6 ou substituição por áudio com licença verificável.

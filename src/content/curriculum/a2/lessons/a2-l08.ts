@@ -80,7 +80,7 @@ export const A2_L08 = defineA2Lesson({
       "출근하기 전에 significa “antes de ir ao trabalho”.",
     ),
     listen(
-      "Ouça e escreva o que ela faz depois de se exercitar.",
+      "Ouça e escreva a frase completa que contém o que ela faz depois de se exercitar.",
       "운동한 후에 출근해요.",
       "운동한 후에 출근해요.",
       "Depois de se exercitar, ela vai ao trabalho.",
@@ -114,7 +114,7 @@ export const A2_L08 = defineA2Lesson({
       "공부한 후에 significa “depois de estudar”.",
     ),
     listen(
-      "Ouça e escreva a atividade depois do jantar.",
+      "Ouça e escreva a frase completa que contém a atividade depois do jantar.",
       "저녁을 먹고 나서 책을 읽어요.",
       "저녁을 먹고 나서 책을 읽어요.",
       "Depois do jantar, a pessoa lê um livro.",

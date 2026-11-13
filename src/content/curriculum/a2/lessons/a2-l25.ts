@@ -74,7 +74,7 @@ export const A2_L25 = defineA2Lesson({
       "목요일까지 significa “até quinta-feira”.",
     ),
     listen(
-      "Ouça e escreva o compromisso de Sujin.",
+      "Ouça e escreva a frase completa que contém o compromisso de Sujin.",
       "제가 자료를 준비하겠습니다.",
       "제가 자료를 준비하겠습니다.",
       "Sujin assume a preparação dos dados.",
@@ -108,7 +108,7 @@ export const A2_L25 = defineA2Lesson({
       "발표하기 전에 significa “antes de apresentar”.",
     ),
     listen(
-      "Ouça e escreva o dia da revisão.",
+      "Ouça e escreva a frase completa que contém o dia da revisão.",
       "목요일 네 시에 회의실에서 만나요.",
       "목요일 네 시에 회의실에서 만나요.",
       "A revisão será quinta às quatro, na sala de reuniões.",

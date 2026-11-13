@@ -38,7 +38,7 @@ export const A2_L39 = defineA2Lesson({
     ["지민", "유학은요?", "E o intercâmbio?"],
     ["수진", "유학은 내년에 가기로 했어요. 그 후에 취업할 계획이에요.", "Decidi fazer intercâmbio no ano que vem. Depois, pretendo trabalhar."],
     ["지민", "저는 아직 잘 모르겠어요. 여러 가지 일을 해 보고 싶어요.", "Eu ainda não sei bem. Quero experimentar vários tipos de trabalho."],
-    ["수진", "좋아요. 지금 정하지 않아도 괜찮아요. 경험하면서 찾게 될 거예요.", "Legal. Não precisa decidir agora. Você vai descobrir com a experiência."],
+    ["수진", "좋아요. 지금 정하지 않아도 괜찮아요. 경험을 하면 찾게 될 거예요.", "Legal. Não precisa decidir agora. Você vai descobrir com a experiência."],
   ],
   reusedIds: ["ko:미래", "ko:계획", "ko:목표", "ko:유학", "ko:취업"],
   grammar: [
@@ -74,7 +74,7 @@ export const A2_L39 = defineA2Lesson({
       "가기로 했어요 registra a decisão.",
     ),
     listen(
-      "Ouça e escreva o plano de Sujin depois do intercâmbio.",
+      "Ouça e escreva a frase completa que contém o plano de Sujin depois do intercâmbio.",
       "그 후에 취업할 계획이에요.",
       "그 후에 취업할 계획이에요.",
       "Depois disso, ela planeja trabalhar.",
@@ -112,7 +112,7 @@ export const A2_L39 = defineA2Lesson({
       "열면 좋겠어요 significa “seria bom abrir”.",
     ),
     listen(
-      "Ouça e escreva a atitude de Jimin.",
+      "Ouça e escreva a frase completa que contém a atitude de Jimin.",
       "여러 가지 일을 해 보고 싶어요.",
       "여러 가지 일을 해 보고 싶어요.",
       "Jimin quer experimentar vários tipos de trabalho.",
@@ -126,11 +126,11 @@ export const A2_L39 = defineA2Lesson({
       ["Está tudo bem não decidir agora."],
     ),
     reading(
-      "미래의 계획은 바뀔 수 있어요. 중요한 것은 지금의 목표를 세우고, 경험하면서 조정하는 거예요.",
+      "미래의 계획은 바뀔 수 있어요. 중요한 것은 지금의 목표를 세우고, 경험이 많아지면 조정하는 거예요.",
       "Qual é a mensagem?",
       ["Planos podem ser ajustados com a experiência.", "Nunca se deve planejar.", "Só vale o primeiro plano."],
       "Planos podem ser ajustados com a experiência.",
-      "경험하면서 조정하는 거예요.",
+      "경험이 많아지면 조정하는 거예요.",
     ),
   ],
   summary: [

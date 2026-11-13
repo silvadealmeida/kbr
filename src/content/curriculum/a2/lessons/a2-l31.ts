@@ -74,7 +74,7 @@ export const A2_L31 = defineA2Lesson({
       "영화라고 생각해요 significa “penso que é um filme”.",
     ),
     listen(
-      "Ouça e escreva a crítica de Jimin.",
+      "Ouça e escreva a frase completa que contém a crítica de Jimin.",
       "조금 어려운 것 같아요.",
       "조금 어려운 것 같아요.",
       "Jimin acha que é um pouco difícil.",
@@ -108,11 +108,11 @@ export const A2_L31 = defineA2Lesson({
       "것 같아요 significa “parece que”.",
     ),
     listen(
-      "Ouça e escreva a sugestão final.",
+      "Ouça e escreva a frase completa que contém a sugestão final.",
       "다른 감독의 영화를 보는 게 어때요?",
       "다른 감독의 영화를 보는 게 어때요?",
       "A sugestão é assistir a um filme de outro diretor.",
-      ["다른 감독의 영화를 보는 게 어때요?"],
+      ["다른 감독의 영화를 보는 게 어때요"],
     ),
     translate(
       "ko-pt",

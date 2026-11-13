@@ -42,7 +42,7 @@ export const A1_C04: A1CheckpointContent = {
     listen(
       "a1-c04-e01",
       "independent",
-      "Ouça e escreva a preferência que você ouviu.",
+      "Ouça e escreva a frase completa que contém a preferência que você ouviu.",
       "저는 과일을 좋아해요.",
       "저는 과일을 좋아해요.",
       "A pessoa gosta de frutas.",

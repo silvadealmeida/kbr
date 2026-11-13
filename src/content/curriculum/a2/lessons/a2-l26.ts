@@ -74,7 +74,7 @@ export const A2_L26 = defineA2Lesson({
       "몇 시인지 알려 주세요 significa “informe a que horas”.",
     ),
     listen(
-      "Ouça e escreva o horário do café da manhã.",
+      "Ouça e escreva a frase completa que contém o horário do café da manhã.",
       "조식은 일곱 시부터 열 시까지예요.",
       "조식은 일곱 시부터 열 시까지예요.",
       "O café da manhã é das sete às dez.",
@@ -112,7 +112,7 @@ export const A2_L26 = defineA2Lesson({
       "연박 significa “estadia de várias noites”.",
     ),
     listen(
-      "Ouça e escreva a condição de pagamento.",
+      "Ouça e escreva a frase completa que contém a condição de pagamento.",
       "예약금은 카드로 내겠습니다.",
       "예약금은 카드로 내겠습니다.",
       "O depósito será pago com cartão.",
@@ -126,7 +126,7 @@ export const A2_L26 = defineA2Lesson({
       ["O estacionamento é grátis."],
     ),
     reading(
-      "호텔 예약을 할 때는 날짜, 숙박 일수, 방 종류를 확인해야 해요. 환불 규정도 확인하는 게 좋아요.",
+      "호텔 예약을 하면 날짜, 숙박 일수, 방 종류를 확인해야 해요. 환불 규정도 확인하는 게 좋아요.",
       "O que deve ser confirmado antes de reservar?",
       ["Data, noites e tipo de quarto.", "Apenas o preço.", "O nome do gerente."],
       "Data, noites e tipo de quarto.",

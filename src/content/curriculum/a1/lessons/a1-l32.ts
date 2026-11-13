@@ -108,7 +108,7 @@ export const A1_L32: A1LessonContent = defineA1Lesson({
     listen(
       "a1-l32-e03",
       "guided",
-      "Ouça e escreva o que ouviu.",
+      "Ouça e escreva a frase completa que contém o que ouviu.",
       "비가 많이 와요.",
       "비가 많이 와요.",
       "A frase diz “está chovendo muito”.",

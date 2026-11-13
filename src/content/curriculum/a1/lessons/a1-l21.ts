@@ -153,7 +153,7 @@ export const A1_L21: A1LessonContent = defineA1Lesson({
     listen(
       "a1-l21-e08",
       "independent",
-      "Ouça e escreva o destino que você ouviu.",
+      "Ouça e escreva a frase completa que contém o destino que você ouviu.",
       "저는 역에 가요.",
       "저는 역에 가요.",
       "A pessoa vai à estação.",

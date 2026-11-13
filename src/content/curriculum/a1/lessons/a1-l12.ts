@@ -108,7 +108,7 @@ export const A1_L12: A1LessonContent = defineA1Lesson({
     listen(
       "a1-l12-e03",
       "guided",
-      "Ouça e escreva a característica que você ouviu.",
+      "Ouça e escreva a frase completa que contém a característica que você ouviu.",
       "제 친구는 친절해요.",
       "제 친구는 친절해요.",
       "친절해요 significa “é gentil”.",

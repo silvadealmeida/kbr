@@ -80,7 +80,7 @@ export const A2_L10 = defineA2Lesson({
       "오면 significa “se chover”.",
     ),
     listen(
-      "Ouça e escreva o plano para sábado de manhã.",
+      "Ouça e escreva a frase completa que contém o plano para sábado de manhã.",
       "토요일 아침에 날씨를 확인해요.",
       "토요일 아침에 날씨를 확인해요.",
       "No sábado de manhã, eles verificam o tempo.",
@@ -114,7 +114,7 @@ export const A2_L10 = defineA2Lesson({
       "아니면 oferece a segunda opção.",
     ),
     listen(
-      "Ouça e escreva a condição para ir à montanha.",
+      "Ouça e escreva a frase completa que contém a condição para ir à montanha.",
       "날씨가 좋으면 산에 가요.",
       "날씨가 좋으면 산에 가요.",
       "Se o tempo estiver bom, eles vão à montanha.",

@@ -74,7 +74,7 @@ export const A2_L24 = defineA2Lesson({
       "알아듣는 것이 어려워요 significa “é difícil entender”.",
     ),
     listen(
-      "Ouça e escreva a decisão de Marco.",
+      "Ouça e escreva a frase completa que contém a decisão de Marco.",
       "일주일에 두 번 학원에 가기로 했어요.",
       "일주일에 두 번 학원에 가기로 했어요.",
       "Marco decidiu ir ao cursinho duas vezes por semana.",
@@ -112,7 +112,7 @@ export const A2_L24 = defineA2Lesson({
       "복습하기로 했어요 significa “decidi revisar”.",
     ),
     listen(
-      "Ouça e escreva a frequência de estudo de Marco.",
+      "Ouça e escreva a frase completa que contém a frequência de estudo de Marco.",
       "일주일에 두 번 학원에 가요.",
       "일주일에 두 번 학원에 가요.",
       "Ele vai ao cursinho duas vezes por semana.",
@@ -126,7 +126,7 @@ export const A2_L24 = defineA2Lesson({
       ["Se você praticar sempre, a pronúncia também vai melhorar."],
     ),
     reading(
-      "저는 매일 아침에 삼십 분씩 단어를 외워요. 저녁에는 드라마를 보면서 듣기를 공부해요. 주말에는 학원에 가요.",
+      "저는 매일 아침에 삼십 분씩 단어를 외워요. 저녁에는 드라마를 보고 듣기를 공부해요. 주말에는 학원에 가요.",
       "O que a pessoa faz pela manhã?",
       ["Memoriza palavras.", "Assiste a dramas.", "Vai ao cursinho."],
       "Memoriza palavras.",

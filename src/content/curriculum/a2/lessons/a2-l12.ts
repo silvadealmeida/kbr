@@ -80,7 +80,7 @@ export const A2_L12 = defineA2Lesson({
       "버려야 해요 significa “precisa jogar fora”.",
     ),
     listen(
-      "Ouça e escreva a tarefa que eles fazem juntos.",
+      "Ouça e escreva a frase completa que contém a tarefa que eles fazem juntos.",
       "설거지는 같이 하는 게 좋겠어요.",
       "설거지는 같이 하는 게 좋겠어요.",
       "Seria bom lavar a louça juntos.",
@@ -114,7 +114,7 @@ export const A2_L12 = defineA2Lesson({
       "하는 게 좋겠어요 significa “seria bom fazer”.",
     ),
     listen(
-      "Ouça e escreva a frequência da coleta seletiva.",
+      "Ouça e escreva a frase completa que contém a frequência da coleta seletiva.",
       "분리수거는 화요일이에요.",
       "분리수거는 화요일이에요.",
       "A coleta seletiva é na terça-feira.",

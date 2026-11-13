@@ -158,7 +158,7 @@ export const A1_L34: A1LessonContent = defineA1Lesson({
     listen(
       "a1-l34-e08",
       "independent",
-      "Ouça e escreva a recomendação que você ouviu.",
+      "Ouça e escreva a frase completa que contém a recomendação que você ouviu.",
       "푹 쉬세요.",
       "푹 쉬세요.",
       "A recomendação é “descanse bem”.",

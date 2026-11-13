@@ -2,16 +2,20 @@
 
 **Fase:** 8B (corpus Hangul) e ampliação A1/A2  
 **Data:** 2026-11-12  
-**Status:** pipeline reproduzível. Os MP3 ficam em `public/audio/v1/`, são versionados e servidos por padrão.  
+**Status:** pipeline reproduzível. Os MP3 ficam em `public/audio/v1/`, são versionados e usados apenas com opt-in (`NEXT_PUBLIC_KBR_STATIC_AUDIO=1`).  
 **Natureza do áudio:** síntese neural, **não** gravação nativa. Todo o conteúdo coreano continua `in-review`; estes arquivos são a referência estável provisória e ainda precisam de escuta e aprovação de falante nativo.
 
 ## Uso e desligamento
 
-- O áudio estático é o caminho padrão. `NEXT_PUBLIC_KBR_STATIC_AUDIO=0` é o kill switch: o player
-  ignora os MP3 e cai para a voz coreana do sistema (ou para a dica textual).
-- `encode-audio.py` grava direto em `public/audio/v1/`; não há mais cópia de stage nem guarda de build.
-- A decisão do dono do projeto de usar o corpus apesar da licença do encoder ainda não esclarecida está
-  registrada em [`license-audit.md`](license-audit.md) §11. O risco não foi resolvido, apenas aceito.
+- O áudio estático é **opt-in**: sem `NEXT_PUBLIC_KBR_STATIC_AUDIO=1`, o player ignora os MP3 e cai
+  para a voz coreana do sistema (ou para a dica textual). O E2E liga a flag apenas para exercitar o
+  caminho de asset.
+- `public/audio/` está no `.vercelignore`; `scripts/audio/verify-audio-containment.mjs` roda em
+  `prebuild`/`postbuild` e falha se houver MP3 em artefato publicável sem opt-in explícito.
+- `encode-audio.py` grava direto em `public/audio/v1/`; os arquivos são preservados, não apagados.
+- A decisão de risco do dono do projeto está registrada em [`license-audit.md`](license-audit.md) §11
+  e **não é licença**; o padrão seguro e a contenção da 12A estão na §12.
+- Textos corrigidos sem MP3 usam TTS; a lista fechada está em [`stale-audio-manifest.md`](stale-audio-manifest.md).
 
 **Verificação local:**
 ```bash

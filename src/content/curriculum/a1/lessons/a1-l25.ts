@@ -88,8 +88,8 @@ export const A1_L25: A1LessonContent = defineA1Lesson({
       "g:a1-l25-appointment",
       "Lugar, hora e atividade",
       "atividade + 장소 + 시간",
-      "Um encontro claro combina atividade, lugar e horário. Use 에 para o horário e 앞/옆/근처 para o ponto de encontro: 극장 앞에, 일곱 시에.",
-      examples(["극장 앞에 만나요.", "Encontro em frente ao cinema."], ["일곱 시에 만나요.", "Encontro às sete."]),
+      "Um encontro claro combina atividade, lugar e horário. Use 에 para o horário e 에서 para o ponto de encontro: 극장 앞에서, 일곱 시에.",
+      examples(["극장 앞에서 만나요.", "Encontro em frente ao cinema."], ["일곱 시에 만나요.", "Encontro às sete."]),
     ),
   ],
   exercises: [
@@ -157,7 +157,7 @@ export const A1_L25: A1LessonContent = defineA1Lesson({
     listen(
       "a1-l25-e08",
       "independent",
-      "Ouça e escreva o horário de partida.",
+      "Ouça e escreva a frase completa que contém o horário de partida.",
       "우리는 여섯 시에 출발해요.",
       "우리는 여섯 시에 출발해요.",
       "A partida é às seis.",

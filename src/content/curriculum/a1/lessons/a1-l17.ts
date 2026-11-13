@@ -151,7 +151,7 @@ export const A1_L17: A1LessonContent = defineA1Lesson({
     listen(
       "a1-l17-e08",
       "independent",
-      "Ouça e escreva a expressão que você ouviu.",
+      "Ouça e escreva a frase completa que contém a expressão que você ouviu.",
       "잠시만요.",
       "잠시만요.",
       "잠시만요 significa “um instante”.",

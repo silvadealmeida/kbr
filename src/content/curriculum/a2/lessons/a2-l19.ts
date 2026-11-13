@@ -57,7 +57,7 @@ export const A2_L19 = defineA2Lesson({
       "A forma rejeita a primeira ação e propõe a segunda. A segunda parte precisa ser uma ação compatível. Não use -지 말고 para apenas proibir sem alternativa.",
       [
         ["오래 앉지 말고 자주 일어나세요.", "Em vez de ficar muito tempo sentado, levante-se com frequência."],
-        ["무거운 것은 들지 말고 도와달라고 하세요.", "Não levante coisas pesadas; peça ajuda."],
+        ["무거운 것은 들지 말고 저를 도와주세요.", "Não levante coisas pesadas; peça ajuda a mim."],
       ],
     ],
   ],
@@ -74,14 +74,14 @@ export const A2_L19 = defineA2Lesson({
       "아프면 significa “se doer”.",
     ),
     listen(
-      "Ouça e escreva o que Sujin não deve levantar.",
+      "Ouça e escreva a frase completa que contém o que Sujin não deve levantar.",
       "무거운 것은 들지 마세요.",
       "무거운 것은 들지 마세요.",
       "Ela não deve levantar coisas pesadas.",
       ["무거운 것은 들지 마세요"],
     ),
     reading(
-      "수진은 하루 종일 컴퓨터 앞에 앉아 있어요. 그래서 허리가 아파요. 마르코는 자주 일어나라고 했어요.",
+      "수진은 하루 종일 컴퓨터 앞에 앉아 있어요. 그래서 허리가 아파요. 마르코는 “자주 일어나세요.”라고 말했어요.",
       "Por que a lombar dói?",
       ["Porque ela fica muito tempo sentada.", "Porque ela corre todos os dias.", "Porque dorme pouco."],
       "Porque ela fica muito tempo sentada.",
@@ -112,7 +112,7 @@ export const A2_L19 = defineA2Lesson({
       "피곤하면 significa “se estiver cansado”.",
     ),
     listen(
-      "Ouça e escreva o conselho para a dor nas costas.",
+      "Ouça e escreva a frase completa que contém o conselho para a dor nas costas.",
       "허리가 아프면 누워서 쉬세요.",
       "허리가 아프면 누워서 쉬세요.",
       "Se a lombar doer, deite e descanse.",
@@ -126,11 +126,11 @@ export const A2_L19 = defineA2Lesson({
       ["Não carregue objetos pesados."],
     ),
     reading(
-      "건강을 위해서는 규칙적으로 운동하는 게 좋아요. 하지만 아플 때는 무리하지 말고 쉬어야 해요.",
+      "건강을 위해서는 규칙적으로 운동하는 게 좋아요. 하지만 아프면 무리하지 말고 쉬어야 해요.",
       "O que fazer quando estiver doente?",
       ["Descansar sem exagerar.", "Treinar mais forte.", "Ignorar a dor."],
       "Descansar sem exagerar.",
-      "아플 때는 무리하지 말고 쉬어야 해요.",
+      "아프면 무리하지 말고 쉬어야 해요.",
     ),
   ],
   summary: [

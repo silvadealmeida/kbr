@@ -79,7 +79,7 @@ export const H21: Lesson = {
       prompt: "Como 음악 soa com a ligação?",
       options: ["으막", "음악", "으마"],
       correctAnswer: "으막",
-      explanation: "O ㄱ final de 음 passa para 악: 으막. A escrita permanece 음악.",
+      explanation: "O ㅁ final de 음 passa para 악: 으막. A escrita permanece 음악.",
       tags: ["diag:liaison", "rule:liaison", "h21", "word"],
       srsCards: ["h:rule:liaison", "h:word:음악", "h:syl:악"],
     },

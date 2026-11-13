@@ -33,7 +33,7 @@ export const A2_M06_ROWS: readonly A2VocabRow[] = [
   ["a2-l28", "신고", "denúncia; comunicação oficial", "substantivo", "신고", "분실 신고를 어디에서 해요?", "Onde faço a comunicação de perda?", "comunicação oficial"],
   ["a2-l28", "보상", "compensação; indenização", "substantivo", "보상", "보상을 받을 수 있을까요?", "Posso receber compensação?", "compensação"],
   ["a2-l28", "보험", "seguro", "substantivo", "보험", "여행자 보험에 가입했어요.", "Contratei seguro de viagem.", "seguro"],
-  ["a2-l28", "분실", "perda de objeto", "substantivo", "분실", "분실물 센터에 문의했어요.", "Perguntei no setor de achados e perdidos.", "perda"],
+  ["a2-l28", "분실", "perda de objeto", "substantivo", "분실", "분실 신고를 했어요.", "Fiz uma ocorrência de perda.", "perda"],
   ["a2-l28", "습득", "achado; recolhimento de objeto", "substantivo", "습득한", "습득한 물건은 안내소에 맡기세요.", "Entregue o objeto encontrado no balcão de informações.", "achado"],
   ["a2-l28", "긴급", "emergência; urgente", "substantivo", "긴급", "긴급 상황이 아니에요.", "Não é uma emergência.", "emergência"],
   ["a2-l28", "상황", "situação", "substantivo", "상황", "상황을 자세히 설명해 주세요.", "Explique a situação em detalhes.", "situação"],

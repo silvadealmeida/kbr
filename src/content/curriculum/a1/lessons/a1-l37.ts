@@ -98,7 +98,8 @@ export const A1_L37: A1LessonContent = defineA1Lesson({
       "guided",
       "Complete com a partícula: 승강장___ 어디예요?",
       "이",
-      "승강장 termina em consoante e recebe 이.",
+      "승강장 termina em consoante e recebe 이; 승강장은 também é válido quando o lugar é o tópico.",
+      ["은"],
     ),
     cloze(
       "a1-l37-e02",

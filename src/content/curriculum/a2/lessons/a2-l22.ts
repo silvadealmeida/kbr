@@ -74,7 +74,7 @@ export const A2_L22 = defineA2Lesson({
       "하는 데 필요해요 significa “é necessário para fazer”.",
     ),
     listen(
-      "Ouça e escreva os documentos necessários.",
+      "Ouça e escreva a frase completa que contém os documentos necessários.",
       "이력서와 자기소개서를 준비하세요.",
       "이력서와 자기소개서를 준비하세요.",
       "Prepare currículo e carta de apresentação.",
@@ -108,7 +108,7 @@ export const A2_L22 = defineA2Lesson({
       "지원하려고 해요 significa “pretendo me candidatar”.",
     ),
     listen(
-      "Ouça e escreva o que é bom ter.",
+      "Ouça e escreva a frase completa que contém o que é bom ter.",
       "경력이 있으면 좋아요.",
       "경력이 있으면 좋아요.",
       "É bom ter experiência.",
@@ -122,7 +122,7 @@ export const A2_L22 = defineA2Lesson({
       ["É bom se tiver certificado."],
     ),
     reading(
-      "수진은 경력이 없지만 자격증이 있어요. 마르코는 그녀에게 이력서와 자기소개서를 준비해 보라고 했어요.",
+      "수진은 경력이 없지만 자격증이 있어요. 마르코는 그녀에게 “이력서와 자기소개서를 준비해 보세요.”라고 말했어요.",
       "O que Sujin tem?",
       ["Um certificado.", "Muita experiência.", "Uma empresa própria."],
       "Um certificado.",

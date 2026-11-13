@@ -20,7 +20,7 @@ export const A2_M01_ROWS: readonly A2VocabRow[] = [
   ["a2-l02", "한번", "uma vez", "advérbio", "한번", "저는 한번 가 봤어요.", "Eu já fui lá uma vez.", "uma vez"],
   ["a2-l02", "적", "vez; ocasião (em experiência)", "substantivo", "적", "한국에 간 적이 있어요.", "Já estive na Coreia.", "vez; ocasião", "Substantivo dependente usado em -아/어 본 적이 있어요."],
   ["a2-l02", "외국", "estrangeiro; país estrangeiro", "substantivo", "외국", "외국에서 살아 본 적이 있어요?", "Você já morou no exterior?", "país estrangeiro"],
-  ["a2-l02", "해외", "exterior", "substantivo", "해외", "해외여행을 좋아해요.", "Gosto de viagens ao exterior.", "exterior"],
+  ["a2-l02", "해외", "exterior", "substantivo", "해외", "해외에 가고 싶어요.", "Quero ir ao exterior.", "exterior"],
   ["a2-l02", "국내", "doméstico; interior do país", "substantivo", "국내", "국내 여행을 자주 해요.", "Viajo com frequência pelo país.", "interior do país"],
   ["a2-l02", "여권", "passaporte", "substantivo", "여권", "여권을 잃어버렸어요.", "Perdi meu passaporte.", "passaporte"],
   ["a2-l02", "출장", "viagem de negócios", "substantivo", "출장", "다음 주에 출장을 가요.", "Na próxima semana, vou viajar a negócios.", "viagem de negócios"],

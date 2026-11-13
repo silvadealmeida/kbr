@@ -80,7 +80,7 @@ export const A2_L02 = defineA2Lesson({
     mcq(
       "O que Ana já fez no Japão?",
       ["Foi a uma fonte termal.", "Morou no exterior.", "Trabalhou em uma ONG."],
-      "Foi uma fonte termal.",
+      "Foi a uma fonte termal.",
       "지우 pergunta sobre 온천 e Ana responde 가 봤어요: ela já foi a uma fonte termal.",
     ),
     cloze(
@@ -89,7 +89,7 @@ export const A2_L02 = defineA2Lesson({
       "간 적이 있어요 significa “já estive/fui alguma vez”.",
     ),
     listen(
-      "Ouça e escreva a experiência que Jiwoo ainda não teve.",
+      "Ouça e escreva a frase completa que contém a experiência que Jiwoo ainda não teve.",
       "저는 아직 해외에서 살아 본 적이 없어요.",
       "저는 아직 해외에서 살아 본 적이 없어요.",
       "Jiwoo diz que ainda nunca morou no exterior.",
@@ -127,7 +127,7 @@ export const A2_L02 = defineA2Lesson({
       "A pergunta completa é 살아 본 적이 있어요? — “você já morou no exterior?”.",
     ),
     listen(
-      "Ouça e escreva a experiência de Ana.",
+      "Ouça e escreva a frase completa que contém a experiência de Ana.",
       "일본에는 두 번 갔어요.",
       "일본에는 두 번 갔어요.",
       "Ana já foi ao Japão duas vezes.",

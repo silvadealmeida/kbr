@@ -74,7 +74,7 @@ export const A2_L16 = defineA2Lesson({
       "열이 있어요 significa “estou com febre”.",
     ),
     listen(
-      "Ouça e escreva o sintoma principal.",
+      "Ouça e escreva a frase completa que contém o sintoma principal.",
       "어제부터 목이 아프고 열이 있어요.",
       "어제부터 목이 아프고 열이 있어요.",
       "Desde ontem a garganta dói e há febre.",
@@ -108,7 +108,7 @@ export const A2_L16 = defineA2Lesson({
       "피곤해 보이네요 significa “parece muito cansado”.",
     ),
     listen(
-      "Ouça e escreva a orientação sobre o remédio.",
+      "Ouça e escreva a frase completa que contém a orientação sobre o remédio.",
       "식후에 약을 드세요.",
       "식후에 약을 드세요.",
       "Tome o remédio depois da refeição.",
@@ -122,7 +122,7 @@ export const A2_L16 = defineA2Lesson({
       ["Estou com tosse e um pouco de tontura."],
     ),
     reading(
-      "환자는 열이 있고 기침이 나요. 직원은 약을 주고 식후에 먹으라고 했어요. 내일도 안 좋으면 병원에 가야 해요.",
+      "환자는 열이 있고 기침이 나요. 직원은 약을 주고 “식후에 드세요.”라고 말했어요. 내일도 안 좋으면 병원에 가야 해요.",
       "Quando o paciente deve tomar o remédio?",
       ["Depois da refeição.", "Antes de dormir.", "Em jejum."],
       "Depois da refeição.",

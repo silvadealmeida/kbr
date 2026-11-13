@@ -89,7 +89,7 @@ export const A2_L09 = defineA2Lesson({
       "공부해도 돼요? significa “posso estudar?”.",
     ),
     listen(
-      "Ouça e escreva o que é obrigatório.",
+      "Ouça e escreva a frase completa que contém o que é obrigatório.",
       "이어폰을 사용해야 해요.",
       "이어폰을 사용해야 해요.",
       "É obrigatório usar fones de ouvido.",
@@ -123,7 +123,7 @@ export const A2_L09 = defineA2Lesson({
       "찍으면 안 돼요 significa “não pode tirar foto”.",
     ),
     listen(
-      "Ouça e escreva a permissão para a água.",
+      "Ouça e escreva a frase completa que contém a permissão para a água.",
       "물은 마셔도 돼요.",
       "물은 마셔도 돼요.",
       "Água pode ser bebida.",

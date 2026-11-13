@@ -60,6 +60,15 @@ export const A2_L40 = defineA2Lesson({
         ["그래서 계속 연습하려고 해요.", "Por isso, pretendo continuar praticando."],
       ],
     ],
+    [
+      "-(으)면서 — enquanto",
+      "동사 + -(으)면서",
+      "A forma liga duas ações simultâneas do mesmo sujeito: 여행 이야기를 하면서 많이 배웠어요. Não use para ações em sequência; nesse caso, prefira -고 ou -고 나서.",
+      [
+        ["여행 이야기를 하면서 많이 배웠어요.", "Aprendi muito enquanto contava histórias de viagem."],
+        ["음악을 들으면서 공부해요.", "Estudo enquanto ouço música."],
+      ],
+    ],
   ],
   guided: [
     mcq(
@@ -74,7 +83,7 @@ export const A2_L40 = defineA2Lesson({
       "하면서 indica ação simultânea: “enquanto contava histórias”.",
     ),
     listen(
-      "Ouça e escreva o que Sujin ainda acha difícil.",
+      "Ouça e escreva a frase completa que contém o que Sujin ainda acha difícil.",
       "아직 뉴스는 어려워요.",
       "아직 뉴스는 어려워요.",
       "Ela ainda acha notícias difíceis.",
@@ -108,7 +117,7 @@ export const A2_L40 = defineA2Lesson({
       "어려웠지만 introduz o contraste com o presente.",
     ),
     listen(
-      "Ouça e escreva o plano de Jimin.",
+      "Ouça e escreva a frase completa que contém o plano de Jimin.",
       "저도 계속 연습하려고 해요.",
       "저도 계속 연습하려고 해요.",
       "Jimin também pretende continuar praticando.",

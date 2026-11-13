@@ -109,7 +109,7 @@ export const A1_L10: A1LessonContent = defineA1Lesson({
     listen(
       "a1-l10-e03",
       "guided",
-      "Ouça e escreva o intervalo que você ouviu.",
+      "Ouça e escreva a frase completa que contém o intervalo que você ouviu.",
       "저는 오전부터 오후까지 바빠요.",
       "저는 오전부터 오후까지 바빠요.",
       "A frase diz “estou ocupado da manhã até a tarde”.",

@@ -74,7 +74,7 @@ export const A2_L30 = defineA2Lesson({
       "보고 acrescenta a segunda ação.",
     ),
     listen(
-      "Ouça e escreva a avaliação final da viagem.",
+      "Ouça e escreva a frase completa que contém a avaliação final da viagem.",
       "조금 힘들었지만 정말 즐거웠어요.",
       "조금 힘들었지만 정말 즐거웠어요.",
       "Foi um pouco cansativo, mas realmente divertido.",
@@ -108,7 +108,7 @@ export const A2_L30 = defineA2Lesson({
       "만족했어요 significa “fiquei satisfeito”.",
     ),
     listen(
-      "Ouça e escreva o que ela fez na viagem.",
+      "Ouça e escreva a frase completa que contém o que ela fez na viagem.",
       "바다를 보고 사진을 찍었어요.",
       "바다를 보고 사진을 찍었어요.",
       "Ela viu o mar e tirou fotos.",

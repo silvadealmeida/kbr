@@ -38,42 +38,42 @@ export const A2_C06 = defineA2Checkpoint({
   minCorrect: 20,
   exercises: [
     listen(
-      "Ouça e escreva o horário do café da manhã.",
+      "Ouça e escreva a frase completa que contém o horário do café da manhã.",
       "조식은 일곱 시부터 열 시까지예요.",
       "조식은 일곱 시부터 열 시까지예요.",
       "O café da manhã é das sete às dez.",
       ["조식은 일곱 시부터 열 시까지예요"],
     ),
     listen(
-      "Ouça e escreva o número do portão.",
+      "Ouça e escreva a frase completa que contém o número do portão.",
       "십이 번 탑승구입니다.",
       "십이 번 탑승구입니다.",
       "O portão é o doze.",
       ["십이 번 탑승구입니다"],
     ),
     listen(
-      "Ouça e escreva a etapa depois do controle de segurança.",
+      "Ouça e escreva a frase completa que contém a etapa depois do controle de segurança.",
       "보안검색을 한 후에 탑승구로 가세요.",
       "보안검색을 한 후에 탑승구로 가세요.",
       "Depois do controle, vá ao portão.",
       ["보안검색을 한 후에 탑승구로 가세요"],
     ),
     listen(
-      "Ouça e escreva o problema da bagagem.",
+      "Ouça e escreva a frase completa que contém o problema da bagagem.",
       "짐을 찾지 못했어요.",
       "짐을 찾지 못했어요.",
       "A pessoa não conseguiu encontrar a bagagem.",
       ["짐을 찾지 못했어요"],
     ),
     listen(
-      "Ouça e escreva a recomendação para evitar multidão.",
+      "Ouça e escreva a frase completa que contém a recomendação para evitar multidão.",
       "아침 일찍 가는 게 좋겠어요.",
       "아침 일찍 가는 게 좋겠어요.",
       "Seria bom ir cedo de manhã.",
       ["아침 일찍 가는 게 좋겠어요"],
     ),
     listen(
-      "Ouça e escreva a avaliação da viagem.",
+      "Ouça e escreva a frase completa que contém a avaliação da viagem.",
       "조금 힘들었지만 정말 즐거웠어요.",
       "조금 힘들었지만 정말 즐거웠어요.",
       "Foi um pouco cansativo, mas realmente divertido.",
@@ -115,7 +115,7 @@ export const A2_C06 = defineA2Checkpoint({
       "첫날은 비가 왔어요.",
     ),
     reading(
-      "호텔 예약을 할 때는 날짜, 숙박 일수, 방 종류를 확인해야 해요. 환불 규정도 확인하는 게 좋아요.",
+      "호텔 예약을 하면 날짜, 숙박 일수, 방 종류를 확인해야 해요. 환불 규정도 확인하는 게 좋아요.",
       "O que deve ser confirmado antes de reservar?",
       ["Data, noites e tipo de quarto.", "Apenas o preço.", "O nome do gerente."],
       "Data, noites e tipo de quarto.",
@@ -157,7 +157,8 @@ export const A2_C06 = defineA2Checkpoint({
     cloze(
       "Complete a recomendação: 조용한 곳을 가___ 좋겠어요.",
       "는 게",
-      "가는 게 좋겠어요 significa “seria bom ir”.",
+      "가는 게 좋겠어요 significa “seria bom ir”; 가면 e 가는 것이 também são válidos.",
+      ["면", "는 것이"],
     ),
     cloze(
       "Complete a avaliação: 여행에 만족___.",

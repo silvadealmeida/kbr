@@ -74,7 +74,7 @@ export const A2_L13 = defineA2Lesson({
       "열어 주시겠어요? é “poderia abrir?”.",
     ),
     listen(
-      "Ouça e escreva a oferta de ajuda.",
+      "Ouça e escreva a frase completa que contém a oferta de ajuda.",
       "제가 들어 드릴게요.",
       "제가 들어 드릴게요.",
       "Marco oferece carregar a bolsa.",
@@ -108,11 +108,11 @@ export const A2_L13 = defineA2Lesson({
       "들어 드릴게요 significa “eu carrego para você”.",
     ),
     listen(
-      "Ouça e escreva o andar da vizinha.",
+      "Ouça e escreva a frase completa que contém o andar da vizinha.",
       "삼 층이에요.",
       "삼 층이에요.",
-      "Ela mora no terceiro andar.",
-      ["삼 층이에요"],
+      "Ela mora no terceiro andar. 삼층이에요 também é grafia permitida para numeração de pavimento.",
+      ["삼 층이에요", "삼층이에요"],
     ),
     translate(
       "ko-pt",

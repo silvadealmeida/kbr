@@ -80,7 +80,7 @@ export const A2_L06 = defineA2Lesson({
       "가려고 해요 expressa a intenção de ir.",
     ),
     listen(
-      "Ouça e escreva a decisão de Jimin.",
+      "Ouça e escreva a frase completa que contém a decisão de Jimin.",
       "저는 취업을 하기로 했어요.",
       "저는 취업을 하기로 했어요.",
       "Jimin decidiu procurar emprego.",
@@ -118,7 +118,7 @@ export const A2_L06 = defineA2Lesson({
       "만나기로 했어요 significa “decidimos nos encontrar”.",
     ),
     listen(
-      "Ouça e escreva o que Jimin ainda não decidiu.",
+      "Ouça e escreva a frase completa que contém o que Jimin ainda não decidiu.",
       "아직 회사를 정하지 않았어요.",
       "아직 회사를 정하지 않았어요.",
       "Jimin ainda não decidiu a empresa.",

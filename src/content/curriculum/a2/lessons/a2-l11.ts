@@ -74,7 +74,7 @@ export const A2_L11 = defineA2Lesson({
       "사는 게 편해요 significa “viver sozinho é confortável”.",
     ),
     listen(
-      "Ouça e escreva o custo extra mencionado.",
+      "Ouça e escreva a frase completa que contém o custo extra mencionado.",
       "보증금도 많고 관리비도 따로 내요.",
       "보증금도 많고 관리비도 따로 내요.",
       "O depósito caução é alto e a taxa de manutenção é paga separadamente.",
@@ -108,7 +108,7 @@ export const A2_L11 = defineA2Lesson({
       "살고 있어요 significa “estou morando”.",
     ),
     listen(
-      "Ouça e escreva a vantagem de morar sozinho.",
+      "Ouça e escreva a frase completa que contém a vantagem de morar sozinho.",
       "혼자 사는 게 조용해서 좋아요.",
       "혼자 사는 게 조용해서 좋아요.",
       "Morar sozinho é bom porque é silencioso.",

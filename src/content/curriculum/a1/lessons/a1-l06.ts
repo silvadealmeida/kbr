@@ -150,7 +150,7 @@ export const A1_L06: A1LessonContent = defineA1Lesson({
     listen(
       "a1-l06-e08",
       "independent",
-      "Ouça e escreva o número que você ouviu.",
+      "Ouça e escreva a frase completa que contém o número que você ouviu.",
       "제 번호는 사 번이에요.",
       "제 번호는 사 번이에요.",
       "사 번 é o número quatro.",

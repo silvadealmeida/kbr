@@ -44,7 +44,7 @@ export const A1_C06: A1CheckpointContent = {
     listen(
       "a1-c06-e01",
       "independent",
-      "Ouça e escreva o hobby que você ouviu.",
+      "Ouça e escreva a frase completa que contém o hobby que você ouviu.",
       "제 취미는 음악이에요.",
       "제 취미는 음악이에요.",
       "O hobby é música.",
@@ -53,7 +53,7 @@ export const A1_C06: A1CheckpointContent = {
     listen(
       "a1-c06-e02",
       "independent",
-      "Ouça e escreva a frequência que você ouviu.",
+      "Ouça e escreva a frase completa que contém a frequência que você ouviu.",
       "저는 축구를 자주 해요.",
       "저는 축구를 자주 해요.",
       "A pessoa joga futebol com frequência.",
@@ -62,7 +62,7 @@ export const A1_C06: A1CheckpointContent = {
     listen(
       "a1-c06-e03",
       "independent",
-      "Ouça e escreva a habilidade que você ouviu.",
+      "Ouça e escreva a frase completa que contém a habilidade que você ouviu.",
       "저는 수영을 잘해요.",
       "저는 수영을 잘해요.",
       "A pessoa nada bem.",

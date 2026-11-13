@@ -50,7 +50,7 @@ export const A1_C03: A1CheckpointContent = {
     listen(
       "a1-c03-e02",
       "independent",
-      "Ouça e escreva a profissão que você ouviu.",
+      "Ouça e escreva a frase completa que contém a profissão que você ouviu.",
       "제 어머니는 요리사예요.",
       "제 어머니는 요리사예요.",
       "A mãe é cozinheira.",
@@ -68,7 +68,7 @@ export const A1_C03: A1CheckpointContent = {
     listen(
       "a1-c03-e04",
       "independent",
-      "Ouça e escreva o móvel que você ouviu.",
+      "Ouça e escreva a frase completa que contém o móvel que você ouviu.",
       "거실에 소파가 있어요.",
       "거실에 소파가 있어요.",
       "Há um sofá na sala.",
@@ -77,7 +77,7 @@ export const A1_C03: A1CheckpointContent = {
     listen(
       "a1-c03-e05",
       "independent",
-      "Ouça e escreva onde a ação acontece.",
+      "Ouça e escreva a frase completa que contém onde a ação acontece.",
       "저는 부엌에서 요리해요.",
       "저는 부엌에서 요리해요.",
       "A pessoa cozinha na cozinha.",
@@ -151,7 +151,7 @@ export const A1_C03: A1CheckpointContent = {
     cloze(
       "a1-c03-e13",
       "independent",
-      "Complete com “irmã mais velha” (mulher falando): 제 ___은 선생님이에요.",
+      "Complete com “irmã mais velha” (mulher falando): 제 ___는 선생님이에요.",
       "언니",
       "Uma mulher usa 언니 para a irmã mais velha.",
     ),

@@ -74,14 +74,14 @@ export const A2_L32 = defineA2Lesson({
       "멈췄기 때문에 significa “porque parou”.",
     ),
     listen(
-      "Ouça e escreva o pedido do chefe.",
+      "Ouça e escreva a frase completa que contém o pedido do chefe.",
       "늦을 것 같으면 미리 알려 주세요.",
       "늦을 것 같으면 미리 알려 주세요.",
       "Se achar que vai se atrasar, avise antes.",
       ["늦을 것 같으면 미리 알려 주세요"],
     ),
     reading(
-      "수진은 지하철이 멈춰서 늦었어요. 사람이 많아서 연락할 시간이 없었어요. 팀장은 다음부터 미리 알려 달라고 했어요.",
+      "수진은 지하철이 멈춰서 늦었어요. 사람이 많아서 연락할 시간이 없었어요. 팀장은 “다음부터 미리 알려 주세요.”라고 말했어요.",
       "O que o chefe pede?",
       ["Avisar com antecedência.", "Não usar o metrô.", "Chegar mais cedo todos os dias."],
       "Avisar com antecedência.",
@@ -108,7 +108,7 @@ export const A2_L32 = defineA2Lesson({
       "많기 때문에 significa “porque há muita gente”.",
     ),
     listen(
-      "Ouça e escreva a promessa de Sujin.",
+      "Ouça e escreva a frase completa que contém a promessa de Sujin.",
       "앞으로는 꼭 미리 연락하겠습니다.",
       "앞으로는 꼭 미리 연락하겠습니다.",
       "Daqui para frente, ela vai avisar antes sem falta.",
@@ -122,7 +122,7 @@ export const A2_L32 = defineA2Lesson({
       ["Como não há tempo, vamos de táxi."],
     ),
     reading(
-      "늦었을 때는 이유를 설명하는 것도 중요하지만, 미리 연락하는 것이 더 중요해요. 상대방이 계획을 바꿀 수 있기 때문이에요.",
+      "늦으면 이유를 설명하는 것도 중요하지만, 미리 연락하는 것이 더 중요해요. 상대방이 계획을 바꿀 수 있기 때문이에요.",
       "O que é mais importante?",
       ["Avisar antes.", "Dar uma desculpa longa.", "Evitar o chefe."],
       "Avisar antes.",

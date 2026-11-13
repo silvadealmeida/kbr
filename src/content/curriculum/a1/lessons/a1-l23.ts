@@ -158,7 +158,7 @@ export const A1_L23: A1LessonContent = defineA1Lesson({
     listen(
       "a1-l23-e08",
       "independent",
-      "Ouça e escreva a localização que você ouviu.",
+      "Ouça e escreva a frase completa que contém a localização que você ouviu.",
       "은행은 건너편에 있어요.",
       "은행은 건너편에 있어요.",
       "O banco fica do outro lado.",

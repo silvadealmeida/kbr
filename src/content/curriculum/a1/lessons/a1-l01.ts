@@ -266,7 +266,7 @@ export const A1_L01: A1LessonContent = {
       answer: "예요",
       acceptedAnswers: ["예요."],
       explanation:
-        "아나 termina em vogal, então a forma é 예요. O nome próprio não recebe 이에요.",
+        "아나 termina em vogal, então a forma é 예요. O som final decide: nomes terminados em consoante recebem 이에요, como em 브라질이에요.",
       tags: ["diag:grammar", "a1-l01", "grammar"],
     },
     {
@@ -284,7 +284,7 @@ export const A1_L01: A1LessonContent = {
       id: "a1-l01-e05",
       type: "listen",
       stage: "guided",
-      prompt: "Ouça e escreva a saudação que você ouviu.",
+      prompt: "Ouça e escreva a frase completa que contém a saudação que você ouviu.",
       audioText: "안녕하세요.",
       answer: "안녕하세요",
       acceptedAnswers: ["안녕하세요."],

@@ -74,7 +74,7 @@ export const A2_L35 = defineA2Lesson({
       "처럼 indica semelhança.",
     ),
     listen(
-      "Ouça e escreva a ressalva de Sujin.",
+      "Ouça e escreva a frase completa que contém a ressalva de Sujin.",
       "가족마다 조금씩 달라요.",
       "가족마다 조금씩 달라요.",
       "Cada família é um pouco diferente.",
@@ -92,7 +92,7 @@ export const A2_L35 = defineA2Lesson({
       "Traduza para o coreano: “É parecido, mas é um pouco diferente.”",
       "비슷하지만 조금 달라요.",
       "비슷하지만 introduz a ressalva.",
-      ["비슷하지만 조금 달라요."],
+      ["비슷하지만 조금 달라요"],
     ),
   ],
   independent: [
@@ -112,7 +112,7 @@ export const A2_L35 = defineA2Lesson({
       "처럼 significa “como”.",
     ),
     listen(
-      "Ouça e escreva o ponto em comum.",
+      "Ouça e escreva a frase completa que contém o ponto em comum.",
       "손님에게 음식을 많이 권해요.",
       "손님에게 음식을 많이 권해요.",
       "Oferecer bastante comida aos convidados é um ponto em comum.",

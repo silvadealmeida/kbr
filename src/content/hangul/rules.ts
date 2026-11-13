@@ -16,7 +16,7 @@ export const RULES: readonly RuleRecord[] = [
     introducedIn: "h21",
     examples: [
       { written: "한국어", spoken: "한구거", note: "ㄱ de 국 passa para 어." },
-      { written: "음악", spoken: "으막", note: "ㄱ de 음 passa para 악." },
+      { written: "음악", spoken: "으막", note: "ㅁ de 음 passa para 악." },
       { written: "밥을", spoken: "바블", note: "ㅂ passa para 을." },
       { written: "옷을", spoken: "오슬", note: "ㅅ passa para 을." },
       { written: "꽃이", spoken: "꼬치", note: "ㅊ passa para 이." },

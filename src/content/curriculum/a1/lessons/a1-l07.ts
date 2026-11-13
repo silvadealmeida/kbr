@@ -158,7 +158,7 @@ export const A1_L07: A1LessonContent = defineA1Lesson({
     listen(
       "a1-l07-e08",
       "independent",
-      "Ouça e escreva o dia que você ouviu.",
+      "Ouça e escreva a frase completa que contém o dia que você ouviu.",
       "내일은 일요일이에요.",
       "내일은 일요일이에요.",
       "A frase diz “amanhã é domingo”.",

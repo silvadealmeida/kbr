@@ -110,7 +110,7 @@ export const A1_L38: A1LessonContent = defineA1Lesson({
     listen(
       "a1-l38-e03",
       "guided",
-      "Ouça e escreva a desculpa que você ouviu.",
+      "Ouça e escreva a frase completa que contém a desculpa que você ouviu.",
       "정말 미안해요.",
       "정말 미안해요.",
       "A frase diz “sinto muito mesmo”.",
@@ -153,7 +153,7 @@ export const A1_L38: A1LessonContent = defineA1Lesson({
     listen(
       "a1-l38-e08",
       "independent",
-      "Ouça e escreva a expressão que você ouviu.",
+      "Ouça e escreva a frase completa que contém a expressão que você ouviu.",
       "양해해 주세요.",
       "양해해 주세요.",
       "A expressão pede compreensão.",

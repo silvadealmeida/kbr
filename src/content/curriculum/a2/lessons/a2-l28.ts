@@ -74,7 +74,7 @@ export const A2_L28 = defineA2Lesson({
       "늦어서 indica a causa do problema.",
     ),
     listen(
-      "Ouça e escreva o que o atendente vai fazer.",
+      "Ouça e escreva a frase completa que contém o que o atendente vai fazer.",
       "확인해 보겠습니다.",
       "확인해 보겠습니다.",
       "O atendente vai verificar.",
@@ -112,7 +112,7 @@ export const A2_L28 = defineA2Lesson({
       "해야 해서 indica a razão da preocupação.",
     ),
     listen(
-      "Ouça e escreva o documento pedido.",
+      "Ouça e escreva a frase completa que contém o documento pedido.",
       "탑승권과 수하물표를 보여 주세요.",
       "탑승권과 수하물표를 보여 주세요.",
       "O atendente pede o cartão de embarque e a etiqueta da bagagem.",

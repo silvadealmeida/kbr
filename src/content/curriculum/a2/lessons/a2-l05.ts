@@ -89,7 +89,7 @@ export const A2_L05 = defineA2Lesson({
       "떠나고 서울로 갔어요 encadeia as duas ações na ordem.",
     ),
     listen(
-      "Ouça e escreva o desfecho da história.",
+      "Ouça e escreva a frase completa que contém o desfecho da história.",
       "결국 주인공은 집으로 돌아왔어요.",
       "결국 주인공은 집으로 돌아왔어요.",
       "No fim, o protagonista voltou para casa.",
@@ -123,7 +123,7 @@ export const A2_L05 = defineA2Lesson({
       "결국 marca o resultado final da história.",
     ),
     listen(
-      "Ouça e escreva a complicação.",
+      "Ouça e escreva a frase completa que contém a complicação.",
       "그런데 서울에서 길을 잃었어요.",
       "그런데 서울에서 길을 잃었어요.",
       "A complicação é que ele se perdeu em Seul.",

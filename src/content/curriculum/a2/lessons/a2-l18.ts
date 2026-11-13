@@ -74,7 +74,7 @@ export const A2_L18 = defineA2Lesson({
       "한 알 é um comprimido.",
     ),
     listen(
-      "Ouça e escreva quando tomar o remédio.",
+      "Ouça e escreva a frase completa que contém quando tomar o remédio.",
       "식후에 복용하세요.",
       "식후에 복용하세요.",
       "Tome depois da refeição.",
@@ -108,7 +108,7 @@ export const A2_L18 = defineA2Lesson({
       "먹어 보세요 significa “experimente tomar”.",
     ),
     listen(
-      "Ouça e escreva o que fazer se houver efeito colateral.",
+      "Ouça e escreva a frase completa que contém o que fazer se houver efeito colateral.",
       "부작용이 있으면 알려 주세요.",
       "부작용이 있으면 알려 주세요.",
       "Se tiver efeito colateral, avise.",

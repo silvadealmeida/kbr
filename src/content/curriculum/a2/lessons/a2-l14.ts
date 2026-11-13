@@ -74,7 +74,7 @@ export const A2_L14 = defineA2Lesson({
       "들리는데요 introduz o fato de forma suave.",
     ),
     listen(
-      "Ouça e escreva o pedido de Sujin.",
+      "Ouça e escreva a frase completa que contém o pedido de Sujin.",
       "밤 열한 시 이후에는 조금 조용히 해 주시면 좋겠어요.",
       "밤 열한 시 이후에는 조금 조용히 해 주시면 좋겠어요.",
       "Ela pede silêncio depois das onze da noite.",
@@ -112,7 +112,7 @@ export const A2_L14 = defineA2Lesson({
       "뛰지 말아 주세요 significa “não corra, por favor”.",
     ),
     listen(
-      "Ouça e escreva a causa do barulho.",
+      "Ouça e escreva a frase completa que contém a causa do barulho.",
       "아이가 늦게까지 뛰어서요.",
       "아이가 늦게까지 뛰어서요.",
       "O filho fica correndo até tarde.",

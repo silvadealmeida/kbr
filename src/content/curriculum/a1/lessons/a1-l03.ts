@@ -157,10 +157,10 @@ export const A1_L03: A1LessonContent = defineA1Lesson({
     mcq(
       "a1-l03-e09",
       "independent",
-      "Complete: 저것___ 의자예요.",
+      "Complete com o marcador de tópico: 저것___ 의자예요.",
       ["은", "이", "뭐"],
       "은",
-      "저것은 의자예요: 은 marca “aquilo” como tópico da frase.",
+      "저것은 의자예요: 은 marca “aquilo” como tópico da frase. 저것이 의자예요 também é possível, mas aqui o enunciado pede o tópico.",
     ),
     cloze(
       "a1-l03-e10",

@@ -89,7 +89,7 @@ export const A2_L01 = defineA2Lesson({
       "사람이 많아서 expressa a causa do cansaço: havia muita gente.",
     ),
     listen(
-      "Ouça e escreva o que Minsu fez.",
+      "Ouça e escreva a frase completa que contém o que Minsu fez.",
       "저는 공원에서 피크닉을 했어요.",
       "저는 공원에서 피크닉을 했어요.",
       "Minsu fez um piquenique no parque.",
@@ -128,7 +128,7 @@ export const A2_L01 = defineA2Lesson({
       ["갔어요."],
     ),
     listen(
-      "Ouça e escreva a justificativa que você ouviu.",
+      "Ouça e escreva a frase completa que contém a justificativa que você ouviu.",
       "사람이 많아서 조금 피곤했어요.",
       "사람이 많아서 조금 피곤했어요.",
       "A fala diz que havia muita gente e por isso a pessoa ficou um pouco cansada.",

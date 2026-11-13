@@ -457,7 +457,7 @@ const ROWS: readonly Row[] = [
   ["a1-l33", "두통", "dor de cabeça", "substantivo", "두통", "두통이 있어요.", "Tenho dor de cabeça.", "dor de cabeça"],
   ["a1-l33", "열", "febre", "substantivo", "열", "열이 있어요.", "Tenho febre.", "febre"],
   ["a1-l33", "기침", "tosse", "substantivo", "기침", "기침이 있어요.", "Tenho tosse.", "tosse"],
-  ["a1-l33", "감기", "resfriado", "substantivo", "감기", "감기약 있어요?", "Você tem remédio para resfriado?", "resfriado"],
+  ["a1-l33", "감기", "resfriado", "substantivo", "감기", "감기가 심해요.", "Meu resfriado está forte.", "resfriado"],
   ["a1-l33", "약", "remédio", "substantivo", "약", "약이 있어요.", "Tenho remédio.", "remédio"],
   ["a1-l33", "피곤하다", "estar cansado", "verbo", "피곤해요", "저는 피곤해요.", "Estou cansado.", "estar cansado"],
 

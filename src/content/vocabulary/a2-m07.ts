@@ -24,7 +24,7 @@ export const A2_M07_ROWS: readonly A2VocabRow[] = [
   ["a2-l32", "원인", "causa", "substantivo", "원인", "사고의 원인을 조사해요.", "Investigamos a causa do acidente.", "causa"],
   ["a2-l32", "결과", "resultado", "substantivo", "결과", "시험 결과가 나왔어요.", "O resultado da prova saiu.", "resultado"],
   ["a2-l32", "설명하다", "explicar", "verbo", "설명해", "자세히 설명해 주세요.", "Explique em detalhes, por favor.", "explicar", "Forma de dicionário; a frase usa 설명해."],
-  ["a2-l32", "따라서", "portanto; consequentemente", "advérbio", "따라서", "규칙을 따라서 행동하세요.", "Portanto, aja conforme as regras.", "portanto"],
+  ["a2-l32", "따라서", "portanto; consequentemente", "advérbio", "따라서", "요금이 많이 올랐어요. 따라서 다른 방법을 찾아야 해요.", "As tarifas subiram muito. Portanto, precisamos encontrar outro caminho.", "portanto"],
 
   // a2-l33 — tratamento e respeito
   ["a2-l33", "어른", "adulto; pessoa mais velha", "substantivo", "어른", "어른께 먼저 인사하세요.", "Cumprimente primeiro os mais velhos.", "adulto; mais velho"],

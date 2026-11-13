@@ -7,6 +7,10 @@ import type {
 import type { ReviewMeta } from "@/content/hangul/types";
 import type { ExerciseSpec } from "@/lib/exercises";
 import {
+  sameAnswerText,
+  terminalPunctuationVariants,
+} from "@/lib/exercises/punctuation";
+import {
   a2SentenceIdsFor,
   newA2VocabIdsFor,
 } from "@/content/vocabulary/a2-course";
@@ -42,12 +46,30 @@ function buildExercise(
   stage: CourseExerciseStage,
 ): CourseLessonExercise {
   const id = `${lessonId}-e${String(index + 1).padStart(2, "0")}`;
-  return {
+  const exercise = {
     ...draft,
     id,
     stage,
     tags: tagsFor(id, draft.type),
   } as CourseLessonExercise;
+
+  if (
+    exercise.type === "cloze" ||
+    exercise.type === "listen" ||
+    exercise.type === "translate"
+  ) {
+    const existing = exercise.acceptedAnswers ?? [];
+    const variants = terminalPunctuationVariants(exercise.answer).filter(
+      (variant) =>
+        !sameAnswerText(variant, exercise.answer) &&
+        !existing.some((accepted) => sameAnswerText(accepted, variant)),
+    );
+    if (variants.length > 0) {
+      exercise.acceptedAnswers = [...existing, ...variants];
+    }
+  }
+
+  return exercise;
 }
 
 export function mcq(

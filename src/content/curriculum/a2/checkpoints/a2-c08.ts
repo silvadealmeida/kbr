@@ -43,16 +43,16 @@ export const A2_C08 = defineA2Checkpoint({
   minCorrect: 32,
   exercises: [
     // Escuta — 10
-    listen("Ouça e escreva o relato do fim de semana.", "토요일에 친구와 전시를 봤어요.", "토요일에 친구와 전시를 봤어요.", "A pessoa viu uma exposição com uma amiga no sábado.", ["토요일에 친구와 전시를 봤어요"]),
-    listen("Ouça e escreva a experiência de viagem.", "일본에 한번 가 봤어요.", "일본에 한번 가 봤어요.", "A pessoa já foi ao Japão uma vez.", ["일본에 한 번 가 봤어요", "일본에 한번 가 봤어요"]),
-    listen("Ouça e escreva a intenção futura.", "한국으로 유학을 가려고 해요.", "한국으로 유학을 가려고 해요.", "A pessoa pretende estudar na Coreia.", ["한국으로 유학을 가려고 해요"]),
-    listen("Ouça e escreva a sequência temporal.", "출근하기 전에 운동해요.", "출근하기 전에 운동해요.", "A pessoa se exercita antes de ir ao trabalho.", ["출근하기 전에 운동해요"]),
-    listen("Ouça e escreva a obrigação doméstica.", "쓰레기는 매일 버려야 해요.", "쓰레기는 매일 버려야 해요.", "O lixo precisa ser jogado fora todos os dias.", ["쓰레기는 매일 버려야 해요"]),
-    listen("Ouça e escreva o sintoma.", "어제부터 목이 아프고 열이 있어요.", "어제부터 목이 아프고 열이 있어요.", "Desde ontem a garganta dói e há febre.", ["어제부터 목이 아프고 열이 있어요"]),
-    listen("Ouça e escreva a orientação de remédio.", "하루 세 번 식후에 복용하세요.", "하루 세 번 식후에 복용하세요.", "Tome três vezes ao dia, depois das refeições.", ["하루 세 번 식후에 복용하세요"]),
-    listen("Ouça e escreva o requisito de emprego.", "한국어로 의사소통할 수 있어야 해요.", "한국어로 의사소통할 수 있어야 해요.", "É preciso conseguir se comunicar em coreano.", ["한국어로 의사소통할 수 있어야 해요"]),
-    listen("Ouça e escreva o problema de viagem.", "짐을 찾지 못했어요.", "짐을 찾지 못했어요.", "A pessoa não conseguiu encontrar a bagagem.", ["짐을 찾지 못했어요"]),
-    listen("Ouça e escreva a opinião final.", "조금 힘들었지만 정말 즐거웠어요.", "조금 힘들었지만 정말 즐거웠어요.", "Foi um pouco cansativo, mas realmente divertido.", ["조금 힘들었지만 정말 즐거웠어요"]),
+    listen("Ouça e escreva a frase completa que contém o relato do fim de semana.", "토요일에 친구와 전시를 봤어요.", "토요일에 친구와 전시를 봤어요.", "A pessoa viu uma exposição com uma amiga no sábado.", ["토요일에 친구와 전시를 봤어요"]),
+    listen("Ouça e escreva a frase completa que contém a experiência de viagem.", "일본에 한번 가 봤어요.", "일본에 한번 가 봤어요.", "A pessoa já foi ao Japão uma vez.", ["일본에 한 번 가 봤어요", "일본에 한번 가 봤어요"]),
+    listen("Ouça e escreva a frase completa que contém a intenção futura.", "한국으로 유학을 가려고 해요.", "한국으로 유학을 가려고 해요.", "A pessoa pretende estudar na Coreia.", ["한국으로 유학을 가려고 해요"]),
+    listen("Ouça e escreva a frase completa que contém a sequência temporal.", "출근하기 전에 운동해요.", "출근하기 전에 운동해요.", "A pessoa se exercita antes de ir ao trabalho.", ["출근하기 전에 운동해요"]),
+    listen("Ouça e escreva a frase completa que contém a obrigação doméstica.", "쓰레기는 매일 버려야 해요.", "쓰레기는 매일 버려야 해요.", "O lixo precisa ser jogado fora todos os dias.", ["쓰레기는 매일 버려야 해요"]),
+    listen("Ouça e escreva a frase completa que contém o sintoma.", "어제부터 목이 아프고 열이 있어요.", "어제부터 목이 아프고 열이 있어요.", "Desde ontem a garganta dói e há febre.", ["어제부터 목이 아프고 열이 있어요"]),
+    listen("Ouça e escreva a frase completa que contém a orientação de remédio.", "하루 세 번 식후에 복용하세요.", "하루 세 번 식후에 복용하세요.", "Tome três vezes ao dia, depois das refeições.", ["하루 세 번 식후에 복용하세요"]),
+    listen("Ouça e escreva a frase completa que contém o requisito de emprego.", "한국어로 의사소통할 수 있어야 해요.", "한국어로 의사소통할 수 있어야 해요.", "É preciso conseguir se comunicar em coreano.", ["한국어로 의사소통할 수 있어야 해요"]),
+    listen("Ouça e escreva a frase completa que contém o problema de viagem.", "짐을 찾지 못했어요.", "짐을 찾지 못했어요.", "A pessoa não conseguiu encontrar a bagagem.", ["짐을 찾지 못했어요"]),
+    listen("Ouça e escreva a frase completa que contém a opinião final.", "조금 힘들었지만 정말 즐거웠어요.", "조금 힘들었지만 정말 즐거웠어요.", "Foi um pouco cansativo, mas realmente divertido.", ["조금 힘들었지만 정말 즐거웠어요"]),
 
     // Leitura — 10
     reading("지난주에 비가 와서 캠핑을 못 갔어요. 그래서 집에서 영화를 봤어요.", "O que a pessoa fez por causa da chuva?", ["Ficou em casa e viu um filme.", "Foi acampar mesmo assim.", "Foi ao museu."], "Ficou em casa e viu um filme.", "비가 와서 캠핑을 못 갔어요. 그래서 집에서 영화를 봤어요."),

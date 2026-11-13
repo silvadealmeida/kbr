@@ -39,7 +39,7 @@ export const A2_L15 = defineA2Lesson({
     },
   ],
   dialogue: [
-    ["지민", "수진 씨, 서울로 이사했다면서요?", "Sujin, ouvi dizer que você se mudou para Seul."],
+    ["지민", "수진 씨, 서울로 이사했어요?", "Sujin, você se mudou para Seul?"],
     ["수진", "네, 지난달에 이사하게 되었어요.", "Sim, acabei me mudando no mês passado."],
     ["지민", "새집은 어때요?", "Como é a casa nova?"],
     ["수진", "처음에는 모든 게 낯설었어요. 그런데 이제는 조금 익숙해졌어요.", "No começo tudo era estranho. Mas agora já me acostumei um pouco."],
@@ -80,7 +80,7 @@ export const A2_L15 = defineA2Lesson({
       "살게 되었어요 significa “passei a morar”.",
     ),
     listen(
-      "Ouça e escreva como Sujin se sente agora.",
+      "Ouça e escreva a frase completa que contém como Sujin se sente agora.",
       "이제는 조금 익숙해졌어요.",
       "이제는 조금 익숙해졌어요.",
       "Agora ela já se acostumou um pouco.",
@@ -114,7 +114,7 @@ export const A2_L15 = defineA2Lesson({
       "익숙해졌어요 significa “tornou-se familiar”.",
     ),
     listen(
-      "Ouça e escreva o que ainda causa saudade.",
+      "Ouça e escreva a frase completa que contém o que ainda causa saudade.",
       "가끔 친구들이 그리워요.",
       "가끔 친구들이 그리워요.",
       "Às vezes ela sente saudade dos amigos.",

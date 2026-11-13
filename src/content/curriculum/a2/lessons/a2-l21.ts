@@ -74,7 +74,7 @@ export const A2_L21 = defineA2Lesson({
       "하는 일 é “o trabalho que faço”.",
     ),
     listen(
-      "Ouça e escreva o horário de trabalho de Marco.",
+      "Ouça e escreva a frase completa que contém o horário de trabalho de Marco.",
       "아홉 시부터 여섯 시까지 일해요.",
       "아홉 시부터 여섯 시까지 일해요.",
       "Ele trabalha das nove às seis.",
@@ -112,7 +112,7 @@ export const A2_L21 = defineA2Lesson({
       "부터 marca o início do intervalo.",
     ),
     listen(
-      "Ouça e escreva a função de Marco.",
+      "Ouça e escreva a frase completa que contém a função de Marco.",
       "제 부서는 고객 지원이에요.",
       "제 부서는 고객 지원이에요.",
       "O departamento dele é suporte ao cliente.",

@@ -74,7 +74,7 @@ export const A2_L27 = defineA2Lesson({
       "부치고 나서 significa “depois de despachar”.",
     ),
     listen(
-      "Ouça e escreva o número do portão.",
+      "Ouça e escreva a frase completa que contém o número do portão.",
       "십이 번 탑승구입니다.",
       "십이 번 탑승구입니다.",
       "O portão é o doze.",
@@ -108,7 +108,7 @@ export const A2_L27 = defineA2Lesson({
       "하기 전에 significa “antes de fazer”.",
     ),
     listen(
-      "Ouça e escreva quando o embarque começa.",
+      "Ouça e escreva a frase completa que contém quando o embarque começa.",
       "탑승은 이십 분 후에 시작합니다.",
       "탑승은 이십 분 후에 시작합니다.",
       "O embarque começa em vinte minutos.",

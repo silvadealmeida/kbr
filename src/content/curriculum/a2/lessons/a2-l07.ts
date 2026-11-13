@@ -80,7 +80,7 @@ export const A2_L07 = defineA2Lesson({
       "만나는 게 어때요? é “que tal nos encontrarmos?”.",
     ),
     listen(
-      "Ouça e escreva o horário combinado.",
+      "Ouça e escreva a frase completa que contém o horário combinado.",
       "그럼 세 시에 만나기로 해요.",
       "그럼 세 시에 만나기로 해요.",
       "O horário combinado é três horas.",
@@ -118,7 +118,7 @@ export const A2_L07 = defineA2Lesson({
       "만나기로 했어요 significa “ficou combinado nos encontrarmos”.",
     ),
     listen(
-      "Ouça e escreva o que Marco fará se se atrasar.",
+      "Ouça e escreva a frase completa que contém o que Marco fará se se atrasar.",
       "늦으면 미리 연락할게요.",
       "늦으면 미리 연락할게요.",
       "Se se atrasar, ele avisará com antecedência.",

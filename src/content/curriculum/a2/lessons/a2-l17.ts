@@ -80,7 +80,7 @@ export const A2_L17 = defineA2Lesson({
       "일주일 전부터 significa “desde uma semana atrás”.",
     ),
     listen(
-      "Ouça e escreva a frequência recomendada.",
+      "Ouça e escreva a frase completa que contém a frequência recomendada.",
       "한 시간마다 한 번씩 일어나세요.",
       "한 시간마다 한 번씩 일어나세요.",
       "Levante-se uma vez a cada hora.",
@@ -114,7 +114,7 @@ export const A2_L17 = defineA2Lesson({
       "두 번 significa “duas vezes”.",
     ),
     listen(
-      "Ouça e escreva desde quando a pessoa tem o sintoma.",
+      "Ouça e escreva a frase completa que contém desde quando a pessoa tem o sintoma.",
       "어제부터 목이 아파요.",
       "어제부터 목이 아파요.",
       "A garganta dói desde ontem.",

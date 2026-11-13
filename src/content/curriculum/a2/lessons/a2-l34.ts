@@ -74,7 +74,7 @@ export const A2_L34 = defineA2Lesson({
       "갈까요? é um convite.",
     ),
     listen(
-      "Ouça e escreva a contraproposta de Sujin.",
+      "Ouça e escreva a frase completa que contém a contraproposta de Sujin.",
       "다음 주에는 시간이 있어요.",
       "다음 주에는 시간이 있어요.",
       "Na próxima semana ela tem tempo.",
@@ -112,11 +112,11 @@ export const A2_L34 = defineA2Lesson({
       "있는데 introduz o contexto da recusa.",
     ),
     listen(
-      "Ouça e escreva o novo convite.",
+      "Ouça e escreva a frase completa que contém o novo convite.",
       "다음 주 금요일은 어때요?",
       "다음 주 금요일은 어때요?",
       "A nova proposta é sexta que vem.",
-      ["다음 주 금요일은 어때요?"],
+      ["다음 주 금요일은 어때요"],
     ),
     translate(
       "ko-pt",
@@ -126,7 +126,7 @@ export const A2_L34 = defineA2Lesson({
       ["Fico feliz por ter me convidado."],
     ),
     reading(
-      "초대를 받으면 먼저 고마움을 표현해요. 갈 수 없을 때는 짧게 이유를 말하고, 가능하면 다른 시간을 제안해요.",
+      "초대를 받으면 먼저 고마움을 표현해요. 갈 수 없으면 짧게 이유를 말하고, 가능하면 다른 시간을 제안해요.",
       "O que fazer ao recusar um convite?",
       ["Agradecer, explicar e propor outra data.", "Ignorar a mensagem.", "Aceitar e não ir."],
       "Agradecer, explicar e propor outra data.",

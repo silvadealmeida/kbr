@@ -42,7 +42,7 @@ export const A2_L04 = defineA2Lesson({
     ["지우", "민수 씨, 어제 약속에 왜 안 왔어요?", "Minsu, por que você não veio ao encontro de ontem?"],
     ["민수", "정말 미안해요. 갑자기 회사 일이 생겨서 가지 못했어요.", "Desculpe de verdade. Surgiu um trabalho urgente na empresa e não consegui ir."],
     ["지우", "연락을 못 받아서 조금 걱정했어요.", "Não recebi seu contato e fiquei um pouco preocupada."],
-    ["민수", "죄송해요. 회의가 길어졌지만 연락을 했어야 했어요.", "Desculpe. A reunião se alongou, mas eu deveria ter avisado."],
+    ["민수", "죄송해요. 회의가 길어져서 연락을 못 했어요.", "Desculpe. A reunião se alongou e não consegui avisar."],
     ["지우", "다음에는 미리 알려 주세요.", "Da próxima vez, avise com antecedência, por favor."],
     ["민수", "네, 다음 주 토요일에는 꼭 갈게요. 시간을 다시 정할까요?", "Sim, no próximo sábado eu vou sem falta. Vamos marcar o horário de novo?"],
   ],
@@ -63,7 +63,7 @@ export const A2_L04 = defineA2Lesson({
       "-지만 liga uma informação à outra em contraste. Pode aparecer depois de verbos e adjetivos. A segunda oração não é uma consequência automática; é uma oposição.",
       [
         ["가고 싶었지만 일이 있었어요.", "Queria ir, mas tive um imprevisto de trabalho."],
-        ["회의가 길어졌지만 연락했어야 했어요.", "A reunião se alongou, mas eu deveria ter avisado."],
+        ["회의가 길어졌지만 연락을 못 했어요.", "A reunião se alongou, mas não consegui avisar."],
       ],
     ],
     [
@@ -89,7 +89,7 @@ export const A2_L04 = defineA2Lesson({
       "가지 못했어요 expressa impossibilidade no passado.",
     ),
     listen(
-      "Ouça e escreva a desculpa de Minsu.",
+      "Ouça e escreva a frase completa que contém a desculpa de Minsu.",
       "갑자기 회사 일이 생겨서 가지 못했어요.",
       "갑자기 회사 일이 생겨서 가지 못했어요.",
       "Minsu explica que surgiu um trabalho urgente e não conseguiu ir.",
@@ -122,12 +122,12 @@ export const A2_L04 = defineA2Lesson({
       "-지만 marca o contraste entre querer ir e não ter tempo.",
     ),
     cloze(
-      "Complete com “mas”: 회의가 길어졌___ 연락했어야 했어요.",
+      "Complete com “mas”: 회의가 길어졌___ 연락을 못 했어요.",
       "지만",
       "길어졌지만 significa “embora tenha se alongado”.",
     ),
     listen(
-      "Ouça e escreva a nova proposta.",
+      "Ouça e escreva a frase completa que contém a nova proposta.",
       "다음 주 토요일에는 꼭 갈게요.",
       "다음 주 토요일에는 꼭 갈게요.",
       "Minsu promete ir no próximo sábado sem falta.",
@@ -141,7 +141,7 @@ export const A2_L04 = defineA2Lesson({
       ["De repente surgiu um imprevisto e não pude ir.", "Surgiu um imprevisto de repente, então não pude ir."],
     ),
     reading(
-      "지우는 민수의 연락을 받지 못해서 걱정했어요. 민수는 다음 주에 다시 만나자고 했어요.",
+      "지우는 민수의 연락을 받지 못해서 걱정했어요. 민수는 “다음 주에 다시 만나요.”라고 말했어요.",
       "O que Jiwoo sentiu?",
       ["Preocupação.", "Raiva.", "Cansaço."],
       "Preocupação.",

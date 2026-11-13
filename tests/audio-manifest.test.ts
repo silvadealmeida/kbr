@@ -4,6 +4,7 @@ import path from "node:path";
 import { describe, expect, test } from "vitest";
 
 import manifest from "@/content/audio/manifest.json";
+import staleAudio from "./fixtures/stale-audio.json";
 import { A1_IMPLEMENTED_CHECKPOINTS, A1_IMPLEMENTED_LESSONS } from "@/content/curriculum/a1/content";
 import { A2_IMPLEMENTED_CHECKPOINTS, A2_IMPLEMENTED_LESSONS } from "@/content/curriculum/a2/content";
 import { HANGUL_CURRICULUM } from "@/content/hangul";
@@ -58,17 +59,34 @@ function sha256(file: string) {
 }
 
 describe("manifesto de áudio estático", () => {
-  test("cobre todo o inventário falado de Hangul, A1, A2 e vocabulário", () => {
+  test("mantém somente as lacunas de áudio documentadas após as correções da 12A", () => {
     const inventory = audioInventory();
-    const missing = inventory.filter((item) => !hasAudioAsset(item.text));
+    const texts = new Set(inventory.map((item) => item.text));
+    const manifestTexts = new Set(manifest.items.map((item) => item.text));
+    const missing = [...texts].filter((text) => !manifestTexts.has(text)).sort();
+    const obsolete = [...manifestTexts].filter((text) => !texts.has(text)).sort();
 
-    expect(inventory).toHaveLength(2907);
-    expect(manifest.count).toBe(inventory.length);
-    expect(audioAssetCount()).toBe(inventory.length);
-    expect(missing).toEqual([]);
+    expect(inventory).toHaveLength(2909);
+    expect(manifest.count).toBe(2907);
+    expect(audioAssetCount()).toBe(2907);
+    expect(missing).toEqual([...staleAudio.missing].sort());
+    expect(obsolete).toEqual([...staleAudio.obsolete].sort());
+    expect(inventory).toHaveLength(
+      manifest.count + missing.length - obsolete.length,
+    );
     expect(hasAudioAsset("한")).toBe(true);
     expect(hasAudioAsset("저는 학생이에요.")).toBe(true);
-    expect(resolvePublicAudioSrc("저는 학생이에요.")).not.toBeNull();
+    expect(resolvePublicAudioSrc("저는 학생이에요.", true)).not.toBeNull();
+  });
+
+  test("textos corrigidos caem no TTS sem remover o MP3 antigo", () => {
+    for (const text of staleAudio.missing) {
+      expect(hasAudioAsset(text)).toBe(false);
+      expect(resolvePublicAudioSrc(text, true)).toBeNull();
+    }
+    for (const text of staleAudio.obsolete) {
+      expect(manifest.items.some((item) => item.text === text)).toBe(true);
+    }
   });
 
   test("cursos sem MP3 próprio (B1) caem no fallback da voz do sistema", () => {
@@ -154,9 +172,9 @@ describe("manifesto de áudio estático", () => {
     expect(manifest.encoding.channels).toBe(1);
   });
 
-  test("o áudio estático é o padrão; o kill switch desliga o caminho do MP3", () => {
+  test("o áudio estático é opt-in; o padrão seguro cai na voz do sistema", () => {
     expect(resolvePublicAudioSrc("한", false)).toBeNull();
     expect(resolvePublicAudioSrc("한", true)).toMatch(/^\/audio\/v1\/ko-/);
-    expect(resolvePublicAudioSrc("한")).toMatch(/^\/audio\/v1\/ko-/);
+    expect(resolvePublicAudioSrc("한")).toBeNull();
   });
 });

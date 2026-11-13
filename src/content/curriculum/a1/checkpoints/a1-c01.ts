@@ -36,7 +36,7 @@ export const A1_C01: A1CheckpointContent = {
     listen(
       "a1-c01-e01",
       "independent",
-      "Ouça e escreva a apresentação que você ouviu.",
+      "Ouça e escreva a frase completa que contém a apresentação que você ouviu.",
       "안녕하세요. 저는 아나예요.",
       "안녕하세요. 저는 아나예요.",
       "A fala cumprimenta e diz “eu sou Ana”.",
@@ -45,7 +45,7 @@ export const A1_C01: A1CheckpointContent = {
     listen(
       "a1-c01-e02",
       "independent",
-      "Ouça e escreva a nacionalidade que você ouviu.",
+      "Ouça e escreva a frase completa que contém a nacionalidade que você ouviu.",
       "저는 브라질 사람이에요.",
       "저는 브라질 사람이에요.",
       "브라질 사람 significa “pessoa brasileira”.",
@@ -63,7 +63,7 @@ export const A1_C01: A1CheckpointContent = {
     listen(
       "a1-c01-e04",
       "independent",
-      "Ouça e escreva a localização que você ouviu.",
+      "Ouça e escreva a frase completa que contém a localização que você ouviu.",
       "가방이 책상 아래에 있어요.",
       "가방이 책상 아래에 있어요.",
       "A mochila está embaixo da escrivaninha.",
@@ -242,7 +242,7 @@ export const A1_C01: A1CheckpointContent = {
       "Traduza para o coreano polido: “Eu sou professor.”",
       "저는 선생님이에요.",
       "선생님 é “professor/professora”; a forma é 선생님이에요.",
-      ["저는 선생님이에요", "저는 선생님이에요."],
+      ["저는 선생님이에요"],
     ),
     translate(
       "a1-c01-e25",

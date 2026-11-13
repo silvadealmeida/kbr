@@ -74,7 +74,7 @@ export const A2_L38 = defineA2Lesson({
       "늦어서 미안해요 significa “desculpe por me atrasar”.",
     ),
     listen(
-      "Ouça e escreva o fechamento da mensagem.",
+      "Ouça e escreva a frase completa que contém o fechamento da mensagem.",
       "시간 괜찮으시면 알려 주세요.",
       "시간 괜찮으시면 알려 주세요.",
       "Se o horário estiver bom, avise.",
@@ -112,7 +112,7 @@ export const A2_L38 = defineA2Lesson({
       "바꿨는데 introduz o contexto.",
     ),
     listen(
-      "Ouça e escreva quando Marco vai enviar a mensagem.",
+      "Ouça e escreva a frase completa que contém quando Marco vai enviar a mensagem.",
       "오늘 저녁에 메시지 보낼게요.",
       "오늘 저녁에 메시지 보낼게요.",
       "Ele vai enviar a mensagem hoje à noite.",

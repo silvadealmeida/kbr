@@ -45,7 +45,7 @@ export const A1_C07: A1CheckpointContent = {
     listen(
       "a1-c07-e01",
       "independent",
-      "Ouça e escreva a ação passada que você ouviu.",
+      "Ouça e escreva a frase completa que contém a ação passada que você ouviu.",
       "지난주에 친구를 만났어요.",
       "지난주에 친구를 만났어요.",
       "Na semana passada, a pessoa encontrou um amigo.",
@@ -63,7 +63,7 @@ export const A1_C07: A1CheckpointContent = {
     listen(
       "a1-c07-e03",
       "independent",
-      "Ouça e escreva o sintoma que você ouviu.",
+      "Ouça e escreva a frase completa que contém o sintoma que você ouviu.",
       "목이 아파요.",
       "목이 아파요.",
       "A garganta dói.",
@@ -72,7 +72,7 @@ export const A1_C07: A1CheckpointContent = {
     listen(
       "a1-c07-e04",
       "independent",
-      "Ouça e escreva o sintoma que você ouviu.",
+      "Ouça e escreva a frase completa que contém o sintoma que você ouviu.",
       "열이 있어요.",
       "열이 있어요.",
       "A pessoa está com febre.",

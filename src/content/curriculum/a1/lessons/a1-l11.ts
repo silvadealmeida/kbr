@@ -137,7 +137,7 @@ export const A1_L11: A1LessonContent = defineA1Lesson({
     cloze(
       "a1-l11-e06",
       "independent",
-      "Complete com “irmã mais velha” (uma mulher falando): 제 ___은 선생님이에요.",
+      "Complete com “irmã mais velha” (uma mulher falando): 제 ___는 선생님이에요.",
       "언니",
       "Uma mulher chama a irmã mais velha de 언니.",
     ),
@@ -153,7 +153,7 @@ export const A1_L11: A1LessonContent = defineA1Lesson({
     listen(
       "a1-l11-e08",
       "independent",
-      "Ouça e escreva a relação que você ouviu.",
+      "Ouça e escreva a frase completa que contém a relação que você ouviu.",
       "동생은 학생이에요.",
       "동생은 학생이에요.",
       "동생 é irmão ou irmã mais novo(a).",

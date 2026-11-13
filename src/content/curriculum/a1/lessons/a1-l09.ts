@@ -109,7 +109,7 @@ export const A1_L09: A1LessonContent = defineA1Lesson({
     listen(
       "a1-l09-e03",
       "guided",
-      "Ouça e escreva a frequência que você ouviu.",
+      "Ouça e escreva a frase completa que contém a frequência que você ouviu.",
       "저는 매일 공부해요.",
       "저는 매일 공부해요.",
       "매일 significa “todos os dias”.",
@@ -161,8 +161,8 @@ export const A1_L09: A1LessonContent = defineA1Lesson({
       "Ouça e escreva a frase que você ouviu.",
       "영화는 별로 안 봐요.",
       "영화는 별로 안 봐요.",
-      "A frase diz “não assisto muito a filmes”.",
-      ["영화는 별로 안 봐요"],
+      "A frase diz “não assisto muito a filmes”. 봐요 é a contração de 보아요.",
+      ["영화는 별로 안 봐요", "영화는 별로 안 보아요"],
     ),
     translate(
       "a1-l09-e10",

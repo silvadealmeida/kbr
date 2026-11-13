@@ -1,6 +1,6 @@
 # Transição para o A1 — handoff após as Fases 9A–9H
 
-**Decisão vigente:** os cursos **A1, A2 e B1 estão completos no currículo interno do KBR** — 40 lições, 8 checkpoints e 48 passos jogáveis cada. `a1-l01` foi preservada. A entrada do A2 exige `a1-c08`; a do B1 exige `a2-c08`. A próxima frente é **B2 — planejamento editorial e primeira fatia**, ou uma correção/native review do A1/A2 explicitamente pedida. A infraestrutura de áudio está **encerrada**: o dono aceitou o risco da licença do encoder e 2.907 MP3 de Hangul, A1, A2 e vocabulário são servidos de `public/audio/v1/`; `NEXT_PUBLIC_KBR_STATIC_AUDIO=0` é o kill switch. O B1 usa TTS e não gerou MP3 novo.
+**Decisão vigente (atualizada na 12A):** os cursos **A1, A2 e B1 estão completos no currículo interno do KBR** — 40 lições, 8 checkpoints e 48 passos jogáveis cada. `a1-l01` foi preservada. A entrada do A2 exige `a1-c08`; a do B1 exige `a2-c08`. A próxima frente é **B2 — planejamento editorial e primeira fatia**, ou uma correção/native review explicitamente pedida; **o B1 ainda precisa de auditoria linguística própria**. A infraestrutura de áudio está **contida**: 2.907 MP3 de Hangul, A1, A2 e vocabulário continuam versionados em `public/audio/v1/`, mas o áudio estático é opt-in (`NEXT_PUBLIC_KBR_STATIC_AUDIO=1`), `public/audio/` está no `.vercelignore` e a guarda de build foi restaurada. O B1 usa TTS e não gerou MP3 novo. A decisão de risco do dono não é licença; a distribuição pública/comercial continua bloqueada (`docs/audio/license-audit.md` §12).
 
 ## 1. Pronto para desenvolvimento contínuo
 

@@ -110,7 +110,7 @@ export const A1_L27: A1LessonContent = defineA1Lesson({
     listen(
       "a1-l27-e03",
       "guided",
-      "Ouça e escreva a habilidade que você ouviu.",
+      "Ouça e escreva a frase completa que contém a habilidade que você ouviu.",
       "저는 운전을 잘해요.",
       "저는 운전을 잘해요.",
       "A pessoa dirige bem.",

@@ -113,7 +113,7 @@ export const A1_L36: A1LessonContent = defineA1Lesson({
     listen(
       "a1-l36-e03",
       "guided",
-      "Ouça e escreva a restrição que você ouviu.",
+      "Ouça e escreva a frase completa que contém a restrição que você ouviu.",
       "알레르기가 있어요.",
       "알레르기가 있어요.",
       "A pessoa tem uma alergia.",

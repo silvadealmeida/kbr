@@ -89,7 +89,7 @@ export const A2_L03 = defineA2Lesson({
       "보다 marca o ponto de referência: “mais alto que eu”.",
     ),
     listen(
-      "Ouça e escreva o que é parecido.",
+      "Ouça e escreva a frase completa que contém o que é parecido.",
       "얼굴은 비슷해요.",
       "얼굴은 비슷해요.",
       "A fala diz que o rosto é parecido.",
@@ -127,7 +127,7 @@ export const A2_L03 = defineA2Lesson({
       "저처럼 조용해요 significa “é quieto como eu”.",
     ),
     listen(
-      "Ouça e escreva a diferença mencionada.",
+      "Ouça e escreva a frase completa que contém a diferença mencionada.",
       "성격은 완전히 달라요.",
       "성격은 완전히 달라요.",
       "A fala diz que a personalidade é completamente diferente.",

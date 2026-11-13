@@ -1,7 +1,8 @@
 import type { ReviewMeta } from "@/content/hangul/types";
-import { targetPosition } from "@/content/vocabulary/validate";
+import { targetBoundaryIssue, targetPosition } from "@/content/vocabulary/validate";
 import type { VocabEntry, VocabSentence } from "@/content/vocabulary/types";
 import { isImplementedExerciseType } from "@/lib/exercises/registry";
+import { validateExerciseSpec } from "../validate-exercises";
 import type {
   A1CheckpointContent,
   A1ContentIssue,
@@ -103,6 +104,11 @@ export function validateA1LessonContent(
       if (!HANGUL.test(sentence.ko)) add("sentence-korean", path, `Frase sem Hangul: ${id}.`);
       if (!sentence.target.trim()) add("sentence-target", path, `Frase sem alvo: ${id}.`);
       if (targetPosition(sentence) === null) add("sentence-gap", path, `Alvo deve ocorrer uma vez, no início de palavra: ${id}.`);
+      const entry = entryById.get(sentence.vocabId);
+      if (entry) {
+        const boundary = targetBoundaryIssue(sentence, entry);
+        if (boundary) add("sentence-target-boundary", path, `${id}: ${boundary}.`);
+      }
       checkReview(add, sentence.review, path);
     }
     for (const id of newIds) if (!coveredNewIds.has(id)) add("sentence-coverage", path, `Item novo sem frase contextual: ${id}.`);
@@ -139,6 +145,15 @@ export function validateA1LessonContent(
       if (!isImplementedExerciseType(exercise.type)) add("exercise-unimplemented", path, `Tipo não implementado: ${exercise.type}.`);
       if (plan && !plan.exerciseTypes.includes(exercise.type)) add("exercise-outside-plan", path, `Tipo fora do plano da lição: ${exercise.type}.`);
     }
+    lesson.exercises.forEach((exercise, exerciseIndex) => {
+      issues.push(
+        ...validateExerciseSpec(
+          exercise,
+          `${path}.exercises[${exerciseIndex}]`,
+          { checkRedundantAccepted: true },
+        ),
+      );
+    });
     if (stages.guided === 0) add("exercise-guided", path, "A lição precisa de prática guiada.");
     if (stages.independent === 0) add("exercise-independent", path, "A lição precisa de prática independente.");
     if (plan && lesson.completion.minCorrect !== plan.assessment.minCorrect) add("completion", path, "Mínimo de acertos diverge do plano da lição.");
@@ -196,6 +211,15 @@ export function validateA1CheckpointContent(
       exerciseIds.add(exercise.id);
       if (!isImplementedExerciseType(exercise.type)) add("checkpoint-exercise-type", path, `Tipo não implementado: ${exercise.type}.`);
       if (exercise.stage !== "guided" && exercise.stage !== "independent") add("checkpoint-exercise-stage", path, `Etapa inválida: ${exercise.id}.`);
+    });
+    checkpoint.exercises.forEach((exercise, exerciseIndex) => {
+      issues.push(
+        ...validateExerciseSpec(
+          exercise,
+          `${path}.exercises[${exerciseIndex}]`,
+          { checkRedundantAccepted: true },
+        ),
+      );
     });
     if (checkpoint.exercises.length > 0 && !checkpoint.exercises.some((exercise) => exercise.type === "listen")) add("checkpoint-listening", path, "Checkpoint precisa de escuta.");
     if (checkpoint.exercises.length > 0 && !checkpoint.exercises.some((exercise) => exercise.type === "reading" || exercise.type === "mcq")) add("checkpoint-reading", path, "Checkpoint precisa de leitura/compreensão.");

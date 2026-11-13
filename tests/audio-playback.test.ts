@@ -165,6 +165,35 @@ describe("reprodução de arquivo estático", () => {
     expect(audio.playbackRate).toBe(0.75);
     expect(audio.preservesPitch).toBe(true);
   });
+
+  test("reaplica a taxa depois que o play() começa (Safari volta para 1×)", async () => {
+    const { player, audio } = createPlayer({});
+    audio.play.mockImplementation(async () => {
+      // Safari pode redefinir playbackRate quando a reprodução realmente inicia.
+      audio.playbackRate = 1;
+    });
+
+    void player.play("한", { rate: 0.5 });
+    await flush();
+
+    expect(audio.playbackRate).toBe(0.5);
+  });
+
+  test("setRate ajusta o MP3 em reprodução sem reiniciar o clipe", async () => {
+    const { player, audio } = createPlayer({});
+    void player.play("한", { rate: 1 });
+    await flush();
+
+    expect(player.setRate(0.5)).toBe(true);
+    expect(audio.playbackRate).toBe(0.5);
+    expect(audio.pause).not.toHaveBeenCalled();
+    expect(audio.play).toHaveBeenCalledOnce();
+  });
+
+  test("setRate devolve false quando não há MP3 ativo", () => {
+    const { player } = createPlayer({});
+    expect(player.setRate(0.5)).toBe(false);
+  });
 });
 
 describe("fallback para voz do sistema", () => {

@@ -124,7 +124,7 @@ export const A2_L13 = defineA2Lesson({
     reading(
       "수진은 이웃에게 부탁을 했어요. 이웃은 기꺼이 도와줬어요. 수진은 작은 선물로 답례했어요.",
       "Como Sujin agradeceu?",
-      ["Com um pequeno presente.", "Com dinheiro.", "Não agradeceu."],
+      ["Com um pequeno presente.", "Com dinheiro, para agradecer o favor.", "Não agradeceu e não respondeu."],
       "Com um pequeno presente.",
       "작은 선물로 답례했어요.",
     ),

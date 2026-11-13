@@ -70,7 +70,7 @@ export const B1_L17 = defineB1Lesson({
     mcq("Qual é a pauta da reunião?", ["Mudança de cronograma e relatório de orçamento.", "Contratação de novos funcionários.", "Escolha do novo mediador."], "Mudança de cronograma e relatório de orçamento.", "안건은 일정 변경에 대한 논의와 예산 보고예요."),
     cloze("Complete o tema: 일정 변경___ 대한 논의가 있어요.", "에", "-에 대한 liga “mudança de cronograma” ao substantivo “discussão”."),
     listen("Ouça e escreva o que será registrado na ata.", "결정 사항은 회의록에 정리할게요.", "결정 사항은 회의록에 정리할게요.", "As decisões serão organizadas na ata da reunião.", ["결정 사항은 회의록에 정리할게요"]),
-    reading("오늘 회의에서는 일정 변경에 대한 논의가 있었어요. 발언은 짧았지만 합의가 필요했습니다. 진행자는 결정 사항을 회의록에 정리하고 참고 자료와 함께 공유했어요.", "O que o mediador fez depois da reunião?", ["Registrou as decisões e compartilhou os materiais.", "Cancelou o debate.", "Alterou o orçamento sozinho."], "Registrou as decisões e compartilhou os materiais.", "결정 사항을 회의록에 정리하고 참고 자료와 함께 공유했어요."),
+    reading("오늘 회의에서는 일정 변경에 대한 논의가 있었어요. 발언은 짧았지만 합의가 필요했습니다. 진행자는 결정 사항을 회의록에 정리하고 참고 자료와 함께 공유했어요.", "O que o mediador fez depois da reunião?", ["Registrou as decisões e compartilhou os materiais.", "Cancelou o debate e encerrou a reunião.", "Alterou o orçamento sozinho, sem consultar."], "Registrou as decisões e compartilhou os materiais.", "결정 사항을 회의록에 정리하고 참고 자료와 함께 공유했어요."),
     translate("pt-ko", "Traduza: “A discussão sobre o cronograma foi curta.”", "일정에 대한 논의는 짧았어요.", "일정에 대한 논의 é “discussão sobre o cronograma”."),
   ],
   independent: [

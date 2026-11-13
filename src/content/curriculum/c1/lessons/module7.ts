@@ -367,7 +367,7 @@ export const C1_L34 = defineC1Lesson({
     ],
   ],
   guided: [
-    mcq("Por que a narradora recusa representar o grupo?", ["Porque uma experiência individual não pode responder por todas as pessoas do grupo.", "Porque não se considera parte de nenhum grupo.", "Porque não quer falar sobre a própria infância."], "Porque uma experiência individual não pode responder por todas as pessoas do grupo.", "O texto separa a experiência própria da representação coletiva e recusa a equiparação."),
+    mcq("Por que a narradora recusa representar o grupo?", ["Porque uma experiência individual não pode responder por todas as pessoas do grupo.", "Porque não se considera parte de nenhum grupo social.", "Porque não quer falar sobre a própria infância."], "Porque uma experiência individual não pode responder por todas as pessoas do grupo.", "O texto separa a experiência própria da representação coletiva e recusa a equiparação."),
     cloze("Complete a frase: 내가 느끼는 ___은 하나의 이름표로 정리되지 않는다.", "소속감", "O pertencimento aparece como relação construída, não como etiqueta fixa."),
     listen("Ouça e escreva o limite que a narradora declara.", "나는 우리 집단을 대변할 수 없고, 내가 본 것만 말할 수 있다.", "나는 우리 집단을 대변할 수 없고, 내가 본 것만 말할 수 있다.", "Não posso falar em nome do meu grupo; posso falar apenas do que vi."),
     reading("선생님은 나를 교실의 대표로 세우고 다른 문화를 설명해 달라고 했다. 한 번은 설명을 거절했더니, 부끄러워하는 아이로 기록되었다. 그때 나는 말하지 않는 것도 하나의 답이라는 걸 배웠다.", "O que a narradora aprendeu com a recusa?", ["Que não falar também é uma resposta.", "Que deveria ter explicado a cultura do grupo.", "Que a escola tinha razão em usá-la como exemplo."], "Que não falar também é uma resposta.", "A recusa foi interpretada como timidez, e a narradora passou a ver o silêncio como resposta possível."),

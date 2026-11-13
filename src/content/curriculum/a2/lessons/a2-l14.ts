@@ -128,7 +128,7 @@ export const A2_L14 = defineA2Lesson({
     reading(
       "이웃은 수진의 말을 듣고 사과했어요. 그리고 오늘부터 조심하기로 했어요.",
       "O que o vizinho decidiu?",
-      ["Tomar cuidado a partir de hoje.", "Mudar de casa.", "Chamar a polícia."],
+      ["Tomar cuidado a partir de hoje.", "Mudar de casa no fim do mês.", "Chamar a polícia para registrar o caso."],
       "Tomar cuidado a partir de hoje.",
       "오늘부터 조심하기로 했어요.",
     ),

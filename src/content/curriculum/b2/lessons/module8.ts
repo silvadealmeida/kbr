@@ -187,7 +187,7 @@ export const B2_L38 = defineB2Lesson({
     translate("pt-ko", "Traduza: “O ponto comum das duas fontes resume-se à questão do custo.”", "두 자료의 공통점은 비용 문제로 요약된다.", "-는 것으로 요약된다 apresenta a síntese.", ["두 자료의 공통점은 비용 문제로 요약됩니다."]),
   ],
   independent: [
-    mcq("Qual frase usa nominalização formal?", ["조사한 바에 따르면 차이가 컸습니다.", "조사했어요.", "조사할 거예요."], "조사한 바에 따르면 차이가 컸습니다.", "-ㄴ/는 바 é nominalização formal."),
+    mcq("Qual frase usa nominalização formal?", ["조사한 바에 따르면 차이가 컸습니다.", "조사했어요. 지난달에 했어요.", "조사할 거예요. 다음 달에요."], "조사한 바에 따르면 차이가 컸습니다.", "-ㄴ/는 바 é nominalização formal."),
     cloze("Complete a síntese: 논의는 세 가지 쟁점___ 요약됩니다.", "으로", "쟁점으로 요약된다 = resume-se a três questões."),
     listen("Ouça e escreva o que não se deve esquecer.", "출처를 밝히는 것도 잊지 마세요.", "출처를 밝히는 것도 잊지 마세요.", "Também não se esqueça de indicar a fonte."),
     translate("ko-pt", "Traduza: 요약은 줄이는 일이 아니라 중요한 것을 남기는 일이에요.", "Resumir não é reduzir, mas manter o que é importante.", "줄이다 = reduzir; 남기다 = manter/deixar.", ["Resumir é preservar o essencial, não apenas encurtar."]),
@@ -252,7 +252,7 @@ export const B2_L39 = defineB2Lesson({
     cloze("Complete o pedido: 다음 주까지 회신해 주시___ 요청드립니다.", "도록", "회신해 주시도록 요청드립니다 = solicito que respondam."),
     listen("Ouça e escreva a confirmação pedida.", "직인 날인 여부도 확인해 주세요.", "직인 날인 여부도 확인해 주세요.", "Confira também se há carimbo oficial."),
     translate("ko-pt", "Traduza: 격식을 갖추어 안내문과 접수처를 함께 적었어요.", "Redigi com formalidade, incluindo o aviso e o local de protocolo.", "격식 = formalidade; 접수처 = local de protocolo.", ["Escrevi com formalidade o aviso e o local de recebimento."]),
-    reading("수정된 문서를 다음 주까지 발송해 주시도록 요청드립니다. 직인 날인 여부도 확인해 주세요. 바쁘시겠지만, 회신 부탁드립니다. 회신이 늦어지면 다시 연락드리겠습니다. 담당자님의 확인을 기다리겠습니다. 감사합니다. 문서 번호는 2026-07입니다. 첨부 파일도 함께 확인해 주시기 바랍니다.", "O que a carta pede ao final?", ["Envio do documento corrigido, confirmação do carimbo e resposta.", "Uma visita presencial imediata.", "O cancelamento do documento."], "Envio do documento corrigido, confirmação do carimbo e resposta.", "발송, 직인 확인, 회신을 요청해요."),
+    reading("수정된 문서를 다음 주까지 발송해 주시도록 요청드립니다. 직인 날인 여부도 확인해 주세요. 바쁘시겠지만, 회신 부탁드립니다. 회신이 늦어지면 다시 연락드리겠습니다. 담당자님의 확인을 기다리겠습니다. 감사합니다. 문서 번호는 2026-07입니다. 첨부 파일도 함께 확인해 주시기 바랍니다.", "O que a carta pede ao final?", ["Envio do documento corrigido, confirmação do carimbo e resposta.", "Uma visita presencial imediata ao escritório.", "O cancelamento do documento e do pedido."], "Envio do documento corrigido, confirmação do carimbo e resposta.", "발송, 직인 확인, 회신을 요청해요."),
   ],
   summary: ["-에 관하여 é “a respeito de” formal.", "-도록 요청드립니다 é pedido formal polido.", "Carta formal tem assunto, contexto, pedido, prazo e encerramento.", "Conteúdo novo permanece em revisão."],
   production: production(
@@ -304,7 +304,7 @@ export const B2_L40 = defineB2Lesson({
     ["Revisão · síntese e registro formal", "-ㄴ/는 바 / -도록 요청드립니다", "-ㄴ/는 바 organiza a atribuição em relatórios e sínteses; -도록 요청드립니다 organiza o pedido em cartas formais. Ambas pertencem ao registro escrito e não devem ser usadas em conversa casual. Combine-as com fatos e prazos claros.", [["조사한 바에 따르면 개선이 필요합니다.", "Segundo o que foi pesquisado, é necessária uma melhoria."], ["다음 주까지 회신해 주시도록 요청드립니다.", "Solicito que respondam até a próxima semana."]]],
   ],
   guided: [
-    mcq("O que ficou mais fácil para Minsu?", ["Ler textos longos e captar o essencial.", "Falar sem pensar.", "Escrever sem revisar."], "Ler textos longos e captar o essencial.", "긴 글을 읽고 핵심을 잡는 게 쉬워졌어요."),
+    mcq("O que ficou mais fácil para Minsu?", ["Ler textos longos e captar o essencial.", "Falar sem pensar antes de responder.", "Escrever sem revisar o texto final."], "Ler textos longos e captar o essencial.", "긴 글을 읽고 핵심을 잡는 게 쉬워졌어요."),
     cloze("Complete a revisão: 쉬기___ 시간도 없었어요.", "는커녕", "쉬기는커녕 = longe de descansar."),
     listen("Ouça e escreva o aprendizado final.", "배움은 끝이 아니라 계속되는 선택이에요.", "배움은 끝이 아니라 계속되는 선택이에요.", "Aprender não é um fim, mas uma escolha que continua."),
     reading("B2 과정을 시작할 때 나는 긴 글을 읽는 것이 가장 어려웠다. 지금 돌아보면, 매일 조금씩 읽은 것이 도움이 되었다. 단기적인 성과보다 지속력이 중요했다.", "O que ajudou a ler melhor?", ["Ler um pouco todos os dias.", "Ler tudo de uma vez.", "Evitar textos longos."], "Ler um pouco todos os dias.", "매일 조금씩 읽은 것이 도움이 됐어요."),

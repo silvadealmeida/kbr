@@ -26,7 +26,7 @@ export const B1_L01 = defineB1Lesson({
     mcq("Como foi a primeira viagem de Sujin?", ["Foi mais solitária do que ela esperava.", "Foi perfeita desde o início.", "Ela viajou com a família."], "Foi mais solitária do que ela esperava.", "생각보다 외롭더라고요."),
     cloze("Complete a descoberta: 바다가 정말 넓___.", "더라고요", "넓더라고요 relata a impressão vivida."),
     listen("Ouça e escreva o que surpreendeu Sujin.", "생각보다 외롭더라고요.", "생각보다 외롭더라고요.", "Ela descobriu que era mais solitário do que esperava.", ["생각보다 외롭더라고요"]),
-    reading("수진은 혼자 해외여행을 갔어요. 길을 잃었지만 현지 사람이 도와줬어요. 그 친절이 오래 기억에 남았어요.", "O que ficou na memória?", ["A gentileza de uma pessoa local.", "O hotel caro.", "A comida ruim."], "A gentileza de uma pessoa local.", "그 친절이 오래 기억에 남았어요."),
+    reading("수진은 혼자 해외여행을 갔어요. 길을 잃었지만 현지 사람이 도와줬어요. 그 친절이 오래 기억에 남았어요.", "O que ficou na memória?", ["A gentileza de uma pessoa local.", "O hotel caro que ela escolheu.", "A comida ruim do restaurante."], "A gentileza de uma pessoa local.", "그 친절이 오래 기억에 남았어요."),
     translate("pt-ko", "Traduza: “A viagem mudou minha forma de ver o mundo.”", "그 여행이 제가 세상을 보는 방식을 바꿨어요.", "세상을 보는 방식 é “forma de ver o mundo”.", ["그 여행은 제가 세상을 보는 방식을 바꿨어요."]),
   ],
   independent: [

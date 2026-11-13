@@ -91,7 +91,7 @@ export const C1_L16 = defineC1Lesson({
     ],
   ],
   guided: [
-    mcq("Qual frase deixa claro que a informação foi ouvida de outra pessoa, e não vista?", ["들은 이야기인데, 예산안이 아직 통과되지 않았다고 한다.", "내가 직접 예산안을 확인했다.", "아마 예산안이 통과될 것이다."], "들은 이야기인데, 예산안이 아직 통과되지 않았다고 한다.", "A forma -다고 한다 atribui a informação a outra fonte; as demais apresentam observação ou suposição."),
+    mcq("Qual frase deixa claro que a informação foi ouvida de outra pessoa, e não vista?", ["들은 이야기인데, 예산안이 아직 통과되지 않았다고 한다.", "내가 직접 예산안을 확인했고, 확실해요.", "아마 예산안이 곧 통과될 거예요."], "들은 이야기인데, 예산안이 아직 통과되지 않았다고 한다.", "A forma -다고 한다 atribui a informação a outra fonte; as demais apresentam observação ou suposição."),
     cloze("Complete a inferência a partir da pista: 회의실 불이 꺼진 걸 보니 회의가 일찍 끝난 ___.", "모양이다", "-ㄴ/는 모양이다 marca uma conclusão tirada de uma evidência observável."),
     listen("Ouça e escreva o que a narradora realmente presenciou.", "나는 회의실에 직접 들어가지 않았고, 복도에서 나오는 사람들의 표정만 보았다.", "나는 회의실에 직접 들어가지 않았고, 복도에서 나오는 사람들의 표정만 보았다.", "Não entrei na sala de reunião; apenas vi as expressões das pessoas que saíam pelo corredor."),
     reading("이야기는 회의에 참석한 사람이 아니라 준비를 맡은 직원에게서 나왔다. 따라서 내용은 구체적이지만, 회의의 최종 판단과는 거리가 있을 수 있다.", "Por que a informação do funcionário administrativo não equivale ao resultado da reunião?", ["Porque veio de quem preparava a reunião, não de quem participou dela.", "Porque o funcionário mentiu de propósito.", "Porque a reunião foi cancelada."], "Porque veio de quem preparava a reunião, não de quem participou dela.", "A fonte é a preparação, não a deliberação; por isso o relato pode não coincidir com o julgamento final."),

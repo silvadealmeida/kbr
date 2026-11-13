@@ -64,7 +64,7 @@ export const A2_L11 = defineA2Lesson({
   guided: [
     mcq(
       "Onde Marco mora?",
-      ["Em um apartamento de um cômodo perto da estação.", "Em uma república com amigos.", "Na casa dos pais."],
+      ["Em um apartamento de um cômodo perto da estação.", "Em uma república com amigos do trabalho.", "Na casa dos pais, no interior."],
       "Em um apartamento de um cômodo perto da estação.",
       "역 근처 원룸에 살아요.",
     ),

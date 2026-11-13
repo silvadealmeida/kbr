@@ -143,7 +143,7 @@ export const A2_L02 = defineA2Lesson({
     reading(
       "아나는 일본에 두 번 갔어요. 온천에도 가 봤어요. 지우는 해외에서 산 적이 없어요.",
       "Quem já morou no exterior?",
-      ["Nenhuma das duas.", "Ana.", "Jiwoo."],
+      ["Nenhuma das duas.", "Ana, que viajou ao Japão duas vezes.", "Jiwoo, que afirma ter morado no exterior."],
       "Nenhuma das duas.",
       "O texto diz que Jiwoo nunca morou no exterior e não afirma que Ana morou.",
     ),

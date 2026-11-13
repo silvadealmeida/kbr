@@ -1,0 +1,1190 @@
+{
+  "a1-c01-e07": [
+    "É estudante em uma escola de idiomas.",
+    "É funcionário de empresa.",
+    "É professor de coreano em uma escola pública."
+  ],
+  "a1-l02-e04": [
+    "É estudante em uma escola de idiomas.",
+    "É funcionário de empresa.",
+    "É professor de coreano em uma escola pública."
+  ],
+  "a1-l02-e07": [
+    "Professora de português em uma escola.",
+    "Cozinheira em um restaurante coreano.",
+    "Estudante estrangeira."
+  ],
+  "a1-l14-e04": [
+    "Cozinha e lava a louça.",
+    "Limpa a sala e organiza os armários.",
+    "Lava roupa na lavanderia do prédio."
+  ],
+  "a1-l22-e09": [
+    "Levar tempo.",
+    "Chegar ao destino sem demora.",
+    "Partir antes do horário previsto."
+  ],
+  "a1-l23-e09": [
+    "Andar; pavimento.",
+    "Rua movimentada do bairro.",
+    "Esquina perto da estação."
+  ],
+  "a1-l31-e04": [
+    "Encontrou um amigo e viu um filme.",
+    "Estudou para a prova e descansou em casa.",
+    "Comprou um presente para a amiga."
+  ],
+  "a1-l33-e07": [
+    "Dor de cabeça e cansaço.",
+    "Febre alta e tosse seca.",
+    "Dor no braço e no ombro."
+  ],
+  "a1-c02-e12": [
+    "Funcionária de empresa.",
+    "Estudante de intercâmbio.",
+    "Professora de coreano."
+  ],
+  "a1-c04-e20": [
+    "얼마",
+    "몇 개",
+    "무엇"
+  ],
+  "a1-c08-e30": [
+    "성함이 어떻게 되세요?",
+    "이름이 뭐야? 빨리 말해 봐.",
+    "너는 누구야? 여기서 뭐 해?"
+  ],
+  "a2-l02-e10": [
+    "Nenhuma das duas.",
+    "Ana, que viajou ao Japão duas vezes.",
+    "Jiwoo, que afirma ter morado no exterior."
+  ],
+  "a2-l03-e01": [
+    "O irmão de Jiwoo.",
+    "Jiwoo, que é mais alta que o irmão.",
+    "Ana, que é mais alta que os dois."
+  ],
+  "a2-l03-e04": [
+    "Na personalidade.",
+    "Na altura dos dois irmãos.",
+    "No rosto e no cabelo."
+  ],
+  "a2-l05-e04": [
+    "Uma pessoa que apareceu na história.",
+    "A família dele, que o esperava em casa.",
+    "O autor do livro, que narra a história."
+  ],
+  "a2-l11-e01": [
+    "Em um apartamento de um cômodo perto da estação.",
+    "Em uma república com amigos do trabalho.",
+    "Na casa dos pais, no interior."
+  ],
+  "a2-l13-e10": [
+    "Com um pequeno presente.",
+    "Com dinheiro, para agradecer o favor.",
+    "Não agradeceu e não respondeu."
+  ],
+  "a2-l14-e10": [
+    "Tomar cuidado a partir de hoje.",
+    "Mudar de casa no fim do mês.",
+    "Chamar a polícia para registrar o caso."
+  ],
+  "a2-l16-e01": [
+    "Dor de garganta, febre, tosse e tontura.",
+    "Dor nas costas, febre alta e cansaço.",
+    "Apenas coriza e espirros."
+  ],
+  "a2-l17-e04": [
+    "Ficar muito tempo sentado e não se exercitar.",
+    "Dormir demais nos fins de semana.",
+    "Beber pouca água durante o dia."
+  ],
+  "a2-l21-e06": [
+    "제가 하는 일은 고객 상담이에요.",
+    "저는 회사에 가서 회의를 해요.",
+    "오늘은 아침부터 아주 바빠요."
+  ],
+  "a2-l26-e04": [
+    "Café da manhã e estacionamento.",
+    "Jantar e passeio turístico.",
+    "Só o quarto, sem refeições."
+  ],
+  "a2-l26-e06": [
+    "조식이 몇 시인지 알려 주세요.",
+    "조식이 몇 시예요? 빨리 알려 주세요.",
+    "조식을 주세요. 지금 바로 주세요."
+  ],
+  "a2-l29-e06": [
+    "경치가 좋지만 사람이 많아요.",
+    "경치가 정말 아주 좋아요.",
+    "사람이 너무 많아서 복잡해요."
+  ],
+  "a2-l31-e06": [
+    "저는 재미있다고 생각해요.",
+    "영화를 봤어요. 정말 재미있었어요.",
+    "영화가 길어요. 두 시간이나 됐어요."
+  ],
+  "a2-l33-e04": [
+    "A avó de Sujin.",
+    "Jimin, que também vai visitar.",
+    "Sujin, que está doente."
+  ],
+  "a2-l34-e06": [
+    "미안하지만 그날은 어려워요.",
+    "싫어요. 저는 그런 자리에 가고 싶지 않아요.",
+    "안 가요. 그날은 다른 약속이 있어요."
+  ],
+  "a2-l34-e10": [
+    "Agradecer, explicar e propor outra data.",
+    "Ignorar a mensagem e não responder.",
+    "Aceitar o convite e não aparecer."
+  ],
+  "a2-l35-e04": [
+    "Generalizar todos os coreanos e brasileiros.",
+    "Falar apenas de comida e horários.",
+    "Mencionar apenas as famílias."
+  ],
+  "a2-l36-e10": [
+    "Planos que mudam podem trazer experiências novas.",
+    "Nunca se deve planejar uma viagem.",
+    "Viagens sempre dão errado no fim."
+  ],
+  "a2-l38-e06": [
+    "시간 괜찮으시면 알려 주세요.",
+    "당장 답장해. 기다리고 있을게.",
+    "연락하지 마. 지금은 바빠."
+  ],
+  "a2-l39-e10": [
+    "Planos podem ser ajustados com a experiência.",
+    "Nunca se deve planejar o futuro.",
+    "Só vale o primeiro plano que fizer."
+  ],
+  "a2-c01-e09": [
+    "A personalidade.",
+    "O rosto e o cabelo.",
+    "A altura dos irmãos."
+  ],
+  "a2-c02-e07": [
+    "Marco tem uma intenção; Jimin tomou uma decisão.",
+    "Os dois já decidiram tudo e não mudam.",
+    "Os dois desistiram dos planos."
+  ],
+  "a2-c02-e08": [
+    "Em frente à biblioteca.",
+    "Na estação de metrô.",
+    "No cinema do bairro."
+  ],
+  "a2-c02-e10": [
+    "Usar fones de ouvido.",
+    "Comer lanches na biblioteca.",
+    "Falar alto com os colegas."
+  ],
+  "a2-c04-e07": [
+    "Dor de garganta, febre, tosse e tontura.",
+    "Dor nas costas, febre alta e cansaço.",
+    "Apenas coriza e espirros."
+  ],
+  "a2-c05-e13": [
+    "제가 하는 일은 고객 상담이에요.",
+    "저는 회사에 가서 회의를 해요.",
+    "오늘은 아침부터 아주 바빠요."
+  ],
+  "a2-c06-e07": [
+    "Café da manhã e estacionamento.",
+    "Jantar e passeio turístico.",
+    "Só o quarto, sem refeições."
+  ],
+  "a2-c06-e13": [
+    "조식이 몇 시인지 알려 주세요.",
+    "조식이 몇 시예요? 빨리 알려 주세요.",
+    "조식을 주세요. 지금 바로 주세요."
+  ],
+  "a2-c06-e15": [
+    "경치가 좋지만 사람이 많아요.",
+    "경치가 정말 아주 좋아요.",
+    "사람이 너무 많아서 복잡해요."
+  ],
+  "a2-c07-e09": [
+    "A avó de Sujin.",
+    "Jimin, que também vai visitar.",
+    "Sujin, que está doente."
+  ],
+  "a2-c07-e11": [
+    "Generalizar todos os coreanos e brasileiros.",
+    "Falar apenas de comida e horários.",
+    "Mencionar apenas as famílias."
+  ],
+  "a2-c07-e13": [
+    "저는 재미있다고 생각해요.",
+    "영화를 봤어요. 정말 재미있었어요.",
+    "영화가 길어요. 두 시간이나 됐어요."
+  ],
+  "a2-c08-e13": [
+    "A personalidade.",
+    "O rosto e o cabelo.",
+    "A altura dos irmãos."
+  ],
+  "b1-l01-e04": [
+    "A gentileza de uma pessoa local.",
+    "O hotel caro que ela escolheu.",
+    "A comida ruim do restaurante."
+  ],
+  "b1-l09-e04": [
+    "Ela troca para um roteiro em ambiente fechado.",
+    "Ela cancela a viagem e volta para casa.",
+    "Ela muda a data da viagem para outra semana."
+  ],
+  "b1-l12-e06": [
+    "회사에 비해 집이 조용해요.",
+    "집이 아주 조용하고 좋아요.",
+    "집에서 일을 하고 있어요."
+  ],
+  "b1-l13-e06": [
+    "이용료가 저렴할 뿐만 아니라 시설도 깨끗해요.",
+    "이용료가 저렴하고 부담이 없어요.",
+    "시설이 깨끗할 거라고 생각해요."
+  ],
+  "b1-l14-e06": [
+    "재미있기는 하지만 너무 길어요.",
+    "재미있어요. 정말 재미있어요.",
+    "너무 길어요. 두 시간이나 돼요."
+  ],
+  "b1-l17-e04": [
+    "Registrou as decisões e compartilhou os materiais.",
+    "Cancelou o debate e encerrou a reunião.",
+    "Alterou o orçamento sozinho, sem consultar."
+  ],
+  "b1-l23-e06": [
+    "오해가 없도록 먼저 말했어요.",
+    "오해가 없어서 다행이에요.",
+    "오해를 했지만 괜찮아요."
+  ],
+  "b1-l24-e06": [
+    "공사를 하는 통에 길이 막혔어요.",
+    "공사가 끝나서 길이 넓어졌어요.",
+    "길이 넓어서 다니기 편해요."
+  ],
+  "b1-l25-e04": [
+    "Direitos e deveres devem ser respeitados juntos.",
+    "Só os direitos dos moradores importam.",
+    "O terraço deve ser fechado à noite."
+  ],
+  "b1-l28-e06": [
+    "공식 답변을 주시도록 요청드립니다.",
+    "답변 빨리 주세요. 기다리고 있어요.",
+    "왜 답이 없어요? 답장해 주세요."
+  ],
+  "b1-l31-e06": [
+    "보도에 따르면 피해가 크다고 한다.",
+    "피해가 커요. 정말 심각해요.",
+    "피해가 컸어요. 지난주 일이에요."
+  ],
+  "b1-l32-e06": [
+    "글은 예산이 부족하다는 내용이다.",
+    "예산이 부족해요. 더 필요해요.",
+    "예산을 늘릴까요? 함께 생각해 봐요."
+  ],
+  "b1-l34-e01": [
+    "Aumentou em relação ao ano passado.",
+    "Caiu pela metade no mesmo período.",
+    "Ficou igual ao ano passado."
+  ],
+  "b1-l38-e06": [
+    "회신 기한",
+    "메일 제목",
+    "보낸 사람 서명"
+  ],
+  "b1-c02-e08": [
+    "Trocou parte do relatório por apresentação.",
+    "Cancelou a apresentação por falta de tempo.",
+    "Aumentou o relatório e manteve a apresentação."
+  ],
+  "b1-c02-e10": [
+    "Não havia outra pessoa e o prazo estava próximo.",
+    "Ela queria tirar férias naquele mês.",
+    "O salário era baixo para a função."
+  ],
+  "b1-c03-e08": [
+    "Tranquilo no fim de semana e cheio nos dias úteis.",
+    "Sempre vazio, em qualquer dia da semana.",
+    "Sempre barulhento, de manhã até a noite."
+  ],
+  "b1-c03-e11": [
+    "Preocupação com queda de qualidade.",
+    "Custo alto para o governo.",
+    "Falta de transporte público."
+  ],
+  "b1-c04-e09": [
+    "Houve efetivação e melhoria de benefícios.",
+    "A pessoa pediu demissão no ano seguinte.",
+    "O salário diminuiu depois da efetivação."
+  ],
+  "b1-c05-e08": [
+    "Variação entre famílias e gerações.",
+    "Uma regra única para todos os lares.",
+    "O fim dos feriados em família."
+  ],
+  "b1-c05-e11": [
+    "Reduzir discriminação e equilibrar direitos/deveres.",
+    "Aumentar a discriminação entre os grupos.",
+    "Discutir só os direitos, sem os deveres."
+  ],
+  "b1-c05-e15": [
+    "교통 체증",
+    "대학 학위",
+    "졸업 논문"
+  ],
+  "b1-c06-e07": [
+    "Manteve a reserva original.",
+    "Cancelou tudo e pediu reembolso.",
+    "Mudou de hotel para outro mais barato."
+  ],
+  "b1-c06-e09": [
+    "Resposta oficial e prevenção de recorrência.",
+    "Um quarto maior e mais confortável.",
+    "Um novo destino para a próxima viagem."
+  ],
+  "b1-c07-e07": [
+    "A amostra é limitada a algumas regiões.",
+    "O aumento é falso e foi inventado.",
+    "Não houve pesquisa nem coleta de dados."
+  ],
+  "b1-c07-e09": [
+    "Evidência explícita.",
+    "Um título mais chamativo.",
+    "A data de publicação."
+  ],
+  "b1-c07-e11": [
+    "Reconheceu o erro e publicou correção.",
+    "Ignorou a reclamação dos leitores.",
+    "Culpou os leitores pelo erro."
+  ],
+  "b1-c07-e12": [
+    "Não se deve julgar a opinião pública por uma única notícia.",
+    "Toda notícia é falsa por definição.",
+    "A opinião pública nunca muda de ideia."
+  ],
+  "b1-c08-e14": [
+    "Falta de evidência suficiente.",
+    "Excesso de dados e gráficos.",
+    "Texto curto para o tema."
+  ],
+  "b1-c08-e15": [
+    "Efetivação e melhoria de benefícios.",
+    "Demissão e saída da empresa.",
+    "Redução salarial e perda de benefícios."
+  ],
+  "b1-c08-e16": [
+    "Crescimento urbano e queda regional.",
+    "Equilíbrio total entre as regiões.",
+    "Queda urbana e crescimento regional."
+  ],
+  "b1-c08-e17": [
+    "Manteve a reserva original.",
+    "Cancelou tudo e pediu reembolso.",
+    "Mudou de hotel para outro mais barato."
+  ],
+  "b2-l06-e04": [
+    "Uma explicação de por que ela é válida.",
+    "Um título mais longo e chamativo.",
+    "Uma lista dos autores citados."
+  ],
+  "b2-l07-e10": [
+    "Resumindo-a com precisão e respondendo com dados confirmados.",
+    "Ignorando-a completamente na resposta.",
+    "Apelando à emoção do outro lado."
+  ],
+  "b2-l08-e04": [
+    "Pediu para ouvir com precisão a preocupação do outro lado.",
+    "Impôs a regra imediatamente, sem ouvir.",
+    "Encerrou a reunião sem nenhum acordo."
+  ],
+  "b2-l12-e04": [
+    "Uma diferença concreta de etiqueta à mesa.",
+    "A falta de restaurantes coreanos.",
+    "A língua coreana falada no dia a dia."
+  ],
+  "b2-l13-e10": [
+    "Construir juntos um limite que ambos possam cumprir.",
+    "Nunca dizer não ao outro.",
+    "Evitar todos os conflitos possíveis."
+  ],
+  "b2-l14-e01": [
+    "Infraestrutura de transporte insuficiente.",
+    "Excesso de ônibus circulando.",
+    "Falta de escolas no bairro."
+  ],
+  "b2-l14-e10": [
+    "Com propostas concretas e definição de prioridades.",
+    "Esperando sem falar nada por semanas.",
+    "Mudando de bairro para evitar o problema."
+  ],
+  "b2-l15-e10": [
+    "Confirmar a intenção em vez de apenas supor.",
+    "Ignorar o clima estranho da conversa.",
+    "Repetir a mesma frase sem explicar."
+  ],
+  "b2-l16-e10": [
+    "O contexto, o prazo e a separação entre escrito e oral.",
+    "O número de destinatários do e-mail.",
+    "O uso de emojis na mensagem."
+  ],
+  "b2-l17-e01": [
+    "Questionário com cem respondentes e escala de cinco níveis.",
+    "Entrevista aberta com uma única pessoa.",
+    "Observação de uma loja durante um dia."
+  ],
+  "b2-l17-e06": [
+    "대기 시간이 만족도에 영향을 주는 것으로 드러났어요.",
+    "대기 시간이 짧으면 정말 좋겠어요.",
+    "대기 시간을 줄입시다. 모두 함께요."
+  ],
+  "b2-l18-e01": [
+    "Aumento com grande variação mensal.",
+    "Queda constante ao longo do ano.",
+    "Estabilidade total, sem oscilações."
+  ],
+  "b2-l18-e04": [
+    "Cresceu e passou a ser metade das vendas.",
+    "Caiu ao mínimo no mesmo período.",
+    "Ficou estável, sem crescimento."
+  ],
+  "b2-l19-e01": [
+    "Reduzir tarefas repetitivas e liberar tempo para atendimento.",
+    "Eliminar todos os funcionários da empresa.",
+    "Aumentar o custo de manutenção dos sistemas."
+  ],
+  "b2-l19-e10": [
+    "Aumentar treinamento e verificação junto com a automação.",
+    "Demitir todos os funcionários mais antigos.",
+    "Ignorar os custos de manutenção e treinamento."
+  ],
+  "b2-l20-e01": [
+    "Na etapa de verificação.",
+    "Na recepção dos pedidos.",
+    "No manual de procedimentos."
+  ],
+  "b2-l22-e10": [
+    "Apresentar o original e o contexto.",
+    "Repetir a manchete sem alterações.",
+    "Apagar a fonte e o nome do autor."
+  ],
+  "b2-l24-e01": [
+    "Porque a perspectiva muda conforme os dados.",
+    "Porque não há moradores no local.",
+    "Porque a obra terminou antes do prazo."
+  ],
+  "b2-l24-e04": [
+    "Porque cada lado parte de dados e perspectivas diferentes.",
+    "Porque a obra não existe de verdade.",
+    "Porque todos concordam sobre o ocorrido."
+  ],
+  "b2-l24-e10": [
+    "Comparar alegações e explicitar o que não foi confirmado.",
+    "Escolher o lado mais forte da disputa.",
+    "Repetir a versão mais popular da notícia."
+  ],
+  "b2-l25-e01": [
+    "Porque o corpo fala de um só complexo, não do mercado todo.",
+    "Porque o artigo não tem título nem subtítulo.",
+    "Porque o preço subiu muito no mercado."
+  ],
+  "b2-l26-e10": [
+    "Criar condições que ambas as partes possam cumprir.",
+    "Ganhar a qualquer custo, sem ceder.",
+    "Evitar falar de limites e condições."
+  ],
+  "b2-l27-e06": [
+    "문제를 시정하도록 조치해 주시기 바랍니다.",
+    "문제를 고쳐 주세요. 부탁드려요.",
+    "문제를 빨리 해결해. 지금 당장."
+  ],
+  "b2-l27-e10": [
+    "Fatos, prazos e um pedido educado, mas claro.",
+    "Uma mensagem agressiva e sem dados.",
+    "Esperar sem cobrar nenhuma resposta."
+  ],
+  "b2-l28-e04": [
+    "Perda de vendas e dificuldade de circulação.",
+    "Aumento do turismo na região.",
+    "Melhoria do transporte público."
+  ],
+  "b2-l28-e06": [
+    "설명 부족은 신뢰 하락을 초래했어요.",
+    "설명이 부족했어요. 아주 부족해요.",
+    "설명을 보충하세요. 빨리요."
+  ],
+  "b2-l28-e10": [
+    "Analisar corretamente os resultados da decisão.",
+    "Aumentar o custo da obra.",
+    "Encerrar o debate sem análise."
+  ],
+  "b2-l29-e01": [
+    "As duas equipes queriam usos diferentes do orçamento.",
+    "Não havia orçamento nenhum para o projeto.",
+    "As equipes não compareceram à reunião."
+  ],
+  "b2-l29-e04": [
+    "Porque as prioridades eram diferentes e não havia ponto de contato.",
+    "Porque o orçamento era infinito e elástico.",
+    "Porque ninguém queria falar na reunião."
+  ],
+  "b2-l29-e06": [
+    "참여하기로 하되 개인정보는 제공하지 않기로 했어요.",
+    "참여하기로 했어요. 아주 기쁘게요.",
+    "참여하지 않았어요. 끝까지 거절했어요."
+  ],
+  "b2-l29-e10": [
+    "O limite que pode ser cumprido e o que fica para depois.",
+    "A vitória total de um dos lados na negociação.",
+    "O cancelamento de todo o plano e dos prazos."
+  ],
+  "b2-l30-e10": [
+    "Complementar o que faltou e reforçar a verificação.",
+    "Não fazer mais projetos na empresa.",
+    "Esquecer o problema e seguir adiante."
+  ],
+  "b2-l31-e06": [
+    "비가 온다고 가정하면 실내에서 열어야 해요.",
+    "비가 왔어요. 어제 많이 왔어요.",
+    "비가 오면 좋겠어요. 정말요."
+  ],
+  "b2-l33-e10": [
+    "Resistir um pouco todos os dias.",
+    "A sorte de encontrar a prova certa.",
+    "O talento natural para os estudos."
+  ],
+  "b2-l35-e06": [
+    "모르는 척하지 마세요.",
+    "모르세요? 정말 모르세요?",
+    "모를 거예요. 아마도요."
+  ],
+  "b2-l38-e06": [
+    "조사한 바에 따르면 차이가 컸습니다.",
+    "조사했어요. 지난달에 했어요.",
+    "조사할 거예요. 다음 달에요."
+  ],
+  "b2-l39-e10": [
+    "Envio do documento corrigido, confirmação do carimbo e resposta.",
+    "Uma visita presencial imediata ao escritório.",
+    "O cancelamento do documento e do pedido."
+  ],
+  "b2-l40-e01": [
+    "Ler textos longos e captar o essencial.",
+    "Falar sem pensar antes de responder.",
+    "Escrever sem revisar o texto final."
+  ],
+  "b2-c02-e07": [
+    "Uma explicação de por que ela é válida.",
+    "Um título mais longo e chamativo.",
+    "Uma lista dos autores citados."
+  ],
+  "b2-c02-e09": [
+    "Pediu para ouvir com precisão a preocupação do outro lado.",
+    "Impôs a regra imediatamente, sem ouvir.",
+    "Encerrou a reunião sem nenhum acordo."
+  ],
+  "b2-c03-e08": [
+    "Uma diferença concreta de etiqueta à mesa.",
+    "A falta de restaurantes coreanos.",
+    "A língua coreana falada no dia a dia."
+  ],
+  "b2-c03-e09": [
+    "Ela ficou aliviada e a amiga explicou a situação.",
+    "A amizade terminou naquele dia.",
+    "A amiga ficou com raiva dela."
+  ],
+  "b2-c03-e12": [
+    "Distinguir regra de costume e confirmar a intenção.",
+    "Ignorar todas as normas do lugar.",
+    "Evitar qualquer conversa sobre o tema."
+  ],
+  "b2-c03-e15": [
+    "사람들이 우산을 쓰는 것으로 보아 비가 오나 봐요.",
+    "비가 와서 사람들이 우산을 썼어요.",
+    "비가 오면 우산을 꼭 쓰세요."
+  ],
+  "b2-c04-e09": [
+    "Cresceu e passou a ser metade das vendas.",
+    "Caiu ao mínimo no mesmo período.",
+    "Ficou estável, sem crescimento."
+  ],
+  "b2-c04-e11": [
+    "Na etapa de verificação.",
+    "Na recepção dos pedidos.",
+    "No manual de procedimentos."
+  ],
+  "b2-c05-e10": [
+    "Porque cada lado parte de dados e perspectivas diferentes.",
+    "Porque a obra não existe de verdade.",
+    "Porque todos concordam sobre o ocorrido."
+  ],
+  "b2-c06-e09": [
+    "Perda de vendas e dificuldade de circulação.",
+    "Aumento do turismo na região.",
+    "Melhoria do transporte público."
+  ],
+  "b2-c06-e10": [
+    "Porque as prioridades eram diferentes e não havia ponto de contato.",
+    "Porque o orçamento era infinito e elástico.",
+    "Porque ninguém queria falar na reunião."
+  ],
+  "b2-c06-e14": [
+    "문제를 시정하도록 조치해 주시기 바랍니다.",
+    "문제를 고쳐 주세요. 부탁드려요.",
+    "문제를 빨리 해결해. 지금 당장."
+  ],
+  "b2-c07-e12": [
+    "Distinguir possibilidade de certeza e confirmar intenções.",
+    "Falar sempre com certeza absoluta e sem dúvidas.",
+    "Evitar qualquer pergunta ao outro lado."
+  ],
+  "b2-c07-e13": [
+    "예산이 절반으로 줄어든다고 가정하면 계획을 바꿔야 해요.",
+    "예산이 줄었어요. 정말 많이 줄었어요.",
+    "예산이 줄면 좋겠어요. 그랬으면요."
+  ],
+  "b2-c07-e15": [
+    "모르는 척하지 마세요.",
+    "모르세요? 정말 모르세요?",
+    "모를 거예요. 아마도요."
+  ],
+  "b2-c08-e13": [
+    "Uma diferença concreta de etiqueta à mesa.",
+    "A falta de restaurantes coreanos.",
+    "A língua coreana falada no dia a dia."
+  ],
+  "b2-c08-e14": [
+    "Cresceu e passou a ser metade das vendas.",
+    "Caiu ao mínimo no mesmo período.",
+    "Ficou estável, sem crescimento."
+  ],
+  "b2-c08-e17": [
+    "Porque as prioridades eram diferentes e não havia ponto de contato.",
+    "Porque o orçamento era infinito e elástico.",
+    "Porque ninguém queria falar na reunião."
+  ],
+  "b2-c08-e22": [
+    "대기 시간이 만족도에 영향을 주는 것으로 드러났어요.",
+    "대기 시간이 짧으면 정말 좋겠어요.",
+    "대기 시간을 줄입시다. 모두 함께요."
+  ],
+  "c1-l01-e01": [
+    "A organizações de porte semelhante ao das empresas analisadas.",
+    "A todos os setores da economia, sem exceção.",
+    "A empresas de outros países e portes."
+  ],
+  "c1-l01-e10": [
+    "Porque a amostra foi formada por pessoas que se ofereceram para participar.",
+    "Porque todos os participantes eram gerentes de área.",
+    "Porque o estudo durou apenas uma semana inteira."
+  ],
+  "c1-l02-e10": [
+    "Ela reconhece o custo e limita a recomendação a organizações com certas características.",
+    "Ela nega que os custos tenham aumentado no período.",
+    "Ela abandona completamente a defesa da jornada de quatro dias."
+  ],
+  "c1-l06-e10": [
+    "Mantém a comparação dentro do que foi medido e o corpo da matéria declara os limites.",
+    "Promete mais do que o estudo conseguiu demonstrar com os dados.",
+    "Oculta o tamanho da amostra e os limites do estudo."
+  ],
+  "c1-l07-e01": [
+    "A distribuição aproximada da opinião pública sobre a abertura noturna.",
+    "As razões concretas de cada morador entrevistado.",
+    "O nível de ruído de um parque específico."
+  ],
+  "c1-l07-e10": [
+    "Porque cada uma permite um tipo de afirmação e nenhuma cobre o que a outra cobre.",
+    "Porque uma delas está simplesmente incorreta e não pode ser usada.",
+    "Porque ambas usam exatamente a mesma amostra de participantes."
+  ],
+  "c1-l08-e01": [
+    "Porque a amostra é de uma empresa, sem grupo de controle e com participantes voluntários.",
+    "Porque os pesquisadores não mediram o sono dos participantes.",
+    "Porque o estudo durou oito anos seguidos."
+  ],
+  "c1-l08-e04": [
+    "A medida do sono tem alguma validade interna; a dos atendimentos não exclui o aumento do volume de trabalho.",
+    "As duas medidas têm exatamente a mesma validade interna e externa.",
+    "A medida dos atendimentos é mais confiável que a do sono em todos os casos."
+  ],
+  "c1-l12-e04": [
+    "Citou o resultado como base para ampliar o plantão, omitindo as condições declaradas pelos autores.",
+    "Corrigiu os erros metodológicos do artigo original e das notas.",
+    "Publicou o artigo completo com as notas e as condições dos autores."
+  ],
+  "c1-l13-e04": [
+    "Que a posição deles é de consentimento condicional, não de oposição.",
+    "Que eles abandonaram a reunião antes da votação.",
+    "Que o aluguel já foi aprovado pela assembleia."
+  ],
+  "c1-l15-e04": [
+    "Materiais de análise no anexo 1; lista e certificados em anexo separado.",
+    "Todos os documentos reunidos em um único anexo.",
+    "Nenhum documento foi enviado com a proposta."
+  ],
+  "c1-l16-e01": [
+    "들은 이야기인데, 예산안이 아직 통과되지 않았다고 한다.",
+    "내가 직접 예산안을 확인했고, 확실해요.",
+    "아마 예산안이 곧 통과될 거예요."
+  ],
+  "c1-l24-e01": [
+    "Uma amplia o acesso de quem não é atendido; a outra reduz o custo de quem já usa.",
+    "Uma aumenta a tarifa para todos; a outra reduz a frota de ônibus.",
+    "As duas beneficiam exatamente o mesmo grupo de usuários."
+  ],
+  "c1-l30-e10": [
+    "Que o conectivo indicava oposição, mas a relação era de acréscimo.",
+    "Que o texto tinha erros de ortografia no título.",
+    "Que a conclusão já estava na introdução."
+  ],
+  "c1-l34-e01": [
+    "Porque uma experiência individual não pode responder por todas as pessoas do grupo.",
+    "Porque não se considera parte de nenhum grupo social.",
+    "Porque não quer falar sobre a própria infância."
+  ],
+  "c1-l39-e01": [
+    "Estreitou o alcance da tese, de ‘a política fracassou’ para ‘não teve o desempenho esperado em certas regiões’.",
+    "Trocou o tema do ensaio por outro completamente diferente e mais amplo.",
+    "Acrescentou uma nova objeção ao texto sem revisar a tese principal."
+  ],
+  "c1-l39-e04": [
+    "O registro de que 17 das 24 pessoas entrevistadas apontaram o tempo de espera.",
+    "Uma nova afirmação de que todos concordam com a política.",
+    "A exclusão de qualquer dado sobre o tema da moradia."
+  ],
+  "c1-l40-e10": [
+    "Indicar a fonte de cada citação e registrar sua função no original.",
+    "Parar de citar qualquer texto por precaução.",
+    "Reescrever os três textos do zero, sem citar fontes."
+  ],
+  "c1-c02-e01": [
+    "O que precisa ser verdade para que esta frase faça sentido, sem que o texto demonstre?",
+    "Quantas palavras e quantas linhas tem o título da matéria?",
+    "Quem publicou a matéria e em que data ela saiu?"
+  ],
+  "c1-c02-e17": [
+    "A distribuição aproximada da opinião nacional, não os problemas de um parque específico.",
+    "As razões individuais de cada morador entrevistado no parque.",
+    "O nível exato de ruído noturno e de iluminação do parque."
+  ],
+  "c1-c03-e16": [
+    "Ela citou o resultado como base para ampliar o plantão e apagou as condições dos autores.",
+    "Ela publicou o artigo sem nenhuma revisão ortográfica.",
+    "Ela entrevistou os autores antes de publicar o texto."
+  ],
+  "c1-c03-e18": [
+    "Que os primeiros seis meses não sejam avaliados pelo mesmo critério.",
+    "Que a organização pague todo o aluguel do espaço.",
+    "Que o projeto dure apenas seis meses."
+  ],
+  "c1-c04-e02": [
+    "대단하기는요. 아직 절반도 못 했어요.",
+    "그 말은 틀렸습니다. 정말 틀렸어요.",
+    "네, 제가 최고입니다. 정말로요."
+  ],
+  "c1-c05-e15": [
+    "A hipótese contrafactual: sem o erro, o resultado não teria ocorrido.",
+    "O número de usuários afetados durante a falha.",
+    "A opinião dos funcionários do plantão."
+  ],
+  "c1-c05-e17": [
+    "Em transformar ajuste do critério de renda em ampliação de beneficiários.",
+    "Em informar o aumento do auxílio de forma correta.",
+    "Em citar o orçamento do programa no texto."
+  ],
+  "c1-c05-e18": [
+    "Elas produzem efeitos diferentes para públicos diferentes e com custos diferentes.",
+    "As duas produzem exatamente o mesmo efeito prático.",
+    "A redução tarifária não tem custo algum para o governo."
+  ],
+  "c1-c06-e03": [
+    "Remover o excesso e preservar condições, exceções e base das afirmações.",
+    "Encurtar todas as frases ao máximo, sem exceção.",
+    "Eliminar as notas de rodapé e as ressalvas."
+  ],
+  "c1-c07-e20": [
+    "A invisibilidade do trabalho e das condições de quem participa.",
+    "A qualidade técnica da fotografia e da edição.",
+    "A duração curta do vídeo e o formato vertical."
+  ],
+  "c1-c08-e12": [
+    "Reconhece o risco e propõe proteger renda e descanso em conjunto.",
+    "Nega que o descanso afete a renda dos trabalhadores.",
+    "Propõe abandonar o recorte regional do estudo."
+  ],
+  "c1-c08-e15": [
+    "A triagem de currículo de empresas que selecionam mais de 100 pessoas.",
+    "Todas as contratações do país, sem distinção.",
+    "Apenas as entrevistas presenciais da empresa."
+  ],
+  "c1-c08-e20": [
+    "Indicar a fonte de cada citação e registrar sua função no original.",
+    "Deixar de citar qualquer texto para evitar novos erros.",
+    "Publicar os três textos sem nenhuma revisão."
+  ],
+  "c2-l03-e06": [
+    "점검 기록을 오늘 안에 공개하고, 누락이 확인되면 제가 책임을 지겠습니다.",
+    "점검은 일반적으로 잘 이루어지는 편이라고 생각합니다.",
+    "기록이 없을 수도 있다고 봅니다. 확인이 필요합니다.",
+    "조사 결과를 기다려 주시기 바랍니다. 곧 알려 드리겠습니다."
+  ],
+  "c2-l03-e10": [
+    "Ele opõe cautela e responsabilidade, como se assumir um compromisso exigisse afirmar fatos ainda não confirmados.",
+    "Ele admite que a empresa causou o incêndio e assume a culpa.",
+    "Ele se recusa a pedir desculpas aos atingidos e a explicar o ocorrido publicamente."
+  ],
+  "c2-l04-e10": [
+    "Porque a cortesia não é só etiqueta: ela redistribui o poder de decidir e o custo da recusa.",
+    "Porque a segunda mensagem é gramaticalmente incorreta em coreano.",
+    "Porque a primeira mensagem não contém um pedido claro."
+  ],
+  "c2-l07-e05": [
+    "A diferença entre o acesso declarado e o acesso efetivo de quem usa o banco.",
+    "A existência de bancos em praças públicas e a falta de manutenção.",
+    "A realização de reuniões com moradores e a demora nas obras."
+  ],
+  "c2-l07-e06": [
+    "A experiência pessoal é convertida em uma questão coletiva com tese e pedido ao leitor.",
+    "O autor narra apenas o que sentiu na infância, sem tese.",
+    "O texto evita qualquer contato com o leitor e não faz pedidos."
+  ],
+  "c2-l09-e06": [
+    "Porque ela verifica se as regras implícitas da conversa estão abertas a quem chega de fora.",
+    "Porque ela quer mudar o assunto da conversa para outro tema.",
+    "Porque ela não entende nada de coreano e precisa de ajuda."
+  ],
+  "c2-l10-e01": [
+    "Ele apresenta como decisão concluída algo que a prefeitura disse estar apenas em análise.",
+    "Ele não menciona o nome do repórter nem a data da notícia.",
+    "Ele é longo demais para uma notícia urgente e deveria ser mais curto."
+  ],
+  "c2-l10-e06": [
+    "Ela revela o número de fontes e o conflito com a versão oficial, mas mantém o anonimato.",
+    "Ela dispensa completamente o uso de fontes e de documentos.",
+    "Ela foi escrita antes da coletiva de imprensa e sem ouvir a empresa."
+  ],
+  "c2-l11-e05": [
+    "Ela transforma uma correlação em relação causal sem verificar essa passagem.",
+    "Ela repete a conclusão com outras palavras, sem examinar a premissa.",
+    "Ela foi confirmada por um experimento local realizado na mesma cidade."
+  ],
+  "c2-l12-e05": [
+    "Ela pode tornar naturais as relações de centro e periferia que deveriam ser discutidas.",
+    "Ela impede qualquer compreensão do trânsito urbano e das ruas.",
+    "Ela prova que a cidade não tem centros nem periferias."
+  ],
+  "c2-l12-e06": [
+    "Quando a diferença entre os dois casos recai sobre o ponto que a conclusão precisa provar.",
+    "Quando a comparação usa imagens do corpo humano e da cidade.",
+    "Quando o texto explica a imagem antes de usá-la no argumento."
+  ],
+  "c2-l15-e05": [
+    "Ele transforma uma resposta sobre medo em certeza sobre crime e catástrofe, sem nomear responsáveis.",
+    "Ele é curto demais para um manifesto público e não explica o contexto.",
+    "Ele cita uma pesquisa que não existe e não apresenta dados."
+  ],
+  "c2-l15-e10": [
+    "Aceita a força expressiva, mas exige que a conclusão permaneça dentro da evidência e que o pedido seja concreto.",
+    "Recomenda que todo texto público evite palavras fortes e emoção.",
+    "Diz que a emoção invalida qualquer apelo público, mesmo quando fundamentado."
+  ],
+  "c2-l17-e01": [
+    "Que há correlação, mas não se pode afirmar causalidade sem examinar fatores na direção inversa.",
+    "Que a transparência sempre cria confiança em qualquer instituição.",
+    "Que a confiança não tem relação com instituições nem com o histórico local."
+  ],
+  "c2-l17-e05": [
+    "Porque é uma hipótese limitada a uma região e a um período, e precisa de verificação repetida.",
+    "Porque foi formulada por um pesquisador estrangeiro sem conhecer a região.",
+    "Porque a confiança não pode ser medida em nenhuma escala."
+  ],
+  "c2-l17-e06": [
+    "Substantivos abstratos que nomeiam propriedades, qualidades ou possibilidades.",
+    "Verbos que indicam uma ação concluída no passado.",
+    "Advérbios de tempo, lugar e modo."
+  ],
+  "c2-l18-e01": [
+    "Quem investiu recursos e quem tomou as decisões que produziram o resultado.",
+    "O número de participantes e o valor investido no programa.",
+    "O nome do projeto, seu orçamento total e a data de início."
+  ],
+  "c2-l18-e06": [
+    "A secretaria ampliou as vagas e realizou duas oficinas para famílias de baixa renda.",
+    "A participação da comunidade foi ampliada por meio de oficinas.",
+    "A equidade foi promovida de forma sustentável no projeto.",
+    "O projeto contribuiu para o caráter público da iniciativa."
+  ],
+  "c2-l18-e10": [
+    "Que o texto declara princípios de responsabilidade, mas descreve os resultados sem agentes.",
+    "Que o projeto não aceita propostas dos moradores nem de entidades.",
+    "Que a participação diminuiu no ano atual, segundo o relatório."
+  ],
+  "c2-l19-e06": [
+    "Que avaliação essa palavra autoriza sobre o personagem, e essa avaliação está no original?",
+    "A palavra tem mais de duas sílabas no dicionário?",
+    "A palavra aparece no dicionário como sinônimo exato de outra?"
+  ],
+  "c2-l19-e10": [
+    "Porque a mesma referência econômica pode carregar reprovação ou respeito, e isso muda o personagem.",
+    "Porque todas as palavras coreanas têm uma tradução exata em português.",
+    "Porque o texto original não descreve dinheiro nem condição social."
+  ],
+  "c2-l20-e10": [
+    "Porque uma cláusula pode ser nula mesmo com acordo, enquanto outra pode ser modificada pelas partes.",
+    "Porque toda cláusula é obrigatória, imutável e não pode ser revista.",
+    "Porque apenas o juiz pode redigir ou modificar um contrato."
+  ],
+  "c2-l21-e05": [
+    "Mostra que 'seguro' significava não andar sozinha, e não uma qualidade do espaço.",
+    "Prova que o questionário foi mal redigido e não deveria ser usado.",
+    "Indica que ela nunca frequenta o parque, de dia ou de noite."
+  ],
+  "c2-l21-e06": [
+    "Os números mostram como os grupos se dividem; as entrevistas explicam de que prática e de que juízo essa divisão nasce.",
+    "As entrevistas provam estatisticamente o que o questionário já havia indicado.",
+    "O questionário explica o sentido das falas coletadas nas entrevistas e nos grupos."
+  ],
+  "c2-l22-e05": [
+    "Porque o ganho semanal pode vir de mais horas trabalhadas, e o relatório não examina essa possibilidade.",
+    "Porque o relatório foi escrito em março e não no fim do ano passado.",
+    "Porque a empresa não tem dados de renda, jornada ou horas extras."
+  ],
+  "c2-l23-e05": [
+    "Porque o acordo fechado sem nomear o desacordo faz uma das posições sair do texto sem ser tratada.",
+    "Porque os comerciantes não querem nenhum acordo com a prefeitura.",
+    "Porque a prefeitura já decidiu o projeto sem consultar ninguém."
+  ],
+  "c2-l24-e05": [
+    "Que a relação entre uso e sono admite mais de uma direção causal, e nenhum dos estudos encerra o debate.",
+    "Que o estudo de 2021 refutou completamente o de 2019.",
+    "Que o tempo de uso não tem nenhuma relação com a qualidade do sono."
+  ],
+  "c2-l25-e06": [
+    "Porque mantém a ideia e a estrutura do original sem atribuição.",
+    "Porque cita um autor que não existe e inventa a fonte.",
+    "Porque foi publicada em outro idioma, sem tradução."
+  ],
+  "c2-l26-e05": [
+    "Porque ele deixou de ver o movimento dela na escada e o bilhete encontrado não confirma a partida.",
+    "Porque Myeongju lhe disse claramente que não partiria.",
+    "Porque o navio não chegou a sair do porto naquela noite de chuva."
+  ],
+  "c2-l26-e06": [
+    "O final mantém duas leituras porque o narrador não vê a escolha de Myeongju e o bilhete desmente sua suposição.",
+    "O conto afirma claramente que Myeongju desistiu de partir no final.",
+    "O conto não tem enredo e por isso não admite nenhuma interpretação."
+  ],
+  "c2-l26-e10": [
+    "Que o sentido do gesto é ambíguo: pode indicar decisão de ficar ou de romper com o passado.",
+    "Que Myeongju comprou o bilhete por engano e se arrependeu.",
+    "Que o narrador conhece a intenção secreta dela e a esconde."
+  ],
+  "c2-l30-e05": [
+    "O critério de cada crítico: acesso do novo público versus preservação da ambiguidade do original.",
+    "O preço dos ingressos, o tamanho do teatro e o horário das sessões.",
+    "A opinião dos atores sobre o texto original e sobre a nova montagem."
+  ],
+  "c2-l33-e01": [
+    "Para que as propostas sejam comparadas pelos mesmos parâmetros, e não pela força de quem fala.",
+    "Para reduzir o tempo de fala dos moradores na reunião.",
+    "Para garantir que a votação ocorra no mesmo dia e local."
+  ],
+  "c2-l33-e05": [
+    "Tornam as exigências comparáveis e deslocam a disputa para parâmetros explícitos.",
+    "Eliminam a necessidade de registrar as falas e as propostas.",
+    "Transferem a decisão final para a empresa contratante."
+  ],
+  "c2-l34-e05": [
+    "O poder de recusar mudanças e de exigir que os custos de segurança fiquem com a contratante.",
+    "A possibilidade de trabalhar à noite e nos fins de semana.",
+    "O direito de enviar e-mails e mensagens à contratante."
+  ],
+  "c2-l35-e06": [
+    "Aponta o ponto de viés, mas não afirma a intenção; pergunta quem escolheu e com que critério.",
+    "Declara que o relator agiu de má-fé e pede punição imediata.",
+    "Conclui que não houve nenhum recorte no relatório nem na escolha dos dados."
+  ],
+  "c2-l36-e01": [
+    "Como o peso do aluguel mensal altera o momento da mudança em domicílios unipessoais de três distritos de Seul entre 2025 e 2026?",
+    "Por que a juventude sofre com a moradia e quais soluções o governo deveria adotar em todo o país?",
+    "Qual é a solução definitiva para a crise habitacional nas grandes cidades e como aplicá-la rapidamente?"
+  ],
+  "c2-l36-e10": [
+    "Reconhece o limite e transforma a generalização em hipótese para pesquisa posterior.",
+    "Esconde o limite para proteger a conclusão do estudo.",
+    "Abandona a pesquisa porque a amostra é pequena e não representa o país."
+  ],
+  "c2-l37-e05": [
+    "Aceita o risco, mas mostra que verificações posteriores e amostragem custam menos que suspeitar de todos.",
+    "Nega que a fraude exista em qualquer programa social do país, em qualquer época.",
+    "Propõe eliminar todos os controles e a auditoria do programa."
+  ],
+  "c2-l38-e01": [
+    "O alcance da conclusão e a consciência do pesquisador sobre o limite do desenho.",
+    "O número de páginas e de gráficos do projeto.",
+    "A qualidade da apresentação visual e do formato."
+  ],
+  "c2-l38-e06": [
+    "Aceito que a amostra não permite generalizar; o que ela mostra é o mecanismo em três distritos, e é isso que sustento.",
+    "Minha amostra prova tudo o que afirmei, sem nenhuma dúvida, limite ou ressalva.",
+    "O senhor tem razão; retiro toda a pesquisa e peço desculpas."
+  ],
+  "c2-l39-e05": [
+    "Porque altera a ordem e a função das partes, não apenas o modo de dizer.",
+    "Porque corrige erros de ortografia e de digitação.",
+    "Porque muda a tese do texto e a conclusão."
+  ],
+  "c2-l40-e01": [
+    "A mesma pergunta sobre o direito de circulação noturna, vista por dados, argumento e literatura.",
+    "O mesmo gênero textual repetido três vezes sem variação.",
+    "A mesma conclusão, copiada para os três textos do portfólio."
+  ],
+  "c2-c01-e01": [
+    "Por que a nota já trata a falha do estudante como a hipótese principal?",
+    "A nota foi publicada em maio e por qual setor?",
+    "Quem assinou a nota e em nome de qual instituição?"
+  ],
+  "c2-c01-e03": [
+    "Que ele perceba a inversão e tenha contexto suficiente para não tomar o enunciado ao pé da letra.",
+    "Que ele concorde com o falante sem interpretar o contexto nem o tom.",
+    "Que ele ignore completamente o tom e a situação da fala."
+  ],
+  "c2-c01-e16": [
+    "Porque reconhece a intenção declarada do artista sem abandonar a crítica ao efeito da obra.",
+    "Porque não sabe quem é o artista nem o título da obra.",
+    "Porque a exposição não tem título nem catálogo."
+  ],
+  "c2-c01-e17": [
+    "Que o procedimento e o professor são apresentados como confiáveis, e o estudante como elo falho.",
+    "Que a universidade não possui normas de segurança nem controle.",
+    "Que o estudante concluiu toda a formação exigida e estava apto."
+  ],
+  "c2-c01-e18": [
+    "Descreve uma prática geral, mas não confirma a inspeção do caso concreto.",
+    "Nega que a empresa faça inspeções em qualquer unidade.",
+    "Confirma que o registro foi perdido e não pode ser recuperado."
+  ],
+  "c2-c02-e02": [
+    "A experiência individual é convertida em questão comum, com tese e destinatário.",
+    "O texto é necessariamente mais longo e mais formal.",
+    "O autor evita dizer de onde fala e para quem escreve."
+  ],
+  "c2-c02-e21": [
+    "Porque a força da cena está no que foi visto, não no que poderia ser inventado.",
+    "Porque a narradora não se lembra do episódio nem dos detalhes.",
+    "Porque o homem se recusa a falar com a narradora."
+  ],
+  "c2-c02-e22": [
+    "A diferença entre o acesso declarado e o acesso efetivo de quem usa o banco.",
+    "A existência de bancos em praças públicas e a falta de manutenção.",
+    "A realização de reuniões com moradores e a demora nas obras."
+  ],
+  "c2-c03-e15": [
+    "A passagem indevida da correlação para a causalidade, sem considerar outras condições urbanas.",
+    "A ausência de qualquer dado sobre acidentes e vítimas.",
+    "O fato de o texto não mencionar bicicletas nem ciclistas locais."
+  ],
+  "c2-c03-e18": [
+    "Uma divisão política entre centro e periferia apresentada como se fosse natural.",
+    "A existência de ruas, transportes e prédios na cidade.",
+    "A importância de se explicar o corpo humano na escola."
+  ],
+  "c2-c03-e19": [
+    "Ele converte uma resposta sobre medo em fato sobre crime e usa ‘todos’ sem distribuir responsabilidade.",
+    "Ele cita um número excessivamente alto de entrevistados sem fonte.",
+    "Ele é longo demais para um manifesto público e urgente."
+  ],
+  "c2-c04-e16": [
+    "Porque a direção inversa — a confiança levando à escolha de instituições — também é possível.",
+    "Porque a transparência não pode ser medida com precisão.",
+    "Porque o estudo foi realizado em um único país e período."
+  ],
+  "c2-c04-e18": [
+    "Que escolhas lexicais opostas impõem ao personagem avaliações que o original não confirma.",
+    "Que a tradução A é gramaticalmente incorreta em coreano.",
+    "Que o original não permite nenhuma interpretação do personagem."
+  ],
+  "c2-c04-e20": [
+    "Que a interpretação unilateralmente desfavorável e a isenção total de responsabilidade comprometam sua força vinculante.",
+    "Que o usuário não possa rescindir o contrato em nenhuma hipótese prevista.",
+    "Que a empresa não possa publicar alterações no site ou nos termos."
+  ],
+  "c2-c05-e17": [
+    "Porque o ganho semanal pode vir de mais horas trabalhadas, possibilidade que o relatório não examina.",
+    "Porque a empresa não tinha registros de renda nem de jornada.",
+    "Porque o relatório foi publicado em março e não em dezembro."
+  ],
+  "c2-c05-e19": [
+    "Duas correntes que veem o adolescente de formas diferentes: só como alvo de proteção ou também como agente.",
+    "A falta de estudos sobre o tema e sobre os jovens no país e no exterior.",
+    "A recusa dos pesquisadores em publicar resultados, dados e métodos."
+  ],
+  "c2-c05-e20": [
+    "Porque mantém a ideia e a estrutura do original sem indicar a fonte.",
+    "Porque usa aspas em excesso e cita mal.",
+    "Porque cita uma página que não existe no original."
+  ],
+  "c2-c06-e01": [
+    "O narrador não vê a escolha de Myeongju e o segundo bilhete impede uma conclusão única.",
+    "Myeongju diz explicitamente que não vai partir de jeito nenhum.",
+    "O conto resolve a dúvida no último parágrafo, sem ambiguidade."
+  ],
+  "c2-c06-e20": [
+    "Ele não vê o movimento dela na escada, e o bilhete que ele achava descartado reaparece.",
+    "Myeongju avisa que vai ficar no terminal e esperar.",
+    "O navio não chega a partir naquela noite de chuva forte."
+  ],
+  "c2-c06-e21": [
+    "Jeongho conhece a história do bilhete antigo; Myeongju recebe os dois sem saber o que ele significa.",
+    "Os dois compartilham a mesma lembrança do passado e do bilhete.",
+    "Myeongju entende imediatamente por que há dois bilhetes na gaveta."
+  ],
+  "c2-c06-e24": [
+    "Critérios diferentes: acesso do novo público em uma; preservação da ambiguidade do original na outra.",
+    "O fato de os críticos terem visto peças diferentes da mesma montagem.",
+    "A ausência de público nas apresentações e nos ensaios."
+  ],
+  "c2-c07-e18": [
+    "O poder de recusar mudanças e de exigir que os custos de segurança fiquem com a contratante.",
+    "A possibilidade de trabalhar à noite e nos fins de semana.",
+    "O direito de enviar e-mails e mensagens à contratante."
+  ],
+  "c2-c08-e11": [
+    "Porque a mesma proporção pode ser vivida de modos diferentes conforme deslocamento, caução e relações.",
+    "Porque a proporção da renda é sempre falsa e enganosa para todos.",
+    "Porque o projeto não mede renda nem aluguel."
+  ],
+  "c2-c08-e13": [
+    "Mostrar que reduzir o procedimento aumenta o alcance e diminui o retrabalho.",
+    "Provar que o subsídio é inútil em qualquer contexto.",
+    "Defender o aumento do número de documentos e de etapas."
+  ],
+  "c2-c08-e16": [
+    "Aponta um ponto cego da política e, em seguida, restringe o alcance do estudo.",
+    "Generaliza o resultado para todo o país e todas as cidades.",
+    "Recusa qualquer implicação prática para a política."
+  ],
+  "c2-c08-e17": [
+    "Porque altera a ordem e a função das seções, não apenas a forma das frases.",
+    "Porque corrige apenas a pontuação, a ortografia e o formato.",
+    "Porque muda a tese do texto e a conclusão."
+  ],
+  "c2-c08-e18": [
+    "Quando a mudança atinge a tese, deixa de ser edição e exige outro acordo de autoria.",
+    "Quando o texto fica mais curto do que o original e perde partes.",
+    "Quando o editor corrige a pontuação e o vocabulário."
+  ],
+  "c2-c08-e20": [
+    "Reconhece o que ficou registrado e nomeia a pergunta que continua aberta.",
+    "Declara que não há mais nada a aprender nem a revisar.",
+    "Repete a introdução sem avaliar o trabalho realizado."
+  ],
+  "c2-c08-e39": [
+    "Nomeia o que a pergunta testa, separa o que o dado mostra e admite um limite sem abandonar a posição.",
+    "Responde ao número perguntado e muda de assunto sem concluir.",
+    "Concorda com toda crítica para encerrar o debate rapidamente.",
+    "Repete a conclusão em voz mais alta, sem novos dados."
+  ]
+}

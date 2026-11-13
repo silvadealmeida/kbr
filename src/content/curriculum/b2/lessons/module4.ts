@@ -69,7 +69,7 @@ export const B2_L16 = defineB2Lesson({
     cloze("Complete o relatório formal: 검토한 ___에 따르면 오류가 두 건 있었습니다.", "바", "검토한 바에 따르면 = segundo o que foi verificado."),
     listen("Ouça e escreva a ação antes da aprovação.", "상신 전에 팀원들에게 공람을 요청했어요.", "상신 전에 팀원들에게 공람을 요청했어요.", "Antes de enviar para aprovação, pedi aos membros da equipe que lessem o documento."),
     translate("ko-pt", "Traduza: 서면으로 남길 내용과 말로 할 내용을 구분했어요.", "Separei o que deveria ficar por escrito do que seria falado.", "서면 = por escrito; 구두 = oral.", ["Distingui o que registrar por escrito do que dizer oralmente."]),
-    reading("다음 메일에서는 “자료 검토를 위해 목요일까지 협조 부탁드립니다”라고 썼다. 상신 전에 팀원들에게 공람을 요청했고, 급한 건은 구두로 먼저 알렸다. 서면으로 남길 내용과 말로 할 내용을 구분하니 독촉하는 일도 줄었다.", "O que melhorou na segunda mensagem?", ["O contexto, o prazo e a separação entre escrito e oral.", "O número de destinatários.", "O uso de emojis."], "O contexto, o prazo e a separação entre escrito e oral.", "상황, 기한, 서면/구두 구분이 분명해졌어요."),
+    reading("다음 메일에서는 “자료 검토를 위해 목요일까지 협조 부탁드립니다”라고 썼다. 상신 전에 팀원들에게 공람을 요청했고, 급한 건은 구두로 먼저 알렸다. 서면으로 남길 내용과 말로 할 내용을 구분하니 독촉하는 일도 줄었다.", "O que melhorou na segunda mensagem?", ["O contexto, o prazo e a separação entre escrito e oral.", "O número de destinatários do e-mail.", "O uso de emojis na mensagem."], "O contexto, o prazo e a separação entre escrito e oral.", "상황, 기한, 서면/구두 구분이 분명해졌어요."),
   ],
   summary: ["-도록 하겠습니다 é compromisso formal.", "-ㄴ/는 바 é nominalização formal de documento.", "Mensagem de trabalho precisa de contexto, pedido e prazo.", "Conteúdo novo permanece em revisão."],
   production: production(
@@ -119,14 +119,14 @@ export const B2_L17 = defineB2Lesson({
     ["-에 근거하여 — com base em", "명사 + 에 근거하여", "Indica a base de uma afirmação ou decisão: “com base em...”. É formal e exige uma fonte ou dado. Compare com -에 따르면 (segundo a fonte) e -을 바탕으로 (tendo como base, mais amplo). Registro: escrito/formal.", [["설문 결과에 근거하여 결론을 썼어요.", "Escrevi a conclusão com base no resultado da pesquisa."], ["확인된 자료에 근거하여 판단해야 합니다.", "É preciso julgar com base em dados confirmados."]]],
   ],
   guided: [
-    mcq("Qual foi o método da pesquisa?", ["Questionário com cem respondentes e escala de cinco níveis.", "Entrevista com uma pessoa.", "Observação de loja por um dia."], "Questionário com cem respondentes e escala de cinco níveis.", "응답자 백 명, 다섯 단계 측정."),
+    mcq("Qual foi o método da pesquisa?", ["Questionário com cem respondentes e escala de cinco níveis.", "Entrevista aberta com uma única pessoa.", "Observação de uma loja durante um dia."], "Questionário com cem respondentes e escala de cinco níveis.", "응답자 백 명, 다섯 단계 측정."),
     cloze("Complete a base da conclusão: 설문 결과___ 근거하여 결론을 썼어요.", "에", "결과에 근거하여 = com base no resultado."),
     listen("Ouça e escreva o resultado revelado.", "대기 시간이 만족도에 영향을 주는 것으로 드러났어요.", "대기 시간이 만족도에 영향을 주는 것으로 드러났어요.", "Revelou-se que o tempo de espera influencia a satisfação."),
     reading("우리 팀은 고객 만족도에 대한 설문 조사를 진행했다. 응답자는 모두 백 명이었고, 만족도를 다섯 단계로 측정했다. 결과를 분석한 뒤, 우리는 “대기 시간이 짧을수록 만족도가 높다”는 가설을 세웠다.", "O que a equipe fez depois de analisar?", ["Formulou uma hipótese.", "Encerrou a pesquisa sem conclusão.", "Mudou o produto."], "Formulou uma hipótese.", "가설을 세웠어요."),
     translate("pt-ko", "Traduza: “Escrevi a conclusão com base no resultado da pesquisa.”", "설문 결과에 근거하여 결론을 썼어요.", "-에 근거하여 indica a base.", ["조사 결과에 근거하여 결론을 썼습니다."]),
   ],
   independent: [
-    mcq("Qual frase relata um resultado de pesquisa?", ["대기 시간이 만족도에 영향을 주는 것으로 드러났어요.", "대기 시간이 짧으면 좋겠어요.", "대기 시간을 줄입시다."], "대기 시간이 만족도에 영향을 주는 것으로 드러났어요.", "-ㄴ/는 것으로 드러났다 relata resultado."),
+    mcq("Qual frase relata um resultado de pesquisa?", ["대기 시간이 만족도에 영향을 주는 것으로 드러났어요.", "대기 시간이 짧으면 정말 좋겠어요.", "대기 시간을 줄입시다. 모두 함께요."], "대기 시간이 만족도에 영향을 주는 것으로 드러났어요.", "-ㄴ/는 것으로 드러났다 relata resultado."),
     cloze("Complete o resultado: 조사 결과, 두 변수 사이에 상관관계가 있___ 것으로 드러났어요.", "는", "있는 것으로 드러났어요 = revelou-se que há."),
     listen("Ouça e escreva o limite da interpretação.", "상관관계만으로 인과관계를 말할 수 없어요.", "상관관계만으로 인과관계를 말할 수 없어요.", "Não se pode falar de causalidade apenas com correlação."),
     translate("ko-pt", "Traduza: 표본과 방법을 함께 밝혀야 독자가 결과를 신뢰할 수 있어요.", "É preciso informar a amostra e o método para que o leitor confie no resultado.", "표본 = amostra; 신뢰하다 = confiar.", ["O leitor só confia no resultado se a amostra e o método forem informados."]),
@@ -180,10 +180,10 @@ export const B2_L18 = defineB2Lesson({
     ["-ㄹ 것으로 전망된다 — projeta-se que", "동사/형용사 + -ㄹ 것으로 전망된다", "Expressa uma previsão baseada em dados: “projeta-se que...”. É mais formal que -ㄹ 것 같다 e mais cauteloso que -ㄹ 것이다. Compare com -ㄹ 가능성이 있다 (possibilidade) e -ㄹ 예정이다 (plano). Registro: escrito/formal.", [["올해 매출이 5% 늘어날 것으로 전망됩니다.", "Projeta-se que as vendas deste ano cresçam 5%."], ["시장이 안정될 것으로 전망된다.", "Projeta-se que o mercado se estabilize."]]],
   ],
   guided: [
-    mcq("Qual foi a tendência dos pedidos on-line?", ["Aumento com grande variação mensal.", "Queda constante.", "Estabilidade total."], "Aumento com grande variação mensal.", "증가 추세이지만 월별 변동이 커요."),
+    mcq("Qual foi a tendência dos pedidos on-line?", ["Aumento com grande variação mensal.", "Queda constante ao longo do ano.", "Estabilidade total, sem oscilações."], "Aumento com grande variação mensal.", "증가 추세이지만 월별 변동이 커요."),
     cloze("Complete a tendência: 온라인 주문이 늘어나___ 추세예요.", "는", "늘어나는 추세 = tendência de aumento."),
     listen("Ouça e escreva a projeção para este ano.", "올해 매출이 5% 늘어날 것으로 전망됩니다.", "올해 매출이 5% 늘어날 것으로 전망됩니다.", "Projeta-se que as vendas deste ano cresçam 5%."),
-    reading("지난해 온라인 주문이 급증했다. 특히 모바일 결제가 늘면서 전체 매출의 절반을 차지했다. 전년 대비 10% 성장이라는 전망치도 발표됐다.", "O que aconteceu com o pagamento móvel?", ["Cresceu e passou a ser metade das vendas.", "Caiu ao mínimo.", "Ficou estável."], "Cresceu e passou a ser metade das vendas.", "모바일 결제가 전체 매출의 절반을 차지했어요."),
+    reading("지난해 온라인 주문이 급증했다. 특히 모바일 결제가 늘면서 전체 매출의 절반을 차지했다. 전년 대비 10% 성장이라는 전망치도 발표됐다.", "O que aconteceu com o pagamento móvel?", ["Cresceu e passou a ser metade das vendas.", "Caiu ao mínimo no mesmo período.", "Ficou estável, sem crescimento."], "Cresceu e passou a ser metade das vendas.", "모바일 결제가 전체 매출의 절반을 차지했어요."),
     translate("pt-ko", "Traduza: “Projeta-se que as vendas deste ano cresçam 5%.”", "올해 매출이 5% 늘어날 것으로 전망됩니다.", "-ㄹ 것으로 전망된다 expressa previsão.", ["올해 매출은 5% 성장할 것으로 전망됩니다."]),
   ],
   independent: [
@@ -241,7 +241,7 @@ export const B2_L19 = defineB2Lesson({
     ["-는 대가로 — em troca de; ao custo de", "동사 + -는 대가로 / 명사 + 의 대가로", "Indica o custo ou a contrapartida de uma escolha: “em troca de...”, “ao custo de...”. Compare com -는 대신(에) (substituição) e -을 통해 (meio). Registro: neutro a formal, comum em análises de decisão.", [["효율을 얻는 대가로 통제 비용을 감수했어요.", "Assumimos o custo de controle em troca da eficiência."], ["시간을 쓰는 대가로 좋은 결과를 얻었어요.", "Obtivemos um bom resultado ao custo de tempo."]]],
   ],
   guided: [
-    mcq("Qual é o benefício principal da automação?", ["Reduzir tarefas repetitivas e liberar tempo para atendimento.", "Eliminar todos os funcionários.", "Aumentar o custo de manutenção."], "Reduzir tarefas repetitivas e liberar tempo para atendimento.", "반복 업무를 줄이고 상담에 집중할 수 있어요."),
+    mcq("Qual é o benefício principal da automação?", ["Reduzir tarefas repetitivas e liberar tempo para atendimento.", "Eliminar todos os funcionários da empresa.", "Aumentar o custo de manutenção dos sistemas."], "Reduzir tarefas repetitivas e liberar tempo para atendimento.", "반복 업무를 줄이고 상담에 집중할 수 있어요."),
     cloze("Complete a proporção: 자동화를 확대하___ 교육도 늘려야 해요.", "ㄹ수록", "확대할수록 = quanto mais expandir."),
     listen("Ouça e escreva o custo assumido.", "효율을 얻는 대가로 통제 비용을 감수했어요.", "효율을 얻는 대가로 통제 비용을 감수했어요.", "Assumimos o custo de controle em troca da eficiência."),
     reading("작은 회사가 반복 업무를 줄이기 위해 자동화 도구를 도입했다. 초기 투자 비용은 컸지만, 편익도 분명했다. 직원들은 단순 입력에서 벗어나 상담에 더 많은 시간을 쓸 수 있었다.", "Qual foi o benefício?", ["Mais tempo para atendimento.", "Menos clientes.", "Fim do treinamento."], "Mais tempo para atendimento.", "상담에 더 많은 시간을 쓸 수 있었어요."),
@@ -252,7 +252,7 @@ export const B2_L19 = defineB2Lesson({
     cloze("Complete a contrapartida: 시간을 쓰___ 대가로 좋은 결과를 얻었어요.", "는", "쓰는 대가로 = ao custo de usar tempo."),
     listen("Ouça e escreva o risco da dependência.", "시스템에 너무 의존하면 대응하기 어려워요.", "시스템에 너무 의존하면 대응하기 어려워요.", "Se depender demais do sistema, fica difícil responder."),
     translate("ko-pt", "Traduza: 기술 도입은 편익만 세는 일이 아니에요.", "Adotar tecnologia não é apenas somar benefícios.", "편익 = benefício; 세다 = contar.", ["Introduzir tecnologia não é só contabilizar benefícios."]),
-    reading("회사는 자동화를 확대할수록 교육과 점검을 함께 늘리기로 했다. 효율을 얻는 대가로 통제 비용을 감수한 셈이다. 기술 도입은 편익만 세는 일이 아니라, 누가 비용을 부담하는지 묻는 일이다. 그래서 회사는 도입 범위를 단계적으로 넓히기로 했다. 속도보다 지속 가능성이 중요했기 때문이다.", "O que a empresa decidiu?", ["Aumentar treinamento e verificação junto com a automação.", "Demitir todos os funcionários.", "Ignorar os custos de manutenção."], "Aumentar treinamento e verificação junto com a automação.", "교육과 점검을 함께 늘리기로 했어요."),
+    reading("회사는 자동화를 확대할수록 교육과 점검을 함께 늘리기로 했다. 효율을 얻는 대가로 통제 비용을 감수한 셈이다. 기술 도입은 편익만 세는 일이 아니라, 누가 비용을 부담하는지 묻는 일이다. 그래서 회사는 도입 범위를 단계적으로 넓히기로 했다. 속도보다 지속 가능성이 중요했기 때문이다.", "O que a empresa decidiu?", ["Aumentar treinamento e verificação junto com a automação.", "Demitir todos os funcionários mais antigos.", "Ignorar os custos de manutenção e treinamento."], "Aumentar treinamento e verificação junto com a automação.", "교육과 점검을 함께 늘리기로 했어요."),
   ],
   summary: ["-ㄹ수록 expressa proporção.", "-는 대가로 nomeia o custo da escolha.", "Benefício sem custo e risco é análise incompleta.", "Conteúdo novo permanece em revisão."],
   production: production(
@@ -302,7 +302,7 @@ export const B2_L20 = defineB2Lesson({
     ["-는 과정에서 — no processo de", "동사 + -는 과정에서", "Significa “no processo de...”. Destaca uma etapa ou um ponto dentro de um procedimento. Compare com -는 중에 (durante, mais temporal) e -는 동안 (enquanto). Registro: neutro a formal.", [["확인하는 과정에서 오류를 발견했어요.", "Encontrei o erro no processo de verificação."], ["설계하는 과정에서 직원 의견을 들었어요.", "Ouvi a opinião dos funcionários no processo de design."]]],
   ],
   guided: [
-    mcq("Onde o problema costumava surgir?", ["Na etapa de verificação.", "Na recepção.", "No manual."], "Na etapa de verificação.", "확인 단계에서 문제가 생겼어요."),
+    mcq("Onde o problema costumava surgir?", ["Na etapa de verificação.", "Na recepção dos pedidos.", "No manual de procedimentos."], "Na etapa de verificação.", "확인 단계에서 문제가 생겼어요."),
     cloze("Complete o processo: 확인하___ 과정에서 오류를 발견했어요.", "는", "확인하는 과정에서 = no processo de verificação."),
     listen("Ouça e escreva o que a lista de verificação faz.", "점검표가 누락을 빨리 발견하게 해요.", "점검표가 누락을 빨리 발견하게 해요.", "A lista de verificação faz com que as omissões sejam descobertas rapidamente."),
     reading("고객 요청을 처리하는 과정은 세 단계로 나뉜다. 접수, 확인, 처리다. 각 단계에는 담당자와 점검표가 있고, 매뉴얼에 절차가 정리되어 있다.", "Quais são as três etapas?", ["Recepção, verificação e processamento.", "Compra, venda e troca.", "Planejamento, férias e retorno."], "Recepção, verificação e processamento.", "접수, 확인, 처리."),

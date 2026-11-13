@@ -88,7 +88,7 @@ export const A2_C01 = defineA2Checkpoint({
     reading(
       "지우의 동생은 지우와 키가 비슷해요. 얼굴도 비슷하지만 성격은 아주 달라요.",
       "O que é diferente entre os irmãos?",
-      ["A personalidade.", "O rosto.", "A altura."],
+      ["A personalidade.", "O rosto e o cabelo.", "A altura dos irmãos."],
       "A personalidade.",
       "성격은 아주 달라요: a personalidade é muito diferente.",
     ),

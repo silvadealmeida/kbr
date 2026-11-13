@@ -122,7 +122,7 @@ export const B2_L12 = defineB2Lesson({
     mcq("O que a comparação do texto evita?", ["Transformar uma prática em regra para todos.", "Falar de comida.", "Mencionar diferenças regionais."], "Transformar uma prática em regra para todos.", "편견이나 고정관념으로 단정하지 않아요."),
     cloze("Complete a comparação: 한국___ 달리 브라질에서는 포옹을 하기도 해요.", "과", "한국과 달리 = diferentemente da Coreia."),
     listen("Ouça e escreva o contraste entre cidade e campo.", "도시는 편리한 반면 공기가 나빠요.", "도시는 편리한 반면 공기가 나빠요.", "A cidade é prática; por outro lado, o ar é ruim."),
-    reading("한국에 온 지 얼마 되지 않았을 때, 나는 식사 예절에서 작은 혼란을 겪었다. 내가 자란 문화권에서는 접시를 들고 먹는 것이 자연스러웠지만, 여기서는 그렇지 않았다. 두 방식 중 어느 쪽이 더 옳다고 말하기는 어렵다.", "O que causou a confusão?", ["Uma diferença concreta de etiqueta à mesa.", "A falta de restaurantes.", "A língua coreana."], "Uma diferença concreta de etiqueta à mesa.", "식사 예절에서 작은 혼란을 겪었어요."),
+    reading("한국에 온 지 얼마 되지 않았을 때, 나는 식사 예절에서 작은 혼란을 겪었다. 내가 자란 문화권에서는 접시를 들고 먹는 것이 자연스러웠지만, 여기서는 그렇지 않았다. 두 방식 중 어느 쪽이 더 옳다고 말하기는 어렵다.", "O que causou a confusão?", ["Uma diferença concreta de etiqueta à mesa.", "A falta de restaurantes coreanos.", "A língua coreana falada no dia a dia."], "Uma diferença concreta de etiqueta à mesa.", "식사 예절에서 작은 혼란을 겪었어요."),
     translate("pt-ko", "Traduza: “Diferentemente do passado, hoje muitas pessoas moram sozinhas.”", "예전과 달리 지금은 혼자 사는 사람이 많아요.", "과 달리 compara passado e presente.", ["예전과 달리 요즘은 혼자 사는 사람이 많아요."]),
   ],
   independent: [
@@ -191,7 +191,7 @@ export const B2_L13 = defineB2Lesson({
     cloze("Complete o autocompromisso: 저도 이제 준비___지요.", "해야", "준비해야지요 = agora eu também preciso me preparar."),
     listen("Ouça e escreva o limite combinado.", "친구 사이에도 경계선이 필요해요.", "친구 사이에도 경계선이 필요해요.", "Até entre amigos é preciso haver limites."),
     translate("ko-pt", "Traduza: 배려심은 참는 게 아니라 함께 범위를 만드는 거예요.", "Consideração não é engolir tudo, mas construir juntos o limite.", "배려심 = consideração; 범위 = limite/escopo.", ["Ter consideração não é só aguentar; é construir o limite junto."]),
-    reading("우리는 서로 시간을 조율해서 규칙을 정했다. 친구 사이에도 경계선이 필요하다는 것을 배웠다. 배려심은 참는 것이 아니라, 서로 지킬 수 있는 범위를 함께 만드는 일이다.", "O que é consideração no texto?", ["Construir juntos um limite que ambos possam cumprir.", "Nunca dizer não.", "Evitar todos os conflitos."], "Construir juntos um limite que ambos possam cumprir.", "서로 지킬 수 있는 범위를 함께 만드는 일."),
+    reading("우리는 서로 시간을 조율해서 규칙을 정했다. 친구 사이에도 경계선이 필요하다는 것을 배웠다. 배려심은 참는 것이 아니라, 서로 지킬 수 있는 범위를 함께 만드는 일이다.", "O que é consideração no texto?", ["Construir juntos um limite que ambos possam cumprir.", "Nunca dizer não ao outro.", "Evitar todos os conflitos possíveis."], "Construir juntos um limite que ambos possam cumprir.", "서로 지킬 수 있는 범위를 함께 만드는 일."),
   ],
   summary: ["-아/어야지요 expressa obrigação, conselho ou autocompromisso.", "-지 그래요? sugere com leve reprovação.", "Limite claro preserva a relação.", "Conteúdo novo permanece em revisão."],
   production: production(
@@ -241,7 +241,7 @@ export const B2_L14 = defineB2Lesson({
     ["-고도 — mesmo fazendo, ainda assim", "동사 + -고도", "Mostra que, mesmo depois de fazer algo, o resultado esperado não acontece. Compare com -고서도 (mesmo depois de fazer, com foco na sequência) e -에도 불구하고 (apesar de substantivo/fato). Registro: neutro a formal.", [["돈을 들이고도 해결되지 않았어요.", "Mesmo gastando dinheiro, não foi resolvido."], ["알고도 모르는 척했어요.", "Mesmo sabendo, fingiu que não sabia."]]],
   ],
   guided: [
-    mcq("Qual é o problema principal do bairro?", ["Infraestrutura de transporte insuficiente.", "Excesso de ônibus.", "Falta de escolas."], "Infraestrutura de transporte insuficiente.", "교통 인프라가 부족한 실정이에요."),
+    mcq("Qual é o problema principal do bairro?", ["Infraestrutura de transporte insuficiente.", "Excesso de ônibus circulando.", "Falta de escolas no bairro."], "Infraestrutura de transporte insuficiente.", "교통 인프라가 부족한 실정이에요."),
     cloze("Complete a situação formal: 대기자가 백 명이 넘___ 실정이에요.", "는", "넘는 실정 = a situação é que passa de cem."),
     listen("Ouça e escreva a causa apontada pela prefeitura.", "예산 부족을 이유로 공사를 미뤘어요.", "예산 부족을 이유로 공사를 미뤘어요.", "Adiaram a obra alegando falta de orçamento."),
     reading("우리 동네는 교통 인프라가 부족한 실정이다. 버스는 자주 끊기고, 지하철역까지는 걸어서 삼십 분이 걸린다. 주거 비용은 계속 오르는데, 대중교통 문제까지 겹쳐 생활이 어려워졌다.", "Qual é o impacto combinado?", ["Custo de moradia e transporte difícil tornam a vida dura.", "Só o transporte é caro.", "Os moradores não precisam de ônibus."], "Custo de moradia e transporte difícil tornam a vida dura.", "주거비 상승과 교통 문제가 겹쳤어요."),
@@ -252,7 +252,7 @@ export const B2_L14 = defineB2Lesson({
     cloze("Complete o contraste: 돈을 들이___ 해결되지 않았어요.", "고도", "들이고도 = mesmo gastando."),
     listen("Ouça e escreva a proposta dos moradores.", "주민들은 구체적인 대책을 요구했어요.", "주민들은 구체적인 대책을 요구했어요.", "Os moradores exigiram medidas concretas."),
     translate("ko-pt", "Traduza: 문제를 인정하고도 해결을 미루면 신뢰가 떨어져요.", "Quando reconhecem o problema e ainda assim adiam a solução, a confiança cai.", "인정하고도 = mesmo reconhecendo.", ["Se admitem o problema mas adiam a solução, a confiança cai."]),
-    reading("주민들은 구체적인 대책을 요구했다. 버스 노선을 늘리고, 임시 주차 공간을 마련하자는 제안이 나왔다. 공사가 장기화되면서 불편이 커졌지만, 대화를 통해 우선순위를 정할 수 있었다.", "Como os moradores avançaram?", ["Com propostas concretas e definição de prioridades.", "Esperando sem falar nada.", "Mudando de bairro."], "Com propostas concretas e definição de prioridades.", "구체적인 대책과 우선순위를 levaram adiante."),
+    reading("주민들은 구체적인 대책을 요구했다. 버스 노선을 늘리고, 임시 주차 공간을 마련하자는 제안이 나왔다. 공사가 장기화되면서 불편이 커졌지만, 대화를 통해 우선순위를 정할 수 있었다.", "Como os moradores avançaram?", ["Com propostas concretas e definição de prioridades.", "Esperando sem falar nada por semanas.", "Mudando de bairro para evitar o problema."], "Com propostas concretas e definição de prioridades.", "구체적인 대책과 우선순위를 levaram adiante."),
   ],
   summary: ["-는 실정이다 descreve uma situação indesejável.", "-고도 mostra que a ação não bastou.", "Problema social exige causa, impacto e proposta.", "Conteúdo novo permanece em revisão."],
   production: production(
@@ -313,7 +313,7 @@ export const B2_L15 = defineB2Lesson({
     cloze("Complete a inferência: 늦게 온 것___ 보아 교통이 막혔나 봐요.", "으로", "것으로 보아 = a julgar por."),
     listen("Ouça e escreva a intenção sutil.", "상대는 은근히 시간이 부족하다고 말하고 있었어요.", "상대는 은근히 시간이 부족하다고 말하고 있었어요.", "A pessoa estava dizendo, de forma sutil, que não tinha tempo."),
     translate("ko-pt", "Traduza: 같은 말도 상황에 따라 다르게 해석될 수 있어요.", "A mesma fala pode ser interpretada de forma diferente conforme a situação.", "해석되다 = ser interpretado.", ["Até a mesma frase pode ter interpretações diferentes conforme o contexto."]),
-    reading("나는 분위기가 이상하다는 것을 눈치채고, 나중에 따로 물어보았다. 상대는 은근히 시간이 부족하다고 말하고 있었다. 의도를 추측만 하지 않고 확인하자 오해가 줄었다.", "O que reduziu o mal-entendido?", ["Confirmar a intenção em vez de apenas supor.", "Ignorar o clima estranho.", "Repetir a mesma frase."], "Confirmar a intenção em vez de apenas supor.", "의도를 확인하자 오해가 줄었어요."),
+    reading("나는 분위기가 이상하다는 것을 눈치채고, 나중에 따로 물어보았다. 상대는 은근히 시간이 부족하다고 말하고 있었다. 의도를 추측만 하지 않고 확인하자 오해가 줄었다.", "O que reduziu o mal-entendido?", ["Confirmar a intenção em vez de apenas supor.", "Ignorar o clima estranho da conversa.", "Repetir a mesma frase sem explicar."], "Confirmar a intenção em vez de apenas supor.", "의도를 확인하자 오해가 줄었어요."),
   ],
   summary: ["-ㄴ/는 듯하다 marca aparência ou suposição.", "-ㄴ/는 것으로 보아 introduz inferência com evidência.", "Inferência não é fato; confirme quando possível.", "Conteúdo novo permanece em revisão."],
   production: production(

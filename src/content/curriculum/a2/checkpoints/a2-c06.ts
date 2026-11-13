@@ -82,7 +82,7 @@ export const A2_C06 = defineA2Checkpoint({
     reading(
       "수진은 토요일부터 이틀 연박으로 예약해요. 조식이 포함되어 있고 주차는 무료예요.",
       "O que está incluído na reserva?",
-      ["Café da manhã e estacionamento.", "Jantar e passeio.", "Só o quarto."],
+      ["Café da manhã e estacionamento.", "Jantar e passeio turístico.", "Só o quarto, sem refeições."],
       "Café da manhã e estacionamento.",
       "조식이 포함되어 있어요; 주차는 무료예요.",
     ),
@@ -123,7 +123,7 @@ export const A2_C06 = defineA2Checkpoint({
     ),
     mcq(
       "Qual pergunta pede informação de forma indireta?",
-      ["조식이 몇 시인지 알려 주세요.", "조식이 몇 시예요?", "조식을 주세요."],
+      ["조식이 몇 시인지 알려 주세요.", "조식이 몇 시예요? 빨리 알려 주세요.", "조식을 주세요. 지금 바로 주세요."],
       "조식이 몇 시인지 알려 주세요.",
       "-는지 알려 주세요 pede a informação sem pergunta direta.",
     ),
@@ -135,7 +135,7 @@ export const A2_C06 = defineA2Checkpoint({
     ),
     mcq(
       "Qual frase inclui uma ressalva?",
-      ["경치가 좋지만 사람이 많아요.", "경치가 좋아요.", "사람이 많아요."],
+      ["경치가 좋지만 사람이 많아요.", "경치가 정말 아주 좋아요.", "사람이 너무 많아서 복잡해요."],
       "경치가 좋지만 사람이 많아요.",
       "-지만 equilibra qualidade e limitação.",
     ),

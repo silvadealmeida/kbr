@@ -118,7 +118,7 @@ export const B1_L28 = defineB1Lesson({
     translate("pt-ko", "Traduza: “Quero uma resposta sobre o atraso.”", "지연에 대한 답변을 주세요.", "답변을 주세요 é um pedido polido de resposta.", ["지연에 대한 답변을 받고 싶어요."]),
   ],
   independent: [
-    mcq("Qual frase faz um pedido formal?", ["공식 답변을 주시도록 요청드립니다.", "답변 빨리 주세요.", "왜 답이 없어요?"], "공식 답변을 주시도록 요청드립니다.", "-도록 요청드립니다 marca um pedido formal."),
+    mcq("Qual frase faz um pedido formal?", ["공식 답변을 주시도록 요청드립니다.", "답변 빨리 주세요. 기다리고 있어요.", "왜 답이 없어요? 답장해 주세요."], "공식 답변을 주시도록 요청드립니다.", "-도록 요청드립니다 marca um pedido formal."),
     cloze("Complete o pedido: 오늘 안으로 조치하___ 요청했습니다.", "도록", "조치하도록 요청했습니다 significa “pedi que tomassem providências”."),
     listen("Ouça e escreva o que a empresa vai avaliar.", "배상도 검토하겠습니다.", "배상도 검토하겠습니다.", "A empresa também vai avaliar uma indenização.", ["배상도 검토하겠습니다"]),
     translate("ko-pt", "Traduza: 지연에 대한 설명을 듣고 싶어요.", "Quero ouvir uma explicação sobre o atraso.", "에 대한 liga explicação e atraso.", ["Gostaria de ouvir uma explicação sobre o atraso."]),

@@ -161,7 +161,7 @@ export const A1_L22: A1LessonContent = defineA1Lesson({
       "a1-l22-e09",
       "independent",
       "O que 걸리다 significa neste contexto?",
-      ["Levar tempo.", "Chegar.", "Partir."],
+      ["Levar tempo.", "Chegar ao destino sem demora.", "Partir antes do horário previsto."],
       "Levar tempo.",
       "걸리다 descreve a duração de um trajeto.",
     ),

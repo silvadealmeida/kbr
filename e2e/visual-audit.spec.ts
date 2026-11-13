@@ -55,7 +55,7 @@ async function noOverflow(page: Page) {
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
 }
 
-test.describe("auditoria visual 13C", () => {
+test.describe("auditoria visual 14", () => {
   test.beforeEach(async ({ context }) => {
     await authenticate(context);
   });
@@ -82,5 +82,63 @@ test.describe("auditoria visual 13C", () => {
     await page.screenshot({ path: `${OUT}/cursos-375.png`, fullPage: true });
     await page.setViewportSize({ width: 1280, height: 900 });
     await page.screenshot({ path: `${OUT}/cursos-1280.png`, fullPage: true });
+  });
+
+  test("prática com alternativas longas permanece contida em 320/375/390", async ({ page }) => {
+    test.skip(test.info().project.name !== "desktop-1280", "capturas em um único projeto");
+    mkdirSync(OUT, { recursive: true });
+    for (const level of LEVELS) {
+      await seedProgress(page.context(), level.seed as Record<string, { done: boolean; score: number }>);
+      for (const width of [320, 375, 390]) {
+        await page.setViewportSize({ width, height: width === 320 ? 700 : 812 });
+        await page.goto(level.path);
+        await page.getByRole("button", { name: "Começar a prática" }).first().click();
+        await expect(page.getByRole("group", { name: "Alternativas" })).toBeVisible();
+        await noOverflow(page);
+        const options = page.getByRole("group", { name: "Alternativas" }).getByRole("button");
+        expect(await options.count()).toBeGreaterThanOrEqual(2);
+        for (const option of await options.all()) {
+          const box = await option.boundingBox();
+          expect(box?.height ?? 0).toBeGreaterThanOrEqual(44);
+        }
+        await page.screenshot({ path: `${OUT}/${level.id}-practice-${width}.png`, fullPage: false });
+      }
+    }
+  });
+
+  test("prática C2 em tema escuro permanece contida em 375", async ({ page }) => {
+    test.skip(test.info().project.name !== "desktop-1280", "capturas em um único projeto");
+    mkdirSync(OUT, { recursive: true });
+    await seedProgress(page.context(), { "c1-c08": { done: true, score: 100 } });
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.goto("/c2/c2-l01");
+    await page.getByRole("button", { name: "Ativar tema escuro" }).click();
+    await expect
+      .poll(() => page.evaluate(() => getComputedStyle(document.documentElement).colorScheme))
+      .toBe("dark");
+    await page.getByRole("button", { name: "Começar a prática" }).first().click();
+    await expect(page.getByRole("group", { name: "Alternativas" })).toBeVisible();
+    await noOverflow(page);
+    await page.screenshot({ path: `${OUT}/c2-practice-375-dark.png`, fullPage: false });
+  });
+
+  test("checkpoint final do C2 mantém conclusão e ficha contidas em 375", async ({ page }) => {
+    test.skip(test.info().project.name !== "desktop-1280", "capturas em um único projeto");
+    mkdirSync(OUT, { recursive: true });
+    await seedProgress(page.context(), {
+      "c1-c08": { done: true, score: 100 },
+      ...Object.fromEntries(
+        Array.from({ length: 48 }, (_, index) => {
+          const number = index + 1;
+          const id = number <= 40 ? `c2-l${String(number).padStart(2, "0")}` : `c2-c${String(number - 40).padStart(2, "0")}`;
+          return [id, { done: true, score: 100 }];
+        }),
+      ),
+    });
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.goto("/c2/c2-c08");
+    await expect(page.getByRole("heading", { level: 1, name: "Curso C2 concluído" })).toBeVisible();
+    await noOverflow(page);
+    await page.screenshot({ path: `${OUT}/c2-completion-375.png`, fullPage: true });
   });
 });

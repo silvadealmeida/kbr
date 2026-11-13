@@ -98,11 +98,7 @@ export const A2_L38 = defineA2Lesson({
   independent: [
     mcq(
       "Qual fechamento é cortês?",
-      [
-        "시간 괜찮으시면 알려 주세요.",
-        "당장 답장해.",
-        "연락하지 마.",
-      ],
+      ["시간 괜찮으시면 알려 주세요.", "당장 답장해. 기다리고 있을게.", "연락하지 마. 지금은 바빠."],
       "시간 괜찮으시면 알려 주세요.",
       "알려 주세요 encerra com um pedido claro e cortês.",
     ),

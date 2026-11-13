@@ -74,7 +74,7 @@ export const B1_L12 = defineB1Lesson({
     translate("pt-ko", "Traduza: “Em comparação com o ano passado, mais pessoas escolheram o trabalho remoto.”", "지난해에 비해 재택근무를 선택한 사람이 많아졌어요.", "-에 비해 introduz o parâmetro de comparação.", ["작년에 비해 재택근무를 선택한 사람이 많아졌어요."]),
   ],
   independent: [
-    mcq("Qual frase compara com um parâmetro explícito?", ["회사에 비해 집이 조용해요.", "집이 조용해요.", "집에서 일해요."], "회사에 비해 집이 조용해요.", "-에 비해 apresenta a base da comparação."),
+    mcq("Qual frase compara com um parâmetro explícito?", ["회사에 비해 집이 조용해요.", "집이 아주 조용하고 좋아요.", "집에서 일을 하고 있어요."], "회사에 비해 집이 조용해요.", "-에 비해 apresenta a base da comparação."),
     cloze("Complete a avaliação: 두 방식의 차이가 뚜___.", "렷해요", "뚜렷해요 significa que a diferença é nítida."),
     listen("Ouça e escreva a conclusão de Marco sobre os dois métodos.", "두 방식의 차이가 뚜렷해요.", "두 방식의 차이가 뚜렷해요.", "Ele diz que a diferença entre os dois métodos é nítida.", ["두 방식의 차이가 뚜렷해요"]),
     translate("ko-pt", "Traduza: 재택근무는 시간을 아낄 수 있는 반면에 대화가 적어요.", "O trabalho remoto economiza tempo; por outro lado, há menos conversa.", "-는 반면에 apresenta o contraste entre os dois lados.", ["O trabalho remoto economiza tempo, mas há menos conversa."]),
@@ -118,7 +118,7 @@ export const B1_L13 = defineB1Lesson({
     translate("pt-ko", "Traduza: “Não só a taxa é barata, mas as instalações também são limpas.”", "이용료가 저렴할 뿐만 아니라 시설도 깨끗해요.", "-뿐만 아니라 acrescenta o segundo ponto sem repetir o primeiro.", ["가격이 저렴할 뿐만 아니라 시설도 깨끗해요."]),
   ],
   independent: [
-    mcq("Qual frase acrescenta um segundo argumento?", ["이용료가 저렴할 뿐만 아니라 시설도 깨끗해요.", "이용료가 저렴해요.", "시설이 깨끗할 거예요."], "이용료가 저렴할 뿐만 아니라 시설도 깨끗해요.", "-뿐만 아니라 soma informações distintas."),
+    mcq("Qual frase acrescenta um segundo argumento?", ["이용료가 저렴할 뿐만 아니라 시설도 깨끗해요.", "이용료가 저렴하고 부담이 없어요.", "시설이 깨끗할 거라고 생각해요."], "이용료가 저렴할 뿐만 아니라 시설도 깨끗해요.", "-뿐만 아니라 soma informações distintas."),
     cloze("Complete a informação adicional: 주민들이 직접 참여하___ 해요.", "기도", "참여하기도 해요 acrescenta outra faceta."),
     listen("Ouça e escreva os dois argumentos sobre o serviço.", "이용료가 저렴할 뿐만 아니라 시설도 깨끗해요.", "이용료가 저렴할 뿐만 아니라 시설도 깨끗해요.", "O serviço é barato e as instalações são limpas.", ["이용료가 저렴할 뿐만 아니라 시설도 깨끗해요"]),
     translate("ko-pt", "Traduza: 학생뿐만 아니라 지역 주민도 이용할 수 있어요.", "Não só estudantes, mas também moradores locais podem usar.", "뿐만 아니라 inclui os dois grupos.", ["Não só estudantes, mas também os moradores locais podem usar."]),
@@ -162,7 +162,7 @@ export const B1_L14 = defineB1Lesson({
     translate("pt-ko", "Traduza: “Mesmo que seja uma boa obra, não é preciso que todos gostem.”", "좋은 작품이라고 해도 모든 사람이 좋아할 필요는 없어요.", "-라고 해도 mantém a posição após conceder o argumento.", ["좋은 작품이라고 해도 모두가 좋아할 필요는 없어요."]),
   ],
   independent: [
-    mcq("Qual frase reconhece um ponto e depois discorda?", ["재미있기는 하지만 너무 길어요.", "재미있어요.", "너무 길어요."], "재미있기는 하지만 너무 길어요.", "-기는 하지만 faz a concessão antes da objeção."),
+    mcq("Qual frase reconhece um ponto e depois discorda?", ["재미있기는 하지만 너무 길어요.", "재미있어요. 정말 재미있어요.", "너무 길어요. 두 시간이나 돼요."], "재미있기는 하지만 너무 길어요.", "-기는 하지만 faz a concessão antes da objeção."),
     cloze("Complete a concessão hipotética: 좋은 작품이___ 해도 모두가 좋아하지는 않아요.", "라고", "작품이라고 해도 aceita a afirmação sem concordar com ela."),
     listen("Ouça e escreva como os dois preservam a relação.", "생각은 다르지만 서로 존중해요.", "생각은 다르지만 서로 존중해요.", "Eles respeitam um ao outro apesar da diferença de opinião.", ["생각은 다르지만 서로 존중해요"]),
     translate("ko-pt", "Traduza: 재미있기는 하지만 마지막이 너무 갑작스러웠어요.", "É divertido, mas o final foi repentino demais.", "A concessão vem antes do contraste.", ["É divertido, mas o final foi abrupto demais."]),

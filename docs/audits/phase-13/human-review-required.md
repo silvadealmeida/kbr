@@ -11,12 +11,12 @@
 | Traduções pt-BR | Equivalência, naturalidade brasileira, falso sentido | As glosas e traduções são autorais e não passaram por editor humano. |
 | C1/C2 | Ironia, pressuposição, evasão, atenuação, implicatura, discurso literário | São fenômenos sensíveis a contexto e a variedade regional. |
 | C2 jurídico | `강행규정`, `임의규정`, `구속력`, `소멸`, `손해배상` | O texto é pedagógico, não aconselhamento jurídico; terminologia exige especialista. |
-| C2 cultural/literário | `이촌향도`, `폐항`, `우의`, `환유`, `상호텍스트성` | Evitar essencialismo e anacronismo. |
+| C2 cultural/literário | `이촌향도`, `폐항`, `우의`, `환유`, `상호텍스트성` | Evitar essencialismo e anacronismo; a colocação de `폐항` foi corrigida na Fase 14, mas o enquadramento cultural ainda pede revisor. |
 | B2/C1/C2 mediação | Reformulação, representação, ética | Não há validação de adequação institucional real. |
 
 ## 2. Revisão editorial e pedagógica
 
-- **Pistas de comprimento:** 230 itens ainda têm gabarito >1,7× a maior alternativa; 7 casos de maior risco foram corrigidos. A reescrita dos demais exige calibração editorial para não criar ambiguidade.
+- **Pistas de comprimento (resolvido na Fase 14):** os 237 itens detectados acima de 1,7× foram reescritos com distratores plausíveis; resta 0 acima do limite. O teste `tests/content/phase14-fairness.test.ts` cobre 1.381 itens. A revisão nativa das escolhas editoriais continua pendente.
 - **Carga cognitiva:** 80–110 min por lição é estimativa de desenho, não medida com aprendizes.
 - **Dificuldade:** não há calibração psicométrica nem estudo de validade.
 - **Escuta:** o motor transcreve uma frase; não avalia compreensão de discurso longo.

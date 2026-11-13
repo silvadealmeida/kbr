@@ -57,7 +57,7 @@ export const A2_C08 = defineA2Checkpoint({
     // Leitura — 10
     reading("지난주에 비가 와서 캠핑을 못 갔어요. 그래서 집에서 영화를 봤어요.", "O que a pessoa fez por causa da chuva?", ["Ficou em casa e viu um filme.", "Foi acampar mesmo assim.", "Foi ao museu."], "Ficou em casa e viu um filme.", "비가 와서 캠핑을 못 갔어요. 그래서 집에서 영화를 봤어요."),
     reading("아나는 일본에 두 번 갔어요. 온천에도 가 봤어요. 지우는 해외에서 산 적이 없어요.", "Quem já foi a uma fonte termal?", ["Ana.", "Jiwoo.", "As duas."], "Ana.", "아나는 온천에도 가 봤어요."),
-    reading("지우의 동생은 지우와 키가 비슷해요. 얼굴도 비슷하지만 성격은 아주 달라요.", "O que é diferente entre os irmãos?", ["A personalidade.", "O rosto.", "A altura."], "A personalidade.", "성격은 아주 달라요."),
+    reading("지우의 동생은 지우와 키가 비슷해요. 얼굴도 비슷하지만 성격은 아주 달라요.", "O que é diferente entre os irmãos?", ["A personalidade.", "O rosto e o cabelo.", "A altura dos irmãos."], "A personalidade.", "성격은 아주 달라요."),
     reading("민수는 회사 일 때문에 약속에 가지 못했어요. 연락을 못 해서 미안해했어요.", "Por que Minsu se desculpou?", ["Por não ter avisado.", "Por não ter dinheiro.", "Por ter chegado cedo."], "Por não ter avisado.", "연락을 못 해서 미안해했어요."),
     reading("수진은 지난달에 서울로 이사했어요. 처음에는 낯설었지만 지금은 적응하고 있어요.", "Como Sujin está agora?", ["Está se adaptando.", "Quer voltar imediatamente.", "Ainda não chegou."], "Está se adaptando.", "지금은 적응하고 있어요."),
     reading("수진은 윗집 소음 때문에 잠을 못 자요. 이웃은 아이가 늦게까지 뛰어서 미안해해요.", "Qual é a causa do barulho?", ["O filho do vizinho corre até tarde.", "A televisão está alta.", "Há obras no prédio."], "O filho do vizinho corre até tarde.", "아이가 늦게까지 뛰어서요."),

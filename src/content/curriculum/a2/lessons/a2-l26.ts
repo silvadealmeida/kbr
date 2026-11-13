@@ -83,7 +83,7 @@ export const A2_L26 = defineA2Lesson({
     reading(
       "수진은 토요일부터 이틀 연박으로 예약해요. 더블룸이고 조식이 포함되어 있어요. 주차는 무료예요.",
       "O que está incluído na reserva?",
-      ["Café da manhã e estacionamento.", "Jantar e passeio.", "Só o quarto."],
+      ["Café da manhã e estacionamento.", "Jantar e passeio turístico.", "Só o quarto, sem refeições."],
       "Café da manhã e estacionamento.",
       "조식은 포함되어 있어요; 주차는 무료입니다.",
     ),
@@ -98,11 +98,7 @@ export const A2_L26 = defineA2Lesson({
   independent: [
     mcq(
       "Qual pergunta pede uma informação de forma indireta?",
-      [
-        "조식이 몇 시인지 알려 주세요.",
-        "조식이 몇 시예요?",
-        "조식을 주세요.",
-      ],
+      ["조식이 몇 시인지 알려 주세요.", "조식이 몇 시예요? 빨리 알려 주세요.", "조식을 주세요. 지금 바로 주세요."],
       "조식이 몇 시인지 알려 주세요.",
       "-는지 알려 주세요 pede a informação sem pergunta direta.",
     ),

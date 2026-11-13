@@ -87,7 +87,7 @@ Este documento complementa `findings.json` com os IDs usados na revisão módulo
 | C2R-110 | c2-l38/c2-c08 cloze | Fragmento `…답변한.` | Medium | fixed |
 | C2R-111 | c2-c07 reading | Tradução invertia a direção dos custos | Medium | fixed |
 | C2R-112 | c2-l32 pt | “aumentar 1,4 vez” ambíguo | Medium | fixed |
-| C2R-113 | c2-l29 reading | `폐항` com `노선` | Low | native |
+| C2R-113 | c2-l29 reading | `폐항` com `노선` | Low | fixed (Fase 14) |
 | C2R-114 | c2-l25 grammar | `재현을 보장` vs. `재현성` | Medium | fixed |
 | C2R-115 | c2-l22 reading | Dupla marcação causal `이유가 … 때문` | Low | fixed |
 | C2R-116 | c2-l39 reading | `메모는 … 표현이다` | Low | fixed |
@@ -133,7 +133,11 @@ Este documento complementa `findings.json` com os IDs usados na revisão módulo
 
 ## Itens que permanecem para revisão humana
 
-- `폐항` com `노선` (C2R-113) e a coerência de quantos bilhetes existem em c2-l26/l27.
 - Naturalidade de todo o coreano, honoríficos, registro, ironia e traduções.
-- Pistas de comprimento em 230 itens de múltipla escolha (F13-012).
 - Validade pedagógica, carga cognitiva e calibração dos limiares.
+
+## Resolvidos na Fase 14
+
+- `폐항` com `노선` (C2R-113): `폐항` passou a nomear apenas o fechamento do porto; linhas passaram a usar `운항이 중단되다`/`폐지`.
+- Coerência de quantos bilhetes existem em c2-l26/l27: o conto passou a ter dois bilhetes (um antigo e um novo), sem um terceiro na gaveta.
+- Pistas de comprimento (F13-012): 237 itens acima de 1,7× foram corrigidos e há teste permanente em `tests/content/phase14-fairness.test.ts`. Ainda **não** há revisão nativa das escolhas editoriais.

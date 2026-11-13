@@ -203,7 +203,7 @@ export const A1_C04: A1CheckpointContent = {
       "a1-c04-e20",
       "independent",
       "Qual palavra significa “quanto”?",
-      ["얼마", "몇", "뭐"],
+      ["얼마", "몇 개", "무엇"],
       "얼마",
       "얼마 pergunta preço; 몇 pergunta quantidade.",
     ),

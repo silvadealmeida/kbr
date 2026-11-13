@@ -119,7 +119,7 @@ export const B1_L23 = defineB1Lesson({
     translate("pt-ko", "Traduza: “Gostaria que você me avisasse antes.”", "미리 알려 줬으면 좋겠어요.", "줬으면 좋겠어요 expressa o desejo de forma educada.", ["미리 알려 주면 좋겠어요."]),
   ],
   independent: [
-    mcq("Qual frase usa -도록 para indicar objetivo?", ["오해가 없도록 먼저 말했어요.", "오해가 없어요.", "오해를 했어요."], "오해가 없도록 먼저 말했어요.", "-도록 apresenta o objetivo de evitar o mal-entendido."),
+    mcq("Qual frase usa -도록 para indicar objetivo?", ["오해가 없도록 먼저 말했어요.", "오해가 없어서 다행이에요.", "오해를 했지만 괜찮아요."], "오해가 없도록 먼저 말했어요.", "-도록 apresenta o objetivo de evitar o mal-entendido."),
     cloze("Complete: 관계를 유지하___ 데 시간이 필요해요.", "는", "유지하는 데 nominaliza a ação."),
     listen("Ouça e escreva o que leva tempo.", "서로 불편한 점을 말하는 데 시간이 걸려도 괜찮아요.", "서로 불편한 점을 말하는 데 시간이 걸려도 괜찮아요.", "Tudo bem se levar tempo para falar do que incomoda.", ["서로 불편한 점을 말하는 데 시간이 걸려도 괜찮아요"]),
     translate("ko-pt", "Traduza: 친구가 쉴 수 있도록 조용히 했어요.", "Fiquei em silêncio para que meu amigo pudesse descansar.", "수 있도록 indica a finalidade.", ["Fiz silêncio para que o amigo pudesse descansar."]),
@@ -163,7 +163,7 @@ export const B1_L24 = defineB1Lesson({
     translate("pt-ko", "Traduza: “É natural que seja difícil consertar um prédio antigo.”", "오래된 건물은 수리하기 어렵기 마련이에요.", "기 마련이에요 apresenta o resultado como natural.", ["오래된 건물이라 수리하기 어렵기 마련이에요."]),
   ],
   independent: [
-    mcq("Qual frase indica uma consequência negativa causada por uma situação contínua?", ["공사를 하는 통에 길이 막혔어요.", "공사가 끝났어요.", "길이 넓어요."], "공사를 하는 통에 길이 막혔어요.", "-는 통에 liga a situação em curso ao prejuízo."),
+    mcq("Qual frase indica uma consequência negativa causada por uma situação contínua?", ["공사를 하는 통에 길이 막혔어요.", "공사가 끝나서 길이 넓어졌어요.", "길이 넓어서 다니기 편해요."], "공사를 하는 통에 길이 막혔어요.", "-는 통에 liga a situação em curso ao prejuízo."),
     cloze("Complete: 사람이 많으면 기다리___ 마련이에요.", "기", "기다리기 마련이에요 significa que esperar é previsível."),
     listen("Ouça e escreva a proposta final.", "임시 안내판을 붙이고 점검 날짜를 정했으면 좋겠어요.", "임시 안내판을 붙이고 점검 날짜를 정했으면 좋겠어요.", "Ele gostaria que colocassem um aviso provisório e definissem a data da inspeção.", ["임시 안내판을 붙이고 점검 날짜를 정했으면 좋겠어요"]),
     translate("ko-pt", "Traduza: 아이가 우는 통에 전화를 못 했어요.", "Não consegui telefonar porque a criança estava chorando.", "우는 통에 indica a causa contínua e negativa.", ["Por causa do choro da criança, não consegui telefonar."]),
@@ -203,7 +203,7 @@ export const B1_L25 = defineB1Lesson({
     mcq("Qual direito Jimin defende?", ["Descansar em silêncio à noite.", "Usar o terraço a qualquer hora.", "Não pagar as taxas do prédio."], "Descansar em silêncio à noite.", "밤에 조용히 쉴 권리가 있다고 생각해요."),
     cloze("Complete o direito: 누구나 의견을 말할 권리___ 있어요.", "가", "권리가 있어요 marca o direito."),
     listen("Ouça e escreva o dever lembrado por Jimin.", "늦은 시간에는 소리를 줄여야 할 의무가 있어요.", "늦은 시간에는 소리를 줄여야 할 의무가 있어요.", "Em horários tardios, há o dever de reduzir o barulho.", ["늦은 시간에는 소리를 줄여야 할 의무가 있어요"]),
-    reading("주민들은 옥상을 이용할 권리가 있어요. 하지만 늦은 시간에는 소리를 줄여야 할 의무도 있어요. 두 가지를 함께 지키는 것이 중요해요.", "Qual é o equilíbrio proposto?", ["Direitos e deveres devem ser respeitados juntos.", "Só os direitos importam.", "O terraço deve ser fechado."], "Direitos e deveres devem ser respeitados juntos.", "두 가지를 함께 지키는 것이 중요해요."),
+    reading("주민들은 옥상을 이용할 권리가 있어요. 하지만 늦은 시간에는 소리를 줄여야 할 의무도 있어요. 두 가지를 함께 지키는 것이 중요해요.", "Qual é o equilíbrio proposto?", ["Direitos e deveres devem ser respeitados juntos.", "Só os direitos dos moradores importam.", "O terraço deve ser fechado à noite."], "Direitos e deveres devem ser respeitados juntos.", "두 가지를 함께 지키는 것이 중요해요."),
     translate("pt-ko", "Traduza: “Todos têm o direito de expressar a própria opinião.”", "누구나 자신의 의견을 말할 권리가 있어요.", "말할 권리가 있어요 expressa o direito de falar.", ["모든 사람은 자신의 의견을 말할 권리가 있어요."]),
   ],
   independent: [

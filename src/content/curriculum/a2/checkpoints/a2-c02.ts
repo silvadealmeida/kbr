@@ -71,14 +71,14 @@ export const A2_C02 = defineA2Checkpoint({
     reading(
       "마르코는 한국으로 유학을 가려고 해요. 지민은 취업을 하기로 했어요.",
       "Qual é a diferença entre os planos?",
-      ["Marco tem uma intenção; Jimin tomou uma decisão.", "Os dois já decidiram tudo.", "Os dois desistiram."],
+      ["Marco tem uma intenção; Jimin tomou uma decisão.", "Os dois já decidiram tudo e não mudam.", "Os dois desistiram dos planos."],
       "Marco tem uma intenção; Jimin tomou uma decisão.",
       "가려고 해요 é intenção; 하기로 했어요 é decisão.",
     ),
     reading(
       "수진과 마르코는 세 시에 도서관 앞에서 만나기로 했어요.",
       "Onde eles vão se encontrar?",
-      ["Em frente à biblioteca.", "Na estação.", "No cinema."],
+      ["Em frente à biblioteca.", "Na estação de metrô.", "No cinema do bairro."],
       "Em frente à biblioteca.",
       "도서관 앞에서 만나기로 했어요.",
     ),
@@ -92,7 +92,7 @@ export const A2_C02 = defineA2Checkpoint({
     reading(
       "도서관에서는 음식을 먹으면 안 돼요. 물은 마셔도 돼요. 이어폰은 꼭 사용해야 해요.",
       "O que é obrigatório?",
-      ["Usar fones de ouvido.", "Comer.", "Falar alto."],
+      ["Usar fones de ouvido.", "Comer lanches na biblioteca.", "Falar alto com os colegas."],
       "Usar fones de ouvido.",
       "이어폰은 꼭 사용해야 해요 expressa obrigação.",
     ),

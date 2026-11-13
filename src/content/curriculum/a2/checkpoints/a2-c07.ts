@@ -97,7 +97,7 @@ export const A2_C07 = defineA2Checkpoint({
     reading(
       "수진은 할머니 댁에 가요. 할머니는 요즘 조금 편찮으세요. 지민도 같이 가기로 했어요.",
       "Quem está doente?",
-      ["A avó de Sujin.", "Jimin.", "Sujin."],
+      ["A avó de Sujin.", "Jimin, que também vai visitar.", "Sujin, que está doente."],
       "A avó de Sujin.",
       "할머니께서 조금 편찮으세요.",
     ),
@@ -111,7 +111,7 @@ export const A2_C07 = defineA2Checkpoint({
     reading(
       "한국에서는 보통 어른이 먼저 식사를 시작해요. 브라질에서는 다 같이 시작하는 경우가 많아요. 하지만 가족마다 다를 수 있어요.",
       "O que o texto evita?",
-      ["Generalizar todos os coreanos e brasileiros.", "Falar de comida.", "Mencionar famílias."],
+      ["Generalizar todos os coreanos e brasileiros.", "Falar apenas de comida e horários.", "Mencionar apenas as famílias."],
       "Generalizar todos os coreanos e brasileiros.",
       "가족마다 다를 수 있어요 relativiza a regra.",
     ),
@@ -124,7 +124,7 @@ export const A2_C07 = defineA2Checkpoint({
     ),
     mcq(
       "Qual frase expressa opinião?",
-      ["저는 재미있다고 생각해요.", "영화를 봤어요.", "영화가 길어요."],
+      ["저는 재미있다고 생각해요.", "영화를 봤어요. 정말 재미있었어요.", "영화가 길어요. 두 시간이나 됐어요."],
       "저는 재미있다고 생각해요.",
       "생각해요 marca opinião pessoal.",
     ),

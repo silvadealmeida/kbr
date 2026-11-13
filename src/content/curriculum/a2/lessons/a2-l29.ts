@@ -98,11 +98,7 @@ export const A2_L29 = defineA2Lesson({
   independent: [
     mcq(
       "Qual frase inclui uma ressalva?",
-      [
-        "경치가 좋지만 사람이 많아요.",
-        "경치가 좋아요.",
-        "사람이 많아요.",
-      ],
+      ["경치가 좋지만 사람이 많아요.", "경치가 정말 아주 좋아요.", "사람이 너무 많아서 복잡해요."],
       "경치가 좋지만 사람이 많아요.",
       "-지만 equilibra qualidade e limitação.",
     ),

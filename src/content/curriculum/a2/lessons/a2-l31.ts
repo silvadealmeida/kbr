@@ -98,7 +98,7 @@ export const A2_L31 = defineA2Lesson({
   independent: [
     mcq(
       "Qual frase expressa opinião?",
-      ["저는 재미있다고 생각해요.", "영화를 봤어요.", "영화가 길어요."],
+      ["저는 재미있다고 생각해요.", "영화를 봤어요. 정말 재미있었어요.", "영화가 길어요. 두 시간이나 됐어요."],
       "저는 재미있다고 생각해요.",
       "생각해요 marca a opinião pessoal.",
     ),

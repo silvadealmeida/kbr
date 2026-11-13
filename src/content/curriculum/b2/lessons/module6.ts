@@ -70,7 +70,7 @@ export const B2_L26 = defineB2Lesson({
     cloze("Complete o limite: 한 달 전에 알리___ 않는 이상 해지가 어려워요.", "지", "알리지 않는 이상 = a menos que avise."),
     listen("Ouça e escreva a condição da renovação.", "2년 갱신하는 조건으로 인상을 낮춰 달라고 했어요.", "2년 갱신하는 조건으로 인상을 낮춰 달라고 했어요.", "Pedi para baixar o aumento sob a condição de renovar por dois anos."),
     translate("ko-pt", "Traduza: 좋은 협상은 한쪽의 승리가 아니라 지킬 수 있는 조건을 만드는 일이에요.", "Uma boa negociação não é a vitória de um lado, mas a construção de condições que possam ser cumpridas.", "승리 = vitória; 지킬 수 있는 = que se pode cumprir.", ["Negociar bem é criar condições cumpríveis, não vencer sozinho."]),
-    reading("결국 임차인은 2년 갱신과 두 달 전 통보를 조건으로 제안했다. 임대인은 그 조건으로 협의를 계속하기로 했다. 좋은 협상은 한쪽의 승리가 아니라, 지킬 수 있는 조건을 만드는 일이다. 조건을 글로 남기면 나중에 해석 차이를 줄일 수 있다. 그것이 신뢰다.", "O que caracteriza uma boa negociação?", ["Criar condições que ambas as partes possam cumprir.", "Ganhar a qualquer custo.", "Evitar falar de limites."], "Criar condições que ambas as partes possam cumprir.", "지킬 수 있는 조건을 만드는 일."),
+    reading("결국 임차인은 2년 갱신과 두 달 전 통보를 조건으로 제안했다. 임대인은 그 조건으로 협의를 계속하기로 했다. 좋은 협상은 한쪽의 승리가 아니라, 지킬 수 있는 조건을 만드는 일이다. 조건을 글로 남기면 나중에 해석 차이를 줄일 수 있다. 그것이 신뢰다.", "O que caracteriza uma boa negociação?", ["Criar condições que ambas as partes possam cumprir.", "Ganhar a qualquer custo, sem ceder.", "Evitar falar de limites e condições."], "Criar condições que ambas as partes possam cumprir.", "지킬 수 있는 조건을 만드는 일."),
   ],
   summary: ["-는 조건으로 apresenta a condição da oferta.", "-지 않는 이상 estabelece um limite negativo.", "Negociação boa produz condições cumpríveis.", "Conteúdo novo permanece em revisão."],
   production: production(
@@ -127,11 +127,11 @@ export const B2_L27 = defineB2Lesson({
     translate("pt-ko", "Traduza: “Solicito que tomem providências para o reembolso.”", "환불해 주시도록 조치해 주시기 바랍니다.", "-도록 조치해 주시기 바랍니다 é fórmula formal.", ["환불해 주시도록 조치해 주십시오."]),
   ],
   independent: [
-    mcq("Qual frase usa registro formal de reclamação?", ["문제를 시정하도록 조치해 주시기 바랍니다.", "문제를 고쳐 주세요.", "문제를 빨리 해결해."], "문제를 시정하도록 조치해 주시기 바랍니다.", "-도록 조치해 주시기 바랍니다 é formal."),
+    mcq("Qual frase usa registro formal de reclamação?", ["문제를 시정하도록 조치해 주시기 바랍니다.", "문제를 고쳐 주세요. 부탁드려요.", "문제를 빨리 해결해. 지금 당장."], "문제를 시정하도록 조치해 주시기 바랍니다.", "-도록 조치해 주시기 바랍니다 é formal."),
     cloze("Complete o imediato formal: 확인하___ 즉시 처리하겠습니다.", "는", "확인하는 즉시 = assim que confirmar."),
     listen("Ouça e escreva a resposta inicial da empresa.", "불편을 드려 유감이라고만 했어요.", "불편을 드려 유감이라고만 했어요.", "Disseram apenas que lamentavam o incômodo."),
     translate("ko-pt", "Traduza: 감정보다 사실과 기한이 중요해요.", "Fatos e prazos são mais importantes que emoções.", "기한 = prazo; 사실 = fato.", ["O fato e o prazo importam mais que a emoção."]),
-    reading("며칠 뒤 회사는 환불과 배상을 약속했다. 문제를 해결하려면 감정보다 사실과 기한이 필요하다. 정중하지만 분명한 요청이 오히려 대화를 앞당겼다. 또한 모든 연락을 문서로 남겼다. 그 기록이 이후 협상에서 도움이 됐다. 감정은 시간이 지나면 약해지지만, 기록은 남는다.", "O que ajudou a resolver a reclamação?", ["Fatos, prazos e um pedido educado, mas claro.", "Uma mensagem agressiva.", "Esperar sem cobrar."], "Fatos, prazos e um pedido educado, mas claro.", "사실과 기한, 정중하지만 분명한 요청."),
+    reading("며칠 뒤 회사는 환불과 배상을 약속했다. 문제를 해결하려면 감정보다 사실과 기한이 필요하다. 정중하지만 분명한 요청이 오히려 대화를 앞당겼다. 또한 모든 연락을 문서로 남겼다. 그 기록이 이후 협상에서 도움이 됐다. 감정은 시간이 지나면 약해지지만, 기록은 남는다.", "O que ajudou a resolver a reclamação?", ["Fatos, prazos e um pedido educado, mas claro.", "Uma mensagem agressiva e sem dados.", "Esperar sem cobrar nenhuma resposta."], "Fatos, prazos e um pedido educado, mas claro.", "사실과 기한, 정중하지만 분명한 요청."),
   ],
   summary: ["-는 즉시 é “assim que” formal.", "-도록 조치해 주시기 바랍니다 é fórmula de reclamação.", "Reclamação eficaz tem fato, pedido, prazo e tom.", "Conteúdo novo permanece em revisão."],
   production: production(
@@ -184,15 +184,15 @@ export const B2_L28 = defineB2Lesson({
     mcq("Qual foi o impacto direto nos comerciantes?", ["Perda de vendas.", "Aumento do aluguel.", "Mudança de cidade."], "Perda de vendas.", "상인들은 매출 손실을 겪었어요."),
     cloze("Complete a consequência: 결국 신뢰를 잃___ 결과를 초래했어요.", "는", "잃는 결과를 초래하다 = provocar o resultado de perder."),
     listen("Ouça e escreva o valor do prejuízo.", "피해가 수억 원에 이르렀어요.", "피해가 수억 원에 이르렀어요.", "O prejuízo chegou a centenas de milhões de won."),
-    reading("도시가 공사를 갑자기 중단하면서 여러 문제가 생겼다. 상인들은 매출 손실을 겪었고, 주민들은 통행 불편을 치렀다. 공사 중단의 여파는 예상보다 오래갔다.", "Quais foram as consequências diretas?", ["Perda de vendas e dificuldade de circulação.", "Aumento do turismo.", "Melhoria do transporte."], "Perda de vendas e dificuldade de circulação.", "매출 손실과 통행 불편."),
+    reading("도시가 공사를 갑자기 중단하면서 여러 문제가 생겼다. 상인들은 매출 손실을 겪었고, 주민들은 통행 불편을 치렀다. 공사 중단의 여파는 예상보다 오래갔다.", "Quais foram as consequências diretas?", ["Perda de vendas e dificuldade de circulação.", "Aumento do turismo na região.", "Melhoria do transporte público."], "Perda de vendas e dificuldade de circulação.", "매출 손실과 통행 불편."),
     translate("pt-ko", "Traduza: “O prejuízo chegou a centenas de milhões de won.”", "피해가 수억 원에 이르렀어요.", "-에 이르다 indica que chegou a um valor.", ["피해가 수억 원에 이르렀습니다."]),
   ],
   independent: [
-    mcq("Qual frase expressa consequência negativa formal?", ["설명 부족은 신뢰 하락을 초래했어요.", "설명이 부족했어요.", "설명을 보충하세요."], "설명 부족은 신뢰 하락을 초래했어요.", "-는 결과를 초래하다 aponta consequência."),
+    mcq("Qual frase expressa consequência negativa formal?", ["설명 부족은 신뢰 하락을 초래했어요.", "설명이 부족했어요. 아주 부족해요.", "설명을 보충하세요. 빨리요."], "설명 부족은 신뢰 하락을 초래했어요.", "-는 결과를 초래하다 aponta consequência."),
     cloze("Complete o limite: 논의가 결론___ 이르지 못했습니다.", "에", "결론에 이르다 = chegar a uma conclusão."),
     listen("Ouça e escreva o efeito indireto.", "소음과 먼지는 건강에 악영향을 줄 수 있어요.", "소음과 먼지는 건강에 악영향을 줄 수 있어요.", "O barulho e a poeira podem prejudicar a saúde."),
     translate("ko-pt", "Traduza: 일부 지연은 불가피했지만 설명 부족은 피할 수 있었어요.", "Parte do atraso era inevitável, mas a falta de explicação poderia ter sido evitada.", "불가피하다 = inevitável; 피하다 = evitar.", ["O atraso em parte era inevitável; a falta de explicação, não."]),
-    reading("시는 사후 대책을 발표했다. 그러나 비용이 막대하다는 지적과 함께, 결정이 어떤 결과를 초래했는지 제대로 분석해야 한다는 요구가 나왔다. 파장은 아직 끝나지 않았다. 주민들은 다음 공사 전에 설명회를 요구했다. 그 요구는 합리적이다. 설명이 중요하다.", "O que ainda é exigido?", ["Analisar corretamente os resultados da decisão.", "Aumentar o custo da obra.", "Encerrar o debate."], "Analisar corretamente os resultados da decisão.", "결정이 어떤 결과를 초래했는지 분석해야 해요."),
+    reading("시는 사후 대책을 발표했다. 그러나 비용이 막대하다는 지적과 함께, 결정이 어떤 결과를 초래했는지 제대로 분석해야 한다는 요구가 나왔다. 파장은 아직 끝나지 않았다. 주민들은 다음 공사 전에 설명회를 요구했다. 그 요구는 합리적이다. 설명이 중요하다.", "O que ainda é exigido?", ["Analisar corretamente os resultados da decisão.", "Aumentar o custo da obra.", "Encerrar o debate sem análise."], "Analisar corretamente os resultados da decisão.", "결정이 어떤 결과를 초래했는지 분석해야 해요."),
   ],
   summary: ["-는 결과를 초래하다 indica consequência formal.", "-에 이르다 indica que algo chegou a um ponto.", "Impacto direto e efeito indireto são diferentes.", "Conteúdo novo permanece em revisão."],
   production: production(
@@ -242,18 +242,18 @@ export const B2_L29 = defineB2Lesson({
     ["-기로 하되 — decidir fazer, com ressalva", "동사 + -기로 하되", "Significa “decidir fazer, mas com uma ressalva”. Combina a decisão (-기로 하다) com uma condição ou limite (-되). Compare com -기로 했지만 (decidiu, mas...) e -기로 하고 (decidiu e...). Registro: formal/escrito.", [["계획을 유지하기로 하되 다음 분기에 다시 논의하기로 했어요.", "Decidimos manter o plano, com a ressalva de discutir de novo no próximo trimestre."], ["참여하기로 하되 개인정보는 제공하지 않기로 했습니다.", "Decidimos participar, com a ressalva de não fornecer dados pessoais."]]],
   ],
   guided: [
-    mcq("Qual foi o ponto de impasse?", ["As duas equipes queriam usos diferentes do orçamento.", "Não havia orçamento nenhum.", "As equipes não compareceram."], "As duas equipes queriam usos diferentes do orçamento.", "예산 사용 우선순위가 달랐어요."),
+    mcq("Qual foi o ponto de impasse?", ["As duas equipes queriam usos diferentes do orçamento.", "Não havia orçamento nenhum para o projeto.", "As equipes não compareceram à reunião."], "As duas equipes queriam usos diferentes do orçamento.", "예산 사용 우선순위가 달랐어요."),
     cloze("Complete o limite: 예산을 지킬 수 있___ 선에서 조정했어요.", "는", "있는 선에서 = dentro do limite possível."),
     listen("Ouça e escreva o acordo com ressalva.", "계획을 유지하기로 하되 다음 분기에 다시 논의하기로 했어요.", "계획을 유지하기로 하되 다음 분기에 다시 논의하기로 했어요.", "Decidiram manter o plano, com a ressalva de discutir de novo no próximo trimestre."),
-    reading("두 팀은 같은 예산을 두고 다른 우선순위를 주장했다. 한쪽은 신규 장비를, 다른 쪽은 교육을 원했다. 회의는 몇 시간째 접점을 찾지 못했다.", "Por que a reunião não avançou?", ["Porque as prioridades eram diferentes e não havia ponto de contato.", "Porque o orçamento era infinito.", "Porque ninguém queria falar."], "Porque as prioridades eram diferentes e não havia ponto de contato.", "우선순위가 달라 접점을 찾지 못했어요."),
+    reading("두 팀은 같은 예산을 두고 다른 우선순위를 주장했다. 한쪽은 신규 장비를, 다른 쪽은 교육을 원했다. 회의는 몇 시간째 접점을 찾지 못했다.", "Por que a reunião não avançou?", ["Porque as prioridades eram diferentes e não havia ponto de contato.", "Porque o orçamento era infinito e elástico.", "Porque ninguém queria falar na reunião."], "Porque as prioridades eram diferentes e não havia ponto de contato.", "우선순위가 달라 접점을 찾지 못했어요."),
     translate("pt-ko", "Traduza: “Ajustamos dentro do limite que o orçamento permite.”", "예산을 지킬 수 있는 선에서 조정했어요.", "-는 선에서 delimita a concessão.", ["예산을 지킬 수 있는 범위에서 조정했습니다."]),
   ],
   independent: [
-    mcq("Qual frase decide algo com uma ressalva?", ["참여하기로 하되 개인정보는 제공하지 않기로 했어요.", "참여하기로 했어요.", "참여하지 않았어요."], "참여하기로 하되 개인정보는 제공하지 않기로 했어요.", "-기로 하되 acrescenta uma ressalva."),
+    mcq("Qual frase decide algo com uma ressalva?", ["참여하기로 하되 개인정보는 제공하지 않기로 했어요.", "참여하기로 했어요. 아주 기쁘게요.", "참여하지 않았어요. 끝까지 거절했어요."], "참여하기로 하되 개인정보는 제공하지 않기로 했어요.", "-기로 하되 acrescenta uma ressalva."),
     cloze("Complete a ressalva: 계획을 유지하___ 하되 다음 분기에 다시 논의해요.", "기로", "유지하기로 하되 = decidir manter, com ressalva."),
     listen("Ouça e escreva a definição de compromisso.", "절충은 만족의 최대치가 아니라 지속 가능한 최소치예요.", "절충은 만족의 최대치가 아니라 지속 가능한 최소치예요.", "O compromisso não é o máximo de satisfação, mas o mínimo sustentável."),
     translate("ko-pt", "Traduza: 양측은 세부 조건을 조율한 뒤 합의했어요.", "Os dois lados chegaram a um acordo depois de ajustar as condições detalhadas.", "양측 = ambos os lados; 조율하다 = coordenar.", ["Ambas as partes acordaram após ajustar os detalhes."]),
-    reading("최종 합의문에는 지킬 수 있는 범위가 적혔다. 완전한 합의점은 아니었지만, 양측은 다음 분기에 다시 논의하기로 하되 현재 계획은 유지하기로 했다.", "O que o acordo final registra?", ["O limite que pode ser cumprido e o que fica para depois.", "A vitória total de um lado.", "O cancelamento de todo o plano."], "O limite que pode ser cumprido e o que fica para depois.", "지킬 수 있는 범위와 다음 논의."),
+    reading("최종 합의문에는 지킬 수 있는 범위가 적혔다. 완전한 합의점은 아니었지만, 양측은 다음 분기에 다시 논의하기로 하되 현재 계획은 유지하기로 했다.", "O que o acordo final registra?", ["O limite que pode ser cumprido e o que fica para depois.", "A vitória total de um dos lados na negociação.", "O cancelamento de todo o plano e dos prazos."], "O limite que pode ser cumprido e o que fica para depois.", "지킬 수 있는 범위와 다음 논의."),
   ],
   summary: ["-는 선에서 delimita a concessão.", "-기로 하되 acrescenta uma ressalva à decisão.", "Compromisso nomeia o que fica pendente.", "Conteúdo novo permanece em revisão."],
   production: production(
@@ -314,7 +314,7 @@ export const B2_L30 = defineB2Lesson({
     cloze("Complete o quase: 같은 문제가 반복될 ___ 했어요.", "뻔", "반복될 뻔했어요 = quase se repetiu."),
     listen("Ouça e escreva a decisão de melhoria.", "부족한 부분을 보완하고 점검을 강화하기로 했어요.", "부족한 부분을 보완하고 점검을 강화하기로 했어요.", "Decidimos complementar o que faltou e reforçar a verificação."),
     translate("ko-pt", "Traduza: 반성은 끝이 아니라 다음 행동의 시작이에요.", "A reflexão não é o fim, mas o começo da próxima ação.", "반성 = reflexão; 행동 = ação.", ["Refletir não é o fim; é o começo da próxima ação."]),
-    reading("팀은 부족한 부분을 보완하고, 다음 프로젝트 전에 점검을 강화하기로 했다. 반성은 끝이 아니라 다음 행동의 시작이다. 위기를 겪은 뒤에야 보이는 문제도 있다. 그래서 다음 프로젝트에서는 중간 점검을 두 번 하기로 했다. 기록도 남기기로 했다. 기록은 다음 판단을 돕는다.", "O que a equipe decidiu?", ["Complementar o que faltou e reforçar a verificação.", "Não fazer mais projetos.", "Esquecer o problema."], "Complementar o que faltou e reforçar a verificação.", "부족한 부분을 보완하고 점검을 강화하기로 했어요."),
+    reading("팀은 부족한 부분을 보완하고, 다음 프로젝트 전에 점검을 강화하기로 했다. 반성은 끝이 아니라 다음 행동의 시작이다. 위기를 겪은 뒤에야 보이는 문제도 있다. 그래서 다음 프로젝트에서는 중간 점검을 두 번 하기로 했다. 기록도 남기기로 했다. 기록은 다음 판단을 돕는다.", "O que a equipe decidiu?", ["Complementar o que faltou e reforçar a verificação.", "Não fazer mais projetos na empresa.", "Esquecer o problema e seguir adiante."], "Complementar o que faltou e reforçar a verificação.", "부족한 부분을 보완하고 점검을 강화하기로 했어요."),
   ],
   summary: ["-았/었어야 했다 expressa dever não cumprido.", "-ㄹ 뻔했다 indica quase acontecimento.", "Retrospectiva boa separa responsabilidade, hipótese e ação.", "Conteúdo novo permanece em revisão."],
   production: production(

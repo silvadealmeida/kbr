@@ -93,7 +93,7 @@ export const A1_C01: A1CheckpointContent = {
       "independent",
       "민수는 한국 사람이에요. 민수는 회사원이에요.",
       "O que Minsu faz?",
-      choices("É estudante.", "É funcionário de empresa.", "É professor."),
+      choices("É estudante em uma escola de idiomas.", "É funcionário de empresa.", "É professor de coreano em uma escola pública."),
       "É funcionário de empresa.",
       "회사원이에요 informa a ocupação de Minsu.",
     ),

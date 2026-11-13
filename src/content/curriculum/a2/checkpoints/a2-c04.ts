@@ -80,7 +80,7 @@ export const A2_C04 = defineA2Checkpoint({
     reading(
       "환자는 어제부터 목이 아프고 열이 있어요. 기침도 나고 조금 어지러워요.",
       "Quais sintomas o paciente tem?",
-      ["Dor de garganta, febre, tosse e tontura.", "Dor nas costas e febre.", "Apenas coriza."],
+      ["Dor de garganta, febre, tosse e tontura.", "Dor nas costas, febre alta e cansaço.", "Apenas coriza e espirros."],
       "Dor de garganta, febre, tosse e tontura.",
       "목이 아프고 열이 있어요; 기침이 나고 어지러워요.",
     ),

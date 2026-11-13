@@ -120,11 +120,7 @@ export const A1_L31: A1LessonContent = defineA1Lesson({
       "guided",
       "아나는 친구를 만났어요. 그리고 영화를 봤어요.",
       "O que Ana fez?",
-      choices(
-        "Encontrou um amigo e viu um filme.",
-        "Estudou e descansou.",
-        "Comprou um presente.",
-      ),
+      choices("Encontrou um amigo e viu um filme.", "Estudou para a prova e descansou em casa.", "Comprou um presente para a amiga."),
       "Encontrou um amigo e viu um filme.",
       "만났어요 e 봤어요 descrevem as ações de Ana.",
     ),

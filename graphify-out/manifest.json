@@ -96,9 +96,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1794574543.396321,
-    "seen": 1794574552.84662,
-    "ast_hash": "599be88a06df5ef53493e3deb1ccbf9f",
+    "mtime": 1794574978.957696,
+    "seen": 1794574988.4393034,
+    "ast_hash": "771deae986123d39690ce4b07399d96e",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -120,9 +120,9 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794574543.396321,
-    "seen": 1794574552.846799,
-    "ast_hash": "727ef8ef8d0cadf0b9ce6526b39a7836",
+    "mtime": 1794574978.957696,
+    "seen": 1794574988.4394174,
+    "ast_hash": "65883476a149741c5b3c4b382dabd07d",
     "semantic_hash": ""
   },
   "src/lib/hangul/index.ts": {
@@ -21102,9 +21102,9 @@
     "semantic_hash": ""
   },
   "src/content/curriculum/b2/content.ts": {
-    "mtime": 1794574455.8009272,
-    "seen": 1794574552.8463693,
-    "ast_hash": "b7039050e5b9e2a73b5834bb6bbbe8f8",
+    "mtime": 1794574822.344526,
+    "seen": 1794574988.4390986,
+    "ast_hash": "a9a8ccc510f931bd5d37f0e9fc15d2b7",
     "semantic_hash": ""
   },
   "src/content/curriculum/b2/ids.ts": {
@@ -21174,9 +21174,9 @@
     "semantic_hash": ""
   },
   "src/content/vocabulary/b2-m04.ts": {
-    "mtime": 1794572701.7492297,
-    "seen": 1794573643.4019551,
-    "ast_hash": "bf5ede7e048be066a08c7d2289433264",
+    "mtime": 1794574777.0001462,
+    "seen": 1794574988.4391828,
+    "ast_hash": "fd3f9bc2d4413c754fd17f826fb87f27",
     "semantic_hash": ""
   },
   "src/content/vocabulary/b2-m05.ts": {
@@ -21267,6 +21267,18 @@
     "mtime": 1794574499.976014,
     "seen": 1794574552.8463767,
     "ast_hash": "1727ad06ad65ed43f23391d7f81366a1",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/b2/checkpoints/b2-c04.ts": {
+    "mtime": 1794574813.4445617,
+    "seen": 1794574988.4390957,
+    "ast_hash": "be17670679b0bf295bbc7587a942a336",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/b2/lessons/module4.ts": {
+    "mtime": 1794574937.152293,
+    "seen": 1794574988.4391062,
+    "ast_hash": "4a3c1ff997bbda0bab0fb550a15cabd4",
     "semantic_hash": ""
   },
   "package-lock.json": {

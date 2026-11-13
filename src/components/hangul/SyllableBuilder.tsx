@@ -171,22 +171,24 @@ export function SyllableBuilder({
     <section
       aria-labelledby={titleId}
       aria-describedby={helpId}
-      className="rounded-[var(--radius-panel)] border border-line bg-surface p-4 sm:p-6"
+      className="overflow-hidden rounded-[var(--radius-panel)] border border-line bg-surface"
     >
-      <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
-        <h3 id={titleId} className="mono-label text-accent">
-          Bancada de composição
-        </h3>
-        <p className="mono-data text-muted">inicial + medial + final</p>
+      <div className="border-b border-line bg-surface-2/70 px-4 py-3 sm:px-6">
+        <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+          <h3 id={titleId} className="mono-label text-accent">
+            Bancada de composição
+          </h3>
+          <p className="mono-data text-muted">inicial + medial + final</p>
+        </div>
+        <p id={helpId} className="mt-2 text-sm leading-relaxed text-muted">
+          Escolha inicial e medial; quando o item pedir, escolha também o final.
+          Arraste uma peça até a caixa ou use Tab/Enter e toque nos botões. A prévia
+          não envia a resposta.
+        </p>
       </div>
-      <p id={helpId} className="mt-2 text-sm text-muted">
-        Escolha inicial e medial; quando o item pedir, escolha também o final.
-        Arraste uma peça até a caixa ou use Tab/Enter e toque nos botões. A prévia
-        não envia a resposta.
-      </p>
 
-      <div className="mt-5 flex flex-col items-center gap-5 sm:flex-row sm:items-start sm:gap-7">
-        <div className="flex w-40 shrink-0 flex-col items-center min-[380px]:w-44 sm:w-48">
+      <div className="grid gap-6 p-4 sm:p-6 lg:grid-cols-[minmax(0,15rem)_minmax(0,1fr)] lg:items-start">
+        <div className="mx-auto flex w-full max-w-[18rem] flex-col items-center lg:mx-0">
           <div
             ref={dropRef}
             data-testid="syllable-drop-zone"
@@ -209,50 +211,53 @@ export function SyllableBuilder({
               draggingOver ? "ring-4 ring-accent/25" : ""
             }`}
           >
-          <div
-            aria-hidden
-            className={`relative grid aspect-square grid-rows-[minmax(0,3fr)_minmax(0,1.35fr)] gap-1 rounded-[var(--radius-panel)] border-2 bg-bg p-2 ${
-              ready
-                ? "border-accent"
-                : draggingOver
-                  ? "border-accent border-dashed"
-                  : "border-line-strong"
-            }`}
-          >
             <div
-              className={`grid min-h-0 gap-1 ${
-                shape?.kind === "horizontal"
-                  ? "grid-rows-2"
-                  : shape?.kind === "compound"
-                    ? "grid-cols-2 grid-rows-2"
-                    : "grid-cols-2"
+              aria-hidden
+              className={`relative grid aspect-square grid-rows-[minmax(0,3fr)_minmax(0,1.35fr)] gap-1 rounded-[var(--radius-panel)] border-2 bg-bg p-2.5 shadow-[inset_0_1px_0_rgb(255_255_255/0.35)] ${
+                ready
+                  ? "border-accent"
+                  : draggingOver
+                    ? "border-accent border-dashed"
+                    : "border-line-strong"
               }`}
             >
-              <Zone label="inicial" value={parts.initial} />
-              {shape?.kind === "compound" ? (
-                <>
-                  <Zone label="medial" value={shape.base} large={false} />
-                  <Zone
-                    label="lado"
-                    value={shape.side}
-                    large={false}
-                    className="col-start-2 row-span-2 row-start-1"
-                  />
-                </>
-              ) : (
-                <Zone label="vogal" value={parts.medial} />
-              )}
+              <div
+                className={`grid min-h-0 gap-1 ${
+                  shape?.kind === "horizontal"
+                    ? "grid-rows-2"
+                    : shape?.kind === "compound"
+                      ? "grid-cols-2 grid-rows-2"
+                      : "grid-cols-2"
+                }`}
+              >
+                <Zone label="inicial" value={parts.initial} />
+                {shape?.kind === "compound" ? (
+                  <>
+                    <Zone label="medial" value={shape.base} large={false} />
+                    <Zone
+                      label="lado"
+                      value={shape.side}
+                      large={false}
+                      className="col-start-2 row-span-2 row-start-1"
+                    />
+                  </>
+                ) : (
+                  <Zone label="vogal" value={parts.medial} />
+                )}
+              </div>
+              <Zone
+                label={hasFinal ? "final" : "final opcional"}
+                value={parts.final === "" ? undefined : parts.final}
+                emptyLabel={hasFinal ? "—" : "sem final"}
+                className={hasFinal ? "" : "opacity-80"}
+              />
             </div>
-            <Zone
-              label={hasFinal ? "final" : "final opcional"}
-              value={parts.final === "" ? undefined : parts.final}
-              emptyLabel={hasFinal ? "—" : "sem final"}
-              className={hasFinal ? "" : "opacity-80"}
-            />
-          </div>
           </div>
 
-          <div aria-live="polite" className="mt-3 text-center text-sm text-muted">
+          <div
+            aria-live="polite"
+            className="mt-3 w-full rounded-[var(--radius-field)] border border-line bg-bg px-3 py-2 text-center text-sm text-muted"
+          >
             {ready ? (
               <>
                 Sua sílaba:{" "}
@@ -277,7 +282,7 @@ export function SyllableBuilder({
               </>
             )}
           </div>
-          <p className="mt-1 text-center text-xs text-muted">
+          <p className="mt-2 text-center text-xs leading-relaxed text-muted">
             {parts.initial || parts.medial || parts.final !== undefined ? (
               <>
                 Inicial <span lang="ko" className="font-ko">{parts.initial ?? "—"}</span>
@@ -296,60 +301,61 @@ export function SyllableBuilder({
             )}
           </p>
           {syllable ? (
-            <AudioControl
-              text={syllable}
-              compact
-              label="Ouvir a sílaba montada"
-            />
+            <AudioControl text={syllable} compact label="Ouvir" />
           ) : null}
         </div>
 
-        <div className="w-full min-w-0 max-w-md space-y-4">
-          <PieceGroup
-            kind="initial"
-            title="Consoante inicial"
-            values={orderedInitials}
-            selected={parts.initial}
-            disabled={disabled}
-            onSelect={(value) => select({ ...parts, initial: value as Initial })}
-            onDropPiece={dropPiece}
-          />
-          <PieceGroup
-            kind="medial"
-            title="Vogal"
-            values={orderedMedials}
-            selected={parts.medial}
-            disabled={disabled}
-            onSelect={(value) => select({ ...parts, medial: value as Medial })}
-            onDropPiece={dropPiece}
-          />
-          {hasFinal ? (
+        <div className="min-w-0 space-y-4">
+          <div className="space-y-5 rounded-[var(--radius-panel)] border border-line bg-bg p-3 sm:p-4">
             <PieceGroup
-              kind="final"
-              title="Consoante final"
-              values={orderedFinals}
-              selected={parts.final}
+              kind="initial"
+              title="Consoante inicial"
+              values={orderedInitials}
+              selected={parts.initial}
               disabled={disabled}
-              onSelect={(value) => select({ ...parts, final: value as Final })}
+              onSelect={(value) => select({ ...parts, initial: value as Initial })}
               onDropPiece={dropPiece}
             />
-          ) : null}
+            <PieceGroup
+              kind="medial"
+              title="Vogal"
+              values={orderedMedials}
+              selected={parts.medial}
+              disabled={disabled}
+              onSelect={(value) => select({ ...parts, medial: value as Medial })}
+              onDropPiece={dropPiece}
+            />
+            {hasFinal ? (
+              <PieceGroup
+                kind="final"
+                title="Consoante final"
+                values={orderedFinals}
+                selected={parts.final}
+                disabled={disabled}
+                onSelect={(value) => select({ ...parts, final: value as Final })}
+                onDropPiece={dropPiece}
+              />
+            ) : null}
+          </div>
 
-          <p aria-live="polite" className="text-sm text-muted">
+          <p
+            aria-live="polite"
+            className="rounded-[var(--radius-field)] border-l-2 border-accent bg-surface-2/60 px-3 py-2 text-sm leading-relaxed text-muted"
+          >
             {parts.medial
               ? positionNote(parts.medial)
               : "Vogal vertical fica à direita; horizontal fica abaixo; composta ocupa a base e a direita."}
           </p>
 
-          <div className="flex flex-wrap items-center justify-between gap-2">
-            <p className="text-xs text-muted">
+          <div className="flex flex-col gap-3 border-t border-line pt-3 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-xs leading-relaxed text-muted">
               A composição é uma prévia; a correção acontece ao conferir.
             </p>
             <button
               type="button"
               onClick={clear}
               disabled={disabled || !touched}
-              className="min-h-11 rounded-[var(--radius-field)] px-3 text-sm font-semibold text-accent underline-offset-4 hover:underline disabled:cursor-not-allowed disabled:opacity-45"
+              className="inline-flex min-h-11 shrink-0 items-center justify-center self-start rounded-[var(--radius-field)] border border-line-strong px-3 text-sm font-semibold text-accent transition-colors duration-[var(--motion-fast)] hover:bg-surface-2 disabled:cursor-not-allowed disabled:opacity-45 sm:self-auto"
             >
               Limpar escolhas
             </button>
@@ -378,9 +384,9 @@ function PieceGroup({
   onDropPiece(kind: string, value: string): void;
 }) {
   return (
-    <fieldset>
-      <legend className="mono-label mb-2 text-center text-muted">{title}</legend>
-      <div className="flex flex-wrap justify-center gap-2">
+    <fieldset className="min-w-0">
+      <legend className="mono-label mb-2 text-muted">{title}</legend>
+      <div className="flex flex-wrap gap-2">
         {values.map((value) => {
           const active = selected === value;
           return (
@@ -398,9 +404,9 @@ function PieceGroup({
               }}
               onClick={() => onSelect(value)}
               onDoubleClick={() => onDropPiece(kind, value)}
-              className={`min-h-12 min-w-12 cursor-grab rounded-[var(--radius-field)] border-2 px-3 font-ko text-xl transition-[background-color,border-color,color] duration-[var(--motion-fast)] active:cursor-grabbing disabled:cursor-not-allowed disabled:opacity-55 ${
+              className={`min-h-12 min-w-12 flex-1 cursor-grab rounded-[var(--radius-field)] border-2 px-2 font-ko text-xl transition-[background-color,border-color,color,box-shadow] duration-[var(--motion-fast)] active:cursor-grabbing disabled:cursor-not-allowed disabled:opacity-55 ${
                 active
-                  ? "border-accent bg-surface-2 text-fg"
+                  ? "border-accent bg-surface-2 text-fg ring-1 ring-accent"
                   : "border-line-strong bg-surface text-fg hover:bg-surface-2"
               }`}
             >

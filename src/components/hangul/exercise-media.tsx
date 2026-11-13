@@ -162,10 +162,10 @@ export function AudioControl({
           type="button"
           onClick={play}
           aria-busy={state.status === "loading"}
-          className="inline-flex min-h-12 min-w-0 items-center justify-center gap-2 whitespace-nowrap rounded-[var(--radius-field)] border border-line-strong bg-surface px-3 font-semibold text-fg transition-colors duration-[var(--motion-fast)] hover:bg-surface-2 sm:px-4"
+          className="inline-flex min-h-12 min-w-0 items-center justify-center gap-2 rounded-[var(--radius-field)] border border-line-strong bg-surface px-3 py-2 text-left text-sm font-semibold leading-tight text-fg transition-colors duration-[var(--motion-fast)] hover:bg-surface-2 sm:px-4"
         >
           <SpeakerIcon />
-          <span className="truncate">{buttonLabel}</span>
+          <span className="min-w-0 break-words">{buttonLabel}</span>
         </button>
         <button
           type="button"

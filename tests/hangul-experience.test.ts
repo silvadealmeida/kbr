@@ -97,6 +97,7 @@ describe("bancada de composição", () => {
     );
 
     expect(html).toContain("min-h-12");
+    expect(html).toContain("flex-1");
     expect(html).toContain("Arraste uma peça");
     expect(html).toContain('draggable="true"');
     expect(html).toContain("syllable-drop-zone");

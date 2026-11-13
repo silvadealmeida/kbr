@@ -1,0 +1,306 @@
+[
+  {
+    "forma": "그녀",
+    "entradaNoLexico": null,
+    "primeiroTextoEnsinado": null,
+    "primeiroExercicio": "a2-l06",
+    "cobradaAntesDeQualquerEnsino": true,
+    "cobradaAntesDaPropriaEntradaCanonica": false
+  },
+  {
+    "forma": "환자",
+    "entradaNoLexico": null,
+    "primeiroTextoEnsinado": null,
+    "primeiroExercicio": "a2-l16",
+    "cobradaAntesDeQualquerEnsino": true,
+    "cobradaAntesDaPropriaEntradaCanonica": false
+  },
+  {
+    "forma": "마을",
+    "entradaNoLexico": null,
+    "primeiroTextoEnsinado": "a2-l05",
+    "primeiroExercicio": "a2-l05",
+    "cobradaAntesDeQualquerEnsino": false,
+    "cobradaAntesDaPropriaEntradaCanonica": false
+  },
+  {
+    "forma": "상대방",
+    "entradaNoLexico": null,
+    "primeiroTextoEnsinado": null,
+    "primeiroExercicio": "a2-l32",
+    "cobradaAntesDeQualquerEnsino": true,
+    "cobradaAntesDaPropriaEntradaCanonica": false
+  },
+  {
+    "forma": "이웃",
+    "entradaNoLexico": "a2-l14",
+    "primeiroTextoEnsinado": null,
+    "primeiroExercicio": "a2-l13",
+    "cobradaAntesDeQualquerEnsino": true,
+    "cobradaAntesDaPropriaEntradaCanonica": true
+  },
+  {
+    "forma": "동기",
+    "entradaNoLexico": null,
+    "primeiroTextoEnsinado": null,
+    "primeiroExercicio": "a2-l23",
+    "cobradaAntesDeQualquerEnsino": true,
+    "cobradaAntesDaPropriaEntradaCanonica": false
+  },
+  {
+    "forma": "종류",
+    "entradaNoLexico": null,
+    "primeiroTextoEnsinado": null,
+    "primeiroExercicio": "a2-l26",
+    "cobradaAntesDeQualquerEnsino": true,
+    "cobradaAntesDaPropriaEntradaCanonica": false
+  },
+  {
+    "forma": "룸메이트",
+    "entradaNoLexico": null,
+    "primeiroTextoEnsinado": null,
+    "primeiroExercicio": "a2-l11",
+    "cobradaAntesDeQualquerEnsino": true,
+    "cobradaAntesDaPropriaEntradaCanonica": false
+  },
+  {
+    "forma": "공간",
+    "entradaNoLexico": null,
+    "primeiroTextoEnsinado": null,
+    "primeiroExercicio": "a2-l11",
+    "cobradaAntesDeQualquerEnsino": true,
+    "cobradaAntesDaPropriaEntradaCanonica": false
+  },
+  {
+    "forma": "규정",
+    "entradaNoLexico": null,
+    "primeiroTextoEnsinado": null,
+    "primeiroExercicio": "a2-l26",
+    "cobradaAntesDeQualquerEnsino": true,
+    "cobradaAntesDaPropriaEntradaCanonica": false
+  },
+  {
+    "forma": "팀장",
+    "entradaNoLexico": null,
+    "primeiroTextoEnsinado": null,
+    "primeiroExercicio": "a2-l25",
+    "cobradaAntesDeQualquerEnsino": true,
+    "cobradaAntesDaPropriaEntradaCanonica": false
+  },
+  {
+    "forma": "매장",
+    "entradaNoLexico": null,
+    "primeiroTextoEnsinado": null,
+    "primeiroExercicio": "a2-l37",
+    "cobradaAntesDeQualquerEnsino": true,
+    "cobradaAntesDaPropriaEntradaCanonica": false
+  },
+  {
+    "forma": "기간",
+    "entradaNoLexico": null,
+    "primeiroTextoEnsinado": null,
+    "primeiroExercicio": "a2-l37",
+    "cobradaAntesDeQualquerEnsino": true,
+    "cobradaAntesDaPropriaEntradaCanonica": false
+  },
+  {
+    "forma": "배움",
+    "entradaNoLexico": null,
+    "primeiroTextoEnsinado": null,
+    "primeiroExercicio": "a2-l40",
+    "cobradaAntesDeQualquerEnsino": true,
+    "cobradaAntesDaPropriaEntradaCanonica": false
+  },
+  {
+    "forma": "고마움",
+    "entradaNoLexico": null,
+    "primeiroTextoEnsinado": null,
+    "primeiroExercicio": "a2-l34",
+    "cobradaAntesDeQualquerEnsino": true,
+    "cobradaAntesDaPropriaEntradaCanonica": false
+  },
+  {
+    "forma": "쓰레기",
+    "entradaNoLexico": "a2-l12",
+    "primeiroTextoEnsinado": "a2-l12",
+    "primeiroExercicio": "a2-l09",
+    "cobradaAntesDeQualquerEnsino": false,
+    "cobradaAntesDaPropriaEntradaCanonica": true
+  },
+  {
+    "forma": "소풍",
+    "entradaNoLexico": null,
+    "primeiroTextoEnsinado": null,
+    "primeiroExercicio": "a2-l10",
+    "cobradaAntesDeQualquerEnsino": true,
+    "cobradaAntesDaPropriaEntradaCanonica": false
+  },
+  {
+    "forma": "경우",
+    "entradaNoLexico": null,
+    "primeiroTextoEnsinado": null,
+    "primeiroExercicio": "a2-l35",
+    "cobradaAntesDeQualquerEnsino": true,
+    "cobradaAntesDaPropriaEntradaCanonica": false
+  },
+  {
+    "forma": "부분",
+    "entradaNoLexico": null,
+    "primeiroTextoEnsinado": null,
+    "primeiroExercicio": "a2-l40",
+    "cobradaAntesDeQualquerEnsino": true,
+    "cobradaAntesDaPropriaEntradaCanonica": false
+  },
+  {
+    "forma": "번역",
+    "entradaNoLexico": null,
+    "primeiroTextoEnsinado": null,
+    "primeiroExercicio": null,
+    "cobradaAntesDeQualquerEnsino": false,
+    "cobradaAntesDaPropriaEntradaCanonica": false
+  },
+  {
+    "forma": "기기",
+    "entradaNoLexico": null,
+    "primeiroTextoEnsinado": "a2-l13",
+    "primeiroExercicio": null,
+    "cobradaAntesDeQualquerEnsino": false,
+    "cobradaAntesDaPropriaEntradaCanonica": false
+  },
+  {
+    "forma": "예절",
+    "entradaNoLexico": "a2-l35",
+    "primeiroTextoEnsinado": null,
+    "primeiroExercicio": null,
+    "cobradaAntesDeQualquerEnsino": false,
+    "cobradaAntesDaPropriaEntradaCanonica": false
+  },
+  {
+    "forma": "질문",
+    "entradaNoLexico": "a1-l27",
+    "primeiroTextoEnsinado": "a1-l27",
+    "primeiroExercicio": "a1-l27",
+    "cobradaAntesDeQualquerEnsino": false,
+    "cobradaAntesDaPropriaEntradaCanonica": false
+  },
+  {
+    "forma": "절약",
+    "entradaNoLexico": null,
+    "primeiroTextoEnsinado": null,
+    "primeiroExercicio": null,
+    "cobradaAntesDeQualquerEnsino": false,
+    "cobradaAntesDaPropriaEntradaCanonica": false
+  },
+  {
+    "forma": "기부",
+    "entradaNoLexico": null,
+    "primeiroTextoEnsinado": null,
+    "primeiroExercicio": null,
+    "cobradaAntesDeQualquerEnsino": false,
+    "cobradaAntesDaPropriaEntradaCanonica": false
+  },
+  {
+    "forma": "후기",
+    "entradaNoLexico": "a2-l30",
+    "primeiroTextoEnsinado": null,
+    "primeiroExercicio": null,
+    "cobradaAntesDeQualquerEnsino": false,
+    "cobradaAntesDaPropriaEntradaCanonica": false
+  },
+  {
+    "forma": "오지",
+    "entradaNoLexico": null,
+    "primeiroTextoEnsinado": null,
+    "primeiroExercicio": "a2-l01",
+    "cobradaAntesDeQualquerEnsino": true,
+    "cobradaAntesDaPropriaEntradaCanonica": false
+  },
+  {
+    "forma": "소녀",
+    "entradaNoLexico": null,
+    "primeiroTextoEnsinado": null,
+    "primeiroExercicio": "a2-l05",
+    "cobradaAntesDeQualquerEnsino": true,
+    "cobradaAntesDaPropriaEntradaCanonica": false
+  },
+  {
+    "forma": "월급",
+    "entradaNoLexico": "a2-l21",
+    "primeiroTextoEnsinado": null,
+    "primeiroExercicio": null,
+    "cobradaAntesDeQualquerEnsino": false,
+    "cobradaAntesDaPropriaEntradaCanonica": false
+  },
+  {
+    "forma": "이력서",
+    "entradaNoLexico": "a2-l22",
+    "primeiroTextoEnsinado": "a2-l22",
+    "primeiroExercicio": "a2-l22",
+    "cobradaAntesDeQualquerEnsino": false,
+    "cobradaAntesDaPropriaEntradaCanonica": false
+  },
+  {
+    "forma": "자기소개서",
+    "entradaNoLexico": "a2-l22",
+    "primeiroTextoEnsinado": "a2-l22",
+    "primeiroExercicio": "a2-l22",
+    "cobradaAntesDeQualquerEnsino": false,
+    "cobradaAntesDaPropriaEntradaCanonica": false
+  },
+  {
+    "forma": "자격증",
+    "entradaNoLexico": "a2-l22",
+    "primeiroTextoEnsinado": "a2-l22",
+    "primeiroExercicio": "a2-l22",
+    "cobradaAntesDeQualquerEnsino": false,
+    "cobradaAntesDaPropriaEntradaCanonica": false
+  },
+  {
+    "forma": "지원하다",
+    "entradaNoLexico": "a2-l22",
+    "primeiroTextoEnsinado": null,
+    "primeiroExercicio": null,
+    "cobradaAntesDeQualquerEnsino": false,
+    "cobradaAntesDaPropriaEntradaCanonica": false
+  },
+  {
+    "forma": "포함하다",
+    "entradaNoLexico": null,
+    "primeiroTextoEnsinado": null,
+    "primeiroExercicio": null,
+    "cobradaAntesDeQualquerEnsino": false,
+    "cobradaAntesDaPropriaEntradaCanonica": false
+  },
+  {
+    "forma": "확인서",
+    "entradaNoLexico": "a2-l37",
+    "primeiroTextoEnsinado": "a2-l37",
+    "primeiroExercicio": "a2-l37",
+    "cobradaAntesDeQualquerEnsino": false,
+    "cobradaAntesDaPropriaEntradaCanonica": false
+  },
+  {
+    "forma": "분실물",
+    "entradaNoLexico": null,
+    "primeiroTextoEnsinado": null,
+    "primeiroExercicio": null,
+    "cobradaAntesDeQualquerEnsino": false,
+    "cobradaAntesDaPropriaEntradaCanonica": false
+  },
+  {
+    "forma": "수화물",
+    "entradaNoLexico": null,
+    "primeiroTextoEnsinado": null,
+    "primeiroExercicio": null,
+    "cobradaAntesDeQualquerEnsino": false,
+    "cobradaAntesDaPropriaEntradaCanonica": false
+  },
+  {
+    "forma": "예약",
+    "entradaNoLexico": null,
+    "primeiroTextoEnsinado": "a1-l29",
+    "primeiroExercicio": "a1-l29",
+    "cobradaAntesDeQualquerEnsino": false,
+    "cobradaAntesDaPropriaEntradaCanonica": false
+  }
+]

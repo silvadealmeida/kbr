@@ -1,0 +1,80 @@
+{
+  "inventory": {
+    "baseline": "3103ce3",
+    "hangul": {
+      "lessons": 25,
+      "checkpoints": 4,
+      "syllables": 151,
+      "words": 148,
+      "jamo": 40,
+      "rules": 3,
+      "exercises": 405
+    },
+    "a1": {
+      "lessons": 40,
+      "checkpoints": 8,
+      "exercises": 615,
+      "dialogueLines": 240,
+      "grammarBlocks": 164,
+      "grammarExamples": 328,
+      "introPanels": 125
+    },
+    "a2": {
+      "lessons": 40,
+      "checkpoints": 8,
+      "exercises": 615,
+      "dialogueLines": 240,
+      "grammarBlocks": 86,
+      "grammarExamples": 172,
+      "introPanels": 93
+    },
+    "vocabulary": {
+      "entries": 976,
+      "byCourse": {
+        "hangul": 133,
+        "ko-a1": 443,
+        "ko-a2": 400
+      },
+      "sentences": 868,
+      "entriesWithoutSentence": 108
+    }
+  },
+  "exerciseTypes": {
+    "a1:mcq": 79,
+    "a1:cloze": 183,
+    "a1:listen": 132,
+    "a1:translate": 97,
+    "a1:reading": 124,
+    "a2:mcq": 101,
+    "a2:cloze": 125,
+    "a2:listen": 132,
+    "a2:reading": 132,
+    "a2:translate": 125
+  },
+  "findingsByCheck": {
+    "translate-duplicate-accepted": 3,
+    "mcq-answer-not-in-options": 1
+  },
+  "findings": [
+    {
+      "check": "translate-duplicate-accepted",
+      "item": "a1-c01/a1-c01-e24",
+      "message": "[\"저는 선생님이에요.\",\"저는 선생님이에요\",\"저는 선생님이에요.\"]"
+    },
+    {
+      "check": "translate-duplicate-accepted",
+      "item": "a1-c08/a1-c08-e37",
+      "message": "[\"Vamos juntos?\",\"Vamos juntos\",\"Vamos juntos?\"]"
+    },
+    {
+      "check": "mcq-answer-not-in-options",
+      "item": "a2-l02/a2-l02-e01",
+      "message": "gabarito fora das opções: Foi uma fonte termal."
+    },
+    {
+      "check": "translate-duplicate-accepted",
+      "item": "a2-l35/a2-l35-e05",
+      "message": "[\"비슷하지만 조금 달라요.\",\"비슷하지만 조금 달라요.\"]"
+    }
+  ]
+}

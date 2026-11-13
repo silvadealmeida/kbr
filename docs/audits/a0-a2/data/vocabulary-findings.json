@@ -1,0 +1,361 @@
+{
+  "counts": {
+    "entries": 976,
+    "byCourse": {
+      "hangul": 133,
+      "ko-a1": 443,
+      "ko-a2": 400
+    },
+    "sentences": 868,
+    "byCourseSentences": {
+      "hangul": 25,
+      "ko-a1": 443,
+      "ko-a2": 400
+    }
+  },
+  "homographs": [],
+  "idFormMismatch": [],
+  "entriesWithoutSentenceByCourse": {
+    "hangul": 108
+  },
+  "reusedButUntaught": [],
+  "surfaceOnlyInSentence": [
+    {
+      "sentence": "sent:a1-l05:말하다",
+      "vocab": "ko:말하다",
+      "ko": "말하다",
+      "target": "말해요",
+      "frase": "조금 천천히 말해요."
+    },
+    {
+      "sentence": "sent:a1-l08:오다",
+      "vocab": "ko:오다",
+      "ko": "오다",
+      "target": "와요",
+      "frase": "친구가 여기에 와요."
+    },
+    {
+      "sentence": "sent:a1-l08:하다",
+      "vocab": "ko:하다",
+      "ko": "하다",
+      "target": "해요",
+      "frase": "공부는 아침에 해요."
+    },
+    {
+      "sentence": "sent:a1-l08:마시다",
+      "vocab": "ko:마시다",
+      "ko": "마시다",
+      "target": "마셔요",
+      "frase": "커피는 아침에 마셔요."
+    },
+    {
+      "sentence": "sent:a1-l09:보다",
+      "vocab": "ko:보다",
+      "ko": "보다",
+      "target": "봐요",
+      "frase": "영화는 가끔 봐요."
+    },
+    {
+      "sentence": "sent:a1-l09:듣다",
+      "vocab": "ko:듣다",
+      "ko": "듣다",
+      "target": "들어요",
+      "frase": "음악은 자주 들어요."
+    },
+    {
+      "sentence": "sent:a1-l10:바쁘다",
+      "vocab": "ko:바쁘다",
+      "ko": "바쁘다",
+      "target": "바빠요",
+      "frase": "저는 오늘 바빠요."
+    },
+    {
+      "sentence": "sent:a1-l12:크다",
+      "vocab": "ko:크다",
+      "ko": "크다",
+      "target": "커요",
+      "frase": "제 방은 커요."
+    },
+    {
+      "sentence": "sent:a1-l12:예쁘다",
+      "vocab": "ko:예쁘다",
+      "ko": "예쁘다",
+      "target": "예뻐요",
+      "frase": "꽃이 예뻐요."
+    },
+    {
+      "sentence": "sent:a1-l12:귀엽다",
+      "vocab": "ko:귀엽다",
+      "ko": "귀엽다",
+      "target": "귀여워요",
+      "frase": "강아지가 귀여워요."
+    },
+    {
+      "sentence": "sent:a1-l16:맵다",
+      "vocab": "ko:맵다",
+      "ko": "맵다",
+      "target": "매워요",
+      "frase": "이 음식은 매워요."
+    },
+    {
+      "sentence": "sent:a1-l16:배부르다",
+      "vocab": "ko:배부르다",
+      "ko": "배부르다",
+      "target": "배불러요",
+      "frase": "저는 배불러요."
+    },
+    {
+      "sentence": "sent:a1-l20:원하다",
+      "vocab": "ko:원하다",
+      "ko": "원하다",
+      "target": "원해요",
+      "frase": "저는 커피를 원해요."
+    },
+    {
+      "sentence": "sent:a1-l20:배우다",
+      "vocab": "ko:배우다",
+      "ko": "배우다",
+      "target": "배워요",
+      "frase": "저는 한국어를 배워요."
+    },
+    {
+      "sentence": "sent:a1-l20:고르다",
+      "vocab": "ko:고르다",
+      "ko": "고르다",
+      "target": "골라요",
+      "frase": "저는 커피를 골라요."
+    },
+    {
+      "sentence": "sent:a1-l22:걷다",
+      "vocab": "ko:걷다",
+      "ko": "걷다",
+      "target": "걸어요",
+      "frase": "저는 학교까지 걸어요."
+    },
+    {
+      "sentence": "sent:a1-l22:걸리다",
+      "vocab": "ko:걸리다",
+      "ko": "걸리다",
+      "target": "걸려요",
+      "frase": "삼십 분 걸려요."
+    },
+    {
+      "sentence": "sent:a1-l22:빠르다",
+      "vocab": "ko:빠르다",
+      "ko": "빠르다",
+      "target": "빨라요",
+      "frase": "지하철은 빨라요."
+    },
+    {
+      "sentence": "sent:a1-l22:느리다",
+      "vocab": "ko:느리다",
+      "ko": "느리다",
+      "target": "느려요",
+      "frase": "버스는 느려요."
+    },
+    {
+      "sentence": "sent:a1-l22:가깝다",
+      "vocab": "ko:가깝다",
+      "ko": "가깝다",
+      "target": "가까워요",
+      "frase": "역이 가까워요."
+    },
+    {
+      "sentence": "sent:a1-l24:돌다",
+      "vocab": "ko:돌다",
+      "ko": "돌다",
+      "target": "도세요",
+      "frase": "오른쪽으로 도세요."
+    },
+    {
+      "sentence": "sent:a1-l25:모이다",
+      "vocab": "ko:모이다",
+      "ko": "모이다",
+      "target": "모여요",
+      "frase": "우리는 여기에서 모여요."
+    },
+    {
+      "sentence": "sent:a1-l27:잘하다",
+      "vocab": "ko:잘하다",
+      "ko": "잘하다",
+      "target": "잘해요",
+      "frase": "저는 수영을 잘해요."
+    },
+    {
+      "sentence": "sent:a1-l27:못하다",
+      "vocab": "ko:못하다",
+      "ko": "못하다",
+      "target": "못해요",
+      "frase": "저는 노래를 못해요."
+    },
+    {
+      "sentence": "sent:a1-l27:춤추다",
+      "vocab": "ko:춤추다",
+      "ko": "춤추다",
+      "target": "춤춰요",
+      "frase": "저는 춤춰요."
+    },
+    {
+      "sentence": "sent:a1-l27:어렵다",
+      "vocab": "ko:어렵다",
+      "ko": "어렵다",
+      "target": "어려워요",
+      "frase": "한국어는 어려워요."
+    },
+    {
+      "sentence": "sent:a1-l27:쉽다",
+      "vocab": "ko:쉽다",
+      "ko": "쉽다",
+      "target": "쉬워요",
+      "frase": "이것은 쉬워요."
+    },
+    {
+      "sentence": "sent:a1-l30:바꾸다",
+      "vocab": "ko:바꾸다",
+      "ko": "바꾸다",
+      "target": "바꿔요",
+      "frase": "시간을 바꿔요."
+    },
+    {
+      "sentence": "sent:a1-l32:덥다",
+      "vocab": "ko:덥다",
+      "ko": "덥다",
+      "target": "더워요",
+      "frase": "오늘은 더워요."
+    },
+    {
+      "sentence": "sent:a1-l32:춥다",
+      "vocab": "ko:춥다",
+      "ko": "춥다",
+      "target": "추워요",
+      "frase": "겨울은 추워요."
+    },
+    {
+      "sentence": "sent:a1-l35:즐겁다",
+      "vocab": "ko:즐겁다",
+      "ko": "즐겁다",
+      "target": "즐거웠어요",
+      "frase": "여행은 즐거웠어요."
+    },
+    {
+      "sentence": "sent:a1-l38:전하다",
+      "vocab": "ko:전하다",
+      "ko": "전하다",
+      "target": "전해요",
+      "frase": "메시지를 전해요."
+    },
+    {
+      "sentence": "sent:a2-l03:다르다",
+      "vocab": "ko:다르다",
+      "ko": "다르다",
+      "target": "달라요",
+      "frase": "우리는 성격이 달라요."
+    },
+    {
+      "sentence": "sent:a2-l04:막히다",
+      "vocab": "ko:막히다",
+      "ko": "막히다",
+      "target": "막혀서",
+      "frase": "길이 막혀서 늦었어요."
+    },
+    {
+      "sentence": "sent:a2-l07:당기다",
+      "vocab": "ko:당기다",
+      "ko": "당기다",
+      "target": "당겼어요",
+      "frase": "약속을 한 시간 당겼어요."
+    },
+    {
+      "sentence": "sent:a2-l07:미루다",
+      "vocab": "ko:미루다",
+      "ko": "미루다",
+      "target": "미뤘어요",
+      "frase": "일정을 다음 주로 미뤘어요."
+    },
+    {
+      "sentence": "sent:a2-l07:정하다",
+      "vocab": "ko:정하다",
+      "ko": "정하다",
+      "target": "정했어요",
+      "frase": "만날 장소를 정했어요."
+    },
+    {
+      "sentence": "sent:a2-l10:열리다",
+      "vocab": "ko:열리다",
+      "ko": "열리다",
+      "target": "열려요",
+      "frase": "문이 자동으로 열려요."
+    },
+    {
+      "sentence": "sent:a2-l13:무겁다",
+      "vocab": "ko:무겁다",
+      "ko": "무겁다",
+      "target": "무거워요",
+      "frase": "이 가방은 너무 무거워요."
+    },
+    {
+      "sentence": "sent:a2-l13:가볍다",
+      "vocab": "ko:가볍다",
+      "ko": "가볍다",
+      "target": "가벼워요",
+      "frase": "이 상자는 가벼워요."
+    },
+    {
+      "sentence": "sent:a2-l13:옮기다",
+      "vocab": "ko:옮기다",
+      "ko": "옮기다",
+      "target": "옮겨",
+      "frase": "의자를 옆으로 옮겨 주세요."
+    },
+    {
+      "sentence": "sent:a2-l16:토하다",
+      "vocab": "ko:토하다",
+      "ko": "토하다",
+      "target": "토했어요",
+      "frase": "아침에 두 번 토했어요."
+    },
+    {
+      "sentence": "sent:a2-l30:떠나다",
+      "vocab": "ko:떠나다",
+      "ko": "떠나다",
+      "target": "떠났어요",
+      "frase": "어제 부산을 떠났어요."
+    },
+    {
+      "sentence": "sent:a2-l33:드리다",
+      "vocab": "ko:드리다",
+      "ko": "드리다",
+      "target": "드렸어요",
+      "frase": "선생님께 선물을 드렸어요."
+    },
+    {
+      "sentence": "sent:a2-l33:뵙다",
+      "vocab": "ko:뵙다",
+      "ko": "뵙다",
+      "target": "뵈었어요",
+      "frase": "오랜만에 할머니를 뵈었어요."
+    },
+    {
+      "sentence": "sent:a2-l33:계시다",
+      "vocab": "ko:계시다",
+      "ko": "계시다",
+      "target": "계세요",
+      "frase": "선생님은 지금 교실에 계세요."
+    },
+    {
+      "sentence": "sent:a2-l34:편하다",
+      "vocab": "ko:편하다",
+      "ko": "편하다",
+      "target": "편한",
+      "frase": "편한 시간에 오세요."
+    },
+    {
+      "sentence": "sent:a2-l34:기쁘다",
+      "vocab": "ko:기쁘다",
+      "ko": "기쁘다",
+      "target": "기뻐요",
+      "frase": "초대해 주셔서 기뻐요."
+    }
+  ],
+  "findings": []
+}

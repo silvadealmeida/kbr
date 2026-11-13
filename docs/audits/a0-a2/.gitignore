@@ -1,0 +1,6 @@
+# Artefatos regeneráveis da auditoria (não versionar: derivados de src/, pesados).
+# Reproduzir com os comandos do README.md.
+data/content-dump.json
+data/sheets/
+data/risk-surface.txt
+data/findings-index.json

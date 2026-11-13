@@ -1,0 +1,1769 @@
+{
+  "checked": 545,
+  "semOcorrencia": 241,
+  "porLicao": {
+    "a1-l01": 2,
+    "a1-l02": 2,
+    "a1-l03": 2,
+    "a1-l04": 2,
+    "a1-l05": 1,
+    "a1-l06": 5,
+    "a1-l07": 5,
+    "a1-l08": 4,
+    "a1-l09": 4,
+    "a1-l10": 1,
+    "a1-l11": 5,
+    "a1-l12": 4,
+    "a1-l13": 2,
+    "a1-l14": 6,
+    "a1-l15": 4,
+    "a1-l16": 7,
+    "a1-l17": 1,
+    "a1-l19": 2,
+    "a1-l20": 4,
+    "a1-l21": 6,
+    "a1-l22": 5,
+    "a1-l23": 4,
+    "a1-l24": 4,
+    "a1-l25": 3,
+    "a1-l26": 4,
+    "a1-l27": 7,
+    "a1-l28": 2,
+    "a1-l29": 4,
+    "a1-l30": 5,
+    "a1-l31": 1,
+    "a1-l32": 3,
+    "a1-l33": 7,
+    "a1-l34": 6,
+    "a1-l35": 5,
+    "a1-l36": 5,
+    "a1-l37": 6,
+    "a1-l38": 4,
+    "a1-l39": 5,
+    "a1-l40": 2,
+    "a2-l04": 2,
+    "a2-l05": 3,
+    "a2-l06": 2,
+    "a2-l07": 1,
+    "a2-l08": 1,
+    "a2-l09": 3,
+    "a2-l11": 3,
+    "a2-l12": 3,
+    "a2-l13": 3,
+    "a2-l14": 3,
+    "a2-l15": 2,
+    "a2-l16": 3,
+    "a2-l17": 2,
+    "a2-l18": 2,
+    "a2-l19": 3,
+    "a2-l20": 1,
+    "a2-l21": 3,
+    "a2-l22": 3,
+    "a2-l23": 3,
+    "a2-l24": 4,
+    "a2-l25": 3,
+    "a2-l26": 1,
+    "a2-l27": 4,
+    "a2-l28": 5,
+    "a2-l29": 3,
+    "a2-l30": 2,
+    "a2-l31": 1,
+    "a2-l32": 2,
+    "a2-l33": 2,
+    "a2-l34": 3,
+    "a2-l35": 3,
+    "a2-l36": 2,
+    "a2-l37": 4,
+    "a2-l38": 2,
+    "a2-l40": 3
+  },
+  "rows": [
+    {
+      "step": "a1-l01",
+      "id": "ko:감사합니다",
+      "ko": "감사합니다",
+      "pt": "obrigado; obrigada (formal)",
+      "origem": "h22"
+    },
+    {
+      "step": "a1-l01",
+      "id": "ko:한국",
+      "ko": "한국",
+      "pt": "Coreia",
+      "origem": "h18"
+    },
+    {
+      "step": "a1-l02",
+      "id": "ko:의사",
+      "ko": "의사",
+      "pt": "médico; médica",
+      "origem": "h15"
+    },
+    {
+      "step": "a1-l02",
+      "id": "ko:이름",
+      "ko": "이름",
+      "pt": "nome",
+      "origem": "a1-l01"
+    },
+    {
+      "step": "a1-l03",
+      "id": "ko:시계",
+      "ko": "시계",
+      "pt": "relógio",
+      "origem": "h12"
+    },
+    {
+      "step": "a1-l03",
+      "id": "ko:학생",
+      "ko": "학생",
+      "pt": "estudante; aluno",
+      "origem": "h24"
+    },
+    {
+      "step": "a1-l04",
+      "id": "ko:안",
+      "ko": "안",
+      "pt": "dentro; interior",
+      "origem": "h17"
+    },
+    {
+      "step": "a1-l04",
+      "id": "ko:밖",
+      "ko": "밖",
+      "pt": "fora; exterior",
+      "origem": "h18"
+    },
+    {
+      "step": "a1-l05",
+      "id": "ko:저기요",
+      "ko": "저기요",
+      "pt": "com licença; ei (para chamar a atenção com cortesia)",
+      "origem": "a1-l01"
+    },
+    {
+      "step": "a1-l06",
+      "id": "ko:이름",
+      "ko": "이름",
+      "pt": "nome",
+      "origem": "a1-l01"
+    },
+    {
+      "step": "a1-l06",
+      "id": "ko:학생",
+      "ko": "학생",
+      "pt": "estudante; aluno",
+      "origem": "h24"
+    },
+    {
+      "step": "a1-l06",
+      "id": "ko:사람",
+      "ko": "사람",
+      "pt": "pessoa",
+      "origem": "h24"
+    },
+    {
+      "step": "a1-l06",
+      "id": "ko:의사",
+      "ko": "의사",
+      "pt": "médico; médica",
+      "origem": "h15"
+    },
+    {
+      "step": "a1-l06",
+      "id": "ko:회사원",
+      "ko": "회사원",
+      "pt": "funcionário de empresa; funcionária de empresa",
+      "origem": "a1-l02"
+    },
+    {
+      "step": "a1-l07",
+      "id": "ko:나이",
+      "ko": "나이",
+      "pt": "idade",
+      "origem": "a1-l06"
+    },
+    {
+      "step": "a1-l07",
+      "id": "ko:전화번호",
+      "ko": "전화번호",
+      "pt": "número de telefone",
+      "origem": "a1-l06"
+    },
+    {
+      "step": "a1-l07",
+      "id": "ko:이름",
+      "ko": "이름",
+      "pt": "nome",
+      "origem": "a1-l01"
+    },
+    {
+      "step": "a1-l07",
+      "id": "ko:학생",
+      "ko": "학생",
+      "pt": "estudante; aluno",
+      "origem": "h24"
+    },
+    {
+      "step": "a1-l07",
+      "id": "ko:뭐",
+      "ko": "뭐",
+      "pt": "o que",
+      "origem": "a1-l01"
+    },
+    {
+      "step": "a1-l08",
+      "id": "ko:물",
+      "ko": "물",
+      "pt": "água",
+      "origem": "h19"
+    },
+    {
+      "step": "a1-l08",
+      "id": "ko:학생",
+      "ko": "학생",
+      "pt": "estudante; aluno",
+      "origem": "h24"
+    },
+    {
+      "step": "a1-l08",
+      "id": "ko:책",
+      "ko": "책",
+      "pt": "livro",
+      "origem": "h18"
+    },
+    {
+      "step": "a1-l08",
+      "id": "ko:음악",
+      "ko": "음악",
+      "pt": "música",
+      "origem": "h21"
+    },
+    {
+      "step": "a1-l09",
+      "id": "ko:좋다",
+      "ko": "좋다",
+      "pt": "ser bom; gostar",
+      "origem": "h23"
+    },
+    {
+      "step": "a1-l09",
+      "id": "ko:먹다",
+      "ko": "먹다",
+      "pt": "comer",
+      "origem": "h18"
+    },
+    {
+      "step": "a1-l09",
+      "id": "ko:회사",
+      "ko": "회사",
+      "pt": "empresa",
+      "origem": "h14"
+    },
+    {
+      "step": "a1-l09",
+      "id": "ko:커피",
+      "ko": "커피",
+      "pt": "café (bebida)",
+      "origem": "h07"
+    },
+    {
+      "step": "a1-l10",
+      "id": "ko:몇",
+      "ko": "몇",
+      "pt": "quantos; quantas",
+      "origem": "a1-l06"
+    },
+    {
+      "step": "a1-l11",
+      "id": "ko:부모",
+      "ko": "부모",
+      "pt": "pais (pai e mãe)",
+      "origem": "h06"
+    },
+    {
+      "step": "a1-l11",
+      "id": "ko:엄마",
+      "ko": "엄마",
+      "pt": "mamãe",
+      "origem": "h17"
+    },
+    {
+      "step": "a1-l11",
+      "id": "ko:아빠",
+      "ko": "아빠",
+      "pt": "papai",
+      "origem": "h09"
+    },
+    {
+      "step": "a1-l11",
+      "id": "ko:이름",
+      "ko": "이름",
+      "pt": "nome",
+      "origem": "a1-l01"
+    },
+    {
+      "step": "a1-l11",
+      "id": "ko:나이",
+      "ko": "나이",
+      "pt": "idade",
+      "origem": "a1-l06"
+    },
+    {
+      "step": "a1-l12",
+      "id": "ko:학생",
+      "ko": "학생",
+      "pt": "estudante; aluno",
+      "origem": "h24"
+    },
+    {
+      "step": "a1-l12",
+      "id": "ko:가족",
+      "ko": "가족",
+      "pt": "família",
+      "origem": "a1-l11"
+    },
+    {
+      "step": "a1-l12",
+      "id": "ko:머리",
+      "ko": "머리",
+      "pt": "cabeça",
+      "origem": "h05"
+    },
+    {
+      "step": "a1-l12",
+      "id": "ko:눈",
+      "ko": "눈",
+      "pt": "olho; neve",
+      "origem": "h17"
+    },
+    {
+      "step": "a1-l13",
+      "id": "ko:책상",
+      "ko": "책상",
+      "pt": "escrivaninha; mesa de estudo",
+      "origem": "a1-l04"
+    },
+    {
+      "step": "a1-l13",
+      "id": "ko:의자",
+      "ko": "의자",
+      "pt": "cadeira",
+      "origem": "h15"
+    },
+    {
+      "step": "a1-l14",
+      "id": "ko:보다",
+      "ko": "보다",
+      "pt": "ver; assistir",
+      "origem": "a1-l09"
+    },
+    {
+      "step": "a1-l14",
+      "id": "ko:듣다",
+      "ko": "듣다",
+      "pt": "ouvir; escutar",
+      "origem": "a1-l09"
+    },
+    {
+      "step": "a1-l14",
+      "id": "ko:먹다",
+      "ko": "먹다",
+      "pt": "comer",
+      "origem": "h18"
+    },
+    {
+      "step": "a1-l14",
+      "id": "ko:앉다",
+      "ko": "앉다",
+      "pt": "sentar-se",
+      "origem": "h20"
+    },
+    {
+      "step": "a1-l14",
+      "id": "ko:의자",
+      "ko": "의자",
+      "pt": "cadeira",
+      "origem": "h15"
+    },
+    {
+      "step": "a1-l14",
+      "id": "ko:집",
+      "ko": "집",
+      "pt": "casa",
+      "origem": "a1-l13"
+    },
+    {
+      "step": "a1-l15",
+      "id": "ko:죄송합니다",
+      "ko": "죄송합니다",
+      "pt": "desculpe; sinto muito (formal)",
+      "origem": "a1-l05"
+    },
+    {
+      "step": "a1-l15",
+      "id": "ko:주세요",
+      "ko": "주세요",
+      "pt": "por favor; dê (pedido polido)",
+      "origem": "a1-l05"
+    },
+    {
+      "step": "a1-l15",
+      "id": "ko:괜찮아요",
+      "ko": "괜찮아요",
+      "pt": "está bem; tudo bem",
+      "origem": "a1-l05"
+    },
+    {
+      "step": "a1-l15",
+      "id": "ko:친구",
+      "ko": "친구",
+      "pt": "amigo; amiga",
+      "origem": "a1-l01"
+    },
+    {
+      "step": "a1-l16",
+      "id": "ko:짜다",
+      "ko": "짜다",
+      "pt": "ser salgado",
+      "origem": "h10"
+    },
+    {
+      "step": "a1-l16",
+      "id": "ko:사과",
+      "ko": "사과",
+      "pt": "maçã; desculpa",
+      "origem": "h13"
+    },
+    {
+      "step": "a1-l16",
+      "id": "ko:차",
+      "ko": "차",
+      "pt": "chá; carro",
+      "origem": "h07"
+    },
+    {
+      "step": "a1-l16",
+      "id": "ko:우유",
+      "ko": "우유",
+      "pt": "leite",
+      "origem": "h11"
+    },
+    {
+      "step": "a1-l16",
+      "id": "ko:물",
+      "ko": "물",
+      "pt": "água",
+      "origem": "h19"
+    },
+    {
+      "step": "a1-l16",
+      "id": "ko:밥",
+      "ko": "밥",
+      "pt": "arroz; refeição",
+      "origem": "h18"
+    },
+    {
+      "step": "a1-l16",
+      "id": "ko:좋다",
+      "ko": "좋다",
+      "pt": "ser bom; gostar",
+      "origem": "h23"
+    },
+    {
+      "step": "a1-l17",
+      "id": "ko:차",
+      "ko": "차",
+      "pt": "chá; carro",
+      "origem": "h07"
+    },
+    {
+      "step": "a1-l19",
+      "id": "ko:옷",
+      "ko": "옷",
+      "pt": "roupa",
+      "origem": "h18"
+    },
+    {
+      "step": "a1-l19",
+      "id": "ko:치마",
+      "ko": "치마",
+      "pt": "saia",
+      "origem": "h07"
+    },
+    {
+      "step": "a1-l20",
+      "id": "ko:보다",
+      "ko": "보다",
+      "pt": "ver; assistir",
+      "origem": "a1-l09"
+    },
+    {
+      "step": "a1-l20",
+      "id": "ko:좋아하다",
+      "ko": "좋아하다",
+      "pt": "gostar de",
+      "origem": "a1-l16"
+    },
+    {
+      "step": "a1-l20",
+      "id": "ko:싫어하다",
+      "ko": "싫어하다",
+      "pt": "não gostar de",
+      "origem": "a1-l16"
+    },
+    {
+      "step": "a1-l20",
+      "id": "ko:주문하다",
+      "ko": "주문하다",
+      "pt": "pedir; fazer um pedido",
+      "origem": "a1-l17"
+    },
+    {
+      "step": "a1-l21",
+      "id": "ko:회사",
+      "ko": "회사",
+      "pt": "empresa",
+      "origem": "h14"
+    },
+    {
+      "step": "a1-l21",
+      "id": "ko:백화점",
+      "ko": "백화점",
+      "pt": "loja de departamentos",
+      "origem": "h23"
+    },
+    {
+      "step": "a1-l21",
+      "id": "ko:서울",
+      "ko": "서울",
+      "pt": "Seul",
+      "origem": "h19"
+    },
+    {
+      "step": "a1-l21",
+      "id": "ko:여기",
+      "ko": "여기",
+      "pt": "aqui",
+      "origem": "h11"
+    },
+    {
+      "step": "a1-l21",
+      "id": "ko:저기",
+      "ko": "저기",
+      "pt": "ali; lá (longe)",
+      "origem": "a1-l04"
+    },
+    {
+      "step": "a1-l21",
+      "id": "ko:집",
+      "ko": "집",
+      "pt": "casa",
+      "origem": "a1-l13"
+    },
+    {
+      "step": "a1-l22",
+      "id": "ko:회사",
+      "ko": "회사",
+      "pt": "empresa",
+      "origem": "h14"
+    },
+    {
+      "step": "a1-l22",
+      "id": "ko:시장",
+      "ko": "시장",
+      "pt": "mercado",
+      "origem": "a1-l21"
+    },
+    {
+      "step": "a1-l22",
+      "id": "ko:몇",
+      "ko": "몇",
+      "pt": "quantos; quantas",
+      "origem": "a1-l06"
+    },
+    {
+      "step": "a1-l22",
+      "id": "ko:오다",
+      "ko": "오다",
+      "pt": "vir",
+      "origem": "a1-l08"
+    },
+    {
+      "step": "a1-l22",
+      "id": "ko:시간",
+      "ko": "시간",
+      "pt": "tempo; hora",
+      "origem": "a1-l10"
+    },
+    {
+      "step": "a1-l23",
+      "id": "ko:길",
+      "ko": "길",
+      "pt": "caminho",
+      "origem": "h19"
+    },
+    {
+      "step": "a1-l23",
+      "id": "ko:병원",
+      "ko": "병원",
+      "pt": "hospital",
+      "origem": "a1-l21"
+    },
+    {
+      "step": "a1-l23",
+      "id": "ko:시장",
+      "ko": "시장",
+      "pt": "mercado",
+      "origem": "a1-l21"
+    },
+    {
+      "step": "a1-l23",
+      "id": "ko:거기",
+      "ko": "거기",
+      "pt": "aí; lá (perto de quem ouve)",
+      "origem": "a1-l04"
+    },
+    {
+      "step": "a1-l24",
+      "id": "ko:기다리다",
+      "ko": "기다리다",
+      "pt": "esperar",
+      "origem": "a1-l15"
+    },
+    {
+      "step": "a1-l24",
+      "id": "ko:조심하다",
+      "ko": "조심하다",
+      "pt": "ter cuidado",
+      "origem": "a1-l15"
+    },
+    {
+      "step": "a1-l24",
+      "id": "ko:은행",
+      "ko": "은행",
+      "pt": "banco (instituição)",
+      "origem": "a1-l21"
+    },
+    {
+      "step": "a1-l24",
+      "id": "ko:역",
+      "ko": "역",
+      "pt": "estação",
+      "origem": "a1-l21"
+    },
+    {
+      "step": "a1-l25",
+      "id": "ko:주말",
+      "ko": "주말",
+      "pt": "fim de semana",
+      "origem": "a1-l09"
+    },
+    {
+      "step": "a1-l25",
+      "id": "ko:좋다",
+      "ko": "좋다",
+      "pt": "ser bom; gostar",
+      "origem": "h23"
+    },
+    {
+      "step": "a1-l25",
+      "id": "ko:오다",
+      "ko": "오다",
+      "pt": "vir",
+      "origem": "a1-l08"
+    },
+    {
+      "step": "a1-l26",
+      "id": "ko:야구",
+      "ko": "야구",
+      "pt": "beisebol",
+      "origem": "h11"
+    },
+    {
+      "step": "a1-l26",
+      "id": "ko:요리",
+      "ko": "요리",
+      "pt": "culinária; prato",
+      "origem": "h11"
+    },
+    {
+      "step": "a1-l26",
+      "id": "ko:영화",
+      "ko": "영화",
+      "pt": "filme",
+      "origem": "a1-l07"
+    },
+    {
+      "step": "a1-l26",
+      "id": "ko:사진",
+      "ko": "사진",
+      "pt": "foto",
+      "origem": "a1-l11"
+    },
+    {
+      "step": "a1-l27",
+      "id": "ko:요리",
+      "ko": "요리",
+      "pt": "culinária; prato",
+      "origem": "h11"
+    },
+    {
+      "step": "a1-l27",
+      "id": "ko:그림",
+      "ko": "그림",
+      "pt": "desenho; pintura",
+      "origem": "a1-l26"
+    },
+    {
+      "step": "a1-l27",
+      "id": "ko:피아노",
+      "ko": "피아노",
+      "pt": "piano",
+      "origem": "a1-l26"
+    },
+    {
+      "step": "a1-l27",
+      "id": "ko:운동",
+      "ko": "운동",
+      "pt": "exercício; esporte",
+      "origem": "a1-l26"
+    },
+    {
+      "step": "a1-l27",
+      "id": "ko:모르다",
+      "ko": "모르다",
+      "pt": "não saber",
+      "origem": "a1-l05"
+    },
+    {
+      "step": "a1-l27",
+      "id": "ko:이해하다",
+      "ko": "이해하다",
+      "pt": "entender; compreender",
+      "origem": "a1-l05"
+    },
+    {
+      "step": "a1-l27",
+      "id": "ko:배우다",
+      "ko": "배우다",
+      "pt": "aprender",
+      "origem": "a1-l20"
+    },
+    {
+      "step": "a1-l28",
+      "id": "ko:카페",
+      "ko": "카페",
+      "pt": "café (estabelecimento)",
+      "origem": "a1-l21"
+    },
+    {
+      "step": "a1-l28",
+      "id": "ko:선물",
+      "ko": "선물",
+      "pt": "presente",
+      "origem": "a1-l15"
+    },
+    {
+      "step": "a1-l29",
+      "id": "ko:준비하다",
+      "ko": "준비하다",
+      "pt": "preparar",
+      "origem": "a1-l28"
+    },
+    {
+      "step": "a1-l29",
+      "id": "ko:만나다",
+      "ko": "만나다",
+      "pt": "encontrar; encontrar-se com",
+      "origem": "a1-l20"
+    },
+    {
+      "step": "a1-l29",
+      "id": "ko:오다",
+      "ko": "오다",
+      "pt": "vir",
+      "origem": "a1-l08"
+    },
+    {
+      "step": "a1-l29",
+      "id": "ko:시간",
+      "ko": "시간",
+      "pt": "tempo; hora",
+      "origem": "a1-l10"
+    },
+    {
+      "step": "a1-l30",
+      "id": "ko:받다",
+      "ko": "받다",
+      "pt": "receber",
+      "origem": "a1-l18"
+    },
+    {
+      "step": "a1-l30",
+      "id": "ko:출발하다",
+      "ko": "출발하다",
+      "pt": "partir; sair (viagem)",
+      "origem": "a1-l25"
+    },
+    {
+      "step": "a1-l30",
+      "id": "ko:약속",
+      "ko": "약속",
+      "pt": "compromisso; encontro combinado",
+      "origem": "a1-l25"
+    },
+    {
+      "step": "a1-l30",
+      "id": "ko:준비하다",
+      "ko": "준비하다",
+      "pt": "preparar",
+      "origem": "a1-l28"
+    },
+    {
+      "step": "a1-l30",
+      "id": "ko:주말",
+      "ko": "주말",
+      "pt": "fim de semana",
+      "origem": "a1-l09"
+    },
+    {
+      "step": "a1-l31",
+      "id": "ko:먹다",
+      "ko": "먹다",
+      "pt": "comer",
+      "origem": "h18"
+    },
+    {
+      "step": "a1-l32",
+      "id": "ko:눈",
+      "ko": "눈",
+      "pt": "olho; neve",
+      "origem": "h17"
+    },
+    {
+      "step": "a1-l32",
+      "id": "ko:계획",
+      "ko": "계획",
+      "pt": "plano",
+      "origem": "a1-l29"
+    },
+    {
+      "step": "a1-l32",
+      "id": "ko:좋다",
+      "ko": "좋다",
+      "pt": "ser bom; gostar",
+      "origem": "h23"
+    },
+    {
+      "step": "a1-l33",
+      "id": "ko:다리",
+      "ko": "다리",
+      "pt": "perna; ponte",
+      "origem": "h05"
+    },
+    {
+      "step": "a1-l33",
+      "id": "ko:약국",
+      "ko": "약국",
+      "pt": "farmácia",
+      "origem": "a1-l23"
+    },
+    {
+      "step": "a1-l33",
+      "id": "ko:눈",
+      "ko": "눈",
+      "pt": "olho; neve",
+      "origem": "h17"
+    },
+    {
+      "step": "a1-l33",
+      "id": "ko:코",
+      "ko": "코",
+      "pt": "nariz",
+      "origem": "h07"
+    },
+    {
+      "step": "a1-l33",
+      "id": "ko:입",
+      "ko": "입",
+      "pt": "boca",
+      "origem": "h18"
+    },
+    {
+      "step": "a1-l33",
+      "id": "ko:좋다",
+      "ko": "좋다",
+      "pt": "ser bom; gostar",
+      "origem": "h23"
+    },
+    {
+      "step": "a1-l33",
+      "id": "ko:괜찮아요",
+      "ko": "괜찮아요",
+      "pt": "está bem; tudo bem",
+      "origem": "a1-l05"
+    },
+    {
+      "step": "a1-l34",
+      "id": "ko:먹다",
+      "ko": "먹다",
+      "pt": "comer",
+      "origem": "h18"
+    },
+    {
+      "step": "a1-l34",
+      "id": "ko:조심하다",
+      "ko": "조심하다",
+      "pt": "ter cuidado",
+      "origem": "a1-l15"
+    },
+    {
+      "step": "a1-l34",
+      "id": "ko:운동하다",
+      "ko": "운동하다",
+      "pt": "praticar exercício; treinar",
+      "origem": "a1-l09"
+    },
+    {
+      "step": "a1-l34",
+      "id": "ko:병원",
+      "ko": "병원",
+      "pt": "hospital",
+      "origem": "a1-l21"
+    },
+    {
+      "step": "a1-l34",
+      "id": "ko:과일",
+      "ko": "과일",
+      "pt": "fruta",
+      "origem": "a1-l16"
+    },
+    {
+      "step": "a1-l34",
+      "id": "ko:채소",
+      "ko": "채소",
+      "pt": "legume; verdura",
+      "origem": "a1-l16"
+    },
+    {
+      "step": "a1-l35",
+      "id": "ko:입구",
+      "ko": "입구",
+      "pt": "entrada",
+      "origem": "a1-l24"
+    },
+    {
+      "step": "a1-l35",
+      "id": "ko:출구",
+      "ko": "출구",
+      "pt": "saída",
+      "origem": "a1-l24"
+    },
+    {
+      "step": "a1-l35",
+      "id": "ko:도착하다",
+      "ko": "도착하다",
+      "pt": "chegar",
+      "origem": "a1-l30"
+    },
+    {
+      "step": "a1-l35",
+      "id": "ko:출발하다",
+      "ko": "출발하다",
+      "pt": "partir; sair (viagem)",
+      "origem": "a1-l25"
+    },
+    {
+      "step": "a1-l35",
+      "id": "ko:일정",
+      "ko": "일정",
+      "pt": "agenda; programação",
+      "origem": "a1-l29"
+    },
+    {
+      "step": "a1-l36",
+      "id": "ko:주문하다",
+      "ko": "주문하다",
+      "pt": "pedir; fazer um pedido",
+      "origem": "a1-l17"
+    },
+    {
+      "step": "a1-l36",
+      "id": "ko:맛있다",
+      "ko": "맛있다",
+      "pt": "ser saboroso; ser delicioso",
+      "origem": "a1-l16"
+    },
+    {
+      "step": "a1-l36",
+      "id": "ko:맵다",
+      "ko": "맵다",
+      "pt": "ser picante",
+      "origem": "a1-l16"
+    },
+    {
+      "step": "a1-l36",
+      "id": "ko:계산서",
+      "ko": "계산서",
+      "pt": "conta; fatura",
+      "origem": "a1-l17"
+    },
+    {
+      "step": "a1-l36",
+      "id": "ko:가능하다",
+      "ko": "가능하다",
+      "pt": "ser possível",
+      "origem": "a1-l25"
+    },
+    {
+      "step": "a1-l37",
+      "id": "ko:지하철",
+      "ko": "지하철",
+      "pt": "metrô",
+      "origem": "a1-l22"
+    },
+    {
+      "step": "a1-l37",
+      "id": "ko:버스",
+      "ko": "버스",
+      "pt": "ônibus",
+      "origem": "a1-l22"
+    },
+    {
+      "step": "a1-l37",
+      "id": "ko:시간",
+      "ko": "시간",
+      "pt": "tempo; hora",
+      "origem": "a1-l10"
+    },
+    {
+      "step": "a1-l37",
+      "id": "ko:표",
+      "ko": "표",
+      "pt": "bilhete; passagem",
+      "origem": "a1-l24"
+    },
+    {
+      "step": "a1-l37",
+      "id": "ko:입구",
+      "ko": "입구",
+      "pt": "entrada",
+      "origem": "a1-l24"
+    },
+    {
+      "step": "a1-l37",
+      "id": "ko:출구",
+      "ko": "출구",
+      "pt": "saída",
+      "origem": "a1-l24"
+    },
+    {
+      "step": "a1-l38",
+      "id": "ko:답장",
+      "ko": "답장",
+      "pt": "resposta; resposta a mensagem",
+      "origem": "a1-l30"
+    },
+    {
+      "step": "a1-l38",
+      "id": "ko:예약하다",
+      "ko": "예약하다",
+      "pt": "reservar",
+      "origem": "a1-l29"
+    },
+    {
+      "step": "a1-l38",
+      "id": "ko:가능하다",
+      "ko": "가능하다",
+      "pt": "ser possível",
+      "origem": "a1-l25"
+    },
+    {
+      "step": "a1-l38",
+      "id": "ko:마음",
+      "ko": "마음",
+      "pt": "coração; mente; disposição",
+      "origem": "h24"
+    },
+    {
+      "step": "a1-l39",
+      "id": "ko:이름",
+      "ko": "이름",
+      "pt": "nome",
+      "origem": "a1-l01"
+    },
+    {
+      "step": "a1-l39",
+      "id": "ko:나이",
+      "ko": "나이",
+      "pt": "idade",
+      "origem": "a1-l06"
+    },
+    {
+      "step": "a1-l39",
+      "id": "ko:가족",
+      "ko": "가족",
+      "pt": "família",
+      "origem": "a1-l11"
+    },
+    {
+      "step": "a1-l39",
+      "id": "ko:잘하다",
+      "ko": "잘하다",
+      "pt": "fazer bem; ser bom em",
+      "origem": "a1-l27"
+    },
+    {
+      "step": "a1-l39",
+      "id": "ko:계획",
+      "ko": "계획",
+      "pt": "plano",
+      "origem": "a1-l29"
+    },
+    {
+      "step": "a1-l40",
+      "id": "ko:시간",
+      "ko": "시간",
+      "pt": "tempo; hora",
+      "origem": "a1-l10"
+    },
+    {
+      "step": "a1-l40",
+      "id": "ko:이해하다",
+      "ko": "이해하다",
+      "pt": "entender; compreender",
+      "origem": "a1-l05"
+    },
+    {
+      "step": "a2-l04",
+      "id": "ko:연락하다",
+      "ko": "연락하다",
+      "pt": "contatar; entrar em contato",
+      "origem": "a1-l30"
+    },
+    {
+      "step": "a2-l04",
+      "id": "ko:걱정하다",
+      "ko": "걱정하다",
+      "pt": "preocupar-se",
+      "origem": "a1-l38"
+    },
+    {
+      "step": "a2-l05",
+      "id": "ko:이야기하다",
+      "ko": "이야기하다",
+      "pt": "conversar; contar",
+      "origem": "a1-l14"
+    },
+    {
+      "step": "a2-l05",
+      "id": "ko:처음",
+      "ko": "처음",
+      "pt": "primeira vez; começo",
+      "origem": "a1-l15"
+    },
+    {
+      "step": "a2-l05",
+      "id": "ko:그다음",
+      "ko": "그다음",
+      "pt": "depois disso; em seguida",
+      "origem": "a1-l31"
+    },
+    {
+      "step": "a2-l06",
+      "id": "ko:경험",
+      "ko": "경험",
+      "pt": "experiência",
+      "origem": "a1-l39"
+    },
+    {
+      "step": "a2-l06",
+      "id": "ko:좋다",
+      "ko": "좋다",
+      "pt": "ser bom; gostar",
+      "origem": "h23"
+    },
+    {
+      "step": "a2-l07",
+      "id": "ko:연락하다",
+      "ko": "연락하다",
+      "pt": "contatar; entrar em contato",
+      "origem": "a1-l30"
+    },
+    {
+      "step": "a2-l08",
+      "id": "ko:준비하다",
+      "ko": "준비하다",
+      "pt": "preparar",
+      "origem": "a1-l28"
+    },
+    {
+      "step": "a2-l09",
+      "id": "ko:사용하다",
+      "ko": "사용하다",
+      "pt": "usar",
+      "origem": "a1-l14"
+    },
+    {
+      "step": "a2-l09",
+      "id": "ko:질문",
+      "ko": "질문",
+      "pt": "pergunta",
+      "origem": "a1-l27"
+    },
+    {
+      "step": "a2-l09",
+      "id": "ko:조용하다",
+      "ko": "조용하다",
+      "pt": "ser quieto; ser silencioso",
+      "origem": "a1-l12"
+    },
+    {
+      "step": "a2-l11",
+      "id": "ko:방",
+      "ko": "방",
+      "pt": "quarto",
+      "origem": "a1-l04"
+    },
+    {
+      "step": "a2-l11",
+      "id": "ko:주소",
+      "ko": "주소",
+      "pt": "endereço",
+      "origem": "h06"
+    },
+    {
+      "step": "a2-l11",
+      "id": "ko:가구",
+      "ko": "가구",
+      "pt": "móveis",
+      "origem": "h04"
+    },
+    {
+      "step": "a2-l12",
+      "id": "ko:빨래하다",
+      "ko": "빨래하다",
+      "pt": "lavar roupa",
+      "origem": "a1-l14"
+    },
+    {
+      "step": "a2-l12",
+      "id": "ko:설거지하다",
+      "ko": "설거지하다",
+      "pt": "lavar a louça",
+      "origem": "a1-l14"
+    },
+    {
+      "step": "a2-l12",
+      "id": "ko:요리하다",
+      "ko": "요리하다",
+      "pt": "cozinhar",
+      "origem": "a1-l14"
+    },
+    {
+      "step": "a2-l13",
+      "id": "ko:짐",
+      "ko": "짐",
+      "pt": "bagagem",
+      "origem": "a1-l29"
+    },
+    {
+      "step": "a2-l13",
+      "id": "ko:이사",
+      "ko": "이사",
+      "pt": "mudança de casa",
+      "origem": "a2-l06"
+    },
+    {
+      "step": "a2-l13",
+      "id": "ko:감사합니다",
+      "ko": "감사합니다",
+      "pt": "obrigado; obrigada (formal)",
+      "origem": "h22"
+    },
+    {
+      "step": "a2-l14",
+      "id": "ko:조용하다",
+      "ko": "조용하다",
+      "pt": "ser quieto; ser silencioso",
+      "origem": "a1-l12"
+    },
+    {
+      "step": "a2-l14",
+      "id": "ko:벽",
+      "ko": "벽",
+      "pt": "parede",
+      "origem": "a1-l13"
+    },
+    {
+      "step": "a2-l14",
+      "id": "ko:양해",
+      "ko": "양해",
+      "pt": "compreensão; entendimento",
+      "origem": "a1-l38"
+    },
+    {
+      "step": "a2-l15",
+      "id": "ko:주소",
+      "ko": "주소",
+      "pt": "endereço",
+      "origem": "h06"
+    },
+    {
+      "step": "a2-l15",
+      "id": "ko:사진",
+      "ko": "사진",
+      "pt": "foto",
+      "origem": "a1-l11"
+    },
+    {
+      "step": "a2-l16",
+      "id": "ko:몸",
+      "ko": "몸",
+      "pt": "corpo",
+      "origem": "a1-l33"
+    },
+    {
+      "step": "a2-l16",
+      "id": "ko:증상",
+      "ko": "증상",
+      "pt": "sintoma",
+      "origem": "a1-l33"
+    },
+    {
+      "step": "a2-l16",
+      "id": "ko:피곤하다",
+      "ko": "피곤하다",
+      "pt": "estar cansado",
+      "origem": "a1-l33"
+    },
+    {
+      "step": "a2-l17",
+      "id": "ko:자주",
+      "ko": "자주",
+      "pt": "frequentemente; com frequência",
+      "origem": "a1-l09"
+    },
+    {
+      "step": "a2-l17",
+      "id": "ko:가끔",
+      "ko": "가끔",
+      "pt": "às vezes",
+      "origem": "a1-l09"
+    },
+    {
+      "step": "a2-l18",
+      "id": "ko:아침",
+      "ko": "아침",
+      "pt": "manhã; café da manhã",
+      "origem": "a1-l08"
+    },
+    {
+      "step": "a2-l18",
+      "id": "ko:저녁",
+      "ko": "저녁",
+      "pt": "jantar; noite",
+      "origem": "a1-l08"
+    },
+    {
+      "step": "a2-l19",
+      "id": "ko:잠",
+      "ko": "잠",
+      "pt": "sono",
+      "origem": "a1-l34"
+    },
+    {
+      "step": "a2-l19",
+      "id": "ko:스트레스",
+      "ko": "스트레스",
+      "pt": "estresse",
+      "origem": "a1-l34"
+    },
+    {
+      "step": "a2-l19",
+      "id": "ko:피하다",
+      "ko": "피하다",
+      "pt": "evitar",
+      "origem": "a1-l34"
+    },
+    {
+      "step": "a2-l20",
+      "id": "ko:채소",
+      "ko": "채소",
+      "pt": "legume; verdura",
+      "origem": "a1-l16"
+    },
+    {
+      "step": "a2-l21",
+      "id": "ko:회사원",
+      "ko": "회사원",
+      "pt": "funcionário de empresa; funcionária de empresa",
+      "origem": "a1-l02"
+    },
+    {
+      "step": "a2-l21",
+      "id": "ko:직장",
+      "ko": "직장",
+      "pt": "local de trabalho",
+      "origem": "a1-l10"
+    },
+    {
+      "step": "a2-l21",
+      "id": "ko:경험",
+      "ko": "경험",
+      "pt": "experiência",
+      "origem": "a1-l39"
+    },
+    {
+      "step": "a2-l22",
+      "id": "ko:취업",
+      "ko": "취업",
+      "pt": "obtenção de emprego",
+      "origem": "a2-l06"
+    },
+    {
+      "step": "a2-l22",
+      "id": "ko:경험",
+      "ko": "경험",
+      "pt": "experiência",
+      "origem": "a1-l39"
+    },
+    {
+      "step": "a2-l22",
+      "id": "ko:질문",
+      "ko": "질문",
+      "pt": "pergunta",
+      "origem": "a1-l27"
+    },
+    {
+      "step": "a2-l23",
+      "id": "ko:성격",
+      "ko": "성격",
+      "pt": "personalidade",
+      "origem": "a1-l39"
+    },
+    {
+      "step": "a2-l23",
+      "id": "ko:경력",
+      "ko": "경력",
+      "pt": "experiência profissional",
+      "origem": "a2-l21"
+    },
+    {
+      "step": "a2-l23",
+      "id": "ko:준비하다",
+      "ko": "준비하다",
+      "pt": "preparar",
+      "origem": "a1-l28"
+    },
+    {
+      "step": "a2-l24",
+      "id": "ko:학교",
+      "ko": "학교",
+      "pt": "escola",
+      "origem": "a1-l10"
+    },
+    {
+      "step": "a2-l24",
+      "id": "ko:시험",
+      "ko": "시험",
+      "pt": "prova; exame",
+      "origem": "a2-l04"
+    },
+    {
+      "step": "a2-l24",
+      "id": "ko:배우다",
+      "ko": "배우다",
+      "pt": "aprender",
+      "origem": "a1-l20"
+    },
+    {
+      "step": "a2-l24",
+      "id": "ko:가르치다",
+      "ko": "가르치다",
+      "pt": "ensinar",
+      "origem": "a1-l27"
+    },
+    {
+      "step": "a2-l25",
+      "id": "ko:일정",
+      "ko": "일정",
+      "pt": "agenda; programação",
+      "origem": "a1-l29"
+    },
+    {
+      "step": "a2-l25",
+      "id": "ko:회사",
+      "ko": "회사",
+      "pt": "empresa",
+      "origem": "h14"
+    },
+    {
+      "step": "a2-l25",
+      "id": "ko:연락하다",
+      "ko": "연락하다",
+      "pt": "contatar; entrar em contato",
+      "origem": "a1-l30"
+    },
+    {
+      "step": "a2-l26",
+      "id": "ko:가격",
+      "ko": "가격",
+      "pt": "preço",
+      "origem": "a1-l18"
+    },
+    {
+      "step": "a2-l27",
+      "id": "ko:표",
+      "ko": "표",
+      "pt": "bilhete; passagem",
+      "origem": "a1-l24"
+    },
+    {
+      "step": "a2-l27",
+      "id": "ko:짐",
+      "ko": "짐",
+      "pt": "bagagem",
+      "origem": "a1-l29"
+    },
+    {
+      "step": "a2-l27",
+      "id": "ko:출발",
+      "ko": "출발",
+      "pt": "partida; saída",
+      "origem": "a1-l29"
+    },
+    {
+      "step": "a2-l27",
+      "id": "ko:도착",
+      "ko": "도착",
+      "pt": "chegada",
+      "origem": "a1-l29"
+    },
+    {
+      "step": "a2-l28",
+      "id": "ko:문제",
+      "ko": "문제",
+      "pt": "problema",
+      "origem": "a1-l30"
+    },
+    {
+      "step": "a2-l28",
+      "id": "ko:예약하다",
+      "ko": "예약하다",
+      "pt": "reservar",
+      "origem": "a1-l29"
+    },
+    {
+      "step": "a2-l28",
+      "id": "ko:취소하다",
+      "ko": "취소하다",
+      "pt": "cancelar",
+      "origem": "a1-l38"
+    },
+    {
+      "step": "a2-l28",
+      "id": "ko:변경",
+      "ko": "변경",
+      "pt": "mudança; alteração",
+      "origem": "a1-l38"
+    },
+    {
+      "step": "a2-l28",
+      "id": "ko:도움",
+      "ko": "도움",
+      "pt": "ajuda",
+      "origem": "a1-l27"
+    },
+    {
+      "step": "a2-l29",
+      "id": "ko:관광지",
+      "ko": "관광지",
+      "pt": "ponto turístico",
+      "origem": "a1-l35"
+    },
+    {
+      "step": "a2-l29",
+      "id": "ko:거리",
+      "ko": "거리",
+      "pt": "rua; avenida movimentada",
+      "origem": "a1-l23"
+    },
+    {
+      "step": "a2-l29",
+      "id": "ko:시간",
+      "ko": "시간",
+      "pt": "tempo; hora",
+      "origem": "a1-l10"
+    },
+    {
+      "step": "a2-l30",
+      "id": "ko:경험",
+      "ko": "경험",
+      "pt": "experiência",
+      "origem": "a1-l39"
+    },
+    {
+      "step": "a2-l30",
+      "id": "ko:아름답다",
+      "ko": "아름답다",
+      "pt": "ser bonito; ser belo",
+      "origem": "a1-l35"
+    },
+    {
+      "step": "a2-l31",
+      "id": "ko:좋다",
+      "ko": "좋다",
+      "pt": "ser bom; gostar",
+      "origem": "h23"
+    },
+    {
+      "step": "a2-l32",
+      "id": "ko:문제",
+      "ko": "문제",
+      "pt": "problema",
+      "origem": "a1-l30"
+    },
+    {
+      "step": "a2-l32",
+      "id": "ko:이해하다",
+      "ko": "이해하다",
+      "pt": "entender; compreender",
+      "origem": "a1-l05"
+    },
+    {
+      "step": "a2-l33",
+      "id": "ko:성함",
+      "ko": "성함",
+      "pt": "nome (forma honorífica)",
+      "origem": "a1-l15"
+    },
+    {
+      "step": "a2-l33",
+      "id": "ko:어머니",
+      "ko": "어머니",
+      "pt": "mãe",
+      "origem": "h05"
+    },
+    {
+      "step": "a2-l34",
+      "id": "ko:참석하다",
+      "ko": "참석하다",
+      "pt": "participar; comparecer",
+      "origem": "a1-l28"
+    },
+    {
+      "step": "a2-l34",
+      "id": "ko:선물",
+      "ko": "선물",
+      "pt": "presente",
+      "origem": "a1-l15"
+    },
+    {
+      "step": "a2-l34",
+      "id": "ko:감사합니다",
+      "ko": "감사합니다",
+      "pt": "obrigado; obrigada (formal)",
+      "origem": "h22"
+    },
+    {
+      "step": "a2-l35",
+      "id": "ko:친구",
+      "ko": "친구",
+      "pt": "amigo; amiga",
+      "origem": "a1-l01"
+    },
+    {
+      "step": "a2-l35",
+      "id": "ko:생각하다",
+      "ko": "생각하다",
+      "pt": "pensar",
+      "origem": "a1-l20"
+    },
+    {
+      "step": "a2-l35",
+      "id": "ko:이해하다",
+      "ko": "이해하다",
+      "pt": "entender; compreender",
+      "origem": "a1-l05"
+    },
+    {
+      "step": "a2-l36",
+      "id": "ko:이야기하다",
+      "ko": "이야기하다",
+      "pt": "conversar; contar",
+      "origem": "a1-l14"
+    },
+    {
+      "step": "a2-l36",
+      "id": "ko:시간",
+      "ko": "시간",
+      "pt": "tempo; hora",
+      "origem": "a1-l10"
+    },
+    {
+      "step": "a2-l37",
+      "id": "ko:문제",
+      "ko": "문제",
+      "pt": "problema",
+      "origem": "a1-l30"
+    },
+    {
+      "step": "a2-l37",
+      "id": "ko:해결",
+      "ko": "해결",
+      "pt": "solução; resolução",
+      "origem": "a2-l10"
+    },
+    {
+      "step": "a2-l37",
+      "id": "ko:수리",
+      "ko": "수리",
+      "pt": "conserto; reparo",
+      "origem": "a2-l15"
+    },
+    {
+      "step": "a2-l37",
+      "id": "ko:도움",
+      "ko": "도움",
+      "pt": "ajuda",
+      "origem": "a1-l27"
+    },
+    {
+      "step": "a2-l38",
+      "id": "ko:사과하다",
+      "ko": "사과하다",
+      "pt": "pedir desculpas",
+      "origem": "a1-l30"
+    },
+    {
+      "step": "a2-l38",
+      "id": "ko:감사합니다",
+      "ko": "감사합니다",
+      "pt": "obrigado; obrigada (formal)",
+      "origem": "h22"
+    },
+    {
+      "step": "a2-l40",
+      "id": "ko:자신감",
+      "ko": "자신감",
+      "pt": "confiança em si",
+      "origem": "a2-l23"
+    },
+    {
+      "step": "a2-l40",
+      "id": "ko:성장",
+      "ko": "성장",
+      "pt": "crescimento; amadurecimento",
+      "origem": "a2-l36"
+    },
+    {
+      "step": "a2-l40",
+      "id": "ko:감사합니다",
+      "ko": "감사합니다",
+      "pt": "obrigado; obrigada (formal)",
+      "origem": "h22"
+    }
+  ]
+}

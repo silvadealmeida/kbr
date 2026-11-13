@@ -1,0 +1,1664 @@
+{
+  "itensDeRespostaDigitada": 794,
+  "exigemPontuacaoIdentica": 126,
+  "porPrefixo": {
+    "a2-": 126
+  },
+  "rows": [
+    {
+      "item": "a2-l01-e05",
+      "step": "a2-l01",
+      "type": "translate",
+      "alvo": "토요일에 친구와 전시를 봤어요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "토요일에 친구와 전시를 봤어요.",
+        "토요일에 친구하고 전시를 봤어요."
+      ]
+    },
+    {
+      "item": "a2-l02-e05",
+      "step": "a2-l02",
+      "type": "translate",
+      "alvo": "일본에 한번 가 봤어요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "일본에 한번 가 봤어요.",
+        "일본에 한 번 가 봤어요."
+      ]
+    },
+    {
+      "item": "a2-l02-e09",
+      "step": "a2-l02",
+      "type": "translate",
+      "alvo": "Eu ainda nunca fui a uma fonte termal.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Eu ainda nunca fui a uma fonte termal.",
+        "Eu ainda não fui a uma fonte termal.",
+        "Ainda não fui a uma fonte termal."
+      ]
+    },
+    {
+      "item": "a2-l03-e05",
+      "step": "a2-l03",
+      "type": "translate",
+      "alvo": "동생이 저보다 키가 더 커요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "동생이 저보다 키가 더 커요.",
+        "제 동생이 저보다 키가 더 커요."
+      ]
+    },
+    {
+      "item": "a2-l04-e05",
+      "step": "a2-l04",
+      "type": "translate",
+      "alvo": "약속에 가지 못했어요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "약속에 가지 못했어요.",
+        "약속에 가지 못 했어요."
+      ]
+    },
+    {
+      "item": "a2-l04-e09",
+      "step": "a2-l04",
+      "type": "translate",
+      "alvo": "Surgiu um imprevisto de repente e não pude ir.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Surgiu um imprevisto de repente e não pude ir.",
+        "De repente surgiu um imprevisto e não pude ir.",
+        "Surgiu um imprevisto de repente, então não pude ir."
+      ]
+    },
+    {
+      "item": "a2-l05-e05",
+      "step": "a2-l05",
+      "type": "translate",
+      "alvo": "주인공이 마을을 떠나고 서울로 갔어요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "주인공이 마을을 떠나고 서울로 갔어요.",
+        "주인공은 마을을 떠나고 서울로 갔어요."
+      ]
+    },
+    {
+      "item": "a2-l05-e09",
+      "step": "a2-l05",
+      "type": "translate",
+      "alvo": "No meio da história, apareceu uma pessoa que ajudou.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "No meio da história, apareceu uma pessoa que ajudou.",
+        "No meio, apareceu uma pessoa que ajudou.",
+        "No meio da história apareceu uma pessoa que ajudou."
+      ]
+    },
+    {
+      "item": "a2-l06-e05",
+      "step": "a2-l06",
+      "type": "translate",
+      "alvo": "한국으로 유학을 가려고 해요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "한국으로 유학을 가려고 해요.",
+        "한국에 유학을 가려고 해요."
+      ]
+    },
+    {
+      "item": "a2-l06-e09",
+      "step": "a2-l06",
+      "type": "translate",
+      "alvo": "Primeiro, pretendo acumular experiência.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Primeiro, pretendo acumular experiência.",
+        "Primeiro pretendo acumular experiência.",
+        "Primeiro, pretendo ganhar experiência."
+      ]
+    },
+    {
+      "item": "a2-l07-e05",
+      "step": "a2-l07",
+      "type": "translate",
+      "alvo": "세 시에 만나는 게 어때요?",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": true,
+      "aceitas": [
+        "세 시에 만나는 게 어때요?",
+        "세 시에 만나면 어때요?",
+        "세 시에 만날까요?"
+      ]
+    },
+    {
+      "item": "a2-l07-e09",
+      "step": "a2-l07",
+      "type": "translate",
+      "alvo": "Acho que duas horas é um pouco cedo.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Acho que duas horas é um pouco cedo.",
+        "Acho que duas horas é cedo demais.",
+        "Parece que duas horas é um pouco cedo."
+      ]
+    },
+    {
+      "item": "a2-l08-e05",
+      "step": "a2-l08",
+      "type": "translate",
+      "alvo": "저녁을 먹고 나서 샤워해요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "저녁을 먹고 나서 샤워해요.",
+        "저녁을 먹은 후에 샤워해요."
+      ]
+    },
+    {
+      "item": "a2-l08-e09",
+      "step": "a2-l08",
+      "type": "translate",
+      "alvo": "Eu me exercito antes de ir ao trabalho.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Eu me exercito antes de ir ao trabalho.",
+        "Me exercito antes de ir ao trabalho.",
+        "Eu me exercito antes de sair para o trabalho."
+      ]
+    },
+    {
+      "item": "a2-l09-e05",
+      "step": "a2-l09",
+      "type": "translate",
+      "alvo": "여기에서 음식을 먹으면 안 돼요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "여기에서 음식을 먹으면 안 돼요.",
+        "여기서 음식을 먹으면 안 돼요."
+      ]
+    },
+    {
+      "item": "a2-l09-e09",
+      "step": "a2-l09",
+      "type": "translate",
+      "alvo": "Basta fazer silêncio.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Basta fazer silêncio.",
+        "Só precisa fazer silêncio.",
+        "Você só precisa ficar em silêncio."
+      ]
+    },
+    {
+      "item": "a2-l10-e05",
+      "step": "a2-l10",
+      "type": "translate",
+      "alvo": "비가 오면 집에 있을 거예요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "비가 오면 집에 있을 거예요.",
+        "비가 오면 집에 있어요."
+      ]
+    },
+    {
+      "item": "a2-l10-e09",
+      "step": "a2-l10",
+      "type": "translate",
+      "alvo": "Se não tiver tempo, nos encontramos na próxima.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Se não tiver tempo, nos encontramos na próxima.",
+        "Se não houver tempo, nos encontramos depois.",
+        "Se você não tiver tempo, nos encontramos na próxima."
+      ]
+    },
+    {
+      "item": "a2-l11-e05",
+      "step": "a2-l11",
+      "type": "translate",
+      "alvo": "혼자 사는 게 편해요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "혼자 사는 게 편해요.",
+        "혼자 사는 것이 편해요."
+      ]
+    },
+    {
+      "item": "a2-l11-e09",
+      "step": "a2-l11",
+      "type": "translate",
+      "alvo": "O depósito caução é caro demais.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "O depósito caução é caro demais.",
+        "O depósito é caro demais.",
+        "A caução é muito cara."
+      ]
+    },
+    {
+      "item": "a2-l12-e05",
+      "step": "a2-l12",
+      "type": "translate",
+      "alvo": "오늘은 청소하지 않아도 돼요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "오늘은 청소하지 않아도 돼요.",
+        "오늘은 청소 안 해도 돼요."
+      ]
+    },
+    {
+      "item": "a2-l12-e09",
+      "step": "a2-l12",
+      "type": "translate",
+      "alvo": "Seria bom lavarmos a louça juntos.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Seria bom lavarmos a louça juntos.",
+        "Seria bom lavar a louça juntos.",
+        "É melhor lavarmos a louça juntos."
+      ]
+    },
+    {
+      "item": "a2-l13-e05",
+      "step": "a2-l13",
+      "type": "translate",
+      "alvo": "도와주시겠어요?",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": true,
+      "aceitas": [
+        "도와주시겠어요?",
+        "조금 도와주시겠어요?"
+      ]
+    },
+    {
+      "item": "a2-l13-e09",
+      "step": "a2-l13",
+      "type": "translate",
+      "alvo": "Esta bolsa é pesada demais.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Esta bolsa é pesada demais.",
+        "Esta bolsa é muito pesada.",
+        "Essa bolsa é pesada demais."
+      ]
+    },
+    {
+      "item": "a2-l14-e05",
+      "step": "a2-l14",
+      "type": "translate",
+      "alvo": "조금 시끄러워요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "조금 시끄러워요.",
+        "조금 시끄러운데요."
+      ]
+    },
+    {
+      "item": "a2-l14-e09",
+      "step": "a2-l14",
+      "type": "translate",
+      "alvo": "Está um pouco barulhento, então não consigo dormir.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Está um pouco barulhento, então não consigo dormir.",
+        "É um pouco barulhento, então não consigo dormir."
+      ]
+    },
+    {
+      "item": "a2-l15-e05",
+      "step": "a2-l15",
+      "type": "translate",
+      "alvo": "친구들이 그리워요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "친구들이 그리워요.",
+        "친구가 그리워요.",
+        "고향 친구들이 그리워요."
+      ]
+    },
+    {
+      "item": "a2-l15-e09",
+      "step": "a2-l15",
+      "type": "translate",
+      "alvo": "Estou me adaptando à nova vida.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Estou me adaptando à nova vida.",
+        "Estou me adaptando à vida nova."
+      ]
+    },
+    {
+      "item": "a2-l16-e05",
+      "step": "a2-l16",
+      "type": "translate",
+      "alvo": "열이 있어요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "열이 있어요.",
+        "열이 나요."
+      ]
+    },
+    {
+      "item": "a2-l16-e09",
+      "step": "a2-l16",
+      "type": "translate",
+      "alvo": "Estou tossindo e um pouco tonto.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Estou tossindo e um pouco tonto.",
+        "Estou com tosse e um pouco de tontura."
+      ]
+    },
+    {
+      "item": "a2-l17-e05",
+      "step": "a2-l17",
+      "type": "translate",
+      "alvo": "하루에 세 번씩 약을 먹어요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "하루에 세 번씩 약을 먹어요.",
+        "하루에 세 번 약을 먹어요."
+      ]
+    },
+    {
+      "item": "a2-l17-e09",
+      "step": "a2-l17",
+      "type": "translate",
+      "alvo": "Trabalho da manhã até a noite.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Trabalho da manhã até a noite.",
+        "Trabalho desde a manhã até a noite."
+      ]
+    },
+    {
+      "item": "a2-l18-e05",
+      "step": "a2-l18",
+      "type": "translate",
+      "alvo": "물을 많이 마시는 게 좋아요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "물을 많이 마시는 게 좋아요.",
+        "물을 많이 마시면 좋아요."
+      ]
+    },
+    {
+      "item": "a2-l18-e09",
+      "step": "a2-l18",
+      "type": "translate",
+      "alvo": "Tome três vezes ao dia, depois das refeições.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Tome três vezes ao dia, depois das refeições.",
+        "Tome três vezes por dia após as refeições."
+      ]
+    },
+    {
+      "item": "a2-l19-e05",
+      "step": "a2-l19",
+      "type": "translate",
+      "alvo": "아프면 쉬세요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "아프면 쉬세요.",
+        "아프면 푹 쉬세요."
+      ]
+    },
+    {
+      "item": "a2-l19-e09",
+      "step": "a2-l19",
+      "type": "translate",
+      "alvo": "Não levante coisas pesadas.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Não levante coisas pesadas.",
+        "Não carregue objetos pesados."
+      ]
+    },
+    {
+      "item": "a2-l20-e05",
+      "step": "a2-l20",
+      "type": "translate",
+      "alvo": "매일 걷고 있어요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "매일 걷고 있어요.",
+        "요즘 매일 걷고 있어요."
+      ]
+    },
+    {
+      "item": "a2-l20-e09",
+      "step": "a2-l20",
+      "type": "translate",
+      "alvo": "Tenho bebido água com frequência.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Tenho bebido água com frequência.",
+        "Ultimamente tenho bebido água com frequência."
+      ]
+    },
+    {
+      "item": "a2-l21-e05",
+      "step": "a2-l21",
+      "type": "translate",
+      "alvo": "아홉 시부터 여섯 시까지 일해요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "아홉 시부터 여섯 시까지 일해요.",
+        "아홉 시부터 여섯 시까지 근무해요."
+      ]
+    },
+    {
+      "item": "a2-l21-e09",
+      "step": "a2-l21",
+      "type": "translate",
+      "alvo": "Às vezes também faço hora extra.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Às vezes também faço hora extra.",
+        "Às vezes faço hora extra também."
+      ]
+    },
+    {
+      "item": "a2-l22-e05",
+      "step": "a2-l22",
+      "type": "translate",
+      "alvo": "이 회사에 지원하려고 해요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "이 회사에 지원하려고 해요.",
+        "이 회사에 지원할 거예요."
+      ]
+    },
+    {
+      "item": "a2-l22-e09",
+      "step": "a2-l22",
+      "type": "translate",
+      "alvo": "É bom ter um certificado.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "É bom ter um certificado.",
+        "É bom se tiver certificado."
+      ]
+    },
+    {
+      "item": "a2-l23-e05",
+      "step": "a2-l23",
+      "type": "translate",
+      "alvo": "고객 지원 경험이 있습니다.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "고객 지원 경험이 있습니다.",
+        "고객 지원 경험이 있어요."
+      ]
+    },
+    {
+      "item": "a2-l23-e09",
+      "step": "a2-l23",
+      "type": "translate",
+      "alvo": "Respondo com calma mesmo em situações difíceis.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Respondo com calma mesmo em situações difíceis.",
+        "Mesmo em situações difíceis, respondo com calma."
+      ]
+    },
+    {
+      "item": "a2-l24-e05",
+      "step": "a2-l24",
+      "type": "translate",
+      "alvo": "발음을 잘하는 것이 어려워요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "발음을 잘하는 것이 어려워요.",
+        "발음이 어려워요."
+      ]
+    },
+    {
+      "item": "a2-l24-e09",
+      "step": "a2-l24",
+      "type": "translate",
+      "alvo": "Se praticar com constância, a pronúncia também vai melhorar.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Se praticar com constância, a pronúncia também vai melhorar.",
+        "Se você praticar sempre, a pronúncia também vai melhorar."
+      ]
+    },
+    {
+      "item": "a2-l25-e05",
+      "step": "a2-l25",
+      "type": "translate",
+      "alvo": "발표 전에 같이 확인해야 해요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "발표 전에 같이 확인해야 해요.",
+        "발표하기 전에 같이 확인해야 해요."
+      ]
+    },
+    {
+      "item": "a2-l25-e09",
+      "step": "a2-l25",
+      "type": "translate",
+      "alvo": "É preciso entregar o relatório até sexta-feira.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "É preciso entregar o relatório até sexta-feira.",
+        "Preciso entregar o relatório até sexta."
+      ]
+    },
+    {
+      "item": "a2-l26-e05",
+      "step": "a2-l26",
+      "type": "translate",
+      "alvo": "이틀 연박으로 예약하고 싶어요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "이틀 연박으로 예약하고 싶어요.",
+        "이틀 예약하고 싶어요."
+      ]
+    },
+    {
+      "item": "a2-l26-e09",
+      "step": "a2-l26",
+      "type": "translate",
+      "alvo": "O estacionamento é gratuito.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "O estacionamento é gratuito.",
+        "O estacionamento é grátis."
+      ]
+    },
+    {
+      "item": "a2-l27-e05",
+      "step": "a2-l27",
+      "type": "translate",
+      "alvo": "보안검색을 한 후에 탑승구로 가세요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "보안검색을 한 후에 탑승구로 가세요.",
+        "보안검색 후에 탑승구로 가세요."
+      ]
+    },
+    {
+      "item": "a2-l27-e09",
+      "step": "a2-l27",
+      "type": "translate",
+      "alvo": "Onde despacho a bagagem?",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": true,
+      "aceitas": [
+        "Onde despacho a bagagem?",
+        "Onde se despacha a bagagem?"
+      ]
+    },
+    {
+      "item": "a2-l28-e05",
+      "step": "a2-l28",
+      "type": "translate",
+      "alvo": "짐을 찾지 못했어요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "짐을 찾지 못했어요.",
+        "제 짐을 찾지 못했어요."
+      ]
+    },
+    {
+      "item": "a2-l28-e09",
+      "step": "a2-l28",
+      "type": "translate",
+      "alvo": "Quando encontrarmos a bagagem, enviaremos ao hotel.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Quando encontrarmos a bagagem, enviaremos ao hotel.",
+        "Se encontrarmos a bagagem, enviaremos ao hotel."
+      ]
+    },
+    {
+      "item": "a2-l29-e05",
+      "step": "a2-l29",
+      "type": "translate",
+      "alvo": "일찍 가는 게 좋겠어요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "일찍 가는 게 좋겠어요.",
+        "일찍 가면 좋겠어요."
+      ]
+    },
+    {
+      "item": "a2-l29-e09",
+      "step": "a2-l29",
+      "type": "translate",
+      "alvo": "É caro, mas a comida é saborosa.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "É caro, mas a comida é saborosa.",
+        "O preço é alto, mas a comida é gostosa."
+      ]
+    },
+    {
+      "item": "a2-l30-e05",
+      "step": "a2-l30",
+      "type": "translate",
+      "alvo": "조금 힘들었지만 즐거웠어요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "조금 힘들었지만 즐거웠어요.",
+        "조금 힘들었지만 정말 즐거웠어요."
+      ]
+    },
+    {
+      "item": "a2-l30-e09",
+      "step": "a2-l30",
+      "type": "translate",
+      "alvo": "Vamos juntos da próxima vez.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Vamos juntos da próxima vez.",
+        "Na próxima vez, vamos juntos."
+      ]
+    },
+    {
+      "item": "a2-l31-e05",
+      "step": "a2-l31",
+      "type": "translate",
+      "alvo": "좋은 영화라고 생각해요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "좋은 영화라고 생각해요.",
+        "좋은 영화인 것 같아요."
+      ]
+    },
+    {
+      "item": "a2-l31-e08",
+      "step": "a2-l31",
+      "type": "listen",
+      "alvo": "다른 감독의 영화를 보는 게 어때요?",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": true,
+      "aceitas": [
+        "다른 감독의 영화를 보는 게 어때요?",
+        "다른 감독의 영화를 보는 게 어때요?"
+      ]
+    },
+    {
+      "item": "a2-l31-e09",
+      "step": "a2-l31",
+      "type": "translate",
+      "alvo": "A última cena foi marcante.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "A última cena foi marcante.",
+        "A cena final foi marcante."
+      ]
+    },
+    {
+      "item": "a2-l32-e05",
+      "step": "a2-l32",
+      "type": "translate",
+      "alvo": "지하철이 멈췄기 때문에 늦었어요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "지하철이 멈췄기 때문에 늦었어요.",
+        "지하철이 멈춰서 늦었어요."
+      ]
+    },
+    {
+      "item": "a2-l32-e09",
+      "step": "a2-l32",
+      "type": "translate",
+      "alvo": "Como não temos tempo, vamos de táxi.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Como não temos tempo, vamos de táxi.",
+        "Como não há tempo, vamos de táxi."
+      ]
+    },
+    {
+      "item": "a2-l33-e05",
+      "step": "a2-l33",
+      "type": "translate",
+      "alvo": "할머니께 선물을 드렸어요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "할머니께 선물을 드렸어요.",
+        "할머니에게 선물을 드렸어요."
+      ]
+    },
+    {
+      "item": "a2-l33-e09",
+      "step": "a2-l33",
+      "type": "translate",
+      "alvo": "Minha avó gosta de conhecer pessoas.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Minha avó gosta de conhecer pessoas.",
+        "Minha avó gosta de encontrar pessoas."
+      ]
+    },
+    {
+      "item": "a2-l34-e05",
+      "step": "a2-l34",
+      "type": "translate",
+      "alvo": "미안하지만 그날은 어려워요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "미안하지만 그날은 어려워요.",
+        "죄송하지만 그날은 어려워요."
+      ]
+    },
+    {
+      "item": "a2-l34-e08",
+      "step": "a2-l34",
+      "type": "listen",
+      "alvo": "다음 주 금요일은 어때요?",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": true,
+      "aceitas": [
+        "다음 주 금요일은 어때요?",
+        "다음 주 금요일은 어때요?"
+      ]
+    },
+    {
+      "item": "a2-l34-e09",
+      "step": "a2-l34",
+      "type": "translate",
+      "alvo": "Fico feliz pelo convite.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Fico feliz pelo convite.",
+        "Fico feliz por ter me convidado."
+      ]
+    },
+    {
+      "item": "a2-l35-e05",
+      "step": "a2-l35",
+      "type": "translate",
+      "alvo": "비슷하지만 조금 달라요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "비슷하지만 조금 달라요.",
+        "비슷하지만 조금 달라요."
+      ]
+    },
+    {
+      "item": "a2-l35-e09",
+      "step": "a2-l35",
+      "type": "translate",
+      "alvo": "Se respeitarmos as diferenças, acho que não haverá problema.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Se respeitarmos as diferenças, acho que não haverá problema.",
+        "Se respeitarmos as diferenças, acho que não teremos problemas."
+      ]
+    },
+    {
+      "item": "a2-l36-e05",
+      "step": "a2-l36",
+      "type": "translate",
+      "alvo": "작년 여름에 친구와 제주도에 갔어요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "작년 여름에 친구와 제주도에 갔어요.",
+        "작년 여름에 친구하고 제주도에 갔어요."
+      ]
+    },
+    {
+      "item": "a2-l36-e09",
+      "step": "a2-l36",
+      "type": "translate",
+      "alvo": "Acabei vendo paisagens inesperadas.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Acabei vendo paisagens inesperadas.",
+        "Passei a ver paisagens inesperadas."
+      ]
+    },
+    {
+      "item": "a2-l37-e05",
+      "step": "a2-l37",
+      "type": "translate",
+      "alvo": "같은 제품으로 교환해 주시는 게 좋겠어요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "같은 제품으로 교환해 주시는 게 좋겠어요.",
+        "같은 제품으로 교환해 주세요."
+      ]
+    },
+    {
+      "item": "a2-l37-e09",
+      "step": "a2-l37",
+      "type": "translate",
+      "alvo": "Desculpe pelo incômodo.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Desculpe pelo incômodo.",
+        "Sinto muito pelo incômodo."
+      ]
+    },
+    {
+      "item": "a2-l38-e05",
+      "step": "a2-l38",
+      "type": "translate",
+      "alvo": "늦어서 미안해요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "늦어서 미안해요.",
+        "늦어서 죄송해요."
+      ]
+    },
+    {
+      "item": "a2-l38-e09",
+      "step": "a2-l38",
+      "type": "translate",
+      "alvo": "Parece que houve um mal-entendido dos dois lados.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Parece que houve um mal-entendido dos dois lados.",
+        "Parece que nós dois nos entendemos mal."
+      ]
+    },
+    {
+      "item": "a2-l39-e05",
+      "step": "a2-l39",
+      "type": "translate",
+      "alvo": "고향에서 일하려고 해요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "고향에서 일하려고 해요.",
+        "고향에서 일할 거예요."
+      ]
+    },
+    {
+      "item": "a2-l39-e09",
+      "step": "a2-l39",
+      "type": "translate",
+      "alvo": "Não precisa decidir agora.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Não precisa decidir agora.",
+        "Está tudo bem não decidir agora."
+      ]
+    },
+    {
+      "item": "a2-l40-e05",
+      "step": "a2-l40",
+      "type": "translate",
+      "alvo": "아직 배울 것이 많아요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "아직 배울 것이 많아요.",
+        "아직 배울 게 많아요."
+      ]
+    },
+    {
+      "item": "a2-l40-e09",
+      "step": "a2-l40",
+      "type": "translate",
+      "alvo": "Tenho confiança em explicar problemas simples e pedir ajuda.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Tenho confiança em explicar problemas simples e pedir ajuda.",
+        "Sinto confiança para explicar problemas simples e pedir ajuda."
+      ]
+    },
+    {
+      "item": "a2-c01-e21",
+      "step": "a2-c01",
+      "type": "translate",
+      "alvo": "토요일에 친구와 전시를 봤어요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "토요일에 친구와 전시를 봤어요.",
+        "토요일에 친구하고 전시를 봤어요."
+      ]
+    },
+    {
+      "item": "a2-c01-e22",
+      "step": "a2-c01",
+      "type": "translate",
+      "alvo": "Eu ainda nunca fui a uma fonte termal.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Eu ainda nunca fui a uma fonte termal.",
+        "Ainda não fui a uma fonte termal.",
+        "Eu ainda não fui a uma fonte termal."
+      ]
+    },
+    {
+      "item": "a2-c01-e23",
+      "step": "a2-c01",
+      "type": "translate",
+      "alvo": "Surgiu um imprevisto de repente e não pude ir.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Surgiu um imprevisto de repente e não pude ir.",
+        "De repente surgiu um imprevisto e não pude ir.",
+        "Surgiu um imprevisto de repente, então não pude ir."
+      ]
+    },
+    {
+      "item": "a2-c01-e24",
+      "step": "a2-c01",
+      "type": "translate",
+      "alvo": "동생이 저보다 키가 더 커요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "동생이 저보다 키가 더 커요.",
+        "제 동생이 저보다 키가 더 커요."
+      ]
+    },
+    {
+      "item": "a2-c01-e25",
+      "step": "a2-c01",
+      "type": "translate",
+      "alvo": "결국 주인공은 집으로 돌아왔어요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "결국 주인공은 집으로 돌아왔어요.",
+        "결국 주인공이 집으로 돌아왔어요."
+      ]
+    },
+    {
+      "item": "a2-c02-e21",
+      "step": "a2-c02",
+      "type": "translate",
+      "alvo": "한국으로 유학을 가려고 해요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "한국으로 유학을 가려고 해요.",
+        "한국에 유학을 가려고 해요."
+      ]
+    },
+    {
+      "item": "a2-c02-e22",
+      "step": "a2-c02",
+      "type": "translate",
+      "alvo": "Que tal nos encontrarmos às três?",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": true,
+      "aceitas": [
+        "Que tal nos encontrarmos às três?",
+        "Que tal se encontrarmos às três?",
+        "Que tal encontrar às três?"
+      ]
+    },
+    {
+      "item": "a2-c02-e23",
+      "step": "a2-c02",
+      "type": "translate",
+      "alvo": "Tomo banho depois de jantar.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Tomo banho depois de jantar.",
+        "Depois do jantar, tomo banho.",
+        "Eu tomo banho depois de jantar."
+      ]
+    },
+    {
+      "item": "a2-c02-e24",
+      "step": "a2-c02",
+      "type": "translate",
+      "alvo": "비가 오면 집에 있을 거예요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "비가 오면 집에 있을 거예요.",
+        "비가 오면 집에 있어요."
+      ]
+    },
+    {
+      "item": "a2-c02-e25",
+      "step": "a2-c02",
+      "type": "translate",
+      "alvo": "여기에서 음식을 먹으면 안 돼요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "여기에서 음식을 먹으면 안 돼요.",
+        "여기서 음식을 먹으면 안 돼요."
+      ]
+    },
+    {
+      "item": "a2-c03-e03",
+      "step": "a2-c03",
+      "type": "listen",
+      "alvo": "이 가방을 들어 주시겠어요?",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": true,
+      "aceitas": [
+        "이 가방을 들어 주시겠어요?",
+        "이 가방을 들어 주시겠어요?"
+      ]
+    },
+    {
+      "item": "a2-c03-e21",
+      "step": "a2-c03",
+      "type": "translate",
+      "alvo": "혼자 사는 게 편해요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "혼자 사는 게 편해요.",
+        "혼자 사는 것이 편해요."
+      ]
+    },
+    {
+      "item": "a2-c03-e22",
+      "step": "a2-c03",
+      "type": "translate",
+      "alvo": "Seria bom lavarmos a louça juntos.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Seria bom lavarmos a louça juntos.",
+        "Seria bom lavar a louça juntos."
+      ]
+    },
+    {
+      "item": "a2-c03-e23",
+      "step": "a2-c03",
+      "type": "translate",
+      "alvo": "Esta bolsa é pesada demais.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Esta bolsa é pesada demais.",
+        "Essa bolsa é pesada demais."
+      ]
+    },
+    {
+      "item": "a2-c03-e24",
+      "step": "a2-c03",
+      "type": "translate",
+      "alvo": "친구들이 그리워요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "친구들이 그리워요.",
+        "친구가 그리워요."
+      ]
+    },
+    {
+      "item": "a2-c03-e25",
+      "step": "a2-c03",
+      "type": "translate",
+      "alvo": "이제 조금 익숙해졌어요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "이제 조금 익숙해졌어요.",
+        "이제는 조금 익숙해졌어요."
+      ]
+    },
+    {
+      "item": "a2-c04-e21",
+      "step": "a2-c04",
+      "type": "translate",
+      "alvo": "열이 있어요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "열이 있어요.",
+        "열이 나요."
+      ]
+    },
+    {
+      "item": "a2-c04-e22",
+      "step": "a2-c04",
+      "type": "translate",
+      "alvo": "Tome o remédio depois da refeição.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Tome o remédio depois da refeição.",
+        "Tome o remédio após a refeição."
+      ]
+    },
+    {
+      "item": "a2-c04-e23",
+      "step": "a2-c04",
+      "type": "translate",
+      "alvo": "Não levante coisas pesadas.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Não levante coisas pesadas.",
+        "Não carregue objetos pesados."
+      ]
+    },
+    {
+      "item": "a2-c04-e24",
+      "step": "a2-c04",
+      "type": "translate",
+      "alvo": "매일 걷고 있어요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "매일 걷고 있어요.",
+        "요즘 매일 걷고 있어요."
+      ]
+    },
+    {
+      "item": "a2-c04-e25",
+      "step": "a2-c04",
+      "type": "translate",
+      "alvo": "아프면 쉬세요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "아프면 쉬세요.",
+        "아프면 푹 쉬세요."
+      ]
+    },
+    {
+      "item": "a2-c05-e21",
+      "step": "a2-c05",
+      "type": "translate",
+      "alvo": "아홉 시부터 여섯 시까지 일해요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "아홉 시부터 여섯 시까지 일해요.",
+        "아홉 시부터 여섯 시까지 근무해요."
+      ]
+    },
+    {
+      "item": "a2-c05-e22",
+      "step": "a2-c05",
+      "type": "translate",
+      "alvo": "É bom ter um certificado.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "É bom ter um certificado.",
+        "É bom se tiver certificado."
+      ]
+    },
+    {
+      "item": "a2-c05-e23",
+      "step": "a2-c05",
+      "type": "translate",
+      "alvo": "Respondo com calma mesmo em situações difíceis.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Respondo com calma mesmo em situações difíceis.",
+        "Mesmo em situações difíceis, respondo com calma."
+      ]
+    },
+    {
+      "item": "a2-c05-e24",
+      "step": "a2-c05",
+      "type": "translate",
+      "alvo": "발음을 잘하는 것이 어려워요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "발음을 잘하는 것이 어려워요.",
+        "발음이 어려워요."
+      ]
+    },
+    {
+      "item": "a2-c05-e25",
+      "step": "a2-c05",
+      "type": "translate",
+      "alvo": "발표 전에 같이 확인해야 해요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "발표 전에 같이 확인해야 해요.",
+        "발표하기 전에 같이 확인해야 해요."
+      ]
+    },
+    {
+      "item": "a2-c06-e21",
+      "step": "a2-c06",
+      "type": "translate",
+      "alvo": "이틀 연박으로 예약하고 싶어요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "이틀 연박으로 예약하고 싶어요.",
+        "이틀 예약하고 싶어요."
+      ]
+    },
+    {
+      "item": "a2-c06-e22",
+      "step": "a2-c06",
+      "type": "translate",
+      "alvo": "Onde despacho a bagagem?",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": true,
+      "aceitas": [
+        "Onde despacho a bagagem?",
+        "Onde se despacha a bagagem?"
+      ]
+    },
+    {
+      "item": "a2-c06-e23",
+      "step": "a2-c06",
+      "type": "translate",
+      "alvo": "Quando encontrarmos a bagagem, enviaremos ao hotel.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Quando encontrarmos a bagagem, enviaremos ao hotel.",
+        "Se encontrarmos a bagagem, enviaremos ao hotel."
+      ]
+    },
+    {
+      "item": "a2-c06-e24",
+      "step": "a2-c06",
+      "type": "translate",
+      "alvo": "일찍 가는 게 좋겠어요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "일찍 가는 게 좋겠어요.",
+        "일찍 가면 좋겠어요."
+      ]
+    },
+    {
+      "item": "a2-c06-e25",
+      "step": "a2-c06",
+      "type": "translate",
+      "alvo": "조금 힘들었지만 즐거웠어요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "조금 힘들었지만 즐거웠어요.",
+        "조금 힘들었지만 정말 즐거웠어요."
+      ]
+    },
+    {
+      "item": "a2-c07-e21",
+      "step": "a2-c07",
+      "type": "translate",
+      "alvo": "좋은 영화라고 생각해요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "좋은 영화라고 생각해요.",
+        "좋은 영화인 것 같아요."
+      ]
+    },
+    {
+      "item": "a2-c07-e22",
+      "step": "a2-c07",
+      "type": "translate",
+      "alvo": "A última cena foi marcante.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "A última cena foi marcante.",
+        "A cena final foi marcante."
+      ]
+    },
+    {
+      "item": "a2-c07-e23",
+      "step": "a2-c07",
+      "type": "translate",
+      "alvo": "Como não temos tempo, vamos de táxi.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Como não temos tempo, vamos de táxi.",
+        "Como não há tempo, vamos de táxi."
+      ]
+    },
+    {
+      "item": "a2-c07-e24",
+      "step": "a2-c07",
+      "type": "translate",
+      "alvo": "할머니께 선물을 드렸어요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "할머니께 선물을 드렸어요.",
+        "할머니에게 선물을 드렸어요."
+      ]
+    },
+    {
+      "item": "a2-c07-e25",
+      "step": "a2-c07",
+      "type": "translate",
+      "alvo": "미안하지만 그날은 어려워요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "미안하지만 그날은 어려워요.",
+        "죄송하지만 그날은 어려워요."
+      ]
+    },
+    {
+      "item": "a2-c08-e31",
+      "step": "a2-c08",
+      "type": "translate",
+      "alvo": "토요일에 친구와 전시를 봤어요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "토요일에 친구와 전시를 봤어요.",
+        "토요일에 친구하고 전시를 봤어요."
+      ]
+    },
+    {
+      "item": "a2-c08-e32",
+      "step": "a2-c08",
+      "type": "translate",
+      "alvo": "Eu ainda nunca fui a uma fonte termal.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Eu ainda nunca fui a uma fonte termal.",
+        "Ainda não fui a uma fonte termal."
+      ]
+    },
+    {
+      "item": "a2-c08-e33",
+      "step": "a2-c08",
+      "type": "translate",
+      "alvo": "한국으로 유학을 가려고 해요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "한국으로 유학을 가려고 해요.",
+        "한국에 유학을 가려고 해요."
+      ]
+    },
+    {
+      "item": "a2-c08-e34",
+      "step": "a2-c08",
+      "type": "translate",
+      "alvo": "Que tal nos encontrarmos às três?",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": true,
+      "aceitas": [
+        "Que tal nos encontrarmos às três?",
+        "Que tal se encontrarmos às três?"
+      ]
+    },
+    {
+      "item": "a2-c08-e35",
+      "step": "a2-c08",
+      "type": "translate",
+      "alvo": "Tomo banho depois de jantar.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Tomo banho depois de jantar.",
+        "Depois do jantar, tomo banho."
+      ]
+    },
+    {
+      "item": "a2-c08-e36",
+      "step": "a2-c08",
+      "type": "translate",
+      "alvo": "여기에서 음식을 먹으면 안 돼요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "여기에서 음식을 먹으면 안 돼요.",
+        "여기서 음식을 먹으면 안 돼요."
+      ]
+    },
+    {
+      "item": "a2-c08-e37",
+      "step": "a2-c08",
+      "type": "translate",
+      "alvo": "혼자 사는 게 편해요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "혼자 사는 게 편해요.",
+        "혼자 사는 것이 편해요."
+      ]
+    },
+    {
+      "item": "a2-c08-e38",
+      "step": "a2-c08",
+      "type": "translate",
+      "alvo": "Não levante coisas pesadas.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Não levante coisas pesadas.",
+        "Não carregue objetos pesados."
+      ]
+    },
+    {
+      "item": "a2-c08-e39",
+      "step": "a2-c08",
+      "type": "translate",
+      "alvo": "매일 걷고 있어요.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "매일 걷고 있어요.",
+        "요즘 매일 걷고 있어요."
+      ]
+    },
+    {
+      "item": "a2-c08-e40",
+      "step": "a2-c08",
+      "type": "translate",
+      "alvo": "Não precisa decidir agora.",
+      "aceitaSemPontuacao": false,
+      "aceitaComPonto": false,
+      "aceitaInterrogacao": false,
+      "aceitas": [
+        "Não precisa decidir agora.",
+        "Está tudo bem não decidir agora."
+      ]
+    }
+  ]
+}

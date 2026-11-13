@@ -1,0 +1,145 @@
+{
+  "C1_a2_l02_e01": {
+    "options": [
+      "Foi a uma fonte termal.",
+      "Morou no exterior.",
+      "Trabalhou em uma ONG."
+    ],
+    "correctAnswer": "Foi uma fonte termal.",
+    "algumaOpcaoPassa": [
+      false,
+      false,
+      false
+    ]
+  },
+  "C2_a1_l11_e06": {
+    "preenchido": "Complete com “irmã mais velha” (uma mulher falando): 제 언니은 선생님이에요.",
+    "aceitaGabarito": true,
+    "aceitaFormaCorreta": false,
+    "parceiro": {
+      "preenchido": "Complete com “irmã mais velha” (mulher falando): 제 언니은 선생님이에요.",
+      "aceitaGabarito": true,
+      "aceitaFormaCorreta": false
+    }
+  },
+  "C3_a1_l03_e09": {
+    "id": "a1-l03-e09",
+    "type": "mcq",
+    "stage": "independent",
+    "prompt": "Complete: 저것___ 의자예요.",
+    "options": [
+      "은",
+      "이",
+      "뭐"
+    ],
+    "correctAnswer": "은",
+    "explanation": "저것은 의자예요: 은 marca “aquilo” como tópico da frase.",
+    "tags": [
+      "diag:grammar",
+      "a1-l03",
+      "mcq"
+    ]
+  },
+  "C4_a1_l01_e03": {
+    "id": "a1-l01-e03",
+    "type": "cloze",
+    "stage": "guided",
+    "prompt": "Complete com a forma polida correta: 저는 아나___.",
+    "answer": "예요",
+    "acceptedAnswers": [
+      "예요."
+    ],
+    "explanation": "아나 termina em vogal, então a forma é 예요. O nome próprio não recebe 이에요.",
+    "tags": [
+      "diag:grammar",
+      "a1-l01",
+      "grammar"
+    ]
+  },
+  "C5_a1_l25": [
+    {
+      "id": "g:a1-l25-refuse",
+      "explicacao": "Uma recusa direta pode soar abrupta. Use 미안해요 e uma razão curta: 미안해요, 바빠요. Quando possível, proponha outra data: 다음에 만나요.",
+      "exemplos": [
+        "미안해요, 바빠요.",
+        "다음에 만나요."
+      ]
+    },
+    {
+      "id": "g:a1-l25-appointment",
+      "explicacao": "Um encontro claro combina atividade, lugar e horário. Use 에 para o horário e 앞/옆/근처 para o ponto de encontro: 극장 앞에, 일곱 시에.",
+      "exemplos": [
+        "극장 앞에 만나요.",
+        "일곱 시에 만나요."
+      ]
+    }
+  ],
+  "C6_liaison": {
+    "motorMusica": "으막",
+    "motorCoreano": "한구거",
+    "prosa": "O ㄱ final de 음 passa para 악: 으막. A escrita permanece 음악.",
+    "notaRegra": "ㄱ de 음 passa para 악.",
+    "notaPalavra": "O ㅁ final de 음 passa para 악 na fala: 으막."
+  },
+  "S1_puntuacao": {
+    "comPonto": true,
+    "semPonto": false,
+    "escutaSemPonto": true,
+    "a1ComSemPonto": [
+      false,
+      false
+    ]
+  },
+  "S2_variantes_honorificas": {
+    "l33_e02": {
+      "aceitas": [],
+      "testa": {
+        "계세요": true,
+        "계셔요": false
+      }
+    },
+    "l33_e07": {
+      "aceitas": [],
+      "testa": {
+        "뵈었어요": true,
+        "뵀어요": false
+      }
+    }
+  },
+  "S3_pavimento": {
+    "alvo": "삼 층이에요.",
+    "aceitas": [
+      "삼 층이에요"
+    ],
+    "testa": {
+      "삼 층이에요": true,
+      "삼층이에요": false,
+      "삼 층이에요.": true
+    }
+  },
+  "S4_elipse": {
+    "l16_e05": {
+      "alvo": "저는 커피를 좋아해요.",
+      "semTopico": false,
+      "comTopico": true
+    },
+    "l20_e05": {
+      "alvo": "저는 여행하고 싶어요.",
+      "semTopico": false
+    }
+  },
+  "S5_registro": {
+    "l23_e05": {
+      "prompt": "Traduza para o coreano formal: “Tenho experiência em suporte ao cliente.”",
+      "alvo": "고객 지원 경험이 있습니다.",
+      "aceita": true
+    }
+  },
+  "S6_contracao": {
+    "l09_e09": {
+      "alvo": "영화는 별로 안 봐요.",
+      "aceitaPlena": false,
+      "aceitaContrada": true
+    }
+  }
+}

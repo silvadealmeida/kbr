@@ -1,0 +1,343 @@
+[
+  {
+    "claim": "A2M1-001 mcq a2-l02-e01: gabarito fora das opções",
+    "verdict": "CONFIRMADO",
+    "evidence": {
+      "options": [
+        "Foi a uma fonte termal.",
+        "Morou no exterior.",
+        "Trabalhou em uma ONG."
+      ],
+      "correctAnswer": "Foi uma fonte termal.",
+      "regra": "src/lib/exercises/index.ts:256-263 (normalize não casa com nenhuma opção)"
+    }
+  },
+  {
+    "claim": "A1M3-001 a1-l11-e06/a1-c03-e13: '언니'+'은' gera coreano agramatical",
+    "verdict": "CONFIRMADO",
+    "evidence": {
+      "preenchido": "Complete com “irmã mais velha” (uma mulher falando): 제 언니은 선생님이에요.",
+      "parceiro": "Complete com “irmã mais velha” (mulher falando): 제 언니은 선생님이에요.",
+      "nota": "a forma correta é 언니는; '언니는' também é rejeitado pelo gabarito (probe S4)"
+    }
+  },
+  {
+    "claim": "A0-001 (prosa diz 'o ㄱ final de âm') × V0-001 (diz que '으막' não existe)",
+    "verdict": "A0-001 CONFIRMADO (prosa errada) / V0-001 REJEITADO (transcrição correta)",
+    "evidence": {
+      "prosa_do_item": "O ㄱ final de 음 passa para 악: 으막. A escrita permanece 음악.",
+      "nota_da_regra": "ㄱ de 음 passa para 악.",
+      "falado_na_regra": "으막",
+      "nota_da_palavra": "O ㅁ final de 음 passa para 악 na fala: 으막.",
+      "probe_motor": "applyLiaison('음악') === '으막' (docs/audits/a0-a2/data/engine-probe.json C1)",
+      "norma": "Nacional (온라인가나다 327196, 2026-02-07) escreve '옛 음악' como [옏 으막] — ou seja, a sílaba fica '으' e o ㅁ vai para '막'; a transcrição do app está certa, o nome da letra na prosa está errado",
+      "audio": "public/audio/v1 tem entrada para '으막' (src/content/audio/entries.ts:195) e para '음악' (:200)"
+    }
+  },
+  {
+    "claim": "A2M3-001: 'espaçamento não padrão' + ditado rejeita variante",
+    "verdict": "PREMissa CORREGIDA: '삼 층' é a forma de princípio (양적 수량); o defeito real é a variante aceita",
+    "evidence": {
+      "item": {
+        "answer": "삼 층이에요.",
+        "accepted": [
+          "삼 층이에요"
+        ]
+      },
+      "norma": "한글 맞춤법 제43항: unidade/contador separado do numeral escrito em hangul ('삼 층' princípio; '삼층' permitido como ordem/numeração; com algarismo '3층' permitido). Confirmação: onlineQna 336486 (2026-10-01) e 321977.",
+      "consequencia": "quem digitar '삼층이에요' (grafia permitida para pavimento) é marcado errado"
+    }
+  },
+  {
+    "claim": "A1M5-001 '극장 앞에 만나요' (만나요 pede 에서)",
+    "verdict": "CONFIRMADO",
+    "evidence": {
+      "forma_ensinada": "atividade + 장소 + 시간",
+      "explicacao": "Um encontro claro combina atividade, lugar e horário. Use 에 para o horário e 앞/옆/근처 para o ponto de encontro: 극장 앞에, 일곱 시에.",
+      "exemplos": [
+        "극장 앞에 만나요.",
+        "일곱 시에 만나요."
+      ],
+      "contradicao_interna": [
+        "사거리에서 만나요.",
+        "여기에서 기다려요."
+      ],
+      "norma": "에 = localização de estado/existência; 에서 = local onde a ação ocorre (o próprio curso o afirma em a1-l23)"
+    }
+  },
+  {
+    "claim": "Cluster 'variante válida rejeitada' (A2M7-001, A2M7-002, A1M8-003, A1M2-002, A2M2-001)",
+    "verdict": "CONFIRMADO na forma medida",
+    "evidence": [
+      {
+        "item": "a2-l33-e02",
+        "aceitas": [
+          "계세요"
+        ],
+        "testes": [
+          {
+            "forma": "계세요",
+            "aceita": true
+          },
+          {
+            "forma": "계셔요",
+            "aceita": false
+          }
+        ]
+      },
+      {
+        "item": "a2-l33-e07",
+        "aceitas": [
+          "뵈었어요"
+        ],
+        "testes": [
+          {
+            "forma": "뵈었어요",
+            "aceita": true
+          },
+          {
+            "forma": "뵀어요",
+            "aceita": false
+          }
+        ]
+      },
+      {
+        "item": "a1-l37-e01",
+        "aceitas": [
+          "이"
+        ],
+        "testes": [
+          {
+            "forma": "이",
+            "aceita": true
+          },
+          {
+            "forma": "은",
+            "aceita": false
+          }
+        ]
+      },
+      {
+        "item": "a2-l09-e05",
+        "aceitas": [
+          "여기에서 음식을 먹으면 안 돼요.",
+          "여기서 음식을 먹으면 안 돼요."
+        ],
+        "testes": [
+          {
+            "forma": "여기에서 음식을 먹으면 안 돼요.",
+            "aceita": true
+          },
+          {
+            "forma": "여기서 음식을 먹으면 안 돼요.",
+            "aceita": true
+          }
+        ]
+      },
+      {
+        "item": "a2-l08-e05",
+        "aceitas": [
+          "저녁을 먹고 나서 샤워해요.",
+          "저녁을 먹은 후에 샤워해요."
+        ],
+        "testes": [
+          {
+            "forma": "저녁을 먹고 나서 샤워해요.",
+            "aceita": true
+          },
+          {
+            "forma": "저녁을 먹은 후에 샤워해요.",
+            "aceita": true
+          },
+          {
+            "forma": "저녁을 먹고 나서 샤워해요",
+            "aceita": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "claim": "Achados de vocabulário (V2-001, V1-003, V1-004, V1-002, V2-002, V0-003)",
+    "verdict": "CONFIRMADO por leitura direta do registro",
+    "evidence": [
+      {
+        "id": "ko:따라서",
+        "ko": "따라서",
+        "pt": "portanto; consequentemente",
+        "pos": "advérbio",
+        "frase": "규칙을 따라서 행동하세요.",
+        "traducao": "Portanto, aja conforme as regras.",
+        "alvo": "따라서"
+      },
+      {
+        "id": "ko:감기",
+        "ko": "감기",
+        "pt": "resfriado",
+        "pos": "substantivo",
+        "frase": "감기약 있어요?",
+        "traducao": "Você tem remédio para resfriado?",
+        "alvo": "감기"
+      },
+      {
+        "id": "ko:돼지고기",
+        "ko": "돼지고기",
+        "pt": "carne de porco",
+        "pos": "substantivo",
+        "frase": "돼지고기 없어요?",
+        "traducao": "Você tem carne de porco?",
+        "alvo": "돼지고기"
+      },
+      {
+        "id": "ko:입어 보다",
+        "ko": "입어 보다",
+        "pt": "experimentar roupa",
+        "pos": "verbo",
+        "frase": "입어 보세요.",
+        "traducao": "Experimente vestir.",
+        "alvo": "입어 보세요"
+      },
+      {
+        "id": "ko:일",
+        "ko": "일",
+        "pt": "um (numeral sino-coreano)",
+        "pos": "numeral",
+        "frase": "제 번호는 일 번이에요.",
+        "traducao": "Meu número é o um.",
+        "alvo": "일"
+      },
+      {
+        "id": "ko:안",
+        "ko": "안",
+        "pt": "dentro; interior",
+        "pos": "substantivo",
+        "frase": null,
+        "traducao": null,
+        "alvo": null
+      }
+    ]
+  },
+  {
+    "claim": "Cluster 'listen pede fragmento e cobra a frase inteira' (A1M2/A1M3/A1M5/A1M6/A1M7)",
+    "verdict": "CONFIRMADO",
+    "evidence": {
+      "escuta_total": 264,
+      "pedeFragmento": 64,
+      "semVarianteDeFragmento": 64,
+      "exemplos": [
+        {
+          "item": "a1-l06-e08",
+          "prompt": "Ouça e escreva o número que você ouviu.",
+          "answer": "제 번호는 사 번이에요.",
+          "aceitas": [
+            "제 번호는 사 번이에요"
+          ]
+        },
+        {
+          "item": "a1-l07-e08",
+          "prompt": "Ouça e escreva o dia que você ouviu.",
+          "answer": "내일은 일요일이에요.",
+          "aceitas": [
+            "내일은 일요일이에요"
+          ]
+        },
+        {
+          "item": "a1-l08-e03",
+          "prompt": "Ouça e escreva a ação que você ouviu.",
+          "answer": "저는 아침에 일어나요.",
+          "aceitas": [
+            "저는 아침에 일어나요"
+          ]
+        },
+        {
+          "item": "a1-l09-e03",
+          "prompt": "Ouça e escreva a frequência que você ouviu.",
+          "answer": "저는 매일 공부해요.",
+          "aceitas": [
+            "저는 매일 공부해요"
+          ]
+        },
+        {
+          "item": "a1-l13-e08",
+          "prompt": "Ouça e escreva a localização que você ouviu.",
+          "answer": "냉장고가 부엌에 있어요.",
+          "aceitas": [
+            "냉장고가 부엌에 있어요"
+          ]
+        },
+        {
+          "item": "a1-l14-e03",
+          "prompt": "Ouça e escreva a ação que você ouviu.",
+          "answer": "저는 거실에서 청소해요.",
+          "aceitas": [
+            "저는 거실에서 청소해요"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "claim": "Cluster 'cobra marco não ensinado' (A2M1-003, A2M4-001, A2M4-002, A2M5-001, A2M6-002, A2M8-001)",
+    "verdict": "CONFIRMADO por presença no texto + ausência no blueprint",
+    "evidence": [
+      {
+        "marcador": "-라고 하다 (relato de fala de terceiro)",
+        "declaradoNoBlueprint": [],
+        "ocorreEm": [
+          {
+            "item": "a2-l16-e10",
+            "achou": "라고 했"
+          },
+          {
+            "item": "a2-l19-e04",
+            "achou": "라고 했"
+          },
+          {
+            "item": "a2-c04-e10",
+            "achou": "라고 했"
+          }
+        ]
+      },
+      {
+        "marcador": "-았/어야 했어요",
+        "declaradoNoBlueprint": [],
+        "ocorreEm": [
+          {
+            "item": "a2-l04-d4",
+            "achou": null
+          },
+          {
+            "item": "a2-l04-e07",
+            "achou": "어야 했"
+          }
+        ]
+      },
+      {
+        "marcador": "-면서",
+        "declaradoNoBlueprint": [],
+        "ocorreEm": [
+          {
+            "item": "a2-l40-e02",
+            "achou": "면서"
+          },
+          {
+            "item": "a2-c08-e20",
+            "achou": "면서"
+          }
+        ]
+      },
+      {
+        "marcador": "-(으)ㄹ 때",
+        "declaradoNoBlueprint": [],
+        "ocorreEm": [
+          {
+            "item": "a2-l19-e10"
+          },
+          {
+            "item": "a2-c04-e12"
+          }
+        ]
+      }
+    ]
+  }
+]

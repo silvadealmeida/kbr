@@ -1,0 +1,25 @@
+{
+  "wrong": [
+    {
+      "step": "a1-l11",
+      "exercise": "a1-l11-e06",
+      "answer": "언니",
+      "part": "은",
+      "trecho": "언니은",
+      "frase": "Complete com “irmã mais velha” (uma mulher falando): 제 언니은 선생님이에요.",
+      "como": "cloze preenchido",
+      "motivo": "'은' exige 받침; '니' termina em vogal"
+    },
+    {
+      "step": "a1-c03",
+      "exercise": "a1-c03-e13",
+      "answer": "언니",
+      "part": "은",
+      "trecho": "언니은",
+      "frase": "Complete com “irmã mais velha” (mulher falando): 제 언니은 선생님이에요.",
+      "como": "cloze preenchido",
+      "motivo": "'은' exige 받침; '니' termina em vogal"
+    }
+  ],
+  "revisar": []
+}

@@ -1,0 +1,1000 @@
+{
+  "answerNotTaught": [
+    {
+      "step": "a1-l18",
+      "exercise": "a1-l18-e08",
+      "type": "listen",
+      "answer": "이것은 오천 원이에요.",
+      "unknownTokens": [
+        "오천"
+      ]
+    },
+    {
+      "step": "a1-l18",
+      "exercise": "a1-l18-e08",
+      "type": "listen",
+      "answer": "이것은 오천 원이에요",
+      "unknownTokens": [
+        "오천"
+      ]
+    },
+    {
+      "step": "a1-l20",
+      "exercise": "a1-l20-e10",
+      "type": "translate",
+      "answer": "저는 과일을 사고 싶어요.",
+      "unknownTokens": [
+        "사고"
+      ]
+    },
+    {
+      "step": "a1-l20",
+      "exercise": "a1-l20-e10",
+      "type": "translate",
+      "answer": "저는 과일을 사고 싶어요",
+      "unknownTokens": [
+        "사고"
+      ]
+    },
+    {
+      "step": "a1-l23",
+      "exercise": "a1-l23-e02",
+      "type": "cloze",
+      "answer": "쪽",
+      "unknownTokens": [
+        "쪽"
+      ]
+    },
+    {
+      "step": "a2-l08",
+      "exercise": "a2-l08-e05",
+      "type": "translate",
+      "answer": "저녁을 먹은 후에 샤워해요.",
+      "unknownTokens": [
+        "먹은"
+      ]
+    },
+    {
+      "step": "a2-l09",
+      "exercise": "a2-l09-e02",
+      "type": "cloze",
+      "answer": "도",
+      "unknownTokens": [
+        "도"
+      ]
+    },
+    {
+      "step": "a2-l09",
+      "exercise": "a2-l09-e07",
+      "type": "cloze",
+      "answer": "으면",
+      "unknownTokens": [
+        "으면"
+      ]
+    },
+    {
+      "step": "a2-c02",
+      "exercise": "a2-c02-e19",
+      "type": "cloze",
+      "answer": "으면",
+      "unknownTokens": [
+        "으면"
+      ]
+    },
+    {
+      "step": "a2-l12",
+      "exercise": "a2-l12-e02",
+      "type": "cloze",
+      "answer": "야",
+      "unknownTokens": [
+        "야"
+      ]
+    },
+    {
+      "step": "a2-l15",
+      "exercise": "a2-l15-e07",
+      "type": "cloze",
+      "answer": "해졌어요",
+      "unknownTokens": [
+        "해졌어요"
+      ]
+    },
+    {
+      "step": "a2-c03",
+      "exercise": "a2-c03-e17",
+      "type": "cloze",
+      "answer": "야",
+      "unknownTokens": [
+        "야"
+      ]
+    },
+    {
+      "step": "a2-l18",
+      "exercise": "a2-l18-e02",
+      "type": "cloze",
+      "answer": "알",
+      "unknownTokens": [
+        "알"
+      ]
+    },
+    {
+      "step": "a2-l23",
+      "exercise": "a2-l23-e07",
+      "type": "cloze",
+      "answer": "입니까",
+      "unknownTokens": [
+        "입니까"
+      ]
+    },
+    {
+      "step": "a2-l26",
+      "exercise": "a2-l26-e02",
+      "type": "cloze",
+      "answer": "인지",
+      "unknownTokens": [
+        "인지"
+      ]
+    },
+    {
+      "step": "a2-l32",
+      "exercise": "a2-l32-e05",
+      "type": "translate",
+      "answer": "지하철이 멈춰서 늦었어요.",
+      "unknownTokens": [
+        "멈춰서"
+      ]
+    },
+    {
+      "step": "a2-l39",
+      "exercise": "a2-l39-e05",
+      "type": "translate",
+      "answer": "고향에서 일할 거예요.",
+      "unknownTokens": [
+        "일할"
+      ]
+    },
+    {
+      "step": "a2-l40",
+      "exercise": "a2-l40-e02",
+      "type": "cloze",
+      "answer": "면서",
+      "unknownTokens": [
+        "면서"
+      ]
+    },
+    {
+      "step": "a2-c08",
+      "exercise": "a2-c08-e25",
+      "type": "cloze",
+      "answer": "야",
+      "unknownTokens": [
+        "야"
+      ]
+    }
+  ],
+  "unknownNoun": [
+    {
+      "step": "a1-l06",
+      "exercise": "a1-l06-e02",
+      "token": "번호는",
+      "noun": "번호",
+      "particle": "는"
+    },
+    {
+      "step": "a1-l06",
+      "exercise": "a1-l06-e08",
+      "token": "번호는",
+      "noun": "번호",
+      "particle": "는"
+    },
+    {
+      "step": "a1-l07",
+      "exercise": "a1-l07-e01",
+      "token": "지금은",
+      "noun": "지금",
+      "particle": "은"
+    },
+    {
+      "step": "a1-l19",
+      "exercise": "a1-l19-e07",
+      "token": "가게에",
+      "noun": "가게",
+      "particle": "에"
+    },
+    {
+      "step": "a1-c04",
+      "exercise": "a1-c04-e10",
+      "token": "가게에",
+      "noun": "가게",
+      "particle": "에"
+    },
+    {
+      "step": "a2-l01",
+      "exercise": "a2-l01-e06",
+      "token": "오지만",
+      "noun": "오지",
+      "particle": "만"
+    },
+    {
+      "step": "a2-l02",
+      "exercise": "a2-l02-e04",
+      "token": "지우는",
+      "noun": "지우",
+      "particle": "는"
+    },
+    {
+      "step": "a2-l02",
+      "exercise": "a2-l02-e10",
+      "token": "지우는",
+      "noun": "지우",
+      "particle": "는"
+    },
+    {
+      "step": "a2-l03",
+      "exercise": "a2-l03-e10",
+      "token": "하지만",
+      "noun": "하지",
+      "particle": "만"
+    },
+    {
+      "step": "a2-l04",
+      "exercise": "a2-l04-e04",
+      "token": "때문에",
+      "noun": "때문",
+      "particle": "에"
+    },
+    {
+      "step": "a2-l04",
+      "exercise": "a2-l04-e07",
+      "token": "회의가",
+      "noun": "회의",
+      "particle": "가"
+    },
+    {
+      "step": "a2-l05",
+      "exercise": "a2-l05-e02",
+      "token": "마을을",
+      "noun": "마을",
+      "particle": "을"
+    },
+    {
+      "step": "a2-l05",
+      "exercise": "a2-l05-e05",
+      "token": "마을을",
+      "noun": "마을",
+      "particle": "을"
+    },
+    {
+      "step": "a2-l05",
+      "exercise": "a2-l05-e10",
+      "token": "소녀가",
+      "noun": "소녀",
+      "particle": "가"
+    },
+    {
+      "step": "a2-c01",
+      "exercise": "a2-c01-e11",
+      "token": "소녀가",
+      "noun": "소녀",
+      "particle": "가"
+    },
+    {
+      "step": "a2-c01",
+      "exercise": "a2-c01-e20",
+      "token": "마을을",
+      "noun": "마을",
+      "particle": "을"
+    },
+    {
+      "step": "a2-l06",
+      "exercise": "a2-l06-e04",
+      "token": "지민은",
+      "noun": "지민",
+      "particle": "은"
+    },
+    {
+      "step": "a2-l06",
+      "exercise": "a2-l06-e10",
+      "token": "수진은",
+      "noun": "수진",
+      "particle": "은"
+    },
+    {
+      "step": "a2-l06",
+      "exercise": "a2-l06-e10",
+      "token": "내년에",
+      "noun": "내년",
+      "particle": "에"
+    },
+    {
+      "step": "a2-l06",
+      "exercise": "a2-l06-e10",
+      "token": "그녀는",
+      "noun": "그녀",
+      "particle": "는"
+    },
+    {
+      "step": "a2-l07",
+      "exercise": "a2-l07-e10",
+      "token": "수진은",
+      "noun": "수진",
+      "particle": "은"
+    },
+    {
+      "step": "a2-l09",
+      "exercise": "a2-l09-e04",
+      "token": "되지만",
+      "noun": "되지",
+      "particle": "만"
+    },
+    {
+      "step": "a2-l09",
+      "exercise": "a2-l09-e10",
+      "token": "건물에서는",
+      "noun": "건물에서",
+      "particle": "는"
+    },
+    {
+      "step": "a2-l09",
+      "exercise": "a2-l09-e10",
+      "token": "피워도",
+      "noun": "피워",
+      "particle": "도"
+    },
+    {
+      "step": "a2-l09",
+      "exercise": "a2-l09-e10",
+      "token": "쓰레기는",
+      "noun": "쓰레기",
+      "particle": "는"
+    },
+    {
+      "step": "a2-l10",
+      "exercise": "a2-l10-e10",
+      "token": "소풍을",
+      "noun": "소풍",
+      "particle": "을"
+    },
+    {
+      "step": "a2-c02",
+      "exercise": "a2-c02-e07",
+      "token": "지민은",
+      "noun": "지민",
+      "particle": "은"
+    },
+    {
+      "step": "a2-c02",
+      "exercise": "a2-c02-e08",
+      "token": "수진과",
+      "noun": "수진",
+      "particle": "과"
+    },
+    {
+      "step": "a2-c02",
+      "exercise": "a2-c02-e13",
+      "token": "가기로",
+      "noun": "가기",
+      "particle": "로"
+    },
+    {
+      "step": "a2-c02",
+      "exercise": "a2-c02-e15",
+      "token": "있지만",
+      "noun": "있지",
+      "particle": "만"
+    },
+    {
+      "step": "a2-l11",
+      "exercise": "a2-l11-e04",
+      "token": "지민은",
+      "noun": "지민",
+      "particle": "은"
+    },
+    {
+      "step": "a2-l11",
+      "exercise": "a2-l11-e10",
+      "token": "수진은",
+      "noun": "수진",
+      "particle": "은"
+    },
+    {
+      "step": "a2-l11",
+      "exercise": "a2-l11-e10",
+      "token": "룸메이트와",
+      "noun": "룸메이트",
+      "particle": "와"
+    },
+    {
+      "step": "a2-l11",
+      "exercise": "a2-l11-e10",
+      "token": "공간이",
+      "noun": "공간",
+      "particle": "이"
+    },
+    {
+      "step": "a2-l13",
+      "exercise": "a2-l13-e04",
+      "token": "이웃의",
+      "noun": "이웃",
+      "particle": "의"
+    },
+    {
+      "step": "a2-l13",
+      "exercise": "a2-l13-e10",
+      "token": "이웃에게",
+      "noun": "이웃",
+      "particle": "에게"
+    },
+    {
+      "step": "a2-l13",
+      "exercise": "a2-l13-e10",
+      "token": "기꺼이",
+      "noun": "기꺼",
+      "particle": "이"
+    },
+    {
+      "step": "a2-l15",
+      "exercise": "a2-l15-e10",
+      "token": "포장하는",
+      "noun": "포장하",
+      "particle": "는"
+    },
+    {
+      "step": "a2-c03",
+      "exercise": "a2-c03-e07",
+      "token": "지민은",
+      "noun": "지민",
+      "particle": "은"
+    },
+    {
+      "step": "a2-l16",
+      "exercise": "a2-l16-e04",
+      "token": "환자는",
+      "noun": "환자",
+      "particle": "는"
+    },
+    {
+      "step": "a2-l16",
+      "exercise": "a2-l16-e10",
+      "token": "환자는",
+      "noun": "환자",
+      "particle": "는"
+    },
+    {
+      "step": "a2-l17",
+      "exercise": "a2-l17-e04",
+      "token": "환자는",
+      "noun": "환자",
+      "particle": "는"
+    },
+    {
+      "step": "a2-l18",
+      "exercise": "a2-l18-e10",
+      "token": "환자는",
+      "noun": "환자",
+      "particle": "는"
+    },
+    {
+      "step": "a2-l19",
+      "exercise": "a2-l19-e10",
+      "token": "위해서는",
+      "noun": "위해서",
+      "particle": "는"
+    },
+    {
+      "step": "a2-l20",
+      "exercise": "a2-l20-e04",
+      "token": "지민은",
+      "noun": "지민",
+      "particle": "은"
+    },
+    {
+      "step": "a2-c04",
+      "exercise": "a2-c04-e07",
+      "token": "환자는",
+      "noun": "환자",
+      "particle": "는"
+    },
+    {
+      "step": "a2-c04",
+      "exercise": "a2-c04-e08",
+      "token": "환자는",
+      "noun": "환자",
+      "particle": "는"
+    },
+    {
+      "step": "a2-c04",
+      "exercise": "a2-c04-e11",
+      "token": "지민은",
+      "noun": "지민",
+      "particle": "은"
+    },
+    {
+      "step": "a2-l21",
+      "exercise": "a2-l21-e10",
+      "token": "그녀는",
+      "noun": "그녀",
+      "particle": "는"
+    },
+    {
+      "step": "a2-l22",
+      "exercise": "a2-l22-e10",
+      "token": "그녀에게",
+      "noun": "그녀",
+      "particle": "에게"
+    },
+    {
+      "step": "a2-l23",
+      "exercise": "a2-l23-e04",
+      "token": "그녀는",
+      "noun": "그녀",
+      "particle": "는"
+    },
+    {
+      "step": "a2-l23",
+      "exercise": "a2-l23-e10",
+      "token": "동기를",
+      "noun": "동기",
+      "particle": "를"
+    },
+    {
+      "step": "a2-l25",
+      "exercise": "a2-l25-e04",
+      "token": "그녀는",
+      "noun": "그녀",
+      "particle": "는"
+    },
+    {
+      "step": "a2-l25",
+      "exercise": "a2-l25-e10",
+      "token": "팀장은",
+      "noun": "팀장",
+      "particle": "은"
+    },
+    {
+      "step": "a2-c05",
+      "exercise": "a2-c05-e12",
+      "token": "동기를",
+      "noun": "동기",
+      "particle": "를"
+    },
+    {
+      "step": "a2-l26",
+      "exercise": "a2-l26-e10",
+      "token": "종류를",
+      "noun": "종류",
+      "particle": "를"
+    },
+    {
+      "step": "a2-l26",
+      "exercise": "a2-l26-e10",
+      "token": "규정도",
+      "noun": "규정",
+      "particle": "도"
+    },
+    {
+      "step": "a2-c06",
+      "exercise": "a2-c06-e12",
+      "token": "종류를",
+      "noun": "종류",
+      "particle": "를"
+    },
+    {
+      "step": "a2-l31",
+      "exercise": "a2-l31-e04",
+      "token": "지민은",
+      "noun": "지민",
+      "particle": "은"
+    },
+    {
+      "step": "a2-l31",
+      "exercise": "a2-l31-e10",
+      "token": "봤지만",
+      "noun": "봤지",
+      "particle": "만"
+    },
+    {
+      "step": "a2-l31",
+      "exercise": "a2-l31-e10",
+      "token": "지민은",
+      "noun": "지민",
+      "particle": "은"
+    },
+    {
+      "step": "a2-l31",
+      "exercise": "a2-l31-e10",
+      "token": "서로의",
+      "noun": "서로",
+      "particle": "의"
+    },
+    {
+      "step": "a2-l32",
+      "exercise": "a2-l32-e06",
+      "token": "오지만",
+      "noun": "오지",
+      "particle": "만"
+    },
+    {
+      "step": "a2-l32",
+      "exercise": "a2-l32-e10",
+      "token": "상대방이",
+      "noun": "상대방",
+      "particle": "이"
+    },
+    {
+      "step": "a2-l33",
+      "exercise": "a2-l33-e04",
+      "token": "지민도",
+      "noun": "지민",
+      "particle": "도"
+    },
+    {
+      "step": "a2-l33",
+      "exercise": "a2-l33-e10",
+      "token": "상대방의",
+      "noun": "상대방",
+      "particle": "의"
+    },
+    {
+      "step": "a2-l34",
+      "exercise": "a2-l34-e04",
+      "token": "지민은",
+      "noun": "지민",
+      "particle": "은"
+    },
+    {
+      "step": "a2-l34",
+      "exercise": "a2-l34-e10",
+      "token": "고마움을",
+      "noun": "고마움",
+      "particle": "을"
+    },
+    {
+      "step": "a2-l35",
+      "exercise": "a2-l35-e04",
+      "token": "경우가",
+      "noun": "경우",
+      "particle": "가"
+    },
+    {
+      "step": "a2-c07",
+      "exercise": "a2-c07-e07",
+      "token": "지민은",
+      "noun": "지민",
+      "particle": "은"
+    },
+    {
+      "step": "a2-c07",
+      "exercise": "a2-c07-e09",
+      "token": "지민도",
+      "noun": "지민",
+      "particle": "도"
+    },
+    {
+      "step": "a2-c07",
+      "exercise": "a2-c07-e10",
+      "token": "지민은",
+      "noun": "지민",
+      "particle": "은"
+    },
+    {
+      "step": "a2-c07",
+      "exercise": "a2-c07-e11",
+      "token": "경우가",
+      "noun": "경우",
+      "particle": "가"
+    },
+    {
+      "step": "a2-c07",
+      "exercise": "a2-c07-e12",
+      "token": "봤지만",
+      "noun": "봤지",
+      "particle": "만"
+    },
+    {
+      "step": "a2-c07",
+      "exercise": "a2-c07-e12",
+      "token": "지민은",
+      "noun": "지민",
+      "particle": "은"
+    },
+    {
+      "step": "a2-c07",
+      "exercise": "a2-c07-e12",
+      "token": "서로의",
+      "noun": "서로",
+      "particle": "의"
+    },
+    {
+      "step": "a2-c07",
+      "exercise": "a2-c07-e14",
+      "token": "오지만",
+      "noun": "오지",
+      "particle": "만"
+    },
+    {
+      "step": "a2-l37",
+      "exercise": "a2-l37-e04",
+      "token": "매장에",
+      "noun": "매장",
+      "particle": "에"
+    },
+    {
+      "step": "a2-l37",
+      "exercise": "a2-l37-e10",
+      "token": "기간도",
+      "noun": "기간",
+      "particle": "도"
+    },
+    {
+      "step": "a2-l38",
+      "exercise": "a2-l38-e10",
+      "token": "상대방이",
+      "noun": "상대방",
+      "particle": "이"
+    },
+    {
+      "step": "a2-l38",
+      "exercise": "a2-l38-e10",
+      "token": "끝내는",
+      "noun": "끝내",
+      "particle": "는"
+    },
+    {
+      "step": "a2-l39",
+      "exercise": "a2-l39-e04",
+      "token": "지민은",
+      "noun": "지민",
+      "particle": "은"
+    },
+    {
+      "step": "a2-l40",
+      "exercise": "a2-l40-e10",
+      "token": "끝내도",
+      "noun": "끝내",
+      "particle": "도"
+    },
+    {
+      "step": "a2-l40",
+      "exercise": "a2-l40-e10",
+      "token": "배움은",
+      "noun": "배움",
+      "particle": "은"
+    },
+    {
+      "step": "a2-l40",
+      "exercise": "a2-l40-e10",
+      "token": "부분을",
+      "noun": "부분",
+      "particle": "을"
+    },
+    {
+      "step": "a2-c08",
+      "exercise": "a2-c08-e17",
+      "token": "환자는",
+      "noun": "환자",
+      "particle": "는"
+    }
+  ],
+  "markerOrder": [
+    {
+      "course": "a1",
+      "marker": "-(으)면",
+      "firstUsedInExercise": "a1-l17",
+      "declaredIn": null,
+      "exerciseBeforeDeclaration": null
+    },
+    {
+      "course": "a2",
+      "marker": "-지만",
+      "firstUsedInExercise": "a2-l01",
+      "declaredIn": "a2-l04",
+      "exerciseBeforeDeclaration": true
+    },
+    {
+      "course": "a2",
+      "marker": "못 / 안",
+      "firstUsedInExercise": "a2-l01",
+      "declaredIn": "a2-l04",
+      "exerciseBeforeDeclaration": true
+    },
+    {
+      "course": "a2",
+      "marker": "-(으)ㄹ 거예요",
+      "firstUsedInExercise": "a2-l02",
+      "declaredIn": "a2-l06",
+      "exerciseBeforeDeclaration": true
+    },
+    {
+      "course": "a2",
+      "marker": "discurso indireto (-자고/-라고/-ㄴ다고)",
+      "firstUsedInExercise": "a2-l04",
+      "declaredIn": null,
+      "exerciseBeforeDeclaration": null
+    },
+    {
+      "course": "a2",
+      "marker": "-(으)로",
+      "firstUsedInExercise": "a2-l06",
+      "declaredIn": null,
+      "exerciseBeforeDeclaration": null
+    }
+  ],
+  "markerFirstSeen": {
+    "a1:-(으)세요": {
+      "first": "a1-l01",
+      "kind": "taught",
+      "abs": 0
+    },
+    "a1:못 / 안": {
+      "first": "a1-l01",
+      "kind": "taught",
+      "abs": 0
+    },
+    "a1:-아/어서": {
+      "first": "a1-l15",
+      "kind": "taught",
+      "abs": 16
+    },
+    "a1:-(으)면": {
+      "first": "a1-l17",
+      "kind": "graded",
+      "abs": 19
+    },
+    "a1:-아/어 보세요": {
+      "first": "a1-l19",
+      "kind": "taught",
+      "abs": 21
+    },
+    "a1:-(으)시- honífico": {
+      "first": "a1-l20",
+      "kind": "taught",
+      "abs": 22
+    },
+    "a1:-고 싶다": {
+      "first": "a1-l20",
+      "kind": "taught",
+      "abs": 22
+    },
+    "a1:-(으)로": {
+      "first": "a1-l22",
+      "kind": "taught",
+      "abs": 25
+    },
+    "a1:-(으)ㄹ까요": {
+      "first": "a1-l25",
+      "kind": "taught",
+      "abs": 28
+    },
+    "a1:-(으)ㄹ 수 있다/없다": {
+      "first": "a1-l27",
+      "kind": "taught",
+      "abs": 31
+    },
+    "a1:-(으)ㄹ 거예요": {
+      "first": "a1-l29",
+      "kind": "taught",
+      "abs": 33
+    },
+    "a1:-보다": {
+      "first": "a1-l31",
+      "kind": "taught",
+      "abs": 36
+    },
+    "a1:-대신(에)": {
+      "first": "a1-l36",
+      "kind": "taught",
+      "abs": 42
+    },
+    "a2:-아/어서": {
+      "first": "a2-l01",
+      "kind": "taught",
+      "abs": 48
+    },
+    "a2:-지만": {
+      "first": "a2-l01",
+      "kind": "graded",
+      "abs": 48
+    },
+    "a2:못 / 안": {
+      "first": "a2-l01",
+      "kind": "graded",
+      "abs": 48
+    },
+    "a2:-아/어 보다 / 본 적이": {
+      "first": "a2-l02",
+      "kind": "taught",
+      "abs": 49
+    },
+    "a2:-(으)ㄹ 거예요": {
+      "first": "a2-l02",
+      "kind": "graded",
+      "abs": 49
+    },
+    "a2:-고 싶다": {
+      "first": "a2-l02",
+      "kind": "taught",
+      "abs": 49
+    },
+    "a2:-보다": {
+      "first": "a2-l02",
+      "kind": "taught",
+      "abs": 49
+    },
+    "a2:-대신(에)": {
+      "first": "a2-l02",
+      "kind": "taught",
+      "abs": 49
+    },
+    "a2:-처럼": {
+      "first": "a2-l03",
+      "kind": "taught",
+      "abs": 50
+    },
+    "a2:-(으)세요": {
+      "first": "a2-l04",
+      "kind": "taught",
+      "abs": 51
+    },
+    "a2:discurso indireto (-자고/-라고/-ㄴ다고)": {
+      "first": "a2-l04",
+      "kind": "graded",
+      "abs": 51
+    },
+    "a2:-는데 / -(으)ㄴ데": {
+      "first": "a2-l05",
+      "kind": "taught",
+      "abs": 52
+    },
+    "a2:-(으)로": {
+      "first": "a2-l06",
+      "kind": "graded",
+      "abs": 54
+    },
+    "a2:-(으)시- honífico": {
+      "first": "a2-l07",
+      "kind": "taught",
+      "abs": 55
+    },
+    "a2:-(으)ㄹ까요": {
+      "first": "a2-l07",
+      "kind": "taught",
+      "abs": 55
+    },
+    "a2:-(으)면": {
+      "first": "a2-l07",
+      "kind": "taught",
+      "abs": 55
+    },
+    "a2:-아/어 야 하다/돼": {
+      "first": "a2-l09",
+      "kind": "taught",
+      "abs": 57
+    },
+    "a2:-아/어 주다": {
+      "first": "a2-l14",
+      "kind": "taught",
+      "abs": 63
+    },
+    "a2:-아/어 보세요": {
+      "first": "a2-l18",
+      "kind": "taught",
+      "abs": 68
+    },
+    "a2:-기 때문에": {
+      "first": "a2-l23",
+      "kind": "taught",
+      "abs": 74
+    },
+    "a2:-(으)ㄹ 수 있다/없다": {
+      "first": "a2-l28",
+      "kind": "taught",
+      "abs": 80
+    },
+    "a2:-(으)ㄴ/는 것 같다": {
+      "first": "a2-l31",
+      "kind": "taught",
+      "abs": 84
+    }
+  }
+}

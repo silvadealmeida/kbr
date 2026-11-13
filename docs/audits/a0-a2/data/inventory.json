@@ -1,0 +1,109 @@
+{
+  "generatedAt": "baseline 3103ce3",
+  "a0": {
+    "course": "A0 Hangul",
+    "lessons": 25,
+    "checkpoints": 4,
+    "steps": 29,
+    "exercises": 405,
+    "exerciseTypes": {
+      "mcq": 116,
+      "audio-to-char": 73,
+      "char-to-audio": 9,
+      "build-syllable": 57,
+      "minimal-pair": 24,
+      "reading": 121,
+      "cloze": 5
+    },
+    "jamoRecords": 40,
+    "syllables": 151,
+    "words": 148,
+    "soundRules": 3,
+    "ruleExamplePairs": 23,
+    "introPanels": 89,
+    "lessonObjectives": 92,
+    "checkpointInstructions": 23,
+    "vocabEntries": 133,
+    "vocabSentences": 25
+  },
+  "a1": {
+    "course": "A1",
+    "modules": 8,
+    "lessons": 40,
+    "checkpoints": 8,
+    "steps": 48,
+    "lessonsInBlueprint": 40,
+    "checkpointsInBlueprint": 8,
+    "exercises": 615,
+    "lessonExercises": 400,
+    "checkpointExercises": 215,
+    "exerciseTypes": {
+      "mcq": 79,
+      "cloze": 183,
+      "listen": 132,
+      "translate": 97,
+      "reading": 124
+    },
+    "dialogueLines": 240,
+    "dialogueTitles": 40,
+    "grammarBlocks": 164,
+    "grammarExamples": 328,
+    "introPanels": 125,
+    "summaryPoints": 163,
+    "vocabEntries": 443,
+    "vocabSentences": 443,
+    "newVocabIds": 443,
+    "reusedVocabIds": 345,
+    "distinctReused": 176,
+    "grammarTopicsDeclared": 94
+  },
+  "a2": {
+    "course": "A2",
+    "modules": 8,
+    "lessons": 40,
+    "checkpoints": 8,
+    "steps": 48,
+    "lessonsInBlueprint": 40,
+    "checkpointsInBlueprint": 8,
+    "exercises": 615,
+    "lessonExercises": 400,
+    "checkpointExercises": 215,
+    "exerciseTypes": {
+      "mcq": 101,
+      "cloze": 125,
+      "listen": 132,
+      "reading": 132,
+      "translate": 125
+    },
+    "dialogueLines": 240,
+    "dialogueTitles": 40,
+    "grammarBlocks": 86,
+    "grammarExamples": 172,
+    "introPanels": 93,
+    "summaryPoints": 160,
+    "vocabEntries": 400,
+    "vocabSentences": 400,
+    "newVocabIds": 400,
+    "reusedVocabIds": 200,
+    "distinctReused": 126,
+    "grammarTopicsDeclared": 97
+  },
+  "vocabulary": {
+    "entries": 976,
+    "byCourse": {
+      "hangul": 133,
+      "ko-a1": 443,
+      "ko-a2": 400
+    },
+    "sentences": 868,
+    "entriesWithoutSentence": 108,
+    "allInReview": true
+  },
+  "totals": {
+    "steps": 125,
+    "exercises": 1635,
+    "vocabEntries": 976,
+    "vocabSentences": 868,
+    "koreanStringBearingItems": 4677
+  }
+}

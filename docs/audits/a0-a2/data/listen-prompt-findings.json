@@ -1,0 +1,708 @@
+{
+  "totalListen": 264,
+  "promptsPorFragmento": 65,
+  "porLicao": {
+    "a1-l06": 1,
+    "a1-l07": 1,
+    "a1-l08": 1,
+    "a1-l09": 1,
+    "a1-l13": 1,
+    "a1-l14": 1,
+    "a1-l23": 1,
+    "a1-l25": 1,
+    "a1-l26": 1,
+    "a1-l38": 1,
+    "a1-c01": 1,
+    "a1-c02": 3,
+    "a1-c03": 1,
+    "a1-c06": 1,
+    "a1-c07": 1,
+    "a1-c08": 3,
+    "a2-l01": 1,
+    "a2-l02": 2,
+    "a2-l03": 1,
+    "a2-l04": 1,
+    "a2-l05": 2,
+    "a2-l06": 1,
+    "a2-l07": 1,
+    "a2-l08": 1,
+    "a2-l10": 1,
+    "a2-l12": 1,
+    "a2-l14": 2,
+    "a2-l17": 1,
+    "a2-l19": 1,
+    "a2-l20": 1,
+    "a2-l21": 1,
+    "a2-l23": 1,
+    "a2-l24": 2,
+    "a2-l25": 1,
+    "a2-l26": 2,
+    "a2-l27": 1,
+    "a2-l29": 1,
+    "a2-l31": 1,
+    "a2-l32": 1,
+    "a2-l33": 1,
+    "a2-c01": 4,
+    "a2-c02": 3,
+    "a2-c03": 1,
+    "a2-c04": 1,
+    "a2-c05": 1,
+    "a2-c06": 2,
+    "a2-c07": 2,
+    "a2-c08": 2
+  },
+  "rows": [
+    {
+      "item": "a1-l06-e08",
+      "step": "a1-l06",
+      "prompt": "Ouça e escreva o número que você ouviu.",
+      "answer": "제 번호는 사 번이에요.",
+      "accepted": [
+        "제 번호는 사 번이에요"
+      ],
+      "palavras": 4
+    },
+    {
+      "item": "a1-l07-e08",
+      "step": "a1-l07",
+      "prompt": "Ouça e escreva o dia que você ouviu.",
+      "answer": "내일은 일요일이에요.",
+      "accepted": [
+        "내일은 일요일이에요"
+      ],
+      "palavras": 2
+    },
+    {
+      "item": "a1-l08-e03",
+      "step": "a1-l08",
+      "prompt": "Ouça e escreva a ação que você ouviu.",
+      "answer": "저는 아침에 일어나요.",
+      "accepted": [
+        "저는 아침에 일어나요"
+      ],
+      "palavras": 3
+    },
+    {
+      "item": "a1-l09-e03",
+      "step": "a1-l09",
+      "prompt": "Ouça e escreva a frequência que você ouviu.",
+      "answer": "저는 매일 공부해요.",
+      "accepted": [
+        "저는 매일 공부해요"
+      ],
+      "palavras": 3
+    },
+    {
+      "item": "a1-l13-e08",
+      "step": "a1-l13",
+      "prompt": "Ouça e escreva a localização que você ouviu.",
+      "answer": "냉장고가 부엌에 있어요.",
+      "accepted": [
+        "냉장고가 부엌에 있어요"
+      ],
+      "palavras": 3
+    },
+    {
+      "item": "a1-l14-e03",
+      "step": "a1-l14",
+      "prompt": "Ouça e escreva a ação que você ouviu.",
+      "answer": "저는 거실에서 청소해요.",
+      "accepted": [
+        "저는 거실에서 청소해요"
+      ],
+      "palavras": 3
+    },
+    {
+      "item": "a1-l23-e08",
+      "step": "a1-l23",
+      "prompt": "Ouça e escreva a localização que você ouviu.",
+      "answer": "은행은 건너편에 있어요.",
+      "accepted": [
+        "은행은 건너편에 있어요"
+      ],
+      "palavras": 3
+    },
+    {
+      "item": "a1-l25-e08",
+      "step": "a1-l25",
+      "prompt": "Ouça e escreva o horário de partida.",
+      "answer": "우리는 여섯 시에 출발해요.",
+      "accepted": [
+        "우리는 여섯 시에 출발해요"
+      ],
+      "palavras": 4
+    },
+    {
+      "item": "a1-l26-e03",
+      "step": "a1-l26",
+      "prompt": "Ouça e escreva a atividade que você ouviu.",
+      "answer": "저는 수영을 좋아해요.",
+      "accepted": [
+        "저는 수영을 좋아해요"
+      ],
+      "palavras": 3
+    },
+    {
+      "item": "a1-l38-e03",
+      "step": "a1-l38",
+      "prompt": "Ouça e escreva a desculpa que você ouviu.",
+      "answer": "정말 미안해요.",
+      "accepted": [
+        "정말 미안해요"
+      ],
+      "palavras": 2
+    },
+    {
+      "item": "a1-c01-e04",
+      "step": "a1-c01",
+      "prompt": "Ouça e escreva a localização que você ouviu.",
+      "answer": "가방이 책상 아래에 있어요.",
+      "accepted": [
+        "가방이 책상 아래에 있어요"
+      ],
+      "palavras": 4
+    },
+    {
+      "item": "a1-c02-e01",
+      "step": "a1-c02",
+      "prompt": "Ouça e escreva a idade que você ouviu.",
+      "answer": "저는 스무 살이에요.",
+      "accepted": [
+        "저는 스무 살이에요"
+      ],
+      "palavras": 3
+    },
+    {
+      "item": "a1-c02-e03",
+      "step": "a1-c02",
+      "prompt": "Ouça e escreva o dia da semana que você ouviu.",
+      "answer": "오늘은 수요일이에요.",
+      "accepted": [
+        "오늘은 수요일이에요"
+      ],
+      "palavras": 2
+    },
+    {
+      "item": "a1-c02-e04",
+      "step": "a1-c02",
+      "prompt": "Ouça e escreva a ação que você ouviu.",
+      "answer": "저는 아침에 공부해요.",
+      "accepted": [
+        "저는 아침에 공부해요"
+      ],
+      "palavras": 3
+    },
+    {
+      "item": "a1-c03-e02",
+      "step": "a1-c03",
+      "prompt": "Ouça e escreva a profissão que você ouviu.",
+      "answer": "제 어머니는 요리사예요.",
+      "accepted": [
+        "제 어머니는 요리사예요"
+      ],
+      "palavras": 3
+    },
+    {
+      "item": "a1-c06-e02",
+      "step": "a1-c06",
+      "prompt": "Ouça e escreva a frequência que você ouviu.",
+      "answer": "저는 축구를 자주 해요.",
+      "accepted": [
+        "저는 축구를 자주 해요"
+      ],
+      "palavras": 4
+    },
+    {
+      "item": "a1-c07-e01",
+      "step": "a1-c07",
+      "prompt": "Ouça e escreva a ação passada que você ouviu.",
+      "answer": "지난주에 친구를 만났어요.",
+      "accepted": [
+        "지난주에 친구를 만났어요"
+      ],
+      "palavras": 3
+    },
+    {
+      "item": "a1-c08-e03",
+      "step": "a1-c08",
+      "prompt": "Ouça e escreva o dia da semana.",
+      "answer": "오늘은 수요일이에요.",
+      "accepted": [
+        "오늘은 수요일이에요"
+      ],
+      "palavras": 2
+    },
+    {
+      "item": "a1-c08-e05",
+      "step": "a1-c08",
+      "prompt": "Ouça e escreva a localização.",
+      "answer": "가방이 책상 아래에 있어요.",
+      "accepted": [
+        "가방이 책상 아래에 있어요"
+      ],
+      "palavras": 4
+    },
+    {
+      "item": "a1-c08-e06",
+      "step": "a1-c08",
+      "prompt": "Ouça e escreva o pedido.",
+      "answer": "비빔밥 하나 주세요.",
+      "accepted": [
+        "비빔밥 하나 주세요"
+      ],
+      "palavras": 3
+    },
+    {
+      "item": "a2-l01-e08",
+      "step": "a2-l01",
+      "prompt": "Ouça e escreva a justificativa que você ouviu.",
+      "answer": "사람이 많아서 조금 피곤했어요.",
+      "accepted": [
+        "사람이 많아서 조금 피곤했어요"
+      ],
+      "palavras": 4
+    },
+    {
+      "item": "a2-l02-e03",
+      "step": "a2-l02",
+      "prompt": "Ouça e escreva a experiência que Jiwoo ainda não teve.",
+      "answer": "저는 아직 해외에서 살아 본 적이 없어요.",
+      "accepted": [
+        "저는 아직 해외에서 살아 본 적이 없어요"
+      ],
+      "palavras": 7
+    },
+    {
+      "item": "a2-l02-e08",
+      "step": "a2-l02",
+      "prompt": "Ouça e escreva a experiência de Ana.",
+      "answer": "일본에는 두 번 갔어요.",
+      "accepted": [
+        "일본에는 두 번 갔어요"
+      ],
+      "palavras": 4
+    },
+    {
+      "item": "a2-l03-e08",
+      "step": "a2-l03",
+      "prompt": "Ouça e escreva a diferença mencionada.",
+      "answer": "성격은 완전히 달라요.",
+      "accepted": [
+        "성격은 완전히 달라요"
+      ],
+      "palavras": 3
+    },
+    {
+      "item": "a2-l04-e03",
+      "step": "a2-l04",
+      "prompt": "Ouça e escreva a desculpa de Minsu.",
+      "answer": "갑자기 회사 일이 생겨서 가지 못했어요.",
+      "accepted": [
+        "갑자기 회사 일이 생겨서 가지 못했어요"
+      ],
+      "palavras": 6
+    },
+    {
+      "item": "a2-l05-e03",
+      "step": "a2-l05",
+      "prompt": "Ouça e escreva o desfecho da história.",
+      "answer": "결국 주인공은 집으로 돌아왔어요.",
+      "accepted": [
+        "결국 주인공은 집으로 돌아왔어요"
+      ],
+      "palavras": 4
+    },
+    {
+      "item": "a2-l05-e08",
+      "step": "a2-l05",
+      "prompt": "Ouça e escreva a complicação.",
+      "answer": "그런데 서울에서 길을 잃었어요.",
+      "accepted": [
+        "그런데 서울에서 길을 잃었어요"
+      ],
+      "palavras": 4
+    },
+    {
+      "item": "a2-l06-e03",
+      "step": "a2-l06",
+      "prompt": "Ouça e escreva a decisão de Jimin.",
+      "answer": "저는 취업을 하기로 했어요.",
+      "accepted": [
+        "저는 취업을 하기로 했어요"
+      ],
+      "palavras": 4
+    },
+    {
+      "item": "a2-l07-e03",
+      "step": "a2-l07",
+      "prompt": "Ouça e escreva o horário combinado.",
+      "answer": "그럼 세 시에 만나기로 해요.",
+      "accepted": [
+        "그럼 세 시에 만나기로 해요"
+      ],
+      "palavras": 5
+    },
+    {
+      "item": "a2-l08-e08",
+      "step": "a2-l08",
+      "prompt": "Ouça e escreva a atividade depois do jantar.",
+      "answer": "저녁을 먹고 나서 책을 읽어요.",
+      "accepted": [
+        "저녁을 먹고 나서 책을 읽어요"
+      ],
+      "palavras": 5
+    },
+    {
+      "item": "a2-l10-e08",
+      "step": "a2-l10",
+      "prompt": "Ouça e escreva a condição para ir à montanha.",
+      "answer": "날씨가 좋으면 산에 가요.",
+      "accepted": [
+        "날씨가 좋으면 산에 가요"
+      ],
+      "palavras": 4
+    },
+    {
+      "item": "a2-l12-e08",
+      "step": "a2-l12",
+      "prompt": "Ouça e escreva a frequência da coleta seletiva.",
+      "answer": "분리수거는 화요일이에요.",
+      "accepted": [
+        "분리수거는 화요일이에요"
+      ],
+      "palavras": 2
+    },
+    {
+      "item": "a2-l14-e03",
+      "step": "a2-l14",
+      "prompt": "Ouça e escreva o pedido de Sujin.",
+      "answer": "밤 열한 시 이후에는 조금 조용히 해 주시면 좋겠어요.",
+      "accepted": [
+        "밤 열한 시 이후에는 조금 조용히 해 주시면 좋겠어요"
+      ],
+      "palavras": 9
+    },
+    {
+      "item": "a2-l14-e08",
+      "step": "a2-l14",
+      "prompt": "Ouça e escreva a causa do barulho.",
+      "answer": "아이가 늦게까지 뛰어서요.",
+      "accepted": [
+        "아이가 늦게까지 뛰어서요"
+      ],
+      "palavras": 3
+    },
+    {
+      "item": "a2-l17-e03",
+      "step": "a2-l17",
+      "prompt": "Ouça e escreva a frequência recomendada.",
+      "answer": "한 시간마다 한 번씩 일어나세요.",
+      "accepted": [
+        "한 시간마다 한 번씩 일어나세요"
+      ],
+      "palavras": 5
+    },
+    {
+      "item": "a2-l19-e08",
+      "step": "a2-l19",
+      "prompt": "Ouça e escreva o conselho para a dor nas costas.",
+      "answer": "허리가 아프면 누워서 쉬세요.",
+      "accepted": [
+        "허리가 아프면 누워서 쉬세요"
+      ],
+      "palavras": 4
+    },
+    {
+      "item": "a2-l20-e08",
+      "step": "a2-l20",
+      "prompt": "Ouça e escreva o conselho para começar.",
+      "answer": "처음에는 가볍게 시작하는 게 좋아요.",
+      "accepted": [
+        "처음에는 가볍게 시작하는 게 좋아요"
+      ],
+      "palavras": 5
+    },
+    {
+      "item": "a2-l21-e03",
+      "step": "a2-l21",
+      "prompt": "Ouça e escreva o horário de trabalho de Marco.",
+      "answer": "아홉 시부터 여섯 시까지 일해요.",
+      "accepted": [
+        "아홉 시부터 여섯 시까지 일해요"
+      ],
+      "palavras": 5
+    },
+    {
+      "item": "a2-l23-e03",
+      "step": "a2-l23",
+      "prompt": "Ouça e escreva o motivo de Sujin.",
+      "answer": "사람들을 돕는 일을 좋아하기 때문입니다.",
+      "accepted": [
+        "사람들을 돕는 일을 좋아하기 때문입니다"
+      ],
+      "palavras": 5
+    },
+    {
+      "item": "a2-l24-e03",
+      "step": "a2-l24",
+      "prompt": "Ouça e escreva a decisão de Marco.",
+      "answer": "일주일에 두 번 학원에 가기로 했어요.",
+      "accepted": [
+        "일주일에 두 번 학원에 가기로 했어요"
+      ],
+      "palavras": 6
+    },
+    {
+      "item": "a2-l24-e08",
+      "step": "a2-l24",
+      "prompt": "Ouça e escreva a frequência de estudo de Marco.",
+      "answer": "일주일에 두 번 학원에 가요.",
+      "accepted": [
+        "일주일에 두 번 학원에 가요"
+      ],
+      "palavras": 5
+    },
+    {
+      "item": "a2-l25-e08",
+      "step": "a2-l25",
+      "prompt": "Ouça e escreva o dia da revisão.",
+      "answer": "목요일 네 시에 회의실에서 만나요.",
+      "accepted": [
+        "목요일 네 시에 회의실에서 만나요"
+      ],
+      "palavras": 5
+    },
+    {
+      "item": "a2-l26-e03",
+      "step": "a2-l26",
+      "prompt": "Ouça e escreva o horário do café da manhã.",
+      "answer": "조식은 일곱 시부터 열 시까지예요.",
+      "accepted": [
+        "조식은 일곱 시부터 열 시까지예요"
+      ],
+      "palavras": 5
+    },
+    {
+      "item": "a2-l26-e08",
+      "step": "a2-l26",
+      "prompt": "Ouça e escreva a condição de pagamento.",
+      "answer": "예약금은 카드로 내겠습니다.",
+      "accepted": [
+        "예약금은 카드로 내겠습니다"
+      ],
+      "palavras": 3
+    },
+    {
+      "item": "a2-l27-e03",
+      "step": "a2-l27",
+      "prompt": "Ouça e escreva o número do portão.",
+      "answer": "십이 번 탑승구입니다.",
+      "accepted": [
+        "십이 번 탑승구입니다"
+      ],
+      "palavras": 3
+    },
+    {
+      "item": "a2-l29-e08",
+      "step": "a2-l29",
+      "prompt": "Ouça e escreva o preço da atração.",
+      "answer": "입장료는 무료예요.",
+      "accepted": [
+        "입장료는 무료예요"
+      ],
+      "palavras": 2
+    },
+    {
+      "item": "a2-l31-e08",
+      "step": "a2-l31",
+      "prompt": "Ouça e escreva a sugestão final.",
+      "answer": "다른 감독의 영화를 보는 게 어때요?",
+      "accepted": [
+        "다른 감독의 영화를 보는 게 어때요?"
+      ],
+      "palavras": 6
+    },
+    {
+      "item": "a2-l32-e03",
+      "step": "a2-l32",
+      "prompt": "Ouça e escreva o pedido do chefe.",
+      "answer": "늦을 것 같으면 미리 알려 주세요.",
+      "accepted": [
+        "늦을 것 같으면 미리 알려 주세요"
+      ],
+      "palavras": 6
+    },
+    {
+      "item": "a2-l33-e08",
+      "step": "a2-l33",
+      "prompt": "Ouça e escreva o conselho de Sujin.",
+      "answer": "공손하게 인사하시면 돼요.",
+      "accepted": [
+        "공손하게 인사하시면 돼요"
+      ],
+      "palavras": 3
+    },
+    {
+      "item": "a2-c01-e03",
+      "step": "a2-c01",
+      "prompt": "Ouça e escreva a experiência de viagem.",
+      "answer": "일본에 한번 가 봤어요.",
+      "accepted": [
+        "일본에 한 번 가 봤어요",
+        "일본에 한번 가 봤어요"
+      ],
+      "palavras": 4
+    },
+    {
+      "item": "a2-c01-e04",
+      "step": "a2-c01",
+      "prompt": "Ouça e escreva a comparação de altura.",
+      "answer": "동생이 저보다 키가 더 커요.",
+      "accepted": [
+        "동생이 저보다 키가 더 커요"
+      ],
+      "palavras": 5
+    },
+    {
+      "item": "a2-c01-e05",
+      "step": "a2-c01",
+      "prompt": "Ouça e escreva a desculpa.",
+      "answer": "갑자기 회사 일이 생겨서 가지 못했어요.",
+      "accepted": [
+        "갑자기 회사 일이 생겨서 가지 못했어요"
+      ],
+      "palavras": 6
+    },
+    {
+      "item": "a2-c01-e06",
+      "step": "a2-c01",
+      "prompt": "Ouça e escreva o desfecho da história.",
+      "answer": "결국 주인공은 집으로 돌아왔어요.",
+      "accepted": [
+        "결국 주인공은 집으로 돌아왔어요"
+      ],
+      "palavras": 4
+    },
+    {
+      "item": "a2-c02-e02",
+      "step": "a2-c02",
+      "prompt": "Ouça e escreva a decisão tomada.",
+      "answer": "저는 취업을 하기로 했어요.",
+      "accepted": [
+        "저는 취업을 하기로 했어요"
+      ],
+      "palavras": 4
+    },
+    {
+      "item": "a2-c02-e03",
+      "step": "a2-c02",
+      "prompt": "Ouça e escreva o horário combinado.",
+      "answer": "세 시에 만나기로 했어요.",
+      "accepted": [
+        "세 시에 만나기로 했어요"
+      ],
+      "palavras": 4
+    },
+    {
+      "item": "a2-c02-e06",
+      "step": "a2-c02",
+      "prompt": "Ouça e escreva a condição.",
+      "answer": "비가 오면 영화관에 가요.",
+      "accepted": [
+        "비가 오면 영화관에 가요"
+      ],
+      "palavras": 4
+    },
+    {
+      "item": "a2-c03-e03",
+      "step": "a2-c03",
+      "prompt": "Ouça e escreva o pedido de ajuda.",
+      "answer": "이 가방을 들어 주시겠어요?",
+      "accepted": [
+        "이 가방을 들어 주시겠어요?"
+      ],
+      "palavras": 4
+    },
+    {
+      "item": "a2-c04-e04",
+      "step": "a2-c04",
+      "prompt": "Ouça e escreva o conselho condicional.",
+      "answer": "허리가 아프면 누워서 쉬세요.",
+      "accepted": [
+        "허리가 아프면 누워서 쉬세요"
+      ],
+      "palavras": 4
+    },
+    {
+      "item": "a2-c05-e04",
+      "step": "a2-c05",
+      "prompt": "Ouça e escreva a decisão de estudo.",
+      "answer": "일주일에 두 번 학원에 가기로 했어요.",
+      "accepted": [
+        "일주일에 두 번 학원에 가기로 했어요"
+      ],
+      "palavras": 6
+    },
+    {
+      "item": "a2-c06-e01",
+      "step": "a2-c06",
+      "prompt": "Ouça e escreva o horário do café da manhã.",
+      "answer": "조식은 일곱 시부터 열 시까지예요.",
+      "accepted": [
+        "조식은 일곱 시부터 열 시까지예요"
+      ],
+      "palavras": 5
+    },
+    {
+      "item": "a2-c06-e02",
+      "step": "a2-c06",
+      "prompt": "Ouça e escreva o número do portão.",
+      "answer": "십이 번 탑승구입니다.",
+      "accepted": [
+        "십이 번 탑승구입니다"
+      ],
+      "palavras": 3
+    },
+    {
+      "item": "a2-c07-e01",
+      "step": "a2-c07",
+      "prompt": "Ouça e escreva a opinião sobre o filme.",
+      "answer": "저는 재미있었다고 생각해요.",
+      "accepted": [
+        "저는 재미있었다고 생각해요"
+      ],
+      "palavras": 3
+    },
+    {
+      "item": "a2-c07-e03",
+      "step": "a2-c07",
+      "prompt": "Ouça e escreva a causa do atraso.",
+      "answer": "지하철이 멈췄기 때문에 늦었어요.",
+      "accepted": [
+        "지하철이 멈췄기 때문에 늦었어요"
+      ],
+      "palavras": 4
+    },
+    {
+      "item": "a2-c08-e02",
+      "step": "a2-c08",
+      "prompt": "Ouça e escreva a experiência de viagem.",
+      "answer": "일본에 한번 가 봤어요.",
+      "accepted": [
+        "일본에 한 번 가 봤어요",
+        "일본에 한번 가 봤어요"
+      ],
+      "palavras": 4
+    },
+    {
+      "item": "a2-c08-e10",
+      "step": "a2-c08",
+      "prompt": "Ouça e escreva a opinião final.",
+      "answer": "조금 힘들었지만 정말 즐거웠어요.",
+      "accepted": [
+        "조금 힘들었지만 정말 즐거웠어요"
+      ],
+      "palavras": 4
+    }
+  ]
+}

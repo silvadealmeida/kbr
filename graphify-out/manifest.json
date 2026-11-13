@@ -4614,8 +4614,8 @@
     "semantic_hash": ""
   },
   "docs/audits/a0-a2/data/engine-probe.json": {
-    "mtime": 1794527853.6569405,
-    "seen": 1794531310.5825844,
+    "mtime": 1794531497.6234496,
+    "seen": 1794531551.221329,
     "ast_hash": "f831501f42d121ee0a99c5562ebcef31",
     "semantic_hash": ""
   },
@@ -4638,20 +4638,20 @@
     "semantic_hash": ""
   },
   "docs/audits/a0-a2/data/listen-prompt-findings.json": {
-    "mtime": 1794526750.676362,
-    "seen": 1794531310.58259,
+    "mtime": 1794531497.6234496,
+    "seen": 1794531551.2213347,
     "ast_hash": "83c15a819cd712e65533577d57fa2174",
     "semantic_hash": ""
   },
   "docs/audits/a0-a2/data/particle-findings.json": {
-    "mtime": 1794526750.5827622,
-    "seen": 1794531310.5825908,
+    "mtime": 1794531497.6234496,
+    "seen": 1794531551.2213356,
     "ast_hash": "df78aa088a27ebe7f30c5e25214c15a0",
     "semantic_hash": ""
   },
   "docs/audits/a0-a2/data/progression-findings.json": {
-    "mtime": 1794526750.4819622,
-    "seen": 1794531310.582592,
+    "mtime": 1794531497.6234496,
+    "seen": 1794531551.2213366,
     "ast_hash": "d99fc2fcefabf7c0fd4516b8fdc8530e",
     "semantic_hash": ""
   },
@@ -4662,8 +4662,8 @@
     "semantic_hash": ""
   },
   "docs/audits/a0-a2/data/structure-findings.json": {
-    "mtime": 1794526750.222762,
-    "seen": 1794531310.5825937,
+    "mtime": 1794531497.6234496,
+    "seen": 1794531551.2213383,
     "ast_hash": "f41911e618c2f0a4501727d64790eb5e",
     "semantic_hash": ""
   },
@@ -4674,14 +4674,14 @@
     "semantic_hash": ""
   },
   "docs/audits/a0-a2/data/typed-normalization.json": {
-    "mtime": 1794526750.726762,
-    "seen": 1794531310.5825953,
+    "mtime": 1794531497.6234496,
+    "seen": 1794531551.2213402,
     "ast_hash": "582d41b2939229a90b38b684b2d234e0",
     "semantic_hash": ""
   },
   "docs/audits/a0-a2/data/vocabulary-findings.json": {
-    "mtime": 1794526750.5395622,
-    "seen": 1794531310.582596,
+    "mtime": 1794531497.6234496,
+    "seen": 1794531551.2213411,
     "ast_hash": "cf476557dd37e7108ca892965bc3e1d2",
     "semantic_hash": ""
   },
@@ -4896,9 +4896,9 @@
     "semantic_hash": ""
   },
   "docs/audits/a0-a2/correction-ledger.md": {
-    "mtime": 1794531391.495949,
-    "seen": 1794531409.5567427,
-    "ast_hash": "d792aeb9e0a6ba8a89add6cc5b6f6b0c",
+    "mtime": 1794531531.8651307,
+    "seen": 1794531551.2216916,
+    "ast_hash": "bee4aa8a7db3be48caebd11daf7ce19e",
     "semantic_hash": ""
   },
   "docs/audits/a0-a2/correction-proposals.md": {
@@ -20829,6 +20829,12 @@
     "mtime": 1794526671.51674,
     "seen": 1794531310.592911,
     "ast_hash": "d348511ddc1e20027980da9b71f2f595",
+    "semantic_hash": ""
+  },
+  "docs/audits/a0-a2/data/post-correction-audit.md": {
+    "mtime": 1794531525.5687306,
+    "seen": 1794531551.2217138,
+    "ast_hash": "5768b1c7db8a77dd6ab7b5490a2477bf",
     "semantic_hash": ""
   },
   "package-lock.json": {

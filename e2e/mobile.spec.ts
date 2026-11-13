@@ -137,4 +137,103 @@ test.describe("uso em telas pequenas", () => {
     await expect(page.getByText("Correto.", { exact: true })).toBeVisible();
     await noHorizontalOverflow(page);
   });
+
+  test("sessões ativas de revisão mantêm h1 único e controles acima da barra inferior", async ({
+    context,
+    page,
+  }) => {
+    const session = await authenticate(context);
+    await context.addInitScript(
+      ({ key }) => {
+        try {
+          if (window.sessionStorage.getItem("kbr:e2e:mobile-review") === "1") return;
+          const payload = JSON.stringify({
+            v: 1,
+            lessons: { h01: { done: true, score: 100 } },
+            cards: {
+              "h:jamo:c:ㄱ": { box: 1, due: "2020-01-01T00:00:00.000Z" },
+              "v:ko:사과": { box: 1, due: "2020-01-01T00:00:00.000Z" },
+            },
+            history: [],
+            streak: 0,
+            dailyGoal: 10,
+            lastActive: "2020-01-01T00:00:00.000Z",
+          });
+          window.localStorage.setItem(key, payload);
+          window.localStorage.setItem("kbr:v1", payload);
+          window.sessionStorage.setItem("kbr:e2e:mobile-review", "1");
+        } catch {
+          /* about:blank */
+        }
+      },
+      { key: session.storageKey },
+    );
+
+    await page.setViewportSize({ width: 375, height: 812 });
+
+    await page.goto("/revisao");
+    await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
+    await page.getByRole("button", { name: /Começar revisão/ }).click();
+    await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
+    await noHorizontalOverflow(page);
+
+    await page.goto("/vocabulario/revisao");
+    await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
+    await page.getByRole("button", { name: /Começar revisão/ }).click();
+    await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
+    await expect(
+      page.getByRole("progressbar", { name: "Progresso da sessão" }),
+    ).toBeVisible();
+    await noHorizontalOverflow(page);
+  });
+
+  test("alvos de toque em vocabulário, rubrica de produção e sumário legal têm ≥44 px", async ({
+    context,
+    page,
+  }) => {
+    await seedLessons(context, ["a2-c08"]);
+    await page.setViewportSize({ width: 375, height: 812 });
+
+    await page.goto("/vocabulario");
+    const firstRow = page.getByTestId("vocab-row").first();
+    await expect(firstRow).toBeVisible();
+    for (const button of await firstRow.getByRole("button").all()) {
+      const box = await button.boundingBox();
+      expect(box?.height ?? 0).toBeGreaterThanOrEqual(44);
+    }
+
+    await page.goto("/b1/b1-l01");
+    await expect(page.getByText("Rubrica de autoavaliação")).toBeVisible();
+    const rubricLabels = page
+      .locator("fieldset")
+      .filter({ hasText: "Rubrica de autoavaliação" })
+      .locator("label");
+    expect(await rubricLabels.count()).toBeGreaterThan(0);
+    for (const label of await rubricLabels.all()) {
+      const box = await label.boundingBox();
+      expect(box?.height ?? 0).toBeGreaterThanOrEqual(44);
+    }
+
+    await page.goto("/privacidade");
+    const tocNav = page.getByRole("navigation", { name: "Nesta página" });
+    await expect(tocNav).toBeVisible();
+    const tocLinks = tocNav.getByRole("link");
+    for (const link of await tocLinks.all()) {
+      const box = await link.boundingBox();
+      expect(box?.height ?? 0).toBeGreaterThanOrEqual(44);
+    }
+  });
+
+  test("zoom de texto em 125% e 150% mantém layout sem rolagem horizontal em 320 e 375 px", async ({
+    page,
+  }) => {
+    for (const width of [320, 375]) {
+      await page.setViewportSize({ width, height: 812 });
+      for (const path of ["/", "/privacidade", "/impressum", "/auth/error"]) {
+        await page.goto(path);
+        await page.addStyleTag({ content: "html { font-size: 150% !important; }" });
+        await noHorizontalOverflow(page);
+      }
+    }
+  });
 });

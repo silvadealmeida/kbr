@@ -1,7 +1,7 @@
 # Graph Report - kbr  (2026-11-13)
 
 ## Corpus Check
-- 597 files · ~998,920 words
+- 597 files · ~998,937 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 7 file(s) not represented in the graph (top: (none) 5, .example 1, .css 1)
 
@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `6e5d38bf`
+- Built from commit: `7b68c810`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -272,32 +272,32 @@
 10. `mcq()` - 49 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `Dimensões cobertas por todo o corpus` --references--> `findUnusedReusedRefs()`  [INFERRED]
-  docs/audits/b1/coverage-ledger.md → src/content/curriculum/validate-reuse.ts
-- `O que mais importa (leitura do dono do produto)` --references--> `terminalPunctuationVariants()`  [INFERRED]
-  docs/audits/b1/executive-summary.md → src/lib/exercises/punctuation.ts
-- `Higiene de dados` --references--> `findUnusedReusedRefs()`  [INFERRED]
-  docs/audits/b1/exercise-findings.md → src/content/curriculum/validate-reuse.ts
+- `Regras` --references--> `Progress`  [INFERRED]
+  AGENTS.md → src/lib/storage/index.ts
 - `Curso A2 completo (Fases 10A–10H)` --references--> `CourseClientView`  [INFERRED]
   docs/architecture.md → src/content/courses/client.ts
 - `7. A2 e B1 concluídos` --references--> `CourseClientView`  [INFERRED]
   docs/release/curriculum-handoff.md → src/content/courses/client.ts
+- `5. Contrato por lição futura` --references--> `ReviewMeta`  [INFERRED]
+  docs/curriculum/a1-vocabulary-plan.md → src/content/hangul/types.ts
+- `2. Visão geral dos nove tipos` --references--> `ExerciseSpec`  [INFERRED]
+  docs/pedagogy/exercise-design.md → src/lib/exercises/index.ts
 
 ## Import Cycles
+- 2-file cycle: `src/lib/srs/index.ts -> src/lib/srs/leitner.ts -> src/lib/srs/index.ts`
+- 2-file cycle: `src/lib/srs/cards.ts -> src/lib/srs/index.ts -> src/lib/srs/cards.ts`
 - 2-file cycle: `src/lib/storage/index.ts -> src/lib/storage/mergeProgress.ts -> src/lib/storage/index.ts`
 - 2-file cycle: `src/lib/storage/index.ts -> src/lib/storage/syncedProgressStore.ts -> src/lib/storage/index.ts`
 - 2-file cycle: `src/lib/storage/index.ts -> src/lib/storage/syncProgress.ts -> src/lib/storage/index.ts`
 - 2-file cycle: `src/lib/storage/index.ts -> src/lib/storage/supabaseProgressStore.ts -> src/lib/storage/index.ts`
 - 2-file cycle: `src/lib/storage/index.ts -> src/lib/storage/localStorageStore.ts -> src/lib/storage/index.ts`
-- 2-file cycle: `src/lib/srs/index.ts -> src/lib/srs/leitner.ts -> src/lib/srs/index.ts`
-- 2-file cycle: `src/lib/srs/cards.ts -> src/lib/srs/index.ts -> src/lib/srs/cards.ts`
+- 3-file cycle: `src/lib/srs/cards.ts -> src/lib/srs/leitner.ts -> src/lib/srs/index.ts -> src/lib/srs/cards.ts`
 - 3-file cycle: `src/lib/storage/index.ts -> src/lib/storage/supabaseProgressStore.ts -> src/lib/storage/mergeProgress.ts -> src/lib/storage/index.ts`
 - 3-file cycle: `src/lib/storage/index.ts -> src/lib/storage/syncProgress.ts -> src/lib/storage/mergeProgress.ts -> src/lib/storage/index.ts`
 - 3-file cycle: `src/lib/storage/index.ts -> src/lib/storage/syncedProgressStore.ts -> src/lib/storage/mergeProgress.ts -> src/lib/storage/index.ts`
 - 3-file cycle: `src/lib/storage/index.ts -> src/lib/storage/syncProgress.ts -> src/lib/storage/localStorageStore.ts -> src/lib/storage/index.ts`
 - 3-file cycle: `src/lib/storage/index.ts -> src/lib/storage/syncProgress.ts -> src/lib/storage/supabaseProgressStore.ts -> src/lib/storage/index.ts`
 - 3-file cycle: `src/lib/storage/index.ts -> src/lib/storage/supabaseProgressStore.ts -> src/lib/storage/localStorageStore.ts -> src/lib/storage/index.ts`
-- 3-file cycle: `src/lib/srs/cards.ts -> src/lib/srs/leitner.ts -> src/lib/srs/index.ts -> src/lib/srs/cards.ts`
 - 4-file cycle: `src/lib/storage/index.ts -> src/lib/storage/syncProgress.ts -> src/lib/storage/supabaseProgressStore.ts -> src/lib/storage/mergeProgress.ts -> src/lib/storage/index.ts`
 - 4-file cycle: `src/lib/storage/index.ts -> src/lib/storage/syncProgress.ts -> src/lib/storage/supabaseProgressStore.ts -> src/lib/storage/localStorageStore.ts -> src/lib/storage/index.ts`
 
@@ -1250,16 +1250,16 @@ Nodes (4): Limite, O que os 6 avisos de progressão ainda significam, Reexecuç�
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Progress` connect `Progress` to `4. Defeitos confirmados`, `KBR — Auditoria de privacidade e avaliação legal (Fase 2B)`, `Sumário executivo — auditoria de conteúdo educacional A0–A2`, `A1CheckpointPlayer.tsx`, `AuthProvider.tsx`, `content.ts`, `KBR — instruções para agentes (Codex, OpenCode, Claude Code)`, `fakeSupabaseCas.ts`, `VocabularyArea.tsx`, `Schema de conteúdo — módulo Hangul`, `review/index.ts`, `react`, `3. Invariantes por campo`, `Varredura de conteúdo — lições, exercícios, inconsistências e referências`, `vocabulary.test.ts`, `HangulCourse.tsx`, `B1 — pesquisa, referências e decisões pedagógicas`, `srs/index.ts`, `17. Integração com revisão espaçada`, `KBR — Plano de implementação da sincronização confiável (Fase 4D.2)`, `createEmptyProgress`, `content/vocabulary/index.ts`, `KBR — Prática de fala com reconhecimento nativo (Fase 8C, experimental)`, `a1/validate-content.ts`, `lib/hangul/index.ts`, `Áudio atual — auditoria técnica e de experiência`, `createSupabaseProgressStore`, `KBR — Runbook de deploy seguro do CAS (Fase 4D.3)`, `mergeProgress.ts`, `Roadmap de qualidade de áudio — Fase 8B`, `ProgressStore`, `dashboard.ts`, `exercise-ui.tsx`, `LessonPlayer.tsx`, `dashboard.test.ts`, `Plano de redesign por componente`, `a1-curriculum.test.ts`, `ExerciseSpec`, `KBR — Decisão sobre PWA offline e service worker (Fase 6B)`, `Direção criativa — “Composição”`, `vitest`, `SpeakingPracticeArea.tsx`, `checkAnswer`, `supabase-cas.test.ts`, `Feedback do usuário — backlog (Igo)`, `Fase 7 — roadmap de implementação`, `Hangul — conceitos de interação`, `pronunciation.ts`, `content/courses/index.ts`, `isCourseStepUnlocked`, `Transição para o A1 — handoff após as Fases 9A–9H`, `KBR — Arquitetura`, `CheckpointPlayer.tsx`, `Vocabulário — arquitetura (Fase 9A-V)`, `a1/completion.ts`, `A2 — pesquisa, referências e decisões pedagógicas`, `Prontidão para beta controlado — Fase 8D (atualizado na 8E e na 8F)`, `storage/index.ts`?**
-  _High betweenness centrality (0.188) - this node is a cross-community bridge._
+  _High betweenness centrality (0.139) - this node is a cross-community bridge._
 - **Are the 95 inferred relationships involving `Progress` (e.g. with `Regras` and `Blueprint curricular A1 (Fase 9A)`) actually correct?**
   _`Progress` has 95 INFERRED edges - model-reasoned connections that need verification._
 - **Should `4. Defeitos confirmados` be split into smaller, more focused modules?**
   _Cohesion score 0.07692307692307693 - nodes in this community are weakly interconnected._
 - **Why does `checkAnswer()` connect `checkAnswer` to `Sumário executivo — auditoria de conteúdo educacional A0–A2`, `18. Plano de testes`, `Achados — A1 módulo 1 (a1-l01…a1-l05, a1-c01) — revisão v2`, `A1CheckpointPlayer.tsx`, `content/hangul/index.ts`, `review/index.ts`, `react`, `ref_node_fs`, `Achados — A1 módulo 3 (a1-l11–a1-l15 + a1-c03)`, `Achados`, `Progress`, `a1/validate-content.ts`, `lib/hangul/index.ts`, `Achados — A1 módulo 8 (a1-l36–a1-l40 + a1-c08)`, `Achados — A1 módulo 2 (a1-l06–a1-l10 + a1-c02) — revisão v2`, `ProgressStore`, `Achados — A2 módulo 3 (a2-l11–a2-l15 + a2-c03)`, `exercise-ui.tsx`, `LessonPlayer.tsx`, `11. Tipo 9 — `srs-session``, `a1-curriculum.test.ts`, `ExerciseSpec`, `exercise-order.test.ts`, `vitest`, `Feedback do usuário — backlog (Igo)`, `Fase 7 — roadmap de implementação`, `pronunciation.ts`, `content/courses/index.ts`, `Transição para o A1 — handoff após as Fases 9A–9H`, `KBR — Arquitetura`, `CheckpointPlayer.tsx`?**
-  _High betweenness centrality (0.087) - this node is a cross-community bridge._
+  _High betweenness centrality (0.109) - this node is a cross-community bridge._
 - **Are the 43 inferred relationships involving `checkAnswer()` (e.g. with `Cursos e catálogo (Fase 5)` and `Lição e composição (Fase 7D)`) actually correct?**
   _`checkAnswer()` has 43 INFERRED edges - model-reasoned connections that need verification._
 - **Should `package.json` be split into smaller, more focused modules?**
   _Cohesion score 0.09846153846153846 - nodes in this community are weakly interconnected._
 - **Why does `vitest` connect `vitest` to `package.json`, `supabase/proxy.ts`, `A1CheckpointPlayer.tsx`, `fakeSupabaseCas.ts`, `content/hangul/index.ts`, `review/index.ts`, `react`, `ref_node_fs`, `routes.ts`, `vocabulary.test.ts`, `checkAnswer`, `srs/index.ts`, `createEmptyProgress`, `auth.test.ts`, `a1/validate-content.ts`, `lib/hangul/index.ts`, `site.test.ts`, `exercise-ui.tsx`, `dashboard.test.ts`, `ref_node_path`, `a1-curriculum.test.ts`, `exercise-order.test.ts`, `checkAnswer`, `SpeakingPracticeArea.tsx`, `supabase-cas.test.ts`, `pronunciation.ts`, `content/courses/index.ts`, `exercise-media.tsx`, `manifest.test.ts`, `audio-manifest.test.ts`, `speech.test.ts`, `storage/index.ts`?**
-  _High betweenness centrality (0.075) - this node is a cross-community bridge._
+  _High betweenness centrality (0.078) - this node is a cross-community bridge._

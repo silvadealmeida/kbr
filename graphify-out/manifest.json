@@ -96,9 +96,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1794531391.488749,
-    "seen": 1794531409.5567303,
-    "ast_hash": "011ff753061130c200b88ecc026ef0f9",
+    "mtime": 1794557150.8271995,
+    "seen": 1794557225.8740196,
+    "ast_hash": "b5ab8179104343a94f5f74ba0f2d047e",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -21039,6 +21039,12 @@
     "mtime": 1794556852.195538,
     "seen": 1794557129.288596,
     "ast_hash": "950eb2446b401e15f4b4d39db4e0046e",
+    "semantic_hash": ""
+  },
+  "docs/audits/b1/data/content-dump.json": {
+    "mtime": 1794556248.1214936,
+    "seen": 1794557233.8350003,
+    "ast_hash": "f00e574a91e9280271a2b1a7f26e8387",
     "semantic_hash": ""
   },
   "package-lock.json": {

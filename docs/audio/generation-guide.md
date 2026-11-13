@@ -2,20 +2,20 @@
 
 **Fase:** 8B (corpus Hangul) e ampliação A1/A2  
 **Data:** 2026-11-12  
-**Status:** pipeline reproduzível. Os MP3 ficam em `public/audio/v1/`, são versionados e usados apenas com opt-in (`NEXT_PUBLIC_KBR_STATIC_AUDIO=1`).  
+**Status:** pipeline reproduzível. Os MP3 ficam em `public/audio/v1/`, são versionados e **servidos por padrão** desde a Fase 14 (2026-11-13).  
 **Natureza do áudio:** síntese neural, **não** gravação nativa. Todo o conteúdo coreano continua `in-review`; estes arquivos são a referência estável provisória e ainda precisam de escuta e aprovação de falante nativo.
 
 ## Uso e desligamento
 
-- O áudio estático é **opt-in**: sem `NEXT_PUBLIC_KBR_STATIC_AUDIO=1`, o player ignora os MP3 e cai
-  para a voz coreana do sistema (ou para a dica textual). O E2E liga a flag apenas para exercitar o
-  caminho de asset.
-- `public/audio/` está no `.vercelignore`; `scripts/audio/verify-audio-containment.mjs` roda em
-  `prebuild`/`postbuild` e falha se houver MP3 em artefato publicável sem opt-in explícito.
-- `encode-audio.py` grava direto em `public/audio/v1/`; os arquivos são preservados, não apagados.
-- A decisão de risco do dono do projeto está registrada em [`license-audit.md`](license-audit.md) §11
-  e **não é licença**; o padrão seguro e a contenção da 12A estão na §12.
-- Textos corrigidos sem MP3 usam TTS; a lista fechada está em [`stale-audio-manifest.md`](stale-audio-manifest.md).
+- O áudio estático é o caminho principal: `STATIC_AUDIO_ENABLED` é `true` por padrão.
+  `NEXT_PUBLIC_KBR_STATIC_AUDIO=0` é o kill switch: o player ignora os MP3 e cai para a voz
+  coreana do sistema (ou para a dica textual).
+- `public/audio/` é publicado normalmente; `/audio/:path*` recebe cache imutável enquanto o kill
+  switch não estiver ativo.
+- `encode-audio.py` grava direto em `public/audio/v1/`; os arquivos são preservados e órfãos são
+  removidos só quando o inventário deixa de citá-los.
+- A decisão de risco do dono do projeto está registrada em [`license-audit.md`](license-audit.md)
+  §13 e **não é licença**; nenhum texto corrigido depende mais de TTS.
 
 **Verificação local:**
 ```bash
@@ -141,7 +141,7 @@ PY
 node scripts/audio/build-inventory.mjs
 ```
 
-Lê o currículo real via Vite SSR e grava `.audio/inventory.json` com texto NFC, chave FNV-1a, referências de origem, passos, tags e prioridade. O script cobre Hangul, A1, A2 e o vocabulário desses cursos (B1 fica na voz do sistema) e falha em colisão de chave. Saída observada: **2.907 itens**, 1.949 de prioridade 1 e 958 de prioridade 2.
+Lê o currículo real via Vite SSR e grava `.audio/inventory.json` com texto NFC, chave FNV-1a, referências de origem, passos, tags e prioridade. O script cobre Hangul, A1, A2, B1 e o vocabulário desses cursos e falha em colisão de chave. Saída observada na Fase 14: **4.051 itens**, 2.773 de prioridade 1 e 1.278 de prioridade 2.
 
 ### 2. Síntese
 
@@ -192,7 +192,7 @@ Comportamento:
 
 1. Se há `audioSrc` explícito no conteúdo, ele tem prioridade; senão, o mapa estático é consultado.
 2. O MP3 é tocado sob demanda (`preload="auto"` no elemento criado no clique; nenhum áudio no carregamento da página).
-3. Com a flag desligada (padrão) o passo do MP3 é pulado. Se o asset falhar, não iniciar em **4 s** ou não existir, cai para a voz do sistema.
+3. Com o padrão ligado, o passo do MP3 é tentado primeiro. Se o asset falhar, não iniciar em **4 s** ou não existir, cai para a voz do sistema. Com `NEXT_PUBLIC_KBR_STATIC_AUDIO=0`, o passo do MP3 é pulado.
 4. A voz do sistema só é usada se houver uma voz **coreana explícita** (`ko`, `ko-KR` ou outra variante). Sem voz coreana, a UI mostra indisponibilidade e mantém a dica textual; nunca finge sucesso.
 5. A espera por `voiceschanged` é de **1,5 s**; se a fala não começar em **2 s**, o estado vira erro.
 6. Um novo play cancela o anterior; `destroy()` remove listeners e timers. O replay reinicia o mesmo asset.
@@ -209,7 +209,7 @@ npx playwright test e2e/audio.spec.ts --project=mobile-390
 
 Os testes de manifesto verificam:
 
-- cobertura dos 2.907 textos do inventário;
+- cobertura integral dos textos do inventário (4.051 na Fase 14);
 - texto não vazio, apenas Hangul + espaços, chave determinística e caminho único;
 - existência, bytes e SHA-256 de cada MP3;
 - ausência de órfãos no diretório versionado;

@@ -158,3 +158,25 @@ A decisão de risco do dono (§11) continua registrada, mas **não é uma licen�
 - Textos corrigidos sem MP3 usam TTS do navegador; nenhum MP3 foi regenerado, movido ou removido.
 
 **O que isso não resolve:** o repositório público e a história do Git continuam expondo o corpus; deployments antigos da Vercel não foram verificados; a licença do encoder continua não esclarecida. O lançamento público/comercial continua **BLOQUEADO** até R1/R2/R5 do §6 ou substituição por áudio com licença verificável.
+
+## 13. Fase 14 (2026-11-13) — decisão do dono: expor e usar todo o áudio
+
+O dono do projeto determinou que **todo o áudio já gerado seja exposto e usado** no app, em vez de
+cair na voz sintética do navegador, e que **o áudio ainda ausente seja gerado** com o MeloTTS-Korean.
+
+Implementação:
+
+- `STATIC_AUDIO_ENABLED` voltou a ser **ligado por padrão** (`NEXT_PUBLIC_KBR_STATIC_AUDIO !== "0"`);
+  `=0` continua como kill switch.
+- `public/audio/` saiu do `.vercelignore`; `/audio/:path*` segue com cache imutável.
+- A guarda de build `verify-audio-containment.mjs` e os hooks `prebuild`/`postbuild` foram removidos;
+  `tests/audio-containment.test.ts` agora protege a distribuição (e o kill switch).
+- O inventário passou a incluir o **B1**, e os WAVs faltantes foram gerados com o mesmo pipeline
+  MeloTTS-Korean documentado em [`generation-guide.md`](generation-guide.md) (ambiente local, CPU,
+  sem imagem Docker). O `encode-audio.py` regenerou manifesto e `entries.ts`, e removeu os MP3
+  órfãos dos textos corrigidos na 12A.
+
+**Escopo da decisão:** é uma decisão de risco do dono sobre a distribuição do áudio sintético, **não**
+uma licença e **não** um parecer jurídico. As perguntas R1/R2 do §6 continuam sem resposta e o
+lançamento comercial continua sujeito a revisão antes de ir ao ar. O áudio permanece rotulado como
+síntese provisória (`in-review`) e não substitui escuta/aprovação de falante nativo.

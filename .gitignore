@@ -51,3 +51,6 @@ next-env.d.ts
 
 # Vitest da config de auditoria (root docs/audits/b1)
 docs/audits/b1/node_modules/
+
+# Link local para o ambiente de geração (fora do Git)
+.audio

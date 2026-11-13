@@ -7,11 +7,11 @@ import manifest from "@/content/audio/manifest.json";
 import staleAudio from "./fixtures/stale-audio.json";
 import { A1_IMPLEMENTED_CHECKPOINTS, A1_IMPLEMENTED_LESSONS } from "@/content/curriculum/a1/content";
 import { A2_IMPLEMENTED_CHECKPOINTS, A2_IMPLEMENTED_LESSONS } from "@/content/curriculum/a2/content";
+import { B1_IMPLEMENTED_CHECKPOINTS, B1_IMPLEMENTED_LESSONS } from "@/content/curriculum/b1/content";
 import { HANGUL_CURRICULUM } from "@/content/hangul";
 import { VOCAB_ENTRIES, VOCAB_SENTENCES } from "@/content/vocabulary";
 import { collectAudioInventory } from "@/lib/audio/inventory";
 import {
-  audioAssetCount,
   hasAudioAsset,
   resolveAudioAsset,
   resolvePublicAudioSrc,
@@ -25,11 +25,12 @@ const COURSE_STEPS = [
   ...A1_IMPLEMENTED_CHECKPOINTS.map((step) => ({ courseId: "ko-a1", step })),
   ...A2_IMPLEMENTED_LESSONS.map((step) => ({ courseId: "ko-a2", step })),
   ...A2_IMPLEMENTED_CHECKPOINTS.map((step) => ({ courseId: "ko-a2", step })),
+  ...B1_IMPLEMENTED_LESSONS.map((step) => ({ courseId: "ko-b1", step })),
+  ...B1_IMPLEMENTED_CHECKPOINTS.map((step) => ({ courseId: "ko-b1", step })),
 ];
 
-// O corpus gerado cobre Hangul, A1 e A2. O B1 (e cursos futuros) usa a voz do
-// sistema até que seus próprios MP3 sejam gerados.
-const AUDIO_COURSES = new Set(["hangul", "ko-a1", "ko-a2"]);
+// O corpus cobre Hangul, A1, A2, B1 e o vocabulário desses cursos.
+const AUDIO_COURSES = new Set(["hangul", "ko-a1", "ko-a2", "ko-b1"]);
 const AUDIO_VOCABULARY = VOCAB_ENTRIES.filter((entry) =>
   AUDIO_COURSES.has(entry.course),
 );
@@ -59,41 +60,37 @@ function sha256(file: string) {
 }
 
 describe("manifesto de áudio estático", () => {
-  test("mantém somente as lacunas de áudio documentadas após as correções da 12A", () => {
+  test("cobre integralmente o inventário atual, sem lacunas", () => {
     const inventory = audioInventory();
     const texts = new Set(inventory.map((item) => item.text));
     const manifestTexts = new Set(manifest.items.map((item) => item.text));
     const missing = [...texts].filter((text) => !manifestTexts.has(text)).sort();
     const obsolete = [...manifestTexts].filter((text) => !texts.has(text)).sort();
 
-    expect(inventory).toHaveLength(2909);
-    expect(manifest.count).toBe(2907);
-    expect(audioAssetCount()).toBe(2907);
-    expect(missing).toEqual([...staleAudio.missing].sort());
-    expect(obsolete).toEqual([...staleAudio.obsolete].sort());
-    expect(inventory).toHaveLength(
-      manifest.count + missing.length - obsolete.length,
-    );
+    expect(inventory.length).toBe(manifest.count);
+    expect(missing).toEqual(staleAudio.missing);
+    expect(obsolete).toEqual(staleAudio.obsolete);
     expect(hasAudioAsset("한")).toBe(true);
     expect(hasAudioAsset("저는 학생이에요.")).toBe(true);
-    expect(resolvePublicAudioSrc("저는 학생이에요.", true)).not.toBeNull();
+    expect(resolvePublicAudioSrc("저는 학생이에요.")).not.toBeNull();
   });
 
-  test("textos corrigidos caem no TTS sem remover o MP3 antigo", () => {
-    for (const text of staleAudio.missing) {
-      expect(hasAudioAsset(text)).toBe(false);
-      expect(resolvePublicAudioSrc(text, true)).toBeNull();
-    }
-    for (const text of staleAudio.obsolete) {
-      expect(manifest.items.some((item) => item.text === text)).toBe(true);
+  test("textos corrigidos também têm MP3 próprio", () => {
+    for (const text of [
+      "감기가 심해요.",
+      "극장 앞에서 만나요.",
+      "무거운 것은 들지 말고 저를 도와주세요.",
+    ]) {
+      expect(hasAudioAsset(text)).toBe(true);
+      expect(resolvePublicAudioSrc(text)).toMatch(/^\/audio\/v1\/ko-/);
     }
   });
 
-  test("cursos sem MP3 próprio (B1) caem no fallback da voz do sistema", () => {
+  test("o B1 agora tem MP3 próprio como os demais cursos", () => {
     const b1 = VOCAB_ENTRIES.filter((entry) => entry.course === "ko-b1");
     expect(b1.length).toBeGreaterThan(0);
-    expect(b1.some((entry) => !hasAudioAsset(entry.audioText))).toBe(true);
-    expect(fullInventory().length).toBeGreaterThan(audioInventory().length);
+    expect(b1.every((entry) => hasAudioAsset(entry.audioText))).toBe(true);
+    expect(fullInventory().length).toBe(audioInventory().length);
   });
 
   test("mantém chaves, textos e caminhos únicos", () => {
@@ -113,7 +110,7 @@ describe("manifesto de áudio estático", () => {
     for (const item of manifest.items) {
       expect(item.text.trim()).toBe(item.text);
       expect(item.text.length).toBeGreaterThan(0);
-      expect(item.text).toMatch(/^[\uAC00-\uD7A3\u3131-\u318E\s.,?!]+$/);
+      expect(item.text).toMatch(/^[\uAC00-\uD7A3\u3131-\u318E\s.,?!0-9]+$/);
       expect(item.key).toBe(audioKey(item.text));
       expect(item.src).toBe(`/audio/v1/${item.key}.mp3`);
       expect(item.src.startsWith("/audio/v1/")).toBe(true);
@@ -139,7 +136,7 @@ describe("manifesto de áudio estático", () => {
     }
 
     expect(totalBytes).toBe(manifest.totalBytes);
-    expect(totalBytes).toBeLessThan(50 * 1024 * 1024);
+    expect(totalBytes).toBeLessThan(80 * 1024 * 1024);
   });
 
   test("não deixa arquivos órfãos no diretório versionado", () => {
@@ -172,9 +169,9 @@ describe("manifesto de áudio estático", () => {
     expect(manifest.encoding.channels).toBe(1);
   });
 
-  test("o áudio estático é opt-in; o padrão seguro cai na voz do sistema", () => {
+  test("o áudio estático é servido por padrão; =0 é kill switch", () => {
     expect(resolvePublicAudioSrc("한", false)).toBeNull();
     expect(resolvePublicAudioSrc("한", true)).toMatch(/^\/audio\/v1\/ko-/);
-    expect(resolvePublicAudioSrc("한")).toBeNull();
+    expect(resolvePublicAudioSrc("한")).toMatch(/^\/audio\/v1\/ko-/);
   });
 });

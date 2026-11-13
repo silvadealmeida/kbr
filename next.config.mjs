@@ -35,14 +35,14 @@ const nextConfig = {
         headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
       },
       // MP3s versionados por conteúdo; o caminho inclui a versão do corpus.
-      // Sem opt-in, /audio/* não é publicado e não deve ganhar cache imutável
-      // de um 404 (ver docs/audio/license-audit.md §12).
-      ...(process.env.NEXT_PUBLIC_KBR_STATIC_AUDIO === "1"
-        ? [{
+      // Servidos por padrão (Fase 14); o kill switch `=0` desliga o player e
+      // retira o cache imutável para não fixar 404s.
+      ...(process.env.NEXT_PUBLIC_KBR_STATIC_AUDIO === "0"
+        ? []
+        : [{
             source: "/audio/:path*",
             headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
-          }]
-        : []),
+          }]),
     ];
   },
 };

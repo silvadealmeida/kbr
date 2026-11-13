@@ -4,9 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/audio/verify-audio-containment.mjs",
     "build": "next build",
-    "postbuild": "node scripts/audio/verify-audio-containment.mjs",
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",

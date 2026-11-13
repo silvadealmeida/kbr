@@ -32,6 +32,8 @@ try {
     await server.ssrLoadModule("/src/content/curriculum/a1/content.ts");
   const { A2_IMPLEMENTED_LESSONS, A2_IMPLEMENTED_CHECKPOINTS } =
     await server.ssrLoadModule("/src/content/curriculum/a2/content.ts");
+  const { B1_IMPLEMENTED_LESSONS, B1_IMPLEMENTED_CHECKPOINTS } =
+    await server.ssrLoadModule("/src/content/curriculum/b1/content.ts");
   const { VOCAB_ENTRIES, VOCAB_SENTENCES } = await server.ssrLoadModule(
     "/src/content/vocabulary/index.ts",
   );
@@ -45,11 +47,12 @@ try {
     ...A1_IMPLEMENTED_CHECKPOINTS.map((step) => ({ courseId: "ko-a1", step })),
     ...A2_IMPLEMENTED_LESSONS.map((step) => ({ courseId: "ko-a2", step })),
     ...A2_IMPLEMENTED_CHECKPOINTS.map((step) => ({ courseId: "ko-a2", step })),
+    ...B1_IMPLEMENTED_LESSONS.map((step) => ({ courseId: "ko-b1", step })),
+    ...B1_IMPLEMENTED_CHECKPOINTS.map((step) => ({ courseId: "ko-b1", step })),
   ];
 
-  // Hangul + A1 + A2. B1 e cursos posteriores usam a voz do sistema até que
-  // uma fase própria gere os MP3 deles.
-  const AUDIO_COURSES = new Set(["hangul", "ko-a1", "ko-a2"]);
+  // Hangul + A1 + A2 + B1. Cursos posteriores entram quando tiverem conteúdo.
+  const AUDIO_COURSES = new Set(["hangul", "ko-a1", "ko-a2", "ko-b1"]);
   const vocabulary = VOCAB_ENTRIES.filter((entry) =>
     AUDIO_COURSES.has(entry.course),
   );

@@ -155,26 +155,15 @@ describe("conteúdo — validação ESTRUTURAL (não prova correção linguísti
     expect(targetPosition({ ko: "가가 가", target: "가" })).toBeNull();
   });
 
-  it("áudio usa texto coreano e resolve MP3 para Hangul/A1/A2; B1 cai no fallback", () => {
+  it("áudio usa texto coreano e resolve MP3 para Hangul, A1, A2 e B1", () => {
     for (const e of VOCAB_ENTRIES) expect(/[가-힣]/.test(e.audioText)).toBe(true);
 
-    const covered = VOCAB_ENTRIES.filter((e) =>
-      ["hangul", "ko-a1", "ko-a2"].includes(e.course),
-    );
-    expect(covered.length).toBeGreaterThan(0);
-    for (const e of covered) expect(resolveAudioAsset(e.audioText)).not.toBeNull();
+    for (const e of VOCAB_ENTRIES) {
+      expect(resolveAudioAsset(e.audioText), e.audioText).not.toBeNull();
+    }
 
-    const b1 = VOCAB_ENTRIES.filter((e) => e.course === "ko-b1");
-    expect(b1.length).toBeGreaterThan(0);
-    expect(b1.some((e) => resolveAudioAsset(e.audioText) === null)).toBe(true);
-
-    const coveredIds = new Set(covered.map((e) => e.id));
-    for (const s of VOCAB_SENTENCES.filter((s) => coveredIds.has(s.vocabId))) {
-      if (staleAudio.missing.includes(s.ko)) {
-        expect(resolveAudioAsset(s.ko)).toBeNull();
-      } else {
-        expect(resolveAudioAsset(s.ko)).not.toBeNull();
-      }
+    for (const s of VOCAB_SENTENCES) {
+      expect(resolveAudioAsset(s.ko), s.ko).not.toBeNull();
     }
   });
 

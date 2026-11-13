@@ -1,5 +1,5 @@
-# O corpus estático não é publicado por padrão enquanto a licença do encoder
-# `kykim/bert-kor-base` não estiver esclarecida. Os arquivos continuam no Git e
-# em `public/audio/`; a exclusão vale para artefatos de deploy na Vercel.
-# Ver docs/audio/license-audit.md §11 e docs/audio/stale-audio-manifest.md.
-public/audio/
+# O corpus estático de áudio é publicado normalmente (decisão do dono na
+# Fase 14): a interface usa os MP3 de `public/audio/v1/` em vez de TTS.
+# Mantenha este arquivo apenas para exclusões de artefatos locais.
+# Ver docs/audio/license-audit.md §13 e docs/audio/generation-guide.md.
+.audio/

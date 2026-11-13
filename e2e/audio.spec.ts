@@ -56,7 +56,12 @@ test.describe("áudio estático do currículo", () => {
   });
 
   test("serve o MP3 do corpus com cache imutável", async ({ request }) => {
-    for (const src of ["/audio/v1/ko-cdd08b15.mp3", "/audio/v1/ko-2620702c.mp3"]) {
+    for (const src of [
+      "/audio/v1/ko-cdd08b15.mp3",
+      "/audio/v1/ko-2620702c.mp3",
+      // MP3 gerado na Fase 14 para o B1
+      "/audio/v1/ko-181625df.mp3",
+    ]) {
       const response = await request.get(src);
       expect(response.status()).toBe(200);
       expect(response.headers()["content-type"]).toContain("audio/mpeg");

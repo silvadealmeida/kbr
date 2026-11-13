@@ -1,11 +1,10 @@
-# Manifesto de áudio obsoleto — Fase 12A
+# Manifesto de áudio obsoleto — Fase 12A (fechado na Fase 14)
 
 **Data:** 2026-11-13  
 **Baseline auditado:** `3103ce3`  
-**HEAD corrigido:** registrado no commit da fase 12A.  
-**Política:** nenhum MP3 foi apagado ou regerado. Textos corrigidos sem MP3 caem na voz coreana do navegador; o corpus antigo permanece intacto em `public/audio/v1/`.
+**Status atual:** **resolvido na Fase 14.** Os 12 textos corrigidos ganharam MP3 próprio e os 10 MP3 órfãos foram removidos pelo `encode-audio.py`. O inventário e o manifesto agora coincidem em **4.051 itens**, sem lacunas nem sobras.
 
-## 1. Textos corrigidos sem MP3 (14)
+## 1. Textos corrigidos que agora têm MP3 (12)
 
 | Texto novo | Origem | Motivo |
 |---|---|---|
@@ -21,10 +20,8 @@
 | `죄송해요. 회의가 길어져서 연락을 못 했어요.` | `a2-l04` diálogo | removeu `-았/어야 했어요` cobrado antes do ensino |
 | `해외에 가고 싶어요.` | `sent:a2-l02:해외` | alvo `해외` estava dentro de `해외여행`; frase reescrita |
 | `회의가 길어졌지만 연락을 못 했어요.` | `a2-l04` gramática | removeu `-았/어야 했어요` do exemplo de `-지만` |
-| `간단한 문제를 설명하고 도움을 요청하는 데 자신이 있어요. 아직 뉴스는 어려워요.` | `a2-l40` diálogo/leitura | corrigiu a regência de `자신이 있다` |
-| `저는 거실 청소를 할게요. 수진 씨는 화장실 청소를 해 주세요.` | `a2-l12` diálogo | corrigiu a colocação de `청소를 하다` |
 
-## 2. MP3 antigos preservados, sem uso pelo texto atual (12)
+## 2. MP3 antigos removidos do corpus (10)
 
 | Texto antigo | Substituído por |
 |---|---|
@@ -34,17 +31,15 @@
 | `무거운 것은 들지 말고 도와달라고 하세요.` | `무거운 것은 들지 말고 저를 도와주세요.` |
 | `분실물 센터에 문의했어요.` | `분실 신고를 했어요.` |
 | `수진 씨, 서울로 이사했다면서요?` | `수진 씨, 서울로 이사했어요?` |
-| `좋아요. 지금 정하지 않아도 괜찮아요. 경험하면서 찾게 될 거예요.` | `좋아요. 지금 정하지 않아도 괜찮아요. 경험을 하면 찾게 될 거예요.` |
+| `좋아요. 지금 정하지 않아도 괜찮아요. 경험하면서 찾게 될 거예요.` | `좋아요. … 경험을 하면 찾게 될 거예요.` |
 | `죄송해요. 회의가 길어졌지만 연락을 했어야 했어요.` | `죄송해요. 회의가 길어져서 연락을 못 했어요.` |
 | `해외여행을 좋아해요.` | `해외에 가고 싶어요.` |
 | `회의가 길어졌지만 연락했어야 했어요.` | `회의가 길어졌지만 연락을 못 했어요.` |
-| `간단한 문제를 설명하고 도움을 요청하는 것이 자신 있어요. 아직 뉴스는 어려워요.` | `간단한 문제를 설명하고 도움을 요청하는 데 자신이 있어요. 아직 뉴스는 어려워요.` |
-| `저는 거실 청소를 할게요. 수진 씨는 화장실을 해 주세요.` | `저는 거실 청소를 할게요. 수진 씨는 화장실 청소를 해 주세요.` |
 
 ## 3. Efeito verificável
 
-- Inventário atual: **2.909 textos**; manifesto: **2.907 MP3**.
-- `tests/audio-manifest.test.ts` fixa exatamente essas 14 lacunas e 12 sobras; qualquer nova lacuna falha.
-- `tests/fixtures/stale-audio.json` é a fonte única dessa dívida.
-- O player usa `resolvePublicAudioSrc`, que devolve `null` sem `NEXT_PUBLIC_KBR_STATIC_AUDIO=1`; o texto corrigido nunca toca o MP3 antigo por engano.
-- Não houve regeneração de áudio: a licença do encoder `kykim/bert-kor-base` continua não esclarecida.
+- Inventário atual: **4.051 textos** (Hangul + A1 + A2 + B1 + vocabulário); manifesto: **4.051 MP3**.
+- `tests/audio-manifest.test.ts` exige cobertura integral; qualquer nova lacuna falha.
+- `tests/fixtures/stale-audio.json` mantém `missing`/`obsolete` vazios como contrato.
+- O player usa os MP3 por padrão; `NEXT_PUBLIC_KBR_STATIC_AUDIO=0` é o kill switch.
+- A licença do encoder `kykim/bert-kor-base` continua não esclarecida; a decisão de risco está em `docs/audio/license-audit.md` §13.

@@ -31,7 +31,7 @@ export default function ImpressumPage() {
         será concluída antes do lançamento público.
       </p>
 
-      <div className="mt-8 rounded-2xl border border-line bg-surface p-5 text-sm leading-relaxed">
+      <div className="mt-8 rounded-[var(--radius-plate)] border border-line bg-surface p-5 text-sm leading-relaxed">
         <p className="font-semibold">Documento incompleto — revisão jurídica pendente</p>
         <p className="mt-2 text-muted">
           Os campos abaixo não foram preenchidos porque os dados ainda não estão confirmados. Não
@@ -48,7 +48,7 @@ export default function ImpressumPage() {
           Informações exigidas pelo § 5º da Lei Alemã de Serviços Digitais (DDG), quando
           aplicável:
         </p>
-        <dl className="mt-5 grid gap-3 rounded-2xl border border-line bg-surface p-5 text-sm">
+        <dl className="mt-5 grid gap-3 rounded-[var(--radius-plate)] border border-line bg-surface p-5 text-sm">
           {pendingItems.map(([label, value]) => (
             <div key={label} className="grid gap-1 sm:grid-cols-[1.2fr_0.8fr] sm:gap-4">
               <dt className="font-semibold">{label}</dt>
@@ -108,7 +108,7 @@ export default function ImpressumPage() {
       </section>
 
       <p className="mt-10 text-sm">
-        <Link href="/" className="text-accent underline underline-offset-2">
+        <Link href="/" className="inline-flex min-h-11 items-center text-accent underline underline-offset-2">
           ← Voltar para a página inicial
         </Link>
       </p>

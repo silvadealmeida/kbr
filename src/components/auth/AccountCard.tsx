@@ -25,10 +25,10 @@ export function AccountCard() {
     setBusy(false);
   }
   return (
-    <Card className="mb-6 border-l-[3px] border-l-accent">
-      <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-        <div className="min-w-0"><p className="mono-label text-muted">Conta Google</p><p className="mt-2 truncate font-medium" title={user.email}>{user.email}</p><p className="mt-2 text-sm text-muted" aria-live="polite">{syncLabels[syncStatus]}</p>{error ? <p role="alert" className="mt-2 text-sm text-danger">{error}</p> : null}</div>
-        <button type="button" disabled={busy} aria-busy={busy || undefined} onClick={() => void handleSignOut()} className="inline-flex min-h-11 items-center justify-center rounded-[var(--radius-field)] border border-line-strong px-4 text-sm font-semibold hover:bg-surface-2 disabled:cursor-wait disabled:opacity-60">{busy ? "Saindo…" : "Sair da conta"}</button>
+    <Card className="mb-5 border-l-[3px] border-l-accent p-4 sm:p-5">
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <div className="min-w-0 flex-1"><p className="mono-label text-muted">Conta Google</p><p className="mt-1 truncate font-medium" title={user.email}>{user.email}</p><p className="mt-0.5 text-sm text-muted" aria-live="polite">{syncLabels[syncStatus]}</p>{error ? <p role="alert" className="mt-1.5 text-sm text-danger">{error}</p> : null}</div>
+        <button type="button" disabled={busy} aria-busy={busy || undefined} onClick={() => void handleSignOut()} className="inline-flex min-h-11 shrink-0 items-center justify-center rounded-[var(--radius-field)] border border-line-strong px-4 text-sm font-semibold hover:bg-surface-2 disabled:cursor-wait disabled:opacity-60">{busy ? "Saindo…" : "Sair da conta"}</button>
       </div>
     </Card>
   );

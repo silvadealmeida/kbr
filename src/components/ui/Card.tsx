@@ -42,12 +42,12 @@ export function Plate({
         <span className="absolute bottom-0 right-0 size-2 border-b border-r border-line-strong" />
       </span>
       {number ? (
-        <span className="mono-label absolute right-4 top-3 text-muted">{number}</span>
+        <span className="mono-data absolute right-5 top-5 text-xs uppercase text-muted">{number}</span>
       ) : null}
       {label ? (
         // O número fica na mesma linha do rótulo: reserva espaço só ali, sem
         // estreitar o corpo do cartão (padding assimétrico à direita).
-        <p className={`mono-label mb-2 text-muted ${number ? "pr-12" : ""}`}>
+        <p className={`mono-label mb-2 text-muted ${number ? "pr-16" : ""}`}>
           {label}
         </p>
       ) : null}

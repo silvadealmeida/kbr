@@ -125,7 +125,7 @@ export default function PrivacyPage() {
         Última atualização: {updated}. Documento em revisão antes do lançamento público.
       </p>
 
-      <div className="mt-8 rounded-2xl border border-line bg-surface p-5 text-sm leading-relaxed">
+      <div className="mt-8 rounded-[var(--radius-plate)] border border-line bg-surface p-5 text-sm leading-relaxed">
         <p className="font-semibold">O KBR está em desenvolvimento.</p>
         <p className="mt-2 text-muted">
           Esta política descreve o que o aplicativo faz hoje. Informações que ainda dependem de
@@ -134,9 +134,9 @@ export default function PrivacyPage() {
         </p>
       </div>
 
-      <nav aria-label="Nesta página" className="mt-8 rounded-2xl border border-line p-5 text-sm">
+      <nav aria-label="Nesta página" className="mt-8 rounded-[var(--radius-plate)] border border-line p-5 text-sm">
         <h2 className="font-semibold">Nesta página</h2>
-        <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+        <ul className="mt-2 grid gap-1 sm:grid-cols-2">
           {[
             ["responsavel", "Quem é o responsável"],
             ["dados", "Dados coletados"],
@@ -149,7 +149,7 @@ export default function PrivacyPage() {
             ["contato", "Contato"],
           ].map(([id, label]) => (
             <li key={id}>
-              <a href={`#${id}`} className="text-accent underline underline-offset-2">
+              <a href={`#${id}`} className="inline-flex min-h-11 items-center py-1 text-accent underline underline-offset-2">
                 {label}
               </a>
             </li>
@@ -164,7 +164,7 @@ export default function PrivacyPage() {
             português. O responsável pelo tratamento (controlador) será identificado aqui antes
             do lançamento público.
           </p>
-          <dl className="grid gap-3 rounded-2xl border border-line bg-surface p-5 text-sm">
+          <dl className="grid gap-3 rounded-[var(--radius-plate)] border border-line bg-surface p-5 text-sm">
             <div>
               <dt className="font-semibold text-fg">Controlador</dt>
               <dd>
@@ -259,7 +259,7 @@ export default function PrivacyPage() {
             role="region"
             aria-label="Tabela de cookies e chaves de armazenamento local"
             tabIndex={0}
-            className="overflow-x-auto rounded-2xl border border-line bg-surface"
+            className="overflow-x-auto rounded-[var(--radius-plate)] border border-line bg-surface"
           >
             <table className="w-full min-w-[42rem] text-left text-sm">
               <caption className="sr-only">
@@ -305,7 +305,7 @@ export default function PrivacyPage() {
             role="region"
             aria-label="Tabela de finalidades e bases legais"
             tabIndex={0}
-            className="overflow-x-auto rounded-2xl border border-line bg-surface"
+            className="overflow-x-auto rounded-[var(--radius-plate)] border border-line bg-surface"
           >
             <table className="w-full min-w-[38rem] text-left text-sm">
               <caption className="sr-only">Finalidades e bases legais do tratamento</caption>
@@ -427,7 +427,7 @@ export default function PrivacyPage() {
           </p>
         </Section>
 
-        <section className="rounded-2xl border border-line bg-surface p-5">
+        <section className="rounded-[var(--radius-plate)] border border-line bg-surface p-5">
           <h2 className="text-lg font-semibold">Pendências para revisão jurídica</h2>
           <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-muted">
             <li>Identidade legal do controlador e endereço.</li>
@@ -441,7 +441,7 @@ export default function PrivacyPage() {
       </div>
 
       <p className="mt-10 text-sm">
-        <Link href="/" className="text-accent underline underline-offset-2">
+        <Link href="/" className="inline-flex min-h-11 items-center text-accent underline underline-offset-2">
           ← Voltar para a página inicial
         </Link>
       </p>

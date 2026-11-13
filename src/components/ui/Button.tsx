@@ -16,7 +16,7 @@ export const buttonVariants: Record<ButtonVariant, string> = {
 };
 
 export const buttonSizes: Record<ButtonSize, string> = {
-  sm: "min-h-10 rounded-[var(--radius-field)] px-3 text-sm",
+  sm: "min-h-11 rounded-[var(--radius-field)] px-3.5 text-sm",
   md: "min-h-12 rounded-[var(--radius-field)] px-5 text-base",
   lg: "min-h-13 rounded-[var(--radius-field)] px-6 text-base",
 };

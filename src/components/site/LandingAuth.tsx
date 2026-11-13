@@ -7,7 +7,7 @@ import { postLoginPath } from "@/lib/auth/redirect";
 import { GoogleMark } from "./GoogleMark";
 
 type Variant = "hero" | "header" | "footer";
-const base = "inline-flex items-center justify-center gap-2.5 rounded-[var(--radius-field)] font-semibold transition-[background-color,opacity] duration-[var(--motion-fast)] disabled:cursor-wait disabled:opacity-60";
+const base = "inline-flex items-center justify-center gap-2.5 rounded-[var(--radius-field)] font-semibold transition-[background-color,color,opacity] duration-[var(--motion-fast)] disabled:cursor-wait disabled:opacity-60";
 const sizes: Record<Variant, string> = {
   hero: "min-h-13 w-full px-6 text-base sm:w-auto",
   header: "min-h-11 px-3 text-sm sm:px-4",

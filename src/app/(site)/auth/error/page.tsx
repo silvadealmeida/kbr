@@ -7,7 +7,7 @@ export const metadata = { title: "Não foi possível entrar" };
 
 export default function AuthErrorPage() {
   return (
-    <div className="mx-auto max-w-3xl px-5 py-12 pb-20 sm:px-8 sm:py-16">
+    <div className="mx-auto max-w-3xl px-4 py-12 pb-20 sm:px-8 sm:py-16">
       <PageHeader title="Não foi possível entrar" subtitle="A sessão do Google não foi criada." />
       <Card className="border-t-[3px] border-t-danger">
         <p className="max-w-[58ch] leading-relaxed text-muted">Verifique sua conexão, permita cookies necessários e tente novamente. Se o problema continuar, volte à página inicial e tente entrar mais tarde.</p>

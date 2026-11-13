@@ -70,3 +70,4 @@ A soma **6 + 84 + 191 + 13 = 294** não é um novo total: 6 é a contagem de cr�
 - `npm run build` — verde; `[audio-guard] OK` em prebuild/postbuild.
 - `npm run e2e` — **646 testes: 619 executados + 27 skips** (Chromium 375/390/768/1280 + WebKit 390; axe claro/escuro).
 - B1: `tests/content/b1-curriculum.test.ts` e `e2e/b1.spec.ts` verdes; conteúdo B1 sem diff linguístico.
+- Analisadores da auditoria reexecutados no HEAD: partículas **2 → 0**, estrutura **2 → 0**, `listen` fragmento **65 → 0**, pontuação A2 **126 → 0**; `reusedIds` medido em **297** e congelado. A progressão ainda tem 6 avisos heurísticos (citações diretas e distratores) e 20 `answerNotTaught`; detalhe em `data/post-correction-audit.md`.

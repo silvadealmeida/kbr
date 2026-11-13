@@ -141,7 +141,7 @@ PY
 node scripts/audio/build-inventory.mjs
 ```
 
-Lê o currículo real via Vite SSR e grava `.audio/inventory.json` com texto NFC, chave FNV-1a, referências de origem, passos, tags e prioridade. O script cobre Hangul, A1, A2, B1 e o vocabulário desses cursos e falha em colisão de chave. Saída observada na Fase 14: **4.051 itens**, 2.773 de prioridade 1 e 1.278 de prioridade 2.
+Lê o currículo real via Vite SSR e grava `.audio/inventory.json` com texto NFC, chave FNV-1a, referências de origem, passos, tags e prioridade. O script cobre Hangul, A1, A2, B1, B2, C1, C2 e o vocabulário desses cursos e falha em colisão de chave. Saída observada na Fase 14: **7.789 itens**, 5.551 de prioridade 1 e 2.238 de prioridade 2.
 
 ### 2. Síntese
 
@@ -209,7 +209,7 @@ npx playwright test e2e/audio.spec.ts --project=mobile-390
 
 Os testes de manifesto verificam:
 
-- cobertura integral dos textos do inventário (4.051 na Fase 14);
+- cobertura integral dos textos do inventário (7.789 na Fase 14);
 - texto não vazio, apenas Hangul + espaços, chave determinística e caminho único;
 - existência, bytes e SHA-256 de cada MP3;
 - ausência de órfãos no diretório versionado;

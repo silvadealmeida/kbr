@@ -54,3 +54,6 @@ docs/audits/b1/node_modules/
 
 # Link local para o ambiente de geração (fora do Git)
 .audio
+
+# node_modules do worktree (symlink)
+node_modules

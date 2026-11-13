@@ -2,7 +2,7 @@
 
 **Data:** 2026-11-13  
 **Baseline auditado:** `3103ce3`  
-**Status atual:** **resolvido na Fase 14.** Os 12 textos corrigidos ganharam MP3 próprio e os 10 MP3 órfãos foram removidos pelo `encode-audio.py`. O inventário e o manifesto agora coincidem em **4.051 itens**, sem lacunas nem sobras.
+**Status atual:** **resolvido na Fase 14.** Os 12 textos corrigidos ganharam MP3 próprio e os 10 MP3 órfãos foram removidos pelo `encode-audio.py`. O inventário e o manifesto agora coincidem em **7.789 itens**, sem lacunas nem sobras.
 
 ## 1. Textos corrigidos que agora têm MP3 (12)
 
@@ -38,7 +38,7 @@
 
 ## 3. Efeito verificável
 
-- Inventário atual: **4.051 textos** (Hangul + A1 + A2 + B1 + vocabulário); manifesto: **4.051 MP3**.
+- Inventário atual: **7.789 textos** (Hangul + A1 + A2 + B1 + vocabulário); manifesto: **7.789 MP3**.
 - `tests/audio-manifest.test.ts` exige cobertura integral; qualquer nova lacuna falha.
 - `tests/fixtures/stale-audio.json` mantém `missing`/`obsolete` vazios como contrato.
 - O player usa os MP3 por padrão; `NEXT_PUBLIC_KBR_STATIC_AUDIO=0` é o kill switch.

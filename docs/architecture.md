@@ -266,7 +266,7 @@ A 8B trocou o caminho principal de áudio por **assets estáticos gerados offlin
 
 ```text
 currículo (audioText/spoken)
-  → scripts/audio/build-inventory.mjs → .audio/inventory.json (4.051 textos)
+  → scripts/audio/build-inventory.mjs → .audio/inventory.json (7.789 textos)
   → scripts/audio/generate-melotts.py → .audio/raw/*.wav
   → scripts/audio/encode-audio.py → public/audio/v1/*.mp3
                                    → src/content/audio/manifest.json
@@ -276,8 +276,8 @@ currículo (audioText/spoken)
   → AudioControl (status, replay, 0,75×)
 ```
 
-- **Inventário:** 4.051 textos únicos (Hangul, A1, A2, B1 e vocabulário), 2.773 de prioridade 1 e 1.278 de prioridade 2. O script falha em colisão de chave FNV-1a e registra fontes, passos, tags e prioridade.
-- **Assets:** 4.051 MP3 em `public/audio/v1/`, **60.608.590 bytes** (~57,8 MiB), **7.301,864 s**, 64 kbps mono 44,1 kHz. O manifesto guarda SHA-256, bytes, duração, loudness, fontes, passos, tags e prioridade; o mapa `entries.ts` é a única parte que entra no bundle do cliente. Nenhum peso, venv, WAV bruto ou cache é versionado.
+- **Inventário:** 7.789 textos únicos (Hangul, A1, A2, B1, B2, C1, C2 e vocabulário), 5.551 de prioridade 1 e 2.238 de prioridade 2. O script falha em colisão de chave FNV-1a e registra fontes, passos, tags e prioridade.
+- **Assets:** 7.789 MP3 em `public/audio/v1/`, **168.118.405 bytes** (~160,3 MiB), **20.487,762 s**, 64 kbps mono 44,1 kHz. O manifesto guarda SHA-256, bytes, duração, loudness, fontes, passos, tags e prioridade; o mapa `entries.ts` é a única parte que entra no bundle do cliente. Nenhum peso, venv, WAV bruto ou cache é versionado.
 - **Geração:** MeloTTS `209145371cff8fc3bd60d7be902ea69cbdb7965a`, voz `myshell-ai/MeloTTS-Korean@0207e5adfc90129a51b6b03d89be6d84360ed323`, encoder `kykim/bert-kor-base@1779cc0982ada0216dd6de0dd4e86fb78201926d`, `device="cpu"`, speaker `KR`, speed `1.0`, seed 0. O encode remove silêncio, normaliza RMS para −18 dBFS com pico ≤ −1 dBFS, aplica fades e codifica MP3. Comandos, hashes e ambiente em `docs/audio/generation-guide.md`.
 - **Resolução:** `src/lib/audio/text.ts` normaliza NFC + trim e gera a chave; `src/lib/audio/manifest.ts` resolve o asset sem alterar o texto exibido; `src/lib/audio/inventory.ts` reconstrói o inventário a partir do currículo para testes de cobertura.
 - **Player:** `src/lib/audio/playback.ts` é uma classe sem React. O asset tem prioridade; `audioSrc` explícito do conteúdo vence o mapa estático. **Não há voz sintética do navegador**: se o MP3 falhar, não iniciar em 4 s ou não existir, o estado vira `unavailable` (`missing-asset`/`playback-error`) e a UI mantém a dica textual. Um novo play cancela o anterior; `destroy()` remove listeners e timers.
@@ -285,7 +285,7 @@ currículo (audioText/spoken)
 - **Velocidade:** padrão 1,0; o controle alterna **0,5×, 0,75× e 1×** com `preservesPitch`/`mozPreservesPitch`/`webkitPreservesPitch`, sem alterar o texto nem a correção.
 - **Acessibilidade:** botão com rótulo específico (“Ouvir o símbolo”, “Ouvir o áudio”, “Ouvir a sílaba”), alvos ≥44–48 px, `role="status"` para o estado, dica textual sempre visível e nenhum autoplay. O áudio é apoio; nenhuma resposta depende só dele.
 - **Desempenho e cache:** nenhum MP3 é baixado no carregamento inicial; o elemento é criado no clique e o asset é buscado sob demanda. `/audio/:path*` responde `public, max-age=31536000, immutable`. Medição local: landing 289.631 B/CLS 0,000302; painel 510.812 B/CLS 0,008682; player 621.686 B/CLS 0,001980; `c4` 771.396 B/CLS 0,002025 — todos abaixo dos orçamentos.
-- **Formato:** MP3 64 kbps mono, em vez de AAC/WebM. O corpus inteiro ocupa ~57,8 MiB e um único formato universal reduz a complexidade de encode, manifesto e fallback sem ganho material de tamanho. AAC/WebM continua preferível quando houver gravação nativa em alta qualidade.
+- **Formato:** MP3 64 kbps mono, em vez de AAC/WebM. O corpus inteiro ocupa ~160,3 MiB e um único formato universal reduz a complexidade de encode, manifesto e fallback sem ganho material de tamanho. AAC/WebM continua preferível quando houver gravação nativa em alta qualidade.
 - **Privacidade:** a geração é offline/local; em runtime, o app serve MP3 do próprio corpus e nenhum texto coreano vai para TTS de terceiros. Não há telemetria de áudio.
 - **Licença do áudio (8D):** os MP3 são síntese neural, rotulados como tal na UI. O encoder `kykim/bert-kor-base` é parte necessária da geração e não tem licença no repositório do Hugging Face; a 8D marcou a distribuição pública/comercial como **bloqueada** até esclarecimento por escrito ou substituição (`docs/audio/license-audit.md`). O bloqueio técnico foi revertido pela decisão do dono registrada abaixo; o risco jurídico continua aberto. `public/` é servido diretamente: desligar o asset no player não impede o acesso por URL; a contenção real exige que os arquivos não estejam em `public/`.
 - **Áudio servido por padrão (Fase 14, 2026-11-13):** decisão do dono — os MP3 de `public/audio/v1/` são expostos e usados em vez da voz do navegador. `STATIC_AUDIO_ENABLED` é `true` por padrão e `NEXT_PUBLIC_KBR_STATIC_AUDIO=0` funciona como kill switch. `public/audio/` saiu do `.vercelignore`, a guarda de build foi removida e `tests/audio-containment.test.ts` protege a distribuição. O inventário foi ampliado para incluir o B1 e os textos corrigidos na 12A; o corpus foi regenerado/ampliado com o pipeline MeloTTS local. **A decisão de risco do dono (`docs/audio/license-audit.md` §13) não é licença** e a revisão jurídica do encoder segue pendente. O áudio continua sintético (`in-review`).

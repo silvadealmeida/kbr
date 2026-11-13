@@ -225,7 +225,10 @@ test.describe("Orçamento de desempenho local", () => {
       contentType: "application/json",
     });
     expect(hangul.cls, "CLS do atlas").toBeLessThan(0.1);
-    expect(hangul.bytes, "transferência total do atlas").toBeLessThan(1_200_000);
+    // Orçamento revisto na Fase 14: o mapa compacto `entries.ts` do corpus
+    // completo (Hangul–C2, 7.789 MP3) entra no bundle do cliente. O limite
+    // anterior de 1,2 MB não comportava o corpus ampliado.
+    expect(hangul.bytes, "transferência total do atlas").toBeLessThan(1_500_000);
   });
 
   test("conclusão do c4 mantém orçamento autenticado", async ({
@@ -254,7 +257,8 @@ test.describe("Orçamento de desempenho local", () => {
       contentType: "application/json",
     });
     expect(completion.cls, "CLS da conclusão").toBeLessThan(0.1);
-    expect(completion.bytes, "transferência total da conclusão").toBeLessThan(1_200_000);
+    // Ver comentário do atlas: corpus completo no mapa do cliente.
+    expect(completion.bytes, "transferência total da conclusão").toBeLessThan(1_500_000);
   });
 
   test("320/375/390/640/768/1280 não criam rolagem horizontal", async ({

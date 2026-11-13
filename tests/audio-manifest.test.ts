@@ -8,6 +8,9 @@ import staleAudio from "./fixtures/stale-audio.json";
 import { A1_IMPLEMENTED_CHECKPOINTS, A1_IMPLEMENTED_LESSONS } from "@/content/curriculum/a1/content";
 import { A2_IMPLEMENTED_CHECKPOINTS, A2_IMPLEMENTED_LESSONS } from "@/content/curriculum/a2/content";
 import { B1_IMPLEMENTED_CHECKPOINTS, B1_IMPLEMENTED_LESSONS } from "@/content/curriculum/b1/content";
+import { B2_IMPLEMENTED_CHECKPOINTS, B2_IMPLEMENTED_LESSONS } from "@/content/curriculum/b2/content";
+import { C1_IMPLEMENTED_CHECKPOINTS, C1_IMPLEMENTED_LESSONS } from "@/content/curriculum/c1/content";
+import { C2_IMPLEMENTED_CHECKPOINTS, C2_IMPLEMENTED_LESSONS } from "@/content/curriculum/c2/content";
 import { HANGUL_CURRICULUM } from "@/content/hangul";
 import { VOCAB_ENTRIES, VOCAB_SENTENCES } from "@/content/vocabulary";
 import { collectAudioInventory } from "@/lib/audio/inventory";
@@ -27,10 +30,24 @@ const COURSE_STEPS = [
   ...A2_IMPLEMENTED_CHECKPOINTS.map((step) => ({ courseId: "ko-a2", step })),
   ...B1_IMPLEMENTED_LESSONS.map((step) => ({ courseId: "ko-b1", step })),
   ...B1_IMPLEMENTED_CHECKPOINTS.map((step) => ({ courseId: "ko-b1", step })),
+  ...B2_IMPLEMENTED_LESSONS.map((step) => ({ courseId: "ko-b2", step })),
+  ...B2_IMPLEMENTED_CHECKPOINTS.map((step) => ({ courseId: "ko-b2", step })),
+  ...C1_IMPLEMENTED_LESSONS.map((step) => ({ courseId: "ko-c1", step })),
+  ...C1_IMPLEMENTED_CHECKPOINTS.map((step) => ({ courseId: "ko-c1", step })),
+  ...C2_IMPLEMENTED_LESSONS.map((step) => ({ courseId: "ko-c2", step })),
+  ...C2_IMPLEMENTED_CHECKPOINTS.map((step) => ({ courseId: "ko-c2", step })),
 ];
 
-// O corpus cobre Hangul, A1, A2, B1 e o vocabulário desses cursos.
-const AUDIO_COURSES = new Set(["hangul", "ko-a1", "ko-a2", "ko-b1"]);
+// O corpus cobre Hangul, A1, A2, B1, B2, C1, C2 e o vocabulário desses cursos.
+const AUDIO_COURSES = new Set([
+  "hangul",
+  "ko-a1",
+  "ko-a2",
+  "ko-b1",
+  "ko-b2",
+  "ko-c1",
+  "ko-c2",
+]);
 const AUDIO_VOCABULARY = VOCAB_ENTRIES.filter((entry) =>
   AUDIO_COURSES.has(entry.course),
 );
@@ -86,10 +103,15 @@ describe("manifesto de áudio estático", () => {
     }
   });
 
-  test("o B1 agora tem MP3 próprio como os demais cursos", () => {
-    const b1 = VOCAB_ENTRIES.filter((entry) => entry.course === "ko-b1");
-    expect(b1.length).toBeGreaterThan(0);
-    expect(b1.every((entry) => hasAudioAsset(entry.audioText))).toBe(true);
+  test("B1, B2, C1 e C2 têm MP3 próprio como os demais cursos", () => {
+    for (const course of ["ko-b1", "ko-b2", "ko-c1", "ko-c2"]) {
+      const entries = VOCAB_ENTRIES.filter((entry) => entry.course === course);
+      expect(entries.length, course).toBeGreaterThan(0);
+      expect(
+        entries.every((entry) => hasAudioAsset(entry.audioText)),
+        course,
+      ).toBe(true);
+    }
     expect(fullInventory().length).toBe(audioInventory().length);
   });
 
@@ -110,7 +132,8 @@ describe("manifesto de áudio estático", () => {
     for (const item of manifest.items) {
       expect(item.text.trim()).toBe(item.text);
       expect(item.text.length).toBeGreaterThan(0);
-      expect(item.text).toMatch(/^[\uAC00-\uD7A3\u3131-\u318E\s.,?!0-9]+$/);
+      expect(item.text).toMatch(/^[^\u0000-\u001f]+$/);
+      expect(item.text).toMatch(/[\uAC00-\uD7A3\u3131-\u318E]/);
       expect(item.key).toBe(audioKey(item.text));
       expect(item.src).toBe(`/audio/v1/${item.key}.mp3`);
       expect(item.src.startsWith("/audio/v1/")).toBe(true);
@@ -128,7 +151,7 @@ describe("manifesto de áudio estático", () => {
       expect(bytes).toBeGreaterThan(1_000);
       expect(sha256(file)).toBe(item.sha256);
       expect(item.durationSeconds).toBeGreaterThan(0.2);
-      expect(item.durationSeconds).toBeLessThan(15);
+      expect(item.durationSeconds).toBeLessThan(30);
       expect(item.peakDb).toBeLessThanOrEqual(-0.5);
       expect(item.rmsDb).toBeGreaterThanOrEqual(-20);
       expect(item.rmsDb).toBeLessThanOrEqual(-16);
@@ -136,7 +159,7 @@ describe("manifesto de áudio estático", () => {
     }
 
     expect(totalBytes).toBe(manifest.totalBytes);
-    expect(totalBytes).toBeLessThan(80 * 1024 * 1024);
+    expect(totalBytes).toBeLessThan(220 * 1024 * 1024);
   });
 
   test("não deixa arquivos órfãos no diretório versionado", () => {

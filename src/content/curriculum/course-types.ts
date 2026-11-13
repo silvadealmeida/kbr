@@ -58,6 +58,27 @@ export type CourseGrammarNote = {
   review: ReviewMeta;
 };
 
+/**
+ * Texto-âncora de leitura longa. Existe para o B2, que precisa de texto
+ * conectado maior que o diálogo; é opcional para não alterar A1/A2/B1.
+ */
+export type CourseReadingText = {
+  titlePt: string;
+  /** Parágrafos originais em coreano, exibidos em `lang="ko"`. */
+  paragraphs: readonly string[];
+  /** Tradução integral em pt-BR, não parágrafo a parágrafo. */
+  pt: string;
+  /** Objetivo observável de leitura, em pt-BR. */
+  objective: string;
+  review: ReviewMeta;
+};
+
+export type CourseProductionRubricCriterion = {
+  criterion: "task" | "organization" | "vocabulary" | "grammar" | "argument";
+  labelPt: string;
+  descriptorPt: string;
+};
+
 export type CourseLessonVocabularyRefs = {
   newIds: readonly string[];
   reusedIds: readonly string[];
@@ -84,6 +105,14 @@ export type CourseProductionTask = {
   guidance: readonly string[];
   checklist: readonly string[];
   minWords?: number;
+  /** Rubrica descritiva; não é correção automática. */
+  rubric?: readonly CourseProductionRubricCriterion[];
+  /** Exemplo ilustrativo original, para comparação — não é gabarito. */
+  sample?: {
+    ko: string;
+    pt: string;
+    notePt: string;
+  };
 };
 
 export type CourseLessonContent = {
@@ -99,6 +128,8 @@ export type CourseLessonContent = {
   /** Ensina antes de testar: painéis curtos de introdução ao tema. */
   intro: readonly CourseIntroPanel[];
   dialogue: readonly CourseDialogueLine[];
+  /** Texto-âncora longo do B2; cursos anteriores não o declaram. */
+  readingText?: CourseReadingText;
   vocabulary: CourseLessonVocabularyRefs;
   grammar: readonly CourseGrammarNote[];
   exercises: readonly CourseLessonExercise[];

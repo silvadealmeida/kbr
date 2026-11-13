@@ -40,6 +40,8 @@ export function A1CheckpointPlayer({
   vocabularyFacts,
   course = A1_COURSE,
   levelLabel = "A1",
+  entryCourseLabel = "A1",
+  entryCourseHref = "/a1",
 }: {
   checkpoint: A1CheckpointContent;
   step: CourseStepDefinition;
@@ -47,6 +49,9 @@ export function A1CheckpointPlayer({
   vocabularyFacts: A1VocabularyFacts;
   course?: CourseClientView;
   levelLabel?: string;
+  /** Curso anterior exigido na entrada, para a mensagem de bloqueio. */
+  entryCourseLabel?: string;
+  entryCourseHref?: string;
 }) {
   const { progressStore, status } = useAuth();
   const [progress, setProgress] = useState<Progress | null>(null);
@@ -210,12 +215,12 @@ export function A1CheckpointPlayer({
         />
         <Plate className="mt-5" label="Requisito de entrada" number={course.id}>
           <p className="text-muted">
-            Este curso abre depois de concluir o A1. Abrir o endereço direto não
-            libera a avaliação.
+            Este curso abre depois de concluir o {entryCourseLabel}. Abrir o
+            endereço direto não libera a avaliação.
           </p>
           <p className="mt-2 text-sm text-muted">Pendentes: {entryMissing.join(", ")}.</p>
-          <ButtonLink href={coursePath} className="mt-5">
-            Ver o percurso do {levelLabel}
+          <ButtonLink href={entryCourseHref} className="mt-5">
+            Ver o percurso do {entryCourseLabel}
           </ButtonLink>
         </Plate>
       </article>

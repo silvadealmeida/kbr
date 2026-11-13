@@ -28,10 +28,15 @@ export function A1CourseArea({
   vocabularyFacts,
   course = A1_COURSE,
   levelLabel = "A1",
+  entryCourseLabel = "A1",
+  entryCourseHref = "/a1",
 }: {
   vocabularyFacts: A1VocabularyFacts;
   course?: CourseClientView;
   levelLabel?: string;
+  /** Curso anterior exigido na entrada, para a mensagem de bloqueio. */
+  entryCourseLabel?: string;
+  entryCourseHref?: string;
 }) {
   const { progressStore, status, syncStatus } = useAuth();
   const [progress, setProgress] = useState<Progress | null>(null);
@@ -96,17 +101,17 @@ export function A1CourseArea({
         <div>
           <h2 className="text-lg font-semibold">Curso bloqueado</h2>
           <p className="mt-1 text-muted">
-            {course.title} abre depois de concluir o A1. Abrir o endereço direto
-            não libera as lições; o app usa o mesmo `Progress` v1.
+            {course.title} abre depois de concluir o {entryCourseLabel}. Abrir o
+            endereço direto não libera as lições; o app usa o mesmo `Progress` v1.
           </p>
         </div>
         <p className="text-sm text-muted">Requisitos pendentes: {entryMissing.join(", ")}.</p>
         <div className="flex flex-col gap-3 sm:flex-row">
           <Link
-            href="/a1"
+            href={entryCourseHref}
             className="inline-flex min-h-12 items-center font-semibold text-accent underline-offset-4 hover:underline"
           >
-            Ver o percurso do A1
+            Ver o percurso do {entryCourseLabel}
           </Link>
           <Link
             href="/cursos"

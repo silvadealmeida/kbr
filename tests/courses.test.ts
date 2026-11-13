@@ -3,6 +3,7 @@ import {
   A1_COURSE,
   A2_COURSE,
   B1_COURSE,
+  B2_COURSE,
   COURSE_REGISTRY,
   HANGUL_COURSE,
   PLANNED_COURSES,
@@ -111,18 +112,19 @@ function issueCodes(courses: readonly CourseDefinition[]): string[] {
 }
 
 describe("registro genérico de cursos", () => {
-  test("Hangul, A1, A2 e B1 estão disponíveis; C1–C2 planejados", () => {
+  test("Hangul, A1, A2, B1 e B2 estão registrados; C1–C2 planejados", () => {
     expect(validateCourseRegistry()).toEqual([]);
-    expect(COURSE_REGISTRY).toHaveLength(4 + CEFR_LEVELS.length - 3);
+    expect(COURSE_REGISTRY).toHaveLength(5 + CEFR_LEVELS.length - 4);
     expect(getAvailableCourses().map((course) => course.id)).toEqual([
       "hangul",
       "ko-a1",
       "ko-a2",
       "ko-b1",
+      ...(B2_COURSE.status === "available" ? ["ko-b2"] : []),
     ]);
-    expect(getInDevelopmentCourses()).toEqual([]);
+    expect(getInDevelopmentCourses().every((course) => course.id === "ko-b2")).toBe(true);
     expect(getPlannedCourses().map((course) => course.level)).toEqual(
-      CEFR_LEVELS.filter((level) => level !== "a1" && level !== "a2" && level !== "b1"),
+      CEFR_LEVELS.filter((level) => level !== "a1" && level !== "a2" && level !== "b1" && level !== "b2"),
     );
     expect(getCourse("hangul")).toBe(HANGUL_COURSE);
     expect(getCourse("ko-a1")).toBe(A1_COURSE);

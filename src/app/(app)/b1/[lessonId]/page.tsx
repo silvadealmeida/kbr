@@ -47,6 +47,8 @@ export default async function Page({ params }: PageProps) {
         nextStep={nextStepAfter(lessonId)}
         course={courseClientView(B1_COURSE)}
         levelLabel="B1"
+        entryCourseLabel="A2"
+        entryCourseHref="/a2"
         totalLessons={40}
       />
     );
@@ -62,6 +64,8 @@ export default async function Page({ params }: PageProps) {
         vocabularyFacts={courseVocabularyFacts(B1_IMPLEMENTED_LESSONS)}
         course={courseClientView(B1_COURSE)}
         levelLabel="B1"
+        entryCourseLabel="A2"
+        entryCourseHref="/a2"
       />
     );
   }

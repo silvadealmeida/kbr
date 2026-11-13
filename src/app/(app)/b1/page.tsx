@@ -19,6 +19,8 @@ export default function Page() {
       <A1CourseArea
         course={courseClientView(B1_COURSE)}
         levelLabel="B1"
+        entryCourseLabel="A2"
+        entryCourseHref="/a2"
         vocabularyFacts={courseVocabularyFacts(B1_IMPLEMENTED_LESSONS)}
       />
     </>

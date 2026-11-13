@@ -1,6 +1,13 @@
 import type { ReviewMeta } from "@/content/hangul/types";
 
-export type VocabPos = "substantivo" | "verbo" | "pronome" | "advérbio" | "interjeição" | "numeral";
+export type VocabPos =
+  | "substantivo"
+  | "verbo"
+  | "adjetivo"
+  | "pronome"
+  | "advérbio"
+  | "interjeição"
+  | "numeral";
 
 /**
  * Item canônico de vocabulário. É dado de currículo: nada aqui guarda estado

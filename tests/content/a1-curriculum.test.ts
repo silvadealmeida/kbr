@@ -180,7 +180,7 @@ describe("blueprint curricular A1", () => {
       finalStepId: "a1-c08",
       certification: "none",
     });
-    expect(getInDevelopmentCourses()).toEqual([]);
+    expect(getInDevelopmentCourses().every((course) => course.id === "ko-b2")).toBe(true);
 
     const progress = createEmptyProgress(NOW);
     progress.lessons["a1-l01"] = { done: true, score: 100 };
@@ -339,7 +339,7 @@ describe("blueprint curricular A1", () => {
     expect(hangul.steps.at(-1)?.id).toBe("c4");
     expect(getCourse("ko-a1")?.status).toBe("available");
     expect(getCourse("ko-a1")?.steps).toHaveLength(48);
-    expect(getInDevelopmentCourses()).toEqual([]);
+    expect(getInDevelopmentCourses().every((course) => course.id === "ko-b2")).toBe(true);
   });
 
   test.each([

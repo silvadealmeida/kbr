@@ -98,6 +98,12 @@ O contrato `A1LessonContent` inclui número, módulo, pré-requisitos, duração
 
 `src/content/curriculum/b1/` usa o contrato compartilhado e acrescenta `production?: CourseProductionTask` às lições/checkpoints. O B1 tem 40 lições, 8 checkpoints, 320 identidades novas + 320 frases e 615 itens (400 de lição + 215 de checkpoint). A produção aberta é opcional, local, não persistida e não entra na nota; a rubrica é apenas apoio de autoavaliação/revisão humana. `/b1` e `/b1/[lessonId]` reutilizam os players parametrizados e `ProductionTask`; `entryPrerequisites: ["a2-c08"]` é aplicado no catálogo, na página e na URL direta. O curso usa o mesmo `Progress` v1, o mesmo Leitner e o mesmo registro canônico de vocabulário.
 
+## Curso B2 completo (Fases 13A–13H)
+
+`src/content/curriculum/b2/` usa o contrato compartilhado e acrescenta duas extensões opcionais: `readingText` (texto-âncora de três parágrafos, com tradução integral e objetivo de leitura) e, em `CourseProductionTask`, `rubric` (cinco critérios descritivos) e `sample` (exemplo ilustrativo original, nunca gabarito). O contrato é opcional para não alterar A1/A2/B1; o player compartilhado renderiza a leitura longa quando ela existe. `src/content/vocabulary/types.ts` ganhou `adjetivo` em `VocabPos`; nenhum item existente foi reclassificado.
+
+O B2 tem 40 lições, 8 checkpoints, 320 identidades lexicais novas + 320 frases, 400 itens de lição (80 de cada tipo) e 215 itens de checkpoint (52 `listen`, 52 `reading`, 43 `cloze`, 43 `translate`, 25 `mcq`). Cada lição tem 2 `mcq`, 2 `cloze`, 2 `listen`, 2 `translate`, 2 `reading` (5 guiados + 5 independentes), texto-âncora e produção obrigatória no desenho. `/b2` e `/b2/[lessonId]` reutilizam os players parametrizados; `entryPrerequisites: ["b1-c08"]` é aplicado no catálogo, na página e na URL direta. A conclusão é derivada dos 48 passos e não emite certificação. O curso usa o mesmo `Progress` v1, o mesmo Leitner e o mesmo registro canônico de vocabulário. O texto coreano permanece `in-review`.
+
 ## Curso A2 completo (Fases 10A–10H)
 
 `src/content/curriculum/a2/` replica o contrato compartilhado de lição/checkpoint (`src/content/curriculum/course-types.ts`) com blueprint, validadores, 40 lições e 8 checkpoints próprios. O curso tem 400 identidades novas e 400 frases contextuais; 115 identidades distintas do A1/Hangul são retomadas em contexto (515 distintas ensinadas). São 615 itens: 400 de lição (80 `mcq`, 80 `cloze`, 80 `listen`, 80 `translate`, 80 `reading`) e 215 de checkpoint (52 `listen`, 52 `reading`, 45 `cloze`, 45 `translate`, 21 `mcq`).

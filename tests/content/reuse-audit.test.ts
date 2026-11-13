@@ -3,6 +3,7 @@ import { describe, expect, test } from "vitest";
 import { A1_IMPLEMENTED_LESSONS } from "@/content/curriculum/a1/content";
 import { A2_IMPLEMENTED_LESSONS } from "@/content/curriculum/a2/content";
 import { B1_IMPLEMENTED_LESSONS } from "@/content/curriculum/b1/content";
+import { B2_IMPLEMENTED_LESSONS } from "@/content/curriculum/b2/content";
 import { findUnusedReusedRefs } from "@/content/curriculum/validate-reuse";
 import { VOCAB_ENTRIES, type VocabEntry } from "@/content/vocabulary";
 import baseline from "../fixtures/reused-ids-baseline.json";
@@ -24,7 +25,7 @@ function entry(id: string, ko: string): VocabEntry {
 describe("auditoria de reusedIds", () => {
   test("não introduz novas referências sem ocorrência no texto da lição", () => {
     const current = findUnusedReusedRefs(
-      [...A1_IMPLEMENTED_LESSONS, ...A2_IMPLEMENTED_LESSONS, ...B1_IMPLEMENTED_LESSONS],
+      [...A1_IMPLEMENTED_LESSONS, ...A2_IMPLEMENTED_LESSONS, ...B1_IMPLEMENTED_LESSONS, ...B2_IMPLEMENTED_LESSONS],
       VOCAB_ENTRIES,
     );
     const frozen = new Set(baseline.refs);

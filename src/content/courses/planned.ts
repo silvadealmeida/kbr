@@ -35,5 +35,5 @@ function plannedCourse(level: CefrLevel): CourseDefinition {
  * disponíveis, cada um com 40 lições e 8 checkpoints.
  */
 export const PLANNED_COURSES: readonly CourseDefinition[] = CEFR_LEVELS.filter(
-  (level) => level !== "a1" && level !== "a2" && level !== "b1",
+  (level) => level !== "a1" && level !== "a2" && level !== "b1" && level !== "b2",
 ).map(plannedCourse);

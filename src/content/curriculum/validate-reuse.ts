@@ -11,6 +11,9 @@ export function lessonKoreanText(lesson: CourseLessonContent): string {
     if (panel.ko) parts.push(panel.ko);
   }
   for (const line of lesson.dialogue) parts.push(line.ko);
+  if (lesson.readingText) {
+    for (const paragraph of lesson.readingText.paragraphs) parts.push(paragraph);
+  }
   for (const note of lesson.grammar) {
     for (const example of note.examples) parts.push(example.ko);
   }

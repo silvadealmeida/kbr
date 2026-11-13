@@ -3,6 +3,7 @@ import { LESSONS } from "@/content/hangul/lessons";
 import { A1_LESSON_IDS } from "@/content/curriculum/a1/ids";
 import { A2_STEP_IDS } from "@/content/curriculum/a2/ids";
 import { B1_STEP_IDS } from "@/content/curriculum/b1/ids";
+import { B2_STEP_IDS } from "@/content/curriculum/b2/ids";
 import { A1_VOCABULARY, A1_VOCAB_SENTENCES } from "./a1";
 import {
   A1_COURSE_SENTENCES,
@@ -16,6 +17,10 @@ import {
   B1_COURSE_SENTENCES,
   B1_COURSE_VOCABULARY,
 } from "./b1-course";
+import {
+  B2_COURSE_SENTENCES,
+  B2_COURSE_VOCABULARY,
+} from "./b2-course";
 import { HANGUL_VOCABULARY } from "./hangul";
 import { VOCAB_SENTENCES as HANGUL_VOCAB_SENTENCES } from "./sentences";
 import { validateVocabulary } from "./validate";
@@ -41,6 +46,7 @@ export const VOCAB_ENTRIES: readonly VocabEntry[] = [
   ...A1_COURSE_VOCABULARY,
   ...A2_COURSE_VOCABULARY,
   ...B1_COURSE_VOCABULARY,
+  ...B2_COURSE_VOCABULARY,
 ];
 export const VOCAB_SENTENCES: readonly VocabSentence[] = [
   ...HANGUL_VOCAB_SENTENCES,
@@ -48,6 +54,7 @@ export const VOCAB_SENTENCES: readonly VocabSentence[] = [
   ...A1_COURSE_SENTENCES,
   ...A2_COURSE_SENTENCES,
   ...B1_COURSE_SENTENCES,
+  ...B2_COURSE_SENTENCES,
 ];
 
 /** Lições/checkpoints existentes por curso, para validar referências. */
@@ -56,6 +63,7 @@ export const COURSE_LESSON_IDS: ReadonlyMap<string, ReadonlySet<string>> = new M
   ["ko-a1", A1_LESSON_IDS],
   ["ko-a2", A2_STEP_IDS],
   ["ko-b1", B1_STEP_IDS],
+  ["ko-b2", B2_STEP_IDS],
 ]);
 
 const BY_ID = new Map(VOCAB_ENTRIES.map((e) => [e.id, e]));

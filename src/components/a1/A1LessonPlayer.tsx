@@ -43,6 +43,8 @@ export function A1LessonPlayer({
   course = A1_COURSE,
   levelLabel = "A1",
   totalLessons = 40,
+  entryCourseLabel = "A1",
+  entryCourseHref = "/a1",
 }: {
   lesson: A1LessonContent;
   step: CourseStepDefinition;
@@ -50,6 +52,9 @@ export function A1LessonPlayer({
   course?: CourseClientView;
   levelLabel?: string;
   totalLessons?: number;
+  /** Curso anterior exigido na entrada, para a mensagem de bloqueio. */
+  entryCourseLabel?: string;
+  entryCourseHref?: string;
 }) {
   const { progressStore, status } = useAuth();
   const [progress, setProgress] = useState<Progress | null>(null);
@@ -209,12 +214,12 @@ export function A1LessonPlayer({
         />
         <Plate className="mt-5" label="Requisito de entrada" number={course.id}>
           <p className="text-muted">
-            Este curso abre depois de concluir o A1. Abrir o endereço direto não
-            libera as lições.
+            Este curso abre depois de concluir o {entryCourseLabel}. Abrir o
+            endereço direto não libera as lições.
           </p>
           <p className="mt-2 text-sm text-muted">Pendentes: {entryMissing.join(", ")}.</p>
-          <ButtonLink href={coursePath} className="mt-5">
-            Ver o percurso do {levelLabel}
+          <ButtonLink href={entryCourseHref} className="mt-5">
+            Ver o percurso do {entryCourseLabel}
           </ButtonLink>
         </Plate>
       </article>
@@ -355,6 +360,12 @@ export function A1LessonPlayer({
               {lesson.dialogue.length} turnos de diálogo e {lesson.grammar.length} notas
               de gramática.
             </li>
+            {lesson.readingText ? (
+              <li>
+                Um texto de leitura longa com {lesson.readingText.paragraphs.length}{" "}
+                parágrafos.
+              </li>
+            ) : null}
           </ul>
         </Plate>
 
@@ -507,6 +518,37 @@ export function A1LessonPlayer({
           ))}
         </ol>
       </Plate>
+
+      {lesson.readingText ? (
+        <Plate
+          className="mt-4"
+          label="Leitura longa"
+          number={`${lesson.readingText.paragraphs.length}`}
+        >
+          <h2 className="text-lg font-semibold">{lesson.readingText.titlePt}</h2>
+          <p className="mt-1 text-sm text-muted">{lesson.readingText.objective}</p>
+          <div className="mt-4 flex flex-col gap-3">
+            {lesson.readingText.paragraphs.map((paragraph, paragraphIndex) => (
+              <div key={`${lesson.id}-p${paragraphIndex + 1}`}>
+                <p
+                  lang="ko"
+                  className="break-words font-ko text-lg leading-relaxed"
+                >
+                  {paragraph}
+                </p>
+                <AudioControl
+                  text={paragraph}
+                  compact
+                  label={`Ouvir o parágrafo ${paragraphIndex + 1}`}
+                />
+              </div>
+            ))}
+          </div>
+          <p className="mt-4 border-t border-line pt-3 text-muted">
+            {lesson.readingText.pt}
+          </p>
+        </Plate>
+      ) : null}
 
       <section aria-labelledby="grammar-title" className="mt-6">
         <h2 id="grammar-title" className="text-xl font-semibold">

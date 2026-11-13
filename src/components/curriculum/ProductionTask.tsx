@@ -72,6 +72,31 @@ export function ProductionTask({ task }: { task: CourseProductionTask }) {
           ))}
         </ul>
       </fieldset>
+      {task.rubric && task.rubric.length > 0 ? (
+        <div className="mt-5">
+          <h3 className="text-sm font-semibold">Critérios de avaliação</h3>
+          <dl className="mt-2 flex flex-col gap-2 text-sm">
+            {task.rubric.map((criterion) => (
+              <div key={criterion.criterion} className="border-l-2 border-line-strong pl-3">
+                <dt className="font-semibold">{criterion.labelPt}</dt>
+                <dd className="text-muted">{criterion.descriptorPt}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      ) : null}
+      {task.sample ? (
+        <details className="mt-5 rounded-[var(--radius-field)] border border-line p-3">
+          <summary className="cursor-pointer text-sm font-semibold">
+            Exemplo ilustrativo (não é gabarito)
+          </summary>
+          <p className="mt-3 whitespace-pre-line text-muted">{task.sample.notePt}</p>
+          <p lang="ko" className="mt-3 whitespace-pre-line font-ko text-lg leading-relaxed">
+            {task.sample.ko}
+          </p>
+          <p className="mt-2 text-sm text-muted">{task.sample.pt}</p>
+        </details>
+      ) : null}
     </section>
   );
 }

@@ -12,7 +12,7 @@ export const B1_M01_ROWS: readonly B1VocabRow[] = [
   ["b1-l01", "그립다", "sentir falta; sentir saudade", "verbo", "그리워요", "그 시절 친구들이 아직도 그리워요.", "Ainda sinto falta dos amigos daquela época.", "sentir saudade", "Forma de dicionário; a frase usa 그리워요."],
 
   ["b1-l02", "교통사고", "acidente de trânsito", "substantivo", "교통사고", "길에서 작은 교통사고를 봤어요.", "Vi um pequeno acidente de trânsito na rua.", "acidente de trânsito"],
-  ["b1-l02", "넘어지다", "cair; tropeçar", "verbo", "넘어졌어요", "비에 미끄러져서 넘어졌어요.", "Escorreguei na chuva e caí.", "cair", "Forma de dicionário; a frase usa 넘어졌어요."],
+  ["b1-l02", "넘어지다", "cair; tropeçar", "verbo", "넘어졌어요", "빗길에 미끄러져서 넘어졌어요.", "Escorreguei na rua molhada e caí.", "cair", "Forma de dicionário; a frase usa 넘어졌어요."],
   ["b1-l02", "다치다", "machucar-se; ferir-se", "verbo", "다치지는", "다행히 크게 다치지는 않았어요.", "Felizmente não me machuquei gravemente.", "machucar-se", "Forma de dicionário; a frase usa 다치지는."],
   ["b1-l02", "조심스럽다", "ser cuidadoso; ser prudente", "verbo", "조심스러워요", "길이 미끄러우니 조심스러워요.", "A rua está escorregadia, então é preciso cuidado.", "ser cuidadoso", "Forma de dicionário; a frase usa 조심스러워요."],
   ["b1-l02", "도중", "durante o caminho; no meio de", "substantivo", "도중", "집에 가는 도중에 친구를 만났어요.", "Encontrei um amigo no caminho para casa.", "durante o caminho"],

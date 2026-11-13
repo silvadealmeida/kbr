@@ -76,7 +76,7 @@ export const B1_L27 = defineB1Lesson({
   independent: [
     mcq("Qual frase mostra um resultado indesejado?", ["결국 숙소를 취소하고 말았어요.", "숙소를 미리 예약했어요.", "숙소가 아주 좋았어요."], "결국 숙소를 취소하고 말았어요.", "-고 말다 marca o desfecho que o falante não queria."),
     cloze("Complete o desfecho: 결국 비행기를 놓치___ 말았어요.", "고", "놓치고 말았어요 significa “acabei perdendo o voo”."),
-    listen("Ouça e escreva a providência tomada.", "승객들은 안전하게 대피했어요.", "승객들은 안전하게 대피했어요.", "Os passageiros evacuaram em segurança.", ["승객들은 안전하게 대피했어요"]),
+    listen("Ouça e escreva a providência tomada após o aviso de emergência.", "승객들은 안전하게 대피했어요.", "승객들은 안전하게 대피했어요.", "Os passageiros evacuaram em segurança.", ["승객들은 안전하게 대피했어요"]),
     translate("ko-pt", "Traduza: 폭풍이 몰아치는 바람에 비행기가 결항됐어요.", "Por causa da tempestade, o voo foi cancelado.", "결항 significa cancelamento de voo.", ["Devido à tempestade, o voo foi cancelado."]),
     reading("공항에서는 문제가 생겼을 때 안내 방송을 먼저 들어야 해요. 지연이나 결항이 확정되면 항공사에 숙박과 교통편을 요청할 수 있어요. 수하물을 찾는 데 시간이 오래 걸릴 때도 있으니 여유를 두세요. 영수증을 보관하면 나중에 배상을 받을 때 도움이 돼요.", "O que ajuda a receber compensação depois?", ["Guardar os recibos.", "Sair do aeroporto sem avisar.", "Comprar outra passagem imediatamente."], "Guardar os recibos.", "영수증을 보관하면 나중에 배상을 받을 때 도움이 돼요."),
   ],

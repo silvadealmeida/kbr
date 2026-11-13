@@ -59,7 +59,7 @@ export const B1_L07 = defineB1Lesson({
     ["지민", "좋아요. 모든 직원이 내용을 알도록 교육도 해야 해요.", "Bom. Também precisamos fazer um treinamento para que todos os funcionários conheçam o conteúdo."],
     ["마르코", "교육은 다음 주 수요일까지 끝내도록 할게요.", "Vou providenciar para que o treinamento termine até a próxima quarta."],
     ["지민", "그럼 제가 자료를 정리해서 금요일까지 보내 드릴게요.", "Então eu organizo o material e envio até sexta."],
-    ["마르코", "좋습니다. 목표를 이루기 위해 우리가 할 일이 분명해졌네요.", "Ótimo. Ficou claro o que precisamos fazer para alcançar a meta."],
+    ["마르코", "좋아요. 목표를 이루기 위해 우리가 할 일이 분명해졌네요.", "Ótimo. Ficou claro o que precisamos fazer para alcançar a meta."],
   ],
   reusedIds: ["ko:목표", "ko:방법", "ko:연습하다", "ko:준비하다", "ko:노력"],
   grammar: [
@@ -107,7 +107,7 @@ export const B1_L08 = defineB1Lesson({
   ],
   reusedIds: ["ko:선택", "ko:대신", "ko:비교", "ko:비싸다", "ko:장점"],
   grammar: [
-    ["-는 대신(에) — em troca de", "동사 + -는 대신(에) / 형용사 + -(으)ㄴ 대신(에) / 명사 + 대신(에)", "Apresenta o custo ou a compensação de uma escolha. A primeira parte mostra o que se ganha ou perde; a segunda mostra o outro lado da troca. Com adjetivos, use -(으)ㄴ 대신(에): 비싼 대신에, 싼 대신에.", [["비싼 대신에 회사까지 걸어서 다닐 수 있어요.", "É caro, mas em troca posso ir a pé até a empresa."], ["지금 집은 싼 대신에 한 시간 걸려요.", "A casa atual é barata, mas em troca leva uma hora."]]],
+    ["-는 대신(에) — em troca de", "동사 + -는 대신(에) / 형용사 + -(으)ㄴ 대신(에) / 명사 + 대신(에)", "Apresenta o custo ou a compensação de uma escolha. A primeira parte mostra o que se ganha ou perde; a segunda mostra o outro lado da troca. Com verbos, use -는 대신(에); com adjetivos, -(으)ㄴ 대신(에): 비싼 대신에, 싼 대신에. Com substantivos, use 대신(에): 커피 대신에 차를 마셔요. A partícula 에 é opcional: 비싼 대신 e 비싼 대신에 são igualmente corretas.", [["비싼 대신에 회사까지 걸어서 다닐 수 있어요.", "É caro, mas em troca posso ir a pé até a empresa."], ["지금 집은 싼 대신에 한 시간 걸려요.", "A casa atual é barata, mas em troca leva uma hora."]]],
     ["-기보다 — mais do que", "동사 + -기보다(는)", "Compara duas ações e mostra a preferência do falante. O verbo antes de -기보다 é a opção que ele não escolhe.", [["돈을 아끼기보다 시간을 아끼고 싶어요.", "Prefiro economizar tempo a economizar dinheiro."], ["버스를 타기보다 걷는 게 좋아요.", "Prefiro caminhar a pegar o ônibus."]]],
   ],
   guided: [

@@ -96,6 +96,7 @@ export const B1_L23 = defineB1Lesson({
   intro: [
     { title: "-도록 — para que, de modo que", body: "Use -도록 para indicar um objetivo ou um resultado pretendido. Em pedidos, suaviza a intenção: “faça de modo que…”. A forma também aparece em expressões de esforço, como -도록 노력하다.", ko: "서로 이해할 수 있도록 천천히 말해 주세요." },
     { title: "-는 데 — no ato de, para", body: "A forma nominaliza uma ação e indica o âmbito em que algo acontece, custa ou exige esforço. Com verbos de ação, use -는 데; o sujeito da ação normalmente vem antes.", ko: "관계를 유지하는 데 시간이 필요해요." },
+    { title: "Registro: 반말 entre amigos", body: "Sujin e Jimin são amigos próximos, por isso usam 반말 (registro informal). O 반말 é natural entre pessoas da mesma idade ou com intimidade, mas não é universal: com desconhecidos, colegas de trabalho ou pessoas mais velhas, use 해요체. 좋겠어 é a forma informal de 좋겠어요; o -요 é o que marca a cortesia. Evite 반말 com quem você acabou de conhecer ou em situações formais.", ko: "약속을 바꿀 때는 미리 알려 줬으면 좋겠어." },
   ],
   dialogue: [
     ["수진", "지민아, 요즘 연락이 늦어서 조금 서운했어.", "Jimin, ultimamente você demora a responder e eu fiquei um pouco magoada."],

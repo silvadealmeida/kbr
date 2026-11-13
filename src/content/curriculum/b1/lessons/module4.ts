@@ -80,7 +80,7 @@ export const B1_L17 = defineB1Lesson({
     translate("ko-pt", "Traduza: 일정 변경에 대한 질문이 있었어요.", "Houve uma pergunta sobre a mudança de cronograma.", "-에 대한 marca o tema da pergunta.", ["Houve uma pergunta a respeito da mudança de cronograma."]),
     reading("회의록은 길수록 좋은 것이 아니에요. 누가 무엇을 하기로 했는지, 언제까지 해야 하는지가 분명해야 해요. 그래서 진행자는 결정과 담당자만 간단히 적어요.", "O que torna uma ata útil?", ["Decisões, responsáveis e prazos claros.", "Muitas páginas de debate.", "A opinião pessoal do mediador."], "Decisões, responsáveis e prazos claros.", "누가 무엇을 하기로 했는지, 언제까지 해야 하는지가 분명해야 해요."),
   ],
-  summary: ["-에 대한 apresenta o tema de um substantivo.", "-는 데 반해 contrasta dois fatos de forma objetiva.", "Uma ata útil registra decisão, responsável e prazo.", "Pauta e materiais devem circular antes da reunião."],
+  summary: ["-에 대한 apresenta o tema de um substantivo.", "-는 데 반해 contrasta dois fatos de forma objetiva.", "Uma ata útil registra decisão, responsável e prazo.", "Pauta e materiais devem circular antes da reunião.", "Textos de leitura podem usar o registro escrito formal (-ㅂ니다/-습니다), mesmo quando o diálogo da lição usa 해요체."],
   production: {
     titlePt: "Produção independente · resumo de reunião", promptPt: "Escreva um resumo de uma reunião fictícia com pauta, uma decisão, um responsável e um prazo. Use de quatro a seis frases.", promptKo: "회의 내용을 네 문장으로 정리해 보세요.",
     guidance: ["Comece pela pauta da reunião.", "Use -에 대한 uma vez.", "Termine com responsável e prazo."],
@@ -95,7 +95,7 @@ export const B1_L18 = defineB1Lesson({
   prerequisites: ["b1-l17"], estimatedMinutes: 70, dialogueTitle: "Duas vagas, duas escolhas",
   intro: [
     { title: "-(으)ㄹ 수밖에 없다 — escolha inevitável", body: "A forma diz que, dadas as circunstâncias, não há outra saída: “não tenho como não…”. Use com verbos e mantenha o tom de constatação, não de desculpa.", ko: "대안이 없어서 결정을 미룰 수밖에 없어요." },
-    { title: "-기에 — porque, pelo fato de", body: "-기에 apresenta o motivo de forma mais objetiva e escrita que -아/어서. Liga-se diretamente ao radical do verbo ou adjetivo.", ko: "가능성이 높기에 지원했어요." },
+    { title: "-기에 — porque, pelo fato de", body: "-기에 apresenta o motivo de forma mais objetiva e escrita que -아/어서 ou -니까. Liga-se diretamente ao radical do verbo ou adjetivo.", ko: "가능성이 높기에 지원했어요." },
   ],
   dialogue: [
     ["지민", "두 회사 중에 어디에 지원할 거예요?", "Para qual das duas empresas você vai se candidatar?"],
@@ -103,12 +103,12 @@ export const B1_L18 = defineB1Lesson({
     ["지민", "다른 곳은요?", "E a outra?"],
     ["수진", "월급은 적지만 복지가 좋고 정규직 전환 가능성도 높아요.", "O salário mensal é menor, mas os benefícios são bons e a chance de efetivação é alta."],
     ["지민", "그럼 근무 조건을 먼저 비교해 보는 게 좋겠어요.", "Então é melhor comparar primeiro as condições de trabalho."],
-    ["수진", "네. 경력과 능력을 함께 생각해야 하기에 결정을 미룰 수밖에 없어요.", "Sim. Como preciso considerar experiência e competência juntas, não tenho como não adiar a decisão."],
+    ["수진", "네. 경력과 능력을 함께 생각해야 하니까 결정을 미룰 수밖에 없어요.", "Sim. Como preciso considerar experiência e competência juntas, não tenho como não adiar a decisão."],
   ],
   reusedIds: ["ko:월급", "ko:경력", "ko:선택", "ko:능력"],
   grammar: [
     ["-(으)ㄹ 수밖에 없다 — sem alternativa", "동사 + -(으)ㄹ 수밖에 없다", "Indica que a situação obriga a uma escolha. Não é uma promessa nem um desejo; é o reconhecimento de que não há outra opção prática.", [["대안이 없어서 결정을 미룰 수밖에 없어요.", "Como não há alternativa, não tenho como não adiar a decisão."], ["버스가 없어서 걸어갈 수밖에 없어요.", "Como não há ônibus, só me resta ir a pé."]]],
-    ["-기에 — motivo objetivo", "동사/형용사 + -기에", "-기에 introduz o motivo de uma decisão ou constatação. Soa mais objetivo que -아/어서 e aparece com frequência em textos profissionais.", [["가능성이 높기에 지원했어요.", "Candidatei-me porque a possibilidade era alta."], ["일정이 짧기에 인원을 늘렸어요.", "Como o prazo era curto, aumentamos a equipe."]]],
+    ["-기에 — motivo objetivo", "동사/형용사 + -기에", "-기에 introduz o motivo de uma decisão ou constatação. Soa mais objetivo que -아/어서 e -니까 e aparece com frequência em textos profissionais; na conversa cotidiana, -니까 e -아/어서 são mais naturais.", [["가능성이 높기에 지원했어요.", "Candidatei-me porque a possibilidade era alta."], ["일정이 짧기에 인원을 늘렸어요.", "Como o prazo era curto, aumentamos a equipe."]]],
   ],
   guided: [
     mcq("Por que Sujin ainda não decidiu?", ["Porque cada vaga tem uma desvantagem.", "Porque não tem currículo.", "Porque já aceitou as duas propostas."], "Porque cada vaga tem uma desvantagem.", "Uma vaga tem muitas horas extras; a outra paga menos."),
@@ -212,7 +212,7 @@ export const B1_L20 = defineB1Lesson({
     translate("ko-pt", "Traduza: 불만이 있더라도 먼저 상대의 말을 듣는 것이 중요해요.", "Mesmo que haja insatisfação, é importante ouvir primeiro o que o outro diz.", "-더라도 mantém a recomendação apesar da insatisfação."),
     reading("규정을 어기면 징계를 받을 수 있어요. 하지만 갈등이 생겼을 때 가장 중요한 것은 사실을 숨기지 않는 거예요. 중재자를 통해 해명하고 협상하는 편이 낫습니다.", "Qual atitude o texto recomenda em um conflito?", ["Esclarecer os fatos e negociar com mediação.", "Esconder o erro até o fim.", "Evitar qualquer conversa."], "Esclarecer os fatos e negociar com mediação.", "중재자를 통해 해명하고 협상하는 편이 낫습니다."),
   ],
-  summary: ["-는 바람에 liga causa involuntária a resultado negativo.", "-더라도 mantém uma decisão diante de uma hipótese contrária.", "Assumir a causa abre espaço para reparação.", "Um acordo bom inclui esclarecimento e prevenção."],
+  summary: ["-는 바람에 liga causa involuntária a resultado negativo.", "-더라도 mantém uma decisão diante de uma hipótese contrária.", "Assumir a causa abre espaço para reparação.", "Um acordo bom inclui esclarecimento e prevenção.", "Textos de leitura podem usar o registro escrito formal (-ㅂ니다/-습니다), mesmo quando o diálogo da lição usa 해요체."],
   production: {
     titlePt: "Produção independente · mensagem de reparação", promptPt: "Escreva uma mensagem a um colega sobre um erro que afetou a equipe: explique a causa, o impacto, sua responsabilidade e a proposta de solução. Use de cinco a sete frases.", promptKo: "실수에 대해 사과하고 해결 방법을 제안해 보세요.",
     guidance: ["Descreva o fato sem culpar outra pessoa.", "Use -는 바람에 para a causa e -더라도 para assumir o compromisso.", "Termine com uma ação concreta e um prazo."],

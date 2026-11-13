@@ -20,7 +20,7 @@ export const B1_L02 = defineB1Lesson({
   reusedIds: ["ko:지하철", "ko:길", "ko:친구", "ko:시간"],
   grammar: [
     ["-다가 — ação interrompida", "동사 + -다가", "Use -다가 quando uma ação em andamento é interrompida por outra. A primeira ação não precisa ter terminado.", [["걷다가 넘어졌어요.", "Caí enquanto caminhava."], ["이야기하다가 전화를 받았어요.", "Atendi ao telefone enquanto conversava."]]],
-    ["-자마자 — logo que", "동사 + -자마자", "A segunda ação acontece imediatamente depois da primeira. É mais forte que -고 나서 e não aceita ordem na segunda parte.", [["집을 나가자마자 비가 왔어요.", "Assim que saí de casa, choveu."], ["약국에 가자마자 약을 샀어요.", "Assim que cheguei à farmácia, comprei o remédio."]]],
+    ["-자마자 — logo que", "동사 + -자마자", "A segunda ação acontece imediatamente depois da primeira. É mais forte que -고 나서. A oração seguinte descreve um fato já ocorrido; por isso não pode ser uma ordem, um pedido nem uma proposta. A restrição é específica de -자마자; não confunda com -자, que tem outros usos e regras próprias.", [["집을 나가자마자 비가 왔어요.", "Assim que saí de casa, choveu."], ["약국에 가자마자 약을 샀어요.", "Assim que cheguei à farmácia, comprei o remédio."]]],
   ],
   guided: [
     mcq("O que aconteceu com Sujin?", ["Ela caiu ao descer do metrô.", "Ela perdeu o metrô.", "Ela esqueceu o remédio."], "Ela caiu ao descer do metrô.", "내리다가 넘어졌어요."),
@@ -50,7 +50,7 @@ export const B1_L03 = defineB1Lesson({
   ],
   dialogue: [
     ["지민", "민수 씨가 뭐라고 했어요?", "O que Minsu disse?"],
-    ["수진", "내일 회의에 못 온다고 했어요.", "Ele disse que não poderá vir à reunião amanhã."],
+    ["수진", "내일 회의에 못 온다고 했어요.", "Ele disse que não pode vir à reunião amanhã."],
     ["지민", "이유도 말했어요?", "Ele disse o motivo?"],
     ["수진", "몸이 안 좋냐고 물었는데 대답하지 않았어요.", "Perguntei se ele não estava bem, mas ele não respondeu."],
     ["지민", "그럼 제가 다시 전화해 볼게요.", "Então vou ligar de novo."],
@@ -58,10 +58,10 @@ export const B1_L03 = defineB1Lesson({
   reusedIds: ["ko:이야기하다", "ko:친구", "ko:말하다", "ko:사람"],
   grammar: [
     ["-다고 하다 — afirmação relatada", "동사/형용사 + -다고 하다", "Use -다고 하다 para relatar o que alguém disse. O tempo pode aparecer na citação ou em 하다; mantenha a perspectiva de quem relata.", [["내일 온다고 했어요.", "Ele disse que vem amanhã."], ["바쁘다고 말했어요.", "Ele disse que está ocupado."]]],
-    ["-냐고 하다 — pergunta relatada", "동사/형용사 + -냐고 하다", "A forma relata uma pergunta. Com verbos de movimento, a citação mantém a forma interrogativa sem o ponto de interrogação final.", [["어디에 가냐고 물었어요.", "Perguntei aonde ele ia."], ["몸이 안 좋냐고 했어요.", "Perguntei se ele não estava bem."]]],
+    ["-냐고 하다 — pergunta relatada", "동사/형용사 + -냐고 하다", "A forma relata uma pergunta com o final interrogativo -냐고. A pergunta citada não leva -요 nem ponto de interrogação: 어디에 가냐고 물었어요. O ponto de interrogação pertence à escrita; a entonação pertence à fala. O que marca a pergunta é o final gramatical -냐고, não o sinal.", [["어디에 가냐고 물었어요.", "Perguntei aonde ele ia."], ["몸이 안 좋냐고 했어요.", "Perguntei se ele não estava bem."]]],
   ],
   guided: [
-    mcq("O que Minsu disse?", ["Que não poderá ir à reunião.", "Que chegou cedo.", "Que perdeu o telefone."], "Que não poderá ir à reunião.", "못 온다고 했어요."),
+    mcq("O que Minsu disse?", ["Que não pode ir à reunião.", "Que chegou cedo.", "Que perdeu o telefone."], "Que não pode ir à reunião.", "못 온다고 했어요."),
     cloze("Complete o relato: 내일 온___ 했어요.", "다고", "온다고 했어요 relata a fala."),
     listen("Ouça e escreva a pergunta relatada.", "몸이 안 좋냐고 물었어요.", "몸이 안 좋냐고 물었어요.", "Perguntei se ele não estava bem.", ["몸이 안 좋냐고 물었어요"]),
     reading("민수는 내일 회의에 못 온다고 했어요. 수진이 이유를 물었지만 그는 대답하지 않았어요.", "O que Minsu não fez?", ["Não explicou o motivo.", "Não recebeu o recado.", "Não foi ao médico."], "Não explicou o motivo.", "대답하지 않았어요."),
@@ -71,7 +71,7 @@ export const B1_L03 = defineB1Lesson({
     mcq("Qual frase relata uma pergunta?", ["어디에 가냐고 했어요.", "어디에 간다고 했어요.", "어디에 갔어요."], "어디에 가냐고 했어요.", "-냐고 relata pergunta."),
     cloze("Complete: 내일 온___ 말했어요.", "다고", "온다고 말했어요."),
     listen("Ouça e escreva a afirmação relatada.", "바쁘다고 말했어요.", "바쁘다고 말했어요.", "Ele disse que estava ocupado.", ["바쁘다고 말했어요"]),
-    translate("ko-pt", "Traduza: 내일 회의에 못 온다고 했어요.", "Ele disse que não poderá vir à reunião amanhã.", "못 온다고 relata a impossibilidade.", ["Ele disse que não pode vir à reunião amanhã."]),
+    translate("ko-pt", "Traduza: 내일 회의에 못 온다고 했어요.", "Ele disse que não pode vir à reunião amanhã.", "못 온다고 relata a impossibilidade.", ["Ele disse que não poderá vir à reunião amanhã."]),
     reading("소문을 그대로 전하면 오해가 생길 수 있어요. 누가 말했는지, 정확히 무엇을 말했는지 확인하는 게 중요해요.", "Qual é o conselho?", ["Confirmar a fonte e o conteúdo.", "Repetir tudo rapidamente.", "Evitar falar com amigos."], "Confirmar a fonte e o conteúdo.", "누가 말했는지, 무엇을 말했는지 확인해요."),
   ],
   summary: ["-다고 하다 relata afirmações.", "-냐고 하다 relata perguntas.", "A fonte deve ser explícita em um recado.", "Confirmar antes de transmitir evita mal-entendidos."],
@@ -84,7 +84,7 @@ export const B1_L04 = defineB1Lesson({
   prerequisites: ["b1-l03"], estimatedMinutes: 65, dialogueTitle: "A escolha de outra época",
   intro: [
     { title: "Desejo com -았/었으면 좋겠다", body: "Use a forma de passado antes de -으면 좋겠다 para desejar que algo do passado tivesse sido diferente.", ko: "그때 더 용기를 냈으면 좋겠어요." },
-    { title: "Hipótese irreal com -더라면", body: "-더라면 introduz uma condição que não aconteceu. A consequência também fica no passado hipotético.", ko: "시간을 되돌릴 수 있더라면 다시 도전했을 거예요." },
+    { title: "Hipótese irreal com -더라면", body: "-더라면 introduz uma condição que não aconteceu. A consequência também fica no passado hipotético. Em situações claramente passadas, a forma costuma vir com -았/었-: 알았더라면, 있었더라면.", ko: "시간을 되돌릴 수 있더라면 다시 도전했을 거예요." },
   ],
   dialogue: [
     ["지민", "그 선택을 아직도 후회해요?", "Você ainda se arrepende daquela escolha?"],
@@ -96,17 +96,17 @@ export const B1_L04 = defineB1Lesson({
   reusedIds: ["ko:시간", "ko:생각하다", "ko:선택", "ko:여행"],
   grammar: [
     ["-았/었으면 좋겠다 — desejo sobre o passado", "동사 + -았/었으면 좋겠다", "Expressa que o falante gostaria que algo tivesse acontecido de outra forma. Não muda o passado; é um desejo ou arrependimento.", [["더 용기를 냈으면 좋겠어요.", "Gostaria de ter tido mais coragem."], ["먼저 사과했으면 좋겠어요.", "Gostaria de ter pedido desculpas primeiro."]]],
-    ["-더라면 — hipótese irreal", "동사/형용사 + -더라면", "A forma imagina uma situação contrária ao que aconteceu. A oração seguinte costuma usar -았/었을 거예요.", [["시간을 되돌릴 수 있더라면 다시 도전했을 거예요.", "Se pudesse voltar o tempo, teria tentado de novo."], ["그때 알더라면 다른 선택을 했을 거예요.", "Se soubesse na época, teria feito outra escolha."]]],
+    ["-더라면 — hipótese irreal", "동사/형용사 + -더라면 / -았/었더라면", "A forma imagina uma situação contrária ao que aconteceu. A oração seguinte costuma usar -았/었을 거예요. Quando a condição é um fato passado concluído, marque o passado antes de -더라면: 알았더라면, 있었더라면. A forma sem -았/었- também aparece quando a condição é um estado ou uma possibilidade geral, como em 시간을 되돌릴 수 있더라면.", [["시간을 되돌릴 수 있더라면 다시 도전했을 거예요.", "Se pudesse voltar o tempo, teria tentado de novo."], ["그때 알았더라면 다른 선택을 했을 거예요.", "Se soubesse na época, teria feito outra escolha."]]],
   ],
   guided: [
     mcq("O que Sujin gostaria de ter feito?", ["Ter tido mais coragem.", "Ter comprado uma passagem.", "Ter mudado de cidade."], "Ter tido mais coragem.", "더 용기를 냈으면 좋겠어요."),
     cloze("Complete o desejo: 더 용기를 냈___ 좋겠어요.", "으면", "냈으면 좋겠어요."),
     listen("Ouça e escreva a hipótese.", "시간을 되돌릴 수 있더라면 다시 도전했을 거예요.", "시간을 되돌릴 수 있더라면 다시 도전했을 거예요.", "Se pudesse voltar o tempo, teria tentado de novo.", ["시간을 되돌릴 수 있더라면 다시 도전했을 거예요"]),
     reading("수진은 그 선택을 가끔 후회해요. 시간을 되돌릴 수 있더라면 먼저 사과했을 거예요.", "O que ela teria feito?", ["Pedido desculpas primeiro.", "Comprado uma casa.", "Mudado de profissão."], "Pedido desculpas primeiro.", "먼저 사과했을 거예요."),
-    translate("pt-ko", "Traduza: “Gostaria de ter tido mais coragem.”", "더 용기를 냈으면 좋겠어요.", "냈으면 좋겠어요.", ["그때 더 용기를 냈으면 좋겠어요."]),
+    translate("pt-ko", "Traduza: “Gostaria de ter tido mais coragem.”", "더 용기를 냈으면 좋겠어요.", "냈으면 좋겠어요.", ["그때 더 용기를 냈으면 좋겠어요.", "용기를 더 냈으면 좋겠어요.", "그때 용기를 더 냈으면 좋겠어요."]),
   ],
   independent: [
-    mcq("Qual frase expressa hipótese irreal?", ["알더라면 바꿨을 거예요.", "알면 바꿀 거예요.", "알아서 바꿨어요."], "알더라면 바꿨을 거예요.", "-더라면 apresenta hipótese contrária."),
+    mcq("Qual frase expressa hipótese irreal?", ["알았더라면 바꿨을 거예요.", "알면 바꿀 거예요.", "알아서 바꿨어요."], "알았더라면 바꿨을 거예요.", "-았/었더라면 apresenta hipótese contrária ao passado."),
     cloze("Complete a hipótese: 시간을 되돌릴 수 있___ 다시 도전했을 거예요.", "더라면", "있더라면."),
     listen("Ouça e escreva o arrependimento.", "먼저 사과했으면 좋겠어요.", "먼저 사과했으면 좋겠어요.", "Gostaria de ter pedido desculpas primeiro.", ["먼저 사과했으면 좋겠어요"]),
     translate("ko-pt", "Traduza: 그 결정도 의미가 있었을 거예요.", "Aquela decisão também deve ter tido significado.", "의미가 있었을 거예요.", ["Aquela decisão também deve ter sido significativa."]),

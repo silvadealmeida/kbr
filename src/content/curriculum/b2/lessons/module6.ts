@@ -177,12 +177,12 @@ export const B2_L28 = defineB2Lesson({
   },
   reusedIds: ["ko:문제", "ko:분석", "ko:결과"],
   grammar: [
-    ["-는 결과를 초래하다 — provocar o resultado de", "동사 + -는 결과를 초래하다", "Significa “provocar o resultado de...”. É formal e aponta uma consequência negativa ou indesejada. Compare com -게 만들다 (fazer com que) e -는 원인이 되다 (ser a causa de). Registro: escrito/formal.", [["그 결정은 큰 손실을 초래하는 결과를 낳았어요.", "Aquela decisão produziu o resultado de uma grande perda."], ["설명 부족은 신뢰 하락을 초래했습니다.", "A falta de explicação provocou a queda de confiança."]]],
+    ["-는 결과를 초래하다 — provocar o resultado de", "동사 + -는 결과를 초래하다", "Significa “provocar o resultado de...”. É formal e aponta uma consequência negativa ou indesejada. Compare com -게 만들다 (fazer com que) e -는 원인이 되다 (ser a causa de). Registro: escrito/formal.", [["결국 신뢰를 잃는 결과를 초래했어요.", "No fim, isso provocou a perda de confiança."], ["설명 부족은 신뢰 하락을 초래했습니다.", "A falta de explicação provocou a queda de confiança."]]],
     ["-에 이르다 — chegar a; atingir", "명사 + 에 이르다", "Indica que algo chegou a um ponto ou valor: “chegar a...”. Pode ser literal (valor) ou figurado (conclusão). Compare com -에 도달하다 (atingir, mais técnico) e -까지 오다 (chegar até). Registro: neutro a formal.", [["피해가 수억 원에 이르렀어요.", "O prejuízo chegou a centenas de milhões de won."], ["논의가 결론에 이르지 못했습니다.", "A discussão não chegou a uma conclusão."]]],
   ],
   guided: [
     mcq("Qual foi o impacto direto nos comerciantes?", ["Perda de vendas.", "Aumento do aluguel.", "Mudança de cidade."], "Perda de vendas.", "상인들은 매출 손실을 겪었어요."),
-    cloze("Complete a consequência: 그 결정은 큰 손실을 초래하___ 결과를 낳았어요.", "는", "초래하는 결과 = o resultado que provocou."),
+    cloze("Complete a consequência: 결국 신뢰를 잃___ 결과를 초래했어요.", "는", "잃는 결과를 초래하다 = provocar o resultado de perder."),
     listen("Ouça e escreva o valor do prejuízo.", "피해가 수억 원에 이르렀어요.", "피해가 수억 원에 이르렀어요.", "O prejuízo chegou a centenas de milhões de won."),
     reading("도시가 공사를 갑자기 중단하면서 여러 문제가 생겼다. 상인들은 매출 손실을 겪었고, 주민들은 통행 불편을 치렀다. 공사 중단의 여파는 예상보다 오래갔다.", "Quais foram as consequências diretas?", ["Perda de vendas e dificuldade de circulação.", "Aumento do turismo.", "Melhoria do transporte."], "Perda de vendas e dificuldade de circulação.", "매출 손실과 통행 불편."),
     translate("pt-ko", "Traduza: “O prejuízo chegou a centenas de milhões de won.”", "피해가 수억 원에 이르렀어요.", "-에 이르다 indica que chegou a um valor.", ["피해가 수억 원에 이르렀습니다."]),

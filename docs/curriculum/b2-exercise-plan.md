@@ -93,3 +93,7 @@ O B2 reutiliza `validateExerciseSpec` e acrescenta:
 - revisão `in-review`.
 
 Nenhum validador prova naturalidade, registro ou correção linguística. A revisão nativa continua pendente.
+
+## 8. Implementação verificada
+
+O curso entregue tem **615 itens**: 400 de lição e 215 de checkpoint. Distribuição realizada: **105 `mcq`, 123 `cloze`, 132 `listen`, 132 `reading`, 123 `translate`**. Todos os itens de lição estão em 5 guiados + 5 independentes; todos os checkpoints são independentes. O `b2-c08` tem 40 itens e 32 acertos como mínimo. Há **48 produções** (40 lições + 8 checkpoints), todas com rubrica de cinco critérios e exemplo ilustrativo. A validação `validateB2Content()` retorna zero issues e os testes de fairness cobrem pontuação, gabaritos, leitura em coreano, IDs únicos, produção e extensão do texto-âncora.

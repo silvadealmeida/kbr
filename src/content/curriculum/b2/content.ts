@@ -7,6 +7,7 @@ import { B2_C04 } from "./checkpoints/b2-c04";
 import { B2_C05 } from "./checkpoints/b2-c05";
 import { B2_C06 } from "./checkpoints/b2-c06";
 import { B2_C07 } from "./checkpoints/b2-c07";
+import { B2_C08 } from "./checkpoints/b2-c08";
 import { B2_L01, B2_L02, B2_L03, B2_L04, B2_L05 } from "./lessons/module1";
 import { B2_L06, B2_L07, B2_L08, B2_L09, B2_L10 } from "./lessons/module2";
 import { B2_L11, B2_L12, B2_L13, B2_L14, B2_L15 } from "./lessons/module3";
@@ -14,6 +15,7 @@ import { B2_L16, B2_L17, B2_L18, B2_L19, B2_L20 } from "./lessons/module4";
 import { B2_L21, B2_L22, B2_L23, B2_L24, B2_L25 } from "./lessons/module5";
 import { B2_L26, B2_L27, B2_L28, B2_L29, B2_L30 } from "./lessons/module6";
 import { B2_L31, B2_L32, B2_L33, B2_L34, B2_L35 } from "./lessons/module7";
+import { B2_L36, B2_L37, B2_L38, B2_L39, B2_L40 } from "./lessons/module8";
 import type { B2CheckpointContent, B2ContentIssue, B2LessonContent } from "./types";
 import { validateB2CheckpointContent, validateB2LessonContent } from "./validate-content";
 
@@ -25,10 +27,11 @@ export const B2_IMPLEMENTED_LESSONS: readonly B2LessonContent[] = [
   B2_L21, B2_L22, B2_L23, B2_L24, B2_L25,
   B2_L26, B2_L27, B2_L28, B2_L29, B2_L30,
   B2_L31, B2_L32, B2_L33, B2_L34, B2_L35,
+  B2_L36, B2_L37, B2_L38, B2_L39, B2_L40,
 ];
 
 export const B2_IMPLEMENTED_CHECKPOINTS: readonly B2CheckpointContent[] = [
-  B2_C01, B2_C02, B2_C03, B2_C04, B2_C05, B2_C06, B2_C07,
+  B2_C01, B2_C02, B2_C03, B2_C04, B2_C05, B2_C06, B2_C07, B2_C08,
 ];
 
 const LESSON_BY_ID = new Map(B2_IMPLEMENTED_LESSONS.map((lesson) => [lesson.id, lesson]));

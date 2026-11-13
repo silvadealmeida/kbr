@@ -4,6 +4,9 @@ const E2E_SUPABASE_URL = "http://127.0.0.1:54321";
 
 export default defineConfig({
   testDir: "e2e",
+  // A matriz roda cinco projetos em paralelo; páginas com axe e lições
+  // completas podem passar de 30 s sob carga sem indicar defeito.
+  timeout: 45_000,
   webServer: {
     command: "npm run build && node e2e/run-e2e-server.mjs",
     url: "http://localhost:3100",
@@ -29,7 +32,7 @@ export default defineConfig({
     {
       name: "webkit-390",
       use: { ...devices["iPhone 13"] },
-      testMatch: /(a1|a2|b1|smoke|pwa|a11y|webkit|audio|speech|vocabulary)\.spec\.ts/,
+      testMatch: /(a1|a2|b1|b2|smoke|pwa|a11y|webkit|audio|speech|vocabulary)\.spec\.ts/,
     },
   ],
 });

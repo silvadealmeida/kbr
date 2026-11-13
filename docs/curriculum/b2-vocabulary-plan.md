@@ -41,7 +41,7 @@ Não há áudio estático novo. `audioText` é a própria forma coreana e o nave
 
 ## 4. Reuso
 
-Cada lição declara **3 identidades anteriores** em `reusedIds`, retomadas no texto coreano da lição. O total é de **120 referências de reuso**, sem duplicar cartões. Reusos do próprio B2 só podem apontar para lições anteriores; reusos de A1/A2/B1/Hangul são permitidos quando a forma e o sentido coincidem.
+Cada lição declara **3 identidades anteriores** em `reusedIds`, retomadas no texto coreano da lição. O total é de **120 referências de reuso** (56 identidades distintas, porque algumas formas são retomadas em mais de uma lição), sem duplicar cartões. Reusos do próprio B2 só podem apontar para lições anteriores; reusos de A1/A2/B1/Hangul são permitidos quando a forma e o sentido coincidem.
 
 A auditoria `findUnusedReusedRefs` verifica se a forma reaparece no texto da lição (incluindo o texto-âncora). A dívida histórica de A1/A2/B1 permanece congelada; o B2 deve entrar com zero referências sem superfície.
 

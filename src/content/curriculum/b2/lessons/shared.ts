@@ -156,6 +156,18 @@ export function reading(
   };
 }
 
+function normalizeProduction(task: CourseProductionTask): CourseProductionTask {
+  if (!task.sample) return task;
+  if (/não é gabarito|não copie/i.test(task.sample.notePt)) return task;
+  return {
+    ...task,
+    sample: {
+      ...task.sample,
+      notePt: `${task.sample.notePt} Exemplo ilustrativo; não é gabarito.`,
+    },
+  };
+}
+
 type ReadingInput = {
   titlePt: string;
   paragraphs: readonly string[];
@@ -239,7 +251,7 @@ export function defineB2Lesson(input: LessonInput): CourseLessonContent {
     },
     exercises,
     summary,
-    production,
+    production: normalizeProduction(production),
     completion: { minScore: 80, minCorrect: 8 },
     review,
   };
@@ -261,7 +273,7 @@ export function defineB2Checkpoint(input: CheckpointInput): CourseCheckpointCont
     exercises: input.exercises.map((draft, index) =>
       buildExercise(input.id, draft, index, "independent"),
     ),
-    production: input.production,
+    production: normalizeProduction(input.production),
     review,
   };
 }

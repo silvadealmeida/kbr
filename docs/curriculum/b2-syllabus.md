@@ -122,3 +122,7 @@
 ## Limites declarados
 
 O syllabus é um desenho interno. Não há alegação de equivalência CEFR/TOPIK, revisão nativa, validade psicométrica ou avaliação de fala espontânea. O áudio do B2 é TTS do navegador; nenhum MP3 novo foi gerado.
+
+## Implementação entregue
+
+**40 lições + 8 checkpoints + 48 passos**, todos `in-review`. **320 identidades lexicais novas + 320 frases**; **56 identidades anteriores retomadas** (376 ensinadas/retomadas). **615 itens**: 400 de lição + 215 de checkpoint (105 `mcq`, 123 `cloze`, 132 `listen`, 132 `reading`, 123 `translate`). **48 produções** com rubrica de cinco critérios e exemplo. `ko-b2` está `available`, exige `b1-c08` e conclui apenas com 48/48.

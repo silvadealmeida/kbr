@@ -1,6 +1,6 @@
 # Transição para o A1 — handoff após as Fases 9A–9H
 
-**Decisão vigente (atualizada na 12A):** os cursos **A1, A2 e B1 estão completos no currículo interno do KBR** — 40 lições, 8 checkpoints e 48 passos jogáveis cada. `a1-l01` foi preservada. A entrada do A2 exige `a1-c08`; a do B1 exige `a2-c08`. A próxima frente é **B2 — planejamento editorial e primeira fatia**, ou uma correção/native review explicitamente pedida; **o B1 ainda precisa de auditoria linguística própria**. A infraestrutura de áudio está **contida**: 2.907 MP3 de Hangul, A1, A2 e vocabulário continuam versionados em `public/audio/v1/`, mas o áudio estático é opt-in (`NEXT_PUBLIC_KBR_STATIC_AUDIO=1`), `public/audio/` está no `.vercelignore` e a guarda de build foi restaurada. O B1 usa TTS e não gerou MP3 novo. A decisão de risco do dono não é licença; a distribuição pública/comercial continua bloqueada (`docs/audio/license-audit.md` §12).
+**Decisão vigente (atualizada na 13H):** os cursos **A1, A2, B1 e B2 estão completos no currículo interno do KBR** — 40 lições, 8 checkpoints e 48 passos jogáveis cada. `a1-l01` foi preservada. A entrada do A2 exige `a1-c08`; a do B1 exige `a2-c08`; a do B2 exige `b1-c08`. A próxima frente é **revisão nativa/editorial do B2** ou **C1 — planejamento por pedido explícito**; o conteúdo de todos os cursos continua `in-review`. A infraestrutura de áudio está **contida**: 2.907 MP3 de Hangul, A1, A2 e vocabulário continuam versionados em `public/audio/v1/`, mas o áudio estático é opt-in (`NEXT_PUBLIC_KBR_STATIC_AUDIO=1`), `public/audio/` está no `.vercelignore` e a guarda de build foi restaurada. O B1 usa TTS e não gerou MP3 novo. A decisão de risco do dono não é licença; a distribuição pública/comercial continua bloqueada (`docs/audio/license-audit.md` §12).
 
 ## 1. Pronto para desenvolvimento contínuo
 
@@ -10,7 +10,8 @@
 | Curso A1 completo (`a1-l01`–`a1-l40`, `a1-c01`–`a1-c08`) | 48 passos, `in-review`, disponível | `src/content/curriculum/a1`, `/a1/[lessonId]` |
 | Curso A2 completo (`a2-l01`–`a2-l40`, `a2-c01`–`a2-c08`) | 48 passos, `in-review`, disponível após `a1-c08` | `src/content/curriculum/a2`, `/a2/[lessonId]` |
 | Curso B1 completo (`b1-l01`–`b1-l40`, `b1-c01`–`b1-c08`) | 48 passos, `in-review`, disponível após `a2-c08`, produção independente opcional | `src/content/curriculum/b1`, `/b1/[lessonId]` |
-| Registro multi-curso (Hangul, A1, A2 e B1 disponíveis; B2–C2 planejados) | tipado e validado, com `entryPrerequisites` | `src/content/courses/{types,registry,a1,a2,b1,planned,hangul}.ts` |
+| Curso B2 completo (`b2-l01`–`b2-l40`, `b2-c01`–`b2-c08`) | 48 passos, `in-review`, disponível após `b1-c08`, leitura longa e produção com rubrica | `src/content/curriculum/b2`, `/b2/[lessonId]` |
+| Registro multi-curso (Hangul, A1, A2, B1 e B2 disponíveis; C1–C2 planejados) | tipado e validado, com `entryPrerequisites` | `src/content/courses/{types,registry,a1,a2,b1,b2,planned,hangul}.ts` |
 | Blueprint A1 | 8 módulos, 40 lições, 8 checkpoints; tipado e validado | `src/content/curriculum/a1`, `docs/curriculum/` |
 | Vocabulário A1 | 443 identidades novas, 443 frases; 52 reusos do Hangul (495 distintas) | `src/content/vocabulary/{a1,a1-course}.ts` |
 | Vocabulário A2 | 400 identidades novas, 400 frases; 115 reusos distintos (515 ensinadas/retomadas) | `src/content/vocabulary/a2-*.ts` |
@@ -79,3 +80,18 @@ O A2 está implementado em `src/content/curriculum/a2` com 40 lições, 8 checkp
 6. Progressão por pré-requisitos no player e no catálogo; nenhum passo futuro ganha link ou conclusão antes do dataset.
 7. Cobrir validação, referências, gabaritos, bloqueios, conclusão, opt-in, 320–1280 e axe; atualizar docs no mesmo commit.
 8. Marcar todo o coreano novo como `in-review` e não prometer CEFR/TOPIK.
+
+
+## 9. B2 concluído (13A–13H)
+
+O B2 está implementado em `src/content/curriculum/b2` com **40 lições, 8 checkpoints e 48 passos**. `ko-b2` está `available`, exige `b1-c08` e usa `requiresAllSteps: true`, `finalStepId: "b2-c08"`, prefixo SRS `b2:` e namespace `b2-lNN`/`b2-cNN`. O curso tem **320 identidades lexicais novas + 320 frases**, **56 identidades anteriores retomadas** (376 ensinadas/retomadas) e **615 exercícios** (400 de lição + 215 de checkpoint: 132 `listen`, 132 `reading`, 123 `cloze`, 123 `translate`, 105 `mcq`). Cada lição tem texto-âncora de três parágrafos, duas notas gramaticais, 10 itens (5+5) e produção independente com rubrica de cinco critérios e exemplo ilustrativo; há **48 produções** no total. O player compartilhado renderiza `readingText`; `ProductionTask` renderiza rubrica e exemplo. `VocabPos` ganhou `adjetivo`, sem reclassificar itens existentes.
+
+Documentos: `docs/curriculum/b2-{research,learning-outcomes,syllabus,vocabulary-plan,exercise-plan}.md`. Testes: `tests/b2-lesson.test.ts`, `tests/content/b2-curriculum.test.ts`, `tests/content/b2-fairness.test.ts` e `e2e/b2.spec.ts`. O áudio do B2 é TTS do navegador; nenhum MP3 novo foi gerado e a contenção do áudio permanece. Todo o conteúdo continua `in-review`; não há certificação CEFR/TOPIK.
+
+### Preparação para C1 (não iniciar sem pedido)
+
+1. Revisão nativa/editorial do B2 e fechamento dos itens `in-review`.
+2. Definir resultados C1 observáveis e um blueprint próprio; não copiar o B2.
+3. Reutilizar `CourseDefinition`, `readingText` e `ProductionTask` apenas se o desenho C1 exigir; qualquer extensão nova deve ser opcional e documentada.
+4. Manter `Progress` v1/CAS, Leitner, áudio opt-in e a política de conteúdo `in-review`.
+5. Criar testes de conteúdo, fairness, progressão, conclusão, acessibilidade e E2E antes de marcar o curso como `available`.

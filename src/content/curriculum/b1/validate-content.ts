@@ -145,7 +145,7 @@ export function validateB1LessonContent(
         ...validateExerciseSpec(
           exercise,
           `${path}.exercises[${exerciseIndex}]`,
-          { checkRedundantAccepted: false },
+          { checkRedundantAccepted: true },
         ),
       );
     });
@@ -211,7 +211,7 @@ export function validateB1CheckpointContent(
         ...validateExerciseSpec(
           exercise,
           `${path}.exercises[${exerciseIndex}]`,
-          { checkRedundantAccepted: false },
+          { checkRedundantAccepted: true },
         ),
       );
     });

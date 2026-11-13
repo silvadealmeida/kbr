@@ -8,6 +8,10 @@ import type { CourseProductionTask } from "../../course-types";
 import type { ReviewMeta } from "@/content/hangul/types";
 import type { ExerciseSpec } from "@/lib/exercises";
 import {
+  sameAnswerText,
+  terminalPunctuationVariants,
+} from "@/lib/exercises/punctuation";
+import {
   b1SentenceIdsFor,
   newB1VocabIdsFor,
 } from "@/content/vocabulary/b1-course";
@@ -43,12 +47,40 @@ function buildExercise(
   stage: CourseExerciseStage,
 ): CourseLessonExercise {
   const id = `${lessonId}-e${String(index + 1).padStart(2, "0")}`;
-  return {
+  const exercise = {
     ...draft,
     id,
     stage,
     tags: tagsFor(id, draft.type),
   } as CourseLessonExercise;
+
+  // A escuta sempre pede a frase inteira. O enunciado específico continua
+  // antes da instrução comum; os 12 itens que pediam um fragmento foram
+  // reescritos na fonte para não contradizer o gabarito.
+  if (exercise.type === "listen" && !/frase completa/i.test(exercise.prompt)) {
+    exercise.prompt = `${exercise.prompt} Escreva a frase completa que ouvir.`;
+  }
+
+  // A pontuação final é apresentação, não o alvo avaliado. Itens digitados
+  // aceitam a forma sem o sinal final, como no A2 (fase 12A). Variantes
+  // internas e escolhas lexicais continuam intactas.
+  if (
+    exercise.type === "cloze" ||
+    exercise.type === "listen" ||
+    exercise.type === "translate"
+  ) {
+    const existing = exercise.acceptedAnswers ?? [];
+    const variants = terminalPunctuationVariants(exercise.answer).filter(
+      (variant) =>
+        !sameAnswerText(variant, exercise.answer) &&
+        !existing.some((accepted) => sameAnswerText(accepted, variant)),
+    );
+    if (variants.length > 0) {
+      exercise.acceptedAnswers = [...existing, ...variants];
+    }
+  }
+
+  return exercise;
 }
 
 export function mcq(

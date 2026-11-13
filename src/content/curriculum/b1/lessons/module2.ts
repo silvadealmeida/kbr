@@ -64,13 +64,13 @@ export const B1_L07 = defineB1Lesson({
   reusedIds: ["ko:목표", "ko:방법", "ko:연습하다", "ko:준비하다", "ko:노력"],
   grammar: [
     ["-기 위해(서) — objetivo", "동사 + -기 위해(서)", "Use para dizer para que serve uma ação. A parte com -기 위해(서) vem antes da ação principal. Não use com adjetivos.", [["고객 문의를 줄이기 위해서 안내문을 만들었어요.", "Criei um aviso para reduzir as dúvidas dos clientes."], ["목표를 이루기 위해 매일 연습해요.", "Pratico todos os dias para alcançar a meta."]]],
-    ["-도록 — providência e limite", "동사 + -도록", "Mostra o resultado que se quer garantir com outra ação, ou um limite de tempo. Com verbos como 하다, pode indicar que alguém vai providenciar algo.", [["모든 직원이 알도록 교육을 했어요.", "Fiz um treinamento para que todos os funcionários soubessem."], ["금요일까지 끝내도록 할게요.", "Vou providenciar para terminar até sexta."]]],
+    ["-도록 — providência e limite", "동사 + -도록", "Mostra o resultado que se quer garantir com outra ação, ou um limite de tempo. Com verbos como 하다, pode indicar que alguém vai providenciar algo. Na fala, a decisão do falante aparece com -(으)ㄹ게요: 정리할게요, 끝내도록 할게요.", [["모든 직원이 알도록 교육을 했어요.", "Fiz um treinamento para que todos os funcionários soubessem."], ["금요일까지 끝내도록 할게요.", "Vou providenciar para terminar até sexta."]]],
   ],
   guided: [
     mcq("Por que a equipe vai criar um novo aviso?", ["Para reduzir as dúvidas dos clientes.", "Para aumentar o preço do serviço.", "Para mudar o horário da reunião."], "Para reduzir as dúvidas dos clientes.", "고객 문의를 줄이기 위해서: o aviso serve ao objetivo."),
     cloze("Complete o objetivo: 고객 문의를 줄이___ 안내문을 만들 거예요.", "기 위해서", "줄이기 위해서 liga a ação ao objetivo.", ["기 위해"]),
     listen("Ouça e escreva a providência que a equipe vai tomar.", "모든 직원이 내용을 알도록 교육도 해야 해요.", "모든 직원이 내용을 알도록 교육도 해야 해요.", "O treinamento existe para que todos conheçam o conteúdo.", ["모든 직원이 내용을 알도록 교육도 해야 해요"]),
-    reading("마르코 씨 팀은 이번 달 목표를 다시 확인했어요. 고객 문의를 줄이기 위해서 안내문을 새로 만들 거예요. 그리고 다음 주 수요일까지 교육을 끝내도록 할게요.", "Até quando o treinamento deve terminar?", ["Até a próxima quarta.", "Até sexta.", "Até o fim do mês."], "Até a próxima quarta.", "다음 주 수요일까지 끝내도록 할게요."),
+    reading("마르코 씨 팀은 이번 달 목표를 다시 확인했어요. 고객 문의를 줄이기 위해서 안내문을 새로 만들 거예요. 그리고 다음 주 수요일까지 교육을 끝내기로 했어요.", "Até quando o treinamento deve terminar?", ["Até a próxima quarta.", "Até sexta.", "Até o fim do mês."], "Até a próxima quarta.", "다음 주 수요일까지 끝내기로 했어요."),
     translate("pt-ko", "Traduza: “Vou organizar o material para que todos entendam.”", "모든 사람이 이해하도록 자료를 정리할게요.", "이해하도록 indica o resultado que precisa acontecer.", ["모두가 이해하도록 자료를 정리할게요"]),
   ],
   independent: [
@@ -94,7 +94,7 @@ export const B1_L08 = defineB1Lesson({
   objective: "Comparar alternativas, explicitar o que se abre mão e justificar uma escolha.",
   prerequisites: ["b1-l07"], estimatedMinutes: 65, dialogueTitle: "Duas opções de moradia",
   intro: [
-    { title: "Troca com -는 대신(에)", body: "-는 대신(에) mostra que uma vantagem vem junto com um custo: ao escolher algo, abre-se mão de outra coisa. Pode vir depois de verbo ou de substantivo.", ko: "비싼 대신에 회사까지 걸어서 다닐 수 있어요." },
+    { title: "Troca com -(으)ㄴ/는 대신(에)", body: "-(으)ㄴ/는 대신(에) mostra que uma vantagem vem junto com um custo: ao escolher algo, abre-se mão de outra coisa. Pode vir depois de verbo, de adjetivo ou de substantivo.", ko: "비싼 대신에 회사까지 걸어서 다닐 수 있어요." },
     { title: "Preferência com -기보다", body: "-기보다 compara duas ações e indica qual delas o falante prefere. A opção descartada aparece antes de -기보다.", ko: "돈을 아끼기보다 시간을 아끼고 싶어요." },
   ],
   dialogue: [
@@ -107,7 +107,7 @@ export const B1_L08 = defineB1Lesson({
   ],
   reusedIds: ["ko:선택", "ko:대신", "ko:비교", "ko:비싸다", "ko:장점"],
   grammar: [
-    ["-는 대신(에) — em troca de", "동사 + -는 대신(에) / 명사 + 대신(에)", "Apresenta o custo ou a compensação de uma escolha. A primeira parte mostra o que se ganha ou perde; a segunda mostra o outro lado da troca.", [["비싼 대신에 회사까지 걸어서 다닐 수 있어요.", "É caro, mas em troca posso ir a pé até a empresa."], ["지금 집은 싼 대신에 한 시간 걸려요.", "A casa atual é barata, mas em troca leva uma hora."]]],
+    ["-는 대신(에) — em troca de", "동사 + -는 대신(에) / 형용사 + -(으)ㄴ 대신(에) / 명사 + 대신(에)", "Apresenta o custo ou a compensação de uma escolha. A primeira parte mostra o que se ganha ou perde; a segunda mostra o outro lado da troca. Com adjetivos, use -(으)ㄴ 대신(에): 비싼 대신에, 싼 대신에.", [["비싼 대신에 회사까지 걸어서 다닐 수 있어요.", "É caro, mas em troca posso ir a pé até a empresa."], ["지금 집은 싼 대신에 한 시간 걸려요.", "A casa atual é barata, mas em troca leva uma hora."]]],
     ["-기보다 — mais do que", "동사 + -기보다(는)", "Compara duas ações e mostra a preferência do falante. O verbo antes de -기보다 é a opção que ele não escolhe.", [["돈을 아끼기보다 시간을 아끼고 싶어요.", "Prefiro economizar tempo a economizar dinheiro."], ["버스를 타기보다 걷는 게 좋아요.", "Prefiro caminhar a pegar o ônibus."]]],
   ],
   guided: [
@@ -138,33 +138,33 @@ export const B1_L09 = defineB1Lesson({
   objective: "Planejar com condições, limites e exceções sem contradizer o próprio plano.",
   prerequisites: ["b1-l08"], estimatedMinutes: 70, dialogueTitle: "Plano de viagem e clima",
   intro: [
-    { title: "Condição com -는 한", body: "-는 한 significa “enquanto” ou “desde que” uma condição continuar verdadeira. Se a condição deixar de valer, o plano também muda.", ko: "날씨가 좋은 한 야외 일정을 유지할 거예요." },
+    { title: "Condição com -(으)ㄴ/는 한", body: "-(으)ㄴ/는 한 significa “enquanto” ou “desde que” uma condição continuar verdadeira. Use -는 한 depois de verbo e -(으)ㄴ 한 depois de adjetivo ou de 있다/없다. Se a condição deixar de valer, o plano também muda.", ko: "날씨가 좋은 한 야외 일정을 유지할 거예요." },
     { title: "Exceção com -더라도", body: "-더라도 apresenta uma hipótese forte, do tipo “mesmo que”. É mais enfático que -아/어도 e costuma vir com situações extremas.", ko: "비가 오더라도 여행은 취소하지 않을 거예요." },
   ],
   dialogue: [
     ["지민", "다음 주 제주도 여행 계획은 잘 되어 가요?", "O plano da viagem a Jeju na próxima semana está indo bem?"],
     ["수진", "거의 다 했어요. 날씨가 좋은 한 야외 일정을 유지할 거예요.", "Está quase tudo pronto. Desde que o tempo esteja bom, vou manter o roteiro ao ar livre."],
     ["지민", "비가 오면 어떻게 해요?", "E se chover?"],
-    ["수진", "비가 오더라도 실내 일정으로 바꿀 수 있어요.", "Mesmo que chova, posso trocar para um roteiro indoor."],
+    ["수진", "비가 오더라도 실내 일정으로 바꿀 수 있어요.", "Mesmo que chova, posso trocar para um roteiro em ambiente fechado."],
     ["지민", "돈은 충분해요?", "O dinheiro é suficiente?"],
     ["수진", "호텔 비용을 조금 줄이면 예산 안에서 다 할 수 있어요.", "Se eu reduzir um pouco o custo do hotel, dá para fazer tudo dentro do orçamento."],
   ],
   reusedIds: ["ko:날씨", "ko:여행", "ko:변경", "ko:조건", "ko:예약하다"],
   grammar: [
-    ["-는 한 — desde que", "동사/형용사 + -는 한", "Estabelece a condição que precisa continuar verdadeira para o plano valer. Se a condição falhar, a consequência também muda; por isso não use duas condições incompatíveis na mesma frase.", [["날씨가 좋은 한 야외 일정을 유지할 거예요.", "Desde que o tempo esteja bom, vou manter o roteiro ao ar livre."], ["시간이 있는 한 매일 연습할 거예요.", "Enquanto eu tiver tempo, vou praticar todos os dias."]]],
-    ["-더라도 — mesmo que", "동사/형용사 + -더라도", "Marca uma concessão forte: a ação ou o plano continua válido diante de uma hipótese desfavorável. É mais enfático que -아/어도.", [["비가 오더라도 실내 일정으로 바꿀 수 있어요.", "Mesmo que chova, posso trocar para um roteiro indoor."], ["아무리 바쁘더라도 식사는 해야 해요.", "Mesmo que esteja muito ocupado, é preciso comer."]]],
+    ["-(으)ㄴ/는 한 — desde que", "동사 + -는 한 / 형용사 + -(으)ㄴ 한", "Estabelece a condição que precisa continuar verdadeira para o plano valer. Use -는 한 com verbos e -(으)ㄴ 한 com adjetivos e com 있다/없다. Se a condição falhar, a consequência também muda; por isso não use duas condições incompatíveis na mesma frase.", [["날씨가 좋은 한 야외 일정을 유지할 거예요.", "Desde que o tempo esteja bom, vou manter o roteiro ao ar livre."], ["시간이 있는 한 매일 연습할 거예요.", "Enquanto eu tiver tempo, vou praticar todos os dias."]]],
+    ["-더라도 — mesmo que", "동사/형용사 + -더라도", "Marca uma concessão forte: a ação ou o plano continua válido diante de uma hipótese desfavorável. É mais enfático que -아/어도.", [["비가 오더라도 실내 일정으로 바꿀 수 있어요.", "Mesmo que chova, posso trocar para um roteiro em ambiente fechado."], ["아무리 바쁘더라도 식사는 해야 해요.", "Mesmo que esteja muito ocupado, é preciso comer."]]],
   ],
   guided: [
-    mcq("O que Sujin vai manter se o tempo estiver bom?", ["O roteiro ao ar livre.", "O roteiro indoor.", "A viagem cancelada."], "O roteiro ao ar livre.", "날씨가 좋은 한 야외 일정을 유지할 거예요."),
+    mcq("O que Sujin vai manter se o tempo estiver bom?", ["O roteiro ao ar livre.", "O roteiro em ambiente fechado.", "A viagem cancelada."], "O roteiro ao ar livre.", "날씨가 좋은 한 야외 일정을 유지할 거예요."),
     cloze("Complete a condição: 날씨가 좋___ 야외 일정을 유지할 거예요.", "은 한", "좋은 한 significa “desde que esteja bom”."),
-    listen("Ouça e escreva o que ela fará mesmo se chover.", "비가 오더라도 실내 일정으로 바꿀 수 있어요.", "비가 오더라도 실내 일정으로 바꿀 수 있어요.", "Mesmo com chuva, ela pode mudar para um roteiro indoor.", ["비가 오더라도 실내 일정으로 바꿀 수 있어요"]),
-    reading("수진은 다음 주에 제주도로 여행을 가요. 날씨가 좋은 한 야외 일정을 유지할 거예요. 비가 오더라도 실내 일정으로 바꿀 수 있어요. 호텔 비용을 조금 줄이면 예산 안에서 여행할 수 있어요.", "O que acontece se chover?", ["Ela troca para um roteiro indoor.", "Ela cancela a viagem.", "Ela muda a data da viagem."], "Ela troca para um roteiro indoor.", "비가 오더라도 실내 일정으로 바꿀 수 있어요."),
+    listen("Ouça e escreva o que ela fará mesmo se chover.", "비가 오더라도 실내 일정으로 바꿀 수 있어요.", "비가 오더라도 실내 일정으로 바꿀 수 있어요.", "Mesmo com chuva, ela pode mudar para um roteiro em ambiente fechado.", ["비가 오더라도 실내 일정으로 바꿀 수 있어요"]),
+    reading("수진은 다음 주에 제주도로 여행을 가요. 날씨가 좋은 한 야외 일정을 유지할 거예요. 비가 오더라도 실내 일정으로 바꿀 수 있어요. 호텔 비용을 조금 줄이면 예산 안에서 여행할 수 있어요.", "O que acontece se chover?", ["Ela troca para um roteiro em ambiente fechado.", "Ela cancela a viagem.", "Ela muda a data da viagem."], "Ela troca para um roteiro em ambiente fechado.", "비가 오더라도 실내 일정으로 바꿀 수 있어요."),
     translate("pt-ko", "Traduza: “Mesmo que chova, vou viajar.”", "비가 오더라도 여행을 갈 거예요.", "오더라도 mantém o plano diante da chuva.", ["비가 오더라도 여행은 갈 거예요"]),
   ],
   independent: [
     mcq("Qual frase apresenta uma condição-limite?", ["시간이 있는 한 매일 연습할 거예요.", "시간이 있으면 매일 연습했어요.", "시간이 없어서 매일 연습해요."], "시간이 있는 한 매일 연습할 거예요.", "-는 한 condiciona o plano ao tempo disponível."),
     cloze("Complete a exceção: 비가 오___ 실내 일정으로 바꿀 수 있어요.", "더라도", "오더라도 significa “mesmo que chova”."),
-    listen("Ouça e escreva a condição para manter o roteiro.", "날씨가 좋은 한 야외 일정을 유지할 거예요.", "날씨가 좋은 한 야외 일정을 유지할 거예요.", "O roteiro ao ar livre depende do bom tempo.", ["날씨가 좋은 한 야외 일정을 유지할 거예요"]),
+    listen("Ouça e escreva a frase completa com a condição para manter o roteiro.", "날씨가 좋은 한 야외 일정을 유지할 거예요.", "날씨가 좋은 한 야외 일정을 유지할 거예요.", "O roteiro ao ar livre depende do bom tempo.", ["날씨가 좋은 한 야외 일정을 유지할 거예요"]),
     translate("ko-pt", "Traduza: 비가 오더라도 여행은 취소하지 않을 거예요.", "Mesmo que chova, não vou cancelar a viagem.", "오더라도 expressa a concessão forte.", ["Mesmo que chova, não cancelarei a viagem."]),
     reading("여행을 준비할 때는 계획이 중요해요. 하지만 날씨와 돈은 계획대로 되지 않을 수 있어요. 그래서 한 가지 계획만 세우지 말고 다른 선택도 준비하는 게 좋아요.", "Qual é o conselho do texto?", ["Preparar mais de uma opção.", "Não planejar nada.", "Viajar apenas no verão."], "Preparar mais de uma opção.", "다른 선택도 준비하는 게 좋아요."),
   ],
@@ -209,7 +209,7 @@ export const B1_L10 = defineB1Lesson({
     mcq("Qual frase expressa uma decisão já tomada?", ["집에서 일하기로 했어요.", "집에서 일할까 해요.", "집에서 일할 수 있어요."], "집에서 일하기로 했어요.", "-기로 했어요 indica decisão; -(으)ㄹ까 하다 indica hipótese."),
     cloze("Complete a necessidade inevitável: 일을 줄이지 ___ 수 없었어요.", "않을", "줄이지 않을 수 없었어요: não houve como evitar."),
     listen("Ouça e escreva como ela se sente agora.", "결정이 쉽지는 않았지만 지금은 마음이 편해요.", "결정이 쉽지는 않았지만 지금은 마음이 편해요.", "A decisão não foi fácil, mas hoje ela está em paz.", ["결정이 쉽지는 않았지만 지금은 마음이 편해요"]),
-    translate("ko-pt", "Traduza: 가족을 돌봐야 해서 일을 줄이지 않을 수 없었어요.", "Como precisava cuidar da família, não tive como não reduzir o trabalho.", "줄이지 않을 수 없었어요 expressa a necessidade inevitável.", ["Como eu precisava cuidar da família, não teve como não reduzir o trabalho."]),
+    translate("ko-pt", "Traduza: 가족을 돌봐야 해서 일을 줄이지 않을 수 없었어요.", "Como precisava cuidar da família, não tive como não reduzir o trabalho.", "줄이지 않을 수 없었어요 expressa a necessidade inevitável.", ["Como eu precisava cuidar da família, não tive como não reduzir o trabalho."]),
     reading("민수는 좋은 제안을 받았지만 거절하기로 했어요. 새 일은 돈을 더 주지만 가족과 보내는 시간이 줄어들 거예요. 그는 가족과의 시간이 더 중요하다고 생각해요.", "Por que Minsu recusou a proposta?", ["Para manter o tempo com a família.", "Porque o salário era baixo.", "Porque não gostava da empresa."], "Para manter o tempo com a família.", "가족과의 시간이 더 중요하다고 생각해요."),
   ],
   summary: ["-기로 하다 registra uma decisão já tomada.", "-지 않을 수 없다 mostra que não havia alternativa.", "Uma decisão B1 traz motivo e consequência assumida.", "Conteúdo original, ainda em revisão."],

@@ -4,8 +4,8 @@
   "baseline": "6e5d38bf8e9ec89c86d4d3236301a114ff2a0f45",
   "branch": "audit/b1-phase-12b",
   "gerado": "2026-11-13",
-  "natureza": "audit-only; nenhum conteúdo B1 foi alterado (nenhum arquivo fora de docs/audits/b1/)",
-  "escopo": "auditoria de conteúdo educacional B1 (read-only; nenhum conteúdo alterado)",
+  "natureza": "ledger canônico da auditoria 12B; o campo status reflete a execução da 12C e as correções vivem em correction-ledger.md",
+  "escopo": "auditoria de conteúdo educacional B1; achados verificados na fonte, com correções aplicadas na 12C",
   "counts": {
     "lecoes": 40,
     "checkpoints": 8,
@@ -70,7 +70,8 @@
       "evidence": "Linhas citadas lidas no arquivo; regra de alomorfia -(으)로/로; explicação do próprio item usa a forma correta.",
       "confidence": "alta",
       "crossCourseImpact": "l32 (gramática + exercício); o padrão -는 것으로 보itaria ser revisado em qualquer reaproveitamento futuro.",
-      "status": "confirmed"
+      "status": "rejected-12c",
+      "resolution": "Rejeitado na verificação: 것 tem batchim ㅅ, então 것으로 (= 것 + 으로) é a forma correta; a proposta 것로 era agramatical. Resposta 으로 mantida e travada por teste."
     },
     {
       "id": "B1-12B-C002",
@@ -89,7 +90,7 @@
       "evidence": "grep do arquivo confirma a linha 18 exatamente como citado; mesma classe dos críticos corrigidos na 12A (item em língua errada).",
       "confidence": "alta",
       "crossCourseImpact": "c03 apenas.",
-      "status": "confirmed"
+      "status": "fixed-12c"
     },
     {
       "id": "B1-12B-C003",
@@ -108,7 +109,7 @@
       "evidence": "grep da linha 19; padrão ensinado em l08 (module2.ts:110-125) usa '비싼 대신에' etc.",
       "confidence": "alta",
       "crossCourseImpact": "c02 apenas; reforça necessidade de validador de 'colocação de padrão ensinado'.",
-      "status": "confirmed"
+      "status": "fixed-12c"
     },
     {
       "id": "B1-12B-C004",
@@ -128,7 +129,7 @@
       "evidence": "grep confirma 2 ocorrências (154, 165); definição da própria lição (linha 141: 'ação em andamento provoca consequência') é violada.",
       "confidence": "alta",
       "crossCourseImpact": "l24 apenas.",
-      "status": "confirmed"
+      "status": "fixed-12c"
     },
     {
       "id": "B1-12B-M001",
@@ -147,7 +148,7 @@
       "evidence": "grep da linha 16; padrão curricular A1 de contadores; ambiguidade de classifier documentada em gramáticas (분¹ 'pessoa (hon.)' vs 분² 'minuto').",
       "confidence": "média-alta",
       "crossCourseImpact": "cartão de vocabulário l17; sem impacto em gabarito.",
-      "status": "confirmed"
+      "status": "fixed-12c"
     },
     {
       "id": "B1-12B-M002",
@@ -167,7 +168,7 @@
       "evidence": "grep das linhas 22 e 31; definição da l05 (module1.ts:138 'resultado indesejado') e exemplos da l05 ( 이사/약속 atraso).",
       "confidence": "média-alta",
       "crossCourseImpact": "c01; l05 se a definição for ampliada.",
-      "status": "confirmed"
+      "status": "fixed-12c"
     },
     {
       "id": "B1-12B-M003",
@@ -186,7 +187,7 @@
       "evidence": "grep linhas 60 e 73; restrição de pessoa de -ㄹ게요 é padrão de referência.",
       "confidence": "alta",
       "crossCourseImpact": "l07 apenas.",
-      "status": "confirmed"
+      "status": "fixed-12c"
     },
     {
       "id": "B1-12B-M004",
@@ -209,7 +210,7 @@
       "evidence": "grep nas linhas citadas; paradigmas de citação -(으)ㄴ/는/-(으)ㄴ다.",
       "confidence": "alta",
       "crossCourseImpact": "l08/l09/l14 e checkpoint c05 (que reusa a forma).",
-      "status": "confirmed"
+      "status": "fixed-12c"
     },
     {
       "id": "B1-12B-M005",
@@ -228,7 +229,7 @@
       "evidence": "grep da linha 23 de b1-m08.ts; verificação de alvo dentro de palavra maior (vocabulary-findings targetInsideWord).",
       "confidence": "alta",
       "crossCourseImpact": "prática de vocabulário/Leitner (identidade preservada).",
-      "status": "confirmed"
+      "status": "fixed-12c"
     },
     {
       "id": "B1-12B-M006",
@@ -249,7 +250,7 @@
       "evidence": "grep; analyzer targetInsideWord (vocabulary-findings.json) — 8 sinalizados: 3 compostos reais (este par + ko:수신 de M005), 5 flexões -된/-적인/-일 legítimas (documentadas como ruído).",
       "confidence": "alta",
       "crossCourseImpact": "prática contextual; IDs preservados.",
-      "status": "confirmed"
+      "status": "fixed-12c"
     },
     {
       "id": "B1-12B-M007",
@@ -268,7 +269,7 @@
       "evidence": "grep 'interjeição' em src/content/vocabulary — as outras ocorrências são de A1 (licejónimas: 주세요/괜찮아요…).",
       "confidence": "alta",
       "crossCourseImpact": "etiqueta de cartão; sem mudança de ID.",
-      "status": "confirmed"
+      "status": "fixed-12c"
     },
     {
       "id": "B1-12B-M008",
@@ -291,7 +292,7 @@
       "evidence": "lexicon-origin-findings.json + grep de origem lexical (b1-m02 '우선/우선순위', b1-m04 '배분', b1-m08 '최우선', '분담').",
       "confidence": "alta",
       "crossCourseImpact": "c02/c04; nenhuma identidade renomeada.",
-      "status": "confirmed"
+      "status": "fixed-12c"
     },
     {
       "id": "B1-12B-M009",
@@ -317,7 +318,8 @@
       "evidence": "lexicon-origin-findings.json; grep de '견적','업체','정책','기준' em src/content/vocabulary (zero entradas).",
       "confidence": "alta",
       "crossCourseImpact": "c03/c06/l37; política de dicionário B1 inteira.",
-      "status": "confirmed"
+      "status": "fixed-partial-12c",
+      "resolution": "Cobranças em ditado substituídas por repertório ensinado; nomes futuros preservados apenas como input quando não avaliados."
     },
     {
       "id": "B1-12B-M010",
@@ -337,7 +339,7 @@
       "evidence": "grep c01:16,35; mapa de marcadores (markerFirstSeen '-았/었으면', '-더라면').",
       "confidence": "alta",
       "crossCourseImpact": "c01; l04 se houver decisão de ensinar -ㄴ다면.",
-      "status": "confirmed"
+      "status": "fixed-12c"
     },
     {
       "id": "B1-12B-M011",
@@ -361,7 +363,7 @@
       "evidence": "grep '라고' em curriculum/b1 e a1/a2 (a1-l25-lunch usa '뭐라고 해요?' como input); correction-ledger 12A §4 (-라고 하다); censo progressão: 22 ocorrências B1 (l03:1, l14:18 concessivo, l23:2, l38:1).",
       "confidence": "média-alta",
       "crossCourseImpact": "l03/l11/l22/l38/c02; política de discurso reportado.",
-      "status": "confirmed"
+      "status": "fixed-12c"
     },
     {
       "id": "B1-12B-M012",
@@ -382,7 +384,7 @@
       "evidence": "progression-findings.json markerB1['-(으)ㄹ 때'] = 28 ocorrências (l07:1, l09:1, l12:1, l14:2, l19:1, l20:1, l23:6, l25:2, l26:1, l27:4, l28:1, l29:1, l35:1, l37:1, l38:1, c05:2, c08:1); taught=a2-l35 (só input de diálogo, sem bloco); nenhum título de gramática em A1/A2/B1 contém 'ㄹ 때'; roadmap 12A (marco removido do A2).",
       "confidence": "alta",
       "crossCourseImpact": "l23 e 15 lições de input; decisão de política (reintroduzir vs parafrasear) cabe ao dono.",
-      "status": "confirmed"
+      "status": "fixed-12c"
     },
     {
       "id": "B1-12B-M013",
@@ -407,7 +409,7 @@
       "evidence": "grep curricular; censos: -마다 9× (l22:1, c05:7, l31:1) sem qualquer bloco; progressão da 12A tratou exatamente esse tipo de dívida ('cobrança antes do ensino').",
       "confidence": "alta",
       "crossCourseImpact": "l22/c05/l31.",
-      "status": "confirmed"
+      "status": "fixed-12c"
     },
     {
       "id": "B1-12B-M014",
@@ -428,7 +430,7 @@
       "evidence": "grep '게요' nos blueprints: zero títulos; censo 16× (l03:1, l07:7, l16:1, l17:4, l20:1, l37:2) apenas como diálogo/gabarito.",
       "confidence": "média-alta",
       "crossCourseImpact": "l07/l16/l17/l23/l26 (todos os falantes usam 할게요); política de 1ª pessoa de compromisso.",
-      "status": "confirmed"
+      "status": "fixed-12c"
     },
     {
       "id": "B1-12B-M015",
@@ -451,7 +453,7 @@
       "evidence": "progression-findings.json: -(으)를 통해 taught=null em bloco (a2-l36 é apenas input de exemplo), cobrado como gabarito em b1-l19; b1-m04.ts:39 vs module4.ts:167.",
       "confidence": "alta",
       "crossCourseImpact": "l19/l28/l38; consistência cartão×gabarito.",
-      "status": "confirmed"
+      "status": "fixed-12c"
     },
     {
       "id": "B1-12B-M016",
@@ -470,7 +472,7 @@
       "evidence": "grep '뿐' no corpus curricular: só '뿐만 아니라'; censo -뿐 restritivo 3× (todas l17, campos do e08).",
       "confidence": "alta",
       "crossCourseImpact": "l17.",
-      "status": "confirmed"
+      "status": "fixed-12c"
     },
     {
       "id": "B1-12B-M017",
@@ -489,7 +491,7 @@
       "evidence": "grep da linha; alomorfia 높+아서 regular; padrão '-아/어서' ensinado.",
       "confidence": "alta",
       "crossCourseImpact": "l18.",
-      "status": "confirmed"
+      "status": "fixed-12c"
     },
     {
       "id": "B1-12B-M018",
@@ -508,7 +510,7 @@
       "evidence": "grep da linha 24.",
       "confidence": "alta",
       "crossCourseImpact": "c03.",
-      "status": "confirmed"
+      "status": "fixed-12c"
     },
     {
       "id": "B1-12B-M019",
@@ -529,7 +531,7 @@
       "evidence": "grep das linhas; l06 d03/e01/e06 + checklist l06 'Não apresentei possibilidade como promessa'.",
       "confidence": "alta",
       "crossCourseImpact": "c02/c08; l06.",
-      "status": "confirmed"
+      "status": "fixed-12c"
     },
     {
       "id": "B1-12B-M020",
@@ -550,7 +552,7 @@
       "evidence": "grep da linha 36 (c05) e definição em l25.",
       "confidence": "média",
       "crossCourseImpact": "c05; l25; consistência de medição de padrão.",
-      "status": "confirmed"
+      "status": "fixed-12c"
     },
     {
       "id": "B1-12B-M021",
@@ -571,7 +573,7 @@
       "evidence": "typed-normalization.json (125/381) e listen-prompt-findings.json (buckets A/B).",
       "confidence": "alta",
       "crossCourseImpact": "Todo o B1; decisão de builder sem tocar gabaritos.",
-      "status": "confirmed"
+      "status": "fixed-12c"
     },
     {
       "id": "B1-12B-M022",
@@ -590,7 +592,8 @@
       "evidence": "shared-validators.json → unusedReusedRefs (65).",
       "confidence": "alta",
       "crossCourseImpact": "Integridade da promessa pedagógica de retomada lexical.",
-      "status": "confirmed"
+      "status": "frozen-12c",
+      "resolution": "65/164 referências mantidas (heurística conservadora com flexão) e congeladas no baseline de reusedIds; IDs não renomeados nem removidos."
     },
     {
       "id": "B1-12B-M023",
@@ -613,7 +616,7 @@
       "evidence": "shared-validators.json withCheckRedundantAccepted → 3 ocorrências.",
       "confidence": "alta",
       "crossCourseImpact": "higiene de dados; sem efeito no grading.",
-      "status": "confirmed"
+      "status": "fixed-12c"
     },
     {
       "id": "B1-12B-M024",
@@ -634,7 +637,7 @@
       "evidence": "grep das linhas.",
       "confidence": "média",
       "crossCourseImpact": "cartões de vocabulário.",
-      "status": "confirmed"
+      "status": "fixed-12c"
     },
     {
       "id": "B1-12B-M025",
@@ -661,7 +664,7 @@
       "evidence": "grep '수록|므로|자? |맡을지'.",
       "confidence": "média",
       "crossCourseImpact": "vários; política.",
-      "status": "confirmed"
+      "status": "fixed-12c"
     },
     {
       "id": "B1-12B-N001",
@@ -680,7 +683,7 @@
       "evidence": "grep.",
       "confidence": "alta",
       "crossCourseImpact": "—",
-      "status": "confirmed"
+      "status": "fixed-12c"
     },
     {
       "id": "B1-12B-N002",
@@ -701,7 +704,7 @@
       "evidence": "grep 'processe' = 1 ocorrência.",
       "confidence": "média-alta",
       "crossCourseImpact": "—",
-      "status": "confirmed"
+      "status": "fixed-12c"
     },
     {
       "id": "B1-12B-N003",
@@ -725,7 +728,7 @@
       "evidence": "grep 'trade-off' = 4 ocorrências.",
       "confidence": "média",
       "crossCourseImpact": "—",
-      "status": "confirmed"
+      "status": "fixed-12c"
     },
     {
       "id": "B1-12B-N004",
@@ -744,7 +747,7 @@
       "evidence": "grep 'indoor' = 5.",
       "confidence": "média",
       "crossCourseImpact": "—",
-      "status": "confirmed"
+      "status": "fixed-12c"
     },
     {
       "id": "B1-12B-N005",
@@ -763,7 +766,7 @@
       "evidence": "grep.",
       "confidence": "alta",
       "crossCourseImpact": "—",
-      "status": "confirmed"
+      "status": "fixed-12c"
     },
     {
       "id": "B1-12B-N006",
@@ -782,7 +785,7 @@
       "evidence": "grep 'por outro lado há'.",
       "confidence": "média",
       "crossCourseImpact": "—",
-      "status": "confirmed"
+      "status": "fixed-12c"
     },
     {
       "id": "B1-12B-N007",
@@ -801,7 +804,7 @@
       "evidence": "grep.",
       "confidence": "média",
       "crossCourseImpact": "—",
-      "status": "confirmed"
+      "status": "fixed-12c"
     },
     {
       "id": "B1-12B-N008",
@@ -820,7 +823,7 @@
       "evidence": "grep.",
       "confidence": "alta",
       "crossCourseImpact": "—",
-      "status": "confirmed"
+      "status": "fixed-12c"
     },
     {
       "id": "B1-12B-N009",
@@ -839,7 +842,7 @@
       "evidence": "grep.",
       "confidence": "média",
       "crossCourseImpact": "—",
-      "status": "confirmed"
+      "status": "deferred-12c"
     },
     {
       "id": "B1-12B-N012",
@@ -858,7 +861,7 @@
       "evidence": "grep.",
       "confidence": "alta (fato)",
       "crossCourseImpact": "personagem.",
-      "status": "confirmed"
+      "status": "fixed-12c"
     },
     {
       "id": "B1-12B-N013",
@@ -877,7 +880,7 @@
       "evidence": "grep.",
       "confidence": "baixa-média",
       "crossCourseImpact": "—",
-      "status": "confirmed"
+      "status": "fixed-12c"
     },
     {
       "id": "B1-12B-N014",
@@ -901,7 +904,7 @@
       "evidence": "grep cruzado.",
       "confidence": "alta (padrão)",
       "crossCourseImpact": "6 itens.",
-      "status": "confirmed"
+      "status": "deferred-12c"
     },
     {
       "id": "B1-12B-N016",
@@ -920,7 +923,7 @@
       "evidence": "grep.",
       "confidence": "média",
       "crossCourseImpact": "—",
-      "status": "confirmed"
+      "status": "fixed-12c"
     },
     {
       "id": "B1-12B-N017",
@@ -939,7 +942,7 @@
       "evidence": "grep.",
       "confidence": "média",
       "crossCourseImpact": "l06.",
-      "status": "confirmed"
+      "status": "fixed-12c"
     },
     {
       "id": "B1-12B-N018",
@@ -958,7 +961,7 @@
       "evidence": "grep dos cartões.",
       "confidence": "média",
       "crossCourseImpact": "—",
-      "status": "confirmed"
+      "status": "deferred-12c"
     },
     {
       "id": "B1-12B-N019",
@@ -977,7 +980,7 @@
       "evidence": "progression-findings.json markerOrder['-다는 점에서'] (gradedAny b1-l11 < taught b1-l15).",
       "confidence": "média",
       "crossCourseImpact": "l11; política de input-antes-do-ensino.",
-      "status": "confirmed"
+      "status": "deferred-12c"
     },
     {
       "id": "B1-12B-N020",
@@ -996,7 +999,7 @@
       "evidence": "progression-findings.json markerOrder['-기에는'] (gradedAny b1-l15, taught b1-l26); linha 205 lida.",
       "confidence": "média",
       "crossCourseImpact": "l15.",
-      "status": "confirmed"
+      "status": "deferred-12c"
     },
     {
       "id": "B1-12B-N021",
@@ -1015,7 +1018,7 @@
       "evidence": "linha 36 lida; markerFirstSeen['-(으)ㄹ 수밖에 없다'] taught=b1-l18.",
       "confidence": "alta (fato)",
       "crossCourseImpact": "c02; política de escopo.",
-      "status": "confirmed"
+      "status": "deferred-12c"
     },
     {
       "id": "B1-12B-U001",
@@ -1034,7 +1037,7 @@
       "evidence": "6 linhas lidas (module1.ts); gramáticas de referência descrevem -더라면 como memória de fato.",
       "confidence": "baixa-média — EXIGE NATIVO",
       "crossCourseImpact": "l04; eco em c01-e05/e24 (que usam -ㄴ다면 — ver M010).",
-      "status": "revisao-nativa-pendente"
+      "status": "uncertain-12c"
     },
     {
       "id": "B1-12B-U002",
@@ -1053,7 +1056,7 @@
       "evidence": "grep.",
       "confidence": "baixa-média — EXIGE NATIVO",
       "crossCourseImpact": "cartão de vocabulário.",
-      "status": "revisao-nativa-pendente"
+      "status": "uncertain-12c"
     },
     {
       "id": "B1-12B-U003",
@@ -1073,7 +1076,7 @@
       "evidence": "grep.",
       "confidence": "baixa — EXIGE NATIVO",
       "crossCourseImpact": "l04.",
-      "status": "revisao-nativa-pendente"
+      "status": "uncertain-12c"
     },
     {
       "id": "B1-12B-U004",
@@ -1092,7 +1095,7 @@
       "evidence": "linha lida na revisão m7.",
       "confidence": "baixa — EXIGE NATIVO",
       "crossCourseImpact": "l32.",
-      "status": "revisao-nativa-pendente"
+      "status": "uncertain-12c"
     },
     {
       "id": "B1-12B-U005",
@@ -1111,7 +1114,7 @@
       "evidence": "leitura do diálogo.",
       "confidence": "baixa — EXIGE NATIVO",
       "crossCourseImpact": "l22.",
-      "status": "revisao-nativa-pendente"
+      "status": "uncertain-12c"
     },
     {
       "id": "B1-12B-U006",
@@ -1130,7 +1133,7 @@
       "evidence": "linha lida.",
       "confidence": "baixa",
       "crossCourseImpact": "l03 + N009.",
-      "status": "revisao-nativa-pendente"
+      "status": "uncertain-12c"
     },
     {
       "id": "B1-12B-U007",
@@ -1149,7 +1152,7 @@
       "evidence": "grep.",
       "confidence": "baixa — EXIGE NATIVO",
       "crossCourseImpact": "l23; política de registro do B1.",
-      "status": "revisao-nativa-pendente"
+      "status": "uncertain-12c"
     },
     {
       "id": "B1-12B-U008",
@@ -1168,7 +1171,7 @@
       "evidence": "leitura m2.",
       "confidence": "baixa — EXIGE NATIVO",
       "crossCourseImpact": "l07.",
-      "status": "revisao-nativa-pendente"
+      "status": "uncertain-12c"
     },
     {
       "id": "B1-12B-U009",
@@ -1189,7 +1192,7 @@
       "evidence": "leitura.",
       "confidence": "baixa",
       "crossCourseImpact": "l17/l20.",
-      "status": "revisao-nativa-pendente"
+      "status": "uncertain-12c"
     },
     {
       "id": "B1-12B-U010",
@@ -1208,7 +1211,7 @@
       "evidence": "grep.",
       "confidence": "média (como ambiguidade)",
       "crossCourseImpact": "l02.",
-      "status": "revisao-nativa-pendente"
+      "status": "uncertain-12c"
     },
     {
       "id": "B1-12B-U011",
@@ -1227,7 +1230,7 @@
       "evidence": "grep.",
       "confidence": "média (como ambiguidade)",
       "crossCourseImpact": "l03.",
-      "status": "revisao-nativa-pendente"
+      "status": "uncertain-12c"
     },
     {
       "id": "B1-12B-U012",
@@ -1246,7 +1249,7 @@
       "evidence": "—",
       "confidence": "baixa — EXIGE NATIVO (confirmação)",
       "crossCourseImpact": "l08.",
-      "status": "revisao-nativa-pendente"
+      "status": "uncertain-12c"
     },
     {
       "id": "B1-12B-U013",
@@ -1265,7 +1268,7 @@
       "evidence": "—",
       "confidence": "baixa — EXIGE NATIVO (confirmação)",
       "crossCourseImpact": "l18.",
-      "status": "revisao-nativa-pendente"
+      "status": "uncertain-12c"
     },
     {
       "id": "B1-12B-U014",
@@ -1284,7 +1287,7 @@
       "evidence": "grep.",
       "confidence": "baixa",
       "crossCourseImpact": "l27.",
-      "status": "revisao-nativa-pendente"
+      "status": "uncertain-12c"
     },
     {
       "id": "B1-12B-N022",
@@ -1303,7 +1306,7 @@
       "evidence": "linha lida (distractor rejeitado: não é erro, é folga de glosa).",
       "confidence": "média",
       "crossCourseImpact": "l21; vocabulário de dados do c05.",
-      "status": "confirmed"
+      "status": "fixed-12c"
     },
     {
       "id": "B1-12B-N023",
@@ -1324,7 +1327,7 @@
       "evidence": "grep das linhas.",
       "confidence": "média",
       "crossCourseImpact": "cartões de l07/l29.",
-      "status": "confirmed"
+      "status": "fixed-12c"
     }
   ]
 }

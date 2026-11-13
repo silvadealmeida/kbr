@@ -108,7 +108,7 @@ export const B1_L28 = defineB1Lesson({
   reusedIds: ["ko:문제", "ko:해결", "ko:회사", "ko:전화"],
   grammar: [
     ["-에 대한 — sobre, a respeito de", "명사 + -에 대한 + 명사", "Liga um substantivo ao tema de outro substantivo: 설명, 답변, 요구, 조치. A forma não substitui uma oração completa.", [["지연에 대한 설명을 들었어요.", "Ouvi uma explicação sobre o atraso."], ["배상에 대한 답변을 기다려요.", "Aguardo uma resposta sobre a indenização."]]],
-    ["-도록 요청하다 — pedir que", "동사 + -도록 요청하다", "Formula um pedido formal para que outra pessoa faça algo. O tom é adequado a reclamações e mensagens de trabalho.", [["오늘 안으로 조치하도록 요청했습니다.", "Pedi que tomassem providências ainda hoje."], ["공식 답변을 주도록 요청했어요.", "Pedi que enviassem uma resposta oficial."]]],
+    ["-도록 요청하다 — pedir que", "동사 + -도록 요청하다", "Formula um pedido formal para que outra pessoa faça algo. O tom é adequado a reclamações e mensagens de trabalho. Em registro formal, o pedido também aparece com -기 바랍니다: 공식 답변을 주시기 바랍니다.", [["오늘 안으로 조치하도록 요청했습니다.", "Pedi que tomassem providências ainda hoje."], ["공식 답변을 주시기 바랍니다.", "Peço que enviem uma resposta oficial."]]],
   ],
   guided: [
     mcq("Qual é o problema da cliente?", ["A bagagem não chegou.", "O quarto estava sujo.", "Ela perdeu o cartão."], "A bagagem não chegou.", "짐이 아직 도착하지 않았어요."),

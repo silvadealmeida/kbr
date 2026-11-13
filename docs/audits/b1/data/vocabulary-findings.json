@@ -75,25 +75,11 @@
   ],
   "targetInsideWord": [
     {
-      "sentence": "sent:b1-l10:타협",
-      "vocab": "ko:타협",
-      "target": "타협",
-      "frase": "양쪽이 타협점을 찾았어요.",
-      "motivo": "alvo dentro de “타협점을”"
-    },
-    {
       "sentence": "sent:b1-l11:주관적",
       "vocab": "ko:주관적",
       "target": "주관적",
       "frase": "그 평가는 주관적일 수 있어요.",
       "motivo": "alvo dentro de “주관적일”"
-    },
-    {
-      "sentence": "sent:b1-l27:구조",
-      "vocab": "ko:구조",
-      "target": "구조",
-      "frase": "구조대가 도착할 때까지 기다렸어요.",
-      "motivo": "alvo dentro de “구조대가”"
     },
     {
       "sentence": "sent:b1-l32:명시",
@@ -122,13 +108,6 @@
       "target": "과장",
       "frase": "과장된 표현을 빼고 다시 썼어요.",
       "motivo": "alvo dentro de “과장된”"
-    },
-    {
-      "sentence": "sent:b1-l38:수신",
-      "vocab": "ko:수신",
-      "target": "수신",
-      "frase": "수신자를 다시 확인해 주세요.",
-      "motivo": "alvo dentro de “수신자를”"
     }
   ],
   "adjectiveSuspect": [

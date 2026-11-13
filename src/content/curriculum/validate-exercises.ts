@@ -75,8 +75,8 @@ export function clozeParticleIssue(
 }
 
 /**
- * Valida um exercício isolado. `checkRedundantAccepted` é ligado nos cursos
- * corrigidos nesta fase; o B1 mantém o dado legado sem alteração linguística.
+ * Valida um exercício isolado. `checkRedundantAccepted` é ligado em A1, A2 e
+ * B1; a dívida de variantes redundantes foi zerada na 12C.
  */
 export function validateExerciseSpec(
   exercise: ExerciseSpec,

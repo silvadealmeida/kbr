@@ -14,7 +14,7 @@ export const B1_C06 = defineB1Checkpoint({
     listen("Ouça e escreva a reclamação.", "손실에 대한 배상을 요구했어요.", "손실에 대한 배상을 요구했어요.", "Exigi indenização pelo prejuízo.", ["손실에 대한 배상을 요구했어요"]),
     listen("Ouça e escreva a recomendação.", "가성비가 좋은 숙소를 추천해요.", "가성비가 좋은 숙소를 추천해요.", "Recomendo uma hospedagem com bom custo-benefício.", ["가성비가 좋은 숙소를 추천해요"]),
     listen("Ouça e escreva a impressão da viagem.", "그 장면이 아직 생생해요.", "그 장면이 아직 생생해요.", "Aquela cena ainda é vívida.", ["그 장면이 아직 생생해요"]),
-    listen("Ouça e escreva a condição.", "예약이 확정되면 문자로 알려 주세요.", "예약이 확정되면 문자로 알려 주세요.", "Quando a reserva for confirmada, avise por mensagem.", ["예약이 확정되면 문자로 알려 주세요"]),
+    listen("Ouça e escreva a frase completa com a condição.", "예약이 확정되면 연락해 주세요.", "예약이 확정되면 연락해 주세요.", "Quando a reserva for confirmada, entre em contato.", ["예약이 확정되면 연락해 주세요"]),
     reading("숙박을 하루 늘리려고 했지만 변경 수수료가 비쌌어요. 그래서 원래 예약을 유지했어요.", "O que a pessoa fez?", ["Manteve a reserva original.", "Cancelou tudo.", "Mudou de hotel."], "Manteve a reserva original.", "원래 예약을 유지했어요."),
     reading("폭풍으로 항공편이 결항됐어요. 승객들은 안전하게 대피했고, 회사는 다음 날 대체편을 제공했어요.", "O que a empresa fez?", ["Ofereceu um voo alternativo.", "Cancelou sem aviso.", "Pediu para os passageiros voltarem a pé."], "Ofereceu um voo alternativo.", "대체편을 제공했어요."),
     reading("호텔은 사과했지만 배상은 거절했어요. 고객은 공식 답변과 재발 방지 조치를 요구했어요.", "O que o cliente pediu?", ["Resposta oficial e prevenção de recorrência.", "Um quarto maior.", "Um novo destino."], "Resposta oficial e prevenção de recorrência.", "공식 답변과 재발 방지 조치."),

@@ -19,14 +19,6 @@
     {
       "kind": "substantivo-em-item",
       "step": "b1-c04",
-      "exercise": "b1-c04-e06",
-      "token": "분담을",
-      "noun": "분담",
-      "origin": "b1-l37"
-    },
-    {
-      "kind": "substantivo-em-item",
-      "step": "b1-c04",
       "exercise": "b1-c04-e12",
       "token": "예방이",
       "noun": "예방",
@@ -47,33 +39,6 @@
       "token": "배상을",
       "noun": "배상",
       "origin": "b1-l28"
-    },
-    {
-      "kind": "gabarito",
-      "step": "b1-c02",
-      "exercise": "b1-c02-e06",
-      "answer": "지금은 안전이 최우선이에요.",
-      "token": "최우선이에요",
-      "form": "최우선",
-      "origin": "b1-l37"
-    },
-    {
-      "kind": "gabarito",
-      "step": "b1-c02",
-      "exercise": "b1-c02-e24",
-      "answer": "지금은 안전이 최우선이에요.",
-      "token": "최우선이에요",
-      "form": "최우선",
-      "origin": "b1-l37"
-    },
-    {
-      "kind": "gabarito",
-      "step": "b1-c04",
-      "exercise": "b1-c04-e19",
-      "answer": "분담",
-      "token": "분담",
-      "form": "분담",
-      "origin": "b1-l37"
     }
   ]
 }

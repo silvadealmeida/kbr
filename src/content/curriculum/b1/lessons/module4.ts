@@ -19,7 +19,7 @@ export const B1_L16 = defineB1Lesson({
   ],
   reusedIds: ["ko:업무", "ko:팀", "ko:문제", "ko:책임", "ko:자료"],
   grammar: [
-    ["-에 따라 — critério e variação", "명사 + -에 따라", "Use -에 따라 para dizer que uma ação segue um critério (“conforme o regulamento”) ou que algo muda conforme a circunstância. O substantivo recebe a partícula 에.", [["규정에 따라 처리해 주세요.", "Por favor, processe conforme o regulamento."], ["역할에 따라 업무가 달라요.", "As tarefas mudam conforme a função."]]],
+    ["-에 따라 — critério e variação", "명사 + -에 따라", "Use -에 따라 para dizer que uma ação segue um critério (“conforme o regulamento”) ou que algo muda conforme a circunstância. O substantivo recebe a partícula 에.", [["규정에 따라 처리해 주세요.", "Por favor, trate conforme o regulamento."], ["역할에 따라 업무가 달라요.", "As tarefas mudam conforme a função."]]],
     ["-도록 하다 — providência e orientação", "동사 + -도록 하다", "-도록 하다 indica que alguém faz ou organiza algo para que a ação ocorra. Em instruções, soa mais suave que uma ordem direta; na primeira pessoa, funciona como compromisso.", [["회의 전에 자료를 확인하도록 하세요.", "Confirme o material antes da reunião."], ["제가 직접 안내하도록 하겠습니다.", "Eu mesmo vou me encarregar de orientar."]]],
   ],
   guided: [
@@ -76,7 +76,7 @@ export const B1_L17 = defineB1Lesson({
   independent: [
     mcq("Qual frase contrasta dois fatos com -는 데 반해?", ["지난 회의는 길었던 데 반해 오늘은 짧았어요.", "지난 회의는 길어서 오늘은 짧았어요.", "지난 회의는 길었지만 오늘은 짧을 거예요."], "지난 회의는 길었던 데 반해 오늘은 짧았어요.", "-는 데 반해 apresenta um contraste entre dois fatos constatados."),
     cloze("Complete o contraste: 오늘은 안건이 적은 데 ___ 지난 회의는 의견이 많았어요.", "반해", "-는 데 반해 fecha a comparação entre os dois fatos."),
-    listen("Ouça e escreva quantos itens a reunião de hoje tem.", "오늘은 안건이 세 개뿐이에요.", "오늘은 안건이 세 개뿐이에요.", "Hoje há apenas três itens de pauta.", ["오늘은 안건이 세 개뿐이에요"]),
+    listen("Ouça e escreva quantos itens a reunião de hoje tem.", "오늘은 안건이 세 가지예요.", "오늘은 안건이 세 가지예요.", "Hoje a pauta tem três itens.", ["오늘은 안건이 세 가지예요"]),
     translate("ko-pt", "Traduza: 일정 변경에 대한 질문이 있었어요.", "Houve uma pergunta sobre a mudança de cronograma.", "-에 대한 marca o tema da pergunta.", ["Houve uma pergunta a respeito da mudança de cronograma."]),
     reading("회의록은 길수록 좋은 것이 아니에요. 누가 무엇을 하기로 했는지, 언제까지 해야 하는지가 분명해야 해요. 그래서 진행자는 결정과 담당자만 간단히 적어요.", "O que torna uma ata útil?", ["Decisões, responsáveis e prazos claros.", "Muitas páginas de debate.", "A opinião pessoal do mediador."], "Decisões, responsáveis e prazos claros.", "누가 무엇을 하기로 했는지, 언제까지 해야 하는지가 분명해야 해요."),
   ],
@@ -88,10 +88,10 @@ export const B1_L17 = defineB1Lesson({
   },
 });
 
-/** b1-l18 — vagas, requisitos e trade-offs. */
+/** b1-l18 — vagas, requisitos e contrapartidas. */
 export const B1_L18 = defineB1Lesson({
   id: "b1-l18", number: 18, moduleId: "b1-m04", title: "Procurar oportunidades",
-  objective: "Avaliar uma vaga e reconhecer requisitos e trade-offs.",
+  objective: "Avaliar uma vaga e reconhecer requisitos e contrapartidas.",
   prerequisites: ["b1-l17"], estimatedMinutes: 70, dialogueTitle: "Duas vagas, duas escolhas",
   intro: [
     { title: "-(으)ㄹ 수밖에 없다 — escolha inevitável", body: "A forma diz que, dadas as circunstâncias, não há outra saída: “não tenho como não…”. Use com verbos e mantenha o tom de constatação, não de desculpa.", ko: "대안이 없어서 결정을 미룰 수밖에 없어요." },
@@ -119,7 +119,7 @@ export const B1_L18 = defineB1Lesson({
   ],
   independent: [
     mcq("O que -(으)ㄹ 수밖에 없다 indica?", ["Uma escolha inevitável diante das circunstâncias.", "Uma promessa feita no passado.", "Uma hipótese sem relação com a realidade."], "Uma escolha inevitável diante das circunstâncias.", "A forma constata que não há outra opção prática."),
-    cloze("Complete o motivo: 전환 가능성이 높___ 둘째 회사를 보고 있어요.", "기에", "높기에 introduz o motivo da preferência."),
+    cloze("Complete o motivo com a forma de causa ensinada: 전환 가능성이 높___ 둘째 회사를 보고 있어요.", "기에", "높기에 introduz o motivo da preferência."),
     listen("Ouça e escreva o que a candidata quer mostrar.", "제 역량을 포트폴리오로 보여 주고 싶어요.", "제 역량을 포트폴리오로 보여 주고 싶어요.", "Ela quer mostrar sua competência por meio do portfólio.", ["제 역량을 포트폴리오로 보여 주고 싶어요"]),
     translate("ko-pt", "Traduza: 연봉이 높은 대신 야근이 많아요.", "O salário anual é alto, mas em troca há muitas horas extras.", "-(으)ㄴ 대신 marca a compensação entre vantagem e desvantagem.", ["O salário é alto, mas em compensação há muitas horas extras."]),
     reading("계약직으로 시작해도 괜찮아요. 중요한 것은 전환 가능성과 배울 수 있는 업무예요. 연봉만 보고 고르면 나중에 후회할 수 있어요.", "Qual critério o texto recomenda além do salário?", ["Possibilidade de efetivação e aprendizagem.", "Quantidade de horas extras.", "Distância de casa."], "Possibilidade de efetivação e aprendizagem.", "중요한 것은 전환 가능성과 배울 수 있는 업무예요."),
@@ -164,7 +164,7 @@ export const B1_L19 = defineB1Lesson({
   independent: [
     mcq("Qual frase expressa finalidade com -기 위해서는?", ["숙달하기 위해서는 반복이 필요해요.", "숙달해서 반복이 필요해요.", "숙달하면 반복이 필요해요."], "숙달하기 위해서는 반복이 필요해요.", "-기 위해서는 liga a meta “dominar” à condição “repetir”."),
     cloze("Complete a avaliação: 매일 조금씩 공부하___ 것이 중요해요.", "는", "공부하는 것이 중요해요 nominaliza a ação com -는 것."),
-    listen("Ouça e escreva como é possível dominar uma habilidade.", "반복 연습을 통해 숙달할 수 있어요.", "반복 연습을 통해 숙달할 수 있어요.", "É possível dominar por meio de prática repetida.", ["반복 연습을 통해 숙달할 수 있어요"]),
+    listen("Ouça e escreva como é possível dominar uma habilidade.", "반복 연습으로 숙달할 수 있어요.", "반복 연습으로 숙달할 수 있어요.", "É possível dominar com prática repetida.", ["반복 연습으로 숙달할 수 있어요"]),
     translate("ko-pt", "Traduza: 연구보다 실습 경험이 더 필요해요.", "Preciso de mais experiência prática do que de pesquisa.", "보다 marca a comparação; 더 필요해요 indica maior necessidade.", ["Preciso mais de experiência prática do que de pesquisa."]),
     reading("학위만으로는 부족할 때가 있어요. 연구를 계속하려면 논문이 중요하지만, 현장에서 일하려면 실습과 탐구 경험이 더 도움이 돼요. 그래서 목표를 먼저 정하는 것이 좋아요.", "Qual é o conselho do texto?", ["Definir o objetivo antes de escolher o caminho.", "Fazer só pesquisa e evitar prática.", "Escolher sempre pelo salário."], "Definir o objetivo antes de escolher o caminho.", "목표를 먼저 정하는 것이 좋아요."),
   ],

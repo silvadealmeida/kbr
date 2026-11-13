@@ -318,14 +318,34 @@ const findings = [
   F("B1-12B-N023", "MINOR", "vocabulario/glosa", ["src/content/vocabulary/b1-m06.ts:35", "src/content/vocabulary/b1-m02.ts:14"], ["ko:접근성", "frase de ko:목적"], "'역과 가까워서 접근성이 좋아요.' → 'acessibilidade; facilidade de acesso'", "—", "em pt-BR 'acessibilidade' lê-se como PcD; o coreano aqui é 'conveniência de acesso/localização' (proximidade da estação). A glosa também reaparece na frase de 목적 ('o objetivo é aumentar a acessibilidade'), propagando a leitura errada.", "glosa → 'facilidade de acesso (localização)'; frase de 목적 → '…o objetivo é melhorar o acesso'.", "grep das linhas.", "média", "cartões de l07/l29."),
 ];
 
+// A 12C preserva o status/resolução já registrados. O script reconstrói a
+// auditoria original; sem este merge, rodá-lo apagaria as correções.
+const c001 = findings.find((f) => f.id === "B1-12B-C001");
+if (c001) {
+  c001.status = "rejected-12c";
+  c001.resolution =
+    "Rejeitado na verificação da 12C: 것 tem batchim ㅅ, então 것으로 (= 것 + 으로) é a forma correta; a proposta 것로 era agramatical. A resposta 으로 foi mantida e travada por teste.";
+}
+
+const findingsPath = path.join(ROOT, "docs/audits/b1/data/findings.json");
+if (fs.existsSync(findingsPath)) {
+  const previous = JSON.parse(fs.readFileSync(findingsPath, "utf8"));
+  const byId = new Map((previous.findings || []).map((f) => [f.id, f]));
+  for (const finding of findings) {
+    const old = byId.get(finding.id);
+    if (old?.status) finding.status = old.status;
+    if (old?.resolution) finding.resolution = old.resolution;
+  }
+}
+
 const relatorio = {
   fase: "12B",
   auditoria: "B1 — auditoria linguística e pedagógica independente (40 lições, 8 checkpoints)",
   baseline: "6e5d38bf8e9ec89c86d4d3236301a114ff2a0f45",
   branch: "audit/b1-phase-12b",
   gerado: "2026-11-13",
-  natureza: "audit-only; nenhum conteúdo B1 foi alterado (nenhum arquivo fora de docs/audits/b1/)",
-  escopo: "auditoria de conteúdo educacional B1 (read-only; nenhum conteúdo alterado)",
+  natureza: "ledger canônico da auditoria 12B; o campo status reflete a execução da 12C e as correções vivem em correction-ledger.md",
+  escopo: "auditoria de conteúdo educacional B1; achados verificados na fonte, com correções aplicadas na 12C",
   counts: {
     lecoes: 40, checkpoints: 8, itensAvaliados: 615, itensDigitados: 381, itensListen: 132,
     vocabNovas: 320, vocabFrases: 320, reusedRefsDeclaradas: 164, reusedDistinct: 96,
@@ -355,5 +375,5 @@ const relatorio = {
   findings,
 };
 
-fs.writeFileSync(path.join(ROOT, "docs/audits/b1/data/findings.json"), JSON.stringify(relatorio, null, 2) + "\n");
+fs.writeFileSync(findingsPath, JSON.stringify(relatorio, null, 2) + "\n");
 console.log("findings.json:", relatorio.totais);

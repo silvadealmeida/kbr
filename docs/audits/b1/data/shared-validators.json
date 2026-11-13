@@ -1,31 +1,7 @@
 {
   "itemsChecked": 615,
-  "withCheckRedundantAccepted": {
-    "accepted-redundant": 3
-  },
-  "issues": [
-    {
-      "code": "accepted-redundant",
-      "path": "b1-l32/b1-l32-e05",
-      "message": "acceptedAnswers repete “글은 예산이 부족하다는 내용이에요.” após normalização.",
-      "item": "b1-l32-e05",
-      "step": "b1-l32"
-    },
-    {
-      "code": "accepted-redundant",
-      "path": "b1-l35/b1-l35-e05",
-      "message": "acceptedAnswers repete “매체는 잘못을 인정할 수밖에 없었어요.” após normalização.",
-      "item": "b1-l35-e05",
-      "step": "b1-l35"
-    },
-    {
-      "code": "accepted-redundant",
-      "path": "b1-c01/b1-c01-e25",
-      "message": "acceptedAnswers repete “결국 좋은 기억으로 남았어요.” após normalização.",
-      "item": "b1-c01-e25",
-      "step": "b1-c01"
-    }
-  ],
+  "withCheckRedundantAccepted": {},
+  "issues": [],
   "unusedReusedRefs": {
     "totalReusedRefs": 164,
     "missing": 65,

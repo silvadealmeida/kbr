@@ -10,7 +10,7 @@ export const B1_C05 = defineB1Checkpoint({
   estimatedMinutes: 45, minCorrect: 20,
   exercises: [
     listen("Ouça e escreva a tendência.", "1인 가구가 증가하는 경향이 있어요.", "1인 가구가 증가하는 경향이 있어요.", "Há uma tendência de aumento de domicílios unipessoais.", ["1인 가구가 증가하는 경향이 있어요"]),
-    listen("Ouça e escreva a comparação cultural.", "이 관행은 지역마다 달라요.", "이 관행은 지역마다 달라요.", "Esta prática varia de região para região.", ["이 관행은 지역마다 달라요"]),
+    listen("Ouça e escreva a frase completa com a comparação cultural.", "이 관행은 지역마다 달라요.", "이 관행은 지역마다 달라요.", "Esta prática varia de região para região.", ["이 관행은 지역마다 달라요"]),
     listen("Ouça e escreva o limite.", "관계에도 분명한 경계가 필요해요.", "관계에도 분명한 경계가 필요해요.", "Até nas relações, limites claros são necessários.", ["관계에도 분명한 경계가 필요해요"]),
     listen("Ouça e escreva o problema urbano.", "정전 때문에 엘리베이터가 멈췄어요.", "정전 때문에 엘리베이터가 멈췄어요.", "O elevador parou por causa da queda de energia.", ["정전 때문에 엘리베이터가 멈췄어요"]),
     listen("Ouça e escreva o direito.", "의견을 말할 권리가 있어요.", "의견을 말할 권리가 있어요.", "Você tem o direito de expressar sua opinião.", ["의견을 말할 권리가 있어요"]),
@@ -33,6 +33,6 @@ export const B1_C05 = defineB1Checkpoint({
     translate("ko-pt", "Traduza: 이 관행은 지역마다 달라요.", "Esta prática varia de região para região.", "지역마다.", ["Essa prática varia conforme a região."]),
     translate("ko-pt", "Traduza: 관계에도 분명한 경계가 필요해요.", "Até nas relações, limites claros são necessários.", "경계가 필요해요.", ["Relações também precisam de limites claros."]),
     translate("pt-ko", "Traduza: “Você tem o direito de expressar sua opinião.”", "의견을 말할 권리가 있어요.", "권리가 있어요.", ["의견을 말할 수 있는 권리가 있어요."]),
-    translate("pt-ko", "Traduza: “Temos o dever de seguir as regras.”", "우리는 규칙을 지켜야 할 의무가 있어요.", "의무가 있어요.", ["우리는 규칙을 지킬 의무가 있어요."]),
+    translate("pt-ko", "Traduza: “Temos o dever de seguir as regras.”", "우리는 규칙을 지켜야 할 의무가 있어요.", "-아/어야 할 의무가 있어요 expressa o dever."),
   ],
 });

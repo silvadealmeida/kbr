@@ -20,7 +20,7 @@ export const B1_M08_ROWS: readonly B1VocabRow[] = [
   ["b1-l37", "비상", "emergência", "substantivo", "비상", "비상 회의가 소집됐어요.", "Uma reunião de emergência foi convocada.", "emergência"],
   ["b1-l37", "대응", "resposta; reação", "substantivo", "대응", "상황에 맞는 대응이 필요해요.", "É necessária uma resposta adequada à situação.", "resposta"],
 
-  ["b1-l38", "수신", "recebimento; destinatário", "substantivo", "수신", "수신자를 다시 확인해 주세요.", "Verifique novamente o destinatário.", "recebimento"],
+  ["b1-l38", "수신", "recebimento (de mensagem)", "substantivo", "수신", "수신 확인 메일을 보내 주세요.", "Envie um e-mail de confirmação de recebimento.", "recebimento"],
   ["b1-l38", "발신", "envio; remetente", "substantivo", "발신", "발신 시간을 기록했어요.", "Registrei o horário de envio.", "envio"],
   ["b1-l38", "제목", "título; assunto", "substantivo", "제목", "메일 제목을 구체적으로 썼어요.", "Escrevi um assunto específico no e-mail.", "título"],
   ["b1-l38", "본문", "corpo do texto", "substantivo", "본문", "본문에 요청 사항을 정리했어요.", "Organizei o pedido no corpo do texto.", "corpo do texto"],

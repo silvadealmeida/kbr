@@ -3,7 +3,7 @@ import type { B1VocabRow } from "./b1-shared";
 /** Vocabulário do Módulo 1 do B1 — histórias e conexões. */
 export const B1_M01_ROWS: readonly B1VocabRow[] = [
   ["b1-l01", "기억", "memória; lembrança", "substantivo", "기억", "오래된 사진을 보며 기억에 잠겼어요.", "Fiquei imerso em memórias ao ver fotos antigas.", "memória"],
-  ["b1-l01", "여운", "ressonância; eco emocional", "substantivo", "여운", "그 영화는 오랫동안 여운이 남았어요.", "Aquele filme deixou uma ressonância por muito tempo.", "ressonância"],
+  ["b1-l01", "여운", "ressonância; impressão duradoura", "substantivo", "여운", "그 영화는 오랫동안 여운이 남았어요.", "Aquele filme deixou uma ressonância por muito tempo.", "ressonância"],
   ["b1-l01", "인상", "impressão", "substantivo", "인상", "첫 여행의 인상이 아직도 선명해요.", "A impressão da primeira viagem ainda é nítida.", "impressão"],
   ["b1-l01", "감정", "emoção; sentimento", "substantivo", "감정", "그때의 감정을 글로 적었어요.", "Escrevi os sentimentos daquela época.", "emoção"],
   ["b1-l01", "떠올리다", "trazer à memória; lembrar", "verbo", "떠올리면", "그 장면을 떠올리면 아직도 웃음이 나요.", "Quando me lembro daquela cena, ainda rio.", "trazer à memória", "Forma de dicionário; a frase usa 떠올리면."],

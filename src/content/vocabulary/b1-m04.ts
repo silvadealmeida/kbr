@@ -13,7 +13,7 @@ export const B1_M04_ROWS: readonly B1VocabRow[] = [
 
   ["b1-l17", "안건", "item de pauta", "substantivo", "안건", "오늘 회의 안건은 세 가지예요.", "A pauta da reunião de hoje tem três itens.", "item de pauta"],
   ["b1-l17", "의제", "agenda; pauta", "substantivo", "의제", "의제를 미리 공유해 주세요.", "Compartilhe a pauta com antecedência.", "pauta"],
-  ["b1-l17", "발언", "declaração; fala", "substantivo", "발언", "발언 시간을 두 분으로 제한해요.", "O tempo de fala será limitado a dois minutos.", "declaração"],
+  ["b1-l17", "발언", "declaração; fala", "substantivo", "발언", "발언 시간을 2분으로 제한해요.", "O tempo de fala será limitado a dois minutos.", "declaração"],
   ["b1-l17", "토론", "debate; discussão", "substantivo", "토론", "토론 후에 투표했어요.", "Votamos depois do debate.", "debate"],
   ["b1-l17", "합의", "consenso; acordo", "substantivo", "합의", "팀은 일정 변경에 합의했어요.", "A equipe chegou a um consenso sobre a mudança de agenda.", "consenso"],
   ["b1-l17", "회의록", "ata de reunião", "substantivo", "회의록", "회의록에 결정 사항을 정리했어요.", "Registrei as decisões na ata da reunião.", "ata"],

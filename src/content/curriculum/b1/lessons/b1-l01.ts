@@ -20,7 +20,7 @@ export const B1_L01 = defineB1Lesson({
   reusedIds: ["ko:여행", "ko:사진", "ko:사람", "ko:좋다"],
   grammar: [
     ["-더라고요 — descoberta no relato", "동사/형용사 + -더라고요", "Use -더라고요 para algo que o falante presenciou ou descobriu e agora compartilha. Não é uma afirmação neutra de fato; há uma perspectiva de experiência pessoal.", [["바다가 정말 넓더라고요.", "O mar era realmente imenso."], ["생각보다 외롭더라고요.", "Era mais solitário do que eu pensava."]]],
-    ["Conectores de narrativa", "그런데 / 그래서 / 결국", "그런데 introduz um contraste ou novo ângulo; 그래서 liga causa e consequência; 결국 marca o desfecho. Use-os para dar direção ao relato, sem repetir todos na mesma frase.", [["길을 잃었어요. 그런데 누군가 도와줬어요.", "Perdi-me. Mas alguém ajudou."], ["결국 좋은 기억으로 남았어요.", "No fim, ficou como uma boa lembrança."]]],
+    ["Conectores de narrativa", "그런데 / 그래서 / 결국", "그런데 introduz um contraste ou novo ângulo; 그래서 liga causa e consequência; 결국 marca o desfecho. Use-os para dar direção ao relato, sem repetir todos na mesma frase.", [["길을 잃었어요. 그런데 누군가 도와줬어요.", "Eu me perdi. Mas alguém ajudou."], ["결국 좋은 기억으로 남았어요.", "No fim, ficou como uma boa lembrança."]]],
   ],
   guided: [
     mcq("Como foi a primeira viagem de Sujin?", ["Foi mais solitária do que ela esperava.", "Foi perfeita desde o início.", "Ela viajou com a família."], "Foi mais solitária do que ela esperava.", "생각보다 외롭더라고요."),

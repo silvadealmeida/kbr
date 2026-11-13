@@ -19,7 +19,7 @@ export const B1_L11 = defineB1Lesson({
   ],
   reusedIds: ["ko:의견", "ko:찬성", "ko:반대", "ko:생활"],
   grammar: [
-    ["-다고 생각하다 — opinião pessoal", "동사/형용사 + -다고 생각하다", "A forma apresenta o conteúdo da frase como avaliação de quem fala. Não serve para anunciar um dado objetivo; para isso, basta a afirmação direta.", [["저는 그 공간이 좋다고 생각해요.", "Eu acho aquele espaço bom."], ["책값이 비싸다고 생각해요.", "Acho que os preços dos livros são caros."]]],
+    ["-다고 생각하다 — opinião pessoal", "동사/형용사 + -다고 생각하다 / -(으)ㄹ 거라고 생각하다", "A forma apresenta o conteúdo da frase como avaliação de quem fala. Não serve para anunciar um dado objetivo; para isso, basta a afirmação direta. Para opinar sobre o futuro, cite -(으)ㄹ 거예요: 갈 거예요 → 갈 거라고 생각해요.", [["저는 그 공간이 좋다고 생각해요.", "Eu acho aquele espaço bom."], ["앞으로도 계속 갈 거라고 생각해요.", "Acho que vou continuar indo no futuro."]]],
     ["-는 편이다 — tendência com cautela", "동사 + -는 편이다 / 형용사 + -(으)ㄴ 편이다", "Use -는 편이다 para dizer que algo costuma acontecer ou que um traço é relativamente forte. A forma suaviza a generalização e não descreve uma regra fixa.", [["사람들이 자주 가는 편이에요.", "As pessoas costumam ir com frequência."], ["책값이 비싼 편이에요.", "Os preços dos livros são um tanto caros."]]],
   ],
   guided: [
@@ -32,7 +32,7 @@ export const B1_L11 = defineB1Lesson({
   independent: [
     mcq("Qual frase expressa uma tendência com cautela?", ["책값이 비싼 편이에요.", "책값이 비싸요.", "책값이 비쌀 거예요."], "책값이 비싼 편이에요.", "-는 편이다 apresenta tendência, não fato absoluto."),
     cloze("Complete a tendência: 사람들이 자주 가___ 편이에요.", "는", "가는 편이에요 descreve um costume frequente."),
-    listen("Ouça e escreva a opinião de Sujin sobre o futuro.", "저는 앞으로도 계속 갈 거라고 생각해요.", "저는 앞으로도 계속 갈 거라고 생각해요.", "Ela acha que continuará indo.", ["저는 앞으로도 계속 갈 거라고 생각해요"]),
+    listen("Ouça e escreva a frase completa com a opinião de Sujin sobre o futuro.", "저는 앞으로도 계속 갈 거라고 생각해요.", "저는 앞으로도 계속 갈 거라고 생각해요.", "Ela acha que continuará indo.", ["저는 앞으로도 계속 갈 거라고 생각해요"]),
     translate("ko-pt", "Traduza: 저는 그 공간이 참 좋다고 생각해요.", "Eu acho aquele espaço realmente bom.", "-다고 생각해요 marca a avaliação de quem fala.", ["Eu acho aquele espaço muito bom.", "Eu penso que aquele espaço é realmente bom."]),
     reading("어떤 사람은 온라인 수업이 편하다고 생각해요. 다른 사람은 학교에서 친구를 만날 수 있다는 점을 더 중요하게 생각해요. 두 의견 모두 나름의 이유가 있어요.", "O que o texto mostra sobre as duas opiniões?", ["Cada uma tem seu próprio motivo.", "Uma delas está errada.", "As duas são iguais."], "Cada uma tem seu próprio motivo.", "두 의견 모두 나름의 이유가 있어요."),
   ],
@@ -55,15 +55,15 @@ export const B1_L12 = defineB1Lesson({
   ],
   dialogue: [
     ["지민", "요즘 회사에서 재택근무를 늘리고 있지요?", "Ultimamente a empresa está ampliando o trabalho remoto, não é?"],
-    ["마르코", "네. 재택근무는 시간을 아낄 수 있는 반면에 동료와 대화가 적어요.", "Sim. O trabalho remoto economiza tempo, por outro lado há menos conversa com os colegas."],
-    ["지민", "사무실에서는 집중하기 어려운 반면에 협업은 빨라요.", "No escritório é difícil se concentrar, por outro lado a colaboração é rápida."],
+    ["마르코", "네. 재택근무는 시간을 아낄 수 있는 반면에 동료와 대화가 적어요.", "Sim. O trabalho remoto economiza tempo; por outro lado, há menos conversa com os colegas."],
+    ["지민", "사무실에서는 집중하기 어려운 반면에 협업은 빨라요.", "No escritório é difícil se concentrar; por outro lado, a colaboração é rápida."],
     ["마르코", "맞아요. 두 방식의 차이가 뚜렷해요.", "É verdade. A diferença entre os dois métodos é nítida."],
     ["지민", "지난해에 비해 재택근무를 선택한 사람이 많아졌어요.", "Em comparação com o ano passado, mais pessoas escolheram o trabalho remoto."],
     ["마르코", "저는 조용한 집에서 일하는 게 좋아요.", "Eu gosto de trabalhar em uma casa silenciosa."],
   ],
   reusedIds: ["ko:비교", "ko:문화", "ko:생활", "ko:방법"],
   grammar: [
-    ["-는 반면에 — contraste", "동사 + -는 반면에 / 형용사 + -(으)ㄴ 반면에", "A forma apresenta dois lados de uma mesma situação. Não escolhe um vencedor; apenas mostra que as características são diferentes.", [["재택근무는 시간을 아낄 수 있는 반면에 대화가 적어요.", "O trabalho remoto economiza tempo, por outro lado há menos conversa."], ["사무실에서는 집중하기 어려운 반면에 협업이 빨라요.", "No escritório é difícil se concentrar, por outro lado a colaboração é rápida."]]],
+    ["-는 반면에 — contraste", "동사 + -는 반면에 / 형용사 + -(으)ㄴ 반면에", "A forma apresenta dois lados de uma mesma situação. Não escolhe um vencedor; apenas mostra que as características são diferentes.", [["재택근무는 시간을 아낄 수 있는 반면에 대화가 적어요.", "O trabalho remoto economiza tempo; por outro lado, há menos conversa."], ["사무실에서는 집중하기 어려운 반면에 협업이 빨라요.", "No escritório é difícil se concentrar; por outro lado, a colaboração é rápida."]]],
     ["-에 비해 — parâmetro de comparação", "명사 + -에 비해(서)", "O elemento antes de -에 비해 é a base de comparação. A diferença vem depois, sem precisar de outra marca comparativa.", [["지난해에 비해 이용자가 늘었어요.", "Em comparação com o ano passado, os usuários aumentaram."], ["이 회사는 다른 회사에 비해 회의가 적어요.", "Esta empresa tem menos reuniões em comparação com outras."]]],
   ],
   guided: [
@@ -77,7 +77,7 @@ export const B1_L12 = defineB1Lesson({
     mcq("Qual frase compara com um parâmetro explícito?", ["회사에 비해 집이 조용해요.", "집이 조용해요.", "집에서 일해요."], "회사에 비해 집이 조용해요.", "-에 비해 apresenta a base da comparação."),
     cloze("Complete a avaliação: 두 방식의 차이가 뚜___.", "렷해요", "뚜렷해요 significa que a diferença é nítida."),
     listen("Ouça e escreva a conclusão de Marco sobre os dois métodos.", "두 방식의 차이가 뚜렷해요.", "두 방식의 차이가 뚜렷해요.", "Ele diz que a diferença entre os dois métodos é nítida.", ["두 방식의 차이가 뚜렷해요"]),
-    translate("ko-pt", "Traduza: 재택근무는 시간을 아낄 수 있는 반면에 대화가 적어요.", "O trabalho remoto economiza tempo, por outro lado há menos conversa.", "-는 반면에 apresenta o contraste entre os dois lados.", ["O trabalho remoto economiza tempo, mas há menos conversa."]),
+    translate("ko-pt", "Traduza: 재택근무는 시간을 아낄 수 있는 반면에 대화가 적어요.", "O trabalho remoto economiza tempo; por outro lado, há menos conversa.", "-는 반면에 apresenta o contraste entre os dois lados.", ["O trabalho remoto economiza tempo, mas há menos conversa."]),
     reading("지난해에 비해 올해 재택근무를 선택한 사람이 늘었어요. 하지만 모든 직업에 재택근무가 맞는 것은 아니에요.", "O que o texto acrescenta à comparação?", ["Uma ressalva sobre a adequação do trabalho remoto.", "Um dado sobre salários.", "Uma previsão para o próximo ano."], "Uma ressalva sobre a adequação do trabalho remoto.", "모든 직업에 맞는 것은 아니에요 limita a conclusão."),
   ],
   summary: ["-는 반면에 contrasta dois lados sem eliminá-los.", "-에 비해 apresenta a base da comparação.", "Uma comparação B1 deve dizer qual critério está sendo usado.", "Conteúdo novo permanece em revisão."],
@@ -113,7 +113,7 @@ export const B1_L13 = defineB1Lesson({
   guided: [
     mcq("O que a proposta de Sujin defende?", ["Ampliar o horário de uma pequena biblioteca.", "Fechar a biblioteca à noite.", "Aumentar a taxa de uso."], "Ampliar o horário de uma pequena biblioteca.", "운영 시간을 늘리자는 제안이에요."),
     cloze("Complete a adição: 이용료가 저렴할 ___ 아니라 자원봉사자도 많아요.", "뿐만", "저렴할 뿐만 아니라 soma o segundo argumento."),
-    listen("Ouça e escreva a informação adicional sobre os moradores.", "주민들이 직접 참여하기도 해요.", "주민들이 직접 참여하기도 해요.", "Os moradores também participam diretamente.", ["주민들이 직접 참여하기도 해요"]),
+    listen("Ouça e escreva a frase completa com a informação adicional sobre os moradores.", "주민들이 직접 참여하기도 해요.", "주민들이 직접 참여하기도 해요.", "Os moradores também participam diretamente.", ["주민들이 직접 참여하기도 해요"]),
     reading("새 서비스는 이용료가 저렴할 뿐만 아니라 시설도 깨끗해요. 또한 주민들이 직접 참여하기도 해요. 그래서 더 많은 사람이 이용할 수 있다고 생각해요.", "Qual argumento é adicional ao preço baixo?", ["As instalações limpas.", "O horário curto.", "A localização distante."], "As instalações limpas.", "시설도 깨끗해요 acrescenta o segundo argumento."),
     translate("pt-ko", "Traduza: “Não só a taxa é barata, mas as instalações também são limpas.”", "이용료가 저렴할 뿐만 아니라 시설도 깨끗해요.", "-뿐만 아니라 acrescenta o segundo ponto sem repetir o primeiro.", ["가격이 저렴할 뿐만 아니라 시설도 깨끗해요."]),
   ],
@@ -126,7 +126,7 @@ export const B1_L13 = defineB1Lesson({
   ],
   summary: ["-뿐만 아니라 acrescenta um argumento diferente.", "-기도 하다 introduz outra faceta do mesmo assunto.", "Uma boa argumentação hierarquiza: primeiro a tese, depois as razões.", "Conteúdo novo permanece em revisão."],
   production: {
-    titlePt: "Produção independente · dois argumentos", promptPt: "Defenda a ampliação de um serviço do seu bairro com dois argumentos diferentes. Escreva de cinco a seis frases.", promptKo: "동네 서비스를 확대하자는 제안을 써 보세요.",
+    titlePt: "Produção independente · dois argumentos", promptPt: "Defenda a ampliação de um serviço do seu bairro com dois argumentos diferentes. Escreva de cinco a seis frases.", promptKo: "동네 서비스 확대 방안에 대한 제안을 써 보세요.",
     guidance: ["Apresente a proposta em uma frase.", "Use -뿐만 아니라 para o segundo argumento.", "Use -기도 하다 para uma informação adicional."],
     checklist: ["A proposta está clara.", "Os dois argumentos são diferentes.", "Há uma informação adicional com -기도 하다.", "A conclusão retoma a proposta."], minWords: 35,
   },
@@ -152,7 +152,7 @@ export const B1_L14 = defineB1Lesson({
   reusedIds: ["ko:반대", "ko:의견", "ko:이유", "ko:상황"],
   grammar: [
     ["-기는 하지만 — concessão", "동사/형용사 + -기는 하지만", "A forma admite um ponto positivo ou verdadeiro e, em seguida, apresenta a objeção. É uma concessão educada, não uma concordância total.", [["재미있기는 하지만 너무 길어요.", "É divertido, mas é longo demais."], ["이해하기는 하지만 모두 동의하지는 않아요.", "Entendo, mas não concordo com tudo."]]],
-    ["-라고 해도 — mesmo que se diga", "동사/형용사 + -라고 해도 / 명사 + -(이)라고 해도", "Use -라고 해도 para aceitar hipoteticamente o argumento do outro e mostrar que sua posição continua. Não significa que você concorda com a afirmação.", [["좋은 작품이라고 해도 모든 사람이 좋아하지는 않아요.", "Mesmo que se diga que é uma boa obra, não é todo mundo que gosta."], ["그 배우가 유명하다고 해도 이야기가 약하면 설득되지 않아요.", "Mesmo que se diga que esse ator é famoso, se a história é fraca, não convence."]]],
+    ["-라고 해도 — mesmo que se diga", "동사/형용사 + -다고 해도 / 명사 + -(이)라고 해도", "Use -다고 해도 depois de verbos e adjetivos, e -(이)라고 해도 depois de substantivos, para aceitar hipoteticamente o argumento do outro e mostrar que sua posição continua. Não significa que você concorda com a afirmação.", [["좋은 작품이라고 해도 모든 사람이 좋아하지는 않아요.", "Mesmo que se diga que é uma boa obra, não é todo mundo que gosta."], ["그 배우가 유명하다고 해도 이야기가 약하면 설득되지 않아요.", "Mesmo que se diga que esse ator é famoso, se a história é fraca, não convence."]]],
   ],
   guided: [
     mcq("Como Marco avalia o final da série?", ["É divertido, mas o final foi repentino demais.", "O final foi perfeito.", "Ele não assistiu ao episódio."], "É divertido, mas o final foi repentino demais.", "재미있기는 하지만 마지막이 갑작스러웠어요."),

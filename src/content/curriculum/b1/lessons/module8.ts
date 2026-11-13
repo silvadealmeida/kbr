@@ -25,7 +25,7 @@ export const B1_L36 = defineB1Lesson({
   guided: [
     mcq("Por que Sujin mudou de empresa?", ["Porque recebeu uma proposta de uma empresa menor.", "Porque o salário aumentou muito.", "Porque se mudou para outra cidade."], "Porque recebeu uma proposta de uma empresa menor.", "작은 회사에서 제안을 받았어요."),
     cloze("Complete a avaliação inicial: 일이 너무 힘들___.", "더라고요", "힘들더라고요 relata a dificuldade vivida pela falante."),
-    listen("Ouça e escreva a decisão final de Sujin.", "그래서 결국 옮기기로 했어요.", "그래서 결국 옮기기로 했어요.", "Então, no fim, ela decidiu mudar de empresa.", ["그래서 결국 옮기기로 했어요"]),
+    listen("Ouça e escreva a frase completa com a decisão final de Sujin.", "그래서 결국 옮기기로 했어요.", "그래서 결국 옮기기로 했어요.", "Então, no fim, ela decidiu mudar de empresa.", ["그래서 결국 옮기기로 했어요"]),
     reading("수진은 작년 봄부터 일이 힘들다고 느꼈어요. 하지만 바로 그만두지 않고 몇 달 동안 고민했어요. 그러다 작은 회사에서 제안을 받아서 결국 회사를 옮기기로 했어요.", "Qual foi a ordem dos acontecimentos?", ["Dificuldade, espera, proposta e mudança.", "Proposta, dificuldade, mudança e espera.", "Mudança, proposta, dificuldade e espera."], "Dificuldade, espera, proposta e mudança.", "힘들다고 느꼈어요 → 고민했어요 → 제안을 받았어요 → 이직하기로 했어요."),
     translate("pt-ko", "Traduza: “No fim, decidi mudar de empresa.”", "결국 회사를 옮기기로 했어요.", "옮기기로 했어요 expressa a decisão tomada.", ["결국 이직하기로 했어요."]),
   ],
@@ -69,9 +69,9 @@ export const B1_L37 = defineB1Lesson({
   guided: [
     mcq("Qual é o problema do prédio?", ["Um vazamento no encanamento do telhado.", "A falta de água em todos os andares.", "Uma obra atrasada na garagem."], "Um vazamento no encanamento do telhado.", "옥상 배관이 낡아서 물이 새고 있었어요."),
     cloze("Complete o pedido: 업체에 빨리 고치___ 요청했어요.", "도록", "고치도록 요청했어요 indica a providência pedida à empresa."),
-    listen("Ouça e escreva até quando o orçamento será recebido.", "금요일까지 견적을 받을 거예요.", "금요일까지 견적을 받을 거예요.", "O orçamento será recebido até sexta-feira.", ["금요일까지 견적을 받을 거예요"]),
+    listen("Ouça e escreva até quando o preço será confirmado.", "금요일까지 수리가 얼마인지 확인할 거예요.", "금요일까지 수리가 얼마인지 확인할 거예요.", "Vou verificar quanto custa o conserto até sexta-feira.", ["금요일까지 수리가 얼마인지 확인할 거예요"]),
     reading("관리실은 옥상 배관이 낡은 것을 발견했어요. 수리는 업체에 맡기고, 비용은 관리비와 건물주가 절반씩 부담하기로 했어요. 견적은 금요일까지 받고 공사는 다음 주 월요일에 시작해요.", "Quem paga a outra metade do conserto?", ["O proprietário do prédio.", "A empresa de reparo.", "Os moradores do primeiro andar."], "O proprietário do prédio.", "나머지는 건물주가 부담하기로 했어요."),
-    translate("pt-ko", "Traduza: “Pedi à empresa que consertasse rapidamente.”", "업체에 빨리 고치도록 요청했어요.", "고치도록 요청했어요 registra o pedido feito à empresa.", ["업체에 빨리 수리하도록 요청했어요."]),
+    translate("pt-ko", "Traduza: “Pedi à empresa que consertasse rapidamente.”", "회사에 빨리 고치도록 요청했어요.", "고치도록 요청했어요 registra o pedido feito à empresa.", ["회사에 빨리 수리하도록 요청했어요.", "업체에 빨리 고치도록 요청했어요.", "업체에 빨리 수리하도록 요청했어요."]),
   ],
   independent: [
     mcq("Qual frase registra um acordo fechado?", ["절반씩 부담하기로 했어요.", "절반씩 부담할 수 있어요.", "절반씩 부담하면 좋겠어요."], "절반씩 부담하기로 했어요.", "-기로 했어요 indica o acordo decidido."),
@@ -108,7 +108,7 @@ export const B1_L38 = defineB1Lesson({
   reusedIds: ["ko:부탁", "ko:확인하다", "ko:메시지", "ko:답장"],
   grammar: [
     ["-에 대한 — a respeito de", "명사 + 에 대한 + 명사", "Use -에 대한 para dizer sobre o que é a mensagem, a pergunta ou a providência. O substantivo seguinte costuma ser 문의, 안내, 요청 ou 확인.", [["예약 취소에 대한 문의입니다.", "É uma consulta sobre o cancelamento da reserva."], ["환불에 대한 안내를 부탁드립니다.", "Peço orientações sobre o reembolso."]]],
-    ["-도록 요청하다 revisitado — pedido formal", "동사 + -도록 요청하다 / 부탁드리다", "Em mensagens formais, -도록 suaviza o pedido e o apresenta como providência necessária. O verbo 요청하다 ou 부탁드리다 fecha a frase com registro cortês.", [["환불을 받을 수 있도록 확인해 주시기 바랍니다.", "Peço que confirmem para que eu possa receber o reembolso."], ["금요일까지 회신해 주시기 바랍니다.", "Peço que respondam até sexta-feira."]]],
+    ["-도록 요청하다 revisitado — pedido formal", "동사 + -도록 요청하다 / 부탁드리다", "Em mensagens formais, -도록 suaviza o pedido e o apresenta como providência necessária. O verbo 요청하다 ou 부탁드리다 fecha a frase com registro cortês. A variante -기 바랍니다 é um pedido formal: 금요일까지 회신해 주시기 바랍니다. Para relatar um pedido, use -아/어 달라고 하다: 확인해 달라고 했어요.", [["환불을 받을 수 있도록 확인해 주시기 바랍니다.", "Peço que confirmem para que eu possa receber o reembolso."], ["확인해 달라고 했어요.", "Pedi que confirmassem."]]],
   ],
   guided: [
     mcq("Qual é o assunto da mensagem de Sujin?", ["Cancelamento de uma reserva e reembolso.", "Uma nova inscrição em um curso.", "Um atraso no transporte público."], "Cancelamento de uma reserva e reembolso.", "예약 취소에 대한 문의라고 썼어요."),

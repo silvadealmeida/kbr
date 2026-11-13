@@ -21,13 +21,13 @@ export const B1_M03_ROWS: readonly B1VocabRow[] = [
   ["b1-l12", "뚜렷하다", "ser nítido; ser claro", "verbo", "뚜렷해요", "두 방식의 차이가 뚜렷해요.", "A diferença entre os dois métodos é nítida.", "ser nítido", "Forma de dicionário; a frase usa 뚜렷해요."],
 
   ["b1-l13", "게다가", "além disso", "advérbio", "게다가", "가격도 싸고 게다가 품질도 좋아요.", "É barato e, além disso, a qualidade é boa.", "além disso"],
-  ["b1-l13", "더욱이", "mais ainda; além do mais", "advérbio", "더욱이", "비까지 오고 더욱이 바람도 불었어요.", "Além de chover, mais ainda, ventou.", "mais ainda"],
+  ["b1-l13", "더욱이", "mais ainda; além do mais", "advérbio", "더욱이", "비까지 왔고, 더욱이 바람까지 불었어요.", "Choveu e, além disso, ainda ventou.", "mais ainda"],
   ["b1-l13", "심지어", "até mesmo", "advérbio", "심지어", "심지어 아이들도 이해했어요.", "Até mesmo as crianças entenderam.", "até mesmo"],
   ["b1-l13", "또한", "também; além disso", "advérbio", "또한", "이 방법은 빠르고 또한 안전해요.", "Este método é rápido e também seguro.", "também"],
   ["b1-l13", "추가로", "adicionalmente", "advérbio", "추가로", "추가로 설명이 필요해요.", "Precisamos de explicações adicionais.", "adicionalmente"],
   ["b1-l13", "나아가", "além disso; indo mais longe", "advérbio", "나아가", "지역을 넘어 나아가 국가 차원에서 논의해야 해요.", "Devemos discutir não só regionalmente, mas ir além, em nível nacional.", "indo além"],
   ["b1-l13", "마찬가지로", "da mesma forma", "advérbio", "마찬가지로", "다른 지역도 마찬가지로 변하고 있어요.", "Outras regiões também estão mudando da mesma forma.", "da mesma forma"],
-  ["b1-l13", "뿐만 아니라", "não só... mas também", "interjeição", "뿐만 아니라", "뿐만 아니라 비용도 줄어요.", "Economiza não só custo, mas também tempo.", "não só... mas também"],
+  ["b1-l13", "뿐만 아니라", "não só... mas também", "advérbio", "뿐만 아니라", "시간이 절약될 뿐만 아니라 비용도 줄어요.", "Não só se economiza tempo, como os custos também caem.", "não só... mas também"],
 
   ["b1-l14", "반박하다", "rebater; contra-argumentar", "verbo", "반박했어요", "그 주장에 근거를 들어 반박했어요.", "Rebati aquela afirmação com base em evidências.", "rebater", "Forma de dicionário; a frase usa 반박했어요."],
   ["b1-l14", "이견", "divergência; opinião diferente", "substantivo", "이견", "아직 해결되지 않은 이견이 있어요.", "Ainda há divergências não resolvidas.", "divergência"],

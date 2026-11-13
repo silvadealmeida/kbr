@@ -1,6 +1,6 @@
 {
   "inventory": {
-    "baseline": "6e5d38b",
+    "baseline": "6e5d38b (12B) · conteúdo pós-12C",
     "b1": {
       "lessons": 40,
       "checkpoints": 8,
@@ -27,24 +27,6 @@
       "translate": 125
     }
   },
-  "findingsByCheck": {
-    "translate-duplicate-accepted": 3
-  },
-  "findings": [
-    {
-      "check": "translate-duplicate-accepted",
-      "item": "b1-l32/b1-l32-e05",
-      "message": "[\"글은 예산이 부족하다는 내용이에요.\",\"글은 예산이 부족하다는 내용이에요.\"]"
-    },
-    {
-      "check": "translate-duplicate-accepted",
-      "item": "b1-l35/b1-l35-e05",
-      "message": "[\"매체는 잘못을 인정할 수밖에 없었어요.\",\"매체는 잘못을 인정할 수밖에 없었어요.\"]"
-    },
-    {
-      "check": "translate-duplicate-accepted",
-      "item": "b1-c01/b1-c01-e25",
-      "message": "[\"결국 좋은 기억으로 남았어요.\",\"결국 좋은 기억으로 남았어요.\"]"
-    }
-  ]
+  "findingsByCheck": {},
+  "findings": []
 }

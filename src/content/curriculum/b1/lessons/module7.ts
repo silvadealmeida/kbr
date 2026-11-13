@@ -71,7 +71,7 @@ export const B1_L32 = defineB1Lesson({
     cloze("Complete o resumo: 학교 버스가 줄었___ 내용이에요.", "다는", "줄었다 + -는 conteúdo: 줄었다는 내용이에요."),
     listen("Ouça e escreva qual exemplo aparece no texto.", "버스가 아침에 두 번밖에 없다는 예가 나와요.", "버스가 아침에 두 번밖에 없다는 예가 나와요.", "O texto dá o exemplo de que só há dois ônibus pela manhã.", ["버스가 아침에 두 번밖에 없다는 예가 나와요"]),
     reading("글은 학교 버스가 줄어서 학생들이 불편하다고 말해요. 예로 아침에는 버스가 두 번밖에 없다는 내용이 나와요. 글쓴이는 그래서 예산을 늘려야 한다고 주장해요.", "Qual é a conclusão do texto?", ["O orçamento precisa aumentar.", "Os alunos devem ir a pé.", "A escola deve fechar."], "O orçamento precisa aumentar.", "예산을 늘려야 한다는 결론으로 끝나요."),
-    translate("pt-ko", "Traduza: “O texto diz que o orçamento é insuficiente.”", "글은 예산이 부족하다는 내용이에요.", "부족하다 + -다는 내용이다 resume a tese.", ["글은 예산이 부족하다는 내용이에요."]),
+    translate("pt-ko", "Traduza: “O texto diz que o orçamento é insuficiente.”", "글은 예산이 부족하다는 내용이에요.", "부족하다 + -다는 내용이다 resume a tese."),
   ],
   independent: [
     mcq("Qual frase resume o conteúdo de um texto?", ["글은 예산이 부족하다는 내용이다.", "예산이 부족해요.", "예산을 늘릴까요?"], "글은 예산이 부족하다는 내용이다.", "-다는 내용이다 marca o resumo do texto."),
@@ -113,7 +113,7 @@ export const B1_L33 = defineB1Lesson({
   guided: [
     mcq("O que os dois leitores tratam como fato?", ["Os números do corpo do texto.", "A palavra “o pior”.", "A causa apontada pela matéria."], "Os números do corpo do texto.", "숫자는 사실이지만 … 표현은 의견이라고 볼 수 있어요."),
     cloze("Complete o contraste: 제목은 강한 ___ 본문은 차분해요.", "반면", "형용사 강하다 + -(으)ㄴ 반면: 강한 반면."),
-    listen("Ouça e escreva qual parte é considerada opinião.", "최악이라는 표현은 의견이라고 볼 수 있어요.", "최악이라는 표현은 의견이라고 볼 수 있어요.", "A expressão “o pior” pode ser vista como opinião.", ["최악이라는 표현은 의견이라고 볼 수 있어요"]),
+    listen("Ouça e escreva qual parte é considerada opinião.", "가장 나쁘다는 표현은 의견이라고 볼 수 있어요.", "가장 나쁘다는 표현은 의견이라고 볼 수 있어요.", "A expressão “o pior” pode ser vista como opinião.", ["가장 나쁘다는 표현은 의견이라고 볼 수 있어요"]),
     reading("기사 제목에는 최악이라는 표현이 있어요. 본문에는 사고 시간과 피해 규모가 숫자로 나와요. 하지만 사고 원인은 아직 확인되지 않았어요.", "Qual trecho é uma inferência?", ["A causa apontada pela matéria.", "O horário do acidente.", "O número de feridos."], "A causa apontada pela matéria.", "원인은 아직 확인되지 않았어요."),
     translate("pt-ko", "Traduza: “Esse trecho pode ser considerado uma opinião.”", "그 부분은 의견이라고 볼 수 있어요.", "볼 수 있어요 marca a interpretação, não o fato.", ["그 문장은 의견이라고 볼 수 있어요."]),
   ],
@@ -203,7 +203,7 @@ export const B1_L35 = defineB1Lesson({
     cloze("Complete a providência: 확인 절차를 강화하___ 요구했어요.", "도록", "강화하다 + -도록 indica a medida exigida."),
     listen("Ouça e escreva o erro e o impacto causado.", "사고 시간을 잘못 알려서 여론이 크게 흔들렸어요.", "사고 시간을 잘못 알려서 여론이 크게 흔들렸어요.", "O horário errado abalou a opinião pública.", ["사고 시간을 잘못 알려서 여론이 크게 흔들렸어요"]),
     reading("한 매체가 사고 시간을 잘못 보도했어요. 그 소식이 퍼지면서 여론이 흔들렸어요. 매체는 기사 끝에 정정을 붙이고 확인 절차를 강화하겠다고 했어요.", "O que o veículo prometeu?", ["Reforçar o procedimento de verificação.", "Publicar mais opiniões.", "Retirar todas as notícias."], "Reforçar o procedimento de verificação.", "확인 절차를 강화하겠다고 했어요."),
-    translate("pt-ko", "Traduza: “O veículo não teve como não reconhecer o erro.”", "매체는 잘못을 인정할 수밖에 없었어요.", "-(으)ㄹ 수밖에 없었어요 marca a decisão inevitável.", ["매체는 잘못을 인정할 수밖에 없었어요."]),
+    translate("pt-ko", "Traduza: “O veículo não teve como não reconhecer o erro.”", "매체는 잘못을 인정할 수밖에 없었어요.", "-(으)ㄹ 수밖에 없었어요 marca a decisão inevitável."),
   ],
   independent: [
     mcq("Qual frase indica que não havia outra opção?", ["사과할 수밖에 없었어요.", "사과하고 싶어요.", "사과할까요?"], "사과할 수밖에 없었어요.", "-ㄹ 수밖에 없다 expressa consequência inevitável."),

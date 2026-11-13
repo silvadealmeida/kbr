@@ -48,3 +48,6 @@ next-env.d.ts
 /.agents/
 /.playwright/
 /graphify-out/.graphify_*
+
+# Vitest da config de auditoria (root docs/audits/b1)
+docs/audits/b1/node_modules/

@@ -2,12 +2,12 @@ import type { B1VocabRow } from "./b1-shared";
 
 /** Vocabulário do Módulo 2 do B1 — planos e mudanças. */
 export const B1_M02_ROWS: readonly B1VocabRow[] = [
-  ["b1-l06", "예정", "previsão; plano confirmado", "substantivo", "예정", "다음 달에 이사할 예정이에요.", "Tenho planos de me mudar no mês que vem.", "plano confirmado"],
+  ["b1-l06", "예정", "plano; previsão", "substantivo", "예정", "다음 달에 이사할 예정이에요.", "Tenho planos de me mudar no mês que vem.", "plano confirmado"],
   ["b1-l06", "고려하다", "considerar; levar em conta", "verbo", "고려했어요", "여러 가지 상황을 고려했어요.", "Levei várias situações em consideração.", "considerar", "Forma de dicionário; a frase usa 고려했어요."],
   ["b1-l06", "검토하다", "examinar; revisar", "verbo", "검토하고", "제안서를 검토하고 있어요.", "Estou examinando a proposta.", "examinar", "Forma de dicionário; a frase usa 검토하고."],
   ["b1-l06", "결정되다", "ser decidido", "verbo", "결정됐어요", "회의 날짜가 드디어 결정됐어요.", "A data da reunião finalmente foi decidida.", "ser decidido", "Forma de dicionário; a frase usa 결정됐어요."],
-  ["b1-l06", "우선", "primeiro; prioridade", "advérbio", "우선", "우선 가능한 날짜를 알려 주세요.", "Primeiro, informe as datas possíveis.", "primeiro"],
-  ["b1-l06", "차라리", "preferir; antes", "advérbio", "차라리", "시간이 없으면 차라리 다음에 만나요.", "Se não houver tempo, prefiro nos encontrar depois.", "preferir; antes"],
+  ["b1-l06", "우선", "primeiro; antes de tudo", "advérbio", "우선", "우선 가능한 날짜를 알려 주세요.", "Primeiro, informe as datas possíveis.", "primeiro"],
+  ["b1-l06", "차라리", "antes; de preferência", "advérbio", "차라리", "시간이 없으면 차라리 다음에 만나요.", "Se não houver tempo, é melhor nos encontrarmos depois.", "antes; de preferência"],
   ["b1-l06", "당분간", "por enquanto", "advérbio", "당분간", "당분간은 결정을 미루기로 했어요.", "Por enquanto, decidimos adiar a decisão.", "por enquanto"],
   ["b1-l06", "임시", "provisório; temporário", "substantivo", "임시", "임시 일정을 먼저 잡았어요.", "Primeiro definimos uma agenda provisória.", "provisório"],
 
@@ -40,7 +40,7 @@ export const B1_M02_ROWS: readonly B1VocabRow[] = [
 
   ["b1-l10", "결론", "conclusão", "substantivo", "결론", "논의 끝에 좋은 결론에 도달했어요.", "No fim da discussão, chegamos a uma boa conclusão.", "conclusão"],
   ["b1-l10", "판단", "julgamento; decisão", "substantivo", "판단", "그 판단은 신중했어요.", "Aquele julgamento foi cuidadoso.", "julgamento"],
-  ["b1-l10", "타협", "acordo; concessão mútua", "substantivo", "타협", "양쪽이 타협점을 찾았어요.", "Os dois lados encontraram um ponto de acordo.", "acordo"],
+  ["b1-l10", "타협", "acordo; concessão mútua", "substantivo", "타협", "양쪽이 끝내 타협했어요.", "Os dois lados finalmente chegaram a um acordo.", "acordo"],
   ["b1-l10", "양보", "concessão; ceder", "substantivo", "양보", "때로는 양보가 더 나은 선택이에요.", "Às vezes, ceder é a melhor escolha.", "concessão"],
   ["b1-l10", "주저하다", "hesitar; vacilar", "verbo", "주저했어요", "결정 앞에서 오래 주저했어요.", "Hesitei muito diante da decisão.", "hesitar", "Forma de dicionário; a frase usa 주저했어요."],
   ["b1-l10", "단호하다", "ser decidido; ser firme", "verbo", "단호하게", "그는 단호하게 거절했어요.", "Ele recusou com firmeza.", "ser firme", "Forma de dicionário; a frase usa 단호하게."],

@@ -33,7 +33,7 @@ export const B1_L21 = defineB1Lesson({
     mcq("Qual frase expressa uma tendência, não uma regra absoluta?", ["혼자 사는 가구가 늘어나는 경향이 있어요.", "모든 사람이 혼자 살아요.", "내일 혼자 살 거예요."], "혼자 사는 가구가 늘어나는 경향이 있어요.", "경향이 있어요 indica padrão, não lei."),
     cloze("Complete: 세대___ 따라 생활 방식이 달라요.", "에", "세대에 따라 significa “conforme a geração”."),
     listen("Ouça e escreva a ressalva sobre os dados.", "자료에 따라 결과가 다를 수 있어요.", "자료에 따라 결과가 다를 수 있어요.", "O resultado pode variar conforme os dados.", ["자료에 따라 결과가 다를 수 있어요"]),
-    translate("ko-pt", "Traduza: 혼자 사는 가구가 계속 늘고 있어요.", "O número de domicílios unipessoais continua aumentando.", "계속 늘고 있어요 indica aumento contínuo.", ["As famílias que moram sozinhas continuam aumentando."]),
+    translate("ko-pt", "Traduza: 혼자 사는 가구가 계속 늘고 있어요.", "O número de domicílios unipessoais continua aumentando.", "계속 늘고 있어요 indica aumento contínuo.", ["O número de residências unipessoais continua aumentando."]),
     reading("도시의 집값이 오르면서 젊은 사람들이 다른 지역으로 이동하는 경향이 있어요. 하지만 이 변화가 모든 도시에서 같은 속도로 일어나는 것은 아니에요.", "O que o texto destaca?", ["A mudança varia conforme a cidade.", "Todas as cidades mudam na mesma velocidade.", "Os jovens deixaram de se mudar."], "A mudança varia conforme a cidade.", "모든 도시에서 같은 속도로 일어나는 것은 아니에요."),
   ],
   summary: ["-는 경향이 있다 descreve um padrão observável, com exceções.", "-에 따라 marca o critério de variação.", "Dados e evidências sustentam a descrição da tendência.", "Uma ressalva evita transformar tendência em regra absoluta."],
@@ -64,18 +64,18 @@ export const B1_L22 = defineB1Lesson({
   reusedIds: ["ko:가족", "ko:사람", "ko:이해하다", "ko:밥"],
   grammar: [
     ["-라고들 하다 — o que as pessoas dizem", "명사 + -(이)라고들 하다 / 동사·형용사 + -다고들 하다", "Use para relatar uma opinião geral ou um costume que circula, sem assumir que todos concordam. O -들 não significa que cada pessoa foi ouvida individualmente.", [["이 음식은 지역의 전통 음식이라고들 해요.", "Dizem que este é um alimento tradicional da região."], ["명절에는 가족이 함께 모인다고들 해요.", "Dizem que a família se reúne no feriado tradicional."]]],
-    ["-기는 하지만 — concessão", "동사/형용사 + -기는 하지만", "A forma admite o ponto anterior e acrescenta uma limitação. É mais suave que uma negação direta e ajuda a evitar generalizações.", [["맛있기는 하지만 조금 매워요.", "É gostoso, mas é um pouco picante."], ["이해하기는 하지만 모든 집이 같은 방식은 아니에요.", "Eu entendo, mas não é todo lar que faz do mesmo jeito."]]],
+    ["-기는 하지만 — concessão", "동사/형용사 + -기는 하지만", "A forma admite o ponto anterior e acrescenta uma limitação. É mais suave que uma negação direta e ajuda a evitar generalizações. Para dizer “cada”, use -마다 depois do substantivo: 집마다 방식이 달라요.", [["맛있기는 하지만 조금 매워요.", "É gostoso, mas é um pouco picante."], ["집마다 방식이 달라요.", "Cada casa faz de um jeito."]]],
   ],
   guided: [
     mcq("O que a avó diz que as pessoas costumam afirmar sobre o feriado?", ["Que a família deve comer junta.", "Que ninguém deve viajar.", "Que a comida tradicional é ruim."], "Que a família deve comer junta.", "가족이 함께 밥을 먹어야 한다고들 해요."),
     cloze("Complete a opinião geral: 명절에는 가족이 모인___들 해요.", "다고", "모인다고들 해요 relata o que as pessoas dizem."),
-    listen("Ouça e escreva a concessão de Jimin.", "좋기는 하지만 모든 집이 같은 방식은 아니에요.", "좋기는 하지만 모든 집이 같은 방식은 아니에요.", "Ela gosta, mas reconhece que nem todo lar faz igual.", ["좋기는 하지만 모든 집이 같은 방식은 아니에요"]),
+    listen("Ouça e escreva a concessão de Jimin.", "좋기는 하지만 모든 집이 같은 방식은 아니에요.", "좋기는 하지만 모든 집이 같은 방식은 아니에요.", "Ele gosta, mas reconhece que nem todo lar faz igual.", ["좋기는 하지만 모든 집이 같은 방식은 아니에요"]),
     reading("할머니는 명절에 가족이 모이는 것을 중요하게 생각해요. 지민도 가족과의 시간을 좋아해요. 하지만 두 사람은 모든 집이 같은 방식으로 명절을 보내야 한다고 생각하지 않아요.", "O que as duas reconhecem?", ["Que existem formas diferentes de celebrar.", "Que só a tradição da avó é correta.", "Que ninguém gosta do feriado."], "Que existem formas diferentes de celebrar.", "모든 집이 같은 방식으로 보내야 한다고 생각하지 않아요."),
     translate("pt-ko", "Traduza: “Dizem que este é um alimento tradicional da região.”", "이 음식은 지역의 전통 음식이라고들 해요.", "이라고들 해요 relata o que se costuma dizer.", ["이 음식은 지역 전통 음식이라고들 해요."]),
   ],
   independent: [
     mcq("Qual frase evita uma generalização absoluta?", ["모든 집이 같은 방식으로 명절을 보내요.", "집마다 방식이 다를 수 있어요.", "아무도 명절을 지키지 않아요."], "집마다 방식이 다를 수 있어요.", "다를 수 있어요 deixa espaço para variação."),
-    cloze("Complete a concessão: 맛있___ 하지만 조금 매워요.", "기는", "맛있기는 하지만 introduce a objeção."),
+    cloze("Complete a concessão: 맛있___ 하지만 조금 매워요.", "기는", "맛있기는 하지만 introduz a objeção."),
     listen("Ouça e escreva a frase que evita generalizar.", "모든 집이 같은 방식은 아니에요.", "모든 집이 같은 방식은 아니에요.", "Não é todo lar que faz do mesmo jeito.", ["모든 집이 같은 방식은 아니에요"]),
     translate("ko-pt", "Traduza: 이 음식은 지역의 전통 음식이라고들 해요.", "Dizem que este é um alimento tradicional da região.", "이라고들 해요 indica uma opinião difundida, não um fato verificado.", ["Dizem que esta comida é um prato tradicional da região."]),
     reading("같은 문화 안에서도 세대에 따라 생활 방식이 달라요. 어떤 사람은 전통을 중요하게 생각하고, 어떤 사람은 새로운 방식을 선택해요. 어느 한쪽이 항상 옳다고 말하기는 어려워요.", "Qual é a ideia central?", ["Há variações dentro da mesma cultura.", "Todos escolhem o mesmo caminho.", "A tradição desapareceu completamente."], "Há variações dentro da mesma cultura.", "세대에 따라 생활 방식이 달라요."),
@@ -108,12 +108,12 @@ export const B1_L23 = defineB1Lesson({
   reusedIds: ["ko:시간", "ko:이해하다", "ko:말하다", "ko:약속"],
   grammar: [
     ["-도록 — objetivo ou modo", "동사 + -도록", "Indica a finalidade ou o resultado que se quer alcançar. Pode aparecer com pedidos e com 노력하다. Não é uma ordem direta; o tom depende do verbo final.", [["친구가 쉴 수 있도록 조용히 했어요.", "Fiquei em silêncio para que meu amigo pudesse descansar."], ["오해가 없도록 먼저 이야기했어요.", "Conversei antes para que não houvesse mal-entendido."]]],
-    ["-는 데 — âmbito da ação", "동사 + -는 데", "Transforma o verbo em uma expressão nominal e indica em que âmbito algo é necessário, difícil ou demorado. Não confunda com -는데, que tem função de contraste ou contexto.", [["관계를 유지하는 데 시간이 필요해요.", "É preciso tempo para manter uma relação."], ["이야기하는 데 오래 걸렸어요.", "Levou muito tempo para conversar."]]],
+    ["-는 데 — âmbito da ação", "동사 + -는 데", "Transforma o verbo em uma expressão nominal e indica em que âmbito algo é necessário, difícil ou demorado. Não confunda com -는데, que tem função de contraste ou contexto. Para dizer “quando” ou “no momento em que”, use -(으)ㄹ 때: 약속을 바꿀 때는 미리 알려 주세요.", [["관계를 유지하는 데 시간이 필요해요.", "É preciso tempo para manter uma relação."], ["약속을 바꿀 때는 미리 알려 주세요.", "Avise antes quando mudar um combinado."]]],
   ],
   guided: [
     mcq("O que Sujin pede a Jimin?", ["Que avise antes quando mudar um combinado.", "Que pare de trabalhar.", "Que responda imediatamente todas as mensagens."], "Que avise antes quando mudar um combinado.", "약속을 바꿀 때는 미리 알려 줬으면 좋겠어."),
     cloze("Complete o pedido: 서로 이해할 수 있___ 천천히 말해 주세요.", "도록", "이해할 수 있도록 indica o objetivo do pedido."),
-    listen("Ouça e escreva o pedido de Sujin.", "약속을 바꿀 때는 미리 알려 줬으면 좋겠어.", "약속을 바꿀 때는 미리 알려 줬으면 좋겠어.", "Ela gostaria de ser avisada antes quando o combinado mudar.", ["약속을 바꿀 때는 미리 알려 줬으면 좋겠어"]),
+    listen("Ouça e escreva a frase completa com o pedido de Sujin.", "약속을 바꿀 때는 미리 알려 줬으면 좋겠어.", "약속을 바꿀 때는 미리 알려 줬으면 좋겠어.", "Ela gostaria de ser avisada antes quando o combinado mudar.", ["약속을 바꿀 때는 미리 알려 줬으면 좋겠어"]),
     reading("수진은 지민이 연락을 늦게 해서 서운했어요. 하지만 지민을 비난하지 않고, 약속을 바꿀 때 미리 알려 달라고 말했어요. 지민은 다음부터 그렇게 하겠다고 했어요.", "Como Sujin expressou o limite?", ["Com um pedido claro e respeitoso.", "Terminando a amizade.", "Sem dizer o que sentia."], "Com um pedido claro e respeitoso.", "비난하지 않고 미리 알려 달라고 말했어요."),
     translate("pt-ko", "Traduza: “Gostaria que você me avisasse antes.”", "미리 알려 줬으면 좋겠어요.", "줬으면 좋겠어요 expressa o desejo de forma educada.", ["미리 알려 주면 좋겠어요."]),
   ],
@@ -127,7 +127,7 @@ export const B1_L23 = defineB1Lesson({
   summary: ["-도록 indica objetivo, modo ou resultado pretendido.", "-는 데 nominaliza a ação e mostra o âmbito em que algo custa ou exige esforço.", "Um limite claro descreve o pedido, não ataca a pessoa.", "Reconhecer o outro ajuda a preservar a relação."],
   production: {
     titlePt: "Produção independente · um limite com respeito", promptPt: "Escreva um pedido de limite a alguém próximo. Explique a situação, o que você sente e o que gostaria que mudasse em quatro a seis frases.", promptKo: "가까운 사람에게 조심스럽게 부탁하고 싶은 것을 써 보세요.",
-    guidance: ["Descreva o comportamento concreto, sem rotular a pessoa.", "Use -도록 ou -는 데 uma vez.", "Termine com uma proposta de acordo."],
+    guidance: ["Descreva o comportamento concreto, sem rotular a pessoa.", "Escolha um registro consistente (해요체 ou 반말) e mantenha-o.", "Use -도록 ou -는 데 uma vez.", "Termine com uma proposta de acordo."],
     checklist: ["Situação descrita sem acusação.", "Limite ou pedido explícito.", "Sentimento em primeira pessoa.", "Proposta de acordo ou próximo passo."], minWords: 35,
   },
 });
@@ -151,7 +151,7 @@ export const B1_L24 = defineB1Lesson({
   ],
   reusedIds: ["ko:이웃", "ko:물", "ko:수리", "ko:불편"],
   grammar: [
-    ["-는 통에 — consequência negativa", "동사 + -는 통에", "A primeira ação ainda está em curso e causa um prejuízo. A segunda oração costuma trazer o resultado ruim. Evite usar com resultados positivos.", [["공사가 하는 통에 길이 막혔어요.", "Por causa da obra em andamento, a rua ficou congestionada."], ["아이가 우는 통에 전화를 못 했어요.", "Não consegui telefonar porque a criança estava chorando."]]],
+    ["-는 통에 — consequência negativa", "동사 + -는 통에", "A primeira ação ainda está em curso e causa um prejuízo. A segunda oração costuma trazer o resultado ruim. Evite usar com resultados positivos.", [["공사를 하는 통에 길이 막혔어요.", "Por causa da obra em andamento, a rua ficou congestionada."], ["아이가 우는 통에 전화를 못 했어요.", "Não consegui telefonar porque a criança estava chorando."]]],
     ["-기 마련이다 — resultado previsível", "동사/형용사 + -기 마련이다", "Apresenta algo como consequência natural de uma situação. Pode suavizar uma crítica ao mostrar que o problema não depende só de uma pessoa.", [["사람이 많으면 기다리기 마련이에요.", "Se há muita gente, é natural que se espere."], ["처음에는 실수하기 마련이에요.", "É natural cometer erros no começo."]]],
   ],
   guided: [
@@ -162,7 +162,7 @@ export const B1_L24 = defineB1Lesson({
     translate("pt-ko", "Traduza: “É natural que seja difícil consertar um prédio antigo.”", "오래된 건물은 수리하기 어렵기 마련이에요.", "기 마련이에요 apresenta o resultado como natural.", ["오래된 건물이라 수리하기 어렵기 마련이에요."]),
   ],
   independent: [
-    mcq("Qual frase indica uma consequência negativa causada por uma situação contínua?", ["공사가 하는 통에 길이 막혔어요.", "공사가 끝났어요.", "길이 넓어요."], "공사가 하는 통에 길이 막혔어요.", "-는 통에 liga a situação em curso ao prejuízo."),
+    mcq("Qual frase indica uma consequência negativa causada por uma situação contínua?", ["공사를 하는 통에 길이 막혔어요.", "공사가 끝났어요.", "길이 넓어요."], "공사를 하는 통에 길이 막혔어요.", "-는 통에 liga a situação em curso ao prejuízo."),
     cloze("Complete: 사람이 많으면 기다리___ 마련이에요.", "기", "기다리기 마련이에요 significa que esperar é previsível."),
     listen("Ouça e escreva a proposta final.", "임시 안내판을 붙이고 점검 날짜를 정했으면 좋겠어요.", "임시 안내판을 붙이고 점검 날짜를 정했으면 좋겠어요.", "Ele gostaria que colocassem um aviso provisório e definissem a data da inspeção.", ["임시 안내판을 붙이고 점검 날짜를 정했으면 좋겠어요"]),
     translate("ko-pt", "Traduza: 아이가 우는 통에 전화를 못 했어요.", "Não consegui telefonar porque a criança estava chorando.", "우는 통에 indica a causa contínua e negativa.", ["Por causa do choro da criança, não consegui telefonar."]),

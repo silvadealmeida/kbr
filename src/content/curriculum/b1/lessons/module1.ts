@@ -27,7 +27,7 @@ export const B1_L02 = defineB1Lesson({
     cloze("Complete a interrupção: 지하철에서 내리___ 넘어졌어요.", "다가", "내리다가 indica a ação interrompida."),
     listen("Ouça e escreva o que ela fez ao chegar à farmácia.", "약국에 가자마자 약을 샀어요.", "약국에 가자마자 약을 샀어요.", "Assim que chegou à farmácia, comprou o remédio.", ["약국에 가자마자 약을 샀어요"]),
     reading("수진은 지하철에서 내리다가 넘어졌어요. 약국에 가자마자 약을 샀고 바로 회사로 갔어요.", "Qual foi a sequência?", ["Caiu, comprou remédio e foi ao trabalho.", "Foi ao hospital e voltou para casa.", "Perdeu o metrô e faltou ao trabalho."], "Caiu, comprou remédio e foi ao trabalho.", "내리다가 → 약국 → 회사."),
-    translate("pt-ko", "Traduza: “Assim que saí de casa, começou a chover.”", "집을 나가자마자 비가 왔어요.", "나가자마자 indica imediatamente depois.", ["집에서 나가자마자 비가 왔어요."]),
+    translate("pt-ko", "Traduza: “Assim que saí de casa, começou a chover.”", "집을 나가자마자 비가 왔어요.", "나가자마자 indica imediatamente depois.", ["집에서 나가자마자 비가 왔어요.", "집을 나가자마자 비가 오기 시작했어요."]),
   ],
   independent: [
     mcq("Qual frase indica interrupção?", ["걷다가 넘어졌어요.", "걸어서 넘어졌어요.", "걸을 거예요."], "걷다가 넘어졌어요.", "-다가 interrompe a caminhada."),

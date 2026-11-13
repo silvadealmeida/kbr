@@ -24,9 +24,9 @@
     "trimStartMs": 40,
     "trimEndMs": 80
   },
-  "count": 7789,
-  "totalBytes": 168118405,
-  "totalDurationSeconds": 20487.762,
+  "count": 7790,
+  "totalBytes": 168163353,
+  "totalDurationSeconds": 20493.296,
   "items": [
     {
       "text": "‘20분씩 복습하는 사람은 누구나 상위 1%가 된다’는 전제요. 그런데 광고는 그걸 말하지 않아요.",
@@ -29056,22 +29056,22 @@
       "priority": 1
     },
     {
-      "text": "그녀는 두 장을 가지고 있었던 듯하다.",
-      "key": "ko-fac51c03",
-      "src": "/audio/v1/ko-fac51c03.mp3",
-      "sha256": "87ddb02fe4ca3d1a0738065b189b8fd7c51074ce1e8767446fcab06d3f60138c",
-      "bytes": 23215,
-      "durationSeconds": 2.829,
+      "text": "그녀는 두 장 가운데 새 표를 버린 듯하다.",
+      "key": "ko-9f3aec8a",
+      "src": "/audio/v1/ko-9f3aec8a.mp3",
+      "sha256": "e907bb6384550d5e58444ef7088dd4415226be2480d527cb637f103c3bc77831",
+      "bytes": 25932,
+      "durationSeconds": 3.163,
       "sampleRate": 44100,
       "channels": 1,
       "bitrateKbps": 64,
-      "trimStartMs": 76.5,
-      "trimEndMs": 708.4,
-      "rmsBeforeDb": -16.22,
-      "peakBeforeDb": -3.56,
-      "gainDb": -1.78,
+      "trimStartMs": 75.4,
+      "trimEndMs": 631.8,
+      "rmsBeforeDb": -16.16,
+      "peakBeforeDb": -3.32,
+      "gainDb": -1.84,
       "rmsDb": -18.0,
-      "peakDb": -5.34,
+      "peakDb": -5.16,
       "sources": [
         "course:ko-c2:c2-l26:grammar:c2-l26-g2:1"
       ],
@@ -29081,7 +29081,8 @@
       "tags": [
         "batchim",
         "grammar",
-        "ㄹ-final"
+        "ㄹ-final",
+        "ㄹ-initial"
       ],
       "priority": 1
     },
@@ -94322,6 +94323,100 @@
         "ㄹ-initial"
       ],
       "priority": 2
+    },
+    {
+      "text": "북포항은 1998년에 폐항하였다.",
+      "key": "ko-b12d733c",
+      "src": "/audio/v1/ko-b12d733c.mp3",
+      "sha256": "43bc77c231b6cedf600f9eedd0b905d5de49e9bdcab3a47b0257323440baa461",
+      "bytes": 25723,
+      "durationSeconds": 3.144,
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrateKbps": 64,
+      "trimStartMs": 74.1,
+      "trimEndMs": 732.6,
+      "rmsBeforeDb": -17.69,
+      "peakBeforeDb": -4.48,
+      "gainDb": -0.31,
+      "rmsDb": -18.0,
+      "peakDb": -4.78,
+      "sources": [
+        "sentence:sent:c2-l29:폐항"
+      ],
+      "steps": [
+        "c2-l29"
+      ],
+      "tags": [
+        "batchim",
+        "vocabulary-sentence"
+      ],
+      "priority": 1
+    },
+    {
+      "text": "북포항의 폐항과 이촌향도가 실제로 있었으니 그 해석도 설득력이 있어.",
+      "key": "ko-f9165334",
+      "src": "/audio/v1/ko-f9165334.mp3",
+      "sha256": "ace56259ea44a1b415a2d9851e41678e66db2ecbeb924d38afd7efcfc29c0ca2",
+      "bytes": 42859,
+      "durationSeconds": 5.281,
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrateKbps": 64,
+      "trimStartMs": 75.8,
+      "trimEndMs": 684.0,
+      "rmsBeforeDb": -17.15,
+      "peakBeforeDb": -3.39,
+      "gainDb": -0.85,
+      "rmsDb": -18.0,
+      "peakDb": -4.23,
+      "sources": [
+        "course:ko-c2:c2-l29:dialogue:c2-l29-d2"
+      ],
+      "steps": [
+        "c2-l29"
+      ],
+      "tags": [
+        "batchim",
+        "dialogue",
+        "ㄹ-final",
+        "ㄹ-initial"
+      ],
+      "priority": 1
+    },
+    {
+      "text": "북포항이 폐항한 이후 여객선은 다시 다니지 않는다.",
+      "key": "ko-c03ee21e",
+      "src": "/audio/v1/ko-c03ee21e.mp3",
+      "sha256": "f44cec2d0d97d62b51b901a6b96f57c760a5447893cbbdc50beafa308f2238cb",
+      "bytes": 31156,
+      "durationSeconds": 3.821,
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrateKbps": 64,
+      "trimStartMs": 74.7,
+      "trimEndMs": 704.9,
+      "rmsBeforeDb": -17.01,
+      "peakBeforeDb": -3.33,
+      "gainDb": -0.99,
+      "rmsDb": -18.0,
+      "peakDb": -4.31,
+      "sources": [
+        "exercise:c2-c06:c2-c06-e12",
+        "exercise:c2-l29:c2-l29-e03"
+      ],
+      "steps": [
+        "c2-c06",
+        "c2-l29"
+      ],
+      "tags": [
+        "batchim",
+        "c2-c06",
+        "c2-l29",
+        "diag:listening",
+        "listen"
+      ],
+      "priority": 1
     },
     {
       "text": "분",
@@ -159871,22 +159966,22 @@
       "priority": 1
     },
     {
-      "text": "이 작품의 시대적 배경에는 산업화와 이촌향도, 그리고 폐항이 겹쳐 있다.",
-      "key": "ko-73981e51",
-      "src": "/audio/v1/ko-73981e51.mp3",
-      "sha256": "1e7cd3a1011365531305cbb94014d581dba2dae1c83707ae43b4662dddf7af9a",
-      "bytes": 51219,
-      "durationSeconds": 6.332,
+      "text": "이 작품의 시대적 배경에는 산업화와 이촌향도, 그리고 북포항의 폐항이 겹쳐 있다.",
+      "key": "ko-86b9e035",
+      "src": "/audio/v1/ko-86b9e035.mp3",
+      "sha256": "25df0e2d07802df521f4a92752693c7b6ea4f8aa729ad6e4e28e13e3ba4ca822",
+      "bytes": 56025,
+      "durationSeconds": 6.944,
       "sampleRate": 44100,
       "channels": 1,
       "bitrateKbps": 64,
-      "trimStartMs": 71.2,
-      "trimEndMs": 720.9,
-      "rmsBeforeDb": -17.56,
-      "peakBeforeDb": -2.23,
-      "gainDb": -0.44,
+      "trimStartMs": 78.4,
+      "trimEndMs": 728.3,
+      "rmsBeforeDb": -16.92,
+      "peakBeforeDb": -2.35,
+      "gainDb": -1.08,
       "rmsDb": -18.0,
-      "peakDb": -2.66,
+      "peakDb": -3.43,
       "sources": [
         "course:ko-c2:c2-l29:intro:0"
       ],
@@ -224039,73 +224134,6 @@
         "vocabulary"
       ],
       "priority": 2
-    },
-    {
-      "text": "폐항 이후 여객선은 다시 다니지 않는다.",
-      "key": "ko-3653be34",
-      "src": "/audio/v1/ko-3653be34.mp3",
-      "sha256": "6898da7132f871a1e65a4b7030e51abcb7dbe46fe8f94089e6ae295e27ae8874",
-      "bytes": 24887,
-      "durationSeconds": 3.051,
-      "sampleRate": 44100,
-      "channels": 1,
-      "bitrateKbps": 64,
-      "trimStartMs": 74.2,
-      "trimEndMs": 720.9,
-      "rmsBeforeDb": -16.4,
-      "peakBeforeDb": -2.96,
-      "gainDb": -1.6,
-      "rmsDb": -18.0,
-      "peakDb": -4.56,
-      "sources": [
-        "exercise:c2-c06:c2-c06-e12",
-        "exercise:c2-l29:c2-l29-e03",
-        "sentence:sent:c2-l29:폐항"
-      ],
-      "steps": [
-        "c2-c06",
-        "c2-l29"
-      ],
-      "tags": [
-        "batchim",
-        "c2-c06",
-        "c2-l29",
-        "diag:listening",
-        "listen",
-        "vocabulary-sentence"
-      ],
-      "priority": 1
-    },
-    {
-      "text": "폐항과 이촌향도가 실제로 있었으니 그 해석도 설득력이 있어.",
-      "key": "ko-29761b80",
-      "src": "/audio/v1/ko-29761b80.mp3",
-      "sha256": "2e09e8bf595b927c5ec978b69875540127ebbbe92528c54c6ccd898d237dc6ee",
-      "bytes": 37426,
-      "durationSeconds": 4.607,
-      "sampleRate": 44100,
-      "channels": 1,
-      "bitrateKbps": 64,
-      "trimStartMs": 74.3,
-      "trimEndMs": 674.3,
-      "rmsBeforeDb": -17.09,
-      "peakBeforeDb": -2.84,
-      "gainDb": -0.91,
-      "rmsDb": -18.0,
-      "peakDb": -3.75,
-      "sources": [
-        "course:ko-c2:c2-l29:dialogue:c2-l29-d2"
-      ],
-      "steps": [
-        "c2-l29"
-      ],
-      "tags": [
-        "batchim",
-        "dialogue",
-        "ㄹ-final",
-        "ㄹ-initial"
-      ],
-      "priority": 1
     },
     {
       "text": "폐항은 이 소설의 역사적 배경이다.",

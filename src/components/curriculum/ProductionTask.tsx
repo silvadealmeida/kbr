@@ -2,6 +2,7 @@
 
 import { useId, useState } from "react";
 import { BilingualText } from "@/components/hangul/exercise-media";
+import { KoreanKeyboard } from "@/components/hangul/KoreanKeyboard";
 import type { CourseProductionTask } from "@/content/curriculum/course-types";
 
 /**
@@ -55,6 +56,7 @@ export function ProductionTask({ task }: { task: CourseProductionTask }) {
         className="mt-2 w-full rounded-[var(--radius-field)] border border-line-strong bg-surface p-3 text-base"
         placeholder={task.promptKo ? "한국어로 써 보세요." : "Escreva em coreano."}
       />
+      <KoreanKeyboard value={draft} onChange={setDraft} />
       <div className="mt-2 flex flex-wrap items-center justify-between gap-2 text-sm">
         <span className="text-muted" aria-live="polite">
           {words} palavra(s)

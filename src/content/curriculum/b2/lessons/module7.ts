@@ -65,7 +65,7 @@ export const B2_L31 = defineB2Lesson({
     translate("pt-ko", "Traduza: “Se assumirmos que o orçamento cai pela metade, é preciso mudar o plano.”", "예산이 절반으로 줄어든다고 가정하면 계획을 바꿔야 해요.", "-다고 가정하면 explicita a premissa.", ["예산이 절반으로 줄어든다고 가정하면 계획을 바꿔야 합니다."]),
   ],
   independent: [
-    mcq("Qual frase explicita uma premissa?", ["비가 온다고 가정하면 실내에서 열어야 해요.", "비가 왔어요.", "비가 오면 좋겠어요."], "비가 온다고 가정하면 실내에서 열어야 해요.", "-다고 가정하면 = se assumirmos que."),
+    mcq("Qual frase explicita uma premissa?", ["비가 온다고 가정하면 실내에서 열어야 해요.", "비가 왔어요. 어제 많이 왔어요.", "비가 오면 좋겠어요. 정말요."], "비가 온다고 가정하면 실내에서 열어야 해요.", "-다고 가정하면 = se assumirmos que."),
     cloze("Complete o cenário: 예산이 남을 상황___ 먼저 교육에 쓰겠습니다.", "이라면", "상황이라면 = se a situação for."),
     listen("Ouça e escreva a estimativa do especialista.", "전문가는 성장률을 2%로 추산했어요.", "전문가는 성장률을 2%로 추산했어요.", "O especialista estimou o crescimento em 2%."),
     translate("ko-pt", "Traduza: 계획은 하나의 숫자에만 의존하지 않아요.", "O plano não depende de um único número.", "의존하다 = depender; 숫자 = número.", ["O plano não se apoia em um só número."]),
@@ -191,7 +191,7 @@ export const B2_L33 = defineB2Lesson({
     cloze("Complete a concessão: 약속하___ 지키지 않았어요.", "고서도", "약속하고서도 = mesmo depois de prometer."),
     listen("Ouça e escreva o obstáculo superado.", "어려움이 있었지만 극복했어요.", "어려움이 있었지만 극복했어요.", "Havia um obstáculo, mas ele superou."),
     translate("ko-pt", "Traduza: 역경 속에서도 웃음을 잃지 않았어요.", "Mesmo na adversidade, não perdeu o sorriso.", "역경 = adversidade; 잃다 = perder.", ["Não perdeu o sorriso nem na adversidade."]),
-    reading("세 번째 시험에서 그는 합격했다. 그러나 그는 자신을 특별한 사람이라고 말하지 않았다. 매일 조금씩 버티는 것이 결국 가장 큰 힘이었다고 했다. 그는 지금도 후배들에게 같은 말을 한다. 힘든 날에도 한 걸음씩 나아가면 된다고. 그 말에는 자신의 경험이 담겨 있다. 그 말은 아직도 기억에 남는다.", "O que ele considerou sua maior força?", ["Resistir um pouco todos os dias.", "A sorte.", "O talento natural."], "Resistir um pouco todos os dias.", "매일 조금씩 버티는 것."),
+    reading("세 번째 시험에서 그는 합격했다. 그러나 그는 자신을 특별한 사람이라고 말하지 않았다. 매일 조금씩 버티는 것이 결국 가장 큰 힘이었다고 했다. 그는 지금도 후배들에게 같은 말을 한다. 힘든 날에도 한 걸음씩 나아가면 된다고. 그 말에는 자신의 경험이 담겨 있다. 그 말은 아직도 기억에 남는다.", "O que ele considerou sua maior força?", ["Resistir um pouco todos os dias.", "A sorte de encontrar a prova certa.", "O talento natural para os estudos."], "Resistir um pouco todos os dias.", "매일 조금씩 버티는 것."),
   ],
   summary: ["-는 데도 expressa concessão factual.", "-고서도 significa mesmo depois de fazer.", "Persistência não apaga o custo do obstáculo.", "Conteúdo novo permanece em revisão."],
   production: production(
@@ -309,7 +309,7 @@ export const B2_L35 = defineB2Lesson({
     translate("pt-ko", "Traduza: “Não há como ele não saber que ela está irritada.”", "그가 화난 걸 모를 리가 없어요.", "-ㄹ 리가 없다 expressa forte convicção negativa.", ["그가 화난 걸 모를 리가 없습니다."]),
   ],
   independent: [
-    mcq("Qual frase expressa “fingir que”?", ["모르는 척하지 마세요.", "모르세요?", "모를 거예요."], "모르는 척하지 마세요.", "-는 척하다 = fingir que."),
+    mcq("Qual frase expressa “fingir que”?", ["모르는 척하지 마세요.", "모르세요? 정말 모르세요?", "모를 거예요. 아마도요."], "모르는 척하지 마세요.", "-는 척하다 = fingir que."),
     cloze("Complete a convicção: 그 사람이 약속을 잊을 ___가 없습니다.", "리", "잊을 리가 없다 = não há como esquecer."),
     listen("Ouça e escreva o que ela confidenciou.", "결국 속마음을 털어놓았어요.", "결국 속마음을 털어놓았어요.", "No fim, ela confidenciou o que sentia."),
     translate("ko-pt", "Traduza: 억누른 감정은 사라지지 않아요.", "Emoção reprimida não desaparece.", "억누르다 = reprimir; 사라지다 = desaparecer.", ["Sentimentos reprimidos não somem."]),

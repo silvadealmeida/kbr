@@ -80,7 +80,7 @@ export const A1_C08: A1CheckpointContent = {
     cloze("a1-c08-e27", "independent", "Complete o futuro: 다음 주에 여행___.", "할 거예요", "여행할 거예요 significa “vou viajar”."),
     cloze("a1-c08-e28", "independent", "Complete a proibição: 커피를 ___.", "마시지 마세요", "마시지 마세요 significa “não beba”."),
     mcq("a1-c08-e29", "independent", "Qual pergunta pede o preço?", ["얼마예요?", "몇 살이에요?", "몇 시예요?"], "얼마예요?", "얼마예요? pergunta o preço."),
-    mcq("a1-c08-e30", "independent", "Qual tratamento é adequado em uma primeira visita?", ["성함이 어떻게 되세요?", "이름이 뭐야?", "너는 누구야?"], "성함이 어떻게 되세요?", "성함이 어떻게 되세요? é a fórmula polida e honorífica para uma primeira visita."),
+    mcq("a1-c08-e30", "independent", "Qual tratamento é adequado em uma primeira visita?", ["성함이 어떻게 되세요?", "이름이 뭐야? 빨리 말해 봐.", "너는 누구야? 여기서 뭐 해?"], "성함이 어떻게 되세요?", "성함이 어떻게 되세요? é a fórmula polida e honorífica para uma primeira visita."),
 
     // Interação e escrita controlada — 10 itens
     mcq("a1-c08-e31", "independent", "Você não entendeu. O que diz?", ["이해가 안 돼요. 다시 한번 말해 주세요.", "안녕하세요. 만나서 반갑습니다.", "얼마예요? 카드로 계산할게요."], "이해가 안 돼요. 다시 한번 말해 주세요.", "A frase pede reparo de forma clara."),

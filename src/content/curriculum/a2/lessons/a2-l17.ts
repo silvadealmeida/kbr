@@ -89,7 +89,7 @@ export const A2_L17 = defineA2Lesson({
     reading(
       "환자는 일주일 전부터 허리가 아파요. 하루에 여덟 시간 앉아 있고 운동은 거의 안 해요.",
       "O que pode estar relacionado à dor?",
-      ["Ficar muito tempo sentado e não se exercitar.", "Dormir demais.", "Beber pouca água."],
+      ["Ficar muito tempo sentado e não se exercitar.", "Dormir demais nos fins de semana.", "Beber pouca água durante o dia."],
       "Ficar muito tempo sentado e não se exercitar.",
       "여덟 시간 앉아 있고 운동은 거의 안 해요.",
     ),

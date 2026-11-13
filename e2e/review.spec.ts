@@ -208,7 +208,7 @@ test.describe("Revisão autenticada", () => {
     await expect(page.getByText(/Resposta correta:/)).toHaveCount(0);
     await page.getByRole("button", { name: "Mostrar resposta" }).click();
 
-    const feedback = page.getByRole("status").filter({ hasText: "Ainda não." });
+    const feedback = page.getByRole("status").filter({ hasText: "Não foi dessa vez." });
     await expect(feedback).toBeVisible();
     await expect(feedback).toContainText("Resposta correta:");
     await expect(feedback).toContainText("carne");

@@ -175,7 +175,7 @@ test.describe("Vocabulário", () => {
       await expect(page.getByText("Palavra esperada: café")).toBeVisible();
       await page.getByLabel(/Digite a palavra que falta/).fill("차");
       await page.getByRole("button", { name: "Verificar" }).click();
-      await expect(page.getByRole("heading", { name: "Ainda não — veja a resposta" })).toBeFocused();
+      await expect(page.getByRole("heading", { name: "Não foi dessa vez — veja a resposta" })).toBeFocused();
       await expect(page.getByText("커피 — café")).toBeVisible();
       await expect(page.getByText("저는 커피를 좋아해요.")).toBeVisible();
       await expect(page.getByText("“Eu gosto de café.”")).toBeVisible();
@@ -364,7 +364,7 @@ test.describe("Vocabulário", () => {
 
         await page.getByLabel(/Digite a palavra que falta/).fill("차");
         await page.getByRole("button", { name: "Verificar" }).click();
-        await expect(page.getByRole("heading", { name: "Ainda não — veja a resposta" })).toBeVisible();
+        await expect(page.getByRole("heading", { name: "Não foi dessa vez — veja a resposta" })).toBeVisible();
         await axe("erro");
         await page.getByRole("button", { name: "Próximo cartão" }).click();
 

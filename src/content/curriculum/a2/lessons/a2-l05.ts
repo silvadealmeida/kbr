@@ -98,7 +98,7 @@ export const A2_L05 = defineA2Lesson({
     reading(
       "주인공은 서울에서 길을 잃었어요. 그런데 한 사람이 도와줬어요. 결국 그는 집으로 돌아갔어요.",
       "Quem ajudou o protagonista?",
-      ["Uma pessoa que apareceu na história.", "A família dele.", "O autor do livro."],
+      ["Uma pessoa que apareceu na história.", "A família dele, que o esperava em casa.", "O autor do livro, que narra a história."],
       "Uma pessoa que apareceu na história.",
       "한 사람이 도와줬어요: uma pessoa o ajudou.",
     ),

@@ -98,11 +98,7 @@ export const A2_L34 = defineA2Lesson({
   independent: [
     mcq(
       "Qual recusa é mais cortês?",
-      [
-        "미안하지만 그날은 어려워요.",
-        "싫어요.",
-        "안 가요.",
-      ],
+      ["미안하지만 그날은 어려워요.", "싫어요. 저는 그런 자리에 가고 싶지 않아요.", "안 가요. 그날은 다른 약속이 있어요."],
       "미안하지만 그날은 어려워요.",
       "A forma reconhece o convite e explica a dificuldade.",
     ),
@@ -128,7 +124,7 @@ export const A2_L34 = defineA2Lesson({
     reading(
       "초대를 받으면 먼저 고마움을 표현해요. 갈 수 없으면 짧게 이유를 말하고, 가능하면 다른 시간을 제안해요.",
       "O que fazer ao recusar um convite?",
-      ["Agradecer, explicar e propor outra data.", "Ignorar a mensagem.", "Aceitar e não ir."],
+      ["Agradecer, explicar e propor outra data.", "Ignorar a mensagem e não responder.", "Aceitar o convite e não aparecer."],
       "Agradecer, explicar e propor outra data.",
       "고마움을 표현하고 이유를 말하고 다른 시간을 제안해요.",
     ),

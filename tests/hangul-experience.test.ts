@@ -230,7 +230,7 @@ describe("apresentação dos exercícios", () => {
     );
 
     expect(html).toContain('role="status"');
-    expect(html).toContain("Ainda não.");
+    expect(html).toContain("Não foi dessa vez.");
     expect(html).toContain("Resposta correta:");
     expect(html).toContain("Sua resposta:");
     expect(html).toContain("Resultado");

@@ -54,7 +54,7 @@ export const C1_C04 = defineC1Checkpoint({
   estimatedMinutes: 55,
   exercises: [
     mcq("Qual frase deixa claro que a informação foi inferida, e não observada diretamente?", ["회의실이 조용한 걸 보니 회의가 끝난 모양이다.", "나는 회의실에서 회의가 끝나는 것을 직접 보았다.", "회의는 세 시에 시작합니다."], "회의실이 조용한 걸 보니 회의가 끝난 모양이다.", "-ㄴ/는 모양이다 marca uma conclusão tirada de indícios observados, não uma observação direta."),
-    mcq("Qual resposta rebaixa um elogio sem ofender?", ["대단하기는요. 아직 절반도 못 했어요.", "그 말은 틀렸습니다.", "네, 제가 최고입니다."], "대단하기는요. 아직 절반도 못 했어요.", "-기는요 recusa o elogio de modo polido, sem transformar a discordância em ataque."),
+    mcq("Qual resposta rebaixa um elogio sem ofender?", ["대단하기는요. 아직 절반도 못 했어요.", "그 말은 틀렸습니다. 정말 틀렸어요.", "네, 제가 최고입니다. 정말로요."], "대단하기는요. 아직 절반도 못 했어요.", "-기는요 recusa o elogio de modo polido, sem transformar a discordância em ataque."),
     mcq("Qual pedido deixa ao outro uma margem real de recusa?", ["시간 되실 때 같이 확인해 주실 수 있을까요?", "지금 당장 다시 하세요.", "이건 반드시 오늘 안에 끝내야 합니다."], "시간 되실 때 같이 확인해 주실 수 있을까요?", "A pergunta com condição e possibilidade preserva a autonomia de quem recebe o pedido."),
 
     cloze("Complete a inferência a partir da pista: 회의실 불이 꺼진 걸 보니 회의가 일찍 끝난 ___.", "모양이다", "-ㄴ/는 모양이다 conclui a partir de uma evidência observável."),

@@ -121,7 +121,7 @@ export const A1_L14: A1LessonContent = defineA1Lesson({
       "guided",
       "저는 부엌에서 요리해요. 그리고 설거지해요.",
       "O que a pessoa faz na cozinha?",
-      choices("Cozinha e lava a louça.", "Limpa a sala.", "Lava roupa."),
+      choices("Cozinha e lava a louça.", "Limpa a sala e organiza os armários.", "Lava roupa na lavanderia do prédio."),
       "Cozinha e lava a louça.",
       "요리해요 e 설거지해요 acontecem na cozinha.",
     ),

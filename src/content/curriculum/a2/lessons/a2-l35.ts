@@ -83,7 +83,7 @@ export const A2_L35 = defineA2Lesson({
     reading(
       "한국에서는 보통 어른이 먼저 식사를 시작해요. 브라질에서는 다 같이 시작하는 경우가 많아요. 하지만 가족마다 다를 수 있어요.",
       "O que o texto evita?",
-      ["Generalizar todos os coreanos e brasileiros.", "Falar de comida.", "Mencionar famílias."],
+      ["Generalizar todos os coreanos e brasileiros.", "Falar apenas de comida e horários.", "Mencionar apenas as famílias."],
       "Generalizar todos os coreanos e brasileiros.",
       "가족마다 다를 수 있어요 relativiza a regra.",
     ),

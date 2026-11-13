@@ -27,7 +27,7 @@ O ledger canônico é `findings.json`: **3 Critical, 19 High, 8 Medium, 3 Low** 
 - correções de infraestrutura C1/C2 (imports, contrato de rubrica, blueprints, registro de cursos);
 - correção de interpolação de `levelLabel` no player compartilhado;
 - correção de fairness de `listen` em A1 (enunciado agora pede frase completa quando o gabarito tem 2+ palavras);
-- correção de pistas de comprimento nos 7 itens de maior risco; 230 itens permanecem como dívida editorial;
+- correção de pistas de comprimento: os 237 itens acima de 1,7× foram reescritos na Fase 14 e há teste permanente; a dívida editorial está fechada;
 - correções de honorífico, regência, colocação, referência, lógica e tradução em A1, A2, B1, B2, C1 e C2.
 - itens de revisão nativa que permanecem `requires-native-review`, sem correção automática.
 

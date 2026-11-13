@@ -17,7 +17,7 @@ export const B1_C04 = defineB1Checkpoint({
     listen("Ouça e escreva o acordo.", "회의 후에 업무 배분을 다시 정했어요.", "회의 후에 업무 배분을 다시 정했어요.", "Depois da reunião, redefinimos a distribuição das tarefas.", ["회의 후에 업무 배분을 다시 정했어요"]),
     reading("각자의 역할을 분명히 하고, 최종 확인은 책임자가 하기로 했어요.", "Quem faz a verificação final?", ["O responsável.", "Todos os clientes.", "Ninguém."], "O responsável.", "최종 확인은 책임자가 해요."),
     reading("회의에서 합의가 되지 않아 결정이 당분간 미뤄졌어요. 다음 주에 다시 논의할 예정이에요.", "Quando vão decidir?", ["Na próxima semana.", "Hoje à noite.", "No próximo ano."], "Na próxima semana.", "다음 주에 다시 논의할 예정이에요."),
-    reading("계약직으로 시작했지만 1년 후 정규직으로 전환됐어요. 연봉과 복지도 조금 좋아졌어요.", "O que mudou?", ["Houve efetivação e melhoria de benefícios.", "A pessoa pediu demissão.", "O salário diminuiu."], "Houve efetivação e melhoria de benefícios.", "정규직으로 전환됐어요."),
+    reading("계약직으로 시작했지만 1년 후 정규직으로 전환됐어요. 연봉과 복지도 조금 좋아졌어요.", "O que mudou?", ["Houve efetivação e melhoria de benefícios.", "A pessoa pediu demissão no ano seguinte.", "O salário diminuiu depois da efetivação."], "Houve efetivação e melhoria de benefícios.", "정규직으로 전환됐어요."),
     reading("논문 연구와 실습을 병행하기는 쉽지 않아요. 하지만 두 경험이 서로를 보완해요.", "Qual é a ideia?", ["Teoria e prática se complementam.", "Só a teoria importa.", "Só a prática importa."], "Teoria e prática se complementam.", "두 경험이 서로를 보완해요."),
     reading("불만을 말로 표현하지 않으면 갈등이 커져요. 먼저 사실을 정리하고 협상을 시작하는 게 좋아요.", "Qual é o conselho?", ["Organizar os fatos antes de negociar.", "Ignorar o conflito.", "Evitar qualquer conversa."], "Organizar os fatos antes de negociar.", "사실을 정리하고 협상을 시작해요."),
     reading("규정 위반에는 징계가 따를 수 있어요. 그래서 교육과 예방이 중요해요.", "O que pode acontecer?", ["Medida disciplinar.", "Promoção automática.", "Férias extras."], "Medida disciplinar.", "징계가 따를 수 있어요."),

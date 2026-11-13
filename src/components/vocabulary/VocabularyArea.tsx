@@ -39,6 +39,9 @@ const COURSE_LABEL: Record<string, string> = {
   "ko-a1": "Coreano A1",
   "ko-a2": "Coreano A2",
   "ko-b1": "Coreano B1",
+  "ko-b2": "Coreano B2",
+  "ko-c1": "Coreano C1",
+  "ko-c2": "Coreano C2",
 };
 
 function Stat({ label, value }: { label: string; value: number }) {
@@ -181,6 +184,9 @@ export function VocabularyArea() {
           <div className="min-[560px]:col-span-2">
             <label htmlFor="vocab-q" className="text-sm font-medium">Buscar em coreano ou português</label>
             <Input id="vocab-q" type="search" value={query} onChange={(e) => { setQuery(e.target.value); setLimit(PAGE); }} placeholder="사과 ou maçã" autoComplete="off" />
+            <p className="mt-2 text-xs text-muted">
+              A busca cobre só as palavras apresentadas nas lições do KBR; não é um dicionário.
+            </p>
           </div>
           <div>
             <label htmlFor="vocab-course" className="text-sm font-medium">Curso</label>
@@ -209,7 +215,7 @@ export function VocabularyArea() {
         ) : null}
 
         <p role="status" className="mt-4 text-sm text-muted">
-          {visible.length === 0 ? "Nenhuma palavra encontrada." : `${visible.length} ${visible.length === 1 ? "palavra" : "palavras"}`}
+          {visible.length === 0 ? "Nenhuma palavra das lições corresponde à busca." : `${visible.length} ${visible.length === 1 ? "palavra" : "palavras"}`}
         </p>
         {visible.length === 0 && onlySaved && summary.saved === 0 ? (
           <p className="mt-2 text-muted">Você ainda não salvou nenhuma. Desmarque o filtro e use “Salvar”.</p>

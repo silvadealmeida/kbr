@@ -118,7 +118,7 @@ export const B1_L38 = defineB1Lesson({
     translate("pt-ko", "Traduza: “Enviei uma consulta sobre o cancelamento da reserva.”", "예약 취소에 대한 문의를 보냈어요.", "취소에 대한 문의 é a estrutura de assunto formal.", ["예약 취소에 대한 질문을 보냈어요."]),
   ],
   independent: [
-    mcq("Qual parte da mensagem indica até quando a instituição deve responder?", ["회신 기한", "제목", "서명"], "회신 기한", "회신 기한 é o prazo de resposta."),
+    mcq("Qual parte da mensagem indica até quando a instituição deve responder?", ["회신 기한", "메일 제목", "보낸 사람 서명"], "회신 기한", "회신 기한 é o prazo de resposta."),
     cloze("Complete o pedido: 환불을 받을 수 있___ 확인해 주세요.", "도록", "받을 수 있도록 확인해 주세요 apresenta o pedido como providência."),
     listen("Ouça e escreva o que foi incluído no corpo da mensagem.", "본문에 날짜와 예약 번호를 넣었어요.", "본문에 날짜와 예약 번호를 넣었어요.", "A data e o número da reserva foram incluídos no corpo.", ["본문에 날짜와 예약 번호를 넣었어요"]),
     translate("ko-pt", "Traduza: 금요일까지 회신해 주시기 바랍니다.", "Peço que respondam até sexta-feira.", "회신해 주시기 바랍니다 é um pedido formal de resposta.", ["Solicito uma resposta até sexta-feira."]),

@@ -30,7 +30,7 @@ export const B1_L31 = defineB1Lesson({
     translate("pt-ko", "Traduza: “Segundo a reportagem, o mercado fecha no mês que vem.”", "보도에 따르면 시장이 다음 달에 문을 닫는다고 해요.", "Fonte com -에 따르면 e relato com -다고 해요.", ["보도에 따르면 그 시장은 다음 달에 문을 닫는다고 해요."]),
   ],
   independent: [
-    mcq("Qual frase relata informação de terceiros com fonte explícita?", ["보도에 따르면 피해가 크다고 한다.", "피해가 커요.", "피해가 컸어요."], "보도에 따르면 피해가 크다고 한다.", "-에 따르면 apresenta a fonte e -다고 한다 relata a informação."),
+    mcq("Qual frase relata informação de terceiros com fonte explícita?", ["보도에 따르면 피해가 크다고 한다.", "피해가 커요. 정말 심각해요.", "피해가 컸어요. 지난주 일이에요."], "보도에 따르면 피해가 크다고 한다.", "-에 따르면 apresenta a fonte e -다고 한다 relata a informação."),
     cloze("Complete o relato indireto: 피해가 크___ 한다.", "다고", "형용사 크다 + -다고 한다: 크다고 한다."),
     listen("Ouça e escreva o que faltava em um dos veículos.", "한 곳은 논평만 있고 자료가 없었어요.", "한 곳은 논평만 있고 자료가 없었어요.", "Um dos veículos tinha apenas comentário, sem dados.", ["한 곳은 논평만 있고 자료가 없었어요"]),
     translate("ko-pt", "Traduza: 보도에 따르면 시장이 다음 달에 문을 닫는다고 해요.", "Segundo a reportagem, o mercado fecha no mês que vem.", "보도에 따르면 marca a fonte; -다고 해요 relata a afirmação.", ["Segundo a reportagem, o mercado fecha no próximo mês."]),
@@ -74,7 +74,7 @@ export const B1_L32 = defineB1Lesson({
     translate("pt-ko", "Traduza: “O texto diz que o orçamento é insuficiente.”", "글은 예산이 부족하다는 내용이에요.", "부족하다 + -다는 내용이다 resume a tese."),
   ],
   independent: [
-    mcq("Qual frase resume o conteúdo de um texto?", ["글은 예산이 부족하다는 내용이다.", "예산이 부족해요.", "예산을 늘릴까요?"], "글은 예산이 부족하다는 내용이다.", "-다는 내용이다 marca o resumo do texto."),
+    mcq("Qual frase resume o conteúdo de um texto?", ["글은 예산이 부족하다는 내용이다.", "예산이 부족해요. 더 필요해요.", "예산을 늘릴까요? 함께 생각해 봐요."], "글은 예산이 부족하다는 내용이다.", "-다는 내용이다 marca o resumo do texto."),
     cloze("Complete a interpretação cautelosa: 계획이 아직 확정되지 않은 것___ 보여요.", "으로", "-(으)ㄴ 것으로 보이다: 확정되지 않은 것으로 보여요."),
     listen("Ouça e escreva o transtorno citado no texto.", "버스가 아침에 두 번밖에 안 와서 학생들이 오래 기다려요.", "버스가 아침에 두 번밖에 안 와서 학생들이 오래 기다려요.", "Como o ônibus passa só duas vezes pela manhã, os alunos esperam muito.", ["버스가 아침에 두 번밖에 안 와서 학생들이 오래 기다려요"]),
     translate("ko-pt", "Traduza: 글쓴이는 예산을 늘려야 한다고 주장해요.", "O autor defende que o orçamento deve ser aumentado.", "-다고 주장하다 apresenta a tese do autor.", ["O autor argumenta que o orçamento precisa ser aumentado."]),
@@ -155,7 +155,7 @@ export const B1_L34 = defineB1Lesson({
     ["-는 경향이 있다 — tendência observada", "동사 + -는 경향이 있다 / 형용사 + -(으)ㄴ 경향이 있다", "A forma indica uma tendência, não uma lei. Ela pede um recorte claro: período, grupo ou condição. Para causalidade, seria necessário outro argumento.", [["짧은 영상을 더 보는 경향이 있어요.", "Há uma tendência a ver mais vídeos curtos."], ["주말에는 이용자가 줄어드는 경향이 있어요.", "Nos fins de semana, há uma tendência de queda no número de usuários."]]],
   ],
   guided: [
-    mcq("O que aconteceu com o número de usuários?", ["Aumentou em relação ao ano passado.", "Caiu pela metade.", "Ficou igual."], "Aumentou em relação ao ano passado.", "이용자 수는 작년에 비해 많이 늘었어요."),
+    mcq("O que aconteceu com o número de usuários?", ["Aumentou em relação ao ano passado.", "Caiu pela metade no mesmo período.", "Ficou igual ao ano passado."], "Aumentou em relação ao ano passado.", "이용자 수는 작년에 비해 많이 늘었어요."),
     cloze("Complete a comparação: 이용자 수는 작년___ 비해 늘었어요.", "에", "A base da comparação recebe -에 비해."),
     listen("Ouça e escreva a tendência de uso descrita.", "짧게 여러 번 접속하는 경향이 있어요.", "짧게 여러 번 접속하는 경향이 있어요.", "As pessoas tendem a acessar várias vezes, por pouco tempo.", ["짧게 여러 번 접속하는 경향이 있어요"]),
     reading("작년보다 올해 이용자 수가 두 배 늘었어요. 하지만 한 번에 머무는 시간은 줄었어요. 자료는 이 변화의 원인을 설명하지 않아요.", "Qual ressalva o texto faz?", ["O material não explica a causa da mudança.", "O número de usuários caiu.", "O tempo de uso aumentou."], "O material não explica a causa da mudança.", "자료는 이 변화의 원인을 설명하지 않아요."),

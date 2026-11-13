@@ -8,8 +8,8 @@
     "high": 19,
     "medium": 8,
     "low": 3,
-    "fixed": 31,
-    "deferred": 1,
+    "fixed": 32,
+    "deferred": 0,
     "requiresHumanReview": 1
   },
   "findings": [
@@ -188,10 +188,10 @@
       "original": "237 itens apresentam gabarito muito mais longo que os distratores.",
       "evidence": "O comprimento é uma pista parcial de resposta, sobretudo em leitura e interpretação.",
       "explanation": "Conteúdo redigido com alternativas curtas e gabaritos explicativos.",
-      "proposedCorrection": "Corrigidos os 7 casos de maior risco (razão ≥3,0). Os demais ficam para reescrita editorial, pois ampliar 230 distratores sem revisão pode introduzir ambiguidade.",
+      "proposedCorrection": "Fase 14: os 237 itens detectados acima de 1,7× foram reescritos com distratores plausíveis, preservando o gabarito na mesma posição. Restaram 0 itens acima do limite.",
       "reference": "Fairness de avaliação; 8A já trata posição, não comprimento.",
-      "status": "deferred",
-      "regressionTest": "Heurística registrada; não há teste que falhe por comprimento para não incentivar padding artificial."
+      "status": "fixed",
+      "regressionTest": "tests/content/phase14-fairness.test.ts cobre 1.381 itens de escolha de A1–C2 e falha se o gabarito passar de 1,7× o maior distrator."
     },
     {
       "id": "F13-020",
@@ -488,7 +488,7 @@
       "original": "Vários ajustes de colocação, referência, modalidade e tradução.",
       "evidence": "Achados C2R-005..120 confirmados na revisão assistida (ex.: 부결, 두 개 동, 재현성, 1,4 vez, 등굣길, 부정하다).",
       "explanation": "Conjunto de erros médios de precisão e coesão.",
-      "proposedCorrection": "Corrigidos os casos confirmados; os incertos (폐항, focalização do conto) ficam para revisão humana.",
+      "proposedCorrection": "Corrigidos os casos confirmados. Na Fase 14, 폐항 foi restrito ao fechamento do porto e a contagem de bilhetes do conto foi uniformizada em dois; a revisão nativa de focalização, ironia e naturalidade continua pendente.",
       "reference": "Referências coreanas gerais; revisão nativa pendente",
       "status": "fixed",
       "regressionTest": "tests/content/c2-curriculum.test.ts"

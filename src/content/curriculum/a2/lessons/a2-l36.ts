@@ -124,7 +124,7 @@ export const A2_L36 = defineA2Lesson({
     reading(
       "여행 계획이 틀어지면 당황할 수 있어요. 하지만 그때 새로운 선택을 하게 되고, 예상하지 못한 좋은 경험을 하기도 해요.",
       "Qual é a mensagem?",
-      ["Planos que mudam podem trazer experiências novas.", "Nunca se deve planejar.", "Viagens sempre dão errado."],
+      ["Planos que mudam podem trazer experiências novas.", "Nunca se deve planejar uma viagem.", "Viagens sempre dão errado no fim."],
       "Planos que mudam podem trazer experiências novas.",
       "새로운 선택을 하게 되고 좋은 경험을 하기도 해요.",
     ),

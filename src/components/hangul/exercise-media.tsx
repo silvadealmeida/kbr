@@ -130,6 +130,9 @@ export function AudioControl({
     const next = nextPlaybackRate(rate);
     setRate(next);
     if (state.status === "playing" || state.status === "loading") {
+      // MP3 tocando: ajusta a taxa sem reiniciar. Voz do sistema não aceita
+      // mudança no meio da fala, então só nesse caso a reprodução recomeça.
+      if (playerRef.current?.setRate(next)) return;
       void playerRef.current?.play(text, { rate: next, src });
     }
   };

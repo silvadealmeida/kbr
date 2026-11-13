@@ -225,9 +225,11 @@ test.describe("Orçamento de desempenho local", () => {
       contentType: "application/json",
     });
     expect(hangul.cls, "CLS do atlas").toBeLessThan(0.1);
-    // Orçamento revisto na Fase 14: o mapa compacto `entries.ts` do corpus
-    // completo (Hangul–C2, 7.789 MP3) entra no bundle do cliente. O limite
-    // anterior de 1,2 MB não comportava o corpus ampliado.
+    // O atlas carrega muitos subconjuntos woff2 de Noto Sans KR sob demanda; a
+    // transferência varia ~1 KB entre execuções, então o teto tem folga pequena.
+    // Fase 14 (áudio): o mapa compacto `entries.ts` do corpus completo
+    // (Hangul–C2, 7.789 MP3) entra no bundle do cliente. O limite anterior
+    // não comportava o corpus ampliado.
     expect(hangul.bytes, "transferência total do atlas").toBeLessThan(1_500_000);
   });
 
@@ -257,7 +259,6 @@ test.describe("Orçamento de desempenho local", () => {
       contentType: "application/json",
     });
     expect(completion.cls, "CLS da conclusão").toBeLessThan(0.1);
-    // Ver comentário do atlas: corpus completo no mapa do cliente.
     expect(completion.bytes, "transferência total da conclusão").toBeLessThan(1_500_000);
   });
 

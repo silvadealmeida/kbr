@@ -146,7 +146,7 @@ export const A1_C02: A1CheckpointContent = {
       "independent",
       "저는 학생이 아니에요. 저는 회사원이에요.",
       "Qual é a ocupação da pessoa?",
-      choices("Funcionária de empresa.", "Estudante.", "Professora."),
+      choices("Funcionária de empresa.", "Estudante de intercâmbio.", "Professora de coreano."),
       "Funcionária de empresa.",
       "회사원이에요 informa a ocupação; a primeira frase nega “estudante”.",
     ),

@@ -381,8 +381,12 @@ test.describe("WebKit/iOS automatizado (sem dispositivo físico)", () => {
     await page.goto("/dashboard");
     await expect(page.getByRole("heading", { level: 1, name: "Seu painel" })).toBeVisible();
 
-    // O menu lateral (≥768 px) repete o botão; o cartão da conta está em main.
-    await page.getByRole("main").getByRole("button", { name: "Sair da conta" }).click();
+    // O botão de sair fica na navegação: header no mobile e menu lateral no
+    // desktop (os dois existem no DOM; só um está visível).
+    await page
+      .getByRole("button", { name: /^Sair/ })
+      .filter({ visible: true })
+      .click();
     await expect(page).toHaveURL(/motivo=logout/);
     await expect(page.getByText("Você saiu da conta.", { exact: false })).toBeVisible();
     await expect(page.getByText("Sua sessão expirou", { exact: false })).toHaveCount(0);

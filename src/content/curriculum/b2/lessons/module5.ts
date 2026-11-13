@@ -130,7 +130,7 @@ export const B2_L22 = defineB2Lesson({
     cloze("Complete a alegação: 그 정책이 효과가 있다___ 주장에는 근거가 부족해요.", "는", "있다는 주장 = alegação de que é eficaz."),
     listen("Ouça e escreva o método de verificação.", "두 출처를 교차 검증했어요.", "두 출처를 교차 검증했어요.", "Fiz verificação cruzada de duas fontes."),
     translate("ko-pt", "Traduza: 인용문을 왜곡해서 보도하면 독자는 진실을 알 수 없어요.", "Se distorcerem a citação ao noticiar, o leitor não consegue saber a verdade.", "왜곡하다 = distorcer; 인용문 = citação.", ["Quando a citação é distorcida, o leitor não conhece a verdade."]),
-    reading("팩트체크는 의심만 키우는 일이 아니다. 인용문을 왜곡해서 보도하면 독자는 진실을 알 수 없다. 원문과 맥락을 함께 제시할 때 확인은 힘을 얻는다. 확인되지 않은 정보를 사실처럼 전하는 것은 또 다른 피해를 만든다. 그래서 원문 확인이 먼저다.", "O que fortalece a verificação?", ["Apresentar o original e o contexto.", "Repetir a manchete.", "Apagar a fonte."], "Apresentar o original e o contexto.", "원문과 맥락을 함께 제시할 때 확인은 힘을 얻어요."),
+    reading("팩트체크는 의심만 키우는 일이 아니다. 인용문을 왜곡해서 보도하면 독자는 진실을 알 수 없다. 원문과 맥락을 함께 제시할 때 확인은 힘을 얻는다. 확인되지 않은 정보를 사실처럼 전하는 것은 또 다른 피해를 만든다. 그래서 원문 확인이 먼저다.", "O que fortalece a verificação?", ["Apresentar o original e o contexto.", "Repetir a manchete sem alterações.", "Apagar a fonte e o nome do autor."], "Apresentar o original e o contexto.", "원문과 맥락을 함께 제시할 때 확인은 힘을 얻어요."),
   ],
   summary: ["-에 의하면 introduz fonte formal.", "-라는 주장이다 atribui sem endossar.", "Rastrear a fonte é diferente de repetir a fonte.", "Conteúdo novo permanece em revisão."],
   production: production(
@@ -241,10 +241,10 @@ export const B2_L24 = defineB2Lesson({
     ["-다고 해서 — só porque se diz que", "동사/형용사 + -다고 해서", "Significa “só porque se diz/faz..., não significa que...”. A segunda oração costuma negar uma conclusão automática. Compare com -ㄴ/는다 해도 (mesmo que se diga) e -라고 해도 (mesmo que digam). Registro: neutro a formal.", [["소문이 난다고 해서 사실은 아니에요.", "Só porque há um boato, não significa que seja fato."], ["유명하다고 해서 품질이 좋은 것은 아닙니다.", "Só porque é famoso, não significa que a qualidade seja boa."]]],
   ],
   guided: [
-    mcq("Por que é difícil decidir qual versão está certa?", ["Porque a perspectiva muda conforme os dados.", "Porque não há moradores.", "Porque a obra terminou."], "Porque a perspectiva muda conforme os dados.", "자료에 따라 시각이 달라질 수 있어요."),
+    mcq("Por que é difícil decidir qual versão está certa?", ["Porque a perspectiva muda conforme os dados.", "Porque não há moradores no local.", "Porque a obra terminou antes do prazo."], "Porque a perspectiva muda conforme os dados.", "자료에 따라 시각이 달라질 수 있어요."),
     cloze("Complete a margem de dúvida: 아직 다른 해석이 있을 ___가 있어요.", "여지", "여지가 있다 = há margem."),
     listen("Ouça e escreva a diferença entre as versões.", "주민과 시의 설명이 서로 달라요.", "주민과 시의 설명이 서로 달라요.", "As explicações dos moradores e da prefeitura são diferentes."),
-    reading("같은 공사 현장을 두고 주민과 시의 설명이 달랐다. 주민은 소음이 심하다고 했고, 시는 기준을 지켰다고 했다. 어느 쪽이 맞는지는 자료에 따라 시각이 달라질 수 있다.", "Por que as versões diferem?", ["Porque cada lado parte de dados e perspectivas diferentes.", "Porque a obra não existe.", "Porque todos concordam."], "Porque cada lado parte de dados e perspectivas diferentes.", "자료에 따라 시각이 달라질 수 있어요."),
+    reading("같은 공사 현장을 두고 주민과 시의 설명이 달랐다. 주민은 소음이 심하다고 했고, 시는 기준을 지켰다고 했다. 어느 쪽이 맞는지는 자료에 따라 시각이 달라질 수 있다.", "Por que as versões diferem?", ["Porque cada lado parte de dados e perspectivas diferentes.", "Porque a obra não existe de verdade.", "Porque todos concordam sobre o ocorrido."], "Porque cada lado parte de dados e perspectivas diferentes.", "자료에 따라 시각이 달라질 수 있어요."),
     translate("pt-ko", "Traduza: “Só porque há um boato, não significa que seja fato.”", "소문이 난다고 해서 사실은 아니에요.", "-다고 해서 nega a conclusão automática.", ["소문이 난다고 해서 사실이 되는 것은 아니에요."]),
   ],
   independent: [
@@ -252,7 +252,7 @@ export const B2_L24 = defineB2Lesson({
     cloze("Complete a margem: 논의할 ___가 남아 있습니다.", "여지", "여지가 남아 있다 = ainda há margem."),
     listen("Ouça e escreva o efeito da cobertura sem equilíbrio.", "균형을 잃은 보도는 공정성에 대한 의심을 키워요.", "균형을 잃은 보도는 공정성에 대한 의심을 키워요.", "Uma cobertura sem equilíbrio aumenta a dúvida sobre a imparcialidade."),
     translate("ko-pt", "Traduza: 문제를 다각도로 살펴야 해요.", "É preciso olhar o problema por vários ângulos.", "다각도로 = por vários ângulos.", ["Devemos examinar o problema sob várias perspectivas."]),
-    reading("편향성은 한 문장에서도 드러난다. 그래서 문제를 다각도로 살펴야 한다. 서로 다른 주장을 비교하고, 확인되지 않은 부분을 밝히는 것이 신뢰의 시작이다. 보도는 한쪽의 주장만 크게 다루지 않도록 조심해야 한다. 그럴 때 독자는 스스로 판단할 수 있다. 그것이 공론의 출발점이다.", "O que é o começo da confiança?", ["Comparar alegações e explicitar o que não foi confirmado.", "Escolher o lado mais forte.", "Repetir a versão mais popular."], "Comparar alegações e explicitar o que não foi confirmado.", "서로 다른 주장을 비교하고 확인되지 않은 부분을 밝히는 것."),
+    reading("편향성은 한 문장에서도 드러난다. 그래서 문제를 다각도로 살펴야 한다. 서로 다른 주장을 비교하고, 확인되지 않은 부분을 밝히는 것이 신뢰의 시작이다. 보도는 한쪽의 주장만 크게 다루지 않도록 조심해야 한다. 그럴 때 독자는 스스로 판단할 수 있다. 그것이 공론의 출발점이다.", "O que é o começo da confiança?", ["Comparar alegações e explicitar o que não foi confirmado.", "Escolher o lado mais forte da disputa.", "Repetir a versão mais popular da notícia."], "Comparar alegações e explicitar o que não foi confirmado.", "서로 다른 주장을 비교하고 확인되지 않은 부분을 밝히는 것."),
   ],
   summary: ["-ㄹ 여지가 있다 indica margem de interpretação.", "-다고 해서 nega conclusão automática.", "Confiabilidade exige critério, não autoridade.", "Conteúdo novo permanece em revisão."],
   production: production(
@@ -302,7 +302,7 @@ export const B2_L25 = defineB2Lesson({
     ["-ㄴ/는지 따져야 한다 — é preciso verificar se", "동사/형용사 + -ㄴ/는지 따져야 한다", "Indica a necessidade de verificar uma questão: “é preciso verificar se...”. Compare com -ㄴ/는지 알 수 없다 (não se pode saber) e -ㄴ/는지 확인하다 (confirmar se). Registro: formal/escrito.", [["제목이 본문과 같은지 따져야 해요.", "É preciso verificar se o título corresponde ao corpo."], ["그 주장이 사실인지 따져야 합니다.", "É preciso verificar se essa alegação é verdadeira."]]],
   ],
   guided: [
-    mcq("Por que a manchete é enganosa?", ["Porque o corpo fala de um só complexo, não do mercado todo.", "Porque o artigo não tem título.", "Porque o preço subiu."], "Porque o corpo fala de um só complexo, não do mercado todo.", "한 단지의 거래 감소를 전체 시장처럼 썼어요."),
+    mcq("Por que a manchete é enganosa?", ["Porque o corpo fala de um só complexo, não do mercado todo.", "Porque o artigo não tem título nem subtítulo.", "Porque o preço subiu muito no mercado."], "Porque o corpo fala de um só complexo, não do mercado todo.", "한 단지의 거래 감소를 전체 시장처럼 썼어요."),
     cloze("Complete a verificação: 제목이 본문과 같은___ 따져야 해요.", "지", "같은지 따져야 = é preciso verificar se é o mesmo."),
     listen("Ouça e escreva o problema do título.", "제목이 내용을 오도해요.", "제목이 내용을 오도해요.", "O título induz a uma leitura errada do conteúdo."),
     reading("한 기사가 “아파트 값 폭락 시작”이라는 제목으로 게시되었다. 그러나 본문을 보면 한 단지의 거래가 줄었다는 내용이었다. 제목은 내용을 오도하는 선정적인 표현이었다.", "O que o corpo realmente dizia?", ["As transações diminuíram em um único complexo.", "Todo o mercado entrou em colapso.", "Os preços subiram em toda a cidade."], "As transações diminuíram em um único complexo.", "한 단지의 거래가 줄었다는 내용이었어요."),

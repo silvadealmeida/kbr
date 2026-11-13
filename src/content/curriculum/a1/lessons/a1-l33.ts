@@ -146,7 +146,7 @@ export const A1_L33: A1LessonContent = defineA1Lesson({
       "independent",
       "아나는 두통이 있어요. 그리고 피곤해요.",
       "Quais sintomas Ana tem?",
-      choices("Dor de cabeça e cansaço.", "Febre e tosse.", "Dor no braço."),
+      choices("Dor de cabeça e cansaço.", "Febre alta e tosse seca.", "Dor no braço e no ombro."),
       "Dor de cabeça e cansaço.",
       "두통이 있어요 e 피곤해요 descrevem os sintomas.",
     ),

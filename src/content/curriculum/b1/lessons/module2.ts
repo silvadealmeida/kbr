@@ -158,7 +158,7 @@ export const B1_L09 = defineB1Lesson({
     mcq("O que Sujin vai manter se o tempo estiver bom?", ["O roteiro ao ar livre.", "O roteiro em ambiente fechado.", "A viagem cancelada."], "O roteiro ao ar livre.", "날씨가 좋은 한 야외 일정을 유지할 거예요."),
     cloze("Complete a condição: 날씨가 좋___ 야외 일정을 유지할 거예요.", "은 한", "좋은 한 significa “desde que esteja bom”."),
     listen("Ouça e escreva o que ela fará mesmo se chover.", "비가 오더라도 실내 일정으로 바꿀 수 있어요.", "비가 오더라도 실내 일정으로 바꿀 수 있어요.", "Mesmo com chuva, ela pode mudar para um roteiro em ambiente fechado.", ["비가 오더라도 실내 일정으로 바꿀 수 있어요"]),
-    reading("수진은 다음 주에 제주도로 여행을 가요. 날씨가 좋은 한 야외 일정을 유지할 거예요. 비가 오더라도 실내 일정으로 바꿀 수 있어요. 호텔 비용을 조금 줄이면 예산 안에서 여행할 수 있어요.", "O que acontece se chover?", ["Ela troca para um roteiro em ambiente fechado.", "Ela cancela a viagem.", "Ela muda a data da viagem."], "Ela troca para um roteiro em ambiente fechado.", "비가 오더라도 실내 일정으로 바꿀 수 있어요."),
+    reading("수진은 다음 주에 제주도로 여행을 가요. 날씨가 좋은 한 야외 일정을 유지할 거예요. 비가 오더라도 실내 일정으로 바꿀 수 있어요. 호텔 비용을 조금 줄이면 예산 안에서 여행할 수 있어요.", "O que acontece se chover?", ["Ela troca para um roteiro em ambiente fechado.", "Ela cancela a viagem e volta para casa.", "Ela muda a data da viagem para outra semana."], "Ela troca para um roteiro em ambiente fechado.", "비가 오더라도 실내 일정으로 바꿀 수 있어요."),
     translate("pt-ko", "Traduza: “Mesmo que chova, vou viajar.”", "비가 오더라도 여행을 갈 거예요.", "오더라도 mantém o plano diante da chuva.", ["비가 오더라도 여행은 갈 거예요"]),
   ],
   independent: [

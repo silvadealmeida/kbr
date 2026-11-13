@@ -61,7 +61,7 @@ export const B2_L06 = defineB2Lesson({
     mcq("Qual é a tese da proposta?", ["O horário flexível aumenta a produtividade.", "A empresa deve fechar o escritório.", "Os dados são pequenos demais."], "O horário flexível aumenta a produtividade.", "유연 근무가 생산성을 높인다는 주장이에요."),
     cloze("Complete o foco: 이 제안의 목적은 비용을 줄이___ 데 있어요.", "는", "줄이는 데 = o ponto está em reduzir."),
     listen("Ouça e escreva a ação sobre o resumo geral.", "보고서의 개요를 먼저 정리했어요.", "보고서의 개요를 먼저 정리했어요.", "Organizei primeiro o resumo geral do relatório."),
-    reading("좋은 제안서는 주장부터 시작한다. 그러나 주장만으로는 부족하다. 독자는 그 주장이 왜 타당한지 알고 싶어 하므로, 개요와 주제문이 논지를 분명하게 보여 주어야 한다.", "O que o texto exige além da tese?", ["Uma explicação de por que ela é válida.", "Um título mais longo.", "Uma lista de autores."], "Uma explicação de por que ela é válida.", "독자는 주장이 왜 타당한지 알고 싶어 해요."),
+    reading("좋은 제안서는 주장부터 시작한다. 그러나 주장만으로는 부족하다. 독자는 그 주장이 왜 타당한지 알고 싶어 하므로, 개요와 주제문이 논지를 분명하게 보여 주어야 한다.", "O que o texto exige além da tese?", ["Uma explicação de por que ela é válida.", "Um título mais longo e chamativo.", "Uma lista dos autores citados."], "Uma explicação de por que ela é válida.", "독자는 주장이 왜 타당한지 알고 싶어 해요."),
     translate("pt-ko", "Traduza: “O ponto central do problema está na falta de dados.”", "문제의 핵심은 자료가 부족한 데 있어요.", "부족한 데 있어요 = o ponto está na falta.", ["문제는 자료가 부족한 데 있어요."]),
   ],
   independent: [
@@ -130,7 +130,7 @@ export const B2_L07 = defineB2Lesson({
     cloze("Complete a concessão factual: 비가 왔___ 불구하고 행사는 계속됐어요.", "음에도", "왔음에도 불구하고 = apesar de ter chovido."),
     listen("Ouça e escreva o que a proposta não deve fazer.", "제안의 취지는 이해하지만 감정에 호소하면 안 돼요.", "제안의 취지는 이해하지만 감정에 호소하면 안 돼요.", "Entendo a intenção da proposta, mas não se deve apelar à emoção."),
     translate("ko-pt", "Traduza: 그 주장의 전제에는 모순이 있어요.", "A premissa daquele argumento tem uma contradição.", "전제 = premissa; 모순 = contradição.", ["Há uma contradição na premissa desse argumento."]),
-    reading("제안의 취지는 이해할 수 있다. 그러나 감정에 호소하는 문장은 논점을 흐린다. 반대 의견을 먼저 정확히 요약하고, 확인된 자료로 답할 때 대화는 생산적으로 변한다.", "Como responder a uma objeção?", ["Resumindo-a com precisão e respondendo com dados confirmados.", "Ignorando-a completamente.", "Apelando à emoção do outro lado."], "Resumindo-a com precisão e respondendo com dados confirmados.", "반대 의견을 정확히 요약하고 확인된 자료로 답해요."),
+    reading("제안의 취지는 이해할 수 있다. 그러나 감정에 호소하는 문장은 논점을 흐린다. 반대 의견을 먼저 정확히 요약하고, 확인된 자료로 답할 때 대화는 생산적으로 변한다.", "Como responder a uma objeção?", ["Resumindo-a com precisão e respondendo com dados confirmados.", "Ignorando-a completamente na resposta.", "Apelando à emoção do outro lado."], "Resumindo-a com precisão e respondendo com dados confirmados.", "반대 의견을 정확히 요약하고 확인된 자료로 답해요."),
   ],
   summary: ["-기는커녕 nega o primeiro item e intensifica o segundo.", "-에도 불구하고 marca concessão factual e formal.", "Responder à objeção real é diferente de atacá-la.", "Conteúdo novo permanece em revisão."],
   production: production(
@@ -183,7 +183,7 @@ export const B2_L08 = defineB2Lesson({
     mcq("Por que a equipe não impôs a regra?", ["Porque impor poderia gerar um conflito maior.", "Porque a regra era ilegal.", "Porque ninguém compareceu à reunião."], "Porque impor poderia gerar um conflito maior.", "강행하면 더 큰 갈등이 생겨요."),
     cloze("Complete a concessão: 아무리 어려___ 지라도 포기하지 않겠습니다.", "울", "어려울지라도 = mesmo que seja difícil."),
     listen("Ouça e escreva o resultado parcial.", "압박에 굴복하지 않았지만 모든 걸 관철하지도 않았어요.", "압박에 굴복하지 않았지만 모든 걸 관철하지도 않았어요.", "Não cedemos à pressão, mas também não impusemos tudo."),
-    reading("회의에서 한 참석자가 자기 주장만 고집했다. 다른 쪽도 완강하게 거절해서 대화가 멈출 것 같았다. 진행자는 먼저 상대의 우려를 정확히 듣자고 했다. 설명을 들은 참석자들은 조금씩 수긍했다.", "O que o mediador fez primeiro?", ["Pediu para ouvir com precisão a preocupação do outro lado.", "Impôs a regra imediatamente.", "Encerrou a reunião sem acordo."], "Pediu para ouvir com precisão a preocupação do outro lado.", "상대의 우려를 먼저 정확히 듣자고 했어요."),
+    reading("회의에서 한 참석자가 자기 주장만 고집했다. 다른 쪽도 완강하게 거절해서 대화가 멈출 것 같았다. 진행자는 먼저 상대의 우려를 정확히 듣자고 했다. 설명을 들은 참석자들은 조금씩 수긍했다.", "O que o mediador fez primeiro?", ["Pediu para ouvir com precisão a preocupação do outro lado.", "Impôs a regra imediatamente, sem ouvir.", "Encerrou a reunião sem nenhum acordo."], "Pediu para ouvir com precisão a preocupação do outro lado.", "상대의 우려를 먼저 정확히 듣자고 했어요."),
     translate("pt-ko", "Traduza: “Mesmo que todos discordem, vou continuar.”", "모두가 반대한다 해도 계속하겠어요.", "ㄴ다 해도 concede a objeção e mantém a decisão.", ["모두가 반대한다 해도 저는 계속하겠어요."]),
   ],
   independent: [

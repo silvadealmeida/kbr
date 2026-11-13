@@ -50,4 +50,37 @@ describe("conteúdo C2", () => {
       expect(checkpoint.production?.rubric).toHaveLength(6);
     }
   });
+
+  it("폐항 descreve o fechamento do porto, não o fim de uma linha", () => {
+    const texts = ([
+      ...C2_IMPLEMENTED_LESSONS.flatMap((lesson) => [
+        ...lesson.intro.map((panel) => panel.ko),
+        ...lesson.dialogue.map((line) => line.ko),
+        ...(lesson.readingText?.paragraphs ?? []),
+        ...lesson.exercises.flatMap((exercise) =>
+          "text" in exercise && typeof exercise.text === "string" ? [exercise.text] : [],
+        ),
+      ]),
+      ...C2_IMPLEMENTED_CHECKPOINTS.flatMap((checkpoint) =>
+        checkpoint.exercises.flatMap((exercise) =>
+          "text" in exercise && typeof exercise.text === "string" ? [exercise.text] : [],
+        ),
+      ),
+    ] as (string | undefined)[]).filter(
+      (text): text is string => typeof text === "string",
+    );
+    expect(texts.some((text) => /노선이\s*폐항/.test(text))).toBe(false);
+    expect(texts.some((text) => /운항이 중단/.test(text))).toBe(true);
+    expect(texts.some((text) => /북포항은 사실상 폐항하였다/.test(text))).toBe(true);
+  });
+
+  it("o conto mantém dois bilhetes, sem um terceiro bilhete na gaveta", () => {
+    const l26 = C2_IMPLEMENTED_LESSONS.find((lesson) => lesson.id === "c2-l26");
+    const l27 = C2_IMPLEMENTED_LESSONS.find((lesson) => lesson.id === "c2-l27");
+    expect(l26?.readingText?.paragraphs.join("\n")).toContain("표 두 장을 밀어냈다");
+    expect(l26?.readingText?.paragraphs.join("\n")).toContain("새 표만 구겨서");
+    expect(l26?.readingText?.paragraphs.join("\n")).not.toContain("두 장을 가지고 있었던");
+    expect(l27?.readingText?.paragraphs.join("\n")).toContain("오래된 승선권이 남아 있었다");
+    expect(l27?.readingText?.paragraphs.join("\n")).not.toContain("한 장 더");
+  });
 });

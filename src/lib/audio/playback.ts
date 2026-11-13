@@ -29,6 +29,7 @@ export type PlaybackOutcome =
 export type AudioElementLike = {
   src: string;
   playbackRate: number;
+  defaultPlaybackRate?: number;
   preservesPitch?: boolean;
   mozPreservesPitch?: boolean;
   webkitPreservesPitch?: boolean;
@@ -116,6 +117,19 @@ export class AudioPlayer {
     this.emit({ status: "idle" });
   }
 
+  /**
+   * Ajusta a velocidade de um MP3 que já está tocando, sem reiniciar o clipe.
+   * Retorna `false` quando não há áudio ativo (voz do sistema ou nada tocando),
+   * casos em que o chamador precisa iniciar uma nova reprodução com a taxa nova.
+   */
+  setRate(rate: number): boolean {
+    if (!this.audio) return false;
+
+    this.audio.playbackRate = rate;
+    this.audio.defaultPlaybackRate = rate;
+    return true;
+  }
+
   /** Limpa listeners, timers e qualquer reprodução pendente. */
   destroy(): void {
     if (this.destroyed) return;
@@ -152,6 +166,7 @@ export class AudioPlayer {
     this.audio = audio;
     audio.src = src;
     audio.playbackRate = rate;
+    audio.defaultPlaybackRate = rate;
     audio.preservesPitch = true;
     audio.mozPreservesPitch = true;
     audio.webkitPreservesPitch = true;
@@ -224,6 +239,8 @@ export class AudioPlayer {
           if (token !== this.token || settled) return;
           started = true;
           clearTimer();
+          // Safari às vezes reinicia `playbackRate` para 1 quando o play() começa.
+          audio.playbackRate = rate;
           this.emit({ status: "playing", source: "asset" });
         },
         () => {

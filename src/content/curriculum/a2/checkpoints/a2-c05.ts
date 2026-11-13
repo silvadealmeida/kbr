@@ -122,7 +122,7 @@ export const A2_C05 = defineA2Checkpoint({
     ),
     mcq(
       "Qual frase descreve uma função?",
-      ["제가 하는 일은 고객 상담이에요.", "저는 회사에 가요.", "오늘은 바빠요."],
+      ["제가 하는 일은 고객 상담이에요.", "저는 회사에 가서 회의를 해요.", "오늘은 아침부터 아주 바빠요."],
       "제가 하는 일은 고객 상담이에요.",
       "하는 일 nominaliza a tarefa.",
     ),

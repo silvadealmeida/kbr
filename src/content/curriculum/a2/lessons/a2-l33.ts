@@ -84,7 +84,7 @@ export const A2_L33 = defineA2Lesson({
     reading(
       "수진은 할머니 댁에 가요. 할머니는 요즘 조금 편찮으세요. 지민도 같이 가기로 했어요.",
       "Quem está doente?",
-      ["A avó de Sujin.", "Jimin.", "Sujin."],
+      ["A avó de Sujin.", "Jimin, que também vai visitar.", "Sujin, que está doente."],
       "A avó de Sujin.",
       "할머니께서 조금 편찮으세요.",
     ),

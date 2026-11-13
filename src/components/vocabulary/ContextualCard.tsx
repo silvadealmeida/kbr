@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 import { AudioControl, BilingualText } from "@/components/hangul/exercise-media";
+import { KoreanKeyboard } from "@/components/hangul/KoreanKeyboard";
 import { Button } from "@/components/ui/Button";
 import { Input, fieldDescribedBy } from "@/components/ui/Field";
 import type { VocabEntry, VocabSentence } from "@/content/vocabulary";
@@ -169,6 +170,7 @@ export function ContextualCard({ entry, sentence, isLast, onGrade, onNext }: Pro
                 Digite a palavra antes de verificar.
               </p>
             ) : null}
+            <KoreanKeyboard value={value} onChange={setValue} />
           </div>
 
           {hintOpen ? (
@@ -197,7 +199,7 @@ export function ContextualCard({ entry, sentence, isLast, onGrade, onNext }: Pro
             className={`flex items-center gap-2 text-xl font-bold outline-offset-4 ${result.correct ? "text-success" : "text-danger"}`}
           >
             <StatusIcon ok={result.correct} />
-            {result.correct ? "Correto!" : "Ainda não — veja a resposta"}
+            {result.correct ? "Correto!" : "Não foi dessa vez — veja a resposta"}
           </h2>
           {result.correct && assisted && !retried ? (
             <p className="mt-2 text-sm">Você usou ajuda: o cartão será revisto no mesmo intervalo, sem avançar de caixa.</p>

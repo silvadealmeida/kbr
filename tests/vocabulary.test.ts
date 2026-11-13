@@ -155,13 +155,11 @@ describe("conteúdo — validação ESTRUTURAL (não prova correção linguísti
     expect(targetPosition({ ko: "가가 가", target: "가" })).toBeNull();
   });
 
-  it("áudio usa texto coreano e resolve MP3 para Hangul, A1, A2 e B1", () => {
+  it("áudio usa texto coreano e resolve MP3 para todos os cursos", () => {
     for (const e of VOCAB_ENTRIES) expect(/[가-힣]/.test(e.audioText)).toBe(true);
-
     for (const e of VOCAB_ENTRIES) {
       expect(resolveAudioAsset(e.audioText), e.audioText).not.toBeNull();
     }
-
     for (const s of VOCAB_SENTENCES) {
       expect(resolveAudioAsset(s.ko), s.ko).not.toBeNull();
     }

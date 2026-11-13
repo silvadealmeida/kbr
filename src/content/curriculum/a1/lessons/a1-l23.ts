@@ -168,7 +168,7 @@ export const A1_L23: A1LessonContent = defineA1Lesson({
       "a1-l23-e09",
       "independent",
       "O que 층 significa?",
-      ["Andar; pavimento.", "Rua.", "Esquina."],
+      ["Andar; pavimento.", "Rua movimentada do bairro.", "Esquina perto da estação."],
       "Andar; pavimento.",
       "층 é andar; 거리 é rua e 모퉁이 é esquina.",
     ),

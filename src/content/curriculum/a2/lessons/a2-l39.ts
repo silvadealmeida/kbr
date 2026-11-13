@@ -128,7 +128,7 @@ export const A2_L39 = defineA2Lesson({
     reading(
       "미래의 계획은 바뀔 수 있어요. 중요한 것은 지금의 목표를 세우고, 경험이 많아지면 조정하는 거예요.",
       "Qual é a mensagem?",
-      ["Planos podem ser ajustados com a experiência.", "Nunca se deve planejar.", "Só vale o primeiro plano."],
+      ["Planos podem ser ajustados com a experiência.", "Nunca se deve planejar o futuro.", "Só vale o primeiro plano que fizer."],
       "Planos podem ser ajustados com a experiência.",
       "경험이 많아지면 조정하는 거예요.",
     ),

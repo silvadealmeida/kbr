@@ -1,0 +1,1108 @@
+{
+  "totalListen": 132,
+  "promptsPorFragmento": 12,
+  "semInstrucaoDeFraseCompleta": 131,
+  "porLicaoA": {
+    "b1-l09": 1,
+    "b1-l11": 1,
+    "b1-l13": 1,
+    "b1-l23": 1,
+    "b1-l36": 1,
+    "b1-c02": 2,
+    "b1-c03": 2,
+    "b1-c04": 1,
+    "b1-c05": 1,
+    "b1-c06": 1
+  },
+  "porLicaoB": {
+    "b1-l01": 2,
+    "b1-l02": 2,
+    "b1-l03": 2,
+    "b1-l04": 2,
+    "b1-l05": 2,
+    "b1-l06": 2,
+    "b1-l07": 2,
+    "b1-l08": 2,
+    "b1-l09": 2,
+    "b1-l10": 2,
+    "b1-l11": 2,
+    "b1-l12": 2,
+    "b1-l13": 2,
+    "b1-l14": 2,
+    "b1-l15": 2,
+    "b1-l16": 2,
+    "b1-l17": 2,
+    "b1-l18": 2,
+    "b1-l19": 2,
+    "b1-l20": 2,
+    "b1-l21": 2,
+    "b1-l22": 1,
+    "b1-l23": 2,
+    "b1-l24": 2,
+    "b1-l25": 2,
+    "b1-l26": 2,
+    "b1-l27": 2,
+    "b1-l28": 2,
+    "b1-l29": 2,
+    "b1-l30": 2,
+    "b1-l31": 2,
+    "b1-l32": 2,
+    "b1-l33": 2,
+    "b1-l34": 2,
+    "b1-l35": 2,
+    "b1-l36": 2,
+    "b1-l37": 2,
+    "b1-l38": 2,
+    "b1-l39": 2,
+    "b1-l40": 2,
+    "b1-c01": 6,
+    "b1-c02": 6,
+    "b1-c03": 6,
+    "b1-c04": 6,
+    "b1-c05": 6,
+    "b1-c06": 6,
+    "b1-c07": 6,
+    "b1-c08": 10
+  },
+  "rowsA": [
+    {
+      "item": "b1-l09-e08",
+      "step": "b1-l09",
+      "prompt": "Ouça e escreva a condição para manter o roteiro.",
+      "answer": "날씨가 좋은 한 야외 일정을 유지할 거예요.",
+      "accepted": [
+        "날씨가 좋은 한 야외 일정을 유지할 거예요"
+      ],
+      "palavras": 7
+    },
+    {
+      "item": "b1-l11-e08",
+      "step": "b1-l11",
+      "prompt": "Ouça e escreva a opinião de Sujin sobre o futuro.",
+      "answer": "저는 앞으로도 계속 갈 거라고 생각해요.",
+      "accepted": [
+        "저는 앞으로도 계속 갈 거라고 생각해요"
+      ],
+      "palavras": 6
+    },
+    {
+      "item": "b1-l13-e03",
+      "step": "b1-l13",
+      "prompt": "Ouça e escreva a informação adicional sobre os moradores.",
+      "answer": "주민들이 직접 참여하기도 해요.",
+      "accepted": [
+        "주민들이 직접 참여하기도 해요"
+      ],
+      "palavras": 4
+    },
+    {
+      "item": "b1-l23-e03",
+      "step": "b1-l23",
+      "prompt": "Ouça e escreva o pedido de Sujin.",
+      "answer": "약속을 바꿀 때는 미리 알려 줬으면 좋겠어.",
+      "accepted": [
+        "약속을 바꿀 때는 미리 알려 줬으면 좋겠어"
+      ],
+      "palavras": 7
+    },
+    {
+      "item": "b1-l36-e03",
+      "step": "b1-l36",
+      "prompt": "Ouça e escreva a decisão final de Sujin.",
+      "answer": "그래서 결국 옮기기로 했어요.",
+      "accepted": [
+        "그래서 결국 옮기기로 했어요"
+      ],
+      "palavras": 4
+    },
+    {
+      "item": "b1-c02-e04",
+      "step": "b1-c02",
+      "prompt": "Ouça e escreva a condição.",
+      "answer": "예산이 있는 한 이 계획을 유지할 수 있어요.",
+      "accepted": [
+        "예산이 있는 한 이 계획을 유지할 수 있어요"
+      ],
+      "palavras": 8
+    },
+    {
+      "item": "b1-c02-e05",
+      "step": "b1-c02",
+      "prompt": "Ouça e escreva a decisão difícil.",
+      "answer": "그 일을 맡지 않을 수 없었어요.",
+      "accepted": [
+        "그 일을 맡지 않을 수 없었어요"
+      ],
+      "palavras": 6
+    },
+    {
+      "item": "b1-c03-e01",
+      "step": "b1-c03",
+      "prompt": "Ouça e escreva a opinião.",
+      "answer": "저는 이 변화가 긍정적이라고 생각해요.",
+      "accepted": [
+        "저는 이 변화가 긍정적이라고 생각해요"
+      ],
+      "palavras": 5
+    },
+    {
+      "item": "b1-c03-e02",
+      "step": "b1-c03",
+      "prompt": "Ouça e escreva a comparação.",
+      "answer": "이 방법은 저 방법에 비해 효율적이에요.",
+      "accepted": [
+        "이 방법은 저 방법에 비해 효율적이에요"
+      ],
+      "palavras": 6
+    },
+    {
+      "item": "b1-c04-e03",
+      "step": "b1-c04",
+      "prompt": "Ouça e escreva a condição de trabalho.",
+      "answer": "연봉과 복지를 함께 비교했어요.",
+      "accepted": [
+        "연봉과 복지를 함께 비교했어요"
+      ],
+      "palavras": 4
+    },
+    {
+      "item": "b1-c05-e02",
+      "step": "b1-c05",
+      "prompt": "Ouça e escreva a comparação cultural.",
+      "answer": "이 관행은 지역마다 달라요.",
+      "accepted": [
+        "이 관행은 지역마다 달라요"
+      ],
+      "palavras": 4
+    },
+    {
+      "item": "b1-c06-e06",
+      "step": "b1-c06",
+      "prompt": "Ouça e escreva a condição.",
+      "answer": "예약이 확정되면 문자로 알려 주세요.",
+      "accepted": [
+        "예약이 확정되면 문자로 알려 주세요"
+      ],
+      "palavras": 5
+    }
+  ],
+  "rowsB": [
+    {
+      "item": "b1-l01-e03",
+      "step": "b1-l01",
+      "prompt": "Ouça e escreva o que surpreendeu Sujin.",
+      "answer": "생각보다 외롭더라고요.",
+      "palavras": 2
+    },
+    {
+      "item": "b1-l01-e08",
+      "step": "b1-l01",
+      "prompt": "Ouça e escreva a avaliação final.",
+      "answer": "결국 좋은 기억으로 남았어요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-l02-e03",
+      "step": "b1-l02",
+      "prompt": "Ouça e escreva o que ela fez ao chegar à farmácia.",
+      "answer": "약국에 가자마자 약을 샀어요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-l02-e08",
+      "step": "b1-l02",
+      "prompt": "Ouça e escreva o problema no caminho.",
+      "answer": "사람이 많아서 다시 부딪혔어요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-l03-e03",
+      "step": "b1-l03",
+      "prompt": "Ouça e escreva a pergunta relatada.",
+      "answer": "몸이 안 좋냐고 물었어요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-l03-e08",
+      "step": "b1-l03",
+      "prompt": "Ouça e escreva a afirmação relatada.",
+      "answer": "바쁘다고 말했어요.",
+      "palavras": 2
+    },
+    {
+      "item": "b1-l04-e03",
+      "step": "b1-l04",
+      "prompt": "Ouça e escreva a hipótese.",
+      "answer": "시간을 되돌릴 수 있더라면 다시 도전했을 거예요.",
+      "palavras": 7
+    },
+    {
+      "item": "b1-l04-e08",
+      "step": "b1-l04",
+      "prompt": "Ouça e escreva o arrependimento.",
+      "answer": "먼저 사과했으면 좋겠어요.",
+      "palavras": 3
+    },
+    {
+      "item": "b1-l05-e03",
+      "step": "b1-l05",
+      "prompt": "Ouça e escreva o que aconteceu com o plano.",
+      "answer": "계획이 완전히 엉망이 됐어요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-l05-e08",
+      "step": "b1-l05",
+      "prompt": "Ouça e escreva a adaptação.",
+      "answer": "지금은 적응했어요.",
+      "palavras": 2
+    },
+    {
+      "item": "b1-l06-e03",
+      "step": "b1-l06",
+      "prompt": "Ouça e escreva o plano confirmado de Marco.",
+      "answer": "저는 토요일에 회의가 있어서 일할 예정이에요.",
+      "palavras": 6
+    },
+    {
+      "item": "b1-l06-e08",
+      "step": "b1-l06",
+      "prompt": "Ouça e escreva o plano provisório de Sujin.",
+      "answer": "주말에는 집에서 쉴까 해요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-l07-e03",
+      "step": "b1-l07",
+      "prompt": "Ouça e escreva a providência que a equipe vai tomar.",
+      "answer": "모든 직원이 내용을 알도록 교육도 해야 해요.",
+      "palavras": 7
+    },
+    {
+      "item": "b1-l07-e08",
+      "step": "b1-l07",
+      "prompt": "Ouça e escreva o que a equipe fez para atingir a meta.",
+      "answer": "목표를 이루기 위해 계획을 세웠어요.",
+      "palavras": 5
+    },
+    {
+      "item": "b1-l08-e03",
+      "step": "b1-l08",
+      "prompt": "Ouça e escreva a desvantagem da casa atual.",
+      "answer": "지금 집은 싼 대신에 지하철로 한 시간 걸려요.",
+      "palavras": 8
+    },
+    {
+      "item": "b1-l08-e08",
+      "step": "b1-l08",
+      "prompt": "Ouça e escreva a vantagem da casa nova.",
+      "answer": "새 집은 비싼 대신에 회사와 가까워요.",
+      "palavras": 6
+    },
+    {
+      "item": "b1-l09-e03",
+      "step": "b1-l09",
+      "prompt": "Ouça e escreva o que ela fará mesmo se chover.",
+      "answer": "비가 오더라도 실내 일정으로 바꿀 수 있어요.",
+      "palavras": 7
+    },
+    {
+      "item": "b1-l09-e08",
+      "step": "b1-l09",
+      "prompt": "Ouça e escreva a condição para manter o roteiro.",
+      "answer": "날씨가 좋은 한 야외 일정을 유지할 거예요.",
+      "palavras": 7
+    },
+    {
+      "item": "b1-l10-e03",
+      "step": "b1-l10",
+      "prompt": "Ouça e escreva por que ela não teve alternativa.",
+      "answer": "가족을 돌봐야 해서 일을 줄이지 않을 수 없었어요.",
+      "palavras": 8
+    },
+    {
+      "item": "b1-l10-e08",
+      "step": "b1-l10",
+      "prompt": "Ouça e escreva como ela se sente agora.",
+      "answer": "결정이 쉽지는 않았지만 지금은 마음이 편해요.",
+      "palavras": 6
+    },
+    {
+      "item": "b1-l11-e03",
+      "step": "b1-l11",
+      "prompt": "Ouça e escreva a ressalva de Jimin sobre os preços.",
+      "answer": "그런데 책값이 좀 비싼 편이에요.",
+      "palavras": 5
+    },
+    {
+      "item": "b1-l11-e08",
+      "step": "b1-l11",
+      "prompt": "Ouça e escreva a opinião de Sujin sobre o futuro.",
+      "answer": "저는 앞으로도 계속 갈 거라고 생각해요.",
+      "palavras": 6
+    },
+    {
+      "item": "b1-l12-e03",
+      "step": "b1-l12",
+      "prompt": "Ouça e escreva a vantagem do trabalho no escritório.",
+      "answer": "사무실에서는 집중하기 어려운 반면에 협업은 빨라요.",
+      "palavras": 6
+    },
+    {
+      "item": "b1-l12-e08",
+      "step": "b1-l12",
+      "prompt": "Ouça e escreva a conclusão de Marco sobre os dois métodos.",
+      "answer": "두 방식의 차이가 뚜렷해요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-l13-e03",
+      "step": "b1-l13",
+      "prompt": "Ouça e escreva a informação adicional sobre os moradores.",
+      "answer": "주민들이 직접 참여하기도 해요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-l13-e08",
+      "step": "b1-l13",
+      "prompt": "Ouça e escreva os dois argumentos sobre o serviço.",
+      "answer": "이용료가 저렴할 뿐만 아니라 시설도 깨끗해요.",
+      "palavras": 6
+    },
+    {
+      "item": "b1-l14-e03",
+      "step": "b1-l14",
+      "prompt": "Ouça e escreva o contra-argumento de Marco sobre o ator.",
+      "answer": "유명한 배우라고 해도 이야기가 약하면 설득되지 않아요.",
+      "palavras": 7
+    },
+    {
+      "item": "b1-l14-e08",
+      "step": "b1-l14",
+      "prompt": "Ouça e escreva como os dois preservam a relação.",
+      "answer": "생각은 다르지만 서로 존중해요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-l15-e03",
+      "step": "b1-l15",
+      "prompt": "Ouça e escreva a conclusão cautelosa de Marco.",
+      "answer": "사고를 줄일 수 있다고 볼 수 있어요.",
+      "palavras": 7
+    },
+    {
+      "item": "b1-l15-e08",
+      "step": "b1-l15",
+      "prompt": "Ouça e escreva o que Sujin pede antes da conclusão.",
+      "answer": "통계를 먼저 확인해야 해요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-l16-e03",
+      "step": "b1-l16",
+      "prompt": "Ouça e escreva a tarefa que Minsu assume.",
+      "answer": "저는 자료 조사를 맡도록 하겠습니다.",
+      "palavras": 5
+    },
+    {
+      "item": "b1-l16-e08",
+      "step": "b1-l16",
+      "prompt": "Ouça e escreva o limite que Minsu respeita.",
+      "answer": "제 권한 밖의 일은 혼자 처리하지 않겠습니다.",
+      "palavras": 7
+    },
+    {
+      "item": "b1-l17-e03",
+      "step": "b1-l17",
+      "prompt": "Ouça e escreva o que será registrado na ata.",
+      "answer": "결정 사항은 회의록에 정리할게요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-l17-e08",
+      "step": "b1-l17",
+      "prompt": "Ouça e escreva quantos itens a reunião de hoje tem.",
+      "answer": "오늘은 안건이 세 개뿐이에요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-l18-e03",
+      "step": "b1-l18",
+      "prompt": "Ouça e escreva o que a segunda vaga oferece de positivo.",
+      "answer": "복지가 좋고 정규직 전환 가능성도 높아요.",
+      "palavras": 6
+    },
+    {
+      "item": "b1-l18-e08",
+      "step": "b1-l18",
+      "prompt": "Ouça e escreva o que a candidata quer mostrar.",
+      "answer": "제 역량을 포트폴리오로 보여 주고 싶어요.",
+      "palavras": 6
+    },
+    {
+      "item": "b1-l19-e03",
+      "step": "b1-l19",
+      "prompt": "Ouça e escreva o que Minsu considera importante manter.",
+      "answer": "매일 조금씩 집중력을 유지하는 것이 중요해요.",
+      "palavras": 6
+    },
+    {
+      "item": "b1-l19-e08",
+      "step": "b1-l19",
+      "prompt": "Ouça e escreva como é possível dominar uma habilidade.",
+      "answer": "반복 연습을 통해 숙달할 수 있어요.",
+      "palavras": 6
+    },
+    {
+      "item": "b1-l20-e03",
+      "step": "b1-l20",
+      "prompt": "Ouça e escreva a promessa de Minsu.",
+      "answer": "징계를 받더라도 책임은 제가 지겠습니다.",
+      "palavras": 5
+    },
+    {
+      "item": "b1-l20-e08",
+      "step": "b1-l20",
+      "prompt": "Ouça e escreva o que preocupava Minsu.",
+      "answer": "팀 안에 갈등이 생길까 걱정했어요.",
+      "palavras": 5
+    },
+    {
+      "item": "b1-l21-e03",
+      "step": "b1-l21",
+      "prompt": "Ouça e escreva o que varia conforme a geração.",
+      "answer": "세대에 따라 이유가 다른 것 같아요.",
+      "palavras": 6
+    },
+    {
+      "item": "b1-l21-e08",
+      "step": "b1-l21",
+      "prompt": "Ouça e escreva a ressalva sobre os dados.",
+      "answer": "자료에 따라 결과가 다를 수 있어요.",
+      "palavras": 6
+    },
+    {
+      "item": "b1-l22-e03",
+      "step": "b1-l22",
+      "prompt": "Ouça e escreva a concessão de Jimin.",
+      "answer": "좋기는 하지만 모든 집이 같은 방식은 아니에요.",
+      "palavras": 7
+    },
+    {
+      "item": "b1-l23-e03",
+      "step": "b1-l23",
+      "prompt": "Ouça e escreva o pedido de Sujin.",
+      "answer": "약속을 바꿀 때는 미리 알려 줬으면 좋겠어.",
+      "palavras": 7
+    },
+    {
+      "item": "b1-l23-e08",
+      "step": "b1-l23",
+      "prompt": "Ouça e escreva o que leva tempo.",
+      "answer": "서로 불편한 점을 말하는 데 시간이 걸려도 괜찮아요.",
+      "palavras": 8
+    },
+    {
+      "item": "b1-l24-e03",
+      "step": "b1-l24",
+      "prompt": "Ouça e escreva por que é difícil encontrar o vazamento.",
+      "answer": "오래된 건물이라 어디서 새는지 찾기 어렵기 마련이에요.",
+      "palavras": 7
+    },
+    {
+      "item": "b1-l24-e08",
+      "step": "b1-l24",
+      "prompt": "Ouça e escreva a proposta final.",
+      "answer": "임시 안내판을 붙이고 점검 날짜를 정했으면 좋겠어요.",
+      "palavras": 7
+    },
+    {
+      "item": "b1-l25-e03",
+      "step": "b1-l25",
+      "prompt": "Ouça e escreva o dever lembrado por Jimin.",
+      "answer": "늦은 시간에는 소리를 줄여야 할 의무가 있어요.",
+      "palavras": 7
+    },
+    {
+      "item": "b1-l25-e08",
+      "step": "b1-l25",
+      "prompt": "Ouça e escreva a conclusão da assembleia.",
+      "answer": "권리와 책임을 함께 생각해야 해요.",
+      "palavras": 5
+    },
+    {
+      "item": "b1-l26-e03",
+      "step": "b1-l26",
+      "prompt": "Ouça e escreva o que a mudança provoca.",
+      "answer": "변경 수수료가 발생합니다.",
+      "palavras": 3
+    },
+    {
+      "item": "b1-l26-e08",
+      "step": "b1-l26",
+      "prompt": "Ouça e escreva a situação da reserva.",
+      "answer": "예약이 아직 확정되지 않았어요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-l27-e03",
+      "step": "b1-l27",
+      "prompt": "Ouça e escreva o que aconteceu com a hospedagem.",
+      "answer": "지연 때문에 예약한 숙소도 취소하고 말았어요.",
+      "palavras": 6
+    },
+    {
+      "item": "b1-l27-e08",
+      "step": "b1-l27",
+      "prompt": "Ouça e escreva a providência tomada.",
+      "answer": "승객들은 안전하게 대피했어요.",
+      "palavras": 3
+    },
+    {
+      "item": "b1-l28-e03",
+      "step": "b1-l28",
+      "prompt": "Ouça e escreva o prazo do pedido.",
+      "answer": "내일까지 공식 답변을 주시기 바랍니다.",
+      "palavras": 5
+    },
+    {
+      "item": "b1-l28-e08",
+      "step": "b1-l28",
+      "prompt": "Ouça e escreva o que a empresa vai avaliar.",
+      "answer": "배상도 검토하겠습니다.",
+      "palavras": 2
+    },
+    {
+      "item": "b1-l29-e03",
+      "step": "b1-l29",
+      "prompt": "Ouça e escreva a vantagem de Jeju.",
+      "answer": "대신 접근성과 편의 시설이 좋아요.",
+      "palavras": 5
+    },
+    {
+      "item": "b1-l29-e08",
+      "step": "b1-l29",
+      "prompt": "Ouça e escreva o que foi comparado.",
+      "answer": "숙소 평점과 가성비를 비교했어요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-l30-e03",
+      "step": "b1-l30",
+      "prompt": "Ouça e escreva a impressão sobre a ruela.",
+      "answer": "골목이 낯익더라고요.",
+      "palavras": 2
+    },
+    {
+      "item": "b1-l30-e08",
+      "step": "b1-l30",
+      "prompt": "Ouça e escreva a avaliação final da viagem.",
+      "answer": "좋은 여행이었지만 아쉬움도 남았어요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-l31-e03",
+      "step": "b1-l31",
+      "prompt": "Ouça e escreva de onde vem a informação citada.",
+      "answer": "시청 발표를 인용한 기사예요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-l31-e08",
+      "step": "b1-l31",
+      "prompt": "Ouça e escreva o que faltava em um dos veículos.",
+      "answer": "한 곳은 논평만 있고 자료가 없었어요.",
+      "palavras": 6
+    },
+    {
+      "item": "b1-l32-e03",
+      "step": "b1-l32",
+      "prompt": "Ouça e escreva qual exemplo aparece no texto.",
+      "answer": "버스가 아침에 두 번밖에 없다는 예가 나와요.",
+      "palavras": 7
+    },
+    {
+      "item": "b1-l32-e08",
+      "step": "b1-l32",
+      "prompt": "Ouça e escreva o transtorno citado no texto.",
+      "answer": "버스가 두 번밖에 없어서 학생들이 아침에 오래 기다려요.",
+      "palavras": 8
+    },
+    {
+      "item": "b1-l33-e03",
+      "step": "b1-l33",
+      "prompt": "Ouça e escreva qual parte é considerada opinião.",
+      "answer": "최악이라는 표현은 의견이라고 볼 수 있어요.",
+      "palavras": 6
+    },
+    {
+      "item": "b1-l33-e08",
+      "step": "b1-l33",
+      "prompt": "Ouça e escreva o que ainda não foi confirmado.",
+      "answer": "원인은 아직 확인되지 않았어요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-l34-e03",
+      "step": "b1-l34",
+      "prompt": "Ouça e escreva a tendência de uso descrita.",
+      "answer": "짧게 여러 번 접속하는 경향이 있어요.",
+      "palavras": 6
+    },
+    {
+      "item": "b1-l34-e08",
+      "step": "b1-l34",
+      "prompt": "Ouça e escreva o que aconteceu com o tempo de permanência.",
+      "answer": "수는 늘었지만 한 번에 머무는 시간은 줄었어요.",
+      "palavras": 7
+    },
+    {
+      "item": "b1-l35-e03",
+      "step": "b1-l35",
+      "prompt": "Ouça e escreva o erro e o impacto causado.",
+      "answer": "사고 시간을 잘못 알려서 여론이 크게 흔들렸어요.",
+      "palavras": 7
+    },
+    {
+      "item": "b1-l35-e08",
+      "step": "b1-l35",
+      "prompt": "Ouça e escreva por que a informação errada se espalhou.",
+      "answer": "확인되지 않은 정보는 빠르게 퍼질 수밖에 없어요.",
+      "palavras": 7
+    },
+    {
+      "item": "b1-l36-e03",
+      "step": "b1-l36",
+      "prompt": "Ouça e escreva a decisão final de Sujin.",
+      "answer": "그래서 결국 옮기기로 했어요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-l36-e08",
+      "step": "b1-l36",
+      "prompt": "Ouça e escreva o resultado atual.",
+      "answer": "월급은 조금 줄었지만 배우는 게 많아요.",
+      "palavras": 6
+    },
+    {
+      "item": "b1-l37-e03",
+      "step": "b1-l37",
+      "prompt": "Ouça e escreva até quando o orçamento será recebido.",
+      "answer": "금요일까지 견적을 받을 거예요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-l37-e08",
+      "step": "b1-l37",
+      "prompt": "Ouça e escreva como o custo foi dividido.",
+      "answer": "관리비로 절반을 내고, 나머지는 건물주가 부담하기로 했어요.",
+      "palavras": 7
+    },
+    {
+      "item": "b1-l38-e03",
+      "step": "b1-l38",
+      "prompt": "Ouça e escreva o prazo pedido na mensagem.",
+      "answer": "금요일까지 회신해 주시기 바랍니다.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-l38-e08",
+      "step": "b1-l38",
+      "prompt": "Ouça e escreva o que foi incluído no corpo da mensagem.",
+      "answer": "본문에 날짜와 예약 번호를 넣었어요.",
+      "palavras": 5
+    },
+    {
+      "item": "b1-l39-e03",
+      "step": "b1-l39",
+      "prompt": "Ouça e escreva a ressalva de Marco sobre os novos funcionários.",
+      "answer": "신입 사원에게는 직접 배우는 시간이 필요하다는 점에서 단계적으로 도입해야 해요.",
+      "palavras": 10
+    },
+    {
+      "item": "b1-l39-e08",
+      "step": "b1-l39",
+      "prompt": "Ouça e escreva a conclusão de Marco.",
+      "answer": "저는 그 방식에 동의해요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-l40-e03",
+      "step": "b1-l40",
+      "prompt": "Ouça e escreva como Sujin se sente agora.",
+      "answer": "지금도 완벽하지는 않지만 예전보다 자신감이 생겼어요.",
+      "palavras": 6
+    },
+    {
+      "item": "b1-l40-e08",
+      "step": "b1-l40",
+      "prompt": "Ouça e escreva o plano de Sujin para o próximo ano.",
+      "answer": "내년에는 한국어로 짧은 글을 꾸준히 쓰고 싶어요.",
+      "palavras": 7
+    },
+    {
+      "item": "b1-c01-e01",
+      "step": "b1-c01",
+      "prompt": "Ouça e escreva a impressão da viagem.",
+      "answer": "바다가 정말 넓더라고요.",
+      "palavras": 3
+    },
+    {
+      "item": "b1-c01-e02",
+      "step": "b1-c01",
+      "prompt": "Ouça e escreva o que aconteceu no trajeto.",
+      "answer": "지하철에서 내리다가 넘어졌어요.",
+      "palavras": 3
+    },
+    {
+      "item": "b1-c01-e03",
+      "step": "b1-c01",
+      "prompt": "Ouça e escreva a fala relatada.",
+      "answer": "내일 온다고 했어요.",
+      "palavras": 3
+    },
+    {
+      "item": "b1-c01-e04",
+      "step": "b1-c01",
+      "prompt": "Ouça e escreva a pergunta relatada.",
+      "answer": "몇 시에 오냐고 물었어요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-c01-e05",
+      "step": "b1-c01",
+      "prompt": "Ouça e escreva a hipótese passada.",
+      "answer": "시간을 되돌릴 수 있다면 좋겠어요.",
+      "palavras": 5
+    },
+    {
+      "item": "b1-c01-e06",
+      "step": "b1-c01",
+      "prompt": "Ouça e escreva a mudança inesperada.",
+      "answer": "계획이 완전히 뒤바뀌었어요.",
+      "palavras": 3
+    },
+    {
+      "item": "b1-c02-e01",
+      "step": "b1-c02",
+      "prompt": "Ouça e escreva o plano provisório.",
+      "answer": "주말에 등산을 갈까 해요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-c02-e02",
+      "step": "b1-c02",
+      "prompt": "Ouça e escreva o objetivo.",
+      "answer": "효율을 높이기 위해 과정을 줄였어요.",
+      "palavras": 5
+    },
+    {
+      "item": "b1-c02-e03",
+      "step": "b1-c02",
+      "prompt": "Ouça e escreva a alternativa.",
+      "answer": "비싼 호텔 대신 작은 숙소를 골랐어요.",
+      "palavras": 6
+    },
+    {
+      "item": "b1-c02-e04",
+      "step": "b1-c02",
+      "prompt": "Ouça e escreva a condição.",
+      "answer": "예산이 있는 한 이 계획을 유지할 수 있어요.",
+      "palavras": 8
+    },
+    {
+      "item": "b1-c02-e05",
+      "step": "b1-c02",
+      "prompt": "Ouça e escreva a decisão difícil.",
+      "answer": "그 일을 맡지 않을 수 없었어요.",
+      "palavras": 6
+    },
+    {
+      "item": "b1-c02-e06",
+      "step": "b1-c02",
+      "prompt": "Ouça e escreva a prioridade.",
+      "answer": "지금은 안전이 최우선이에요.",
+      "palavras": 3
+    },
+    {
+      "item": "b1-c03-e01",
+      "step": "b1-c03",
+      "prompt": "Ouça e escreva a opinião.",
+      "answer": "저는 이 변화가 긍정적이라고 생각해요.",
+      "palavras": 5
+    },
+    {
+      "item": "b1-c03-e02",
+      "step": "b1-c03",
+      "prompt": "Ouça e escreva a comparação.",
+      "answer": "이 방법은 저 방법에 비해 효율적이에요.",
+      "palavras": 6
+    },
+    {
+      "item": "b1-c03-e03",
+      "step": "b1-c03",
+      "prompt": "Ouça e escreva a adição de argumento.",
+      "answer": "비용뿐만 아니라 시간도 절약돼요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-c03-e04",
+      "step": "b1-c03",
+      "prompt": "Ouça e escreva a discordância cortês.",
+      "answer": "그 의견도 이해하지만 저는 다르게 생각해요.",
+      "palavras": 6
+    },
+    {
+      "item": "b1-c03-e05",
+      "step": "b1-c03",
+      "prompt": "Ouça e escreva a tese.",
+      "answer": "교통 정책은 접근성을 기준으로 평가해야 해요.",
+      "palavras": 6
+    },
+    {
+      "item": "b1-c03-e06",
+      "step": "b1-c03",
+      "prompt": "Ouça e escreva a evidência.",
+      "answer": "통계에 따르면 이용자가 늘었어요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-c04-e01",
+      "step": "b1-c04",
+      "prompt": "Ouça e escreva a responsabilidade.",
+      "answer": "안전 교육은 모든 직원의 의무예요.",
+      "palavras": 5
+    },
+    {
+      "item": "b1-c04-e02",
+      "step": "b1-c04",
+      "prompt": "Ouça e escreva a pauta.",
+      "answer": "오늘 회의 안건은 세 가지예요.",
+      "palavras": 5
+    },
+    {
+      "item": "b1-c04-e03",
+      "step": "b1-c04",
+      "prompt": "Ouça e escreva a condição de trabalho.",
+      "answer": "연봉과 복지를 함께 비교했어요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-c04-e04",
+      "step": "b1-c04",
+      "prompt": "Ouça e escreva o objetivo de estudo.",
+      "answer": "역량을 키우기 위해서는 실습이 중요해요.",
+      "palavras": 5
+    },
+    {
+      "item": "b1-c04-e05",
+      "step": "b1-c04",
+      "prompt": "Ouça e escreva o conflito.",
+      "answer": "일정이 갑자기 바뀌는 바람에 팀이 힘들었어요.",
+      "palavras": 6
+    },
+    {
+      "item": "b1-c04-e06",
+      "step": "b1-c04",
+      "prompt": "Ouça e escreva o acordo.",
+      "answer": "회의 후에 업무 분담을 다시 정했어요.",
+      "palavras": 6
+    },
+    {
+      "item": "b1-c05-e01",
+      "step": "b1-c05",
+      "prompt": "Ouça e escreva a tendência.",
+      "answer": "1인 가구가 증가하는 경향이 있어요.",
+      "palavras": 5
+    },
+    {
+      "item": "b1-c05-e02",
+      "step": "b1-c05",
+      "prompt": "Ouça e escreva a comparação cultural.",
+      "answer": "이 관행은 지역마다 달라요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-c05-e03",
+      "step": "b1-c05",
+      "prompt": "Ouça e escreva o limite.",
+      "answer": "관계에도 분명한 경계가 필요해요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-c05-e04",
+      "step": "b1-c05",
+      "prompt": "Ouça e escreva o problema urbano.",
+      "answer": "정전 때문에 엘리베이터가 멈췄어요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-c05-e05",
+      "step": "b1-c05",
+      "prompt": "Ouça e escreva o direito.",
+      "answer": "의견을 말할 권리가 있어요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-c05-e06",
+      "step": "b1-c05",
+      "prompt": "Ouça e escreva o dever.",
+      "answer": "우리는 규칙을 지켜야 할 의무가 있어요.",
+      "palavras": 6
+    },
+    {
+      "item": "b1-c06-e01",
+      "step": "b1-c06",
+      "prompt": "Ouça e escreva a mudança de reserva.",
+      "answer": "숙박 기간을 하루 늘렸어요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-c06-e02",
+      "step": "b1-c06",
+      "prompt": "Ouça e escreva o cancelamento.",
+      "answer": "폭풍 때문에 항공편이 결항됐어요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-c06-e03",
+      "step": "b1-c06",
+      "prompt": "Ouça e escreva a reclamação.",
+      "answer": "손실에 대한 배상을 요구했어요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-c06-e04",
+      "step": "b1-c06",
+      "prompt": "Ouça e escreva a recomendação.",
+      "answer": "가성비가 좋은 숙소를 추천해요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-c06-e05",
+      "step": "b1-c06",
+      "prompt": "Ouça e escreva a impressão da viagem.",
+      "answer": "그 장면이 아직 생생해요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-c06-e06",
+      "step": "b1-c06",
+      "prompt": "Ouça e escreva a condição.",
+      "answer": "예약이 확정되면 문자로 알려 주세요.",
+      "palavras": 5
+    },
+    {
+      "item": "b1-c07-e01",
+      "step": "b1-c07",
+      "prompt": "Ouça e escreva a fonte da notícia.",
+      "answer": "기사에 따르면 이용자가 늘었어요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-c07-e02",
+      "step": "b1-c07",
+      "prompt": "Ouça e escreva a tese do texto.",
+      "answer": "글의 요지는 접근성 개선이에요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-c07-e03",
+      "step": "b1-c07",
+      "prompt": "Ouça e escreva a distinção fato/opinião.",
+      "answer": "그 기사는 사실과 의견을 섞고 있어요.",
+      "palavras": 6
+    },
+    {
+      "item": "b1-c07-e04",
+      "step": "b1-c07",
+      "prompt": "Ouça e escreva a tendência dos dados.",
+      "answer": "판매량이 두 달 연속 하락했어요.",
+      "palavras": 5
+    },
+    {
+      "item": "b1-c07-e05",
+      "step": "b1-c07",
+      "prompt": "Ouça e escreva a correção.",
+      "answer": "기사 정정을 요청했어요.",
+      "palavras": 3
+    },
+    {
+      "item": "b1-c07-e06",
+      "step": "b1-c07",
+      "prompt": "Ouça e escreva a responsabilidade.",
+      "answer": "매체의 영향력을 고려해야 해요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-c08-e01",
+      "step": "b1-c08",
+      "prompt": "Ouça e escreva o relato.",
+      "answer": "대학생 때 혼자 여행을 갔는데 생각보다 외롭더라고요.",
+      "palavras": 7
+    },
+    {
+      "item": "b1-c08-e02",
+      "step": "b1-c08",
+      "prompt": "Ouça e escreva a interrupção.",
+      "answer": "지하철에서 내리다가 넘어졌어요.",
+      "palavras": 3
+    },
+    {
+      "item": "b1-c08-e03",
+      "step": "b1-c08",
+      "prompt": "Ouça e escreva a fala relatada.",
+      "answer": "내일 온다고 했어요.",
+      "palavras": 3
+    },
+    {
+      "item": "b1-c08-e04",
+      "step": "b1-c08",
+      "prompt": "Ouça e escreva o plano provisório.",
+      "answer": "주말에 등산을 갈까 해요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-c08-e05",
+      "step": "b1-c08",
+      "prompt": "Ouça e escreva o argumento.",
+      "answer": "비용뿐만 아니라 시간도 절약돼요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-c08-e06",
+      "step": "b1-c08",
+      "prompt": "Ouça e escreva a obrigação.",
+      "answer": "안전 교육은 모든 직원의 의무예요.",
+      "palavras": 5
+    },
+    {
+      "item": "b1-c08-e07",
+      "step": "b1-c08",
+      "prompt": "Ouça e escreva a tendência social.",
+      "answer": "1인 가구가 증가하는 경향이 있어요.",
+      "palavras": 5
+    },
+    {
+      "item": "b1-c08-e08",
+      "step": "b1-c08",
+      "prompt": "Ouça e escreva o imprevisto de viagem.",
+      "answer": "폭풍 때문에 항공편이 결항됐어요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-c08-e09",
+      "step": "b1-c08",
+      "prompt": "Ouça e escreva a fonte jornalística.",
+      "answer": "기사에 따르면 이용자가 늘었어요.",
+      "palavras": 4
+    },
+    {
+      "item": "b1-c08-e10",
+      "step": "b1-c08",
+      "prompt": "Ouça e escreva a avaliação final.",
+      "answer": "결국 좋은 기억으로 남았어요.",
+      "palavras": 4
+    }
+  ]
+}

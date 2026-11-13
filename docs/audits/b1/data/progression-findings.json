@@ -1,0 +1,2300 @@
+{
+  "answerNotTaught": [
+    {
+      "step": "b1-c01",
+      "exercise": "b1-c01-e04",
+      "type": "listen",
+      "answer": "몇 시에 오냐고 물었어요.",
+      "unknownTokens": [
+        "오냐고"
+      ]
+    },
+    {
+      "step": "b1-c01",
+      "exercise": "b1-c01-e04",
+      "type": "listen",
+      "answer": "몇 시에 오냐고 물었어요",
+      "unknownTokens": [
+        "오냐고"
+      ]
+    },
+    {
+      "step": "b1-l06",
+      "exercise": "b1-l06-e05",
+      "type": "translate",
+      "answer": "집에서 좀 쉴까 해요",
+      "unknownTokens": [
+        "좀"
+      ]
+    },
+    {
+      "step": "b1-c02",
+      "exercise": "b1-c02-e02",
+      "type": "listen",
+      "answer": "효율을 높이기 위해 과정을 줄였어요.",
+      "unknownTokens": [
+        "줄였어요"
+      ]
+    },
+    {
+      "step": "b1-c02",
+      "exercise": "b1-c02-e02",
+      "type": "listen",
+      "answer": "효율을 높이기 위해 과정을 줄였어요",
+      "unknownTokens": [
+        "줄였어요"
+      ]
+    },
+    {
+      "step": "b1-c02",
+      "exercise": "b1-c02-e03",
+      "type": "listen",
+      "answer": "비싼 호텔 대신 작은 숙소를 골랐어요.",
+      "unknownTokens": [
+        "골랐어요"
+      ]
+    },
+    {
+      "step": "b1-c02",
+      "exercise": "b1-c02-e03",
+      "type": "listen",
+      "answer": "비싼 호텔 대신 작은 숙소를 골랐어요",
+      "unknownTokens": [
+        "골랐어요"
+      ]
+    },
+    {
+      "step": "b1-c02",
+      "exercise": "b1-c02-e05",
+      "type": "listen",
+      "answer": "그 일을 맡지 않을 수 없었어요.",
+      "unknownTokens": [
+        "맡지"
+      ]
+    },
+    {
+      "step": "b1-c02",
+      "exercise": "b1-c02-e05",
+      "type": "listen",
+      "answer": "그 일을 맡지 않을 수 없었어요",
+      "unknownTokens": [
+        "맡지"
+      ]
+    },
+    {
+      "step": "b1-c02",
+      "exercise": "b1-c02-e06",
+      "type": "listen",
+      "answer": "지금은 안전이 최우선이에요.",
+      "unknownTokens": [
+        "최우선이에요"
+      ]
+    },
+    {
+      "step": "b1-c02",
+      "exercise": "b1-c02-e06",
+      "type": "listen",
+      "answer": "지금은 안전이 최우선이에요",
+      "unknownTokens": [
+        "최우선이에요"
+      ]
+    },
+    {
+      "step": "b1-c02",
+      "exercise": "b1-c02-e20",
+      "type": "cloze",
+      "answer": "없",
+      "unknownTokens": [
+        "없"
+      ]
+    },
+    {
+      "step": "b1-c02",
+      "exercise": "b1-c02-e24",
+      "type": "translate",
+      "answer": "지금은 안전이 최우선이에요.",
+      "unknownTokens": [
+        "최우선이에요"
+      ]
+    },
+    {
+      "step": "b1-c02",
+      "exercise": "b1-c02-e25",
+      "type": "translate",
+      "answer": "그 일을 맡지 않을 수 없었어요.",
+      "unknownTokens": [
+        "맡지"
+      ]
+    },
+    {
+      "step": "b1-c02",
+      "exercise": "b1-c02-e25",
+      "type": "translate",
+      "answer": "그 일을 맡을 수밖에 없었어요.",
+      "unknownTokens": [
+        "맡을",
+        "수밖에"
+      ]
+    },
+    {
+      "step": "b1-l12",
+      "exercise": "b1-l12-e07",
+      "type": "cloze",
+      "answer": "렷해요",
+      "unknownTokens": [
+        "렷해요"
+      ]
+    },
+    {
+      "step": "b1-c03",
+      "exercise": "b1-c03-e03",
+      "type": "listen",
+      "answer": "비용뿐만 아니라 시간도 절약돼요.",
+      "unknownTokens": [
+        "절약돼요"
+      ]
+    },
+    {
+      "step": "b1-c03",
+      "exercise": "b1-c03-e03",
+      "type": "listen",
+      "answer": "비용뿐만 아니라 시간도 절약돼요",
+      "unknownTokens": [
+        "절약돼요"
+      ]
+    },
+    {
+      "step": "b1-c03",
+      "exercise": "b1-c03-e16",
+      "type": "cloze",
+      "answer": "이라고",
+      "unknownTokens": [
+        "이라고"
+      ]
+    },
+    {
+      "step": "b1-l17",
+      "exercise": "b1-l17-e08",
+      "type": "listen",
+      "answer": "오늘은 안건이 세 개뿐이에요.",
+      "unknownTokens": [
+        "개뿐이에요"
+      ]
+    },
+    {
+      "step": "b1-l17",
+      "exercise": "b1-l17-e08",
+      "type": "listen",
+      "answer": "오늘은 안건이 세 개뿐이에요",
+      "unknownTokens": [
+        "개뿐이에요"
+      ]
+    },
+    {
+      "step": "b1-c04",
+      "exercise": "b1-c04-e06",
+      "type": "listen",
+      "answer": "회의 후에 업무 분담을 다시 정했어요.",
+      "unknownTokens": [
+        "분담을"
+      ]
+    },
+    {
+      "step": "b1-c04",
+      "exercise": "b1-c04-e06",
+      "type": "listen",
+      "answer": "회의 후에 업무 분담을 다시 정했어요",
+      "unknownTokens": [
+        "분담을"
+      ]
+    },
+    {
+      "step": "b1-c04",
+      "exercise": "b1-c04-e19",
+      "type": "cloze",
+      "answer": "분담",
+      "unknownTokens": [
+        "분담"
+      ]
+    },
+    {
+      "step": "b1-l23",
+      "exercise": "b1-l23-e05",
+      "type": "translate",
+      "answer": "미리 알려 주면 좋겠어요.",
+      "unknownTokens": [
+        "주면"
+      ]
+    },
+    {
+      "step": "b1-c05",
+      "exercise": "b1-c05-e17",
+      "type": "cloze",
+      "answer": "마다",
+      "unknownTokens": [
+        "마다"
+      ]
+    },
+    {
+      "step": "b1-l26",
+      "exercise": "b1-l26-e05",
+      "type": "translate",
+      "answer": "숙박을 하루 연기하고 싶어요.",
+      "unknownTokens": [
+        "연기하고"
+      ]
+    },
+    {
+      "step": "b1-l28",
+      "exercise": "b1-l28-e05",
+      "type": "translate",
+      "answer": "지연에 대한 답변을 받고 싶어요.",
+      "unknownTokens": [
+        "받고"
+      ]
+    },
+    {
+      "step": "b1-c06",
+      "exercise": "b1-c06-e06",
+      "type": "listen",
+      "answer": "예약이 확정되면 문자로 알려 주세요.",
+      "unknownTokens": [
+        "문자로"
+      ]
+    },
+    {
+      "step": "b1-c06",
+      "exercise": "b1-c06-e06",
+      "type": "listen",
+      "answer": "예약이 확정되면 문자로 알려 주세요",
+      "unknownTokens": [
+        "문자로"
+      ]
+    },
+    {
+      "step": "b1-c07",
+      "exercise": "b1-c07-e03",
+      "type": "listen",
+      "answer": "그 기사는 사실과 의견을 섞고 있어요.",
+      "unknownTokens": [
+        "섞고"
+      ]
+    },
+    {
+      "step": "b1-c07",
+      "exercise": "b1-c07-e03",
+      "type": "listen",
+      "answer": "그 기사는 사실과 의견을 섞고 있어요",
+      "unknownTokens": [
+        "섞고"
+      ]
+    },
+    {
+      "step": "b1-l36",
+      "exercise": "b1-l36-e05",
+      "type": "translate",
+      "answer": "결국 이직하기로 했어요.",
+      "unknownTokens": [
+        "이직하기로"
+      ]
+    },
+    {
+      "step": "b1-l38",
+      "exercise": "b1-l38-e05",
+      "type": "translate",
+      "answer": "예약 취소에 대한 문의를 보냈어요.",
+      "unknownTokens": [
+        "보냈어요"
+      ]
+    },
+    {
+      "step": "b1-l38",
+      "exercise": "b1-l38-e05",
+      "type": "translate",
+      "answer": "예약 취소에 대한 질문을 보냈어요.",
+      "unknownTokens": [
+        "보냈어요"
+      ]
+    },
+    {
+      "step": "b1-c08",
+      "exercise": "b1-c08-e05",
+      "type": "listen",
+      "answer": "비용뿐만 아니라 시간도 절약돼요.",
+      "unknownTokens": [
+        "절약돼요"
+      ]
+    },
+    {
+      "step": "b1-c08",
+      "exercise": "b1-c08-e05",
+      "type": "listen",
+      "answer": "비용뿐만 아니라 시간도 절약돼요",
+      "unknownTokens": [
+        "절약돼요"
+      ]
+    },
+    {
+      "step": "b1-c08",
+      "exercise": "b1-c08-e40",
+      "type": "translate",
+      "answer": "글의 요지는 접근성 향상이에요.",
+      "unknownTokens": [
+        "향상이에요"
+      ]
+    }
+  ],
+  "unknownNoun": [
+    {
+      "step": "b1-l01",
+      "exercise": "b1-l01-e10",
+      "token": "무섭지만",
+      "noun": "무섭지",
+      "particle": "만"
+    },
+    {
+      "step": "b1-l01",
+      "exercise": "b1-l01-e10",
+      "token": "시선이",
+      "noun": "시선",
+      "particle": "이"
+    },
+    {
+      "step": "b1-l02",
+      "exercise": "b1-l02-e10",
+      "token": "날에는",
+      "noun": "날에",
+      "particle": "는"
+    },
+    {
+      "step": "b1-l02",
+      "exercise": "b1-l02-e10",
+      "token": "뛰다가",
+      "noun": "뛰다",
+      "particle": "가"
+    },
+    {
+      "step": "b1-l03",
+      "exercise": "b1-l03-e10",
+      "token": "그대로",
+      "noun": "그대",
+      "particle": "로"
+    },
+    {
+      "step": "b1-l05",
+      "exercise": "b1-l05-e10",
+      "token": "변화는",
+      "noun": "변화",
+      "particle": "는"
+    },
+    {
+      "step": "b1-c01",
+      "exercise": "b1-c01-e12",
+      "token": "그대로",
+      "noun": "그대",
+      "particle": "로"
+    },
+    {
+      "step": "b1-l06",
+      "exercise": "b1-l06-e10",
+      "token": "지수는",
+      "noun": "지수",
+      "particle": "는"
+    },
+    {
+      "step": "b1-l08",
+      "exercise": "b1-l08-e10",
+      "token": "무게를",
+      "noun": "무게",
+      "particle": "를"
+    },
+    {
+      "step": "b1-l10",
+      "exercise": "b1-l10-e10",
+      "token": "주지만",
+      "noun": "주지",
+      "particle": "만"
+    },
+    {
+      "step": "b1-c02",
+      "exercise": "b1-c02-e08",
+      "token": "늘리기로",
+      "noun": "늘리기",
+      "particle": "로"
+    },
+    {
+      "step": "b1-c02",
+      "exercise": "b1-c02-e12",
+      "token": "합의가",
+      "noun": "합의",
+      "particle": "가"
+    },
+    {
+      "step": "b1-c02",
+      "exercise": "b1-c02-e25",
+      "token": "수밖에",
+      "noun": "수밖",
+      "particle": "에"
+    },
+    {
+      "step": "b1-l11",
+      "exercise": "b1-l11-e10",
+      "token": "나름의",
+      "noun": "나름",
+      "particle": "의"
+    },
+    {
+      "step": "b1-l14",
+      "exercise": "b1-l14-e10",
+      "token": "취향이",
+      "noun": "취향",
+      "particle": "이"
+    },
+    {
+      "step": "b1-c03",
+      "exercise": "b1-c03-e08",
+      "token": "평일에는",
+      "noun": "평일에",
+      "particle": "는"
+    },
+    {
+      "step": "b1-c03",
+      "exercise": "b1-c03-e11",
+      "token": "낮다는",
+      "noun": "낮다",
+      "particle": "는"
+    },
+    {
+      "step": "b1-c03",
+      "exercise": "b1-c03-e11",
+      "token": "저하를",
+      "noun": "저하",
+      "particle": "를"
+    },
+    {
+      "step": "b1-c03",
+      "exercise": "b1-c03-e11",
+      "token": "우려하는",
+      "noun": "우려하",
+      "particle": "는"
+    },
+    {
+      "step": "b1-c03",
+      "exercise": "b1-c03-e11",
+      "token": "목소리도",
+      "noun": "목소리",
+      "particle": "도"
+    },
+    {
+      "step": "b1-l16",
+      "exercise": "b1-l16-e04",
+      "token": "지민은",
+      "noun": "지민",
+      "particle": "은"
+    },
+    {
+      "step": "b1-l16",
+      "exercise": "b1-l16-e10",
+      "token": "범위를",
+      "noun": "범위",
+      "particle": "를"
+    },
+    {
+      "step": "b1-l18",
+      "exercise": "b1-l18-e04",
+      "token": "높지만",
+      "noun": "높지",
+      "particle": "만"
+    },
+    {
+      "step": "b1-l18",
+      "exercise": "b1-l18-e10",
+      "token": "나중에",
+      "noun": "나중",
+      "particle": "에"
+    },
+    {
+      "step": "b1-l19",
+      "exercise": "b1-l19-e10",
+      "token": "현장에서",
+      "noun": "현장",
+      "particle": "에서"
+    },
+    {
+      "step": "b1-l20",
+      "exercise": "b1-l20-e10",
+      "token": "중재자를",
+      "noun": "중재자",
+      "particle": "를"
+    },
+    {
+      "step": "b1-l20",
+      "exercise": "b1-l20-e10",
+      "token": "협상하는",
+      "noun": "협상하",
+      "particle": "는"
+    },
+    {
+      "step": "b1-c04",
+      "exercise": "b1-c04-e06",
+      "token": "분담을",
+      "noun": "분담",
+      "particle": "을"
+    },
+    {
+      "step": "b1-c04",
+      "exercise": "b1-c04-e10",
+      "token": "병행하기는",
+      "noun": "병행하기",
+      "particle": "는"
+    },
+    {
+      "step": "b1-c04",
+      "exercise": "b1-c04-e12",
+      "token": "예방이",
+      "noun": "예방",
+      "particle": "이"
+    },
+    {
+      "step": "b1-l21",
+      "exercise": "b1-l21-e10",
+      "token": "집값이",
+      "noun": "집값",
+      "particle": "이"
+    },
+    {
+      "step": "b1-l22",
+      "exercise": "b1-l22-e04",
+      "token": "모이는",
+      "noun": "모이",
+      "particle": "는"
+    },
+    {
+      "step": "b1-l22",
+      "exercise": "b1-l22-e04",
+      "token": "지민도",
+      "noun": "지민",
+      "particle": "도"
+    },
+    {
+      "step": "b1-l22",
+      "exercise": "b1-l22-e10",
+      "token": "한쪽이",
+      "noun": "한쪽",
+      "particle": "이"
+    },
+    {
+      "step": "b1-l24",
+      "exercise": "b1-l24-e10",
+      "token": "대중교통을",
+      "noun": "대중교통",
+      "particle": "을"
+    },
+    {
+      "step": "b1-l25",
+      "exercise": "b1-l25-e04",
+      "token": "지키는",
+      "noun": "지키",
+      "particle": "는"
+    },
+    {
+      "step": "b1-l25",
+      "exercise": "b1-l25-e10",
+      "token": "공동체가",
+      "noun": "공동체",
+      "particle": "가"
+    },
+    {
+      "step": "b1-c05",
+      "exercise": "b1-c05-e07",
+      "token": "인구는",
+      "noun": "인구",
+      "particle": "는"
+    },
+    {
+      "step": "b1-c05",
+      "exercise": "b1-c05-e07",
+      "token": "지방은",
+      "noun": "지방",
+      "particle": "은"
+    },
+    {
+      "step": "b1-c05",
+      "exercise": "b1-c05-e10",
+      "token": "알리는",
+      "noun": "알리",
+      "particle": "는"
+    },
+    {
+      "step": "b1-c05",
+      "exercise": "b1-c05-e11",
+      "token": "줄이는",
+      "noun": "줄이",
+      "particle": "는"
+    },
+    {
+      "step": "b1-c05",
+      "exercise": "b1-c05-e12",
+      "token": "여론은",
+      "noun": "여론",
+      "particle": "은"
+    },
+    {
+      "step": "b1-l26",
+      "exercise": "b1-l26-e04",
+      "token": "명단에",
+      "noun": "명단",
+      "particle": "에"
+    },
+    {
+      "step": "b1-l26",
+      "exercise": "b1-l26-e06",
+      "token": "내기에는",
+      "noun": "내기에",
+      "particle": "는"
+    },
+    {
+      "step": "b1-l26",
+      "exercise": "b1-l26-e10",
+      "token": "총비용을",
+      "noun": "총비용",
+      "particle": "을"
+    },
+    {
+      "step": "b1-l27",
+      "exercise": "b1-l27-e04",
+      "token": "그녀는",
+      "noun": "그녀",
+      "particle": "는"
+    },
+    {
+      "step": "b1-l27",
+      "exercise": "b1-l27-e08",
+      "token": "승객들은",
+      "noun": "승객들",
+      "particle": "은"
+    },
+    {
+      "step": "b1-l27",
+      "exercise": "b1-l27-e10",
+      "token": "방송을",
+      "noun": "방송",
+      "particle": "을"
+    },
+    {
+      "step": "b1-l27",
+      "exercise": "b1-l27-e10",
+      "token": "나중에",
+      "noun": "나중",
+      "particle": "에"
+    },
+    {
+      "step": "b1-l27",
+      "exercise": "b1-l27-e10",
+      "token": "배상을",
+      "noun": "배상",
+      "particle": "을"
+    },
+    {
+      "step": "b1-l28",
+      "exercise": "b1-l28-e04",
+      "token": "그녀는",
+      "noun": "그녀",
+      "particle": "는"
+    },
+    {
+      "step": "b1-l28",
+      "exercise": "b1-l28-e04",
+      "token": "여부를",
+      "noun": "여부",
+      "particle": "를"
+    },
+    {
+      "step": "b1-l28",
+      "exercise": "b1-l28-e04",
+      "token": "했지만",
+      "noun": "했지",
+      "particle": "만"
+    },
+    {
+      "step": "b1-l28",
+      "exercise": "b1-l28-e10",
+      "token": "싶은지를",
+      "noun": "싶은지",
+      "particle": "를"
+    },
+    {
+      "step": "b1-l28",
+      "exercise": "b1-l28-e10",
+      "token": "차례로",
+      "noun": "차례",
+      "particle": "로"
+    },
+    {
+      "step": "b1-l29",
+      "exercise": "b1-l29-e04",
+      "token": "화려하지는",
+      "noun": "화려하지",
+      "particle": "는"
+    },
+    {
+      "step": "b1-l29",
+      "exercise": "b1-l29-e04",
+      "token": "취향을",
+      "noun": "취향",
+      "particle": "을"
+    },
+    {
+      "step": "b1-l30",
+      "exercise": "b1-l30-e04",
+      "token": "사흘을",
+      "noun": "사흘",
+      "particle": "을"
+    },
+    {
+      "step": "b1-l30",
+      "exercise": "b1-l30-e04",
+      "token": "컸지만",
+      "noun": "컸지",
+      "particle": "만"
+    },
+    {
+      "step": "b1-l30",
+      "exercise": "b1-l30-e04",
+      "token": "날에는",
+      "noun": "날에",
+      "particle": "는"
+    },
+    {
+      "step": "b1-l30",
+      "exercise": "b1-l30-e04",
+      "token": "마을의",
+      "noun": "마을",
+      "particle": "의"
+    },
+    {
+      "step": "b1-l30",
+      "exercise": "b1-l30-e04",
+      "token": "싶다는",
+      "noun": "싶다",
+      "particle": "는"
+    },
+    {
+      "step": "b1-l30",
+      "exercise": "b1-l30-e10",
+      "token": "메모를",
+      "noun": "메모",
+      "particle": "를"
+    },
+    {
+      "step": "b1-l30",
+      "exercise": "b1-l30-e10",
+      "token": "나중에",
+      "noun": "나중",
+      "particle": "에"
+    },
+    {
+      "step": "b1-c06",
+      "exercise": "b1-c06-e06",
+      "token": "문자로",
+      "noun": "문자",
+      "particle": "로"
+    },
+    {
+      "step": "b1-c06",
+      "exercise": "b1-c06-e07",
+      "token": "했지만",
+      "noun": "했지",
+      "particle": "만"
+    },
+    {
+      "step": "b1-l31",
+      "exercise": "b1-l31-e10",
+      "token": "강조하는",
+      "noun": "강조하",
+      "particle": "는"
+    },
+    {
+      "step": "b1-l33",
+      "exercise": "b1-l33-e04",
+      "token": "규모가",
+      "noun": "규모",
+      "particle": "가"
+    },
+    {
+      "step": "b1-l35",
+      "exercise": "b1-l35-e10",
+      "token": "자리에",
+      "noun": "자리",
+      "particle": "에"
+    },
+    {
+      "step": "b1-c07",
+      "exercise": "b1-c07-e07",
+      "token": "대상이",
+      "noun": "대상",
+      "particle": "이"
+    },
+    {
+      "step": "b1-c07",
+      "exercise": "b1-c07-e09",
+      "token": "필자의",
+      "noun": "필자",
+      "particle": "의"
+    },
+    {
+      "step": "b1-l36",
+      "exercise": "b1-l36-e04",
+      "token": "이직하기로",
+      "noun": "이직하기",
+      "particle": "로"
+    },
+    {
+      "step": "b1-l36",
+      "exercise": "b1-l36-e05",
+      "token": "이직하기로",
+      "noun": "이직하기",
+      "particle": "로"
+    },
+    {
+      "step": "b1-l39",
+      "exercise": "b1-l39-e10",
+      "token": "반응하기보다",
+      "noun": "반응하기",
+      "particle": "보다"
+    },
+    {
+      "step": "b1-l40",
+      "exercise": "b1-l40-e04",
+      "token": "만드는",
+      "noun": "만드",
+      "particle": "는"
+    },
+    {
+      "step": "b1-l40",
+      "exercise": "b1-l40-e04",
+      "token": "글쓰기를",
+      "noun": "글쓰기",
+      "particle": "를"
+    },
+    {
+      "step": "b1-l40",
+      "exercise": "b1-l40-e10",
+      "token": "배움은",
+      "noun": "배움",
+      "particle": "은"
+    },
+    {
+      "step": "b1-c08",
+      "exercise": "b1-c08-e11",
+      "token": "갔다가",
+      "noun": "갔다",
+      "particle": "가"
+    },
+    {
+      "step": "b1-c08",
+      "exercise": "b1-c08-e12",
+      "token": "했지만",
+      "noun": "했지",
+      "particle": "만"
+    },
+    {
+      "step": "b1-c08",
+      "exercise": "b1-c08-e16",
+      "token": "인구는",
+      "noun": "인구",
+      "particle": "는"
+    },
+    {
+      "step": "b1-c08",
+      "exercise": "b1-c08-e16",
+      "token": "지방은",
+      "noun": "지방",
+      "particle": "은"
+    },
+    {
+      "step": "b1-c08",
+      "exercise": "b1-c08-e17",
+      "token": "했지만",
+      "noun": "했지",
+      "particle": "만"
+    },
+    {
+      "step": "b1-c08",
+      "exercise": "b1-c08-e18",
+      "token": "대상이",
+      "noun": "대상",
+      "particle": "이"
+    }
+  ],
+  "markerOrder": [
+    {
+      "marker": "-(으)ㄹ 때",
+      "where": "gabarito/áudio",
+      "firstGradedIn": "b1-l23",
+      "taughtIn": "a2-l35",
+      "declaredIn": null,
+      "gradedBeforeTaught": false,
+      "gradedBeforeDeclared": true
+    },
+    {
+      "marker": "-라고 하다 (indireto)",
+      "where": "gabarito/áudio",
+      "firstGradedIn": "b1-l14",
+      "taughtIn": "b1-l03",
+      "declaredIn": null,
+      "gradedBeforeTaught": false,
+      "gradedBeforeDeclared": true
+    },
+    {
+      "marker": "-다가",
+      "where": "gabarito/áudio",
+      "firstGradedIn": "b1-l01",
+      "taughtIn": "a1-l35",
+      "declaredIn": "b1-l02",
+      "gradedBeforeTaught": false,
+      "gradedBeforeDeclared": true
+    },
+    {
+      "marker": "-고 말다",
+      "where": "gabarito/áudio",
+      "firstGradedIn": "b1-l03",
+      "taughtIn": "b1-l03",
+      "declaredIn": "b1-l05",
+      "gradedBeforeTaught": false,
+      "gradedBeforeDeclared": true
+    },
+    {
+      "marker": "-다는 점에서",
+      "where": "qualquer texto",
+      "firstGradedIn": "b1-l11",
+      "taughtIn": "b1-l15",
+      "declaredIn": "b1-l15",
+      "gradedBeforeTaught": true,
+      "gradedBeforeDeclared": true
+    },
+    {
+      "marker": "-(으)ㄹ 수밖에 없다",
+      "where": "gabarito/áudio",
+      "firstGradedIn": "b1-c02",
+      "taughtIn": "b1-l18",
+      "declaredIn": "b1-l18",
+      "gradedBeforeTaught": true,
+      "gradedBeforeDeclared": true
+    },
+    {
+      "marker": "-해야 할 의무가 있다",
+      "where": "gabarito/áudio",
+      "firstGradedIn": "b1-c04",
+      "taughtIn": "b1-l25",
+      "declaredIn": "b1-l25",
+      "gradedBeforeTaught": true,
+      "gradedBeforeDeclared": true
+    },
+    {
+      "marker": "-기에는",
+      "where": "qualquer texto",
+      "firstGradedIn": "b1-l15",
+      "taughtIn": "b1-l26",
+      "declaredIn": "b1-l26",
+      "gradedBeforeTaught": true,
+      "gradedBeforeDeclared": true
+    },
+    {
+      "marker": "-에 따르면",
+      "where": "gabarito/áudio",
+      "firstGradedIn": "b1-c03",
+      "taughtIn": "b1-l31",
+      "declaredIn": "b1-l31",
+      "gradedBeforeTaught": true,
+      "gradedBeforeDeclared": true
+    },
+    {
+      "marker": "-다고 한다",
+      "where": "gabarito/áudio",
+      "firstGradedIn": "b1-l03",
+      "taughtIn": "b1-l03",
+      "declaredIn": "b1-l31",
+      "gradedBeforeTaught": false,
+      "gradedBeforeDeclared": true
+    },
+    {
+      "marker": "-뿐 (restritivo)",
+      "where": "gabarito/áudio",
+      "firstGradedIn": "b1-l17",
+      "taughtIn": null,
+      "declaredIn": null,
+      "gradedBeforeTaught": true,
+      "gradedBeforeDeclared": true
+    },
+    {
+      "marker": "-(으)를 통해",
+      "where": "gabarito/áudio",
+      "firstGradedIn": "b1-l19",
+      "taughtIn": "a2-l36",
+      "declaredIn": null,
+      "gradedBeforeTaught": false,
+      "gradedBeforeDeclared": true
+    },
+    {
+      "marker": "-(으)시기를 바랍니다",
+      "where": "gabarito/áudio",
+      "firstGradedIn": "b1-l28",
+      "taughtIn": "b1-l28",
+      "declaredIn": null,
+      "gradedBeforeTaught": false,
+      "gradedBeforeDeclared": true
+    }
+  ],
+  "markerFirstSeen": {
+    "-(으)ㄹ 거예요": {
+      "declared": "a1-l29",
+      "taught": "a1-l29",
+      "gradedAnswer": "a1-l29",
+      "gradedAny": "a1-l29"
+    },
+    "-(으)ㄹ 수 있다/없다": {
+      "declared": "a1-l27",
+      "taught": "a1-l27",
+      "gradedAnswer": "a1-l27",
+      "gradedAny": "a1-l27"
+    },
+    "-아/어서": {
+      "declared": "a2-l01",
+      "taught": "a1-l15",
+      "gradedAnswer": "a1-l15",
+      "gradedAny": "a1-l15"
+    },
+    "-지만": {
+      "declared": "a2-l04",
+      "taught": "a2-l04",
+      "gradedAnswer": "a2-l04",
+      "gradedAny": "a2-l01"
+    },
+    "-(으)면": {
+      "declared": "a2-l09",
+      "taught": "a1-l20",
+      "gradedAnswer": "a2-l07",
+      "gradedAny": "a1-l17"
+    },
+    "-고 싶다": {
+      "declared": "a1-l20",
+      "taught": "a1-l20",
+      "gradedAnswer": "a1-l20",
+      "gradedAny": "a1-l20"
+    },
+    "-아/어야 하다/돼": {
+      "declared": "a2-l09",
+      "taught": "a2-l09",
+      "gradedAnswer": "a2-l09",
+      "gradedAny": "a2-l09"
+    },
+    "-(으)세요": {
+      "declared": "a1-l15",
+      "taught": "a1-l01",
+      "gradedAnswer": "a1-l01",
+      "gradedAny": "a1-l01"
+    },
+    "못 / 안": {
+      "declared": "a1-l20",
+      "taught": "a1-l01",
+      "gradedAnswer": "a1-l01",
+      "gradedAny": "a1-l01"
+    },
+    "-보다(비교)": {
+      "declared": "a2-l29",
+      "taught": "a2-l03",
+      "gradedAnswer": "a2-l03",
+      "gradedAny": "a2-l03"
+    },
+    "-(으)ㄴ/는 것 같다": {
+      "declared": "a2-l31",
+      "taught": "a2-l31",
+      "gradedAnswer": "a2-l31",
+      "gradedAny": "a2-l31"
+    },
+    "-게 되다": {
+      "declared": "a2-l15",
+      "taught": "a2-l15",
+      "gradedAnswer": "a2-c03",
+      "gradedAny": "a2-l15"
+    },
+    "-(으)ㄹ 때": {
+      "declared": null,
+      "taught": "a2-l35",
+      "gradedAnswer": "b1-l23",
+      "gradedAny": "b1-l07"
+    },
+    "-라고 하다 (indireto)": {
+      "declared": null,
+      "taught": "b1-l03",
+      "gradedAnswer": "b1-l14",
+      "gradedAny": "a2-l04"
+    },
+    "-더라고요": {
+      "declared": "b1-l01",
+      "taught": "b1-l09",
+      "gradedAnswer": "b1-l09",
+      "gradedAny": "b1-l09"
+    },
+    "-다가": {
+      "declared": "b1-l02",
+      "taught": "a1-l35",
+      "gradedAnswer": "b1-l01",
+      "gradedAny": "a1-l35"
+    },
+    "-자마자": {
+      "declared": "b1-l02",
+      "taught": "b1-l02",
+      "gradedAnswer": "b1-l02",
+      "gradedAny": "b1-l02"
+    },
+    "-다고 하다": {
+      "declared": "b1-l03",
+      "taught": "b1-l03",
+      "gradedAnswer": "b1-l03",
+      "gradedAny": "a2-l25"
+    },
+    "-냐고 하다": {
+      "declared": "b1-l03",
+      "taught": "b1-l03",
+      "gradedAnswer": "b1-l03",
+      "gradedAny": "b1-l03"
+    },
+    "-았/었으면 좋겠다": {
+      "declared": "b1-l04",
+      "taught": "b1-l04",
+      "gradedAnswer": null,
+      "gradedAny": "b1-c01"
+    },
+    "-더라면": {
+      "declared": "b1-l04",
+      "taught": "b1-l04",
+      "gradedAnswer": "b1-l04",
+      "gradedAny": "b1-l04"
+    },
+    "-아/어 버리다": {
+      "declared": "b1-l05",
+      "taught": "b1-l05",
+      "gradedAnswer": null,
+      "gradedAny": "a2-l28"
+    },
+    "-고 말다": {
+      "declared": "b1-l05",
+      "taught": "b1-l03",
+      "gradedAnswer": "b1-l03",
+      "gradedAny": "a2-l04"
+    },
+    "-(으)ㄹ까 하다": {
+      "declared": "b1-l06",
+      "taught": "b1-l06",
+      "gradedAnswer": "b1-l06",
+      "gradedAny": "b1-l06"
+    },
+    "-(으)ㄹ 예정이다": {
+      "declared": "b1-l06",
+      "taught": "b1-l06",
+      "gradedAnswer": "b1-l06",
+      "gradedAny": "b1-l06"
+    },
+    "-기 위해": {
+      "declared": "b1-l07",
+      "taught": "b1-l07",
+      "gradedAnswer": "b1-l07",
+      "gradedAny": "b1-l07"
+    },
+    "-도록": {
+      "declared": "b1-l07",
+      "taught": "b1-l07",
+      "gradedAnswer": "b1-l07",
+      "gradedAny": "b1-l07"
+    },
+    "-는 대신": {
+      "declared": "b1-l08",
+      "taught": "b1-l08",
+      "gradedAnswer": "b1-l08",
+      "gradedAny": "a1-l36"
+    },
+    "-기보다": {
+      "declared": "b1-l08",
+      "taught": "b1-l08",
+      "gradedAnswer": "b1-l08",
+      "gradedAny": "b1-l08"
+    },
+    "-는 한": {
+      "declared": "b1-l09",
+      "taught": "a2-l40",
+      "gradedAnswer": "b1-l09",
+      "gradedAny": "a1-l36"
+    },
+    "-더라도/-라도": {
+      "declared": "b1-l09",
+      "taught": "b1-l09",
+      "gradedAnswer": "b1-l09",
+      "gradedAny": "b1-l09"
+    },
+    "-기로 하다": {
+      "declared": "a2-l07",
+      "taught": "a2-l06",
+      "gradedAnswer": "a2-l06",
+      "gradedAny": "a2-l06"
+    },
+    "-지 않을 수 없다": {
+      "declared": "b1-l10",
+      "taught": "b1-l10",
+      "gradedAnswer": "b1-l10",
+      "gradedAny": "b1-l10"
+    },
+    "-다고 생각하다": {
+      "declared": "b1-l11",
+      "taught": "a2-l31",
+      "gradedAnswer": "a2-l31",
+      "gradedAny": "a2-l31"
+    },
+    "-는 편이다": {
+      "declared": "b1-l11",
+      "taught": "a2-l23",
+      "gradedAnswer": "b1-l11",
+      "gradedAny": "a2-l23"
+    },
+    "-는 반면": {
+      "declared": "b1-l12",
+      "taught": "b1-l12",
+      "gradedAnswer": "b1-l12",
+      "gradedAny": "b1-l12"
+    },
+    "-에 비해": {
+      "declared": "b1-l12",
+      "taught": "b1-l12",
+      "gradedAnswer": "b1-l12",
+      "gradedAny": "b1-l12"
+    },
+    "-뿐만 아니라": {
+      "declared": "b1-l13",
+      "taught": "b1-l13",
+      "gradedAnswer": "b1-l13",
+      "gradedAny": "b1-l13"
+    },
+    "-기도 하다": {
+      "declared": "b1-l13",
+      "taught": "b1-l13",
+      "gradedAnswer": null,
+      "gradedAny": null
+    },
+    "-기는 하지만": {
+      "declared": "b1-l14",
+      "taught": "b1-l14",
+      "gradedAnswer": "b1-l14",
+      "gradedAny": "b1-l14"
+    },
+    "-라고 해도": {
+      "declared": "b1-l14",
+      "taught": "b1-l14",
+      "gradedAnswer": "b1-l14",
+      "gradedAny": "b1-l14"
+    },
+    "-다는 점에서": {
+      "declared": "b1-l15",
+      "taught": "b1-l15",
+      "gradedAnswer": "b1-l15",
+      "gradedAny": "b1-l11"
+    },
+    "-다고 볼 수 있다": {
+      "declared": "b1-l15",
+      "taught": "b1-l15",
+      "gradedAnswer": "b1-l15",
+      "gradedAny": "b1-l15"
+    },
+    "-에 따라(서)": {
+      "declared": "b1-l16",
+      "taught": "b1-l16",
+      "gradedAnswer": "b1-l16",
+      "gradedAny": "a2-l35"
+    },
+    "-도록 하다": {
+      "declared": "b1-l16",
+      "taught": "b1-l39",
+      "gradedAnswer": null,
+      "gradedAny": null
+    },
+    "-에 대한": {
+      "declared": "b1-l17",
+      "taught": "b1-l17",
+      "gradedAnswer": "b1-l17",
+      "gradedAny": "b1-l17"
+    },
+    "-는 데 반해": {
+      "declared": "b1-l17",
+      "taught": "b1-l17",
+      "gradedAnswer": "b1-l17",
+      "gradedAny": "b1-l17"
+    },
+    "-(으)ㄹ 수밖에 없다": {
+      "declared": "b1-l18",
+      "taught": "b1-l18",
+      "gradedAnswer": "b1-c02",
+      "gradedAny": "b1-c02"
+    },
+    "-기에": {
+      "declared": "b1-l18",
+      "taught": "a1-l04",
+      "gradedAnswer": "b1-l18",
+      "gradedAny": "b1-l18"
+    },
+    "-는 것이 중요하다": {
+      "declared": "b1-l19",
+      "taught": "a2-l24",
+      "gradedAnswer": "b1-l19",
+      "gradedAny": "a2-l21"
+    },
+    "-는 바람에": {
+      "declared": "b1-l20",
+      "taught": "b1-l20",
+      "gradedAnswer": "b1-l20",
+      "gradedAny": "b1-l20"
+    },
+    "-는 경향이 있다": {
+      "declared": "b1-l21",
+      "taught": "b1-l21",
+      "gradedAnswer": "b1-l21",
+      "gradedAny": "b1-l21"
+    },
+    "-라고들 하다": {
+      "declared": "b1-l22",
+      "taught": "b1-l22",
+      "gradedAnswer": "b1-l22",
+      "gradedAny": "b1-l22"
+    },
+    "-는 통에": {
+      "declared": "b1-l24",
+      "taught": "b1-l24",
+      "gradedAnswer": "b1-l24",
+      "gradedAny": "b1-l24"
+    },
+    "-기 마련이다": {
+      "declared": "b1-l24",
+      "taught": "b1-l24",
+      "gradedAnswer": "b1-l24",
+      "gradedAny": "b1-l24"
+    },
+    "-을 권리가 있다": {
+      "declared": "b1-l25",
+      "taught": "b1-l25",
+      "gradedAnswer": "b1-l25",
+      "gradedAny": "b1-l25"
+    },
+    "-해야 할 의무가 있다": {
+      "declared": "b1-l25",
+      "taught": "b1-l25",
+      "gradedAnswer": "b1-c04",
+      "gradedAny": "b1-c04"
+    },
+    "-(으)ㄹ 만하다": {
+      "declared": "b1-l26",
+      "taught": "b1-l15",
+      "gradedAnswer": null,
+      "gradedAny": null
+    },
+    "-기에는": {
+      "declared": "b1-l26",
+      "taught": "b1-l26",
+      "gradedAnswer": "b1-l26",
+      "gradedAny": "b1-l15"
+    },
+    "-만큼": {
+      "declared": "b1-l29",
+      "taught": "b1-l29",
+      "gradedAnswer": "b1-l29",
+      "gradedAny": "b1-l29"
+    },
+    "-다는 생각이 들다": {
+      "declared": "b1-l30",
+      "taught": "b1-l30",
+      "gradedAnswer": "b1-l30",
+      "gradedAny": "b1-l30"
+    },
+    "-에 따르면": {
+      "declared": "b1-l31",
+      "taught": "b1-l31",
+      "gradedAnswer": "b1-c03",
+      "gradedAny": "b1-c03"
+    },
+    "-다고 한다": {
+      "declared": "b1-l31",
+      "taught": "b1-l03",
+      "gradedAnswer": "b1-l03",
+      "gradedAny": "a2-l25"
+    },
+    "-다는 내용이다": {
+      "declared": "b1-l32",
+      "taught": "b1-l32",
+      "gradedAnswer": "b1-l32",
+      "gradedAny": "b1-l32"
+    },
+    "-(으)ㄹ게요": {
+      "declared": null,
+      "taught": "a2-l04",
+      "gradedAnswer": "a2-l04",
+      "gradedAny": "a2-l04"
+    },
+    "-뿐 (restritivo)": {
+      "declared": null,
+      "taught": null,
+      "gradedAnswer": "b1-l17",
+      "gradedAny": "b1-l17"
+    },
+    "-마다": {
+      "declared": null,
+      "taught": "a2-l17",
+      "gradedAnswer": "a2-l17",
+      "gradedAny": "a2-l17"
+    },
+    "-(으)를 통해": {
+      "declared": null,
+      "taught": "a2-l36",
+      "gradedAnswer": "b1-l19",
+      "gradedAny": "b1-l19"
+    },
+    "-(으)시기를 바랍니다": {
+      "declared": null,
+      "taught": "b1-l28",
+      "gradedAnswer": "b1-l28",
+      "gradedAny": "b1-l28"
+    },
+    "-는 것으로 보이다": {
+      "declared": "b1-l32",
+      "taught": "b1-l32",
+      "gradedAnswer": null,
+      "gradedAny": "b1-l32"
+    }
+  },
+  "markerB1": {
+    "-(으)ㄹ 거예요": {
+      "count": 57,
+      "lessons": [
+        "b1-l01:1",
+        "b1-l02:1",
+        "b1-l04:17",
+        "b1-l05:1",
+        "b1-c01:2",
+        "b1-l06:3",
+        "b1-l07:4",
+        "b1-l09:15",
+        "b1-l10:1",
+        "b1-c02:1",
+        "b1-l11:1",
+        "b1-l13:1",
+        "b1-c03:1",
+        "b1-l17:1",
+        "b1-l18:1",
+        "b1-l21:1",
+        "b1-l30:1",
+        "b1-l37:4"
+      ]
+    },
+    "-(으)ㄹ 수 있다/없다": {
+      "count": 191,
+      "lessons": [
+        "b1-l03:1",
+        "b1-l04:9",
+        "b1-c01:6",
+        "b1-l06:1",
+        "b1-l07:2",
+        "b1-l08:5",
+        "b1-l09:11",
+        "b1-l10:15",
+        "b1-c02:14",
+        "b1-l11:3",
+        "b1-l12:6",
+        "b1-l13:5",
+        "b1-l15:31",
+        "b1-c03:1",
+        "b1-l18:3",
+        "b1-l19:3",
+        "b1-l20:1",
+        "b1-c04:3",
+        "b1-l21:5",
+        "b1-l22:2",
+        "b1-l23:7",
+        "b1-l24:1",
+        "b1-l25:3",
+        "b1-c05:3",
+        "b1-l27:1",
+        "b1-l28:1",
+        "b1-l29:1",
+        "b1-l30:4",
+        "b1-l32:2",
+        "b1-l33:18",
+        "b1-l35:3",
+        "b1-c07:1",
+        "b1-l37:1",
+        "b1-l38:7",
+        "b1-l39:2",
+        "b1-l40:6",
+        "b1-c08:3"
+      ]
+    },
+    "-아/어서": {
+      "count": 63,
+      "lessons": [
+        "b1-l02:5",
+        "b1-l04:1",
+        "b1-l06:7",
+        "b1-l07:11",
+        "b1-l08:5",
+        "b1-l09:1",
+        "b1-l10:7",
+        "b1-c02:1",
+        "b1-l13:1",
+        "b1-l17:1",
+        "b1-l18:4",
+        "b1-l19:1",
+        "b1-l20:1",
+        "b1-l23:2",
+        "b1-l26:1",
+        "b1-l28:1",
+        "b1-l29:1",
+        "b1-l30:3",
+        "b1-l32:6",
+        "b1-l36:1",
+        "b1-l37:2"
+      ]
+    },
+    "-지만": {
+      "count": 166,
+      "lessons": [
+        "b1-l01:6",
+        "b1-l02:1",
+        "b1-l03:1",
+        "b1-l04:1",
+        "b1-l05:3",
+        "b1-c01:3",
+        "b1-l08:1",
+        "b1-l09:1",
+        "b1-l10:8",
+        "b1-c02:1",
+        "b1-l11:1",
+        "b1-l12:1",
+        "b1-l14:18",
+        "b1-l15:2",
+        "b1-c03:12",
+        "b1-l17:2",
+        "b1-l18:2",
+        "b1-l19:2",
+        "b1-l20:2",
+        "b1-c04:2",
+        "b1-l21:3",
+        "b1-l22:13",
+        "b1-l23:2",
+        "b1-l24:1",
+        "b1-l25:3",
+        "b1-c05:2",
+        "b1-l26:4",
+        "b1-l27:1",
+        "b1-l28:1",
+        "b1-l29:3",
+        "b1-l30:6",
+        "b1-c06:3",
+        "b1-l31:1",
+        "b1-l33:3",
+        "b1-l34:6",
+        "b1-c07:2",
+        "b1-l36:6",
+        "b1-l39:17",
+        "b1-l40:12",
+        "b1-c08:7"
+      ]
+    },
+    "-(으)면": {
+      "count": 234,
+      "lessons": [
+        "b1-l01:1",
+        "b1-l03:1",
+        "b1-l04:32",
+        "b1-l05:3",
+        "b1-c01:11",
+        "b1-l06:2",
+        "b1-l07:1",
+        "b1-l08:2",
+        "b1-l09:4",
+        "b1-c02:1",
+        "b1-l11:1",
+        "b1-l12:19",
+        "b1-l14:5",
+        "b1-l15:1",
+        "b1-c03:7",
+        "b1-l16:2",
+        "b1-l18:1",
+        "b1-l19:3",
+        "b1-l20:1",
+        "b1-c04:1",
+        "b1-l21:3",
+        "b1-l22:2",
+        "b1-l23:12",
+        "b1-l24:8",
+        "b1-l25:2",
+        "b1-c05:2",
+        "b1-l26:5",
+        "b1-l27:5",
+        "b1-l28:2",
+        "b1-l29:1",
+        "b1-l30:5",
+        "b1-c06:11",
+        "b1-l31:21",
+        "b1-l32:2",
+        "b1-l33:15",
+        "b1-l34:1",
+        "b1-l35:1",
+        "b1-c07:13",
+        "b1-l36:1",
+        "b1-l37:2",
+        "b1-l38:4",
+        "b1-l39:4",
+        "b1-l40:7",
+        "b1-c08:6"
+      ]
+    },
+    "-고 싶다": {
+      "count": 32,
+      "lessons": [
+        "b1-l07:1",
+        "b1-l08:7",
+        "b1-l18:3",
+        "b1-l26:4",
+        "b1-l28:6",
+        "b1-l30:2",
+        "b1-c06:1",
+        "b1-l35:1",
+        "b1-l40:6",
+        "b1-c08:1"
+      ]
+    },
+    "-아/어야 하다/돼": {
+      "count": 64,
+      "lessons": [
+        "b1-l07:4",
+        "b1-l09:1",
+        "b1-l10:7",
+        "b1-l15:4",
+        "b1-c03:6",
+        "b1-l16:3",
+        "b1-l17:2",
+        "b1-l19:2",
+        "b1-c04:3",
+        "b1-l25:5",
+        "b1-c05:2",
+        "b1-l26:3",
+        "b1-l27:1",
+        "b1-l29:4",
+        "b1-l31:1",
+        "b1-l35:2",
+        "b1-c07:5",
+        "b1-l37:2",
+        "b1-l39:7"
+      ]
+    },
+    "-(으)세요": {
+      "count": 28,
+      "lessons": [
+        "b1-l16:9",
+        "b1-l20:1",
+        "b1-l23:2",
+        "b1-l26:1",
+        "b1-l27:1",
+        "b1-l28:5",
+        "b1-c06:5",
+        "b1-l38:4"
+      ]
+    },
+    "못 / 안": {
+      "count": 137,
+      "lessons": [
+        "b1-l03:10",
+        "b1-l04:1",
+        "b1-l05:1",
+        "b1-c01:1",
+        "b1-l07:6",
+        "b1-l09:2",
+        "b1-l10:1",
+        "b1-c02:7",
+        "b1-l13:2",
+        "b1-c03:2",
+        "b1-l16:3",
+        "b1-l17:7",
+        "b1-l18:3",
+        "b1-l20:6",
+        "b1-c04:13",
+        "b1-l22:2",
+        "b1-l23:3",
+        "b1-l24:10",
+        "b1-l25:1",
+        "b1-l26:3",
+        "b1-l27:5",
+        "b1-l28:6",
+        "b1-l29:1",
+        "b1-c06:3",
+        "b1-l32:1",
+        "b1-l34:1",
+        "b1-l35:11",
+        "b1-c07:1",
+        "b1-l36:9",
+        "b1-l37:1",
+        "b1-l38:7",
+        "b1-c08:7"
+      ]
+    },
+    "-보다(비교)": {
+      "count": 42,
+      "lessons": [
+        "b1-l01:6",
+        "b1-l08:18",
+        "b1-c03:1",
+        "b1-l19:4",
+        "b1-l28:1",
+        "b1-l30:1",
+        "b1-l33:1",
+        "b1-l34:1",
+        "b1-l39:1",
+        "b1-l40:5",
+        "b1-c08:3"
+      ]
+    },
+    "-(으)ㄴ/는 것 같다": {
+      "count": 8,
+      "lessons": [
+        "b1-l21:4",
+        "b1-l22:2",
+        "b1-l24:2"
+      ]
+    },
+    "-게 되다": {
+      "count": 8,
+      "lessons": [
+        "b1-l40:8"
+      ]
+    },
+    "-(으)ㄹ 때": {
+      "count": 28,
+      "lessons": [
+        "b1-l07:1",
+        "b1-l09:1",
+        "b1-l12:1",
+        "b1-l14:2",
+        "b1-l19:1",
+        "b1-l20:1",
+        "b1-l23:6",
+        "b1-l25:2",
+        "b1-c05:2",
+        "b1-l26:1",
+        "b1-l27:4",
+        "b1-l28:1",
+        "b1-l29:1",
+        "b1-l35:1",
+        "b1-l37:1",
+        "b1-l38:1",
+        "b1-c08:1"
+      ]
+    },
+    "-라고 하다 (indireto)": {
+      "count": 22,
+      "lessons": [
+        "b1-l03:1",
+        "b1-l14:18",
+        "b1-l23:2",
+        "b1-l38:1"
+      ]
+    },
+    "-더라고요": {
+      "count": 40,
+      "lessons": [
+        "b1-l09:19",
+        "b1-c02:3",
+        "b1-l20:18"
+      ]
+    },
+    "-다가": {
+      "count": 56,
+      "lessons": [
+        "b1-l01:6",
+        "b1-l02:18",
+        "b1-c01:16",
+        "b1-l29:2",
+        "b1-l30:2",
+        "b1-l36:3",
+        "b1-c08:9"
+      ]
+    },
+    "-자마자": {
+      "count": 17,
+      "lessons": [
+        "b1-l02:16",
+        "b1-c01:1"
+      ]
+    },
+    "-다고 하다": {
+      "count": 59,
+      "lessons": [
+        "b1-l03:15",
+        "b1-c01:9",
+        "b1-l14:2",
+        "b1-l15:1",
+        "b1-l22:2",
+        "b1-l23:1",
+        "b1-l27:2",
+        "b1-l28:1",
+        "b1-l31:13",
+        "b1-l32:1",
+        "b1-l34:3",
+        "b1-l35:3",
+        "b1-c08:6"
+      ]
+    },
+    "-냐고 하다": {
+      "count": 19,
+      "lessons": [
+        "b1-l03:12",
+        "b1-c01:7"
+      ]
+    },
+    "-았/었으면 좋겠다": {
+      "count": 3,
+      "lessons": [
+        "b1-l04:2",
+        "b1-c01:1"
+      ]
+    },
+    "-더라면": {
+      "count": 15,
+      "lessons": [
+        "b1-l04:15"
+      ]
+    },
+    "-아/어 버리다": {
+      "count": 2,
+      "lessons": [
+        "b1-l05:2"
+      ]
+    },
+    "-고 말다": {
+      "count": 54,
+      "lessons": [
+        "b1-l03:6",
+        "b1-l05:14",
+        "b1-c01:5",
+        "b1-l14:1",
+        "b1-l15:1",
+        "b1-l22:2",
+        "b1-l23:2",
+        "b1-l27:17",
+        "b1-l32:1",
+        "b1-l34:3",
+        "b1-l40:1",
+        "b1-c08:1"
+      ]
+    },
+    "-(으)ㄹ까 하다": {
+      "count": 34,
+      "lessons": [
+        "b1-l06:18",
+        "b1-l08:2",
+        "b1-l10:1",
+        "b1-c02:8",
+        "b1-c08:5"
+      ]
+    },
+    "-(으)ㄹ 예정이다": {
+      "count": 22,
+      "lessons": [
+        "b1-l06:14",
+        "b1-c02:5",
+        "b1-c04:2",
+        "b1-c08:1"
+      ]
+    },
+    "-기 위해": {
+      "count": 47,
+      "lessons": [
+        "b1-l07:20",
+        "b1-c02:9",
+        "b1-l19:13",
+        "b1-c04:3",
+        "b1-c08:2"
+      ]
+    },
+    "-도록": {
+      "count": 109,
+      "lessons": [
+        "b1-l07:20",
+        "b1-l16:15",
+        "b1-l17:8",
+        "b1-l19:2",
+        "b1-l23:15",
+        "b1-l26:1",
+        "b1-l28:11",
+        "b1-l35:10",
+        "b1-l37:18",
+        "b1-l38:7",
+        "b1-l39:2"
+      ]
+    },
+    "-는 대신": {
+      "count": 24,
+      "lessons": [
+        "b1-l08:21",
+        "b1-c02:2",
+        "b1-l18:1"
+      ]
+    },
+    "-기보다": {
+      "count": 19,
+      "lessons": [
+        "b1-l08:18",
+        "b1-l39:1"
+      ]
+    },
+    "-는 한": {
+      "count": 37,
+      "lessons": [
+        "b1-l05:1",
+        "b1-l09:11",
+        "b1-l10:1",
+        "b1-c02:5",
+        "b1-l16:5",
+        "b1-l23:4",
+        "b1-l28:1",
+        "b1-l34:5",
+        "b1-c07:1",
+        "b1-l36:1",
+        "b1-l40:1",
+        "b1-c08:1"
+      ]
+    },
+    "-더라도/-라도": {
+      "count": 40,
+      "lessons": [
+        "b1-l09:19",
+        "b1-c02:3",
+        "b1-l20:18"
+      ]
+    },
+    "-기로 하다": {
+      "count": 54,
+      "lessons": [
+        "b1-l10:17",
+        "b1-c02:2",
+        "b1-l17:2",
+        "b1-l20:2",
+        "b1-c04:1",
+        "b1-l24:2",
+        "b1-l36:11",
+        "b1-l37:16",
+        "b1-c08:1"
+      ]
+    },
+    "-지 않을 수 없다": {
+      "count": 20,
+      "lessons": [
+        "b1-l10:14",
+        "b1-c02:6"
+      ]
+    },
+    "-다고 생각하다": {
+      "count": 27,
+      "lessons": [
+        "b1-l10:2",
+        "b1-l11:15",
+        "b1-l13:1",
+        "b1-l14:2",
+        "b1-c03:1",
+        "b1-l22:2",
+        "b1-l25:2",
+        "b1-l39:2"
+      ]
+    },
+    "-는 편이다": {
+      "count": 23,
+      "lessons": [
+        "b1-l10:1",
+        "b1-l11:19",
+        "b1-l20:2",
+        "b1-l29:1"
+      ]
+    },
+    "-는 반면": {
+      "count": 27,
+      "lessons": [
+        "b1-l12:15",
+        "b1-c03:2",
+        "b1-l33:10"
+      ]
+    },
+    "-에 비해": {
+      "count": 55,
+      "lessons": [
+        "b1-l12:14",
+        "b1-c03:8",
+        "b1-l29:14",
+        "b1-l34:15",
+        "b1-c07:2",
+        "b1-c08:2"
+      ]
+    },
+    "-뿐만 아니라": {
+      "count": 34,
+      "lessons": [
+        "b1-l13:22",
+        "b1-c03:8",
+        "b1-c08:4"
+      ]
+    },
+    "-기도 하다": {
+      "count": 4,
+      "lessons": [
+        "b1-l13:4"
+      ]
+    },
+    "-기는 하지만": {
+      "count": 38,
+      "lessons": [
+        "b1-l14:12",
+        "b1-c03:3",
+        "b1-l22:10",
+        "b1-l39:11",
+        "b1-l40:2"
+      ]
+    },
+    "-라고 해도": {
+      "count": 18,
+      "lessons": [
+        "b1-l14:18"
+      ]
+    },
+    "-다는 점에서": {
+      "count": 37,
+      "lessons": [
+        "b1-l11:1",
+        "b1-l15:18",
+        "b1-c03:1",
+        "b1-l39:17"
+      ]
+    },
+    "-다고 볼 수 있다": {
+      "count": 16,
+      "lessons": [
+        "b1-l15:11",
+        "b1-l33:5"
+      ]
+    },
+    "-에 따라(서)": {
+      "count": 40,
+      "lessons": [
+        "b1-c03:1",
+        "b1-l16:18",
+        "b1-l21:13",
+        "b1-l22:2",
+        "b1-c05:2",
+        "b1-l39:3",
+        "b1-c08:1"
+      ]
+    },
+    "-도록 하다": {
+      "count": 1,
+      "lessons": [
+        "b1-l39:1"
+      ]
+    },
+    "-에 대한": {
+      "count": 53,
+      "lessons": [
+        "b1-l17:15",
+        "b1-l25:2",
+        "b1-l28:14",
+        "b1-c06:5",
+        "b1-l38:16",
+        "b1-c08:1"
+      ]
+    },
+    "-는 데 반해": {
+      "count": 12,
+      "lessons": [
+        "b1-l17:12"
+      ]
+    },
+    "-(으)ㄹ 수밖에 없다": {
+      "count": 18,
+      "lessons": [
+        "b1-c02:1",
+        "b1-l18:7",
+        "b1-l35:10"
+      ]
+    },
+    "-기에": {
+      "count": 10,
+      "lessons": [
+        "b1-l18:10"
+      ]
+    },
+    "-는 것이 중요하다": {
+      "count": 22,
+      "lessons": [
+        "b1-l19:14",
+        "b1-l20:1",
+        "b1-l22:1",
+        "b1-l23:2",
+        "b1-l25:2",
+        "b1-l38:1",
+        "b1-l39:1"
+      ]
+    },
+    "-는 바람에": {
+      "count": 28,
+      "lessons": [
+        "b1-l20:13",
+        "b1-c04:4",
+        "b1-l27:11"
+      ]
+    },
+    "-는 경향이 있다": {
+      "count": 38,
+      "lessons": [
+        "b1-l21:14",
+        "b1-c05:7",
+        "b1-l34:13",
+        "b1-c08:4"
+      ]
+    },
+    "-라고들 하다": {
+      "count": 9,
+      "lessons": [
+        "b1-l22:9"
+      ]
+    },
+    "-는 통에": {
+      "count": 13,
+      "lessons": [
+        "b1-l24:13"
+      ]
+    },
+    "-기 마련이다": {
+      "count": 13,
+      "lessons": [
+        "b1-l24:13"
+      ]
+    },
+    "-을 권리가 있다": {
+      "count": 41,
+      "lessons": [
+        "b1-l25:26",
+        "b1-c05:12",
+        "b1-c08:3"
+      ]
+    },
+    "-해야 할 의무가 있다": {
+      "count": 38,
+      "lessons": [
+        "b1-c04:10",
+        "b1-l25:15",
+        "b1-c05:8",
+        "b1-c08:5"
+      ]
+    },
+    "-(으)ㄹ 만하다": {
+      "count": 1,
+      "lessons": [
+        "b1-l15:1"
+      ]
+    },
+    "-기에는": {
+      "count": 16,
+      "lessons": [
+        "b1-l15:2",
+        "b1-l26:14"
+      ]
+    },
+    "-만큼": {
+      "count": 14,
+      "lessons": [
+        "b1-l29:14"
+      ]
+    },
+    "-다는 생각이 들다": {
+      "count": 15,
+      "lessons": [
+        "b1-l30:15"
+      ]
+    },
+    "-에 따르면": {
+      "count": 39,
+      "lessons": [
+        "b1-c03:4",
+        "b1-l31:20",
+        "b1-c07:10",
+        "b1-c08:5"
+      ]
+    },
+    "-다고 한다": {
+      "count": 50,
+      "lessons": [
+        "b1-l03:9",
+        "b1-c01:7",
+        "b1-l14:1",
+        "b1-l23:1",
+        "b1-l27:2",
+        "b1-l31:23",
+        "b1-l35:3",
+        "b1-c08:4"
+      ]
+    },
+    "-다는 내용이다": {
+      "count": 15,
+      "lessons": [
+        "b1-l32:15"
+      ]
+    },
+    "-(으)ㄹ게요": {
+      "count": 16,
+      "lessons": [
+        "b1-l03:1",
+        "b1-l07:7",
+        "b1-l16:1",
+        "b1-l17:4",
+        "b1-l20:1",
+        "b1-l37:2"
+      ]
+    },
+    "-뿐 (restritivo)": {
+      "count": 3,
+      "lessons": [
+        "b1-l17:3"
+      ]
+    },
+    "-마다": {
+      "count": 9,
+      "lessons": [
+        "b1-l22:1",
+        "b1-c05:7",
+        "b1-l31:1"
+      ]
+    },
+    "-(으)를 통해": {
+      "count": 5,
+      "lessons": [
+        "b1-l19:3",
+        "b1-l20:2"
+      ]
+    },
+    "-(으)시기를 바랍니다": {
+      "count": 13,
+      "lessons": [
+        "b1-l28:4",
+        "b1-l38:9"
+      ]
+    },
+    "-는 것으로 보이다": {
+      "count": 7,
+      "lessons": [
+        "b1-l32:7"
+      ]
+    }
+  }
+}

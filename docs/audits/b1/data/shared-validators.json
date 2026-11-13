@@ -1,0 +1,360 @@
+{
+  "itemsChecked": 615,
+  "withCheckRedundantAccepted": {
+    "accepted-redundant": 3
+  },
+  "issues": [
+    {
+      "code": "accepted-redundant",
+      "path": "b1-l32/b1-l32-e05",
+      "message": "acceptedAnswers repete “글은 예산이 부족하다는 내용이에요.” após normalização.",
+      "item": "b1-l32-e05",
+      "step": "b1-l32"
+    },
+    {
+      "code": "accepted-redundant",
+      "path": "b1-l35/b1-l35-e05",
+      "message": "acceptedAnswers repete “매체는 잘못을 인정할 수밖에 없었어요.” após normalização.",
+      "item": "b1-l35-e05",
+      "step": "b1-l35"
+    },
+    {
+      "code": "accepted-redundant",
+      "path": "b1-c01/b1-c01-e25",
+      "message": "acceptedAnswers repete “결국 좋은 기억으로 남았어요.” após normalização.",
+      "item": "b1-c01-e25",
+      "step": "b1-c01"
+    }
+  ],
+  "unusedReusedRefs": {
+    "totalReusedRefs": 164,
+    "missing": 65,
+    "rows": [
+      {
+        "step": "b1-l01",
+        "id": "ko:사진",
+        "form": "사진"
+      },
+      {
+        "step": "b1-l02",
+        "id": "ko:시간",
+        "form": "시간"
+      },
+      {
+        "step": "b1-l03",
+        "id": "ko:이야기하다",
+        "form": "이야기하다"
+      },
+      {
+        "step": "b1-l03",
+        "id": "ko:친구",
+        "form": "친구"
+      },
+      {
+        "step": "b1-l03",
+        "id": "ko:말하다",
+        "form": "말하다"
+      },
+      {
+        "step": "b1-l03",
+        "id": "ko:사람",
+        "form": "사람"
+      },
+      {
+        "step": "b1-l04",
+        "id": "ko:생각하다",
+        "form": "생각하다"
+      },
+      {
+        "step": "b1-l04",
+        "id": "ko:여행",
+        "form": "여행"
+      },
+      {
+        "step": "b1-l05",
+        "id": "ko:가족",
+        "form": "가족"
+      },
+      {
+        "step": "b1-l05",
+        "id": "ko:회사",
+        "form": "회사"
+      },
+      {
+        "step": "b1-l06",
+        "id": "ko:계획",
+        "form": "계획"
+      },
+      {
+        "step": "b1-l06",
+        "id": "ko:일정",
+        "form": "일정"
+      },
+      {
+        "step": "b1-l06",
+        "id": "ko:미루다",
+        "form": "미루다"
+      },
+      {
+        "step": "b1-l06",
+        "id": "ko:결정하다",
+        "form": "결정하다"
+      },
+      {
+        "step": "b1-l06",
+        "id": "ko:시간",
+        "form": "시간"
+      },
+      {
+        "step": "b1-l07",
+        "id": "ko:방법",
+        "form": "방법"
+      },
+      {
+        "step": "b1-l07",
+        "id": "ko:연습하다",
+        "form": "연습하다"
+      },
+      {
+        "step": "b1-l07",
+        "id": "ko:준비하다",
+        "form": "준비하다"
+      },
+      {
+        "step": "b1-l07",
+        "id": "ko:노력",
+        "form": "노력"
+      },
+      {
+        "step": "b1-l08",
+        "id": "ko:선택",
+        "form": "선택"
+      },
+      {
+        "step": "b1-l08",
+        "id": "ko:비교",
+        "form": "비교"
+      },
+      {
+        "step": "b1-l08",
+        "id": "ko:장점",
+        "form": "장점"
+      },
+      {
+        "step": "b1-l09",
+        "id": "ko:변경",
+        "form": "변경"
+      },
+      {
+        "step": "b1-l09",
+        "id": "ko:조건",
+        "form": "조건"
+      },
+      {
+        "step": "b1-l09",
+        "id": "ko:예약하다",
+        "form": "예약하다"
+      },
+      {
+        "step": "b1-l10",
+        "id": "ko:결정하다",
+        "form": "결정하다"
+      },
+      {
+        "step": "b1-l10",
+        "id": "ko:책임",
+        "form": "책임"
+      },
+      {
+        "step": "b1-l10",
+        "id": "ko:경험",
+        "form": "경험"
+      },
+      {
+        "step": "b1-l10",
+        "id": "ko:미래",
+        "form": "미래"
+      },
+      {
+        "step": "b1-l10",
+        "id": "ko:자신",
+        "form": "자신"
+      },
+      {
+        "step": "b1-l11",
+        "id": "ko:찬성",
+        "form": "찬성"
+      },
+      {
+        "step": "b1-l11",
+        "id": "ko:반대",
+        "form": "반대"
+      },
+      {
+        "step": "b1-l11",
+        "id": "ko:생활",
+        "form": "생활"
+      },
+      {
+        "step": "b1-l12",
+        "id": "ko:비교",
+        "form": "비교"
+      },
+      {
+        "step": "b1-l12",
+        "id": "ko:문화",
+        "form": "문화"
+      },
+      {
+        "step": "b1-l12",
+        "id": "ko:생활",
+        "form": "생활"
+      },
+      {
+        "step": "b1-l12",
+        "id": "ko:방법",
+        "form": "방법"
+      },
+      {
+        "step": "b1-l13",
+        "id": "ko:주장",
+        "form": "주장"
+      },
+      {
+        "step": "b1-l13",
+        "id": "ko:자료",
+        "form": "자료"
+      },
+      {
+        "step": "b1-l13",
+        "id": "ko:이유",
+        "form": "이유"
+      },
+      {
+        "step": "b1-l13",
+        "id": "ko:결과",
+        "form": "결과"
+      },
+      {
+        "step": "b1-l14",
+        "id": "ko:반대",
+        "form": "반대"
+      },
+      {
+        "step": "b1-l14",
+        "id": "ko:상황",
+        "form": "상황"
+      },
+      {
+        "step": "b1-l15",
+        "id": "ko:교통",
+        "form": "교통"
+      },
+      {
+        "step": "b1-l15",
+        "id": "ko:결과",
+        "form": "결과"
+      },
+      {
+        "step": "b1-l19",
+        "id": "ko:배우다",
+        "form": "배우다"
+      },
+      {
+        "step": "b1-l23",
+        "id": "ko:이해하다",
+        "form": "이해하다"
+      },
+      {
+        "step": "b1-l24",
+        "id": "ko:이웃",
+        "form": "이웃"
+      },
+      {
+        "step": "b1-l33",
+        "id": "ko:주장",
+        "form": "주장"
+      },
+      {
+        "step": "b1-l33",
+        "id": "ko:확인하다",
+        "form": "확인하다"
+      },
+      {
+        "step": "b1-l35",
+        "id": "ko:확인하다",
+        "form": "확인하다"
+      },
+      {
+        "step": "b1-l35",
+        "id": "ko:책임",
+        "form": "책임"
+      },
+      {
+        "step": "b1-l36",
+        "id": "ko:경험",
+        "form": "경험"
+      },
+      {
+        "step": "b1-l36",
+        "id": "ko:감동",
+        "form": "감동"
+      },
+      {
+        "step": "b1-l36",
+        "id": "ko:장면",
+        "form": "장면"
+      },
+      {
+        "step": "b1-l36",
+        "id": "ko:결말",
+        "form": "결말"
+      },
+      {
+        "step": "b1-l37",
+        "id": "ko:업무",
+        "form": "업무"
+      },
+      {
+        "step": "b1-l37",
+        "id": "ko:절차",
+        "form": "절차"
+      },
+      {
+        "step": "b1-l38",
+        "id": "ko:확인하다",
+        "form": "확인하다"
+      },
+      {
+        "step": "b1-l38",
+        "id": "ko:답장",
+        "form": "답장"
+      },
+      {
+        "step": "b1-l39",
+        "id": "ko:논쟁",
+        "form": "논쟁"
+      },
+      {
+        "step": "b1-l40",
+        "id": "ko:경험",
+        "form": "경험"
+      },
+      {
+        "step": "b1-l40",
+        "id": "ko:목표",
+        "form": "목표"
+      },
+      {
+        "step": "b1-l40",
+        "id": "ko:성장",
+        "form": "성장"
+      },
+      {
+        "step": "b1-l40",
+        "id": "ko:미래",
+        "form": "미래"
+      }
+    ]
+  }
+}

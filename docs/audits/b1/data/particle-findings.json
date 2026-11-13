@@ -1,0 +1,55 @@
+{
+  "wrong": [
+    {
+      "step": "b1-l28",
+      "exercise": "b1-l28-e10",
+      "answer": "적",
+      "part": "는",
+      "trecho": "적는",
+      "frase": "민원을 남길 때는 감정보다 사실을 먼저 적는 게 좋아요. 무엇이 문제였는지, 어떤 조치를 원하는지, 언제까지 답을 받고 싶은지를 차례로 쓰면 담당자가 이해하기 쉬워요. 해결 방법이 분명하면 회사도 더 빨리 움직일 수 있어요.",
+      "como": "reading (substantivo conhecido)",
+      "motivo": "'는' exige sílaba aberta; '적' tem 받침"
+    },
+    {
+      "step": "b1-l29",
+      "exercise": "b1-l29-e10",
+      "answer": "나",
+      "part": "은",
+      "trecho": "나은",
+      "frase": "여행지를 고를 때는 가격만 보면 안 돼요. 이동 시간, 숙소의 접근성, 주변 편의 시설도 함께 비교해야 해요. 어떤 곳은 가격이 조금 비싸도 시간을 아껴 주기 때문에 더 나은 선택이 될 수 있어요.",
+      "como": "reading (substantivo conhecido)",
+      "motivo": "'은' exige 받침; '나' termina em vogal"
+    },
+    {
+      "step": "b1-l21.dialogue",
+      "exercise": "(prosa ensinada)",
+      "answer": "나",
+      "part": "이",
+      "trecho": "나이",
+      "frase": "맞아요. 젊은 세대는 일자리 때문에 오고, 나이 든 세대는 병원이 가까운 곳을 찾아요.",
+      "como": "prosa B1 (substantivo conhecido)",
+      "motivo": "'이' exige 받침; '나' termina em vogal"
+    },
+    {
+      "step": "sent:b1-l10:양보",
+      "exercise": "(frase contextual)",
+      "answer": "나",
+      "part": "은",
+      "trecho": "나은",
+      "frase": "때로는 양보가 더 나은 선택이에요.",
+      "como": "frase B1 (substantivo conhecido)",
+      "motivo": "'은' exige 받침; '나' termina em vogal"
+    },
+    {
+      "step": "sent:b1-l13:나아가",
+      "exercise": "(frase contextual)",
+      "answer": "국",
+      "part": "가",
+      "trecho": "국가",
+      "frase": "지역을 넘어 나아가 국가 차원에서 논의해야 해요.",
+      "como": "frase B1 (substantivo conhecido)",
+      "motivo": "'가' exige sílaba aberta; '국' tem 받침"
+    }
+  ],
+  "revisar": []
+}

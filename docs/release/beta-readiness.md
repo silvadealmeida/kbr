@@ -1,7 +1,7 @@
-# Prontidão para beta controlado — Fase 8D (atualizado na 8E, 8F e 12A)
+# Prontidão para beta controlado — Fase 8D (atualizado na 8E, 8F, 12A e 12C)
 
 **Data:** 2026-11-13  
-**Veredito:** o KBR **não está pronto para produção pública**. A licença do áudio sintético continua não esclarecida e há pendências jurídicas de privacidade. Na 12A o áudio estático voltou a ser **opt-in** (`NEXT_PUBLIC_KBR_STATIC_AUDIO=1`) e `public/audio/` foi excluído do deploy por `.vercelignore`; os 2.907 MP3 continuam versionados e o corpus é preservado. Para um **beta fechado**, o código está estável; textos corrigidos sem MP3 usam a voz do sistema. Nada aqui foi testado em dispositivo real.
+**Veredito:** o KBR **não está pronto para produção pública**. A licença do áudio sintético continua não esclarecida e há pendências jurídicas de privacidade. Na 12A o áudio estático voltou a ser **opt-in** (`NEXT_PUBLIC_KBR_STATIC_AUDIO=1`) e `public/audio/` foi excluído do deploy por `.vercelignore`; os 2.907 MP3 continuam versionados e o corpus é preservado. Para um **beta fechado**, o código está estável; textos corrigidos sem MP3 usam a voz do sistema. A 12C corrigiu os defeitos verificados do B1 (3/4 CRÍTICO; C001 rejeitado por evidência), zerou a dívida de pontuação/instrução de escuta e congelou 65 `reusedIds` — nenhum item foi marcado como revisado por nativo. Nada aqui foi testado em dispositivo real.
 
 Legenda: **PASS** (verificado nesta fase com evidência) · **BLOCKED** (impede o uso indicado) · **MANUAL TEST REQUIRED** (só aparelho/serviço real decide) · **DEFERRED** (fora do escopo, decisão registrada).
 
@@ -27,7 +27,8 @@ Legenda: **PASS** (verificado nesta fase com evidência) · **BLOCKED** (impede 
 | 14 | Acessibilidade | **PASS** (axe wcag2a/aa/21a/21aa) · **MANUAL TEST REQUIRED** (VoiceOver/TalkBack/NVDA) | sem alegação de conformidade WCAG completa |
 | 15 | Privacidade / jurídico | **BLOCKED** (público) | `/privacidade` e `/impressum` têm campos "a confirmar" (controlador, contato, retenção, DPAs); revisão jurídica pendente (`docs/privacy-audit.md`). A seção de microfone existe (§2.4) |
 | 16 | Segurança | **PASS** (escopo da fase) | cabeçalhos globais, `no-store` em rotas privadas, sem `Permissions-Policy` que bloqueie o microfone; sem bloqueio de segurança identificado. **Não é pentest** |
-| 17 | Testes automatizados | **PASS** | §2 e §8 (12A) |
+| 17 | Testes automatizados | **PASS** | §2 e §8 (12A); 12C acrescenta B1 fairness, correções críticas e progressão. Nenhum teste enfraquecido; skips intencionais documentados |
+| 18 | Correções B1 da 12B | **PASS (local)** · **NATIVE REVIEW DEFERRED** | `docs/audits/b1/correction-ledger.md`: 3 CRÍTICO corrigidos, C001 rejeitado, 25 MAJOR tratados (23 corrigidos, 1 parcial, 1 congelado), 14 minors executados, 6 adiados, 14 UNCERTAIN intactos; 0/381 itens digitados exigem pontuação exata e 0/132 listen pedem fragmento |
 | 18 | Dispositivos reais (iPhone Safari/Chrome, Android Chrome, Windows Chrome/Edge) | **MANUAL TEST REQUIRED** | nenhum teste físico existe |
 
 **Não marcar como pronto para produção** enquanto os itens 1 e 15 estiverem BLOCKED.

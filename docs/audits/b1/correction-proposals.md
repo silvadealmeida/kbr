@@ -1,6 +1,8 @@
-# B1 — propostas de correção ordenadas (Fase 12B)
+# B1 — propostas de correção ordenadas (Fase 12B → execução 12C)
 
-**Nenhuma destas edições foi aplicada** — a 12B é audit-only. Texto exato por achado canônico (`data/findings.json`). Ordem = prioridade recomendada: primeiro o que corrige nota errada; depois o que erra na tela; depois política; por último cosmética.
+> **Atualização 12C (2026-11-13):** este documento deixou de ser somente proposta. O ledger de execução, com evidência, teste e impacto de áudio por achado, está em [`correction-ledger.md`](correction-ledger.md). Resumo: **3 dos 4 CRÍTICO corrigidos**; o C001 foi **rejeitado** porque `것` tem batchim ㅅ e `것으로` é a forma correta (a 12B propunha `것로`, agramatical). Todos os MAJOR de conteúdo local, fairness, progressão por micro-ensino e higiene de dados foram tratados; M022 foi **congelado** como dívida de 65 referências (heurística de flexão), sem deletar IDs. Minors executados e adiados estão listados no ledger. Nada foi marcado como revisado por nativo.
+
+**Texto original da 12B preservado abaixo.** Texto exato por achado canônico (`data/findings.json`). Ordem = prioridade recomendada: primeiro o que corrige nota errada; depois o que erra na tela; depois política; por último cosmética.
 
 ## Nível 1 — gabarito/avaliação errados (CRÍTICO)
 

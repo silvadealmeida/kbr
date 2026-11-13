@@ -1,6 +1,8 @@
-# B1 — resumo executivo (Fase 12B)
+# B1 — resumo executivo (Fase 12B, executado na 12C)
 
-**O que foi**: auditoria linguística e pedagógica completa e somente-leitura do B1 implementado (40 lições, 8 checkpoints, 615 itens avaliados, 320+320 de vocabulário, 40 produções) na linha de base `6e5d38b`. Nada do conteúdo foi alterado. Metodologia e ferramentas na 12A portadas + engine de marcadores corrigido nesta fase.
+> **Resultado da 12C:** as correções verificadas foram aplicadas localmente. **3 CRÍTICO corrigidos e 1 rejeitado** (C001: `것으로` é a forma correta; a proposta `것로` era agramatical). Fairness sistêmica resolvida: **0/381** itens digitados exigem pontuação final exata e **0/132** `listen` pedem fragmento contra gabarito de frase inteira. Progressão: as 9 formas do cluster ganharam micro-ensino ou substituição por forma ensinada. Dados: 3 `acceptedAnswers` redundantes removidos, `checkRedundantAccepted` ligado no B1 e 65 `reusedIds` congeladas no baseline (297 A1/A2 + 65 B1). A UI da bancada de composição foi redesenhada e o áudio local passou a usar o corpus quando a flag opt-in está ligada. Detalhes e testes em [`correction-ledger.md`](correction-ledger.md). Nada foi marcado como revisado por nativo; B2/C1/C2 não foram tocados.
+
+**O que foi**: auditoria linguística e pedagógica completa e somente-leitura do B1 implementado (40 lições, 8 checkpoints, 615 itens avaliados, 320+320 de vocabulário, 40 produções) na linha de base `6e5d38b`. Nada do conteúdo foi alterado na 12B. Metodologia e ferramentas na 12A portadas + engine de marcadores corrigido nesta fase.
 
 ## Números
 
@@ -28,6 +30,14 @@ Rejeições documentadas: 9+ alegações de revisores sem existência na fonte, 
 - `npm run build` — verde, `[audio-guard] OK`.
 - Auditoria: `npx vitest run --config docs/audits/b1/tools/vitest.config.mts` — 2/2 (dump de conteúdo + validadores sobre B1).
 - Playwright **não** executado: zero arquivos de aplicação alterados nesta fase (diff toca apenas `docs/audits/b1/` + `docs/roadmap.md`) — e2e não exercita conteúdo novo.
+
+## Verificação da execução 12C
+
+- `npm run typecheck` limpo.
+- `npm test` — **613 testes / 43 arquivos** (595 da base + 18 novos da 12C).
+- `npm run build` com `NEXT_PUBLIC_KBR_STATIC_AUDIO=0` — verde e `[audio-guard] OK` (0 MP3 em `.next/`).
+- `npm run e2e` — **619 executados + 27 skips intencionais** (646), Chromium 375/390/768/1280 + WebKit 390.
+- Medições: 0/381 digitados com pontuação exata obrigatória; 0/132 `listen` fora do padrão de frase completa; `shared-validators` 0 issues; `analyze-structure` 0 achados; 65 `reusedIds` congeladas.
 
 ## Pendências fora da 12B
 

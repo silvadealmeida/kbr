@@ -1,6 +1,6 @@
 # Auditoria 12B — B1 (coreano A0–A2 → B1), somente leitura
 
-**Status: CONCLUÍDA.** Auditoria linguística e pedagógica completa do curso B1 implementado. **Nenhum conteúdo de curso, engine, áudio ou progresso foi alterado** — todo o diff da fase vive sob `docs/audits/b1/` (+ `docs/roadmap.md`).
+**Status: CONCLUÍDA (12B) e EXECUTADA (12C).** A auditoria linguística e pedagógica completa do B1 implementado não alterou conteúdo na 12B. Na 12C as correções verificadas foram aplicadas localmente: 3 dos 4 CRÍTICO corrigidos, C001 rejeitado (`것으로` é a forma correta), fairness sistêmica resolvida, progressão por micro-ensino e 65 `reusedIds` congeladas. O ledger de execução é [`correction-ledger.md`](correction-ledger.md); nenhum conteúdo foi marcado como revisado por nativo.
 
 - Linha de base: `6e5d38bf8e9ec89c86d4d3236301a114ff2a0f45` · Branch local `audit/b1-phase-12b` (sem push — decisão do dono).
 - Escopo medido: 40 lições, 8 checkpoints, **615 itens avaliados** (381 digitados; 132 listen), 80 blocos de gramática (160 exemplos), 80 painéis de intro, 238 linhas de diálogo, 40 tarefas de produção, 320 identidades + 320 frases de vocabulário, 164 `reusedIds`.
@@ -38,7 +38,8 @@ Nenhuma categoria foi amostrada — cobertura integral está afirmada com evidê
 | `vocabulary-findings.md` | 320 cartões + relação vocab×itens |
 | `production-task-findings.md` | 40 tarefas (sem grading automático; defeitos pedagógicos) |
 | `progression-findings.md` | cluster de formas/léxico cobrados sem ensino + dívida 12A |
-| `correction-proposals.md` | **plano de correção priorizado em 5 níveis + fila nativa** (nada aplicado) |
+| `correction-proposals.md` | plano de correção priorizado em 5 níveis + fila nativa (execução 12C registrada no topo) |
+| `correction-ledger.md` | **ledger de execução da 12C**: achado, correção real, evidência, teste, status e impacto de áudio |
 | `data/findings.json` | ledger canônico legível por máquina (fonte da verdade dos IDs `B1-12B-*`) |
 | `data/*.json` | evidências: `content-dump`, `structure-findings`, `particle-findings`, `listen-prompt-findings`, `typed-normalization`, `vocabulary-findings`, `progression-findings`, `lexicon-origin-findings`, `shared-validators`, `coverage-matrix` |
 | `data/review-sheet.md` | despejo de leitura humana do corpus (linhas por lição) usado nos passes B/D |

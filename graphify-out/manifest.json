@@ -21044,7 +21044,7 @@
   "docs/audits/b1/data/content-dump.json": {
     "mtime": 1794566165.6629179,
     "seen": 1794566526.5835586,
-    "ast_hash": "e0054c3852b5e39b03779dfccb27a570",
+    "ast_hash": "",
     "semantic_hash": ""
   },
   "tests/content/b1-corrections.test.ts": {

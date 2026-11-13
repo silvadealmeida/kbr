@@ -1,5 +1,7 @@
 # Ledger de cobertura — Fase 12B (auditoria B1)
 
+> **Atualização 12C:** a cobertura continua integral (40 lições, 8 checkpoints, 615 itens, 320+320 de vocabulário, 40 produções). As correções aplicadas e os testes de regressão estão em [`correction-ledger.md`](correction-ledger.md); nenhuma categoria foi reamostrada ou removida. O ledger abaixo preserva a medição original da 12B.
+
 Baseline: `6e5d38b`. Método: cada passo (48) foi lido INTEGRALMENTE pelo agente-lead e por um revisor independente por fatia; as categorias abaixo foram cruzadas por scripts determinísticos (PASS A) e reverificadas linha a linha (PASS D). Nada foi amostrado.
 
 Legenda de colunas de máquina: itens = exercícios conferidos um a um (gabarito×opções, audioText==answer, alomorfia pós-lacuna, redundância de `acceptedAnswers`, pontuação exata).

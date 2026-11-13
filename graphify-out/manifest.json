@@ -96,9 +96,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1794573611.4910123,
-    "seen": 1794573643.4058578,
-    "ast_hash": "18da7cf64786e6bae361d892188bfcae",
+    "mtime": 1794574138.8571236,
+    "seen": 1794574148.2476366,
+    "ast_hash": "fbe35a6db2e6c2eb03ce43169df960ac",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -120,9 +120,9 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794573611.4910123,
-    "seen": 1794573643.4090624,
-    "ast_hash": "9d8b292279c577d80b5c6e203aa1a3eb",
+    "mtime": 1794574138.8571236,
+    "seen": 1794574148.2477481,
+    "ast_hash": "fb5a68d2ab2acf81f1651a5cf082318e",
     "semantic_hash": ""
   },
   "src/lib/hangul/index.ts": {
@@ -21043,8 +21043,8 @@
   },
   "docs/audits/b1/data/content-dump.json": {
     "mtime": 1794570617.9179983,
-    "seen": 1794571079.5718658,
-    "ast_hash": "",
+    "seen": 1794573658.7796044,
+    "ast_hash": "ad161905dd6f5caf370982258c184a76",
     "semantic_hash": ""
   },
   "tests/content/b1-corrections.test.ts": {
@@ -21102,9 +21102,9 @@
     "semantic_hash": ""
   },
   "src/content/curriculum/b2/content.ts": {
-    "mtime": 1794573134.1562874,
-    "seen": 1794573643.3987322,
-    "ast_hash": "61b4ba0cbe246fff4c4dc57e78d2f5e4",
+    "mtime": 1794574019.5071962,
+    "seen": 1794574148.2473931,
+    "ast_hash": "f90559042e334bf480cdc4c536d309b3",
     "semantic_hash": ""
   },
   "src/content/curriculum/b2/ids.ts": {
@@ -21162,9 +21162,9 @@
     "semantic_hash": ""
   },
   "src/content/vocabulary/b2-m02.ts": {
-    "mtime": 1794572701.7451906,
-    "seen": 1794573643.401952,
-    "ast_hash": "d141ce83d444ffdc1a435238e7da056b",
+    "mtime": 1794573969.6054733,
+    "seen": 1794574148.2474906,
+    "ast_hash": "10cac2f02affd83172edc47db8c6a468",
     "semantic_hash": ""
   },
   "src/content/vocabulary/b2-m03.ts": {
@@ -21243,6 +21243,18 @@
     "mtime": 1794573543.0496,
     "seen": 1794573643.408482,
     "ast_hash": "345da110df62fc8942e5cf91e3ac3ab3",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/b2/checkpoints/b2-c02.ts": {
+    "mtime": 1794574010.0766773,
+    "seen": 1794574148.24739,
+    "ast_hash": "4aa6b4d47a0c5791ca81172c4733b9a9",
+    "semantic_hash": ""
+  },
+  "src/content/curriculum/b2/lessons/module2.ts": {
+    "mtime": 1794574094.5344281,
+    "seen": 1794574148.2473984,
+    "ast_hash": "e63cae9061d75508aff06f39c308abea",
     "semantic_hash": ""
   },
   "package-lock.json": {

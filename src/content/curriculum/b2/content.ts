@@ -1,16 +1,19 @@
 import { VOCAB_ENTRIES, VOCAB_SENTENCES } from "@/content/vocabulary";
 import { B2_CURRICULUM } from "./blueprint";
 import { B2_C01 } from "./checkpoints/b2-c01";
+import { B2_C02 } from "./checkpoints/b2-c02";
 import { B2_L01, B2_L02, B2_L03, B2_L04, B2_L05 } from "./lessons/module1";
+import { B2_L06, B2_L07, B2_L08, B2_L09, B2_L10 } from "./lessons/module2";
 import type { B2CheckpointContent, B2ContentIssue, B2LessonContent } from "./types";
 import { validateB2CheckpointContent, validateB2LessonContent } from "./validate-content";
 
 export const B2_IMPLEMENTED_LESSONS: readonly B2LessonContent[] = [
   B2_L01, B2_L02, B2_L03, B2_L04, B2_L05,
+  B2_L06, B2_L07, B2_L08, B2_L09, B2_L10,
 ];
 
 export const B2_IMPLEMENTED_CHECKPOINTS: readonly B2CheckpointContent[] = [
-  B2_C01,
+  B2_C01, B2_C02,
 ];
 
 const LESSON_BY_ID = new Map(B2_IMPLEMENTED_LESSONS.map((lesson) => [lesson.id, lesson]));

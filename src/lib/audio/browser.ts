@@ -5,8 +5,6 @@ import {
   AudioPlayer,
   type AudioElementLike,
   type AudioPlaybackState,
-  type SpeechSynthesisLike,
-  type SpeechUtteranceLike,
 } from "./playback";
 
 /**
@@ -19,14 +17,6 @@ export function createBrowserAudioPlayer(
   if (typeof window === "undefined") return null;
 
   const AudioConstructor = window.Audio;
-  const speech =
-    "speechSynthesis" in window
-      ? (window.speechSynthesis as unknown as SpeechSynthesisLike)
-      : null;
-  const UtteranceConstructor =
-    "SpeechSynthesisUtterance" in window
-      ? window.SpeechSynthesisUtterance
-      : null;
 
   return new AudioPlayer({
     resolveAsset: (text) => resolvePublicAudioSrc(text),
@@ -38,11 +28,6 @@ export function createBrowserAudioPlayer(
       audio.preload = "auto";
       return audio as unknown as AudioElementLike;
     },
-    speech,
-    createUtterance: UtteranceConstructor
-      ? (text) =>
-          new UtteranceConstructor(text) as unknown as SpeechUtteranceLike
-      : null,
     onStateChange,
   });
 }

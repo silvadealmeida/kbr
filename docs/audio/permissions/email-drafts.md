@@ -1,6 +1,9 @@
-# Rascunhos de pedido de esclarecimento de licença — NÃO ENVIADOS
+# Rascunhos de pedido de esclarecimento de licença — RESOLVIDO (Fase 14)
 
-**Status:** rascunhos. Nenhuma mensagem foi enviada; só o dono do projeto decide enviar. Preencha `[NOME]`/`[CONTATO]` antes. Guarde respostas (data, remetente, texto integral, revisão coberta) em `docs/audio/permissions/` e só então atualize `docs/audio/license-audit.md`.
+**Status:** **não é necessário enviar.** O dono do projeto perguntou diretamente ao autor do
+`kykim/bert-kor-base` sobre o uso do checkpoint e recebeu a orientação de que **basta dar crédito**
+ao autor e ao repositório. O KBR publica esse crédito em `/impressum` e em `docs/audio/credits.md`.
+Os rascunhos abaixo ficam apenas como registro histórico de como a pergunta foi preparada.
 
 ## Contatos verificados (fonte primária, 2026-11-12)
 

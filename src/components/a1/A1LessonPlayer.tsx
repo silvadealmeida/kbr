@@ -502,9 +502,8 @@ export function A1LessonPlayer({
       <Plate className="mt-4" label="Diálogo" number={`${lesson.dialogue.length}`}>
         <h2 className="text-lg font-semibold">{lesson.dialogueTitle}</h2>
         <p className="mt-1 text-sm text-muted">
-          Toque no áudio apenas se quiser ouvir. O KBR usa áudio sintetizado
-          próprio; se ele não tocar, o navegador usa a voz coreana do sistema
-          quando disponível.
+          Toque no áudio apenas se quiser ouvir. O KBR usa áudio sintetizado próprio,
+          gravado no corpus do curso.
         </p>
         <ol className="mt-4 flex flex-col gap-4">
           {lesson.dialogue.map((line) => (

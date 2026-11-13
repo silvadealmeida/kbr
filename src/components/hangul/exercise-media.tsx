@@ -62,35 +62,28 @@ function statusMessage(state: AudioPlaybackState): string | null {
   if (state.status === "loading") return "Carregando áudio…";
 
   if (state.status === "playing") {
-    if (state.source === "asset") return "Reproduzindo áudio sintetizado (referência provisória).";
-    return state.fallback
-      ? "Áudio do KBR indisponível; usando a voz coreana do navegador."
-      : "Reproduzindo pela voz coreana do navegador (voz do sistema, sem revisão nativa).";
+    return "Reproduzindo áudio sintetizado (referência provisória).";
   }
 
   if (state.status === "ended") {
-    if (state.source === "asset") return "Áudio concluído.";
-    return state.fallback
-      ? "Áudio concluído pela voz coreana do navegador (o arquivo de áudio do KBR não carregou)."
-      : "Áudio concluído pela voz coreana do navegador (voz do sistema, sem revisão nativa).";
+    return "Áudio concluído.";
   }
 
   if (state.reason === "unsupported") {
     return "Este navegador não consegue reproduzir áudio.";
   }
-  if (state.reason === "no-korean-voice") {
-    return "Este navegador não tem uma voz coreana instalada. Use a dica de som abaixo.";
+  if (state.reason === "missing-asset") {
+    return "Este trecho ainda não tem áudio gravado. Use a dica de som abaixo.";
   }
-  return "Não foi possível reproduzir o áudio neste navegador. Use a dica de som abaixo.";
+  return "Não foi possível reproduzir o áudio agora. Use a dica de som abaixo.";
 }
 
 /**
  * Áudio sob demanda, sempre com alternativa textual. O player nunca inicia
  * reprodução sozinho e o status é anunciado sem ocupar o foco.
  *
- * A ordem é: MP3 estático do corpus → voz coreana do sistema. A voz do
- * sistema só entra quando existe uma voz coreana explícita; caso contrário o
- * controle informa a indisponibilidade em vez de fingir sucesso.
+ * O KBR usa apenas os MP3 do corpus: não há voz sintética do navegador como
+ * fallback. Se o trecho não tiver asset, o controle informa e mantém a dica.
  */
 export function AudioControl({
   text,

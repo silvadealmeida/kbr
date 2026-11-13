@@ -1,6 +1,6 @@
 # Transição para o A1 — handoff após as Fases 9A–9H
 
-**Decisão vigente (atualizada na Fase 14):** os cursos **A1, A2 e B1 estão completos no currículo interno do KBR** — 40 lições, 8 checkpoints e 48 passos jogáveis cada. `a1-l01` foi preservada. A entrada do A2 exige `a1-c08`; a do B1 exige `a2-c08`. A próxima frente é **B2 — planejamento editorial e primeira fatia**, ou uma correção/native review explicitamente pedida; **o B1 ainda precisa de auditoria linguística própria**. A infraestrutura de áudio está **completa e servida por padrão**: 4.051 MP3 de Hangul, A1, A2, B1 e vocabulário em `public/audio/v1/`, `NEXT_PUBLIC_KBR_STATIC_AUDIO` ligado (`=0` é kill switch) e `public/audio/` publicado. A decisão de risco do dono não é licença; o deploy público continua sujeito a revisão jurídica (`docs/audio/license-audit.md` §13).
+**Decisão vigente (atualizada na Fase 14):** os cursos **A1, A2 e B1 estão completos no currículo interno do KBR** — 40 lições, 8 checkpoints e 48 passos jogáveis cada. `a1-l01` foi preservada. A entrada do A2 exige `a1-c08`; a do B1 exige `a2-c08`. A próxima frente é **B2 — planejamento editorial e primeira fatia**, ou uma correção/native review explicitamente pedida; **o B1 ainda precisa de auditoria linguística própria**. A infraestrutura de áudio está **completa e servida por padrão**: 4.051 MP3 de Hangul, A1, A2, B1 e vocabulário em `public/audio/v1/`, `NEXT_PUBLIC_KBR_STATIC_AUDIO` ligado (`=0` é kill switch), `public/audio/` publicado e **sem TTS** no player. Crédito a MeloTTS/MeloTTS-Korean e `kykim/bert-kor-base` em `/impressum` e `docs/audio/credits.md`.
 
 ## 1. Pronto para desenvolvimento contínuo
 
@@ -35,7 +35,7 @@
 
 ## 3. Bloqueado para lançamento público (não bloqueia desenvolvimento local)
 
-1. Licença do áudio sintético (MeloTTS + `kykim/bert-kor-base`): **BLOQUEADA**; corpus tem de ficar fora do HEAD público (ver `docs/audio/exposure-and-removal-plan.md`).
+1. Créditos do áudio sintético (MeloTTS + `kykim/bert-kor-base`): **resolvido**; crédito visível em `/impressum` e `docs/audio/credits.md`.
 2. Exposição histórica do corpus de áudio no repositório público e em deployments antigos da Vercel (ações do dono).
 3. Privacidade/Impressum com campos "a confirmar" e revisão jurídica.
 4. Revisão nativa de todo o conteúdo coreano A1/Hangul; teste em dispositivos reais.

@@ -185,7 +185,7 @@ export function VocabReviewArea() {
         <ul className="mt-2 list-disc space-y-1 pl-5 text-muted">
           <li>Você completa frases com a palavra em coreano; a tradução da frase sempre aparece depois da resposta.</li>
           <li>Acerto sem ajuda avança a caixa (1, 2, 4, 8 e 16 dias); erro volta para a primeira.</li>
-          <li>O áudio é sintetizado pelo KBR (referência provisória) ou, se não carregar, a voz coreana do seu navegador; ele não avalia sua pronúncia.</li>
+          <li>O áudio é sintetizado pelo KBR (referência provisória) e usa os MP3 do corpus; ele não avalia sua pronúncia.</li>
           <li>Conteúdo em revisão por falante nativo.</li>
         </ul>
         <div className="mt-4"><Badge tone="neutral">Em revisão</Badge></div>

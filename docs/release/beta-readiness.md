@@ -9,7 +9,7 @@ Legenda: **PASS** (verificado nesta fase com evidência) · **BLOCKED** (impede 
 
 | # | Item | Status | Evidência / observação |
 |---|---|---|---|
-| 1 | Licença do áudio sintético (MeloTTS + `kykim/bert-kor-base`) | **RISCO ACEITO PELO DONO** (público/comercial; não esclarecida) | `license-audit.md`: encoder sem licença no repositório baixado; README do autor diz Apache-2.0 **e** exige MOU para uso comercial; treino da voz não documentado. Beta fechado = decisão do dono |
+| 1 | Créditos do áudio sintético (MeloTTS + `kykim/bert-kor-base`) | **RESOLVIDO COM CRÉDITO** (orientação do autor informada pelo dono) | `/impressum` §“Créditos de terceiros”; `docs/audio/credits.md`; `license-audit.md` §13 |
 | 1a | Contenção do deploy (8E) | **RESTAURADA NA 12A** (sem apagar o corpus) | MP3 seguem em `public/audio/v1/`; `public/audio/` está no `.vercelignore`; `STATIC_AUDIO_ENABLED` é opt-in (`NEXT_PUBLIC_KBR_STATIC_AUDIO=1`); guarda em `prebuild`/`postbuild` e `tests/audio-containment.test.ts`; E2E liga a flag explicitamente |
 | 1b | Exposição existente: repositório GitHub público e deployments anteriores | **RISCO ACEITO** | o corpus é público no repositório e na história; deployments antigos não verificados; plano em `docs/audio/exposure-and-removal-plan.md` |
 | 2 | Integridade dos 4.051 MP3 e inventário de 4.051 textos (SHA-256, órfãos, corrupção, duplicados) | **PASS**, sem lacunas | `audio-quality-report.md` §1; `tests/audio-manifest.test.ts`; `docs/audio/stale-audio-manifest.md` |

@@ -151,7 +151,7 @@ describe("anatomia da sílaba", () => {
     expect(html).toContain("Conteúdo em revisão · h18");
     expect(html).toContain('lang="ko"');
     expect(html).toContain("Ouvir a sílaba 한");
-    expect(html).toContain("O áudio sintetizado do KBR tem prioridade");
+    expect(html).toContain("O áudio sintetizado do KBR é a referência sonora");
     expect(html).toContain("Conteúdo em revisão");
     expect(html).not.toContain("draggable");
   });

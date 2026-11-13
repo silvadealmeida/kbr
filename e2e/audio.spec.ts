@@ -69,45 +69,47 @@ test.describe("áudio estático do currículo", () => {
     }
   });
 
-  test("cai para a voz coreana do sistema quando o asset falha", async ({
+  test("MP3 que falha mostra indisponibilidade sem usar voz do navegador", async ({
     page,
-    browserName,
   }) => {
-    // No WebKit a substituição de getVoices na instância não surtiu efeito (causa não apurada); lógica coberta em tests/audio-playback.test.ts.
-    test.skip(browserName === "webkit", "stub de voz não funciona no WebKit");
     await page.route("**/audio/v1/*.mp3", (route) => route.abort());
 
+    const speechCalls: string[] = [];
     await page.addInitScript(() => {
       const synth = window.speechSynthesis;
       if (!synth) return;
-      // O Utterance real rejeita voz que não seja SpeechSynthesisVoice.
-      Object.defineProperty(window, "SpeechSynthesisUtterance", {
-        configurable: true,
-        value: class { constructor(public text: string) {} },
-      });
-      const voice = { lang: "ko-KR", name: "Voz de teste", default: true, localService: true, voiceURI: "t" };
-      Object.defineProperty(synth, "getVoices", { configurable: true, value: () => [voice] });
-      Object.defineProperty(synth, "cancel", { configurable: true, value: () => {} });
+      const originalSpeak = synth.speak.bind(synth);
       Object.defineProperty(synth, "speak", {
         configurable: true,
-        value: (u: { onstart?: () => void; onend?: () => void }) => {
-          setTimeout(() => u.onstart?.(), 0);
-          setTimeout(() => u.onend?.(), 50);
+        value: (utterance: SpeechSynthesisUtterance) => {
+          (window as unknown as { __kbrSpeech: string[] }).__kbrSpeech ??= [];
+          (window as unknown as { __kbrSpeech: string[] }).__kbrSpeech.push(
+            utterance.text,
+          );
+          originalSpeak(utterance);
         },
       });
-    });
-    const mp3: string[] = [];
-    page.on("request", (r) => {
-      if (r.url().includes("/audio/")) mp3.push(r.url());
     });
 
     await openFirstAudioExercise(page);
     await page.getByRole("button", { name: "Ouvir o áudio" }).click();
+
     await expect(
-      page.getByText(/voz coreana do navegador/).first(),
+      page.getByText(
+        "Não foi possível reproduzir o áudio agora. Use a dica de som abaixo.",
+        { exact: true },
+      ),
     ).toBeVisible({ timeout: 10_000 });
-    expect(mp3.some((url) => url.includes("/audio/v1/"))).toBe(true);
-    await expect(page.getByText(/sintetizado/)).toHaveCount(0);
+    speechCalls.push(
+      ...(await page.evaluate(
+        () => (window as unknown as { __kbrSpeech?: string[] }).__kbrSpeech ?? [],
+      )),
+    );
+    expect(speechCalls).toEqual([]);
+    await expect(page.getByText(/Reproduzindo/)).toHaveCount(0);
+    await expect(
+      page.getByRole("button", { name: "Ouvir novamente" }),
+    ).toHaveCount(0);
   });
 
   test("toca o MP3 do corpus e permite repetir", async ({ page }) => {
@@ -183,39 +185,4 @@ test.describe("áudio estático do currículo", () => {
       .toContain(0.75);
   });
 
-  test("sem MP3 e sem voz coreana informa indisponibilidade sem fingir sucesso", async ({
-    page,
-  }) => {
-    await page.route("**/audio/v1/*.mp3", (route) => route.abort());
-    await page.addInitScript(() => {
-      const synth = window.speechSynthesis;
-      if (!synth) return;
-      Object.defineProperty(synth, "getVoices", {
-        configurable: true,
-        value: () => [],
-      });
-      Object.defineProperty(synth, "speak", {
-        configurable: true,
-        value: () => {},
-      });
-      Object.defineProperty(synth, "cancel", {
-        configurable: true,
-        value: () => {},
-      });
-    });
-
-    await openFirstAudioExercise(page);
-    await page.getByRole("button", { name: "Ouvir o áudio" }).click();
-
-    await expect(
-      page.getByText(
-        "Este navegador não tem uma voz coreana instalada. Use a dica de som abaixo.",
-        { exact: true },
-      ),
-    ).toBeVisible({ timeout: 10_000 });
-    await expect(page.getByText(/Reproduzindo/)).toHaveCount(0);
-    await expect(
-      page.getByRole("button", { name: "Ouvir novamente" }),
-    ).toHaveCount(0);
-  });
 });

@@ -23,7 +23,7 @@ export default function ImpressumPage() {
       <p className="text-sm font-semibold uppercase tracking-[0.16em] text-accent">
         Informações legais
       </p>
-      <h1 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
+      <h1 className="mt-3 break-words text-4xl font-bold tracking-tight sm:text-5xl">
         Aviso legal / Impressum
       </h1>
       <p className="mt-4 text-lg leading-relaxed text-muted">
@@ -103,6 +103,61 @@ export default function ImpressumPage() {
           <p>
             Links externos são oferecidos apenas como referência. Não controlamos o conteúdo de
             sites de terceiros e não assumimos responsabilidade por eles.
+          </p>
+        </div>
+      </section>
+
+      <section aria-labelledby="creditos" className="mt-10 border-t border-line pt-8">
+        <h2 id="creditos" className="text-2xl font-bold tracking-tight">
+          Créditos de terceiros
+        </h2>
+        <div className="mt-4 space-y-3 leading-relaxed text-muted">
+          <p>
+            O áudio do KBR é síntese neural gerada com ferramentas e modelos abertos. O
+            crédito abaixo é parte do uso:
+          </p>
+          <ul className="space-y-3 break-words">
+            <li>
+              <strong className="text-fg">MeloTTS</strong> e o modelo{" "}
+              <strong className="text-fg">MeloTTS-Korean</strong>, de MyShell AI — licença MIT{" "}
+              <a
+                href="https://github.com/myshell-ai/MeloTTS"
+                className="break-all text-accent underline underline-offset-2"
+                rel="noreferrer"
+              >
+                github.com/myshell-ai/MeloTTS
+              </a>
+              .
+            </li>
+            <li>
+              <strong className="text-fg">LMkor / kykim/bert-kor-base</strong>, de Kiyoung Kim
+              — encoder usado na geração dos fonemas. Crédito ao autor e ao repositório{" "}
+              <a
+                href="https://github.com/kiyoungkim1/LMkor"
+                className="break-all text-accent underline underline-offset-2"
+                rel="noreferrer"
+              >
+                github.com/kiyoungkim1/LMkor
+              </a>
+              , conforme orientação do autor.
+            </li>
+            <li>
+              <strong className="text-fg">FFmpeg / libmp3lame</strong> — codificação dos arquivos
+              MP3 (
+              <a
+                href="https://ffmpeg.org"
+                className="break-all text-accent underline underline-offset-2"
+                rel="noreferrer"
+              >
+                ffmpeg.org
+              </a>
+              ).
+            </li>
+          </ul>
+          <p className="break-words text-sm">
+            O áudio é sintético e provisório: não é gravação de falante nativo e passa por revisão
+            contínua. A lista completa, com revisões fixadas e hashes, está em{" "}
+            <code className="break-all text-xs">docs/audio/credits.md</code> no repositório.
           </p>
         </div>
       </section>

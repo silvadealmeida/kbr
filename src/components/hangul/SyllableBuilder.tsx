@@ -3,6 +3,7 @@
 import { useId, useRef, useState } from "react";
 import type { BuildSyllableExercise, ExerciseAnswer } from "@/lib/exercises";
 import { composeSyllable, type Final, type Initial, type Medial } from "@/lib/hangul";
+import { hasAudioAsset } from "@/lib/audio/manifest";
 import { medialShape } from "@/lib/hangul/layout";
 import { AudioControl } from "./exercise-media";
 import { useShuffledOrder } from "./use-shuffled-order";
@@ -300,10 +301,14 @@ export function SyllableBuilder({
               "A decomposição aparece aqui."
             )}
           </p>
-          {syllable ? (
+          {syllable && hasAudioAsset(syllable) ? (
             <div className="w-full">
               <AudioControl text={syllable} compact label="Ouvir" />
             </div>
+          ) : syllable ? (
+            <p className="mt-2 w-full text-center text-xs leading-relaxed text-muted">
+              Combinação sem áudio no corpus; use a prévia visual e a dica de pronúncia.
+            </p>
           ) : null}
         </div>
 

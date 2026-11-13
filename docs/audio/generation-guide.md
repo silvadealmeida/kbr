@@ -40,7 +40,7 @@ npm run build && npx playwright test e2e/audio.spec.ts
 | Áudio no carregamento inicial | **0 bytes** (sob demanda) |
 | Cache HTTP | `public, max-age=31536000, immutable` em `/audio/:path*` |
 
-O corpus cobre `audioText` de exercícios, alternativas, leituras, diálogos, exemplos de gramática e painéis de introdução, sílabas, palavras, alvos de montagem, as formas `spoken` das três regras, a sílaba `한` da anatomia e o vocabulário (palavras e frases contextuais) de Hangul, A1 e A2. O construtor livre de sílabas é dinâmico e não tem asset para toda combinação; nesses casos o player usa a voz do sistema.
+O corpus cobre `audioText` de exercícios, alternativas, leituras, diálogos, exemplos de gramática e painéis de introdução, sílabas, palavras, alvos de montagem, as formas `spoken` das três regras, a sílaba `한` da anatomia e o vocabulário (palavras e frases contextuais) de Hangul, A1, A2 e B1. O construtor livre de sílabas é dinâmico e não tem asset para toda combinação; nesses casos o player **não usa TTS**: mostra a prévia visual e a dica de pronúncia.
 
 ## Decisão: Python oficial, não imagem Docker
 
@@ -184,7 +184,7 @@ O encode é determinístico para a mesma versão de FFmpeg/LAME e o mesmo WAV de
 - `src/content/audio/entries.ts`: mapa compacto `texto → /audio/v1/<chave>.mp3`, gerado; é o único mapa que entra no bundle do cliente.
 - `src/content/audio/manifest.json`: manifesto completo com hash, bytes, duração, loudness, fontes, passos, tags e prioridade; não entra no bundle do cliente.
 - `src/lib/audio/manifest.ts`: resolve o asset por texto normalizado.
-- `src/lib/audio/playback.ts`: controlador sem React, com ordem **asset → voz do sistema**, seleção explícita de voz `ko`, espera por `voiceschanged`, timeouts, erros, cancelamento e limpeza.
+- `src/lib/audio/playback.ts`: controlador sem React, **somente MP3 do corpus** (sem voz sintética do navegador), com timeout de início, erros, cancelamento e limpeza.
 - `src/lib/audio/browser.ts`: adapta `Audio`, `speechSynthesis` e `SpeechSynthesisUtterance` reais.
 - `src/components/hangul/exercise-media.tsx`: `AudioControl` com botão, status `role="status"`, replay, alternância **0,75×** com preservação de pitch e dica textual.
 
@@ -192,8 +192,8 @@ Comportamento:
 
 1. Se há `audioSrc` explícito no conteúdo, ele tem prioridade; senão, o mapa estático é consultado.
 2. O MP3 é tocado sob demanda (`preload="auto"` no elemento criado no clique; nenhum áudio no carregamento da página).
-3. Com o padrão ligado, o passo do MP3 é tentado primeiro. Se o asset falhar, não iniciar em **4 s** ou não existir, cai para a voz do sistema. Com `NEXT_PUBLIC_KBR_STATIC_AUDIO=0`, o passo do MP3 é pulado.
-4. A voz do sistema só é usada se houver uma voz **coreana explícita** (`ko`, `ko-KR` ou outra variante). Sem voz coreana, a UI mostra indisponibilidade e mantém a dica textual; nunca finge sucesso.
+3. Se o asset não existir, não iniciar em **4 s** ou falhar, o estado vira indisponibilidade (`missing-asset`/`playback-error`). **Não há fallback para voz sintética do navegador.**
+4. Com `NEXT_PUBLIC_KBR_STATIC_AUDIO=0`, o app não resolve assets e o controle apenas informa a indisponibilidade.
 5. A espera por `voiceschanged` é de **1,5 s**; se a fala não começar em **2 s**, o estado vira erro.
 6. Um novo play cancela o anterior; `destroy()` remove listeners e timers. O replay reinicia o mesmo asset.
 7. O status só vira “Reproduzindo” quando `play()` resolve ou `onstart` dispara.
@@ -228,4 +228,4 @@ Os testes de playback cobrem asset, `audioSrc` explícito, 0,75×, fallback por 
 
 ## Privacidade
 
-A geração é offline e local. Em runtime, o caminho principal serve MP3 do próprio app; nenhum texto coreano é enviado a um serviço de TTS. O fallback pode usar uma voz remota do sistema operacional/navegador, caso exista; isso é documentado na UI como voz do navegador, não como áudio gravado. Não há telemetria de áudio.
+A geração é offline e local. Em runtime, o app serve MP3 do próprio corpus; nenhum texto coreano é enviado a um serviço de TTS e não há voz sintética do navegador. Não há telemetria de áudio.

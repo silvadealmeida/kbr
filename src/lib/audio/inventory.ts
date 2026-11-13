@@ -283,7 +283,7 @@ export type AudioInventoryExtras = {
  * Inclui `audioText` de exercícios e alternativas, alvos de montagem, os
  * `audioText` de sílabas/palavras, as formas `spoken` das regras e a sílaba da
  * anatomia (`한`). O construtor livre de sílabas é dinâmico e não entra aqui;
- * combinações sem asset caem no fallback de voz do sistema.
+ * combinações sem asset mostram apenas a prévia visual e a dica de pronúncia.
  */
 export function collectAudioInventory(
   curriculum: Curriculum,

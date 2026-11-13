@@ -114,7 +114,7 @@ export default function PrivacyPage() {
       <p className="text-sm font-semibold uppercase tracking-[0.16em] text-accent">
         Transparência
       </p>
-      <h1 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
+      <h1 className="mt-3 break-words text-4xl font-bold tracking-tight sm:text-5xl">
         Privacidade e proteção de dados
       </h1>
       <p className="mt-4 text-lg leading-relaxed text-muted">

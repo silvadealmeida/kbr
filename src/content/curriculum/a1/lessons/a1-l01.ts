@@ -43,7 +43,7 @@ export const A1_L01: A1LessonContent = {
     {
       title: "O encontro desta lição",
       body:
-        "Minsu e Ana se encontram em uma atividade. Eles trocam saudação, nome e uma informação simples sobre si. Leia o diálogo abaixo com calma; a tradução em português fica ao lado de cada fala. O áudio é opcional e usa a voz coreana do seu navegador.",
+        "Minsu e Ana se encontram em uma atividade. Eles trocam saudação, nome e uma informação simples sobre si. Leia o diálogo abaixo com calma; a tradução em português fica ao lado de cada fala. O áudio é opcional e usa o corpus sintetizado do KBR.",
     },
   ],
   dialogue: [

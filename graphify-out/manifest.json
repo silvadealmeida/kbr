@@ -96,9 +96,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1794588164.0101209,
-    "seen": 1794588202.0248978,
-    "ast_hash": "c4f708206c067c9ce195e2aa801be2f1",
+    "mtime": 1794589456.0658085,
+    "seen": 1794589783.2866647,
+    "ast_hash": "f4520d7e97a8e650fa7a7ae2dd1fd763",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -108,9 +108,9 @@
     "semantic_hash": ""
   },
   "docs/architecture.md": {
-    "mtime": 1794588092.39124,
-    "seen": 1794588202.0249329,
-    "ast_hash": "8ca883c255cae9d4e88d110fe6996c62",
+    "mtime": 1794589440.855167,
+    "seen": 1794589783.2866995,
+    "ast_hash": "cbd260d708fc05362a4978dab08bea4a",
     "semantic_hash": ""
   },
   "docs/research.md": {
@@ -120,9 +120,9 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794588144.110084,
-    "seen": 1794588202.0271566,
-    "ast_hash": "39b85c5f8392483c73d9dfc84e72f111",
+    "mtime": 1794589456.0737617,
+    "seen": 1794589783.2888258,
+    "ast_hash": "e09bf3843ad6b276f7fe0e470ebddd7c",
     "semantic_hash": ""
   },
   "src/lib/hangul/index.ts": {
@@ -384,9 +384,9 @@
     "semantic_hash": ""
   },
   "src/app/(site)/impressum/page.tsx": {
-    "mtime": 1794575194.1322727,
-    "seen": 1794580219.4809613,
-    "ast_hash": "531873c8d2f1590c1148250511ca9760",
+    "mtime": 1794589380.4147658,
+    "seen": 1794589783.2777562,
+    "ast_hash": "79846a901fb30142cf56ee7ac1b2dc37",
     "semantic_hash": ""
   },
   "src/app/(site)/layout.tsx": {
@@ -402,9 +402,9 @@
     "semantic_hash": ""
   },
   "src/app/(site)/privacidade/page.tsx": {
-    "mtime": 1794575185.3706384,
-    "seen": 1794580219.4809647,
-    "ast_hash": "010db87ad5a9878757cbb93f8de5d06a",
+    "mtime": 1794589380.4068391,
+    "seen": 1794589783.2778022,
+    "ast_hash": "563ccf5e1a5aa449906dd143c6fc8ac9",
     "semantic_hash": ""
   },
   "src/components/auth/AccountCard.tsx": {
@@ -810,9 +810,9 @@
     "semantic_hash": ""
   },
   "src/content/hangul/lessons/h24.ts": {
-    "mtime": 1794572586.7608268,
-    "seen": 1794580219.4811506,
-    "ast_hash": "c0352979b08ee9fcb57c7c17eff7d05d",
+    "mtime": 1794589153.517753,
+    "seen": 1794589783.2838116,
+    "ast_hash": "3427fbf0f7c65d43c119227e1d0e1440",
     "semantic_hash": ""
   },
   "src/content/hangul/lessons/h25.ts": {
@@ -1224,15 +1224,15 @@
     "semantic_hash": ""
   },
   "src/components/hangul/SyllableBuilder.tsx": {
-    "mtime": 1794576055.3140624,
-    "seen": 1794580219.480993,
-    "ast_hash": "3d0f5f736e5abb2253b0cf6e7050f2b3",
+    "mtime": 1794589074.7092354,
+    "seen": 1794589783.2783687,
+    "ast_hash": "acbcfed363701b591b2d77037daabf47",
     "semantic_hash": ""
   },
   "src/components/hangul/exercise-media.tsx": {
-    "mtime": 1794574740.1445215,
-    "seen": 1794580219.4809937,
-    "ast_hash": "cbafdf6ddebeb6aa96e968af4e9509de",
+    "mtime": 1794589062.1407087,
+    "seen": 1794589783.2783701,
+    "ast_hash": "3a57c442e3472dc6d6b8ff3f4a47791a",
     "semantic_hash": ""
   },
   "src/components/hangul/player-header.tsx": {
@@ -1248,9 +1248,9 @@
     "semantic_hash": ""
   },
   "tests/hangul-experience.test.ts": {
-    "mtime": 1794572586.772816,
-    "seen": 1794580219.4812396,
-    "ast_hash": "0bc748864f42cbe3f03ea95ec0e0ae86",
+    "mtime": 1794589235.4068258,
+    "seen": 1794589783.2862647,
+    "ast_hash": "7e212bc80f41e7cfdeb6fa8f5fa143b1",
     "semantic_hash": ""
   },
   "docs/feedback/feedback-igo.md": {
@@ -1272,9 +1272,9 @@
     "semantic_hash": ""
   },
   "src/components/hangul/SyllableAnatomy.tsx": {
-    "mtime": 1794574641.233546,
-    "seen": 1794580219.480992,
-    "ast_hash": "b6e2ff098bf217927d99a14214d64f97",
+    "mtime": 1794589139.8601627,
+    "seen": 1794589783.2783678,
+    "ast_hash": "de71fc4c80b94f611beecd19f0b4787a",
     "semantic_hash": ""
   },
   "docs/audio/audio-quality-roadmap.md": {
@@ -1314,15 +1314,15 @@
     "semantic_hash": ""
   },
   "e2e/audio.spec.ts": {
-    "mtime": 1794587797.912134,
-    "seen": 1794588202.0149643,
-    "ast_hash": "081467071b1d4700055fba1dad2a6631",
+    "mtime": 1794589210.1989658,
+    "seen": 1794589783.2766628,
+    "ast_hash": "ddd089c0c4aac93b0e3e40e1e6e536b1",
     "semantic_hash": ""
   },
   "scripts/audio/build-inventory.mjs": {
-    "mtime": 1794584602.0434856,
-    "seen": 1794588202.0152955,
-    "ast_hash": "b0452f9a33a14f72b94ac50c21ac5581",
+    "mtime": 1794589490.5622814,
+    "seen": 1794589783.2770429,
+    "ast_hash": "ce532c03f8cb0ad09bf9c1fc6ec17733",
     "semantic_hash": ""
   },
   "scripts/audio/encode-audio.py": {
@@ -1350,15 +1350,15 @@
     "semantic_hash": ""
   },
   "src/lib/audio/browser.ts": {
-    "mtime": 1794572586.7648232,
-    "seen": 1794580219.4811769,
-    "ast_hash": "547e35cf7a4ac54c0bd02b81adfee6a3",
+    "mtime": 1794589049.634335,
+    "seen": 1794589783.2845855,
+    "ast_hash": "21db8dc96bab66a4c1cf77b6461b61a9",
     "semantic_hash": ""
   },
   "src/lib/audio/inventory.ts": {
-    "mtime": 1794572586.7648232,
-    "seen": 1794580219.4811785,
-    "ast_hash": "279fb35010d1b84089842e522d1bce7d",
+    "mtime": 1794589139.8601627,
+    "seen": 1794589783.2846088,
+    "ast_hash": "857a1f0b9643add7d1a85198ffb60e29",
     "semantic_hash": ""
   },
   "src/lib/audio/manifest.ts": {
@@ -1368,9 +1368,9 @@
     "semantic_hash": ""
   },
   "src/lib/audio/playback.ts": {
-    "mtime": 1794572586.7648232,
-    "seen": 1794580219.48118,
-    "ast_hash": "bb2a706f98fc0c21abbd71ba311b65d4",
+    "mtime": 1794589049.634335,
+    "seen": 1794589783.2846308,
+    "ast_hash": "092c0af40d7a8a051b973cd792c86e3e",
     "semantic_hash": ""
   },
   "src/lib/audio/text.ts": {
@@ -1386,15 +1386,15 @@
     "semantic_hash": ""
   },
   "tests/audio-playback.test.ts": {
-    "mtime": 1794572586.772816,
-    "seen": 1794580219.4812214,
-    "ast_hash": "e9f63f3f08e5a5c6cf065d61be224e95",
+    "mtime": 1794589171.2412403,
+    "seen": 1794589783.28581,
+    "ast_hash": "f1c54b172f073ee6ffb56bc3b67ecd6d",
     "semantic_hash": ""
   },
   "docs/audio/generation-guide.md": {
-    "mtime": 1794584894.250504,
-    "seen": 1794588202.025035,
-    "ast_hash": "5eb943f33351d8253d11c27fb79d7053",
+    "mtime": 1794589440.8630939,
+    "seen": 1794589783.286804,
+    "ast_hash": "3209b6a3c3e9bad16cf4959c0ac07913",
     "semantic_hash": ""
   },
   "e2e/speech.spec.ts": {
@@ -1488,15 +1488,15 @@
     "semantic_hash": ""
   },
   "docs/audio/license-audit.md": {
-    "mtime": 1794584919.483038,
-    "seen": 1794588202.0250552,
-    "ast_hash": "ce591fc44f29dc009c71c124fb4188c1",
+    "mtime": 1794589472.312224,
+    "seen": 1794589783.286824,
+    "ast_hash": "6b596745e6c6f86aaf7d655d83988612",
     "semantic_hash": ""
   },
   "docs/release/beta-readiness.md": {
-    "mtime": 1794588124.641652,
-    "seen": 1794588202.0271347,
-    "ast_hash": "710ff50bb09f986f63cf147e382e831a",
+    "mtime": 1794589472.312224,
+    "seen": 1794589783.2888033,
+    "ast_hash": "2db0cdff87231b3f3a54f633a8adb294",
     "semantic_hash": ""
   },
   "src/lib/audio/flags.ts": {
@@ -1512,9 +1512,9 @@
     "semantic_hash": ""
   },
   "docs/audio/permissions/email-drafts.md": {
-    "mtime": 1794572586.2053332,
-    "seen": 1794580219.481266,
-    "ast_hash": "d2b1e2ff3b87e380486c49778bbf3a2c",
+    "mtime": 1794589490.558312,
+    "seen": 1794589783.2868247,
+    "ast_hash": "4c92ec04ef3a44f9e8d1b85ffc203d86",
     "semantic_hash": ""
   },
   "docs/audio/tts-alternatives.md": {
@@ -1530,9 +1530,9 @@
     "semantic_hash": ""
   },
   "docs/release/curriculum-handoff.md": {
-    "mtime": 1794588124.629642,
-    "seen": 1794588202.0271363,
-    "ast_hash": "73d80dcabd1c460012ab94f0fd7d6e09",
+    "mtime": 1794589472.3162735,
+    "seen": 1794589783.2888048,
+    "ast_hash": "f122507b69c4f42079c080eb6dce07fe",
     "semantic_hash": ""
   },
   "e2e/vocabulary.spec.ts": {
@@ -1566,9 +1566,9 @@
     "semantic_hash": ""
   },
   "src/components/vocabulary/VocabReviewArea.tsx": {
-    "mtime": 1794574842.519651,
-    "seen": 1794580219.4810166,
-    "ast_hash": "a67596e3334594859094cb37654ae599",
+    "mtime": 1794589128.1580813,
+    "seen": 1794589783.2790232,
+    "ast_hash": "7900a134fcf85b209abb44eb35b3dccc",
     "semantic_hash": ""
   },
   "src/components/vocabulary/VocabularyArea.tsx": {
@@ -1758,9 +1758,9 @@
     "semantic_hash": ""
   },
   "src/components/a1/A1LessonPlayer.tsx": {
-    "mtime": 1794574668.865274,
-    "seen": 1794580219.480975,
-    "ast_hash": "32675f7913737adea350769f2867da4e",
+    "mtime": 1794589139.8601627,
+    "seen": 1794589783.2779777,
+    "ast_hash": "549232f76f70baba060cc554bf7c6bb5",
     "semantic_hash": ""
   },
   "src/content/courses/a1.ts": {
@@ -1776,9 +1776,9 @@
     "semantic_hash": ""
   },
   "src/content/curriculum/a1/lessons/a1-l01.ts": {
-    "mtime": 1794572586.7408452,
-    "seen": 1794580219.481039,
-    "ast_hash": "b90f39ab74cec79142b1ffda810ed80a",
+    "mtime": 1794589153.5058105,
+    "seen": 1794589783.2796776,
+    "ast_hash": "780c876d9a18a00fb0ea555a8acb43eb",
     "semantic_hash": ""
   },
   "src/content/vocabulary/a1.ts": {
@@ -1812,9 +1812,9 @@
     "semantic_hash": ""
   },
   "src/components/a1/A1CourseArea.tsx": {
-    "mtime": 1794575021.4610136,
-    "seen": 1794580219.4809737,
-    "ast_hash": "60615ac00aed0dfc8c1e9021542ebe2c",
+    "mtime": 1794589139.8601627,
+    "seen": 1794589783.2779758,
+    "ast_hash": "07c66d1b62e64deff7d33cb7faf945d8",
     "semantic_hash": ""
   },
   "src/content/curriculum/a1/checkpoints/a1-c01.ts": {
@@ -27945,6 +27945,12 @@
     "mtime": 1794587239.1488252,
     "seen": 1794588202.031039,
     "ast_hash": "b192083892258e00c7b4370b0bf3c783",
+    "semantic_hash": ""
+  },
+  "docs/audio/credits.md": {
+    "mtime": 1794588926.1663387,
+    "seen": 1794589783.2867444,
+    "ast_hash": "e603c30c123b63c0017d7e639a775a38",
     "semantic_hash": ""
   },
   "package-lock.json": {

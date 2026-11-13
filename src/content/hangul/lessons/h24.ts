@@ -34,7 +34,7 @@ export const H24: Lesson = {
     {
       title: "O app não avalia sua fala",
       body:
-        "A autoavaliação é uma pausa para perceber dúvidas, não uma nota de pronúncia. O player não grava voz nem mede fluência. Use o áudio como apoio quando houver voz coreana disponível.",
+        "A autoavaliação é uma pausa para perceber dúvidas, não uma nota de pronúncia. O player não grava voz nem mede fluência. Use o áudio do corpus como apoio; a leitura em voz alta continua sendo prática sua.",
       ko: "연습은 정확성부터",
     },
   ],

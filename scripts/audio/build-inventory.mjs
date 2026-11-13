@@ -34,6 +34,22 @@ try {
     await server.ssrLoadModule("/src/content/curriculum/a2/content.ts");
   const { B1_IMPLEMENTED_LESSONS, B1_IMPLEMENTED_CHECKPOINTS } =
     await server.ssrLoadModule("/src/content/curriculum/b1/content.ts");
+
+  // Cursos futuros entram automaticamente quando o módulo de conteúdo existir
+  // nesta branch (B2, C1, C2…). Sem o arquivo, o curso é ignorado.
+  const optionalCourses = [];
+  for (const id of ["b2", "c1", "c2"]) {
+    try {
+      const mod = await server.ssrLoadModule(`/src/content/curriculum/${id}/content.ts`);
+      optionalCourses.push({
+        courseId: `ko-${id}`,
+        lessons: mod[`${id.toUpperCase()}_IMPLEMENTED_LESSONS`] ?? [],
+        checkpoints: mod[`${id.toUpperCase()}_IMPLEMENTED_CHECKPOINTS`] ?? [],
+      });
+    } catch {
+      // Curso ainda não implementado nesta branch.
+    }
+  }
   const { VOCAB_ENTRIES, VOCAB_SENTENCES } = await server.ssrLoadModule(
     "/src/content/vocabulary/index.ts",
   );
@@ -49,10 +65,20 @@ try {
     ...A2_IMPLEMENTED_CHECKPOINTS.map((step) => ({ courseId: "ko-a2", step })),
     ...B1_IMPLEMENTED_LESSONS.map((step) => ({ courseId: "ko-b1", step })),
     ...B1_IMPLEMENTED_CHECKPOINTS.map((step) => ({ courseId: "ko-b1", step })),
+    ...optionalCourses.flatMap((course) => [
+      ...course.lessons.map((step) => ({ courseId: course.courseId, step })),
+      ...course.checkpoints.map((step) => ({ courseId: course.courseId, step })),
+    ]),
   ];
 
-  // Hangul + A1 + A2 + B1. Cursos posteriores entram quando tiverem conteúdo.
-  const AUDIO_COURSES = new Set(["hangul", "ko-a1", "ko-a2", "ko-b1"]);
+  // Hangul + A1 + A2 + B1 e, se existirem nesta branch, B2/C1/C2.
+  const AUDIO_COURSES = new Set([
+    "hangul",
+    "ko-a1",
+    "ko-a2",
+    "ko-b1",
+    ...optionalCourses.map((course) => course.courseId),
+  ]);
   const vocabulary = VOCAB_ENTRIES.filter((entry) =>
     AUDIO_COURSES.has(entry.course),
   );

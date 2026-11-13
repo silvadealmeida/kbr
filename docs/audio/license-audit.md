@@ -1,8 +1,11 @@
-# Auditoria de licenças do áudio sintético — Fases 8D e 8E
+# Auditoria de licenças do áudio sintético — Fases 8D, 8E, 12A e 14
 
-**Data:** 2026-11-12  
-**Escopo:** cadeia de dependências que gerou os 287 MP3 de `public/audio/hangul/v1/`.  
-**Veredito:** **distribuição pública/comercial BLOQUEADA até esclarecimento por escrito ou substituição.** Este documento não é parecer jurídico e não afirma que o uso seja ilegal nem que seja permitido. Ausência de licença não é tratada como permissão, e a licença MIT do MeloTTS não é tratada como cobertura automática de cada checkpoint.
+**Data:** 2026-11-13  
+**Escopo:** cadeia de dependências que gerou os MP3 de `public/audio/v1/`.  
+**Veredito atual:** **uso liberado com crédito.** O dono do projeto perguntou ao autor do encoder
+coreano e recebeu a orientação de que **basta dar crédito** ao autor e ao repositório. O KBR publica
+esse crédito em `/impressum` e em [`credits.md`](credits.md). Este documento não é parecer jurídico;
+a decisão de publicar o corpus é do dono do projeto.
 
 ## 1. Cadeia de geração e o que cada elo declara
 
@@ -146,23 +149,24 @@ licença declarada no Hugging Face e a contradição Apache-2.0 × MOU do reposi
 resolvida. A decisão acima é de risco aceito pelo dono do projeto, **não** um parecer jurídico nem uma
 confirmação de licença. Antes de lançamento comercial, as ações R1/R2/R5 do §6 continuam recomendadas.
 
-## 12. Fase 12A (2026-11-13) — contenção restaurada como padrão seguro
+## 12. Fase 12A (2026-11-13) — contenção restaurada como padrão seguro (histórico)
 
-A decisão de risco do dono (§11) continua registrada, mas **não é uma licença** e não foi tratada como tal nesta fase. Como o encoder `kykim/bert-kor-base` segue sem licença declarada e a contradição Apache-2.0 × MOU não foi resolvida, o padrão voltou a ser conservador:
+> **Superado pela §13.** Registro histórico: a 12A voltou ao opt-in enquanto a orientação do autor
+> do encoder ainda não tinha sido obtida. A §13 documenta a orientação atual (crédito) e a reversão.
 
-- `STATIC_AUDIO_ENABLED` agora é **opt-in**: só vale com `NEXT_PUBLIC_KBR_STATIC_AUDIO=1`. Sem a flag, o player usa a voz coreana do navegador e nunca resolve caminho de MP3.
-- `.vercelignore` exclui `public/audio/` do artefato de deploy. Os MP3 continuam versionados em `public/audio/v1/` e não foram apagados.
-- `scripts/audio/verify-audio-containment.mjs` roda em `prebuild`/`postbuild`: exige a linha `public/audio/` no `.vercelignore` e falha se houver MP3 em `.next/` ou `.vercel/output/` sem opt-in explícito.
-- `tests/audio-containment.test.ts` cobre a exclusão, a preservação dos arquivos e o fallback; `tests/audio-manifest.test.ts` fixa as 12 lacunas e 10 sobras de texto corrigido (`docs/audio/stale-audio-manifest.md`).
-- O E2E liga a flag explicitamente para exercitar o caminho de MP3; isso é teste local, não autorização de distribuição.
-- Textos corrigidos sem MP3 usam TTS do navegador; nenhum MP3 foi regenerado, movido ou removido.
+A decisão do dono (§11) foi tratada como conservadora nesta fase: como o encoder `kykim/bert-kor-base` não tinha licença declarada no Hugging Face e a contradição Apache-2.0 × MOU não estava reconciliada, o padrão voltou a ser opt-in:
 
-**O que isso não resolve:** o repositório público e a história do Git continuam expondo o corpus; deployments antigos da Vercel não foram verificados; a licença do encoder continua não esclarecida. O lançamento público/comercial continua **BLOQUEADO** até R1/R2/R5 do §6 ou substituição por áudio com licença verificável.
+- `STATIC_AUDIO_ENABLED` passou a exigir `NEXT_PUBLIC_KBR_STATIC_AUDIO=1`. Sem a flag, o player usava a voz coreana do navegador e nunca resolvia caminho de MP3.
+- `.vercelignore` excluía `public/audio/` do artefato de deploy. Os MP3 continuaram versionados em `public/audio/v1/`.
+- `scripts/audio/verify-audio-containment.mjs` rodava em `prebuild`/`postbuild`.
+- `tests/audio-containment.test.ts` cobria a exclusão, a preservação dos arquivos e o fallback; `tests/audio-manifest.test.ts` fixava as 12 lacunas e 10 sobras de texto corrigido (`docs/audio/stale-audio-manifest.md`).
 
-## 13. Fase 14 (2026-11-13) — decisão do dono: expor e usar todo o áudio
+## 13. Fase 14 (2026-11-13) — uso liberado com crédito e corpus completo
 
-O dono do projeto determinou que **todo o áudio já gerado seja exposto e usado** no app, em vez de
-cair na voz sintética do navegador, e que **o áudio ainda ausente seja gerado** com o MeloTTS-Korean.
+O dono do projeto determinou que **todo o áudio seja exposto e usado** no app, em vez de cair na voz
+sintética do navegador, e que **o áudio ainda ausente seja gerado** com o MeloTTS-Korean. Perguntou
+ao autor do `kykim/bert-kor-base` sobre o uso do checkpoint e recebeu a orientação de que **basta
+dar crédito** ao autor e ao repositório.
 
 Implementação:
 
@@ -176,7 +180,8 @@ Implementação:
   sem imagem Docker). O `encode-audio.py` regenerou manifesto e `entries.ts`, e removeu os MP3
   órfãos dos textos corrigidos na 12A.
 
-**Escopo da decisão:** é uma decisão de risco do dono sobre a distribuição do áudio sintético, **não**
-uma licença e **não** um parecer jurídico. As perguntas R1/R2 do §6 continuam sem resposta e o
-lançamento comercial continua sujeito a revisão antes de ir ao ar. O áudio permanece rotulado como
-síntese provisória (`in-review`) e não substitui escuta/aprovação de falante nativo.
+**Crédito:** a atribuição a MeloTTS, MeloTTS-Korean, `kykim/bert-kor-base` (Kiyoung Kim/LMkor) e
+FFmpeg/libmp3lame está em [`credits.md`](credits.md) e na seção “Créditos de terceiros” de
+`/impressum`. **O TTS do navegador foi removido do player**: `playback.ts` usa somente os MP3 do
+corpus; sem asset, o controle mostra indisponibilidade e mantém a dica textual. O áudio continua
+rotulado como síntese provisória (`in-review`) e não substitui escuta/aprovação de falante nativo.

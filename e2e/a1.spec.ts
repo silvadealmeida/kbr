@@ -189,6 +189,43 @@ test.describe("A1 — curso completo autenticado", () => {
     await expectNoHorizontalOverflow(page);
   });
 
+  test("teclado coreano compõe a sílaba digitada", async ({ page }) => {
+    await page.goto("/a1/a1-l01");
+    await page.getByRole("button", { name: "Começar a prática" }).click();
+
+    await page
+      .getByRole("group", { name: "Alternativas" })
+      .getByRole("button", { name: "안녕하세요", exact: true })
+      .click();
+    await page.getByRole("button", { name: "Conferir" }).click();
+    await page.getByRole("button", { name: "Continuar" }).click();
+
+    await page
+      .getByRole("group", { name: "Alternativas" })
+      .getByRole("button", { name: "이에요", exact: true })
+      .click();
+    await page.getByRole("button", { name: "Conferir" }).click();
+    await page.getByRole("button", { name: "Continuar" }).click();
+
+    await page.getByRole("button", { name: "Teclado coreano" }).click();
+    const input = page.getByLabel("Sua resposta");
+    await page.getByRole("button", { name: "Inserir ㅇ" }).click();
+    await page.getByRole("button", { name: "Inserir ㅖ" }).click();
+    await expect(input).toHaveValue("예");
+
+    await page.getByRole("button", { name: "Inserir ㅇ" }).click();
+    await page.getByRole("button", { name: "Inserir ㅛ" }).click();
+    await expect(input).toHaveValue("예요");
+
+    await page.getByRole("button", { name: "Apagar o último jamo" }).click();
+    await expect(input).toHaveValue("예ㅇ");
+
+    await page.getByRole("button", { name: "Inserir ㅛ" }).click();
+    await expect(input).toHaveValue("예요");
+    await page.getByRole("button", { name: "Conferir" }).click();
+    await expect(page.getByRole("status").filter({ hasText: "Correto." })).toBeVisible();
+  });
+
   test("lição bloqueada não abre por URL direta e abre depois do pré-requisito", async ({
     context,
     page,

@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 import { AudioControl, BilingualText } from "@/components/hangul/exercise-media";
+import { KoreanKeyboard } from "@/components/hangul/KoreanKeyboard";
 import { Button } from "@/components/ui/Button";
 import { Input, fieldDescribedBy } from "@/components/ui/Field";
 import type { VocabEntry, VocabSentence } from "@/content/vocabulary";
@@ -169,6 +170,7 @@ export function ContextualCard({ entry, sentence, isLast, onGrade, onNext }: Pro
                 Digite a palavra antes de verificar.
               </p>
             ) : null}
+            <KoreanKeyboard value={value} onChange={setValue} />
           </div>
 
           {hintOpen ? (

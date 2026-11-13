@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import type { DetailedCheckResult, ExerciseAnswer, ExerciseSpec } from "@/lib/exercises";
 import { composeSyllable } from "@/lib/hangul";
 import { RULES } from "@/content/hangul/rules";
+import { KoreanKeyboard } from "./KoreanKeyboard";
 import { SyllableBuilder } from "./SyllableBuilder";
 import { PronunciationLayers } from "./PronunciationLayers";
 import { AudioControl, BilingualText } from "./exercise-media";
@@ -122,10 +123,16 @@ function ChoiceList({
 
 function TextAnswer({
   disabled,
+  korean,
   onChange,
   onSubmit,
-}: Pick<AnswerAreaProps, "disabled" | "onChange" | "onSubmit">) {
+}: Pick<AnswerAreaProps, "disabled" | "onChange" | "onSubmit"> & { korean: boolean }) {
   const [text, setText] = useState("");
+
+  const update = (value: string) => {
+    setText(value);
+    onChange(value.trim() ? { kind: "text", value } : null);
+  };
 
   return (
     <div>
@@ -138,14 +145,7 @@ function TextAnswer({
         value={text}
         disabled={disabled}
         aria-describedby="resposta-ajuda"
-        onChange={(event) => {
-          setText(event.target.value);
-          onChange(
-            event.target.value.trim()
-              ? { kind: "text", value: event.target.value }
-              : null,
-          );
-        }}
+        onChange={(event) => update(event.target.value)}
         onKeyDown={(event) => {
           if (event.key === "Enter" && !disabled && text.trim()) {
             event.preventDefault();
@@ -162,6 +162,9 @@ function TextAnswer({
       <p id="resposta-ajuda" className="mt-2 text-xs text-muted">
         Digite e toque em Conferir, ou pressione Enter.
       </p>
+      {korean ? (
+        <KoreanKeyboard value={text} onChange={update} disabled={disabled} />
+      ) : null}
     </div>
   );
 }
@@ -237,7 +240,15 @@ function AnswerArea({ exercise, result, disabled, onChange, onSubmit }: AnswerAr
     );
   }
 
-  return <TextAnswer disabled={disabled} onChange={onChange} onSubmit={onSubmit} />;
+  const korean = "answer" in exercise && /[\uAC00-\uD7A3]/.test(exercise.answer);
+  return (
+    <TextAnswer
+      disabled={disabled}
+      korean={korean}
+      onChange={onChange}
+      onSubmit={onSubmit}
+    />
+  );
 }
 
 function answerLabel(

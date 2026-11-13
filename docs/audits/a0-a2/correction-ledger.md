@@ -2,7 +2,7 @@
 
 **Baseline auditado:** `3103ce3` (ponta do A2 concluído)  
 **Branch da auditoria:** `audit/a0-a2-linguistic` @ `f936f80`, worktree `/root/estudos/kbr-audit-a0a2`  
-**HEAD corrigido:** preenchido no commit da fase 12A (código) e no commit de documentação.  
+**HEAD corrigido:** `636a4c4` (código, validadores e contenção) + commit de documentação desta fase.  
 **Natureza:** correções verificadas de texto, validadores e contenção de áudio. **Nenhuma linha de B1 foi reescrita; nenhum `Progress` v1/CAS/SQL/Leitner foi alterado; nenhum MP3 foi apagado ou regenerado.**
 
 ## 1. Reconciliação dos 298 achados
@@ -66,7 +66,7 @@ A soma **6 + 84 + 191 + 13 = 294** não é um novo total: 6 é a contagem de cr�
 ## 6. Validação final
 
 - `npm run typecheck` — limpo.
-- `npm test` — **598 testes / 45 arquivos**.
+- `npm test` — **595 testes / 42 arquivos**.
 - `npm run build` — verde; `[audio-guard] OK` em prebuild/postbuild.
 - `npm run e2e` — **646 testes: 619 executados + 27 skips** (Chromium 375/390/768/1280 + WebKit 390; axe claro/escuro).
 - B1: `tests/content/b1-curriculum.test.ts` e `e2e/b1.spec.ts` verdes; conteúdo B1 sem diff linguístico.

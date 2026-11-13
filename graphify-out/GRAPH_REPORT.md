@@ -6,12 +6,12 @@
 - Unclassified: 7 file(s) not represented in the graph (top: (none) 5, .example 1, .css 1)
 
 ## Summary
-- 4012 nodes · 8981 edges · 236 communities (230 shown, 6 thin omitted)
+- 4037 nodes · 8980 edges · 235 communities (227 shown, 8 thin omitted)
 - Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 546 edges (avg confidence: 0.94)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `a66d4655`
+- Built from commit: `636a4c46`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -50,7 +50,7 @@
 - 11. Unidade 5 — Todas as vogais
 - 12. Unidade 6 — Sílabas e batchim
 - 13. Unidade 7 — Ler em contexto
-- hangul-experience.test.ts
+- vocabulary.test.ts
 - hangul.spec.ts
 - A1 — resultados de aprendizagem
 - 9. Unidade 3 — Consoantes básicas
@@ -119,15 +119,15 @@
 - Hangul — conceitos de interação
 - Auditoria de licenças do áudio sintético — Fases 8D e 8E
 - ContextualCard.tsx
-- localStorageStore.ts
-- A0 Hangul — achados da revisão linguística (lote h01–h25, c1–c4, jamo, regras)
+- courses.test.ts
+- isCourseStepUnlocked
 - route.ts
 - Detalhe por opção
 - hangul/validate.ts
-- playback.ts
+- exercise-media.tsx
 - a2/index.ts
 - KBR — Arquitetura
-- CourseCompletionPanel.tsx
+- HangulCourse.tsx
 - Vocabulário — arquitetura (Fase 9A-V)
 - A2 — plano de vocabulário
 - Geração do áudio estático — MeloTTS-Korean
@@ -142,7 +142,7 @@
 - A2 — plano e contagens de exercícios
 - Achados — A1 módulo 5 (`a1-l21`–`a1-l25` + `a1-c05`)
 - speech.test.ts
-- SpeakingPracticeArea.tsx
+- SpeakingPractice.tsx
 - b1/index.ts
 - Resumo
 - KBR — Auditoria de privacidade e avaliação legal (Fase 2B)
@@ -151,15 +151,15 @@
 - A1CheckpointPlayer.tsx
 - Módulo 1 — Primeiro contato (`a1-m01`)
 - ref_node_fs
-- A1LessonPlayer.tsx
-- 4. Defeitos confirmados
+- A1CheckpointPlayer.tsx
+- dashboard.test.ts
 - storage/index.ts
 - b1/lessons/shared.ts
 - b1-course.ts
 - Módulo 2 — Números, tempo e rotina (`a1-m02`)
 - pronunciation.ts
 - 13. Feedback
-- a1-curriculum.test.ts
+- b1/lessons/shared.ts
 - impressum/page.tsx
 - Módulo 3 — Pessoas e casa (`a1-m03`)
 - Módulo 4 — Comida e compras (`a1-m04`)
@@ -174,7 +174,7 @@
 - 3. Invariantes por campo
 - Varredura de conteúdo — lições, exercícios, inconsistências e referências
 - routes.ts
-- a2/lessons/shared.ts
+- a2/content.ts
 - (site)/page.tsx
 - make-sheets.cjs
 - Achados — A1 módulo 3 (a1-l11–a1-l15 + a1-c03)
@@ -192,14 +192,14 @@
 - Achados — vocabulário canônico A2 (ficha `vocab-a2.md`)
 - Casos disputados de alto impacto
 - scripts
-- Transição para o A1 — handoff após as Fases 9A–9H
+- checkpoints/index.ts
 - analyze-lexicon-first-use.cjs
 - render-coverage.cjs
 - Exposição do áudio restrito e plano de remoção — Fase 8F
 - KBR — Prática de fala com reconhecimento nativo (Fase 8C, experimental)
 - Vocabulário canônico Hangul (A0) — achados da revisão (ficha `vocab-hangul.md`)
 - tally-findings.cjs
-- AudioPlayer
+- Prioridade 2 — coreano errado ensinado como correto
 - Áudio atual — auditoria técnica e de experiência
 - Achados — A1 módulo 2 (a1-l06–a1-l10 + a1-c02)
 - Achados — A1 módulo 2 (a1-l06–a1-l10 + a1-c02) — revisão v2
@@ -212,7 +212,7 @@
 - Achados — A2 módulo 1 (a2-l01…a2-l05, a2-c01)
 - inventory.cjs
 - render-inventory.cjs
-- Achados — A1 módulo 8 (a1-l36–a1-l40 + a1-c08)
+- (site)/layout.tsx
 - Achados — A2 módulo 3 (a2-l11–a2-l15 + a2-c03)
 - Achados — A2 módulo 7 (a2-l31–a2-l35 + a2-c07)
 - Achados — A2 módulo 8 (a2-l36–l40 + a2-c08)
@@ -230,78 +230,76 @@
 - Inventário — conteúdo educacional A0/A1/A2 no baseline `3103ce3`
 - Achados A1 — consolidação
 - Achados A2 — consolidação
-- Registro de cobertura da auditoria A0–A2
+- courses/hangul.ts
 - Roteiro de revisão linguística (auditoria A0–A2)
-- engine-probe.test.ts
+- Correções propostas — ranqueadas por impacto
 - ExerciseSpec
 - exercise-order.test.ts
 - recognition.ts
-- audio-manifest.test.ts
+- README — auditoria A0–A2 (read-only)
 - SpeechController
-- SpeakingPracticeArea
-- AudioControl
-- vocabulary/hangul.ts
+- SpeakingPracticeArea.tsx
+- Ledger de correções — Fase 12A
+- Prioridade 1 — impede o aluno de concluir uma lição corretamente
 - Prática contextual (completar a frase)
-- 12. Estratégia de testes
-- app/layout.tsx
+- Referências consultadas
+- mobile.spec.ts
 - 4. Exercícios: extensão compatível
-- 6. Compatibilidade com `Progress`
-- vocabulary.spec.ts
-- module4.ts
-- module6.ts
-- SyllableBuilder
+- module3.ts
+- Prioridade 4 — progressão e currículo
+- module1.ts
 
 ## God Nodes (most connected - your core abstractions)
 1. `Progress` - 136 edges
 2. `checkAnswer()` - 72 edges
 3. `A1LessonContent` - 51 edges
 4. `choices()` - 50 edges
-5. `cloze()` - 49 edges
-6. `listen()` - 49 edges
+5. `next` - 49 edges
+6. `mcq()` - 49 edges
 7. `cloze()` - 49 edges
 8. `listen()` - 49 edges
-9. `mcq()` - 49 edges
+9. `translate()` - 49 edges
 10. `reading()` - 49 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `Onde estamos` --references--> `Progress`  [INFERRED]
-  docs/audits/a0-a2/README.md → src/lib/storage/index.ts
-- `MAJOR (49)` --references--> `targetPosition()`  [INFERRED]
-  docs/audits/a0-a2/a1-findings.md → src/content/vocabulary/validate.ts
-- `C-01 · isolado · CRÍTICO `A2M1-001`` --references--> `checkAnswer()`  [INFERRED]
-  docs/audits/a0-a2/correction-proposals.md → src/lib/exercises/index.ts
-- `C-10 · encadeado · MAJOR `A0-001`` --references--> `applyLiaison()`  [INFERRED]
-  docs/audits/a0-a2/correction-proposals.md → src/lib/hangul/pronunciation.ts
-- `Notas sem correção (documentar, não editar)` --references--> `VocabPos`  [INFERRED]
-  docs/audits/a0-a2/correction-proposals.md → src/content/vocabulary/types.ts
+- `Regras` --references--> `Progress`  [INFERRED]
+  AGENTS.md → src/lib/storage/index.ts
+- `Interfaces de troca futura` --references--> `SrsState`  [INFERRED]
+  docs/architecture.md → src/lib/srs/index.ts
+- `Curso B1 completo (Fases 11A–11H)` --references--> `Progress`  [INFERRED]
+  docs/architecture.md → src/lib/storage/index.ts
+- `Curso A2 completo (Fases 10A–10H)` --references--> `CourseClientView`  [INFERRED]
+  docs/architecture.md → src/content/courses/client.ts
+- `Movimento, anatomias e conclusão (Fase 7F)` --references--> `Progress`  [INFERRED]
+  docs/architecture.md → src/lib/storage/index.ts
 
 ## Import Cycles
+- 2-file cycle: `src/lib/srs/index.ts -> src/lib/srs/leitner.ts -> src/lib/srs/index.ts`
+- 2-file cycle: `src/lib/srs/cards.ts -> src/lib/srs/index.ts -> src/lib/srs/cards.ts`
 - 2-file cycle: `src/lib/storage/index.ts -> src/lib/storage/mergeProgress.ts -> src/lib/storage/index.ts`
 - 2-file cycle: `src/lib/storage/index.ts -> src/lib/storage/syncedProgressStore.ts -> src/lib/storage/index.ts`
 - 2-file cycle: `src/lib/storage/index.ts -> src/lib/storage/syncProgress.ts -> src/lib/storage/index.ts`
 - 2-file cycle: `src/lib/storage/index.ts -> src/lib/storage/supabaseProgressStore.ts -> src/lib/storage/index.ts`
 - 2-file cycle: `src/lib/storage/index.ts -> src/lib/storage/localStorageStore.ts -> src/lib/storage/index.ts`
-- 2-file cycle: `src/lib/srs/index.ts -> src/lib/srs/leitner.ts -> src/lib/srs/index.ts`
-- 2-file cycle: `src/lib/srs/cards.ts -> src/lib/srs/index.ts -> src/lib/srs/cards.ts`
+- 3-file cycle: `src/lib/srs/cards.ts -> src/lib/srs/leitner.ts -> src/lib/srs/index.ts -> src/lib/srs/cards.ts`
 - 3-file cycle: `src/lib/storage/index.ts -> src/lib/storage/supabaseProgressStore.ts -> src/lib/storage/mergeProgress.ts -> src/lib/storage/index.ts`
 - 3-file cycle: `src/lib/storage/index.ts -> src/lib/storage/syncProgress.ts -> src/lib/storage/mergeProgress.ts -> src/lib/storage/index.ts`
 - 3-file cycle: `src/lib/storage/index.ts -> src/lib/storage/syncedProgressStore.ts -> src/lib/storage/mergeProgress.ts -> src/lib/storage/index.ts`
 - 3-file cycle: `src/lib/storage/index.ts -> src/lib/storage/syncProgress.ts -> src/lib/storage/localStorageStore.ts -> src/lib/storage/index.ts`
 - 3-file cycle: `src/lib/storage/index.ts -> src/lib/storage/syncProgress.ts -> src/lib/storage/supabaseProgressStore.ts -> src/lib/storage/index.ts`
 - 3-file cycle: `src/lib/storage/index.ts -> src/lib/storage/supabaseProgressStore.ts -> src/lib/storage/localStorageStore.ts -> src/lib/storage/index.ts`
-- 3-file cycle: `src/lib/srs/cards.ts -> src/lib/srs/leitner.ts -> src/lib/srs/index.ts -> src/lib/srs/cards.ts`
 - 4-file cycle: `src/lib/storage/index.ts -> src/lib/storage/syncProgress.ts -> src/lib/storage/supabaseProgressStore.ts -> src/lib/storage/mergeProgress.ts -> src/lib/storage/index.ts`
 - 4-file cycle: `src/lib/storage/index.ts -> src/lib/storage/syncProgress.ts -> src/lib/storage/supabaseProgressStore.ts -> src/lib/storage/localStorageStore.ts -> src/lib/storage/index.ts`
 
-## Communities (236 total, 6 thin omitted)
+## Communities (235 total, 8 thin omitted)
 
 ### Community 0 - "4. Defeitos confirmados"
-Cohesion: 0.13
-Nodes (14): 1. Método e limites, 3. Comportamento por operação, 5. O que **não** é bug confirmado, 6.1 Duas lições em dispositivos diferentes (C1), 6.2 Revisão de cartão vencida por atividade posterior (C3), 6.3 Offline + outro dispositivo online (C1/C9), 6.4 Relógio adiantado (C4), 6.5 Duas abas da mesma conta (C8) (+6 more)
+Cohesion: 0.07
+Nodes (26): 1. Método e limites, 3. Comportamento por operação, 4. Defeitos confirmados, 5. O que **não** é bug confirmado, 6.1 Duas lições em dispositivos diferentes (C1), 6.2 Revisão de cartão vencida por atividade posterior (C3), 6.3 Offline + outro dispositivo online (C1/C9), 6.4 Relógio adiantado (C4) (+18 more)
 
 ### Community 1 - "package.json"
 Cohesion: 0.09
-Nodes (28): dependencies, next@^16.4.6, @playwright/test@^1.65.0, react@^19.3.1, react-dom@^19.3.1, @supabase/ssr@0.12.0, @supabase/supabase-js@2.109.0, tailwindcss@^4.3.5 (+20 more)
+Nodes (27): dependencies, next@^16.4.6, @playwright/test@^1.65.0, react@^19.3.1, react-dom@^19.3.1, @supabase/ssr@0.12.0, @supabase/supabase-js@2.109.0, tailwindcss@^4.3.5 (+19 more)
 
 ### Community 2 - "supabase/proxy.ts"
 Cohesion: 0.22
@@ -312,12 +310,12 @@ Cohesion: 0.05
 Nodes (36): 10. Hangul as an Interactive Visual System, 11. Advanced Animation Technologies, 12. Prototype Concepts — Research Only, 13. Art Direction Exploration, 14. Performance and Accessibility Requirements, 15. Additional Deliverables, 8. Cinematic Motion Design and Interactive Storytelling, 9. Architectural Illustration and Editorial Drawing Styles (+28 more)
 
 ### Community 4 - "Sumário executivo — auditoria de conteúdo educacional A0–A2"
-Cohesion: 0.04
-Nodes (45): C-01 · isolado · CRÍTICO `A2M1-001`, C-02 · arquitetural (validador) · `CL-01`, C-03 · encadeado · CRÍTICO `A1M3-001`, C-04 · arquitetural (validador) · `CL-02`, C-05 · encadeado · MAJOR `A2M2-001`, `A1M7-001`, `A2M8-002`, `CL-03`, C-06 · isolado · CRÍTICO `A1M5-001`, C-07 · isolado · CRÍTICO `A1M1-001`, C-08 · encadeado · CRÍTICO `V2-001` (+37 more)
+Cohesion: 0.20
+Nodes (10): 1. Resultado em uma linha, 2. Números medidos (não declarados), 3. Os críticos que sobrevivem à verificação, 4. Rejeições e rebaixamentos — a auditoria não engoliu tudo o que recebeu, 5. Padrões sistêmicos (vale corrigir por regra, não item a item), 6. O que a auditoria **não** pode dizer, 7. Provas, 8. Recomendação de sequência (fase seguinte, quando você pedir) (+2 more)
 
 ### Community 5 - "lessons/index.ts"
-Cohesion: 0.07
-Nodes (35): C1, C2, C3, C4, H01, H02, H03, H04 (+27 more)
+Cohesion: 0.08
+Nodes (31): H01, H02, H03, H04, H05, H06, H07, H08 (+23 more)
 
 ### Community 6 - "Achados — A1 módulo 1 (a1-l01…a1-l05, a1-c01) — revisão v2"
 Cohesion: 0.07
@@ -332,8 +330,8 @@ Cohesion: 0.06
 Nodes (32): 10. Romanização: por que ela engana, 11. Tabela de aproximações para a interface, 12. Limites do TTS, 13. Roteiro de gravação (para revisão humana), 14. Pontos que exigem revisão especializada, 15. Sequência de prática para brasileiros, 16. Referências, 1. Advertência inicial (+24 more)
 
 ### Community 9 - "Nav.tsx"
-Cohesion: 0.18
-Nodes (11): SiteLayout(), AuthControl(), Nav(), learnLinks, legalLinks, SiteFooter(), nav, SiteHeader() (+3 more)
+Cohesion: 0.21
+Nodes (9): AuthControl(), Nav(), GoogleMark(), LandingAuth(), sizes, Variant, nav, SiteHeader() (+1 more)
 
 ### Community 10 - "Hangul — referência pedagógica"
 Cohesion: 0.06
@@ -344,32 +342,32 @@ Cohesion: 0.13
 Nodes (14): 14. Grafo de pré-requisitos, 18. Fluxo do player de lição, 1.1 Fora de escopo, 1. Objetivo do módulo, 20. Revisão especializada pendente, 21. Riscos e mitigação, 23. Referências, 3. Princípios pedagógicos operacionais (+6 more)
 
 ### Community 12 - "content.ts"
-Cohesion: 0.09
-Nodes (81): Cobertura, 1. Pronto para desenvolvimento contínuo, A1_C01, A1_C02, A1_C03, A1_C04, A1_C05, A1_C06 (+73 more)
+Cohesion: 0.05
+Nodes (125): Blueprint curricular A1 (Fase 9A), Cobertura, Cobertura, A1M8-001 — MINOR — Tradução ko-pt principal inverte a polaridade da pergunta, A1M8-002 — MINOR — “Carne de porco não pode” é literal e enganosa para 돼지고기는 안 돼요, A1M8-003 — MAJOR — Cloze de partícula rejeita variante igualmente válida (은), A1M8-004 — MINOR — Cloze rejeita a forma colada do auxiliar, permitida pela ortografia, A1M8-005 — MINOR — 사정 traduzido como “circunstância” produz frase literal em pt-BR (+117 more)
 
 ### Community 13 - "b1/content.ts"
-Cohesion: 0.11
-Nodes (26): CHECKPOINT_BY_ID, LESSON_BY_ID, B1_L02, B1_L03, B1_L04, B1_L05, B1_L06, B1_L07 (+18 more)
+Cohesion: 0.09
+Nodes (35): CHECKPOINT_BY_ID, LESSON_BY_ID, B1_L06, B1_L07, B1_L08, B1_L09, B1_L10, B1_L16 (+27 more)
 
 ### Community 14 - "KBR — instruções para agentes (Codex, OpenCode, Claude Code)"
 Cohesion: 0.25
 Nodes (7): Comandos, Fase atual, graphify, KBR — instruções para agentes (Codex, OpenCode, Claude Code), Preservar trabalho entre agentes, Regras, This is NOT the Next.js you know
 
 ### Community 15 - "fakeSupabaseCas.ts"
-Cohesion: 0.12
-Nodes (11): @supabase/supabase-js, clone(), errorFor(), FakeCasFailure, FakeCasRpcParams, FakeCasServer, FakeRow, RpcCall (+3 more)
+Cohesion: 0.13
+Nodes (10): clone(), errorFor(), FakeCasFailure, FakeCasRpcParams, FakeCasServer, FakeRow, RpcCall, uuidFromCounter() (+2 more)
 
 ### Community 16 - "vocabulary.test.ts"
-Cohesion: 0.08
-Nodes (48): Vocabulário — comportamento da revisão e Leitner, metadata, Page(), metadata, Page(), BadgeTone, Flashcard(), LessonVocabulary() (+40 more)
+Cohesion: 0.10
+Nodes (44): Vocabulário — comportamento da revisão e Leitner, metadata, Page(), Button(), Plate(), Flashcard(), LessonVocabulary(), useVocabProgress() (+36 more)
 
 ### Community 17 - "Schema de conteúdo — módulo Hangul"
-Cohesion: 0.12
-Nodes (16): 10. Critérios de aceite técnicos, 11. Referências, 1. O que muda e o que não muda, 2. Estrutura de arquivos recomendada, 5.1 União, 5.2 Resultado detalhado, 5.3 `check` preservado, 5.4 Normalização (+8 more)
+Cohesion: 0.11
+Nodes (18): 10. Critérios de aceite técnicos, 11. Referências, 1. O que muda e o que não muda, 2. Estrutura de arquivos recomendada, 5.1 União, 5.2 Resultado detalhado, 5.3 `check` preservado, 5.4 Normalização (+10 more)
 
 ### Community 18 - "review/index.ts"
-Cohesion: 0.10
-Nodes (28): review, SYLLABLES, WORDS, SyllableRecord, buildReviewExercise(), buildReviewQueueFromEntries(), HANGUL_REVIEW_CATALOG, isDate() (+20 more)
+Cohesion: 0.11
+Nodes (28): Revisão, CONTENT_IN_REVIEW, JAMO, JamoRecord, buildReviewExercise(), buildReviewQueue(), buildReviewQueueFromEntries(), HANGUL_REVIEW_CATALOG (+20 more)
 
 ### Community 20 - "next.config.mjs"
 Cohesion: 0.33
@@ -412,8 +410,8 @@ Cohesion: 0.22
 Nodes (9): 7.1 Objetivo, 9.2 Quando usar, 9.3 Especificação, 9.4 Validação, 9.5 Distratores, 9.6 Feedback, 9.7 Acessibilidade, 9.8 Exemplo (+1 more)
 
 ### Community 31 - "content/hangul/index.ts"
-Cohesion: 0.12
-Nodes (19): CHECKPOINTS, IMPLEMENTED_CHECKPOINT_IDS, HANGUL_CURRICULUM, CONTENT_IN_REVIEW, JAMO, IMPLEMENTED_LESSON_IDS, LESSONS, COURSE_OUTLINE (+11 more)
+Cohesion: 0.09
+Nodes (24): all, ok(), out, raw(), spec(), text(), HANGUL_CURRICULUM, IMPLEMENTED_LESSON_IDS (+16 more)
 
 ### Community 32 - "11. Unidade 5 — Todas as vogais"
 Cohesion: 0.29
@@ -426,10 +424,6 @@ Nodes (7): 12. Unidade 6 — Sílabas e batchim, `c3` — Checkpoint 3: sílabas
 ### Community 34 - "13. Unidade 7 — Ler em contexto"
 Cohesion: 0.29
 Nodes (7): 13. Unidade 7 — Ler em contexto, `c4` — Checkpoint 4: leitura integrada, `h21` — Ligação (연음), `h22` — Nasalização, `h23` — Aspiração, `h24` — Oficina de leitura, `h25` — Consolidação e domínio
-
-### Community 35 - "hangul-experience.test.ts"
-Cohesion: 0.20
-Nodes (10): 7. Área F — Ilustrações interativas de Hangul, KIND_LABEL, PronunciationLayers(), RuleExample, SyllableRail(), JamoGroup(), SoundMap(), noFinal (+2 more)
 
 ### Community 36 - "hangul.spec.ts"
 Cohesion: 0.10
@@ -444,8 +438,8 @@ Cohesion: 0.33
 Nodes (6): 9. Unidade 3 — Consoantes básicas, `h04` — ㄱ e ㄴ, `h05` — ㄷ ㄹ ㅁ, `h06` — ㅂ ㅅ ㅈ, `h07` — ㅋ ㅌ ㅍ ㅊ, `h08` — ㅎ e revisão das 14 consoantes básicas
 
 ### Community 39 - "createEmptyProgress"
-Cohesion: 0.21
-Nodes (9): createEmptyProgress(), markAllDone(), markAllDone(), markAllDone(), clone(), lastWriteWinsRemote(), memoryStore(), NOW (+1 more)
+Cohesion: 0.24
+Nodes (8): createEmptyProgress(), fullProgress(), progressWithAllLessons(), clone(), lastWriteWinsRemote(), memoryStore(), NOW, progressAt()
 
 ### Community 40 - "16. Avaliação"
 Cohesion: 0.40
@@ -456,8 +450,8 @@ Cohesion: 0.40
 Nodes (5): 4.1 Carga semanal sugerida, 4.2 Contagem de jamo, 4.3 Convenções dos IDs, 4.4 Estados de conteúdo, 4. Estrutura geral
 
 ### Community 42 - "srs/index.ts"
-Cohesion: 0.17
-Nodes (20): 2.4 Leitner e histórico, 5.2 `src/lib/srs/index.ts`, `leitner.ts`, `cards.ts`, `review/index.ts`, isInitial(), isMedial(), jamoCardKey(), parseSrsCardKey(), ruleCardKey(), scheduleMissedReview() (+12 more)
+Cohesion: 0.18
+Nodes (17): isInitial(), isMedial(), jamoCardKey(), parseSrsCardKey(), ruleCardKey(), SRS_RULE_IDS, SrsCardRef, SrsRuleId (+9 more)
 
 ### Community 43 - "10. Unidade 4 — Consoantes tensas"
 Cohesion: 0.50
@@ -476,8 +470,8 @@ Cohesion: 0.50
 Nodes (4): 19.1 Verificações automáticas obrigatórias, 19.2 Verificações manuais, 19.3 Critérios de bloqueio de lançamento, 19. QA de conteúdo
 
 ### Community 47 - "KBR — Plano de implementação da sincronização confiável (Fase 4D.2)"
-Cohesion: 0.07
-Nodes (26): 10. Rollback, 11. Estados observáveis, 13. Escopo exato da Fase 4D.2, 14. Critérios de aceite da 4D.2, 15. Commits da 4D.2, 16. Fase 4D.3 — deploy seguro do CAS e validação real, 1. Objetivo, 2. Arquitetura recomendada (+18 more)
+Cohesion: 0.06
+Nodes (33): 10. Rollback, 11. Estados observáveis, 12.1 Puros (Vitest), 12.2 Store com fake CAS, 12.3 Banco (PostgreSQL local + pgTAP), 12.4 E2E (Playwright + mock), 12.5 Manual (relatado; não reverificado nesta sessão), 12.6 Limitação de revisões concorrentes no mesmo cartão (+25 more)
 
 ### Community 48 - "2. Pesquisa, benchmark e decisão de design"
 Cohesion: 0.67
@@ -492,12 +486,12 @@ Cohesion: 0.18
 Nodes (10): 1. Referenciais publicados, 2. Evidência para revisão e contexto, 3. Progressão contextual gradual, 4. Derivação do tamanho do curso, 5. Limites conhecidos, A1 — pesquisa e critérios pedagógicos, CEFR A1, Como ler as conclusões (+2 more)
 
 ### Community 51 - "content/vocabulary/index.ts"
-Cohesion: 0.10
-Nodes (24): Cobertura, A1_SENTENCE_ROWS, A1_VOCAB_SENTENCES, A1_VOCABULARY, A1_COURSE_SENTENCES, A1_COURSE_VOCABULARY, newVocabFormsFor(), newVocabIdsFor() (+16 more)
+Cohesion: 0.09
+Nodes (24): A1_SENTENCE_ROWS, A1_VOCAB_SENTENCES, A1_VOCABULARY, A1_COURSE_SENTENCES, A1_COURSE_VOCABULARY, newVocabFormsFor(), review, Row (+16 more)
 
 ### Community 52 - "a2/lessons/shared.ts"
-Cohesion: 0.08
-Nodes (55): A2_C01, A2_C02, A2_C05, CHECKPOINT_BY_ID, isA2CheckpointImplemented(), isA2LessonImplemented(), LESSON_BY_ID, A2_L01 (+47 more)
+Cohesion: 0.07
+Nodes (54): A2_C01, A2_C02, A2_C03, A2_L01, A2_L02, A2_L03, A2_L04, A2_L05 (+46 more)
 
 ### Community 53 - "auth.test.ts"
 Cohesion: 0.24
@@ -505,34 +499,34 @@ Nodes (11): AppLayout(), dynamic, kr, metadata, ConnectionNotice(), GateCard(), 
 
 ### Community 54 - "Progress"
 Cohesion: 0.10
-Nodes (31): Estado atual (atualize a cada commit — é o ponto de retomada entre agentes), KBR — Roadmap, Pós-MVP (não implementar agora), Riscos, Status Fase 1 (real), Status Fase 3A (real), Status Fase 3B.2 (real), Status Fase 3B.3 (real) (+23 more)
+Nodes (30): Estado atual (atualize a cada commit — é o ponto de retomada entre agentes), KBR — Roadmap, Pós-MVP (não implementar agora), Riscos, Status Fase 1 (real), Status Fase 3A (real), Status Fase 3B.2 (real), Status Fase 3B.4 (real) (+22 more)
 
 ### Community 55 - "a1/validate-content.ts"
-Cohesion: 0.15
-Nodes (22): validateA1Content(), checkReview(), validateA1CheckpointContent(), validateA1LessonContent(), assertB1Content(), validateB1Content(), checkReview(), validateB1CheckpointContent() (+14 more)
+Cohesion: 0.16
+Nodes (18): MAJOR (49), V1-003 — MAJOR — Frase de `감기` contém a palavra apenas dentro do composto `감기약`; validador não verifica fim de palavra, checkReview(), validateB1CheckpointContent(), validateB1LessonContent(), clozeParticleIssue(), hasBatchim(), isTextExercise() (+10 more)
 
 ### Community 56 - "checkAnswer"
-Cohesion: 0.12
-Nodes (26): Testes, 22. Handoff para a Fase 3B, 12.1 União de respostas, 12.2 Resultado, 12.3 `checkAnswer`, 12.4 Compatibilidade com `check`, 12.5 Invariantes, 12. Modelo de resposta e correção (+18 more)
+Cohesion: 0.07
+Nodes (43): Testes, 12.1 União de respostas, 12.2 Resultado, 12.3 `checkAnswer`, 12.4 Compatibilidade com `check`, 12.5 Invariantes, 12. Modelo de resposta e correção, Parts (+35 more)
 
 ### Community 57 - "content/courses/index.ts"
-Cohesion: 0.06
-Nodes (65): Cursos e catálogo (Fase 5), Status Fase 9B (real), A1_COURSE, CHECKPOINT_BY_ID, exerciseTypes, LESSON_BY_ID, A2_COURSE, CHECKPOINT_BY_ID (+57 more)
+Cohesion: 0.12
+Nodes (27): A1_COURSE, CHECKPOINT_BY_ID, exerciseTypes, LESSON_BY_ID, A2_COURSE, CHECKPOINT_BY_ID, exerciseTypes, LESSON_BY_ID (+19 more)
 
 ### Community 58 - "A2 — resultados observáveis de aprendizagem"
 Cohesion: 0.15
 Nodes (12): 10. Diferenças culturais e pragmáticas, 11. O que o curso não promete, 1. Leitura de textos curtos conectados, 2. Compreensão de conversas cotidianas, 3. Descrição de experiências passadas, 4. Planos e decisões, 5. Preferências, opiniões e razões, 6. Informação e assistência (+4 more)
 
 ### Community 59 - "createSupabaseProgressStore"
-Cohesion: 0.21
-Nodes (20): Status Fase 4D.2 (real), classifyProgressSyncError(), createSupabaseProgressStore(), clearError(), delayFor(), ensureLoaded(), loadInternal(), notifyMerged() (+12 more)
+Cohesion: 0.19
+Nodes (23): isDateString(), isProgress(), isRecord(), migrate(), classifyProgressSyncError(), createSupabaseProgressStore(), clearError(), delayFor() (+15 more)
 
 ### Community 60 - "KBR — Runbook de deploy seguro do CAS (Fase 4D.3)"
 Cohesion: 0.05
 Nodes (42): 10.1 Cliente (Vercel), 10.2 Banco, 10.3 Dados, 10.4 Progresso local pendente, 10.5 Detectar conflitos e falhas, 10.6 Risco dos grants de DML direto, 10. Rollback, 11. Registro dos testes executados nesta preparação (+34 more)
 
 ### Community 61 - "mock-supabase.mjs"
-Cohesion: 0.21
+Cohesion: 0.23
 Nodes (8): createMockSupabaseServer(), isProgress(), json(), readJson(), startMockSupabase(), TEST_USER, userFromRequest(), next
 
 ### Community 62 - "mergeProgress.ts"
@@ -576,8 +570,8 @@ Cohesion: 0.17
 Nodes (11): A2 — syllabus completo, Limites, Módulo 1 — Reencontros e relatos, Módulo 2 — Planos e decisões, Módulo 3 — Casa e convivência, Módulo 4 — Saúde e bem-estar, Módulo 5 — Trabalho e estudo, Módulo 6 — Viagem e serviços (+3 more)
 
 ### Community 72 - "dashboard.ts"
-Cohesion: 0.08
-Nodes (34): accuracy(), ActivitySummary, ATTEMPT_CATEGORY_LABELS, AttemptCategory, AttemptStats, AttemptTarget, buildAttemptTargets(), buildDashboardSummary() (+26 more)
+Cohesion: 0.13
+Nodes (24): accuracy(), ActivitySummary, ATTEMPT_CATEGORY_LABELS, AttemptCategory, AttemptStats, AttemptTarget, buildAttemptTargets(), buildDashboardSummary() (+16 more)
 
 ### Community 73 - "testAuthCookie"
 Cohesion: 0.32
@@ -588,20 +582,20 @@ Cohesion: 0.09
 Nodes (11): audio_key(), db(), encode_mp3(), main(), probe_duration(), sha256(), trim_and_normalize(), audio_key() (+3 more)
 
 ### Community 75 - "A1 — plano de vocabulário e prática contextual"
-Cohesion: 0.09
-Nodes (27): 10. Estado 9C–9H — curso A1 completo, 1. Uma fonte canônica, 2. Meta editorial, 3. Introduzir, revisitar, consolidar, 4. Identidade, repetição e homógrafos, 5. Contrato por lição futura, 6. Fluxo contextual por lição, 7. Metas de cobertura (+19 more)
+Cohesion: 0.10
+Nodes (26): 10. Estado 9C–9H — curso A1 completo, 1. Uma fonte canônica, 2. Meta editorial, 3. Introduzir, revisitar, consolidar, 4. Identidade, repetição e homógrafos, 5. Contrato por lição futura, 6. Fluxo contextual por lição, 7. Metas de cobertura (+18 more)
 
 ### Community 76 - "inventory.ts"
-Cohesion: 0.22
-Nodes (18): add(), addContrastTags(), addCourseStep(), addExercise(), addRule(), addStep(), addSyllable(), addVocabularyEntry() (+10 more)
+Cohesion: 0.17
+Nodes (21): CourseDialogueLine, CourseGrammarNote, CourseIntroPanel, add(), addContrastTags(), addCourseStep(), addExercise(), addRule() (+13 more)
 
 ### Community 77 - "analyze-progression.cjs"
 Cohesion: 0.12
 Nodes (22): addForms(), courseSteps(), data, exerciseText(), fs, knownByPrefix(), koreans(), lexiconBefore() (+14 more)
 
 ### Community 78 - "exercise-ui.tsx"
-Cohesion: 0.29
-Nodes (19): Lição e composição (Fase 7D), Referências internas, 6. Área E — Lição e checkpoint (player), 6. Fase 7D — Lição e composição, Status Fase 7D (real), BilingualText(), AnswerArea(), AnswerAreaProps (+11 more)
+Cohesion: 0.16
+Nodes (30): Lição e composição (Fase 7D), 2. Reprodução, fallback e acessibilidade (revisão de código + testes), Defeito verificado e corrigido nesta fase, Referências internas, 6. Área E — Lição e checkpoint (player), 6. Fase 7D — Lição e composição, Status Fase 7D (real), AudioControl() (+22 more)
 
 ### Community 79 - "run-concurrency.sh"
 Cohesion: 0.48
@@ -609,7 +603,7 @@ Nodes (5): applied_of(), assert_pair(), run_session(), seed_row(), run-concurren
 
 ### Community 80 - "Achados — vocabulário canônico A1 (`ko-a1`)"
 Cohesion: 0.10
-Nodes (20): Achados — vocabulário canônico A1 (`ko-a1`), Cobertura, V1-002 — MAJOR — Lema `입어 보다` grafado com espaço; a forma canônica é `입어보다`, V1-003 — MAJOR — Frase de `감기` contém a palavra apenas dentro do composto `감기약`; validador não verifica fim de palavra, V1-004 — MAJOR — `돼지고기 없어요?` traduzido como "Você tem carne de porco?" inverte a polaridade da pergunta, V1-005 — MAJOR — `만나요` lido/vertido como declarativo "Eu encontro" em cena de convite ("Vamos nos encontrar"), V1-006 — MINOR — 20 entradas "forma de dicionário" são chunks flexionados/não-lema com `pos: interjeição`, V1-007 — MINOR — Determinantes `어떤/어느/다른` classificados como `pronome` (falta categoria "determinante/adnominal") (+12 more)
+Nodes (19): Achados — vocabulário canônico A1 (`ko-a1`), Cobertura, V1-002 — MAJOR — Lema `입어 보다` grafado com espaço; a forma canônica é `입어보다`, V1-004 — MAJOR — `돼지고기 없어요?` traduzido como "Você tem carne de porco?" inverte a polaridade da pergunta, V1-005 — MAJOR — `만나요` lido/vertido como declarativo "Eu encontro" em cena de convite ("Vamos nos encontrar"), V1-006 — MINOR — 20 entradas "forma de dicionário" são chunks flexionados/não-lema com `pos: interjeição`, V1-007 — MINOR — Determinantes `어떤/어느/다른` classificados como `pronome` (falta categoria "determinante/adnominal"), V1-008 — MINOR — `대신` com `pos: advérbio`, mas o sentido ensinado é o de dependente/nome relacional (+11 more)
 
 ### Community 81 - "Movimento — especificação"
 Cohesion: 0.07
@@ -641,7 +635,7 @@ Nodes (16): outputDir, outputFile, root, findMp3(), hits, root, vercelignore, wa
 
 ### Community 89 - "postLoginPath"
 Cohesion: 0.21
-Nodes (18): Rotas e autenticação, Status conta e sincronização (real), Status Fase 2B (real), signIn(), LandingRedirect(), AUTH_NEXT_COOKIE, AUTH_NEXT_COOKIE_MAX_AGE, clearAuthNextCookie() (+10 more)
+Nodes (17): Rotas e autenticação, Status conta e sincronização (real), Status Fase 2B (real), signIn(), LandingRedirect(), AUTH_NEXT_COOKIE_MAX_AGE, clearAuthNextCookie(), cookieSuffix() (+9 more)
 
 ### Community 90 - "supabase-cas.test.ts"
 Cohesion: 0.10
@@ -657,19 +651,19 @@ Nodes (4): accountKey(), authenticate(), H01_ANSWERS, seedProgress()
 
 ### Community 93 - "testAuthCookie"
 Cohesion: 0.18
-Nodes (10): authenticate(), seedLessons(), sessions, base64url(), createTestAccessToken(), createTestSession(), testAuthCookie(), accountKey() (+2 more)
+Nodes (10): base64url(), createTestAccessToken(), createTestSession(), testAuthCookie(), accountKey(), authenticate(), seedProgress(), Cards (+2 more)
 
 ### Community 94 - "Direção criativa — “Composição”"
 Cohesion: 0.08
 Nodes (24): 10. O que esta direção muda — e o que preserva, 11. Critérios de sucesso, 12. Anti-metas, 1. A ideia em uma frase, 2. Posicionamento e promessa, 3. Três direções exploradas e a síntese, 4. Pilares, 5.1 Elementos proprietários do KBR (+16 more)
 
 ### Community 95 - "assessment-fairness.test.ts"
-Cohesion: 0.13
-Nodes (14): 1. Reconciliação dos 298 achados, 2. Críticos — disposição, 3. Defeitos sistêmicos — disposição, 4. Progressão pedagógica, 5. O que não foi feito (deliberadamente), 6. Validação final, Ledger de correções — Fase 12A, A1_IMPLEMENTED_CHECKPOINTS (+6 more)
+Cohesion: 0.09
+Nodes (18): 3. Defeitos sistêmicos — disposição, Cobertura por curso (itens medidos), Cobertura por lote, Fase 12A — cobertura da correção (2026-11-13), Limites reais desta cobertura, O que cada status significa, Registro de cobertura da auditoria A0–A2, Status final honesto por camada (+10 more)
 
 ### Community 96 - "checkAnswer"
 Cohesion: 0.07
-Nodes (50): Painel, Status Fase 4B (real), Status Fase 4C (real), CheckpointPlayer(), CourseProgressSummary, buildCourseSteps(), CourseCheckpointLike, CourseLessonLike (+42 more)
+Nodes (52): Status Fase 3B.3 (real), Status Fase 4A (real), Status Fase 4C (real), 2.4 Leitner e histórico, C4 — Relógio do cliente decide o vencedor (alto), 5.2 `src/lib/srs/index.ts`, `leitner.ts`, `cards.ts`, `review/index.ts`, I6 — Cartões: vence a revisão mais nova, por cartão, Page() (+44 more)
 
 ### Community 97 - "KBR — Korean for Brazilian Portuguese Speakers 🇧🇷 🇰🇷"
 Cohesion: 0.20
@@ -696,44 +690,44 @@ Cohesion: 0.14
 Nodes (14): 10. Estado de distribuição (8E), 11. Decisão do dono do projeto (2026-11-12): uso liberado no app, 12. Fase 12A (2026-11-13) — contenção restaurada como padrão seguro, 1. Cadeia de geração e o que cada elo declara, 2. O checkpoint do `kykim/bert-kor-base` é necessário?, 3. Os MP3 contêm o BERT? Os termos alcançam a saída?, 4. Restrições aplicáveis e documentação defensável, 5. Alternativas com licença clara (+6 more)
 
 ### Community 103 - "ContextualCard.tsx"
-Cohesion: 0.17
-Nodes (16): Design system “Composição” (Fase 7B), Status Fase 7B (real), Field(), fieldDescribedBy(), Input(), InputProps, Notice(), NoticeIcon() (+8 more)
+Cohesion: 0.14
+Nodes (18): Design system “Composição” (Fase 7B), Status Fase 7B (real), react-dom, Field(), fieldDescribedBy(), Input(), InputProps, Notice() (+10 more)
 
-### Community 104 - "localStorageStore.ts"
-Cohesion: 0.80
-Nodes (4): isDateString(), isProgress(), isRecord(), migrate()
+### Community 104 - "courses.test.ts"
+Cohesion: 0.14
+Nodes (21): Cursos e catálogo (Fase 5), Status Fase 9B (real), CourseCatalog(), B1_COURSE, assertCourseRegistry(), COURSE_REGISTRY, courseStepHref(), getAvailableCourses() (+13 more)
 
-### Community 105 - "A0 Hangul — achados da revisão linguística (lote h01–h25, c1–c4, jamo, regras)"
-Cohesion: 0.11
-Nodes (18): A0-001 — CRÍTICO — explicação afirma que o batchim de 음 é ㄱ e que ele "passa" para 악, A0-002 — MAJOR — h18 declara "os 28 finais escritos" quando o inventário é 27, A0-003 — MAJOR — enunciado de h13-e02 pede "a sílaba com glide labial" mas o gabarito é 고 (sem glide), A0-004 — MAJOR — exemplo de ㅢ "[i] depois de consoante" usa 주의, que vem depois de vogal, A0-005 — MAJOR — itens de escuta exigem distinguir por som realizções que o próprio módulo declara fundidas, A0-006 — MAJOR — distrator de h05-e10 usa ㅂ, ainda não ensinado na lição, A0-007 — MINOR — sonorização entre vogais é afirmada como categorical ([kaɡu], "sonoriza para [ɡ]/[b]"), A0-008 — MINOR — aproximações de ㅗ/ㅓ com vogais NASAIS do português ("como em avô", "entre 'ó' e 'â'") (+10 more)
+### Community 105 - "isCourseStepUnlocked"
+Cohesion: 0.31
+Nodes (15): Painel, Status Fase 4B (real), CourseProgressSummary, summarizeCourseProgress(), buildCourseSteps(), CourseCheckpointLike, CourseLessonLike, CourseProgressLike (+7 more)
 
 ### Community 106 - "route.ts"
-Cohesion: 0.26
-Nodes (8): PWA, cabeçalhos e cache (Fase 6A), GET(), redirectAndClear(), callbackDestination(), getBrowserSupabaseClient(), getSupabasePublicConfig(), SupabasePublicConfig, createServerSupabaseClient()
+Cohesion: 0.33
+Nodes (7): GET(), redirectAndClear(), AUTH_NEXT_COOKIE, callbackDestination(), getSupabasePublicConfig(), SupabasePublicConfig, createServerSupabaseClient()
 
 ### Community 107 - "Detalhe por opção"
 Cohesion: 0.13
 Nodes (14): 1. Web Speech API (estado atual), 2. MeloTTS-Korean, 3. Piper `ko_KR-kss-medium`, 4. XTTS v2 (Coqui), 5. Kokoro-82M, 6. Google Cloud Text-to-Speech, 7. Azure Speech, 8. Gravação com falante nativo (+6 more)
 
 ### Community 108 - "hangul/validate.ts"
-Cohesion: 0.12
-Nodes (39): Hangul, 7.1 API, 9. Ordem de implementação da Fase 3B, Muda, Status Fase 3B.1 (real), Parts, PieceGroup(), positionNote() (+31 more)
+Cohesion: 0.18
+Nodes (29): Hangul, 7.1 API, 7.2 Invariantes obrigatórias, 7.3 Quando rodar, 7.4 Exemplo de issue, 7. Validação do currículo, 9. Ordem de implementação da Fase 3B, Muda (+21 more)
 
-### Community 109 - "playback.ts"
-Cohesion: 0.16
-Nodes (15): AudioElementLike, AudioPlaybackState, AudioPlayerDependencies, AudioSource, PlaybackOutcome, PlaybackUnavailableReason, SpeechSynthesisLike, SpeechUtteranceLike (+7 more)
+### Community 109 - "exercise-media.tsx"
+Cohesion: 0.08
+Nodes (26): 7. Fase 8F — encerramento da infraestrutura de áudio, nextPlaybackRate(), PLAYBACK_RATES, PlaybackRate, rateLabel(), SpeakerIcon(), statusMessage(), createBrowserAudioPlayer() (+18 more)
 
 ### Community 110 - "a2/index.ts"
 Cohesion: 0.10
-Nodes (36): Cobertura, generateMetadata(), A2_CHECKPOINTS, A2_CURRICULUM, A2_LESSONS, A2_MODULES, CHECKPOINT_OBJECTIVES, CHECKPOINT_TITLES (+28 more)
+Nodes (34): Cobertura, A2_CHECKPOINTS, A2_CURRICULUM, A2_LESSONS, A2_MODULES, CHECKPOINT_OBJECTIVES, CHECKPOINT_TITLES, checkpoints (+26 more)
 
 ### Community 111 - "KBR — Arquitetura"
-Cohesion: 0.12
-Nodes (17): Curso A2 completo (Fases 10A–10H), Curso B1 completo (Fases 11A–11H), Decisões/limites, Estrutura, Hardening e limpeza (Fase 7G), Interfaces de troca futura, KBR — Arquitetura, Landing e shell “Composição” (Fase 7C) (+9 more)
+Cohesion: 0.11
+Nodes (18): Curso A2 completo (Fases 10A–10H), Curso B1 completo (Fases 11A–11H), Decisões/limites, Estrutura, Hardening e limpeza (Fase 7G), Interfaces de troca futura, KBR — Arquitetura, Landing e shell “Composição” (Fase 7C) (+10 more)
 
-### Community 112 - "CourseCompletionPanel.tsx"
-Cohesion: 0.30
-Nodes (11): A1CompletionPanel(), Stat(), CourseCompletionPanel(), formatPercent(), Stat(), CourseJourney(), statusLabel(), statusTone() (+3 more)
+### Community 112 - "HangulCourse.tsx"
+Cohesion: 0.13
+Nodes (27): 7. Área F — Ilustrações interativas de Hangul, generateMetadata(), A1CompletionPanel(), Stat(), CourseCompletionPanel(), formatPercent(), Stat(), CourseJourney() (+19 more)
 
 ### Community 113 - "Vocabulário — arquitetura (Fase 9A-V)"
 Cohesion: 0.29
@@ -748,12 +742,12 @@ Cohesion: 0.12
 Nodes (17): 1. Inventário, 2. Síntese, 3. Corte, normalização e MP3, Ambiente usado, Caveat de licença do encoder, Consumo no app, Decisão: Python oficial, não imagem Docker, Download dos modelos no commit fixado (+9 more)
 
 ### Community 116 - "a2-course.ts"
-Cohesion: 0.17
-Nodes (14): ReviewMeta, A2_COURSE_ROWS, review, ROWS_BY_LESSON, A2_M01_ROWS, A2_M02_ROWS, A2_M03_ROWS, A2_M04_ROWS (+6 more)
+Cohesion: 0.19
+Nodes (13): A2_COURSE_ROWS, review, ROWS_BY_LESSON, A2_M01_ROWS, A2_M02_ROWS, A2_M03_ROWS, A2_M04_ROWS, A2_M05_ROWS (+5 more)
 
 ### Community 117 - "audio-manifest.test.ts"
-Cohesion: 0.19
-Nodes (10): AUDIO_ENTRIES, SPEAKING_WORD_IDS, STATIC_AUDIO_ENABLED, AudioAsset, hasAudioAsset(), resolveAudioAsset(), resolvePublicAudioSrc(), audioKey() (+2 more)
+Cohesion: 0.12
+Nodes (18): AUDIO_ENTRIES, STATIC_AUDIO_ENABLED, AudioAsset, audioAssetCount(), hasAudioAsset(), resolveAudioAsset(), resolvePublicAudioSrc(), audioKey() (+10 more)
 
 ### Community 118 - "a2.spec.ts"
 Cohesion: 0.22
@@ -788,16 +782,16 @@ Cohesion: 0.11
 Nodes (18): A1M5-001 — CRÍTICO — ponto de encontro com 만나요 exige 에서, não 에: "극장 앞에 만나요" ensina coreano errado, A1M5-002 — MAJOR — regra de (으)로 omitida a exceção do ㄹ e contradiz seu próprio exemplo "지하철로", A1M5-003 — MAJOR — enunciados de listen pedem "escreva o destino/horário/localização", mas o gabarito é a frase inteira, A1M5-004 — MAJOR — tradução pt→ko rejeita variantes que o próprio curso ensina (omissão do tópico e ordem flexível), A1M5-005 — MAJOR — acceptedAnswers ko→pt incompletos: pontuação não é normalizada e variantes sem pronome são rejeitadas, A1M5-006 — MAJOR — clozes "Complete a instrução" aceitam uma única lacuna verbal embora outra instrução ensinada seja igualmente válida, A1M5-007 — MINOR — exemplo sob a nota "좋아요 — aceitar" não contém 좋아요, A1M5-008 — MINOR — intro chama "tópico" ao sujeito marcado por 가: "Use o lugar como tópico: 역이 어디에 있어요?" (+10 more)
 
 ### Community 126 - "speech.test.ts"
-Cohesion: 0.15
-Nodes (12): Feedback e avaliação, TranscriptFeedback(), compareOne(), matchTranscript(), normalizeForComparison(), TranscriptMatch, TranscriptMatchKind, RecognitionConstructorLike (+4 more)
+Cohesion: 0.24
+Nodes (5): RecognitionConstructorLike, RecognitionLike, FakeRecognition, setup(), Throwing
 
-### Community 127 - "SpeakingPracticeArea.tsx"
-Cohesion: 0.28
-Nodes (10): MicIcon(), SpeakingPractice(), SPEECH_ERROR_MESSAGES, statusText(), ITEMS, UNSUPPORTED, useSpeechPractice(), RecognitionMode (+2 more)
+### Community 127 - "SpeakingPractice.tsx"
+Cohesion: 0.26
+Nodes (11): MicIcon(), SpeakingPractice(), SPEECH_ERROR_MESSAGES, statusText(), TranscriptFeedback(), useSpeechPractice(), compareOne(), matchTranscript() (+3 more)
 
 ### Community 129 - "b1/index.ts"
 Cohesion: 0.07
-Nodes (45): B1_CHECKPOINTS, B1_CURRICULUM, B1_LESSONS, B1_MODULES, checkpoints, CORE, IN_REVIEW, OBJECTIVES (+37 more)
+Nodes (35): CHECKPOINT_BY_ID, exerciseTypes, LESSON_BY_ID, B1_CHECKPOINTS, B1_CURRICULUM, B1_LESSONS, B1_MODULES, checkpoints (+27 more)
 
 ### Community 130 - "Resumo"
 Cohesion: 0.12
@@ -817,7 +811,7 @@ Nodes (3): Alternativas ao MeloTTS-Korean — avaliação de direitos (Fase 8E),
 
 ### Community 134 - "A1CheckpointPlayer.tsx"
 Cohesion: 0.09
-Nodes (52): Curso A1 completo (Fases 9B–9H), generateMetadata(), nextStepAfter(), Page(), PageProps, metadata, Page(), nextStepAfter() (+44 more)
+Nodes (40): next, metadata, Page(), generateMetadata(), nextStepAfter(), Page(), PageProps, metadata (+32 more)
 
 ### Community 135 - "Módulo 1 — Primeiro contato (`a1-m01`)"
 Cohesion: 0.29
@@ -827,41 +821,41 @@ Nodes (7): `a1-l01` — Olá, eu sou…, `a1-l02` — De onde você é?, `a1-l03
 Cohesion: 0.13
 Nodes (9): data, fs, path, porCurso, risco, ROOT, rows, manifest() (+1 more)
 
-### Community 137 - "A1LessonPlayer.tsx"
+### Community 137 - "A1CheckpointPlayer.tsx"
 Cohesion: 0.11
-Nodes (40): next, react, generateMetadata(), Page(), PageProps, metadata, Page(), metadata (+32 more)
+Nodes (34): Curso A1 completo (Fases 9B–9H), generateMetadata(), nextStepAfter(), Page(), PageProps, A1CheckpointPlayer(), A1LessonPlayer(), STAGE_LABEL (+26 more)
 
-### Community 138 - "4. Defeitos confirmados"
-Cohesion: 0.12
-Nodes (18): Revisão, Status Fase 4A (real), 4. Defeitos confirmados, C10 — Migração de convidado: marcador e multi-conta (médio), C11 — Histórico cresce sem limite e viaja inteiro em cada save (custo, não perda), C12 — Dados remotos inválidos deixam o usuário em offline (baixo), C1 — Upsert integral sem controle de concorrência (crítico), C2 — Merge de login também é leitura-modificação-escrita (crítico) (+10 more)
+### Community 138 - "dashboard.test.ts"
+Cohesion: 0.16
+Nodes (10): DashboardOptions, ALL_CHECKPOINT_IDS, ALL_LESSON_IDS, ALL_STEP_IDS, markDone(), MemoryStorage, NOW, options() (+2 more)
 
 ### Community 139 - "storage/index.ts"
-Cohesion: 0.15
-Nodes (23): Não muda, AuthContext, AuthContextValue, AuthProvider(), oauthCallbackPath(), LessonProgress, progressStorageKeyForUser(), createLocalStorageStore() (+15 more)
+Cohesion: 0.10
+Nodes (31): Não muda, Status Fase 4D.2 (real), @supabase/supabase-js, archivo, metadata, plexMono, RootLayout(), viewport (+23 more)
 
 ### Community 140 - "b1/lessons/shared.ts"
-Cohesion: 0.13
-Nodes (30): B1_C01, B1_C02, B1_C03, B1_C04, B1_C05, B1_C06, B1_C07, B1_C08 (+22 more)
+Cohesion: 0.20
+Nodes (17): B1_C01, B1_C02, B1_C03, B1_C04, B1_C05, B1_C06, B1_C07, B1_C08 (+9 more)
 
 ### Community 141 - "b1-course.ts"
-Cohesion: 0.16
-Nodes (15): B1_COURSE_ROWS, B1_COURSE_SENTENCES, B1_COURSE_VOCABULARY, review, ROWS_BY_LESSON, B1_M01_ROWS, B1_M02_ROWS, B1_M03_ROWS (+7 more)
+Cohesion: 0.19
+Nodes (13): B1_COURSE_ROWS, review, ROWS_BY_LESSON, B1_M01_ROWS, B1_M02_ROWS, B1_M03_ROWS, B1_M04_ROWS, B1_M05_ROWS (+5 more)
 
 ### Community 142 - "Módulo 2 — Números, tempo e rotina (`a1-m02`)"
 Cohesion: 0.29
 Nodes (7): `a1-l06` — Números que usamos, `a1-l07` — Que horas e que dia?, `a1-l08` — Minha rotina, `a1-l09` — Faço ou não faço, `a1-l10` — Do começo ao fim do dia, Checkpoint `a1-c02` — Dados, horário e rotina, Módulo 2 — Números, tempo e rotina (`a1-m02`)
 
 ### Community 143 - "pronunciation.ts"
-Cohesion: 0.09
-Nodes (27): Achados A0 (Hangul) — consolidação, Como ler a coluna **Verificação**, CRÍTICO (2), INCERTO (2), MAJOR (7), MINOR (14), 1. Normas da língua coreana (primárias), 2. Currículo e progressão (+19 more)
+Cohesion: 0.06
+Nodes (40): A0-001 — CRÍTICO — explicação afirma que o batchim de 음 é ㄱ e que ele "passa" para 악, A0-002 — MAJOR — h18 declara "os 28 finais escritos" quando o inventário é 27, A0-003 — MAJOR — enunciado de h13-e02 pede "a sílaba com glide labial" mas o gabarito é 고 (sem glide), A0-004 — MAJOR — exemplo de ㅢ "[i] depois de consoante" usa 주의, que vem depois de vogal, A0-005 — MAJOR — itens de escuta exigem distinguir por som realizções que o próprio módulo declara fundidas, A0-006 — MAJOR — distrator de h05-e10 usa ㅂ, ainda não ensinado na lição, A0-007 — MINOR — sonorização entre vogais é afirmada como categorical ([kaɡu], "sonoriza para [ɡ]/[b]"), A0-008 — MINOR — aproximações de ㅗ/ㅓ com vogais NASAIS do português ("como em avô", "entre 'ó' e 'â'") (+32 more)
 
 ### Community 144 - "13. Feedback"
 Cohesion: 0.50
 Nodes (4): 13.1 Estrutura, 13.2 Exemplos, 13.3 O que evitar, 13. Feedback
 
-### Community 145 - "a1-curriculum.test.ts"
+### Community 145 - "b1/lessons/shared.ts"
 Cohesion: 0.11
-Nodes (26): Blueprint curricular A1 (Fase 9A), A1_CHECKPOINTS, A1_CURRICULUM, A1_LESSONS, A1_MODULES, CORE_EXERCISES, IN_REVIEW, assertA1Content() (+18 more)
+Nodes (25): CheckpointInput, DistributiveOmit, ExerciseDraft, LessonInput, review, CourseAssessmentPlan, CourseBlueprintIssue, CourseCheckpointContent (+17 more)
 
 ### Community 147 - "Módulo 3 — Pessoas e casa (`a1-m03`)"
 Cohesion: 0.29
@@ -893,7 +887,7 @@ Nodes (7): `a1-l36` — Resolver uma refeição, `a1-l37` — Encontrar e chegar
 
 ### Community 154 - "react"
 Cohesion: 0.08
-Nodes (35): metadata, Page(), Dashboard(), metadata, AuthErrorPage(), metadata, AccountCard(), syncLabels (+27 more)
+Nodes (39): react, Dashboard(), metadata, AuthErrorPage(), metadata, AccountCard(), syncLabels, useAuth() (+31 more)
 
 ### Community 155 - "analyze-particles.cjs"
 Cohesion: 0.14
@@ -915,13 +909,13 @@ Nodes (17): 1. Inventário, 2. Referências cruzadas, 3. Inconsistências e acha
 Cohesion: 0.46
 Nodes (6): CURRICULUM_PROTECTED_PATHS, EXPERIMENTAL_PROTECTED_PATHS, isProtectedPath(), LEGACY_PROTECTED_PATHS, PROTECTED_PATHS, ROUTES
 
-### Community 160 - "a2/lessons/shared.ts"
-Cohesion: 0.15
-Nodes (13): A2_C03, A2_C04, A2_C06, A2_C07, A2_C08, buildExercise(), CheckpointInput, defineA2Checkpoint() (+5 more)
+### Community 160 - "a2/content.ts"
+Cohesion: 0.13
+Nodes (12): A2_C04, A2_C07, A2_C08, A2_IMPLEMENTED_CHECKPOINTS, A2_IMPLEMENTED_LESSONS, CHECKPOINT_BY_ID, isA2CheckpointImplemented(), isA2LessonImplemented() (+4 more)
 
 ### Community 161 - "(site)/page.tsx"
-Cohesion: 0.18
-Nodes (12): first(), LandingPage(), metadata, method, resources, SearchParams, targetLabels, GoogleMark() (+4 more)
+Cohesion: 0.27
+Nodes (8): first(), LandingPage(), metadata, method, resources, SearchParams, targetLabels, HangulComposition()
 
 ### Community 162 - "make-sheets.cjs"
 Cohesion: 0.16
@@ -987,9 +981,9 @@ Nodes (15): Bloco de pronúncia (vai junto, mas é para nativo, não para modelo
 Cohesion: 0.22
 Nodes (9): scripts, build, dev, e2e, postbuild, prebuild, start, test (+1 more)
 
-### Community 178 - "Transição para o A1 — handoff após as Fases 9A–9H"
-Cohesion: 0.20
-Nodes (9): 2. Interfaces reutilizáveis por B1–C2, 3. Bloqueado para lançamento público (não bloqueia desenvolvimento local), 4. Opcional / experimental, 5. Tarefas de áudio/pronúncia que podem ser retomadas depois, 5b. Vocabulário (Fase 9A-V + A1), 6. Escopo fechado da implementação A1 (9B–9H), 7. A2 e B1 concluídos, 8. Padrão para B2 (+1 more)
+### Community 178 - "checkpoints/index.ts"
+Cohesion: 0.33
+Nodes (6): C1, C2, C3, C4, IMPLEMENTED_CHECKPOINT_IDS, Checkpoint
 
 ### Community 179 - "analyze-lexicon-first-use.cjs"
 Cohesion: 0.12
@@ -1004,8 +998,8 @@ Cohesion: 0.13
 Nodes (11): 1. Estado real (corrige o §9 da 8E), 2. Plano reversível para o HEAD (recomendado; precisa de aprovação), 3. Limpeza de histórico (avaliada separadamente; **não executada**), 4. Vercel — o que verificar e o que depende do dono, 5. Prevenção de reintrodução (já ativa), Achado corrigido na 8F, Exposição do áudio restrito e plano de remoção — Fase 8F, 1. Textos corrigidos sem MP3 (12) (+3 more)
 
 ### Community 182 - "KBR — Prática de fala com reconhecimento nativo (Fase 8C, experimental)"
-Cohesion: 0.14
-Nodes (13): Arquitetura, Como virar um tipo de exercício (futuro), Compatibilidade observada (pesquisa em 12/11/2026), Decisão, Detecção (por recurso, nunca por nome de navegador), Estados do controlador, Fallback opcional, KBR — Prática de fala com reconhecimento nativo (Fase 8C, experimental) (+5 more)
+Cohesion: 0.13
+Nodes (14): Arquitetura, Como virar um tipo de exercício (futuro), Compatibilidade observada (pesquisa em 12/11/2026), Decisão, Detecção (por recurso, nunca por nome de navegador), Estados do controlador, Fallback opcional, Feedback e avaliação (+6 more)
 
 ### Community 183 - "Vocabulário canônico Hangul (A0) — achados da revisão (ficha `vocab-hangul.md`)"
 Cohesion: 0.13
@@ -1015,9 +1009,9 @@ Nodes (14): Cobertura, V0-001 — CRÍTICO — gabarito de "ligação" de 음악
 Cohesion: 0.13
 Nodes (14): agreement, byLote, bySeverity, CATEGORIES, clusterByKey, clusters, criticos, DIR (+6 more)
 
-### Community 185 - "AudioPlayer"
-Cohesion: 0.23
-Nodes (4): 7. Fase 8F — encerramento da infraestrutura de áudio, AudioPlayer, isKoreanVoice(), pickKoreanVoice()
+### Community 185 - "Prioridade 2 — coreano errado ensinado como correto"
+Cohesion: 0.22
+Nodes (9): C-06 · isolado · CRÍTICO `A1M5-001`, C-07 · isolado · CRÍTICO `A1M1-001`, C-08 · encadeado · CRÍTICO `V2-001`, C-09 · encadeado · MAJOR `A2M1-002`, C-10 · encadeado · MAJOR `A0-001`, C-11 · isolado · MAJOR `A0-003`, C-12 · isolado · MAJOR `A0-004`, C-13 · encadeado · MAJOR `A0-002` (+1 more)
 
 ### Community 186 - "Áudio atual — auditoria técnica e de experiência"
 Cohesion: 0.14
@@ -1052,8 +1046,8 @@ Cohesion: 0.15
 Nodes (12): A1M1-001 — CRÍTICO — Regra falsa ensinada na explicação de um item: "nome próprio não recebe 이에요", A1M1-002 — MAJOR — `mcq` aceita duas conclusões gramaticais: "저것___ 의자예요" (은 vs 이), A1M1-003 — MAJOR — Enunciados de `listen` pedem um fragmento, gabarito exige a frase inteira, A1M1-004 — MAJOR — Item de leitura cobra partícula comitativa `-과` nunca ensinada (lição 4), A1M1-005 — MAJOR — `acceptedAnswers` de `translate` rejeitam variantes válidas (pró-drop coreano e pt-BR, ordem, partícula alternativa), A1M1-006 — MAJOR — Mini-diálogo avaliado com papéis de reparo invertidos, A1M1-007 — MINOR — Perspectiva dos demonstrativos inconsistente dentro do diálogo de l03, A1M1-008 — MINOR — Glosa em português com gênero inconsistente com o modelo da lição (+4 more)
 
 ### Community 194 - "Achados — A1 módulo 5 (a1-l21–a1-l25 + a1-c05)"
-Cohesion: 0.15
-Nodes (12): A1M5-001 — MAJOR — Enunciado de escuta pede só um dado, mas o gabarito exige a frase inteira, A1M5-002 — MAJOR — Traduções ko-pt rejeitam variante legítima com sujeito omitido, A1M5-003 — MINOR — FORM “verbo + 주세요” descreve o padrão sem o conector -아/어, A1M5-004 — MINOR — Intro rotula de “tópico” uma frase com marcador de sujeito 이, A1M5-005 — MINOR — Checkpoint rotula 계단으로 de “meio”, quando a lição o apresentou como caminho, A1M5-006 — MINOR — Exemplo declarativo traduzido como imperativo (“Espere aqui.”), A1M5-007 — MINOR — Item pergunta “neste contexto” sem apresentar contexto, A1M5-008 — MINOR — “육십 분 걸려요” é marcação rara para naturalidade coreana (+4 more)
+Cohesion: 0.11
+Nodes (17): A1M3-011 — MINOR — Adjetivos do módulo com `pos: "verbo"` nos cartões de vocabulário, A1M5-001 — MAJOR — Enunciado de escuta pede só um dado, mas o gabarito exige a frase inteira, A1M5-002 — MAJOR — Traduções ko-pt rejeitam variante legítima com sujeito omitido, A1M5-003 — MINOR — FORM “verbo + 주세요” descreve o padrão sem o conector -아/어, A1M5-004 — MINOR — Intro rotula de “tópico” uma frase com marcador de sujeito 이, A1M5-005 — MINOR — Checkpoint rotula 계단으로 de “meio”, quando a lição o apresentou como caminho, A1M5-006 — MINOR — Exemplo declarativo traduzido como imperativo (“Espere aqui.”), A1M5-007 — MINOR — Item pergunta “neste contexto” sem apresentar contexto (+9 more)
 
 ### Community 195 - "Achados — A2 módulo 1 (a2-l01…a2-l05, a2-c01)"
 Cohesion: 0.15
@@ -1067,9 +1061,9 @@ Nodes (12): A0, count(), courseSentences(), curso(), data, entriesOf(), fs, n() 
 Cohesion: 0.15
 Nodes (7): data, DIR, fs, path, ROOT, sheets, sheetTotal
 
-### Community 198 - "Achados — A1 módulo 8 (a1-l36–a1-l40 + a1-c08)"
-Cohesion: 0.17
-Nodes (11): A1M8-001 — MINOR — Tradução ko-pt principal inverte a polaridade da pergunta, A1M8-002 — MINOR — “Carne de porco não pode” é literal e enganosa para 돼지고기는 안 돼요, A1M8-003 — MAJOR — Cloze de partícula rejeita variante igualmente válida (은), A1M8-004 — MINOR — Cloze rejeita a forma colada do auxiliar, permitida pela ortografia, A1M8-005 — MINOR — 사정 traduzido como “circunstância” produz frase literal em pt-BR, A1M8-006 — MINOR — “Compreenda, por favor.” não espelha o registro de 양해해 주세요, A1M8-007 — MINOR — “제 성격은 조용해요” é margem de naturalidade em coreano, A1M8-008 — MINOR — reusedIds de M8 declaram palavras que não ocorrem na lição (+3 more)
+### Community 198 - "(site)/layout.tsx"
+Cohesion: 0.33
+Nodes (6): SiteLayout(), learnLinks, legalLinks, SiteFooter(), NavLink(), SkipLink()
 
 ### Community 199 - "Achados — A2 módulo 3 (a2-l11–a2-l15 + a2-c03)"
 Cohesion: 0.17
@@ -1108,7 +1102,7 @@ Cohesion: 0.20
 Nodes (7): fs, IDX, lines, path, ROOT, VER, VERIFIED
 
 ### Community 208 - "VOCAB_ENTRIES"
-Cohesion: 0.31
+Cohesion: 0.27
 Nodes (5): candidateForms(), findUnusedReusedRefs(), lessonKoreanText(), UnusedReusedRef, REVIEW
 
 ### Community 209 - "Achados — A1 módulo 6 (a1-l26–a1-l30 + a1-c06)"
@@ -1132,28 +1126,28 @@ Cohesion: 0.25
 Nodes (7): Arquivos de conteúdo no escopo, Exercícios por tipo, Inventário — conteúdo educacional A0/A1/A2 no baseline `3103ce3`, O que a documentação diz × o que o repositório tem, Totais por curso, Vocabulário, Volume revisado
 
 ### Community 214 - "Achados A1 — consolidação"
-Cohesion: 0.29
-Nodes (6): Achados A1 — consolidação, Como ler a coluna **Verificação**, CRÍTICO (6), INCERTO (6), MAJOR (49), MINOR (103)
+Cohesion: 0.33
+Nodes (5): Achados A1 — consolidação, Como ler a coluna **Verificação**, CRÍTICO (6), INCERTO (6), MINOR (103)
 
 ### Community 215 - "Achados A2 — consolidação"
 Cohesion: 0.29
 Nodes (6): Achados A2 — consolidação, Como ler a coluna **Verificação**, CRÍTICO (2), INCERTO (5), MAJOR (25), MINOR (57)
 
-### Community 216 - "Registro de cobertura da auditoria A0–A2"
+### Community 216 - "courses/hangul.ts"
 Cohesion: 0.25
-Nodes (7): Cobertura por curso (itens medidos), Cobertura por lote, Fase 12A — cobertura da correção (2026-11-13), Limites reais desta cobertura, O que cada status significa, Registro de cobertura da auditoria A0–A2, Status final honesto por camada
+Nodes (8): checkpointById, completionForStep(), exerciseTypes, HANGUL_COURSE, lessonById, steps, unitByStepId, units
 
 ### Community 217 - "Roteiro de revisão linguística (auditoria A0–A2)"
 Cohesion: 0.29
 Nodes (6): Entrada, Fontes de referência, Formato de saída (escreva no arquivo indicado na tarefa), Limites, O que julgar (nesta ordem de prioridade), Roteiro de revisão linguística (auditoria A0–A2)
 
-### Community 218 - "engine-probe.test.ts"
-Cohesion: 0.21
-Nodes (6): all, ok(), out, raw(), spec(), text()
+### Community 218 - "Correções propostas — ranqueadas por impacto"
+Cohesion: 0.25
+Nodes (8): C-14 · encadeado · MAJOR `A2M7-001`, `A2M7-002`, `A1M8-003`, `A2M3-001`, C-15 · encadeado · MAJOR `A1M4-001`, `A1M4-002`, `A1M5-002`, `A1M6-001`, `A1M7-001`, C-16 · encadeado · MAJOR `A1M6-001` + medição `CL-04`, Correções propostas — ranqueadas por impacto, Notas sem correção (documentar, não editar), Prioridade 3 — avaliação injusta (gabarito válido rejeitado), Prioridade 5 — tradução e pt-BR (MAJOR/MINOR de superfície), Rejeitados — não corrigir nada
 
 ### Community 219 - "ExerciseSpec"
-Cohesion: 0.17
-Nodes (12): Modelo de dados (TS), 1. Capacidades existentes, 2. Mapeamento por objetivo, 3. Anatomia de uma lição futura, 4. Avaliação, 5. Capacidades ausentes e decisão 9A, 6. Validação estrutural × linguística, A1 — estratégia de exercícios e avaliação (+4 more)
+Cohesion: 0.09
+Nodes (22): Modelo de dados (TS), Prática de fala nativa (Fase 8C, experimental), 1. Capacidades existentes, 2. Mapeamento por objetivo, 3. Anatomia de uma lição futura, 4. Avaliação, 5. Capacidades ausentes e decisão 9A, 6. Validação estrutural × linguística (+14 more)
 
 ### Community 220 - "exercise-order.test.ts"
 Cohesion: 0.22
@@ -1161,77 +1155,69 @@ Nodes (9): ShuffledState, useShuffledOrder(), RandomSource, shuffle(), ALL_EXERC
 
 ### Community 221 - "recognition.ts"
 Cohesion: 0.15
-Nodes (12): FINAL_TIMEOUT_MS, LISTEN_TIMEOUT_MS, LOCAL_VALUES, LocalAvailability, mapError(), RecognitionAlternativeLike, RecognitionEventLike, RecognitionResultLike (+4 more)
+Nodes (14): FINAL_TIMEOUT_MS, LISTEN_TIMEOUT_MS, LOCAL_VALUES, mapError(), RecognitionAlternativeLike, RecognitionEventLike, RecognitionMode, RecognitionResultLike (+6 more)
 
-### Community 222 - "audio-manifest.test.ts"
-Cohesion: 0.17
-Nodes (9): audioAssetCount(), AUDIO_COURSES, AUDIO_SENTENCES, AUDIO_VOCAB_IDS, AUDIO_VOCABULARY, audioInventory(), COURSE_STEPS, fullInventory() (+1 more)
-
-### Community 224 - "SpeakingPracticeArea"
-Cohesion: 0.25
-Nodes (10): Prática de fala nativa (Fase 8C, experimental), 3. Prática de fala — auditoria de prontidão, metadata, Page(), modeFor(), SpeakingPracticeArea(), install(), detectSpeechSupport() (+2 more)
-
-### Community 225 - "AudioControl"
+### Community 222 - "README — auditoria A0–A2 (read-only)"
 Cohesion: 0.29
-Nodes (10): 2. Reprodução, fallback e acessibilidade (revisão de código + testes), Defeito verificado e corrigido nesta fase, AudioControl(), nextPlaybackRate(), PLAYBACK_RATES, PlaybackRate, rateLabel(), SpeakerIcon() (+2 more)
+Nodes (7): Como continuar sem perder o fio, Leia nesta ordem, Métodos e limites (sem maquiagem), Onde estamos, README — auditoria A0–A2 (read-only), Reproduzir, Validação executada nesta baseline
 
-### Community 226 - "vocabulary/hangul.ts"
-Cohesion: 0.18
-Nodes (9): A1M3-011 — MINOR — Adjetivos do módulo com `pos: "verbo"` nos cartões de vocabulário, A1M5-009 — MINOR — Vocabulário classifica adjetivos (빠르다/가깝다…) como “verbo”, V1-001 — MAJOR — Esquema `pos` não tem "adjetivo/descritivo"; ~29 adjetivos (형용사) são ensinados como `verbo`, V2-004 — MINOR — sistemático: adjetivos coreanos (형용사) classificados `pos=verbo` — o schema não tem "adjetivo", WordRecord, HANGUL_VOCABULARY, NOT_VOCABULARY, POS_BY_TAG (+1 more)
+### Community 224 - "SpeakingPracticeArea.tsx"
+Cohesion: 0.24
+Nodes (11): 3. Prática de fala — auditoria de prontidão, ITEMS, modeFor(), SpeakingPracticeArea(), install(), UNSUPPORTED, SPEAKING_WORD_IDS, detectSpeechSupport() (+3 more)
+
+### Community 225 - "Ledger de correções — Fase 12A"
+Cohesion: 0.33
+Nodes (6): 1. Reconciliação dos 298 achados, 2. Críticos — disposição, 4. Progressão pedagógica, 5. O que não foi feito (deliberadamente), 6. Validação final, Ledger de correções — Fase 12A
+
+### Community 226 - "Prioridade 1 — impede o aluno de concluir uma lição corretamente"
+Cohesion: 0.33
+Nodes (6): C-01 · isolado · CRÍTICO `A2M1-001`, C-02 · arquitetural (validador) · `CL-01`, C-03 · encadeado · CRÍTICO `A1M3-001`, C-04 · arquitetural (validador) · `CL-02`, C-05 · encadeado · MAJOR `A2M2-001`, `A1M7-001`, `A2M8-002`, `CL-03`, Prioridade 1 — impede o aluno de concluir uma lição corretamente
 
 ### Community 227 - "Prática contextual (completar a frase)"
-Cohesion: 0.25
-Nodes (7): Antes de responder, Conferência, Depois de responder (sempre), Feedback e acessibilidade, Limites, Prática contextual (completar a frase), normalizeKorean()
+Cohesion: 0.20
+Nodes (8): Antes de responder, Conferência, Depois de responder (sempre), Feedback e acessibilidade, Limites, Prática contextual (completar a frase), AnswerCheck, normalizeKorean()
 
-### Community 228 - "12. Estratégia de testes"
-Cohesion: 0.29
-Nodes (7): 12.1 Puros (Vitest), 12.2 Store com fake CAS, 12.3 Banco (PostgreSQL local + pgTAP), 12.4 E2E (Playwright + mock), 12.5 Manual (relatado; não reverificado nesta sessão), 12.6 Limitação de revisões concorrentes no mesmo cartão, 12. Estratégia de testes
+### Community 228 - "Referências consultadas"
+Cohesion: 0.33
+Nodes (5): 1. Normas da língua coreana (primárias), 2. Currículo e progressão, 4. Controles positivos (para "zero ocorrências" significar alguma coisa), 5. Fontes que **não** usei, Referências consultadas
 
-### Community 229 - "app/layout.tsx"
-Cohesion: 0.29
-Nodes (5): archivo, metadata, plexMono, RootLayout(), viewport
+### Community 229 - "mobile.spec.ts"
+Cohesion: 0.40
+Nodes (3): authenticate(), seedLessons(), sessions
 
 ### Community 230 - "4. Exercícios: extensão compatível"
 Cohesion: 0.33
 Nodes (6): 4.1 Estado atual, 4.2 Novos tipos, 4.3 `build-syllable` estendido, 4.4 União final, 4. Exercícios: extensão compatível, ExerciseBase
 
-### Community 231 - "6. Compatibilidade com `Progress`"
+### Community 231 - "module3.ts"
 Cohesion: 0.33
-Nodes (6): 6.1 Mapeamento de lições, 6.2 Cartões SRS, 6.3 Histórico, 6.4 `mergeProgress`, 6.5 Domínio derivado (não persistido), 6. Compatibilidade com `Progress`
+Nodes (5): B1_L11, B1_L12, B1_L13, B1_L14, B1_L15
 
-### Community 232 - "vocabulary.spec.ts"
+### Community 232 - "Prioridade 4 — progressão e currículo"
 Cohesion: 0.40
-Nodes (3): Cards, progress(), setup()
+Nodes (5): C-17 · encadeado · MAJOR `A2M4-001`, `A2M5-001`, `A2M6-002`, `A2M8-001`, `A2M1-003`, `A2M4-002`, C-18 · isolado · MAJOR `A2M1-004`, C-19 · isolado · MAJOR `A2M5-002`, C-20 · isolado · MAJOR `A2M6-001`, Prioridade 4 — progressão e currículo
 
-### Community 233 - "module4.ts"
-Cohesion: 0.33
-Nodes (5): B1_L16, B1_L17, B1_L18, B1_L19, B1_L20
-
-### Community 234 - "module6.ts"
-Cohesion: 0.33
-Nodes (5): B1_L26, B1_L27, B1_L28, B1_L29, B1_L30
-
-### Community 235 - "SyllableBuilder"
-Cohesion: 0.60
-Nodes (4): SyllableBuilder(), dropPiece(), handleDrop(), select()
+### Community 233 - "module1.ts"
+Cohesion: 0.40
+Nodes (4): B1_L02, B1_L03, B1_L04, B1_L05
 
 ## Knowledge Gaps
-- **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **8 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Progress` connect `Progress` to `KBR — Auditoria de privacidade e avaliação legal (Fase 2B)`, `Sumário executivo — auditoria de conteúdo educacional A0–A2`, `A1CheckpointPlayer.tsx`, `A1LessonPlayer.tsx`, `4. Defeitos confirmados`, `storage/index.ts`, `content.ts`, `KBR — instruções para agentes (Codex, OpenCode, Claude Code)`, `pronunciation.ts`, `vocabulary.test.ts`, `a1-curriculum.test.ts`, `Schema de conteúdo — módulo Hangul`, `review/index.ts`, `fakeSupabaseCas.ts`, `react`, `3. Invariantes por campo`, `Varredura de conteúdo — lições, exercícios, inconsistências e referências`, `createEmptyProgress`, `B1 — pesquisa, referências e decisões pedagógicas`, `srs/index.ts`, `17. Integração com revisão espaçada`, `KBR — Plano de implementação da sincronização confiável (Fase 4D.2)`, `Transição para o A1 — handoff após as Fases 9A–9H`, `KBR — Prática de fala com reconhecimento nativo (Fase 8C, experimental)`, `checkAnswer`, `content/courses/index.ts`, `Áudio atual — auditoria técnica e de experiência`, `createSupabaseProgressStore`, `KBR — Runbook de deploy seguro do CAS (Fase 4D.3)`, `mergeProgress.ts`, `Roadmap de qualidade de áudio — Fase 8B`, `dashboard.ts`, `A1 — plano de vocabulário e prática contextual`, `exercise-ui.tsx`, `3. Tipos de domínio`, `Plano de redesign por componente`, `supabase-cas.test.ts`, `ExerciseSpec`, `KBR — Decisão sobre PWA offline e service worker (Fase 6B)`, `Direção criativa — “Composição”`, `assessment-fairness.test.ts`, `checkAnswer`, `SpeakingPracticeArea`, `Feedback do usuário — backlog (Igo)`, `Fase 7 — roadmap de implementação`, `Hangul — conceitos de interação`, `12. Estratégia de testes`, `6. Compatibilidade com `Progress``, `localStorageStore.ts`, `hangul/validate.ts`, `KBR — Arquitetura`, `Vocabulário — arquitetura (Fase 9A-V)`, `A2 — pesquisa, referências e decisões pedagógicas`, `Prontidão para beta controlado — Fase 8D (atualizado na 8E e na 8F)`?**
-  _High betweenness centrality (0.152) - this node is a cross-community bridge._
+- **Why does `Progress` connect `Progress` to `4. Defeitos confirmados`, `KBR — Auditoria de privacidade e avaliação legal (Fase 2B)`, `Sumário executivo — auditoria de conteúdo educacional A0–A2`, `A1CheckpointPlayer.tsx`, `A1CheckpointPlayer.tsx`, `dashboard.test.ts`, `storage/index.ts`, `content.ts`, `KBR — instruções para agentes (Codex, OpenCode, Claude Code)`, `pronunciation.ts`, `vocabulary.test.ts`, `Schema de conteúdo — módulo Hangul`, `review/index.ts`, `fakeSupabaseCas.ts`, `react`, `3. Invariantes por campo`, `Varredura de conteúdo — lições, exercícios, inconsistências e referências`, `vocabulary.test.ts`, `createEmptyProgress`, `B1 — pesquisa, referências e decisões pedagógicas`, `srs/index.ts`, `17. Integração com revisão espaçada`, `KBR — Plano de implementação da sincronização confiável (Fase 4D.2)`, `KBR — Prática de fala com reconhecimento nativo (Fase 8C, experimental)`, `Áudio atual — auditoria técnica e de experiência`, `createSupabaseProgressStore`, `KBR — Runbook de deploy seguro do CAS (Fase 4D.3)`, `mergeProgress.ts`, `Roadmap de qualidade de áudio — Fase 8B`, `dashboard.ts`, `A1 — plano de vocabulário e prática contextual`, `exercise-ui.tsx`, `3. Tipos de domínio`, `Plano de redesign por componente`, `supabase-cas.test.ts`, `ExerciseSpec`, `KBR — Decisão sobre PWA offline e service worker (Fase 6B)`, `README — auditoria A0–A2 (read-only)`, `Direção criativa — “Composição”`, `SpeakingPracticeArea.tsx`, `Ledger de correções — Fase 12A`, `checkAnswer`, `Feedback do usuário — backlog (Igo)`, `Fase 7 — roadmap de implementação`, `Hangul — conceitos de interação`, `courses.test.ts`, `isCourseStepUnlocked`, `hangul/validate.ts`, `KBR — Arquitetura`, `HangulCourse.tsx`, `Vocabulário — arquitetura (Fase 9A-V)`, `A2 — pesquisa, referências e decisões pedagógicas`, `Prontidão para beta controlado — Fase 8D (atualizado na 8E e na 8F)`?**
+  _High betweenness centrality (0.149) - this node is a cross-community bridge._
 - **Are the 95 inferred relationships involving `Progress` (e.g. with `Regras` and `Blueprint curricular A1 (Fase 9A)`) actually correct?**
   _`Progress` has 95 INFERRED edges - model-reasoned connections that need verification._
 - **Should `4. Defeitos confirmados` be split into smaller, more focused modules?**
-  _Cohesion score 0.13333333333333333 - nodes in this community are weakly interconnected._
-- **Why does `checkAnswer()` connect `checkAnswer` to `Sumário executivo — auditoria de conteúdo educacional A0–A2`, `18. Plano de testes`, `Achados — A1 módulo 1 (a1-l01…a1-l05, a1-c01) — revisão v2`, `A1CheckpointPlayer.tsx`, `A1LessonPlayer.tsx`, `4. Defeitos confirmados`, `pronunciation.ts`, `vocabulary.test.ts`, `a1-curriculum.test.ts`, `review/index.ts`, `content/hangul/index.ts`, `Achados — A1 módulo 3 (a1-l11–a1-l15 + a1-c03)`, `Achados`, `hangul-experience.test.ts`, `Achados — A2 módulo 2 (a2-l06–a2-l10 + a2-c02)`, `Transição para o A1 — handoff após as Fases 9A–9H`, `Progress`, `KBR — Prática de fala com reconhecimento nativo (Fase 8C, experimental)`, `content/courses/index.ts`, `Achados — A1 módulo 2 (a1-l06–a1-l10 + a1-c02) — revisão v2`, `Achados — A1 módulo 5 (a1-l21–a1-l25 + a1-c05)`, `Achados — A1 módulo 8 (a1-l36–a1-l40 + a1-c08)`, `exercise-ui.tsx`, `Achados — A1 módulo 6 (a1-l26–a1-l30 + a1-c06)`, `11. Tipo 9 — `srs-session``, `Achados — A2 módulo 4 (a2-l16–a2-l20 + a2-c04)`, `engine-probe.test.ts`, `ExerciseSpec`, `exercise-order.test.ts`, `assessment-fairness.test.ts`, `SpeakingPracticeArea`, `checkAnswer`, `Feedback do usuário — backlog (Igo)`, `Fase 7 — roadmap de implementação`, `hangul/validate.ts`, `a2/index.ts`, `KBR — Arquitetura`?**
-  _High betweenness centrality (0.122) - this node is a cross-community bridge._
+  _Cohesion score 0.07407407407407407 - nodes in this community are weakly interconnected._
+- **Why does `checkAnswer()` connect `exercise-ui.tsx` to `18. Plano de testes`, `Achados — A1 módulo 1 (a1-l01…a1-l05, a1-c01) — revisão v2`, `A1CheckpointPlayer.tsx`, `content.ts`, `pronunciation.ts`, `review/index.ts`, `react`, `content/hangul/index.ts`, `a2/content.ts`, `Achados — A1 módulo 3 (a1-l11–a1-l15 + a1-c03)`, `Achados`, `Achados — A2 módulo 2 (a2-l06–a2-l10 + a2-c02)`, `Progress`, `KBR — Prática de fala com reconhecimento nativo (Fase 8C, experimental)`, `checkAnswer`, `Achados — A1 módulo 2 (a1-l06–a1-l10 + a1-c02) — revisão v2`, `Achados — A1 módulo 5 (a1-l21–a1-l25 + a1-c05)`, `Achados — A1 módulo 6 (a1-l26–a1-l30 + a1-c06)`, `11. Tipo 9 — `srs-session``, `Achados — A2 módulo 4 (a2-l16–a2-l20 + a2-c04)`, `ExerciseSpec`, `exercise-order.test.ts`, `assessment-fairness.test.ts`, `checkAnswer`, `Ledger de correções — Fase 12A`, `Prioridade 1 — impede o aluno de concluir uma lição corretamente`, `Feedback do usuário — backlog (Igo)`, `Fase 7 — roadmap de implementação`, `courses.test.ts`, `hangul/validate.ts`, `a2/index.ts`, `KBR — Arquitetura`?**
+  _High betweenness centrality (0.093) - this node is a cross-community bridge._
 - **Are the 43 inferred relationships involving `checkAnswer()` (e.g. with `Cursos e catálogo (Fase 5)` and `Lição e composição (Fase 7D)`) actually correct?**
   _`checkAnswer()` has 43 INFERRED edges - model-reasoned connections that need verification._
 - **Should `package.json` be split into smaller, more focused modules?**
-  _Cohesion score 0.09113300492610837 - nodes in this community are weakly interconnected._
-- **Why does `vitest` connect `supabase-cas.test.ts` to `package.json`, `supabase/proxy.ts`, `A1CheckpointPlayer.tsx`, `ref_node_fs`, `pronunciation.ts`, `vocabulary.test.ts`, `a1-curriculum.test.ts`, `review/index.ts`, `fakeSupabaseCas.ts`, `content/hangul/index.ts`, `routes.ts`, `hangul-experience.test.ts`, `createEmptyProgress`, `srs/index.ts`, `content/vocabulary/index.ts`, `a1/validate-content.ts`, `checkAnswer`, `content/courses/index.ts`, `site.test.ts`, `dashboard.ts`, `VOCAB_ENTRIES`, `ref_node_path`, `postLoginPath`, `engine-probe.test.ts`, `exercise-order.test.ts`, `audio-manifest.test.ts`, `assessment-fairness.test.ts`, `checkAnswer`, `ContextualCard.tsx`, `hangul/validate.ts`, `playback.ts`, `a2/index.ts`, `audio-manifest.test.ts`, `speech.test.ts`?**
+  _Cohesion score 0.09259259259259259 - nodes in this community are weakly interconnected._
+- **Why does `vitest` connect `supabase-cas.test.ts` to `package.json`, `b1/index.ts`, `supabase/proxy.ts`, `ref_node_fs`, `A1CheckpointPlayer.tsx`, `dashboard.test.ts`, `content.ts`, `pronunciation.ts`, `fakeSupabaseCas.ts`, `review/index.ts`, `content/hangul/index.ts`, `a2/content.ts`, `routes.ts`, `vocabulary.test.ts`, `createEmptyProgress`, `srs/index.ts`, `auth.test.ts`, `a1/validate-content.ts`, `checkAnswer`, `site.test.ts`, `exercise-ui.tsx`, `VOCAB_ENTRIES`, `ref_node_path`, `exercise-order.test.ts`, `assessment-fairness.test.ts`, `checkAnswer`, `SpeakingPracticeArea.tsx`, `ContextualCard.tsx`, `courses.test.ts`, `exercise-media.tsx`, `a2/index.ts`, `audio-manifest.test.ts`, `speech.test.ts`?**
   _High betweenness centrality (0.089) - this node is a cross-community bridge._

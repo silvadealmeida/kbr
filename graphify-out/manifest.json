@@ -96,9 +96,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1794531117.0752194,
-    "seen": 1794531310.58925,
-    "ast_hash": "cc7716d4f9ffa8595cc5ba730a796c20",
+    "mtime": 1794531391.488749,
+    "seen": 1794531409.5567303,
+    "ast_hash": "011ff753061130c200b88ecc026ef0f9",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -120,9 +120,9 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794531092.2714481,
-    "seen": 1794531310.5902832,
-    "ast_hash": "19730373d49d5375b4aeb295a6e5ffed",
+    "mtime": 1794531391.488749,
+    "seen": 1794531409.5567985,
+    "ast_hash": "e11f1bb425356cef9f03cb2059886f77",
     "semantic_hash": ""
   },
   "src/lib/hangul/index.ts": {
@@ -1494,9 +1494,9 @@
     "semantic_hash": ""
   },
   "docs/release/beta-readiness.md": {
-    "mtime": 1794531265.6872954,
-    "seen": 1794531310.5902634,
-    "ast_hash": "f30c35a6aef864531234049be2a4f4cf",
+    "mtime": 1794531396.9391491,
+    "seen": 1794531409.5567963,
+    "ast_hash": "79d9f2269c216bb2f3cbf82635754097",
     "semantic_hash": ""
   },
   "src/lib/audio/flags.ts": {
@@ -4866,9 +4866,9 @@
     "semantic_hash": ""
   },
   "tests/fixtures/stale-audio.json": {
-    "mtime": 1794530401.1401637,
-    "seen": 1794531310.5888765,
-    "ast_hash": "f700a52b2fb3e65e74ce619cd4ea42fc",
+    "mtime": 1794531366.848167,
+    "seen": 1794531409.5567145,
+    "ast_hash": "1def9fb3da8cf61ab92a5d3ae76818fe",
     "semantic_hash": ""
   },
   "docs/audio/stale-audio-manifest.md": {
@@ -4896,9 +4896,9 @@
     "semantic_hash": ""
   },
   "docs/audits/a0-a2/correction-ledger.md": {
-    "mtime": 1794531274.0824957,
-    "seen": 1794531310.5894403,
-    "ast_hash": "a2af78a4b715be56bfef7bb05378f168",
+    "mtime": 1794531391.495949,
+    "seen": 1794531409.5567427,
+    "ast_hash": "d792aeb9e0a6ba8a89add6cc5b6f6b0c",
     "semantic_hash": ""
   },
   "docs/audits/a0-a2/correction-proposals.md": {
@@ -5082,9 +5082,9 @@
     "semantic_hash": ""
   },
   "docs/audits/a0-a2/executive-summary.md": {
-    "mtime": 1794531290.340969,
-    "seen": 1794531310.5895288,
-    "ast_hash": "95a896483124d4872ee1b6c4f901b007",
+    "mtime": 1794531391.495949,
+    "seen": 1794531409.5567675,
+    "ast_hash": "4d5131ceda769ec971005296d87de316",
     "semantic_hash": ""
   },
   "docs/audits/a0-a2/hangul-findings.md": {

@@ -124,4 +124,4 @@ O relatório acima descreve a auditoria read-only na baseline `3103ce3`. A fase 
 - **Áudio:** 2.907 MP3 preservados; 12 textos corrigidos sem MP3 e 10 MP3 antigos órfãos documentados em `docs/audio/stale-audio-manifest.md`; `public/audio/` fora do deploy e áudio estático opt-in.
 - **Limites:** revisão nativa continua necessária; **B1 ainda precisa de auditoria linguística própria**; os 84 MAJOR e 191 MINOR restantes não foram corrigidos em massa.
 
-Validação da 12A: typecheck + **598 Vitest** + build (`[audio-guard] OK`) + **646 Playwright (619 executados + 27 skips)**.
+Validação da 12A: typecheck + **595 Vitest** + build (`[audio-guard] OK`) + **646 Playwright (619 executados + 27 skips)**.

@@ -1,7 +1,7 @@
 {
   "reason": "Textos corrigidos na fase 12A sem regenerar MP3. O corpus antigo permanece intacto; estes textos usam a voz coreana do navegador até uma geração/licença aprovada.",
   "baseline": "3103ce3",
-  "correctedHead": "pending",
+  "correctedHead": "636a4c4",
   "missing": [
     "감기가 심해요.",
     "극장 앞에서 만나요.",

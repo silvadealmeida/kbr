@@ -334,11 +334,35 @@ Decisão de layout (8C): `Plate` com `number` não reserva mais `pr-14` no cart�
 
 ## PWA, cabeçalhos e cache (Fase 6A)
 - `src/app/manifest.ts` declara `id`, `scope`, `start_url`, `display: standalone`, `lang: pt-BR`, `dir: ltr`, `categories`, `prefer_related_applications: false`, ícones `any` (192/512) e `maskable` (512) separados e atalhos para `/hangul` e `/revisao`. O layout raiz emite os metadados iOS (`apple-mobile-web-app-capable`, título, status bar), `formatDetection` e `viewport-fit=cover`.
-- `next.config.mjs` define cabeçalhos para todas as rotas: `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, `Referrer-Policy: strict-origin-when-cross-origin`. `/auth/:path*` e as rotas privadas (`/dashboard`, `/cursos`, `/hangul`, `/vocabulario`, `/revisao`, `/licoes`) recebem `Cache-Control: private, no-store, max-age=0`. Manifesto usa `public, max-age=0, must-revalidate`; `/icons/*` usa `public, max-age=31536000, immutable`.
+- `next.config.mjs` define cabeçalhos para todas as rotas: `Content-Security-Policy` (ver abaixo), `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy: camera=(), geolocation=(), microphone=(self), payment=(), usb=()`, `Strict-Transport-Security: max-age=31536000; includeSubDomains` e `Cross-Origin-Opener-Policy: same-origin-allow-popups`. `poweredByHeader: false` remove o anúncio da versão do framework. `/auth/:path*` e **todas** as rotas privadas (`/dashboard`, `/cursos`, `/hangul`, `/vocabulario`, `/revisao`, `/licoes`, `/fala`, `/a1`–`/c2`) recebem `Cache-Control: private, no-store, max-age=0`. Manifesto usa `public, max-age=0, must-revalidate`; `/icons/*` e `/audio/*` usam `public, max-age=31536000, immutable` (o áudio deixa de ser imutável quando o kill switch `NEXT_PUBLIC_KBR_STATIC_AUDIO=0` está ativo).
+- **CSP (hardening de 2026-11-14):** `default-src 'self'`, `script-src 'self' 'unsafe-inline'` (+ `'unsafe-eval'` apenas em desenvolvimento), `style-src 'self' 'unsafe-inline'`, `img-src 'self' data: blob:`, `font-src 'self' data:`, `media-src 'self' blob:`, `connect-src 'self'` + a origem (e `wss:`) de `NEXT_PUBLIC_SUPABASE_URL`, `worker-src 'self' blob:`, `manifest-src 'self'`, `object-src 'none'`, `frame-src 'none'`, `frame-ancestors 'none'`, `base-uri 'self'` e `form-action 'self'`. `'unsafe-inline'` é necessário porque o Next injeta scripts de bootstrap, o layout raiz aplica o tema antes da hidratação e o React usa `style` inline; a política ainda bloqueia scripts/estilos externos, objetos, frames e formulários para fora do site. Migrar para nonce + `'strict-dynamic'` exigiria renderização dinâmica em todas as páginas e fica registrado como endurecimento futuro, não como pendência de release.
 - **Não há service worker, Cache Storage ou cache de respostas.** A Fase 6B auditou a opção e **decidiu adiar** com justificativa registrada em `docs/offline-pwa-decision.md`: as lições são HTML privado com `no-store`, respostas do Supabase são por usuário e não podem ser cacheadas; sem elas, o ganho offline não justifica versionamento e risco de vazamento entre contas. Consequências: o app é instalável e abre com o shell padrão, mas não funciona offline; o progresso continua local-first e sincroniza quando há rede. Numa fase futura, o service worker só pode cachear assets públicos versionados e deve limpar caches no logout/troca de conta.
 - `getBrowserSupabaseClient` passou a carregar `@supabase/ssr` por `import()` sob demanda; o chunk só é baixado quando o `AuthProvider` verifica a sessão. A fonte coreana saiu do bundle público.
 - Medição (Chromium 375×667, contexto novo, rede local): landing 376.775 → 218.829 bytes (−41,9%) e 131.180 → 0 bytes de fonte; `/privacidade` 287.663 → 219.898 bytes e 41.004 → 0 bytes de fonte; JS antes do DCL 209.149 → 144.990 bytes; rotas autenticadas estáveis (~404–432 KB). São números locais, não field data.
 - Orçamento automatizado da 6B (`e2e/performance.spec.ts`, desktop 1280, build de produção local): landing **239.866 B** no total (JS 212.310 B, CSS 6.939 B), **0** fontes coreanas e CLS **0,0006**; painel **440.199 B** (JS 292.283 B, CSS 133.243 B), 5 arquivos Noto Sans KR (~99 KB) e CLS **0,0039**. Limites de regressão: landing <450 KB e JS <260 KB; painel <1,2 MB; CLS <0,1 em ambos. Os números absolutos variam com compressão/hash do build; os limites são a referência. Nenhuma fonte, GSAP, Three.js ou WebGL foi adicionado.
+
+## Auditoria de segurança (2026-11-14)
+
+Revisão de superfície e correções aplicadas após o encerramento do release. Não substitui pentest profissional nem teste em produção; a produção não foi revalidada nesta sessão.
+
+**Superfície revisada**
+- Autenticação: Google OAuth com PKCE e sessão SSR (`@supabase/ssr`); o proxy valida `getClaims()` em cada requisição, `/auth/callback` troca o código e valida o destino; `normalizeNextPath`/`safeNextPath` rejeitam destinos externos, `//`, `\`, controles e `%2f`/`%5c` (coberto por `tests/auth.test.ts`).
+- Banco: RLS ativa, `anon` sem acesso, políticas por `auth.uid()`, RPC CAS `security invoker` com `search_path = ''` e asserção de sessão (`tests/security.test.ts` e pgTAP).
+- Armazenamento local: só via `lib/storage`, com validação `isProgress` na leitura e na gravação; sem dados sensíveis.
+- Fala experimental: microfone só após clique, consentimento no modo remoto, nada é gravado, persistido ou registrado.
+- Dependências: `npm audit` sem vulnerabilidades conhecidas (`prod` 95, `dev` 2).
+- Segredos: `.env.local` é ignorado pelo Git; `.env.example` contém apenas valores públicos e nenhum `service_role`/client secret.
+- Sinks: nenhum `eval`, `new Function`, `innerHTML` ou `postMessage`; o único `dangerouslySetInnerHTML` é o script estático de tema no layout raiz.
+
+**Correções**
+- CSP global, HSTS, Permissions-Policy, COOP e `poweredByHeader: false` em `next.config.mjs`.
+- `no-store` estendido a `/fala` e `/a1`–`/c2`.
+- `resolveAudioAsset` passou a usar `Object.hasOwn`, para que textos como `constructor` ou `__proto__` não resolvam para propriedades herdadas.
+
+**Riscos residuais aceitos**
+- `'unsafe-inline'` em `script-src`/`style-src`: o Next e o React exigem; XSS continua mitigado por escaping do React e ausência de entrada HTML do usuário.
+- HSTS só tem efeito quando o site é servido por HTTPS; `upgrade-insecure-requests` foi omitido para não quebrar dev/E2E em HTTP local.
+- Não há rate limiting próprio; a autenticação é delegada ao Supabase/Google.
 
 ## Privacidade
 - Inventário real de cookies, `localStorage`, analytics e terceiros: `docs/privacy-audit.md`.

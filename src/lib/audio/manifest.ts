@@ -16,8 +16,12 @@ export function resolveAudioAsset(text: string): AudioAsset | null {
   const normalized = normalizeAudioText(text);
   if (!normalized) return null;
 
-  const src = AUDIO_ENTRIES[normalized];
-  if (!src) return null;
+  // `Object.hasOwn` evita que um texto como "constructor" ou "__proto__"
+  // resolva para uma propriedade herdada do protótipo em vez de um MP3.
+  const src = Object.hasOwn(AUDIO_ENTRIES, normalized)
+    ? AUDIO_ENTRIES[normalized]
+    : undefined;
+  if (typeof src !== "string" || src.length === 0) return null;
 
   return {
     text: normalized,

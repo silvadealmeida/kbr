@@ -62,6 +62,18 @@ test.describe("PWA instalável sem cache offline", () => {
     expect(publicPage.headers()["x-frame-options"]).toBe("DENY");
     expect(publicPage.headers()["referrer-policy"]).toBe("strict-origin-when-cross-origin");
 
+    const csp = publicPage.headers()["content-security-policy"];
+    expect(csp).toContain("default-src 'self'");
+    expect(csp).toContain("object-src 'none'");
+    expect(csp).toContain("frame-ancestors 'none'");
+    expect(csp).toContain("form-action 'self'");
+    expect(csp).toContain("connect-src 'self' http://127.0.0.1:54321");
+    expect(csp).not.toContain("unsafe-eval");
+    expect(csp).not.toContain("*");
+    expect(publicPage.headers()["permissions-policy"]).toContain("microphone=(self)");
+    expect(publicPage.headers()["strict-transport-security"]).toMatch(/max-age=\d+/);
+    expect(publicPage.headers()["x-powered-by"]).toBeUndefined();
+
     const privatePage = await request.get("/dashboard", { maxRedirects: 0 });
     expect(privatePage.status()).toBe(307);
     expect(privatePage.headers()["cache-control"]).toContain("no-store");

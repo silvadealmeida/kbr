@@ -178,6 +178,13 @@ describe("manifesto de áudio estático", () => {
     expect(resolveAudioAsset("texto em português")).toBeNull();
   });
 
+  test("não resolve chaves herdadas do protótipo como asset", () => {
+    for (const text of ["constructor", "__proto__", "toString", "hasOwnProperty"]) {
+      expect(resolveAudioAsset(text), text).toBeNull();
+      expect(resolvePublicAudioSrc(text, true), text).toBeNull();
+    }
+  });
+
   test("registra modelo, revisões e parâmetros de codificação", () => {
     expect(manifest.model.repo).toBe("myshell-ai/MeloTTS-Korean");
     expect(manifest.model.revision).toBe(

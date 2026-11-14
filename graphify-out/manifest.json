@@ -6,9 +6,9 @@
     "semantic_hash": ""
   },
   "next.config.mjs": {
-    "mtime": 1794611085.9832702,
-    "seen": 1794615820.6506112,
-    "ast_hash": "06c9cfd2120835a6607bc4789dec6307",
+    "mtime": 1794630297.4382687,
+    "seen": 1794632392.9662614,
+    "ast_hash": "346f77661498b1b1ba14b53c57f713e6",
     "semantic_hash": ""
   },
   "package.json": {
@@ -108,9 +108,9 @@
     "semantic_hash": ""
   },
   "docs/architecture.md": {
-    "mtime": 1794616049.158918,
-    "seen": 1794616060.7044427,
-    "ast_hash": "b801d6839203b9f8e51c4b44123602f2",
+    "mtime": 1794630754.5213256,
+    "seen": 1794632392.978199,
+    "ast_hash": "9f070076059538a7e37fa8e64dc3b66a",
     "semantic_hash": ""
   },
   "docs/research.md": {
@@ -120,9 +120,9 @@
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794616049.1665123,
-    "seen": 1794616060.7058864,
-    "ast_hash": "36e6a652027c79d168daee4ca83f9641",
+    "mtime": 1794632378.0209541,
+    "seen": 1794632392.980801,
+    "ast_hash": "c899629bf46811d8ab2a3fd8cd2178e6",
     "semantic_hash": ""
   },
   "src/lib/hangul/index.ts": {
@@ -282,9 +282,9 @@
     "semantic_hash": ""
   },
   "tests/security.test.ts": {
-    "mtime": 1794307628.261156,
-    "seen": 1794615820.6510599,
-    "ast_hash": "7fa582ec05380d82c12f9dda72b90585",
+    "mtime": 1794630312.9308343,
+    "seen": 1794632392.9779265,
+    "ast_hash": "6e27a7c562ec3ddbc35e363af85da3b2",
     "semantic_hash": ""
   },
   "tests/supabase-storage.test.ts": {
@@ -1080,9 +1080,9 @@
     "semantic_hash": ""
   },
   "e2e/pwa.spec.ts": {
-    "mtime": 1794397538.1975174,
-    "seen": 1794615820.650591,
-    "ast_hash": "499e78c6b27bc51263da0ad72e600061",
+    "mtime": 1794630320.1021688,
+    "seen": 1794632392.96611,
+    "ast_hash": "05ff6d4a29c99f12d5df8ffa29b0a079",
     "semantic_hash": ""
   },
   "e2e/performance.spec.ts": {
@@ -1362,9 +1362,9 @@
     "semantic_hash": ""
   },
   "src/lib/audio/manifest.ts": {
-    "mtime": 1794487818.5013757,
-    "seen": 1794615820.6509833,
-    "ast_hash": "d80d283f0253019a4219159146c5ed03",
+    "mtime": 1794630267.8889658,
+    "seen": 1794632392.976214,
+    "ast_hash": "9ccf728a811ab257e6f7cc10ed2e7ee3",
     "semantic_hash": ""
   },
   "src/lib/audio/playback.ts": {
@@ -1380,9 +1380,9 @@
     "semantic_hash": ""
   },
   "tests/audio-manifest.test.ts": {
-    "mtime": 1794611086.8928845,
-    "seen": 1794615820.651023,
-    "ast_hash": "6e21744fa1fe9be840c31ed173179431",
+    "mtime": 1794630278.1511095,
+    "seen": 1794632392.977166,
+    "ast_hash": "bc7b0fd28debd8ea4a50ba56de240c43",
     "semantic_hash": ""
   },
   "tests/audio-playback.test.ts": {
@@ -51351,6 +51351,12 @@
     "mtime": 1794616050.1003976,
     "seen": 1794616060.766659,
     "ast_hash": "a3064bc13f545d6a6fc3ec17aae9cac8",
+    "semantic_hash": ""
+  },
+  "next.config.d.mts": {
+    "mtime": 1794630309.3595777,
+    "seen": 1794632392.9662592,
+    "ast_hash": "b4472052539903b9f7f00c467f7bf8df",
     "semantic_hash": ""
   },
   "package-lock.json": {

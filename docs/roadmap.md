@@ -11,7 +11,8 @@
 - **Privacidade/jurídico:** políticas operacionais finalizadas em `/privacidade` e `/impressum`, sem alegação de parecer profissional e sem dados pessoais inventados. O único canal publicado é o repositório público e não é canal privado.
 - **Dispositivos:** testes físicos não foram executados e não são requisito para este encerramento; os limites de cobertura automatizada e skips intencionais estão registrados em `docs/release/beta-readiness.md`.
 - **Gates desta finalização:** typecheck aprovado; **728 Vitest** aprovados; build de produção aprovado; **711 Playwright aprovados + 38 skips intencionais, 0 falhas**. Detalhes e configuração isolada em `docs/release/beta-readiness.md`.
-- **Último agente:** OpenCode (finalização documental, editorial e gates).
+- **Último agente:** OpenCode (auditoria de segurança pós-release em 2026-11-14).
+- **Auditoria de segurança (2026-11-14, pós-release):** CSP global, HSTS, Permissions-Policy, COOP, `poweredByHeader: false` e `no-store` estendido a `/fala` e `/a1`–`/c2`; `resolveAudioAsset` endurecido com `Object.hasOwn`; testes de segurança unitários e E2E ampliados. `npm audit` sem vulnerabilidades, sem segredos versionados, RLS/RPC e anti-open-redirect revisados. Gates desta auditoria: typecheck aprovado, **734 Vitest**, build aprovado e **711 Playwright + 38 skips, 0 falhas**. Detalhes e riscos residuais em `docs/architecture.md` § Auditoria de segurança. Nenhuma fase nova, nenhum deploy e nenhuma revalidação de produção.
 
 ## Histórico de implementação (informativo; não controla o estado atual)
 

@@ -319,14 +319,14 @@
   },
   "supabase/migrations/20261110120000_create_user_progress.sql": {
     "mtime": 1794307613.1113913,
-    "seen": 1794531336.412406,
-    "ast_hash": "",
+    "seen": 1794615902.7955055,
+    "ast_hash": "b6c73ece2803ac68d4afbb9bcbf3adb1",
     "semantic_hash": ""
   },
   "supabase/tests/user_progress_rls.test.sql": {
     "mtime": 1794307628.261156,
-    "seen": 1794531336.4124103,
-    "ast_hash": "",
+    "seen": 1794615902.7955565,
+    "ast_hash": "54c660b727a6e7d93693694b00ec2cf1",
     "semantic_hash": ""
   },
   "docs/supabase-setup.md": {
@@ -967,20 +967,20 @@
   },
   "supabase/migrations/20261110180000_add_save_user_progress_rpc.sql": {
     "mtime": 1794342744.0068913,
-    "seen": 1794531336.4124067,
-    "ast_hash": "",
+    "seen": 1794615902.7955067,
+    "ast_hash": "c9b6f848e6f2e7af9901943ab5c3fd3f",
     "semantic_hash": ""
   },
   "supabase/tests/local/bootstrap.sql": {
     "mtime": 1794342684.7452528,
-    "seen": 1794531336.4124076,
-    "ast_hash": "",
+    "seen": 1794615902.7955081,
+    "ast_hash": "0d630d1da3bd24a1749a6654f08ff21c",
     "semantic_hash": ""
   },
   "supabase/tests/save_user_progress_rpc.test.sql": {
     "mtime": 1794387272.0560353,
-    "seen": 1794531336.4124095,
-    "ast_hash": "",
+    "seen": 1794615902.7955556,
+    "ast_hash": "78857e182968fd3773cbffaa033e27c8",
     "semantic_hash": ""
   },
   "docs/sync/deployment-runbook.md": {
@@ -20965,8 +20965,8 @@
   },
   "docs/audits/b1/data/content-dump.json": {
     "mtime": 1794570617.9179983,
-    "seen": 1794573658.7796044,
-    "ast_hash": "",
+    "seen": 1794615902.7831306,
+    "ast_hash": "ad161905dd6f5caf370982258c184a76",
     "semantic_hash": ""
   },
   "tests/content/b1-corrections.test.ts": {
@@ -51342,9 +51342,9 @@
     "semantic_hash": ""
   },
   "docs/audits/release-final-review.md": {
-    "mtime": 1794614581.1990304,
-    "seen": 1794615820.6511438,
-    "ast_hash": "65188f274cb48e6a5a82caf791fed8df",
+    "mtime": 1794615883.8017426,
+    "seen": 1794615902.7985792,
+    "ast_hash": "51d41a52c486b880309be4b8fd9c13c0",
     "semantic_hash": ""
   },
   "public/audio/v1/ko-633375ea.mp3": {

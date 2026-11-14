@@ -1,142 +1,56 @@
-# KBR — Auditoria de privacidade e avaliação legal (Fase 2B)
+# KBR — auditoria técnica e política operacional de privacidade
 
-Data da auditoria: 10 de novembro de 2026.
-Escopo: aplicação em `src/`, dependências em `package.json`, configuração de deploy e páginas públicas.
-Status: auditoria técnica concluída; revisão jurídica e dados de contato pendentes. A Fase 6A adicionou cabeçalhos de segurança/cache e manteve a ausência de service worker e de cache offline.
+**Atualizado:** 14 de novembro de 2026.
+**Estado:** política operacional finalizada pelo responsável pelo projeto; sem alegação de parecer profissional. Os riscos residuais descritos aqui são aceitos e não bloqueiam o release. A produção foi aceita pelo responsável; esta auditoria não solicita nem condiciona nova validação de produção.
 
-Este documento registra o que o código **realmente** faz. A política pública está em `/privacidade` (`src/app/(site)/privacidade/page.tsx`) e o aviso legal em `/impressum`.
+Este documento descreve o comportamento identificado no produto e as decisões operacionais publicadas em `/privacidade` e `/impressum`. Não é parecer jurídico, não afirma que houve revisão por advogado e não inventa nome civil, endereço, e-mail ou prazos.
 
-## 1. Inventário de cookies
+## 1. Dados tratados
 
-Os cookies de autenticação são criados por `@supabase/ssr` (versão 0.12.0), não por código próprio do KBR.
+- **Conta Google:** o login é intermediado pelo Supabase Auth. O serviço recebe identificador do Google, e-mail, nome/foto quando fornecidos e metadados da conta e sessão. O KBR não recebe a senha Google.
+- **Progresso:** lições, cartões e agenda de revisão, histórico de tentativas, sequência, meta diária e última atividade. Com conta, o snapshot é sincronizado no Supabase e mantido em cópia local; no modo convidado, fica no navegador.
+- **Dados técnicos:** Vercel e Supabase podem registrar IP, horário, navegador, rota e erros necessários à operação e segurança. O KBR não usa esses registros para publicidade ou perfilamento.
+- **Fala experimental (`/fala`):** o microfone só é iniciado após clique e, se o processamento for remoto ou desconhecido, após consentimento em memória. O KBR não grava, armazena, registra ou transmite áudio ou texto reconhecido. O navegador ou seu fornecedor pode processar a fala conforme a própria política.
 
-| Cookie | Origem | Finalidade | Atributos observados |
-|---|---|---|---|
-| `sb-<project-ref>-auth-token` (com partes `.0`, `.1`…) | Supabase Auth | Sessão e refresh token; mantém o usuário conectado | `Path=/`, `SameSite=Lax`, `HttpOnly=false`, `Max-Age` padrão de 400 dias |
-| `sb-<project-ref>-auth-token-code-verifier` | Supabase Auth | Verificador PKCE durante o login Google | Temporário; removido ao concluir ou falhar o fluxo |
-| `kbr_auth_next` | KBR (`lib/auth/next-cookie`) | Destino interno seguro para retomar após o login (padrão `/dashboard` ou rota profunda) | `Path=/`, `SameSite=Lax`, `HttpOnly=false`, `Max-Age=600` (10 min); apagado pela callback |
+## 2. Cookies e armazenamento local
 
-Observações:
+Os cookies de sessão e PKCE são geridos pelo Supabase; `kbr_auth_next` guarda apenas o destino interno do login por até dez minutos. A configuração padrão do SDK pode manter a sessão por até 400 dias, sujeita à configuração efetiva do projeto. O cookie de sessão não é `HttpOnly`, pois o SDK o lê no navegador, e usa `SameSite=Lax`.
 
-- `HttpOnly=false` é o padrão do SDK: o cliente no navegador precisa ler o cookie para renovar a sessão. Não há cookie de sessão próprio do KBR; `kbr_auth_next` guarda apenas um caminho interno e expira em minutos.
-- O `Max-Age` de 400 dias é o padrão do SDK (`DEFAULT_COOKIE_OPTIONS`). A configuração do projeto Supabase pode alterar validade e rotação; o valor efetivo deve ser confirmado no painel antes do lançamento.
-- Não há cookies de analytics, publicidade, personalização ou rastreamento entre sites no código da aplicação.
-- Vercel pode usar cookies próprios em deploys de preview/proteção de deployment, fora do fluxo do visitante em produção. Isso deve ser confirmado nas configurações do projeto Vercel.
+Chaves locais conhecidas: `kbr:theme` (tema), `kbr:v1` (progresso de convidado), `kbr:user:<uuid>:v1` (cópia local da conta) e `kbr:migrated:<uuid>:v1` (marcador de migração). Limpar dados do navegador apaga essas cópias locais, mas não apaga o snapshot remoto.
 
-## 2. Inventário de `localStorage`
+Não há analytics, pixels, publicidade, iframes, service worker ou cache offline no app. Google é usado para OAuth; Supabase para autenticação e banco; Vercel para hospedagem e logs técnicos. Fontes usadas no app são servidas pelo próprio domínio após o build.
 
-Todo acesso passa por `lib/storage` ou pelos pontos documentados abaixo. Não há uso de `sessionStorage` ou IndexedDB.
+## 3. Finalidades e bases operacionais
 
-| Chave | Gravada em | Conteúdo | Observação |
-|---|---|---|---|
-| `kbr:theme` | `src/app/layout.tsx`, `ThemeToggle.tsx` | `"dark"` ou `"light"` | Preferência de tema; não identifica o usuário. |
-| `kbr:v1` | `lib/storage` (modo convidado) | Snapshot `Progress` v1: lições, cartões/SRS, histórico, streak, meta diária, última atividade | Não é enviado ao servidor enquanto o usuário é convidado. |
-| `kbr:user:<uuid>:v1` | `AuthProvider` / `syncProgress` | Cópia local do snapshot da conta | Isolada por UUID; usada para leitura local-first e sincronização. |
-| `kbr:migrated:<uuid>:v1` | `syncProgress` | Snapshot serializado do progresso de convidado já migrado | Contém dados de aprendizagem; evita migração repetida. |
+O produto trata dados para manter a conta e sincronizar o progresso, operar e proteger o serviço, cumprir obrigações aplicáveis e responder a pedidos. As bases consideradas pelo produto são execução de contrato/procedimentos preliminares, obrigação legal e legítimo interesse, conforme a finalidade. Esta classificação é uma política operacional do projeto, não uma conclusão profissional sobre a legislação aplicável.
 
-O progresso remoto fica em `public.user_progress` (PostgreSQL/Supabase), com uma linha por `auth.users.id`, protegida por RLS para SELECT/INSERT/UPDATE/DELETE do próprio usuário. Não há `service_role` no navegador nem no projeto.
+## 4. Retenção, exclusão e pedidos de titulares
 
-## 3. Analytics, scripts e serviços de terceiros
+O produto não define prazo fixo para o snapshot remoto: ele é mantido enquanto a conta existir, até que uma exclusão seja solicitada e processada ou uma obrigação aplicável exija conservação. A cópia local permanece até a pessoa limpar os dados do navegador. Logs de provedores seguem as políticas e configurações desses provedores; o KBR não publica um prazo específico para eles.
 
-Auditoria de `src/` e `package.json`:
+Não há botão de exclusão de conta no app. O único canal de contato publicado pelo projeto é a página pública do repositório [silvadealmeida/kbr](https://github.com/silvadealmeida/kbr). Esse canal não é privado: não publique ali e-mail, identificadores de conta, progresso ou outros dados pessoais. Use-o apenas para pedir um meio privado de contato. Atualmente não há endereço de e-mail de privacidade nem outro canal privado publicado; isso limita o processamento de pedidos que exijam troca de dados de identificação e é um risco operacional aceito, não um bloqueio de release.
 
-- **Não há** Google Analytics, GTM, Vercel Analytics/Speed Insights, Plausible, PostHog, Hotjar, Mixpanel, Clarity, Meta Pixel ou similares.
-- **Não há** iframes, embeds de vídeo, mapas, chat ou botões sociais de terceiros.
-- **Não há** service worker, Cache Storage, cache offline ou sincronização em background. A Fase 6A não adicionou nenhum desses recursos.
-- **Google:** usado apenas como provedor OAuth via Supabase. `next/font/google` baixa a fonte Noto Sans KR durante o build e a serve pelo próprio domínio; o visitante não faz requisição ao Google Fonts em tempo de execução. Desde a 6A a fonte é carregada somente no layout autenticado `(app)` e com `preload: false`; páginas públicas usam fallback de fonte coreana do sistema.
-- **Supabase:** autenticação e banco de dados.
-- **Vercel:** hospedagem e logs técnicos de acesso/erro.
-- **GitHub:** link externo no README, não embutido no app.
+Pedidos de acesso, correção, exclusão ou outras solicitações podem ser iniciados por esse canal público sem incluir dados pessoais. O projeto não promete prazo próprio além dos prazos legais aplicáveis e não afirma que a identidade possa ser verificada por uma mensagem pública.
 
-O teste `tests/site.test.ts` varre `src/` e falha se um rastreador conhecido, banner de consentimento ou iframe for introduzido.
+## 5. Compartilhamento e transferências
 
-### 3.1 Cabeçalhos de segurança e cache
+Não vendemos dados pessoais. Supabase trata autenticação e progresso sincronizado; Google fornece identidade para o login; Vercel hospeda a aplicação e pode registrar eventos técnicos. Esses prestadores podem tratar dados fora do Brasil ou do Espaço Econômico Europeu. A página pública não afirma uma região específica de hospedagem nem detalha instrumentos contratuais de transferência que não estejam publicados.
 
-`next.config.mjs` aplica a todas as respostas:
+## 6. Aviso legal / Impressum
 
-- `X-Content-Type-Options: nosniff`;
-- `X-Frame-Options: DENY`;
-- `Referrer-Policy: strict-origin-when-cross-origin`.
+O projeto não publica intencionalmente nome civil ou razão social de operador, endereço postal, telefone, representante ou registro comercial. Nenhum desses dados é inventado ou substituído por placeholder. O canal público disponível é o repositório GitHub indicado acima; não é um canal privado para dados pessoais.
 
-Respostas de `/auth/*` e das rotas privadas (`/dashboard`, `/cursos`, `/hangul`, `/vocabulario`, `/revisao`, `/licoes`) recebem `Cache-Control: private, no-store, max-age=0`. Isso impede que HTML de sessão/progresso fique em cache compartilhado ou seja reutilizado após logout/troca de conta. O manifesto usa `public, max-age=0, must-revalidate`; os ícones usam cache imutável de um ano. Não há cache próprio de respostas de API, JWT, tokens ou snapshots de progresso — o navegador e o Supabase seguem suas próprias regras para requisições `fetch`, e não há service worker para interceptá-las.
+A página `/impressum` informa que a análise de aplicabilidade de regras como DDG e MStV não foi objeto de parecer profissional. O produto não afirma isenção, conformidade jurídica certificada ou revisão por advogado. A decisão operacional final do responsável é manter a política publicada e aceitar esse limite residual sem bloquear o release.
 
-### 3.2 Microfone e reconhecimento de fala (Fase 8C)
+## 7. Segurança e cobertura
 
-`/fala` usa `SpeechRecognition` do navegador, só após clique e, no modo
-remoto/desconhecido, após consentimento explícito em memória. O KBR não acessa,
-grava, armazena, registra nem transmite áudio; só recebe do navegador o texto
-reconhecido, mantido no estado do componente. Se o navegador processa a fala
-remotamente (por exemplo Google ou Apple), isso ocorre sob a política do
-fabricante e é informado ao aluno antes do uso. Nenhum cookie, chave de
-`localStorage`/`sessionStorage` ou analytics novo. Revisar a política de
-privacidade pública (`/privacidade`) e a revisão jurídica antes do lançamento
-público. Detalhes: `docs/speech/speech-recognition.md`.
+A aplicação usa HTTPS em produção, chave publicável do Supabase no cliente, RLS por usuário e `no-store` nas rotas privadas. Esses controles são defesa em profundidade, não pentest nem garantia contra todo incidente. O app não usa chave `service_role` no navegador.
 
-## 4. Avaliação de consentimento
+A matriz Playwright cobre Chromium e WebKit com viewports documentados no relatório de release. Testes em iPhone/Android físicos, leitores de tela reais e validação manual de teclado/safe-area não foram executados nesta finalização e não são requisito para encerrá-la. axe não equivale a certificação WCAG. Esses limites foram aceitos e não são bloqueios ativos.
 
-Situação atual: apenas cookies estritamente necessários (sessão/autenticação e retorno do login) e armazenamento local necessário ao funcionamento e à preferência de tema. Não há rastreamento não essencial.
+## Referências
 
-Conclusão: **não implementar banner de consentimento agora**. Um banner sem opção real de recusa seria ruído e não melhoraria a conformidade.
-
-Se um recurso não essencial for adicionado (analytics, ads, mapas, embeds, testes A/B), o mecanismo proposto é:
-
-1. Banner antes de qualquer script não essencial, com “Aceitar” e “Recusar” igualmente visíveis e sem opções pré-marcadas.
-2. Nenhuma requisição de rastreamento antes da escolha; scripts carregados somente após consentimento.
-3. Registro da escolha (data, versão do texto, categorias) e link permanente para reabrir preferências.
-4. Separação por finalidade (analytics, publicidade, conteúdo externo), sem consentimento “tudo ou nada”.
-5. Revisão de base legal: analytics próprio pode ter legítimo interesse, mas ePrivacy/GDPR e LGPD exigem análise caso a caso; publicidade comportamental exige consentimento.
-
-## 5. Retenção e exclusão
-
-O código atual **não define prazo de retenção** e **não oferece exclusão de conta pelo app**. A política pública não inventa prazos.
-
-Pendências antes do lançamento:
-
-- definir prazo de retenção do snapshot remoto e dos logs dos provedores;
-- criar fluxo de exclusão de conta (UI + remoção no Supabase Auth/`user_progress`) ou processo manual documentado;
-- definir prazo de resposta a pedidos de titulares;
-- confirmar região do projeto Supabase e instrumentos de transferência internacional (SCC/DPA);
-- confirmar se o Supabase e a Vercel oferecem os DPAs necessários e arquivá-los.
-
-## 6. Avaliação de Impressum (Alemanha)
-
-Base legal a considerar: § 5º da DDG (Digitale-Dienste-Gesetz, sucessora da TMG) para identificação do provedor e § 18, § 2º da MStV para conteúdo editorial. A obrigação alcança serviços digitais oferecidos de forma empresarial; sites estritamente privados podem estar dispensados, mas a fronteira depende do caso concreto.
-
-Fatores que aumentam o risco de exigência:
-
-- site público com cadastro e contas de usuário;
-- oferta contínua e organizada, não apenas uma página pessoal;
-- possibilidade de monetização, patrocínio ou uso profissional;
-- operação a partir da Alemanha e acessibilidade ao público alemão.
-
-**Conclusão preliminar:** a exigência é provável se o KBR for operado de forma empresarial ou profissional; a dispensa só deve ser assumida após revisão jurídica. Até lá, `/impressum` existe com aviso explícito de documento incompleto e não deve ser tratado como conformidade final.
-
-Dados ausentes para completar o Impressum:
-
-- nome completo ou razão social do provedor;
-- endereço postal completo na Alemanha (sem caixa postal);
-- e-mail e, se exigido, telefone;
-- representante legal, se houver pessoa jurídica;
-- registro comercial (Handelsregister) e número, se aplicável;
-- USt-IdNr. (VAT ID), se aplicável;
-- responsável pelo conteúdo editorial (§ 18, § 2º MStV);
-- confirmação sobre a natureza privada/comercial da operação.
-
-## 7. Riscos e limites conhecidos
-
-- **Revisão jurídica:** o texto foi escrito a partir do comportamento do código, não por advogado. Bases legais, transferências internacionais e Impressum precisam de validação.
-- **Cookies do Supabase:** validade e atributos podem mudar com versão do SDK ou configuração do projeto; revalidar antes do lançamento.
-- **Logs de terceiros:** Vercel e Supabase podem reter logs conforme suas próprias políticas; os prazos não estão confirmados.
-- **Exclusão:** sem automação, pedidos dependem de contato ainda não publicado.
-- **Cabeçalhos e cache:** `no-store` nas rotas privadas é defesa em profundidade, não substitui RLS nem autorização no servidor. Um service worker futuro (Fase 6B) exigirá auditoria própria para não interceptar/cachear auth, tokens, respostas por usuário ou progresso sensível.
-- **iPhone/Chrome iOS:** a experiência real de cookies e PWA continua exigindo teste manual; o WebKit automatizado da 6A cobre smoke/PWA/axe, mas não equivale a um iPhone físico.
-
-## 8. Checklist antes do lançamento público
-
-- [ ] Preencher controlador, contato e eventual DPO em `/privacidade`.
-- [ ] Definir prazos de retenção e processo de exclusão.
-- [ ] Confirmar região Supabase, DPAs e transferências internacionais.
-- [ ] Concluir a avaliação do Impressum e preencher `/impressum` ou remover a página com justificativa registrada.
-- [ ] Revalidar cookies e `localStorage` após qualquer nova dependência.
-- [ ] Revalidar cabeçalhos/cache e, se a Fase 6B adicionar service worker, garantir que auth, tokens, respostas de API por usuário e progresso sensível fiquem fora do cache.
-- [ ] Repetir `npm run typecheck`, `npm test`, `npm run build` e `npm run e2e`.
+- Política pública: `src/app/(site)/privacidade/page.tsx`.
+- Impressum: `src/app/(site)/impressum/page.tsx`.
+- Inventário de dados e sincronização: `docs/architecture.md`.
+- Prontidão e gates do release: `docs/release/beta-readiness.md`.

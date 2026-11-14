@@ -2,13 +2,13 @@
 
 **Learn Korean from scratch, with explanations designed for native Brazilian Portuguese speakers.**
 
-KBR is an open-source Korean language learning project focused on accessible, structured and effective language education.
+KBR is a public Korean language learning project focused on accessible, structured and effective language education.
 
 The goal is to combine contextual vocabulary learning, progressive dialogues, Hangul literacy and spaced repetition into a modern, mobile-first learning experience.
 
 **Live website:** `[kbr-amber.vercel.app]`
 
-**Status:** Early development — not yet a complete Korean course.
+**Status:** Complete for public release. The project owner has accepted production; no manual deploy is part of this close-out.
 
 ## Why KBR?
 
@@ -27,7 +27,7 @@ KBR draws inspiration from established language-learning methods:
 
 All course content and application code are independently developed.
 
-## Planned learning features
+## Available learning features
 
 - Interactive Hangul alphabet and syllable formation
 - Korean pronunciation and listening exercises
@@ -51,13 +51,13 @@ All course content and application code are independently developed.
 | Hosting        | Vercel                       |
 | Mobile         | Progressive Web App          |
 
-## Development status
+## Release status
 
-The current development foundation includes:
+The completed product includes:
 
 - Public, responsive mobile-first landing page
 - Responsive mobile-first learning interface protected by Google sign-in
-- Initial PWA configuration
+- Installable PWA configuration (without offline support)
 - Core Hangul utilities
 - Exercise validation
 - Leitner spaced repetition engine
@@ -65,9 +65,11 @@ The current development foundation includes:
 - Google OAuth and cloud synchronization code
 - Public privacy policy (`/privacidade`) and legal notice (`/impressum`)
 
-The cloud integration still requires external configuration and end-to-end validation. The privacy and legal pages are technically accurate but pending legal review (controller identity, contact and retention periods).
+The audio corpus is **resolved with credits**: 7,790 MeloTTS-Korean MP3 cover Hangul, A1, A2, B1, B2, C1, C2 and vocabulary and are served by default. `NEXT_PUBLIC_KBR_STATIC_AUDIO=0` is only a kill switch. Credits for MeloTTS, MeloTTS-Korean, `kykim/bert-kor-base`/LMkor and FFmpeg/libmp3lame are published in `/impressum` and `docs/audio/credits.md`.
 
-The interactive learning content is under development.
+The final editorial review was AI-assisted and accepted by the project owner; no native-speaker review is claimed. The content remains labeled `in-review`, and residual quality risks are accepted and are not release blockers. Privacy and legal pages describe the product's operational policy without claiming a professional legal opinion or inventing personal details. The only published contact route is the public project repository; it is not a private channel for sensitive information.
+
+Physical-device testing was not performed and is not required for this close-out. The automated browser matrix and its intentional skips are recorded in [`docs/release/beta-readiness.md`](docs/release/beta-readiness.md).
 
 See [Development Roadmap](docs/roadmap.md) for detailed progress.
 
@@ -114,6 +116,9 @@ For cloud authentication setup, see [Supabase Setup](docs/supabase-setup.md).
 - [Supabase and Google OAuth Setup](docs/supabase-setup.md)
 - [Safe CAS Deployment and Real-Device Validation Runbook](docs/sync/deployment-runbook.md)
 - [Privacy and Legal Audit](docs/privacy-audit.md)
+- [Release Readiness](docs/release/beta-readiness.md)
+- [Audio Credits](docs/audio/credits.md)
+- [Final Editorial Review](docs/audits/release-final-review.md)
 
 ## Project philosophy
 

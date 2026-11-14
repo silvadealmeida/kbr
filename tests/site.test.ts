@@ -35,6 +35,14 @@ describe("landing pública", () => {
     expect(landing).not.toMatch(/\b\d{3,}\s*(alunos|usuários|lições)/i);
   });
 
+  test("landing e rodapé anunciam corretamente os cursos A1–C2 disponíveis", () => {
+    expect(landing).toContain("Hangul e A1–C2 disponíveis");
+    expect(footer).toContain("Hangul e A1–C2 disponíveis");
+    expect(landing).not.toContain("A2–C2 planejados");
+    expect(footer).not.toContain("A2–C2 planejados");
+    expect(landing).not.toContain("Os próximos, no tempo certo.");
+  });
+
   test("tem links de privacidade e legal", () => {
     expect(footer).toContain('href: "/privacidade"');
     expect(footer).toContain('href: "/impressum"');
@@ -86,7 +94,7 @@ describe("transparência de privacidade", () => {
       "direitos",
       "cookies",
       "base legal",
-      "a confirmar",
+      "github.com/silvadealmeida/kbr",
     ]) {
       expect(text).toContain(term);
     }
@@ -95,13 +103,22 @@ describe("transparência de privacidade", () => {
   test("não inventa prazos nem identidade legal", () => {
     expect(privacy).not.toMatch(/\b\d+\s*(dias|meses|anos)\s+de\s+retenção/i);
     expect(privacy).not.toMatch(/CNPJ|Steuernummer|USt-IdNr\.\s*:\s*DE\d/i);
+    expect(privacy.toLowerCase()).not.toMatch(/\ba confirmar\b|\bpendente\b/i);
+    expect(impressum.toLowerCase()).not.toMatch(/\ba confirmar\b|\bpendente\b/i);
   });
 
-  test("avalia o Impressum alemão e lista pendências", () => {
+  test("explica o Impressum sem inventar dados nem alegar parecer profissional", () => {
     expect(impressum).toContain("DDG");
     expect(impressum).toContain("MStV");
-    expect(impressum).toContain("a confirmar");
-    expect(impressum).toContain("revisão jurídica");
+    expect(impressum).toContain("github.com/silvadealmeida/kbr");
+    expect(impressum).toContain("não um parecer jurídico profissional");
+    expect(impressum).toContain("revisão editorial final assistida");
+    expect(impressum).toContain("Não houve revisão por falante nativo");
+    expect(impressum).toContain("resolvido com créditos");
+    expect(impressum).toContain("7.790 MP3");
+    expect(impressum).toContain("MeloTTS-Korean");
+    expect(impressum).toContain("LMkor / kykim/bert-kor-base");
+    expect(impressum).toContain("FFmpeg / libmp3lame");
   });
 });
 

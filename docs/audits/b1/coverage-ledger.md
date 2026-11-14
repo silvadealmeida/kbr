@@ -1,5 +1,13 @@
 # Ledger de cobertura — Fase 12B (auditoria B1)
 
+> **Registro histórico, superado como decisão de release.** Este arquivo preserva evidência e
+> estado da auditoria na época. O veredito atual é projeto concluído, áudio resolvido com
+> créditos (7.790 MP3 servidos por padrão) e revisão editorial final assistida por IA aceita
+> pelo responsável. Não houve revisão nativa nem teste físico; esses riscos são aceitos e não
+> bloqueiam release. Pendências, bloqueios e contagens antigas abaixo não controlam o estado
+> atual. Ver `docs/release/beta-readiness.md`.
+
+
 > **Atualização 12D:** a cobertura de itens avaliados continua integral (40 lições, 8 checkpoints, 615 itens, 320+320 de vocabulário, 40 produções). A 12D fechou os 14 INCERTOS editorialmente e adicionou um painel de registro na l23 (80 → 81 painéis de intro), sem remover ou reamostrar nenhuma categoria. As decisões e os testes estão em [`final-editorial-decisions.md`](final-editorial-decisions.md); os dados de máquina foram regenerados a partir do conteúdo pós-12D. O restante deste ledger preserva a medição original da 12B.
 
 > **Atualização 12C:** a cobertura continua integral (40 lições, 8 checkpoints, 615 itens, 320+320 de vocabulário, 40 produções). As correções aplicadas e os testes de regressão estão em [`correction-ledger.md`](correction-ledger.md); nenhuma categoria foi reamostrada ou removida. O ledger abaixo preserva a medição original da 12B.

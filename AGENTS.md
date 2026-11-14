@@ -3,14 +3,15 @@
 App web de estudo de coreano para brasileiros (mobile-first, Chrome no Windows/iPhone), com instalação PWA mínima e sem suporte offline. Não é app nativo.
 Fontes de verdade: `docs/architecture.md` (stack, estrutura, modelo de dados, interfaces), `docs/research.md` (pedagogia, limites de conteúdo), `docs/roadmap.md` (fases e status). **Leia-os antes de mexer; não repita a pesquisa e não duplique o conteúdo deles aqui.**
 
-## Fase atual
-**Fase 14 (concluída em 2026-11-13; merge em `main` e push) — endurecimento de qualidade e prontidão para release.** As **237 pistas de comprimento** acima de 1,7× em A1–C2 (A1 11, A2 34, B1 32, B2 57, C1 31, C2 72) foram corrigidas com distratores plausíveis e errados pelo conteúdo; **0** permanecem acima do limite. O teste `tests/content/phase14-fairness.test.ts` cobre **1.381 itens** e impede regressão. No C2, `폐항` passou a significar apenas fechamento de porto (linhas usam `운항이 중단되다`) e o conto de `c2-l26/l27` foi uniformizado em **dois bilhetes**, com regressão em `tests/content/c2-curriculum.test.ts`. A auditoria visual final cobre Hangul e A1–C2 em 320/375/390/768/1280, prática em 320/375/390, C2 escuro e conclusão do C2 em 375, sem overflow e com alvos ≥44 px; `e2e/visual-audit.spec.ts` e `e2e/mobile.spec.ts` reproduzem a verificação. Typecheck + **716 Vitest** + build + Playwright na matriz completa (**715 executados + 39 skips intencionais**) verdes. Relatórios em `docs/audits/phase-14/`. Merge em `main` e push. Sem force-push nem deploy manual.
+## Estado final
+**Projeto concluído para release público (2026-11-14).** A produção foi aceita pelo responsável; esta finalização não exige nova validação de produção nem deploy manual. Não há trabalho em andamento ou nova fase planejada.
 
-**Correções vindas do feedback do usuário (2026-11-13, no mesmo push):** o resultado de erro virou “Não foi dessa vez.”; o painel ficou com um único botão de sair; a busca do vocabulário declara que cobre só as palavras das lições (e o filtro de curso tem rótulos de B2/C1/C2); a velocidade do MP3 muda sem reiniciar o clipe (com reaplicação para Safari); e os campos que pedem coreano ganharam teclado de jamo opcional (`KoreanKeyboard`, composição pura em `lib/hangul/keyboard`). O orçamento de transferência do atlas do Hangul foi ajustado de 1,20 MB para 1,25 MB porque a medida varia com os subconjuntos woff2 carregados sob demanda.
-
-**Fase anterior — 13A–13C: C1, C2 e auditoria A1–C2 (concluída localmente).** 8 módulos/40 lições/8 checkpoints por nível; 320 identidades novas + 320 frases e 615 itens por curso; rubrica de seis critérios; auditoria assistida por IA em `docs/audits/phase-13/`. A dívida de pistas de comprimento (F13-012) foi fechada na Fase 14; o risco sistêmico de revisão nativa continua.
-
-**Próximo passo:** revisão nativa/editorial de A1–C2 (incluindo as 237 escolhas de distratores da Fase 14) e dos itens `in-review`; nenhum nível deve ser marcado como revisado sem falante nativo. C1/C2 só avançam por pedido explícito; nenhuma fase nova sem pedido.
+- **Áudio:** resolvido com créditos. Há 7.790 MP3 de Hangul, A1, A2, B1, B2, C1, C2 e vocabulário em `public/audio/v1/`, servidos por padrão. `NEXT_PUBLIC_KBR_STATIC_AUDIO=0` é somente kill switch. Créditos a MeloTTS, MeloTTS-Korean, `kykim/bert-kor-base`/LMkor e FFmpeg/libmp3lame estão em `/impressum` e `docs/audio/credits.md`.
+- **Editorial:** revisão editorial final assistida por IA, aceita pelo responsável pelo projeto. Não houve revisão por falante nativo; os metadados `in-review` permanecem honestos. Riscos residuais de qualidade são aceitos e não bloqueiam o release.
+- **Privacidade/jurídico:** política operacional finalizada em `/privacidade` e `/impressum`, sem inventar dados pessoais e sem alegar parecer profissional. O único canal publicado é o repositório público; não é canal privado para dados pessoais.
+- **Cobertura:** testes físicos não foram executados e não são requisito. A matriz Playwright automatizada, skips intencionais e os resultados atuais dos gates ficam em `docs/release/beta-readiness.md`.
+- **Última fase de implementação:** Fase 14 (2026-11-13). Os 237 itens de comprimento foram corrigidos; C2 `폐항` e a contagem dos bilhetes foram uniformizados; a auditoria visual está em `docs/audits/phase-14/`.
+- **Fechamento editorial desta finalização:** dez correções concretas em Hangul, A1, A2 e B2, com regressões; landing/rodapé também foram alinhados ao estado disponível de A1–C2. Detalhes em `docs/audits/release-final-review.md`.
 
 ## Regras
 - Interface em pt-BR; `lang="ko"` nos trechos coreanos (fonte Noto Sans KR).
@@ -21,7 +22,7 @@ Fontes de verdade: `docs/architecture.md` (stack, estrutura, modelo de dados, in
 - Randomização de alternativas é apresentação: use `lib/exercises/shuffle` + `use-shuffled-order`, mantenha a ordem durante a tentativa ativa, renove só em nova tentativa e nunca corrija por posição.
 - Fala experimental (`lib/speech`): nunca ativar o microfone sem clique; modo remoto/desconhecido só com consentimento; não gravar, persistir, logar nem enviar áudio ou texto reconhecido; não afirmar "no aparelho" sem `available()`; não equiparar reconhecimento a avaliação de pronúncia; não ligar a `Progress`/SRS/grading sem fase explícita.
 - Conteúdo coreano original (sem copiar cursos/apps); marcar como "em revisão".
-- Áudio: o corpus MP3 vive em `public/audio/v1/` e é **servido por padrão** (a flag `NEXT_PUBLIC_KBR_STATIC_AUDIO` só desliga com `=0`). **Não há TTS**: o player usa somente os MP3 do corpus e, se faltar asset ou ele falhar, mostra indisponibilidade com dica textual. O corpus cobre Hangul, A1, A2, B1, B2, C1, C2 e vocabulário (7.790 MP3); o áudio é **síntese MeloTTS-Korean provisória** (`in-review`), nunca gravação nativa. Não afirmar pronúncia correta sem revisão nativa. Crédito obrigatório a MeloTTS/MeloTTS-Korean e a `kykim/bert-kor-base` (Kiyoung Kim/LMkor) em `/impressum` e `docs/audio/credits.md`. Ver `docs/audio/generation-guide.md`.
+- Áudio: corpus **resolvido com créditos**. Os 7.790 MP3 de Hangul, A1, A2, B1, B2, C1, C2 e vocabulário vivem em `public/audio/v1/` e são **servidos por padrão**; `NEXT_PUBLIC_KBR_STATIC_AUDIO=0` é somente kill switch. **Não há TTS no player**: usa os MP3 e, se faltar asset ou ele falhar, mostra indisponibilidade com dica textual. É síntese MeloTTS-Korean, não gravação nativa, e não avalia pronúncia; os riscos residuais de qualidade são aceitos e não bloqueiam o release. Créditos a MeloTTS/MeloTTS-Korean, `kykim/bert-kor-base` (Kiyoung Kim/LMkor) e FFmpeg/libmp3lame estão em `/impressum` e `docs/audio/credits.md`. Ver `docs/audio/generation-guide.md`.
 - TypeScript estrito; poucas dependências; não use `"use client"` em módulos cujos exports não-componente o servidor importa (ex.: `lib/routes.ts`).
 - Não altere arquivos fora do escopo da tarefa. Commits pequenos e descritivos.
 - Commits: autor sempre `silvadealmeida`; sem trailers `Co-Authored-By` nem menções a IA nas mensagens.
@@ -35,7 +36,7 @@ npm run build       # build de produção
 npm run e2e         # Playwright (Chromium 375/390/768/1280 + WebKit 390 em smoke/PWA/a11y/webkit; porta 3100)
 PGUSER=postgres ./supabase/tests/local/run-local-sql-tests.sh  # pgTAP + concorrência real (PostgreSQL local)
 ```
-Antes de concluir qualquer tarefa: typecheck + test + build verdes. iPhone/Chrome iOS reais não são testáveis aqui — verificação manual.
+Antes de concluir trabalho de release: `npm run typecheck`, `npm test`, `npm run build` e `npm run e2e` verdes. iPhone/Chrome iOS reais não são testáveis aqui; a cobertura física é não executada e não bloqueia o release salvo pedido explícito.
 
 ## Preservar trabalho entre agentes
 1. Comece com o bloco "Estado atual" de `docs/roadmap.md`, `git status` e `git log --oneline -10`; depois consulte o grafo (`graphify query "<pergunta>"`) em vez de varrer o código. Continue o que existe, não recomece.

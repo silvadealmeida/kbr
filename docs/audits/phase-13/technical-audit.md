@@ -1,5 +1,13 @@
 # Auditoria técnica e de UX — A1–C2
 
+> **Registro histórico, superado como decisão de release.** Este arquivo preserva evidência e
+> estado da auditoria na época. O veredito atual é projeto concluído, áudio resolvido com
+> créditos (7.790 MP3 servidos por padrão) e revisão editorial final assistida por IA aceita
+> pelo responsável. Não houve revisão nativa nem teste físico; esses riscos são aceitos e não
+> bloqueiam release. Pendências, bloqueios e contagens antigas abaixo não controlam o estado
+> atual. Ver `docs/release/beta-readiness.md`.
+
+
 **Data:** 2026-11-13. **Ambiente:** build local de produção, Chromium e WebKit via Playwright, servidor em `localhost:3100` com Supabase mockado. Não houve teste em iPhone físico, Chrome iOS real ou leitor de tela real.
 
 ## 1. Inventário verificado

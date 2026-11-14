@@ -1,5 +1,10 @@
 # Auditoria 13C — índice
 
+> **Registro histórico de auditoria.** O estado atual do release é definido por `docs/roadmap.md`
+> e `docs/release/beta-readiness.md`. Na finalização, a revisão editorial assistida por IA foi
+> aceita pelo responsável; não houve revisão nativa. As ressalvas abaixo são riscos residuais
+> aceitos, não bloqueios do release.
+
 - `plan.md` — escopo, métodos e limites.
 - `executive-summary.md` — contagens, achados e conclusão.
 - `findings.json` — ledger canônico por achado (ID, local, severidade, status, teste).

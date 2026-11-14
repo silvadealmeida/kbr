@@ -1,5 +1,12 @@
 # Licenças das dependências de geração do áudio — Fase 8E
 
+> **Auditoria histórica, não é o veredito atual de distribuição.** Na Fase 14, o responsável
+> informou que recebeu do autor do encoder a orientação de creditar o autor e o repositório. O
+> produto está **resolvido com créditos**: 7.790 MP3 servidos por padrão, com atribuições em
+> `/impressum` e `credits.md`. Os estados `UNRESOLVED` e “bloqueia distribuição” abaixo pertencem à
+> análise anterior e foram superados para a decisão operacional do projeto; não são bloqueios de
+> release nem parecer jurídico profissional.
+
 **Data:** 2026-11-12. **Não é parecer jurídico.** Fonte: metadados instalados em `.audio/venv` (local, não versionado), `LICENSE` do pacote quando existe e fichas públicas (URLs na tabela de modelos). Versões = as realmente usadas na geração da 8B.
 
 Legenda: **CLEAR** (licença permissiva, sem condição que atinja a saída ou o site) · **REQUIRES ATTRIBUTION** (permissiva, mas exige aviso se o artefato for redistribuído) · **UNRESOLVED** (declaração ausente ou contraditória) · **RESTRICTED** (condição que impede o uso pretendido).

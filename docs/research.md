@@ -27,7 +27,7 @@
 4. **Romanização só como andaime** nas primeiras lições (revisada, RR), removida progressivamente; exercícios passam a Hangul puro.
 5. **Vocabulário em contexto**: frases originais curtas, lacunas (cloze), alta frequência; palavra nova sempre em ≥2 frases.
 6. **Gramática em pt-BR**, nota curta por lição, ligada ao diálogo: partículas (은/는, 이/가, 을/를), 이에요/예요, ordem SOV, 하다, polidez -아요/어요, negação 안.
-7. **Escuta**: TTS do navegador quando houver voz coreana; senão, fallback honesto.
+7. **Escuta**: MP3 estático do corpus do KBR, reproduzido sob clique; se o asset faltar ou falhar, informar indisponibilidade e manter a dica textual. O player não usa TTS do navegador.
 8. **Revisão espaçada**: agendador simples (Leitner/SM-2-like) atrás de uma interface que permita trocar por FSRS.
 9. **Honestidade**: não avaliar pronúncia (sem reconhecimento de fala real); sem estatísticas inventadas — tudo vem do `localStorage`.
 
@@ -37,10 +37,10 @@
 - Hangul: Hunminjeongeum (lógica de formação das letras) — didático: formas articulatórias.
 - Material aberto: TTMIK, Seoul National University *Korean* — usar só como referência de ordem de conteúdo.
 - Frequência: listas de frequência abertas (ex.: National Institute of Korean Language) para priorizar vocabulário.
-- **Todo conteúdo no app será escrito originalmente**; revisão por falante nativo/professor é risco a tratar (ver roadmap).
+- **Todo conteúdo no app é escrito originalmente.** A revisão editorial final assistida por IA foi aceita pelo responsável; não houve revisão por falante nativo. O risco residual de qualidade é aceito e não bloqueia o release (ver `docs/roadmap.md`).
 
 ## 5. Tecnologias — fatos relevantes
-- **Web Speech `speechSynthesis`**: assíncrono; `getVoices()` pode vir vazio até o evento `voiceschanged`. Filtrar `lang` começando com `ko`. Pode não haver voz coreana (comum em Windows sem pacote de idioma; Linux). **Chrome no iOS usa WebKit** (obrigatório na Apple): comportamento = Safari; vozes dependem do iOS; fala exige gesto do usuário. Fallback: ocultar botão "ouvir" ou mostrar aviso + romanização/instrução.
+- **Web Speech `speechSynthesis` (referência de plataforma, não usada pelo player atual):** assíncrono; `getVoices()` pode vir vazio até o evento `voiceschanged`. Filtrar `lang` começando com `ko`. Pode não haver voz coreana. **Chrome no iOS usa WebKit** (obrigatório na Apple): comportamento = Safari; vozes dependem do iOS; fala exige gesto do usuário. O player atual usa MP3 estáticos e, se não houver asset, informa indisponibilidade com dica textual.
 - **FSRS**: algoritmo aberto; biblioteca `ts-fsrs` (MIT) — adotar depois, não agora.
 - **Fonte Hangul**: Noto Sans KR via `next/font/google` (self-host em build, subset); fallback `system-ui`.
 - **Testes iOS**: Playwright oferece WebKit e emulação de iPhone, **não é iPhone real nem Chrome iOS**. Só declarar "testado em dispositivo" se realmente ocorrer.

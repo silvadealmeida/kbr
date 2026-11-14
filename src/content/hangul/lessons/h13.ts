@@ -63,7 +63,7 @@ export const H13: Lesson = {
     {
       id: "h13-e02",
       type: "audio-to-char",
-      prompt: "Ouça e escolha a sílaba com glide labial.",
+      prompt: "Ouça e escolha a sílaba sem glide labial.",
       audioText: "고",
       fallback: "Lábios arredondados para 'ô', sem passar por 'a'.",
       options: [
@@ -73,8 +73,8 @@ export const H13: Lesson = {
       ],
       correctOptionId: "go",
       explanation: "고 é ㄱ + ㅗ; 과 é ㄱ + ㅘ. O glide labial só aparece em 과.",
-      tags: ["diag:vowel-compound", "ㅘ", "pronunciation:glide-labial", "listening"],
-      srsCards: ["h:jamo:v:ㅘ", "h:syl:과"],
+      tags: ["diag:vowel-compound", "ㅗ", "listening"],
+      srsCards: ["h:jamo:v:ㅗ", "h:syl:고"],
     },
     {
       id: "h13-e03",

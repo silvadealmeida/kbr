@@ -1,4 +1,10 @@
-# Áudio atual — auditoria técnica e de experiência
+# Áudio — auditoria técnica e de experiência (snapshot histórico da Fase 7G)
+
+> **Arquivo histórico (Fase 7G, superado pela Fase 14).** O estado vigente é: áudio resolvido com
+> créditos; **7.790 MP3** servidos por padrão para Hangul, A1–C2 e vocabulário; `=0` é apenas kill
+> switch; o player não usa TTS de navegador. O conteúdo não foi revisto por falante nativo; esse
+> risco de qualidade é aceito e não bloqueia o release. As descrições abaixo registram o estado
+> anterior e não controlam o produto atual. Créditos e decisão: `credits.md` e `license-audit.md` §13.
 
 **Data:** 2026-11-12  
 **Fase:** 7G (auditoria; nenhuma troca de engine nesta fase)  

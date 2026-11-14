@@ -1,5 +1,10 @@
 # Alternativas ao MeloTTS-Korean — avaliação de direitos (Fase 8E)
 
+> **Pesquisa histórica, sem ação pendente.** Na Fase 14, o responsável aceitou o uso do corpus
+> atual conforme a orientação de crédito recebida do autor do encoder. Estado vigente: áudio
+> **resolvido com créditos**, 7.790 MP3 servidos por padrão; nenhum substituto está sendo avaliado
+> para o release. As recomendações abaixo não controlam a decisão atual.
+
 **Data:** 2026-11-12. **Nada foi baixado, executado nem regenerado.** Licenças vêm dos metadados/cartões primários do Hugging Face e do GitHub (consultados por API nesta sessão); **qualidade do coreano não foi ouvida** e nenhum substituto está aprovado. Nenhum cartão consultado documenta os dados de treino, então "pesos com licença permissiva" **não** equivale a "direitos sobre a saída resolvidos"; é apenas a melhor evidência disponível, melhor que o estado atual (UNRESOLVED).
 
 Critérios (do pedido): código aberto; direitos claros sobre os pesos; saída redistribuível; geração local gratuita; bom coreano; reprodução consistente (MP3 estático).

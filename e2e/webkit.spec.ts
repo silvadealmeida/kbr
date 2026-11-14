@@ -119,6 +119,7 @@ test.describe("WebKit/iOS automatizado (sem dispositivo físico)", () => {
     });
 
     await page.goto("/?next=%2Frevisao");
+    const appOrigin = new URL(page.url()).origin;
     await page
       .getByRole("main")
       .getByRole("button", { name: "Entrar com Google" })
@@ -129,7 +130,7 @@ test.describe("WebKit/iOS automatizado (sem dispositivo físico)", () => {
     const url = new URL(authorizeUrl);
     expect(url.pathname).toBe("/auth/v1/authorize");
     expect(url.searchParams.get("provider")).toBe("google");
-    expect(url.searchParams.get("redirect_to")).toBe(`${BASE_URL}/auth/callback`);
+    expect(url.searchParams.get("redirect_to")).toBe(`${appOrigin}/auth/callback`);
     expect(url.searchParams.get("code_challenge_method")).toBe("s256");
     expect(url.searchParams.get("code_challenge")).toBeTruthy();
 

@@ -110,7 +110,12 @@ test("aviso legal e erro de autenticação continuam acessíveis", async ({ page
   await expect(
     page.getByRole("heading", { level: 1, name: "Aviso legal / Impressum" }),
   ).toBeVisible();
-  await expect(page.getByText("Documento incompleto")).toBeVisible();
+  await expect(
+    page.getByText("política operacional aceita pelo responsável", { exact: false }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: "silvadealmeida/kbr no GitHub" }),
+  ).toBeVisible();
 
   await page.goto("/auth/error");
   await expect(

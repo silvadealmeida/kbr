@@ -2,10 +2,16 @@
 
 **Data:** 2026-11-13  
 **Escopo:** cadeia de dependências que gerou os MP3 de `public/audio/v1/`.  
-**Veredito atual:** **uso liberado com crédito.** O dono do projeto perguntou ao autor do encoder
-coreano e recebeu a orientação de que **basta dar crédito** ao autor e ao repositório. O KBR publica
-esse crédito em `/impressum` e em [`credits.md`](credits.md). Este documento não é parecer jurídico;
-a decisão de publicar o corpus é do dono do projeto.
+**Veredito atual:** **resolvido com créditos.** Conforme informado pelo responsável pelo projeto,
+o autor do encoder orientou que o uso exige crédito ao autor e ao repositório. Os créditos
+obrigatórios estão publicados em `/impressum`, [`credits.md`](credits.md) e no manifesto. O corpus
+completo de 7.790 MP3 é servido por padrão; `NEXT_PUBLIC_KBR_STATIC_AUDIO=0` é apenas kill switch.
+Esta decisão operacional é aceita pelo responsável e **não é parecer jurídico profissional**.
+
+> **Estado vigente:** a decisão de distribuição da Fase 14, registrada na §13, substitui as
+> avaliações anteriores de bloqueio, contenção, opt-in, exclusão de deploy e licença pendente. As
+> §§1–12 abaixo são registros históricos da pesquisa e das decisões então vigentes; não controlam
+> o estado atual nem criam bloqueio de release. Não houve parecer de advogado.
 
 ## 1. Cadeia de geração e o que cada elo declara
 
@@ -70,13 +76,13 @@ O script `scripts/audio/generate-melotts.py` só redireciona o carregamento para
 
 **Caminho recomendado:** R1 e R2 imediatamente (custo zero); preparar R3 em paralelo como contingência; decidir R4/R5 conforme as respostas.
 
-## 7. Estado de distribuição
+## 7. Estado de distribuição histórico (8D; superado na §13)
 
 | Contexto | Estado |
 |---|---|
 | Desenvolvimento local / testes automatizados | permitido (sem redistribuição) |
 | Beta fechado com convidados | **decisão do dono do projeto**, risco não resolvido; rotular o áudio como sintético/provisório (já corrigido na 8D) |
-| Lançamento público ou comercial | **BLOQUEADO** |
+| Lançamento público ou comercial | **BLOQUEADO naquele veredito histórico; superado pela decisão da §13** |
 
 Tabela de revisão futura: quando houver resposta, registrar data, remetente, texto recebido e revisão do encoder coberta, e só então remover o bloqueio em `docs/release/beta-readiness.md`.
 
@@ -116,7 +122,7 @@ Separação pedida: **licença de código** (MeloTTS MIT, g2pkk Apache-2.0 etc.)
 
 Opções (todas dependem do dono; nada foi feito): (a) tornar o repositório privado — mais barata e reversível; (b) `git rm -r --cached restricted-assets/audio` + `.gitignore` com backup privado (remove do HEAD, não da história); (c) `git filter-repo` + force-push (só após backup; invalida SHAs); (d) manter, aceitando o risco. Detalhes no plano.
 
-## 10. Estado de distribuição (8E)
+## 10. Estado de distribuição histórico (8E; superado na §13)
 
 | Contexto | Estado |
 |---|---|
@@ -124,7 +130,7 @@ Opções (todas dependem do dono; nada foi feito): (a) tornar o repositório pri
 | Novo build do site | **sem MP3** (guardado por teste e por `postbuild`) |
 | Site publicado (produção) | **sem MP3** (404 verificado na 8F); deployments antigos não verificados |
 | Repositório público | **ainda expõe** os MP3 em `restricted-assets/` e na história (§9) |
-| Lançamento público ou comercial | **BLOQUEADO** |
+| Lançamento público ou comercial | **BLOQUEADO naquele veredito histórico; superado pela decisão da §13** |
 
 ## 11. Decisão do dono do projeto (2026-11-12): uso liberado no app
 
@@ -161,12 +167,12 @@ A decisão do dono (§11) foi tratada como conservadora nesta fase: como o encod
 - `scripts/audio/verify-audio-containment.mjs` rodava em `prebuild`/`postbuild`.
 - `tests/audio-containment.test.ts` cobria a exclusão, a preservação dos arquivos e o fallback; `tests/audio-manifest.test.ts` fixava as 12 lacunas e 10 sobras de texto corrigido (`docs/audio/stale-audio-manifest.md`).
 
-## 13. Fase 14 (2026-11-13) — uso liberado com crédito e corpus completo
+## 13. Estado vigente — Fase 14 (2026-11-13): resolvido com créditos
 
-O dono do projeto determinou que **todo o áudio seja exposto e usado** no app, em vez de cair na voz
-sintética do navegador, e que **o áudio ainda ausente seja gerado** com o MeloTTS-Korean. Perguntou
-ao autor do `kykim/bert-kor-base` sobre o uso do checkpoint e recebeu a orientação de que **basta
-dar crédito** ao autor e ao repositório.
+O responsável pelo projeto determinou que todo o áudio seja usado no app. Conforme informado por
+ele, o autor do `kykim/bert-kor-base` orientou que o uso exige crédito ao autor e ao repositório.
+Esse é o veredito operacional final do produto: **resolvido com créditos**, sem alegar parecer
+jurídico profissional.
 
 Implementação:
 
@@ -175,13 +181,10 @@ Implementação:
 - `public/audio/` saiu do `.vercelignore`; `/audio/:path*` segue com cache imutável.
 - A guarda de build `verify-audio-containment.mjs` e os hooks `prebuild`/`postbuild` foram removidos;
   `tests/audio-containment.test.ts` agora protege a distribuição (e o kill switch).
-- O inventário passou a incluir o **B1**, e os WAVs faltantes foram gerados com o mesmo pipeline
-  MeloTTS-Korean documentado em [`generation-guide.md`](generation-guide.md) (ambiente local, CPU,
-  sem imagem Docker). O `encode-audio.py` regenerou manifesto e `entries.ts`, e removeu os MP3
-  órfãos dos textos corrigidos na 12A.
+- O inventário completo cobre Hangul, A1, A2, B1, B2, C1, C2 e vocabulário: **7.790 MP3**.
 
-**Crédito:** a atribuição a MeloTTS, MeloTTS-Korean, `kykim/bert-kor-base` (Kiyoung Kim/LMkor) e
-FFmpeg/libmp3lame está em [`credits.md`](credits.md) e na seção “Créditos de terceiros” de
-`/impressum`. **O TTS do navegador foi removido do player**: `playback.ts` usa somente os MP3 do
-corpus; sem asset, o controle mostra indisponibilidade e mantém a dica textual. O áudio continua
-rotulado como síntese provisória (`in-review`) e não substitui escuta/aprovação de falante nativo.
+**Créditos publicados:** MeloTTS, MeloTTS-Korean, `kykim/bert-kor-base` (Kiyoung Kim/LMkor) e
+FFmpeg/libmp3lame estão em [`credits.md`](credits.md) e na seção “Créditos de terceiros” de
+`/impressum`. O player usa somente os MP3; se um asset falhar ou faltar, informa indisponibilidade
+e mantém a dica textual. O áudio é síntese, não gravação nativa, e não avalia pronúncia. Esses
+limites de qualidade são aceitos e não bloqueiam o release.

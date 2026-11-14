@@ -4,18 +4,8 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Aviso legal / Impressum",
   description:
-    "Informações legais do KBR e pendências de identificação do provedor para o público na Alemanha.",
+    "Informações públicas do KBR, canal de contato e créditos de terceiros.",
 };
-
-const pendingItems = [
-  ["Nome ou razão social do provedor", "a confirmar"],
-  ["Endereço postal completo (sem caixa postal)", "a confirmar"],
-  ["E-mail e, se exigido, telefone de contato", "a confirmar"],
-  ["Representante legal", "a confirmar"],
-  ["Registro comercial, quando aplicável", "a confirmar"],
-  ["Número de identificação fiscal (USt-IdNr.), quando aplicável", "a confirmar"],
-  ["Responsável pelo conteúdo editorial (§ 18, § 2º MStV)", "a confirmar"],
-];
 
 export default function ImpressumPage() {
   return (
@@ -27,16 +17,16 @@ export default function ImpressumPage() {
         Aviso legal / Impressum
       </h1>
       <p className="mt-4 text-lg leading-relaxed text-muted">
-        Esta página reúne as informações de identificação do provedor. Ela está em preparação e
-        será concluída antes do lançamento público.
+        Esta página reúne as informações públicas do projeto e o canal de contato publicado.
       </p>
 
       <div className="mt-8 rounded-[var(--radius-plate)] border border-line bg-surface p-5 text-sm leading-relaxed">
-        <p className="font-semibold">Documento incompleto — revisão jurídica pendente</p>
+        <p className="font-semibold">Informações disponíveis e limites declarados</p>
         <p className="mt-2 text-muted">
-          Os campos abaixo não foram preenchidos porque os dados ainda não estão confirmados. Não
-          inventamos nome, endereço, registro ou contato. Enquanto esta página estiver incompleta,
-          o KBR não deve ser tratado como pronto para operação comercial pública na Alemanha.
+          O projeto não publica intencionalmente nome civil, endereço postal ou e-mail de contato.
+          Não inventamos esses dados nem os substituímos por placeholders. Esta é uma política
+          operacional aceita pelo responsável, não um parecer jurídico profissional e não uma
+          alegação de isenção ou conformidade legal certificada.
         </p>
       </div>
 
@@ -45,21 +35,20 @@ export default function ImpressumPage() {
           Identificação do provedor
         </h2>
         <p className="mt-4 leading-relaxed text-muted">
-          Informações exigidas pelo § 5º da Lei Alemã de Serviços Digitais (DDG), quando
-          aplicável:
+          Regras como o § 5º da lei alemã DDG e o § 18, § 2º da MStV podem ser relevantes conforme
+          a operação do serviço. O KBR não afirma uma conclusão profissional sobre a aplicação
+          dessas regras. O responsável aceita esse limite como risco residual do produto, sem
+          bloquear o release.
         </p>
-        <dl className="mt-5 grid gap-3 rounded-[var(--radius-plate)] border border-line bg-surface p-5 text-sm">
-          {pendingItems.map(([label, value]) => (
-            <div key={label} className="grid gap-1 sm:grid-cols-[1.2fr_0.8fr] sm:gap-4">
-              <dt className="font-semibold">{label}</dt>
-              <dd>
-                <span className="rounded-md bg-surface-2 px-2 py-0.5 text-xs font-semibold text-accent">
-                  {value}
-                </span>
-              </dd>
-            </div>
-          ))}
-        </dl>
+        <p className="mt-4 leading-relaxed text-muted">
+          O único canal de contato publicado é a página pública do repositório{" "}
+          <a href="https://github.com/silvadealmeida/kbr" className="text-accent underline underline-offset-2" rel="noreferrer">
+            silvadealmeida/kbr no GitHub
+          </a>
+          . Não publique dados pessoais ou detalhes da conta nesse canal. No momento não há e-mail
+          nem outro canal privado publicado; use o repositório apenas para pedir um meio privado de
+          contato.
+        </p>
       </section>
 
       <section aria-labelledby="avaliacao" className="mt-10 border-t border-line pt-8">
@@ -75,14 +64,13 @@ export default function ImpressumPage() {
             comercial.
           </p>
           <p>
-            A avaliação jurídica ainda não foi concluída. Se for confirmada a exigência, esta
-            página será completada com os dados de identificação e vinculada de forma permanente
-            no rodapé de todas as páginas. Se a dispensa for confirmada, esta página será
-            substituída por uma nota explicativa.
+            O responsável pelo projeto aceita esta política operacional e os limites publicados.
+            A página não afirma que um advogado a revisou, que os requisitos legais foram
+            certificados ou que o projeto está dispensado de qualquer obrigação.
           </p>
           <p>
-            Enquanto isso, o contato de privacidade e os demais dados do controlador também estão
-            pendentes na{" "}
+            A política de privacidade descreve os dados tratados e o mesmo canal público, sem
+            inventar dados civis ou e-mail: consulte a página de{" "}
             <Link href="/privacidade" className="text-accent underline underline-offset-2">
               política de privacidade
             </Link>
@@ -97,8 +85,10 @@ export default function ImpressumPage() {
         </h2>
         <div className="mt-4 space-y-4 leading-relaxed text-muted">
           <p>
-            O conteúdo coreano do KBR é original e está em revisão. O material tem finalidade
-            educacional e não substitui aulas, certificações ou orientação profissional.
+            O conteúdo coreano do KBR é original e passou por revisão editorial final assistida
+            por IA, aceita pelo responsável pelo projeto. Não houve revisão por falante nativo. O
+            material tem finalidade educacional e não substitui aulas, certificações ou orientação
+            profissional; riscos residuais de qualidade são aceitos e não bloqueiam o release.
           </p>
           <p>
             Links externos são oferecidos apenas como referência. Não controlamos o conteúdo de
@@ -127,7 +117,7 @@ export default function ImpressumPage() {
               >
                 github.com/myshell-ai/MeloTTS
               </a>
-              .
+              ; modelo MeloTTS-Korean: <a href="https://huggingface.co/myshell-ai/MeloTTS-Korean" className="break-all text-accent underline underline-offset-2" rel="noreferrer">huggingface.co/myshell-ai/MeloTTS-Korean</a>.
             </li>
             <li>
               <strong className="text-fg">LMkor / kykim/bert-kor-base</strong>, de Kiyoung Kim
@@ -155,8 +145,10 @@ export default function ImpressumPage() {
             </li>
           </ul>
           <p className="break-words text-sm">
-            O áudio é sintético e provisório: não é gravação de falante nativo e passa por revisão
-            contínua. A lista completa, com revisões fixadas e hashes, está em{" "}
+            O áudio está resolvido com créditos e é servido por padrão: 7.790 MP3 cobrem Hangul,
+            A1, A2, B1, B2, C1, C2 e vocabulário; `NEXT_PUBLIC_KBR_STATIC_AUDIO=0` é apenas kill
+            switch. É síntese, não gravação nativa, e não avalia pronúncia. A lista completa, com
+            revisões fixadas e hashes, está em{" "}
             <code className="break-all text-xs">docs/audio/credits.md</code> no repositório.
           </p>
         </div>

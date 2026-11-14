@@ -43,9 +43,9 @@ export const A2_L30 = defineA2Lesson({
   reusedIds: ["ko:여행", "ko:경험", "ko:사진", "ko:즐겁다", "ko:아름답다"],
   grammar: [
     [
-      "Passado + -고 — acrescentar ações",
-      "동사 + -았/었고",
-      "No relato, -고 acrescenta ações concluídas sem marcar causa. A forma passada aparece antes de -고 quando as duas ações já aconteceram.",
+      "-고 — encadear ações",
+      "동사 + -고",
+      "Use -고 para acrescentar ações sem marcar causa. Em um relato passado, o tempo pode ser marcado no último predicado: 바다를 보고 맛있는 음식도 먹었어요.",
       [
         ["바다를 보고 맛있는 음식도 먹었어요.", "Vi o mar e também comi comida deliciosa."],
         ["사진을 찍고 호텔로 돌아갔어요.", "Tirei fotos e voltei ao hotel."],

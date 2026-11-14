@@ -1,5 +1,13 @@
 # B1 — decisões editoriais finais dos 14 INCERTOS (Fase 12D)
 
+> **Registro histórico, superado como decisão de release.** Este arquivo preserva evidência e
+> estado da auditoria na época. O veredito atual é projeto concluído, áudio resolvido com
+> créditos (7.790 MP3 servidos por padrão) e revisão editorial final assistida por IA aceita
+> pelo responsável. Não houve revisão nativa nem teste físico; esses riscos são aceitos e não
+> bloqueiam release. Pendências, bloqueios e contagens antigas abaixo não controlam o estado
+> atual. Ver `docs/release/beta-readiness.md`.
+
+
 **Status:** fechamento editorial por IA em 2026-11-13, na branch local `audit/b1-phase-12b` (sem push, sem deploy). O dono decidiu não exigir uma fase separada de revisão humana/nativa para encerrar este backlog. Isso **não** é aprovação nativa, nem certificação, nem `human-approved`.
 
 **Escopo:** as 14 pendências `B1-12B-U001`–`U014` da auditoria 12B. Não houve nova auditoria linguística ampla, nem implementação de B2/C1/C2, nem reescrita de conteúdo não relacionado.

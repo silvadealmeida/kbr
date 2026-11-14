@@ -70,7 +70,7 @@ Fontes de pesquisa: Karpicke & Bauernschmidt (2011); Karpicke & Roediger (2008);
 3. **Gramática em espiral.** Estruturas do A1 reaparecem dentro de relatos e planos; estruturas novas são apresentadas antes de serem avaliadas.
 4. **Vocabulário opt-in.** Nenhum cartão é salvo automaticamente. O A2 adiciona 400 identidades novas e 400 frases contextuais, com 115 identidades do A1/Hangul retomadas em contexto.
 5. **Sem novo motor de exercício.** O A2 usa `mcq`, `cloze`, `listen`, `translate` e `reading`, todos implementados e determinísticos.
-6. **Sem áudio novo.** A voz coreana do navegador é usada sob clique; nenhum MP3 restrito é reativado.
+6. **Áudio:** o produto usa MP3 estáticos do corpus completo sob clique; não há TTS de navegador no player.
 
 ## 7. Limites e riscos
 

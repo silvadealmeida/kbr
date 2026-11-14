@@ -106,7 +106,7 @@ O app não impõe calendário. A recomendação padrão é **1 lição por dia �
 
 - **19 consoantes iniciais:** ㄱ ㄲ ㄴ ㄷ ㄸ ㄹ ㅁ ㅂ ㅃ ㅅ ㅆ ㅇ ㅈ ㅉ ㅊ ㅋ ㅌ ㅍ ㅎ.
 - **21 vogais:** ㅏ ㅐ ㅑ ㅒ ㅓ ㅔ ㅕ ㅖ ㅗ ㅘ ㅙ ㅚ ㅛ ㅜ ㅝ ㅞ ㅟ ㅠ ㅡ ㅢ ㅣ.
-- **28 finais:** vazio + 16 simples + 11 duplos (ㄳ ㄵ ㄶ ㄺ ㄻ ㄼ ㄽ ㄾ ㄿ ㅀ ㅄ). Os 16 simples são ㄱ ㄲ ㄴ ㄷ ㄹ ㅁ ㅂ ㅅ ㅆ ㅇ ㅈ ㅊ ㅋ ㅌ ㅍ ㅎ.
+- **28 possibilidades de coda:** ausência de batchim + 16 finais simples + 11 duplos (ㄳ ㄵ ㄶ ㄺ ㄻ ㄼ ㄽ ㄾ ㄿ ㅀ ㅄ). As grafias consonantais somam 27. Os 16 simples são ㄱ ㄲ ㄴ ㄷ ㄹ ㅁ ㅂ ㅅ ㅆ ㅇ ㅈ ㅊ ㅋ ㅌ ㅍ ㅎ.
 - **Cobertura:** todas as 19 iniciais até `h10`; todas as 21 vogais até `h15`; todos os 16 finais simples até `h19`; todos os 11 duplos em `h20`.
 
 ### 4.3 Convenções dos IDs
@@ -930,7 +930,7 @@ A ordem não segue o alfabeto coreano tradicional (ㄱ ㄴ ㄷ ㄹ ㅁ ㅂ ㅅ �
 
 ### `c3` — Checkpoint 3: sílabas e batchim
 
-**Escopo:** `h16`–`h20`. Todos os 28 finais, montagem e leitura de sílabas CVC.
+**Escopo:** `h16`–`h20`. As 27 grafias consonantais de batchim, a coda vazia, montagem e leitura de sílabas CVC.
 
 **Formato:** 24 itens, 20 minutos.
 
@@ -1253,7 +1253,7 @@ O grafo é uma DAG (grafo dirigido acíclico). Cada lição só depende de liç�
 | ㅚ | `h14` | ditongo/vogal |
 | ㅢ | `h15` | ditongo |
 
-### 15.3 Finais (28)
+### 15.3 Possibilidades de coda (27 batchim + vazio)
 
 | Final | Lição | Som |
 |---|---|---|
@@ -1474,7 +1474,7 @@ A Fase 3B **não deve começar sem pedido explícito**. Quando começar, a ordem
 **Critérios de aceite da 3B:**
 - Nenhuma alteração em auth, sync, banco ou RLS.
 - `Progress` v1 intacto; merge e sync continuam passando.
-- Todos os 40 jamo e 28 finais cobertos.
+- Todos os 40 jamo e as 27 grafias de batchim (além da coda vazia) cobertos.
 - Nenhum item com duas respostas corretas.
 - Conteúdo marcado `in-review` e visível como tal.
 - 375 px sem overflow; alvos ≥ 44 px.

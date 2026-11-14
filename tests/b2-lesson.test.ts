@@ -126,6 +126,18 @@ describe("curso B2 — estrutura e conteúdo", () => {
     }
   });
 
+  it("b2-l35 usa -는 척하다 corretamente no diálogo e na leitura", () => {
+    const lesson = B2_IMPLEMENTED_LESSONS.find((item) => item.id === "b2-l35");
+
+    expect(lesson).toBeDefined();
+    expect(lesson?.dialogue[1]?.ko).toContain("아무 일도 없는 척했지만");
+    expect(lesson?.readingText?.paragraphs[0]).toContain("아무 일도 없는 척했지만");
+    const reading = lesson?.exercises.find((item) => item.id === "b2-l35-e04");
+    expect(reading?.type).toBe("reading");
+    if (reading?.type !== "reading") throw new Error("b2-l35-e04 deve ser reading");
+    expect(reading.text).toContain("아무 일도 없는 척했지만");
+  });
+
   it("tem 320 identidades novas, 320 frases e reusos anteriores", () => {
     const facts = courseVocabularyFacts(B2_IMPLEMENTED_LESSONS);
     expect(facts.introduced).toBe(320);

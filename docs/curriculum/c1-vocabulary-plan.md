@@ -37,7 +37,7 @@ O cartão SRS continua em `Progress.cards` com chave `v:<id>`. O C1 não cria ag
 
 ## 5. Áudio e revisão
 
-O C1 usa o TTS do navegador; não há MP3 novo. A voz do sistema depende do aparelho. O áudio sintetizado do corpus existente não é ampliado por este curso.
+O C1 usa os MP3 estáticos do corpus completo. Não há TTS no player, nem áudio de vários minutos; se um asset faltar ou falhar, a UI informa indisponibilidade e mantém a dica textual.
 
 Toda forma, glosa, frase e tradução permanece `in-review`. A validação estrutural não prova naturalidade, colocação, registro ou correção. A revisão por falante nativo segue pendente.
 

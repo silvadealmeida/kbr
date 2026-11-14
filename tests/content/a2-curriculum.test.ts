@@ -96,6 +96,54 @@ describe("conteúdo A2 implementado — contrato, gabaritos e vocabulário", () 
     }
   });
 
+  it("a comparação de personalidade em a2-l03 não confunde altura com personalidade", () => {
+    const exercise = A2_IMPLEMENTED_LESSONS
+      .find((lesson) => lesson.id === "a2-l03")
+      ?.exercises.find((item) => item.id === "a2-l03-e04");
+
+    expect(exercise?.type).toBe("reading");
+    if (exercise?.type !== "reading") throw new Error("a2-l03-e04 deve ser reading");
+    expect(exercise.question).toContain("Além da diferença de altura");
+    expect(
+      exercise.options?.find((option) => option.id === exercise.correctOptionId)?.label,
+    ).toBe("Na personalidade.");
+  });
+
+  it("a2-l23-e05 não aceita registro informal para um pedido de forma formal", () => {
+    const exercise = A2_IMPLEMENTED_LESSONS
+      .find((lesson) => lesson.id === "a2-l23")
+      ?.exercises.find((item) => item.id === "a2-l23-e05");
+
+    expect(exercise?.type).toBe("translate");
+    if (exercise?.type !== "translate") throw new Error("a2-l23-e05 deve ser translate");
+    expect(exercise.prompt).toContain("coreano formal");
+    expect(exercise.answer).toBe("고객 지원 경험이 있습니다.");
+    expect(exercise.acceptedAnswers ?? []).not.toContain("고객 지원 경험이 있어요.");
+    expect(
+      checkAnswer(exercise, { kind: "text", value: "고객 지원 경험이 있어요." }).correct,
+    ).toBe(false);
+  });
+
+  it("a2-l30 descreve o conector -고 de forma coerente com seus exemplos", () => {
+    const lesson = A2_IMPLEMENTED_LESSONS.find((item) => item.id === "a2-l30")!;
+    const note = lesson.grammar[0]!;
+
+    expect(note.titlePt).toBe("-고 — encadear ações");
+    expect(note.form).toBe("동사 + -고");
+    expect(note.explanationPt).toContain("tempo pode ser marcado no último predicado");
+  });
+
+  it("a2-l14 preserva o grau de 조금 na tradução do diálogo", () => {
+    const line = A2_IMPLEMENTED_LESSONS
+      .find((lesson) => lesson.id === "a2-l14")
+      ?.dialogue.find((item) => item.id === "a2-l14-d3");
+
+    expect(line?.ko).toContain("조금 시끄러워서");
+    expect(line?.pt).toBe(
+      "Ultimamente ouço barulho à noite; está um pouco barulhento e não consigo dormir.",
+    );
+  });
+
   it("todo item novo tem origem A2, frase contextual e identidade única", () => {
     const forms = new Set<string>();
     for (const lesson of A2_IMPLEMENTED_LESSONS) {

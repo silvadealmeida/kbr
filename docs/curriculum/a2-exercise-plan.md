@@ -61,5 +61,5 @@ A soma de tipos nos checkpoints é: 52 `listen`, 52 `reading`, 21 `mcq`, 45 `clo
 - Itens de leitura têm texto curto próprio; não são perguntas sobre um texto ausente.
 - Itens de escuta têm `audioText` e fallback de voz do sistema.
 - A dificuldade não foi calibrada psicometricamente; a distribuição é editorial.
-- A revisão nativa dos gabaritos, partículas e traduções continua pendente.
+- Não houve revisão por falante nativo dos gabaritos, partículas e traduções; o risco residual foi aceito e não bloqueia o release.
 - Não há alegação de validade de teste nem de cobertura total de CEFR/TOPIK.

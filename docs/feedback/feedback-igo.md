@@ -1,10 +1,17 @@
-# Feedback do usuário — backlog (Igo)
+# Feedback do usuário — registro histórico (Igo)
+
+> **Estado final:** o item 1 (posição da resposta) e o item 2 (áudio) estão resolvidos. O áudio está
+> resolvido com créditos, com 7.790 MP3 servidos por padrão. O item 3 (flashcards ilustrados) não
+> está planejado e não bloqueia o release. A revisão editorial final assistida por IA foi aceita
+> pelo responsável; não houve revisão nativa. Testes físicos não são requisito. As descrições e
+> propostas abaixo preservam o feedback original, não um backlog ativo.
 
 Registro recebido fora do código e preservado aqui para não se perder entre fases.
 Cada item separa **observação**, **verificação**, **severidade**, **área de
 investigação**, **correção proposta**, **critérios de aceite** e **fase
-recomendada**. O item 1 foi implementado e verificado na Fase 8A; os itens 2 e 3
-seguem abertos. A auditoria técnica do áudio está em `docs/audio/`.
+recomendada**. O item 1 foi implementado e verificado na Fase 8A; o item 2 foi
+resolvido com áudio estático e créditos na Fase 14; o item 3 permanece fora do
+escopo e não é uma tarefa planejada. A auditoria vigente do áudio está em `docs/audio/`.
 
 ## 1. Resposta correta costuma aparecer primeiro nas múltiplas escolhas
 
@@ -73,8 +80,8 @@ seguem abertos. A auditoria técnica do áudio está em `docs/audio/`.
   - uma revisão nativa aprova ou corrige cada transcrição antes de publicar;
   - o fallback funciona quando `speechSynthesis` não existe ou falha;
   - decisão registrada sobre áudio dedicado versus voz do sistema.
-- **Fase recomendada:** revisão nativa e decisão de áudio antes do lançamento
-  público; implementação de arquivos dedicados é trabalho futuro, fora da 7F.
+- **Estado final:** áudio resolvido com créditos e riscos residuais de naturalidade aceitos como
+  não bloqueantes. O registro acima descreve a recomendação original, não o veredito atual.
 
 ## 3. Vontade de flashcards de vocabulário ilustrados
 
@@ -113,20 +120,14 @@ seguem abertos. A auditoria técnica do áudio está em `docs/audio/`.
   (`docs/speech/speech-recognition.md`). Exibe o texto reconhecido e se
   corresponde ao esperado; não avalia pronúncia, não altera progresso e não
   bloqueia lições.
-- **Aberto:** confirmar em iPhone/Safari, Chrome iOS, Chrome Android e Chrome
-  Windows (checklist `docs/iphone-manual-checklist.md` §13 e o roteiro do doc de
-  fala); só o reconhecedor simulado foi testado automaticamente.
+- **Cobertura:** teste físico em iPhone/Safari, Chrome iOS, Chrome Android e Chrome Windows não foi
+  executado; não é requisito de release. O checklist é referência opcional, não bloqueio.
 
-## Atualização da Fase 8D
+## Fotografia histórica da Fase 8D (superada)
 
-- **Item 2 (áudio):** os 287 MP3 sintéticos continuam `in-review`. A 8D
-  reverificou integridade e corrigiu o rótulo "gravado" (era falso), mas **não**
-  houve escuta nativa. Surgiu um bloqueio novo: a licença do encoder
-  `kykim/bert-kor-base` não está resolvida, então a distribuição pública/comercial
-  do áudio sintético está **bloqueada** (`docs/audio/license-audit.md`). Itens de
-  maior risco para escuta: ㄹ, ㅐ/ㅔ, ㅚ/ㅙ/ㅞ, tensas × aspiradas em sílabas isoladas
-  e batchim em clipes curtos (`docs/audio/audio-quality-report.md` §3). Segue
-  aberto.
+- **Item 2 (áudio):** a auditoria 8D descreveu o corpus de 287 MP3 e uma avaliação de licença então
+  bloqueante. Isso foi superado na Fase 14: áudio resolvido com créditos, 7.790 MP3 servidos por
+  padrão e sem bloqueio de distribuição no estado operacional aceito pelo responsável.
 - **Item 3 (flashcards ilustrados):** inalterado, futuro.
 - **Item 4 (fala/catálogo):** a prática de fala continua testada só com
   reconhecedor simulado; a matriz para o usuário rodar nos aparelhos está em

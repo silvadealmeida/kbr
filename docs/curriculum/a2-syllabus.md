@@ -4,7 +4,7 @@
 **Carga:** 50–65 min por lição; 40 min por checkpoint (75 min no `a2-c08`); revisão distribuída de 25 min por lição.
 **Avaliação:** 10 itens por lição, mínimo 8/10; 25 itens e 20/25 nos checkpoints 1–7; 40 itens e 32/40 no `a2-c08` (80%). Todos os itens são determinísticos e usam tipos implementados.
 **Entrada:** `a1-c08` concluído. A conclusão é interna e não certifica CEFR/TOPIK.
-**Conteúdo:** original, `in-review`, sem MP3 novo.
+**Conteúdo:** original, `in-review`, servido pelo corpus MP3 completo. Nenhum áudio precisou ser gerado especificamente na fase A2.
 
 ## Módulo 1 — Reencontros e relatos
 

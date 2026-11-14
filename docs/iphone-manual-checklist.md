@@ -1,5 +1,10 @@
 # KBR — Checklist manual de iPhone / Chrome iOS (Fase 6B)
 
+> **Checklist opcional, não é gate de release.** Testes em dispositivos físicos não foram
+> executados nesta finalização e não são obrigatórios. A cobertura automatizada e os riscos aceitos
+> estão em `docs/release/beta-readiness.md`; este roteiro fica disponível apenas como referência
+> para uma eventual verificação manual futura.
+
 **Importante:** os testes automatizados desta fase rodam no WebKit do Playwright
 (`webkit-390`, viewport iPhone 13). Eles **não** substituem um iPhone físico, o
 Safari real, o Chrome iOS real nem o VoiceOver. Nenhuma validação em dispositivo

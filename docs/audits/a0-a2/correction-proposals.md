@@ -1,12 +1,18 @@
 # Correções propostas — ranqueadas por impacto
 
-> **Atualização 12A (2026-11-13):** as correções verificadas foram aplicadas. O
-> detalhe item a item, com arquivos, testes, impacto de áudio e status, está em
-> [`correction-ledger.md`](correction-ledger.md). Este arquivo continua sendo a
-> fila editorial dos itens não aplicados; as seções abaixo mantêm o texto original
-> da auditoria read-only para proveniência.
+> **Registro histórico, superado como decisão de release.** Este arquivo preserva evidência e
+> estado da auditoria na época. O veredito atual é projeto concluído, áudio resolvido com
+> créditos (7.790 MP3 servidos por padrão) e revisão editorial final assistida por IA aceita
+> pelo responsável. Não houve revisão nativa nem teste físico; esses riscos são aceitos e não
+> bloqueiam release. Pendências, bloqueios e contagens antigas abaixo não controlam o estado
+> atual. Ver `docs/release/beta-readiness.md`.
 
-| Proposta | Status na 12A |
+
+> **Snapshot histórico da Fase 12A (2026-11-13):** as correções verificadas daquela fase foram
+> aplicadas; a tabela abaixo registra somente o estado naquela data. Decisões posteriores desta
+> finalização estão em “Disposição final para release”. Este arquivo não é um backlog ativo.
+
+| Proposta | Status na 12A (histórico) |
 |---|---|
 | C-01 (gabarito `a2-l02-e01`) | **aplicada** |
 | C-02/C-04 (validadores de gabarito e partícula) | **aplicadas** em `validate-exercises.ts` |
@@ -27,6 +33,20 @@
 | C-18/C-19/C-20 | **não aplicadas** (MAJOR; fila editorial) |
 | N-01…N-04 | **documentadas**, sem mudança de schema |
 | Rejeitados (`V0-001`, `V0-002`, `V1-002`, `A2M2-003`) | **seguem rejeitados** |
+
+## Disposição final para release (2026-11-14)
+
+| Proposta | Disposição atual | Evidência |
+|---|---|---|
+| C-11 (`h13-e02`) | Corrigido: enunciado pede a sílaba sem glide; tags e SRS apontam para ㅗ/고 | `tests/content/hangul.test.ts` |
+| C-12 (`주의`, h15) | Corrigida a descrição da posição não inicial; sem alegação de revisão nativa | `tests/content/hangul.test.ts` |
+| C-13 (`h18`) | Corrigido para 27 grafias consonantais + ausência de coda | `tests/content/hangul.test.ts`, `docs/pedagogy/hangul.md`, `docs/pedagogy/curriculum.md` |
+| C-19 (`a2-l23-e05`) | Removida a resposta informal aceita por exercício que pede registro formal | `tests/content/a2-curriculum.test.ts` |
+| C-20 (`a2-l30`) | Título, forma e explicação de `-고` alinhados aos exemplos e ao cloze | `tests/content/a2-curriculum.test.ts` |
+
+Os demais itens desta lista são snapshots/propostas antigas, não tarefas de release. Somente erros
+concretos e justificáveis foram alterados; os riscos de qualidade não resolvidos foram aceitos pelo
+responsável e não bloqueiam a publicação.
 
 Fase original **read-only**: este arquivo é a lista de trabalho para uma fase de correção com
 aprovação humana. Cada linha tem o ID do achado de

@@ -27,6 +27,69 @@ const ALL_EXERCISES = [
 ];
 
 describe("conteúdo Hangul — curso completo h01–h25 + c1–c4", () => {
+  test("h13-e02 pergunta pela sílaba sem glide quando o gabarito é 고", () => {
+    const exercise = LESSONS.find((lesson) => lesson.id === "h13")?.exercises.find(
+      (item) => item.id === "h13-e02",
+    );
+
+    expect(exercise?.type).toBe("audio-to-char");
+    if (exercise?.type !== "audio-to-char") throw new Error("h13-e02 deve ser audio-to-char");
+    expect(exercise.correctOptionId).toBe("go");
+    expect(exercise.prompt).toMatch(/sem glide labial/i);
+    expect(exercise.tags).toContain("ㅗ");
+    expect(exercise.tags).not.toContain("pronunciation:glide-labial");
+    expect(exercise.srsCards).toEqual(["h:jamo:v:ㅗ", "h:syl:고"]);
+  });
+
+  test("h05-e10 usa apenas alternativas formadas com consoantes já ensinadas", () => {
+    const exercise = LESSONS.find((lesson) => lesson.id === "h05")?.exercises.find(
+      (item) => item.id === "h05-e10",
+    );
+
+    expect(exercise?.type).toBe("audio-to-char");
+    if (exercise?.type !== "audio-to-char") throw new Error("h05-e10 deve ser audio-to-char");
+    expect(exercise.options.map((option) => option.jamo)).toEqual([
+      "머리",
+      "머니",
+      "다리",
+    ]);
+  });
+
+  test("h15 descreve ㅢ em posição não inicial, não como depois de consoante", () => {
+    const lesson = LESSONS.find((item) => item.id === "h15")!;
+    const intro = lesson.intro.find((item) => item.title === "ㅢ: início, meio e partícula")!;
+    const reading = lesson.exercises.find((item) => item.id === "h15-e04");
+
+    expect(intro.body).toContain("posição não inicial");
+    expect(intro.body).toContain("주의");
+    expect(reading?.type).toBe("reading");
+    if (reading?.type !== "reading") throw new Error("h15-e04 deve ser reading");
+    expect(reading.explanation).toContain("posição não inicial");
+  });
+
+  test("h18 conta 27 consoantes finais escritas e os sete sons representativos", () => {
+    const lesson = LESSONS.find((item) => item.id === "h18")!;
+    const intro = lesson.intro.find((item) => item.title === "Sete sons no total")!;
+
+    expect(intro.body).toContain("27 batchim consonantais escritos");
+    expect(intro.body).toContain("sete sons");
+  });
+
+  test("h21 explica corretamente as codas de 음악 e 강아지", () => {
+    const lesson = LESSONS.find((item) => item.id === "h21")!;
+    const music = lesson.exercises.find((item) => item.id === "h21-e02");
+    const puppy = lesson.exercises.find((item) => item.id === "h21-e11");
+
+    expect(music?.type).toBe("mcq");
+    if (music?.type !== "mcq") throw new Error("h21-e02 deve ser mcq");
+    expect(music.explanation).toContain("ㅁ final de 음");
+    expect(music.explanation).not.toContain("ㄱ final de 음");
+    expect(puppy?.type).toBe("mcq");
+    if (puppy?.type !== "mcq") throw new Error("h21-e11 deve ser mcq");
+    expect(puppy.explanation).toContain("final ㅇ é nasal [ŋ]");
+    expect(puppy.explanation).toContain("permanece no fim de 강");
+  });
+
   test("o currículo implementado passa na validação sem erros", () => {
     const issues = validateCurriculum(HANGUL_CURRICULUM);
     expect(issues.filter((issue) => issue.severity === "error")).toEqual([]);

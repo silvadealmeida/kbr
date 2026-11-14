@@ -42,4 +42,4 @@
 - `tests/audio-manifest.test.ts` exige cobertura integral; qualquer nova lacuna falha.
 - `tests/fixtures/stale-audio.json` mantém `missing`/`obsolete` vazios como contrato.
 - O player usa os MP3 por padrão; `NEXT_PUBLIC_KBR_STATIC_AUDIO=0` é o kill switch.
-- A licença do encoder `kykim/bert-kor-base` continua não esclarecida; a decisão de risco está em `docs/audio/license-audit.md` §13.
+- O áudio está **resolvido com créditos** conforme a decisão vigente em `docs/audio/license-audit.md` §13; MeloTTS, MeloTTS-Korean, `kykim/bert-kor-base`/LMkor e FFmpeg/libmp3lame têm créditos publicados.

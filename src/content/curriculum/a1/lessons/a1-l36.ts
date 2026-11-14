@@ -45,7 +45,7 @@ export const A1_L36: A1LessonContent = defineA1Lesson({
     line("a1-l36-d1", "직원", "어서 오세요. 뭐 드릴까요?", "Bem-vindo. O que posso servir?"),
     line("a1-l36-d2", "민수", "소고기 대신 닭고기 주세요. 알레르기가 있어요.", "Carne de frango em vez de carne bovina, por favor. Tenho alergia."),
     line("a1-l36-d3", "직원", "네. 돼지고기는 괜찮아요?", "Certo. Carne de porco está bem?"),
-    line("a1-l36-d4", "민수", "아니요, 돼지고기는 안 돼요.", "Não, carne de porco não pode."),
+    line("a1-l36-d4", "민수", "아니요, 돼지고기는 안 돼요.", "Não, não posso comer carne de porco."),
     line("a1-l36-d5", "직원", "그럼 닭고기 주세요?", "Então sirvo frango?"),
     line("a1-l36-d6", "민수", "네, 닭고기 주세요. 그리고 물 주세요.", "Sim, frango, por favor. E água."),
   ],
@@ -92,7 +92,7 @@ export const A1_L36: A1LessonContent = defineA1Lesson({
       "Resolver uma indisponibilidade",
       "괜찮아요 / 대신 / 다른",
       "Se algo não estiver disponível, use 괜찮아요 para aceitar uma alternativa, 대신 para substituir e 다른 para “outro”. Confirme o pedido final antes de encerrar.",
-      examples(["돼지고기는 안 돼요.", "Carne de porco não pode."], ["다른 음식 주세요.", "Outra comida, por favor."]),
+      examples(["돼지고기는 안 돼요.", "Não posso comer carne de porco."], ["다른 음식 주세요.", "Outra comida, por favor."]),
     ),
   ],
   exercises: [

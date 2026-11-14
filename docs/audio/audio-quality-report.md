@@ -1,5 +1,11 @@
 # Relatório de qualidade e integridade do áudio — Fase 8D
 
+> **Relatório histórico.** As medidas técnicas deste documento eram da primeira geração de
+> 287 MP3 e não são números atuais. O estado vigente é **resolvido com créditos**, com **7.790 MP3**
+> de Hangul, A1–C2 e vocabulário servidos por padrão; `NEXT_PUBLIC_KBR_STATIC_AUDIO=0` é apenas
+> kill switch. Não houve revisão nativa; o risco residual de qualidade é aceito e não bloqueia o
+> release. Veja [`generation-guide.md`](generation-guide.md) e [`credits.md`](credits.md).
+
 **Data:** 2026-11-12  
 **Natureza:** auditoria técnica de MP3 **sintéticos** (MeloTTS-Korean). Nada aqui certifica pronúncia: nenhuma escuta por falante nativo ocorreu, e transcrição/G2P automáticos não substituem essa escuta. Questão de licença: `license-audit.md`.
 

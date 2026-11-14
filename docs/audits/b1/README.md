@@ -1,5 +1,10 @@
 # Auditoria 12B — B1 (coreano A0–A2 → B1), somente leitura
 
+> **Arquivo histórico de auditoria.** Os resultados e correções da 12B–12D foram concluídos. A
+> revisão editorial final assistida por IA foi aceita pelo responsável; não houve revisão nativa.
+> O áudio atual está resolvido com créditos e 7.790 MP3 servidos por padrão. Riscos residuais de
+> qualidade não bloqueiam o release.
+
 **Status: CONCLUÍDA (12B), EXECUTADA (12C) e FECHADA EDITORIALMENTE (12D).** A auditoria linguística e pedagógica completa do B1 implementado não alterou conteúdo na 12B. Na 12C as correções verificadas foram aplicadas localmente: 3 dos 4 CRÍTICO corrigidos, C001 rejeitado (`것으로` é a forma correta), fairness sistêmica resolvida, progressão por micro-ensino e 65 `reusedIds` congeladas. Na 12D os 14 INCERTOS (`U001`–`U014`) receberam disposição final `EDITORIALLY_RESOLVED_AI`, sem alegação de revisão nativa. O ledger de execução é [`correction-ledger.md`](correction-ledger.md); as decisões finais estão em [`final-editorial-decisions.md`](final-editorial-decisions.md).
 
 - Linha de base: `6e5d38bf8e9ec89c86d4d3236301a114ff2a0f45` · Branch local `audit/b1-phase-12b` (sem push — decisão do dono).

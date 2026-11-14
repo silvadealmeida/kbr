@@ -1,5 +1,13 @@
 # B1 — propostas de correção ordenadas (Fase 12B → execução 12C/12D)
 
+> **Registro histórico, superado como decisão de release.** Este arquivo preserva evidência e
+> estado da auditoria na época. O veredito atual é projeto concluído, áudio resolvido com
+> créditos (7.790 MP3 servidos por padrão) e revisão editorial final assistida por IA aceita
+> pelo responsável. Não houve revisão nativa nem teste físico; esses riscos são aceitos e não
+> bloqueiam release. Pendências, bloqueios e contagens antigas abaixo não controlam o estado
+> atual. Ver `docs/release/beta-readiness.md`.
+
+
 > **Atualização 12D (2026-11-13):** os 14 INCERTOS (`U001`–`U014`) foram fechados editorialmente com `EDITORIALLY_RESOLVED_AI`; o dono decidiu não exigir uma fase separada de revisão humana/nativa para este backlog. As decisões finais, o antes/depois e os testes estão em [`final-editorial-decisions.md`](final-editorial-decisions.md). Resumo: `U001`, `U003`, `U009` e `U012` preservam formas válidas com esclarecimento; `U005` foi rejeitado como uso válido; `U002`, `U004`, `U006`, `U008` e `U013` receberam correções pontuais; `U007`, `U010`, `U011` e `U014` receberam esclarecimento contextual/metalinguístico. Nenhum item foi marcado como revisado por nativo.
 
 > **Atualização 12C (2026-11-13):** este documento deixou de ser somente proposta. O ledger de execução, com evidência, teste e impacto de áudio por achado, está em [`correction-ledger.md`](correction-ledger.md). Resumo: **3 dos 4 CRÍTICO corrigidos**; o C001 foi **rejeitado** porque `것` tem batchim ㅅ e `것으로` é a forma correta (a 12B propunha `것로`, agramatical). Todos os MAJOR de conteúdo local, fairness, progressão por micro-ensino e higiene de dados foram tratados; M022 foi **congelado** como dívida de 65 referências (heurística de flexão), sem deletar IDs. Minors executados e adiados estão listados no ledger. Nada foi marcado como revisado por nativo.

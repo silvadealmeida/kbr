@@ -46,7 +46,7 @@ Cada lição tem exatamente **5 itens guiados + 5 independentes**, dois de cada 
 - Todo `listen` pede a **frase completa**; o builder acrescenta a instrução comum quando o enunciado específico não a contém.
 - As frases do B2 são mais longas que no B1, mas continuam sendo **uma frase por item**.
 - **Limitação declarada:** o motor atual não apresenta um áudio de vários minutos nem permite perguntas sobre um discurso longo. O curso usa diálogos no material de ensino e frases longas na avaliação; não simula uma compreensão extensiva que o motor não oferece.
-- O áudio é TTS do navegador (`ko-KR`). Nenhum MP3 novo foi gerado e a flag de áudio estático permanece opt-in.
+- O áudio do B2 usa MP3 do corpus estático completo, servido por padrão; `NEXT_PUBLIC_KBR_STATIC_AUDIO=0` é apenas kill switch. O player não usa TTS de navegador.
 
 ## 4. Fairness e gabaritos
 
@@ -92,7 +92,7 @@ O B2 reutiliza `validateExerciseSpec` e acrescenta:
 - contagem e limiar de checkpoint por módulo;
 - revisão `in-review`.
 
-Nenhum validador prova naturalidade, registro ou correção linguística. A revisão nativa continua pendente.
+Nenhum validador prova naturalidade, registro ou correção linguística. Não houve revisão por falante nativo; a revisão editorial assistida por IA foi aceita pelo responsável, e esse risco residual não bloqueia o release.
 
 ## 8. Implementação verificada
 

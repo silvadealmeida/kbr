@@ -46,4 +46,4 @@ O texto **não é corrigido automaticamente**, não é enviado, não é persisti
 
 ## Limites
 
-A dificuldade não foi calibrada psicometricamente. A produção aberta depende de autoavaliação ou revisão humana. A revisão nativa dos gabaritos, partículas e traduções continua pendente.
+A dificuldade não foi calibrada psicometricamente. A produção aberta depende de autoavaliação ou revisão humana. Não houve revisão por falante nativo dos gabaritos, partículas e traduções; o risco residual foi aceito e não bloqueia o release.

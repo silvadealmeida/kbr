@@ -1,136 +1,47 @@
-# Prontidão para beta controlado — Fase 8D (atualizado na 8E, 8F, 12A e 12C)
+# Prontidão para release público — decisão final
 
-**Data:** 2026-11-13  
-**Veredito:** o KBR ainda tem pendências jurídicas de privacidade antes de produção pública. O áudio está **resolvido com crédito** (orientação do autor informada pelo dono, `docs/audio/credits.md`): `public/audio/` é publicado e os **7.790 MP3** (Hangul, A1, A2, B1, B2, C1, C2 e vocabulário) cobrem o inventário inteiro, sem TTS. Para um **beta fechado**, o código está estável. A 12C corrigiu os defeitos verificados do B1 (3/4 CRÍTICO; C001 rejeitado por evidência), zerou a dívida de pontuação/instrução de escuta e congelou 65 `reusedIds` — nenhum item foi marcado como revisado por nativo. Nada aqui foi testado em dispositivo real.
+**Atualizado:** 14 de novembro de 2026
+**Veredito:** projeto concluído para release público. A produção já foi aceita pelo responsável e não foi revalidada nesta execução; nova validação de produção não é requisito. Não haverá deploy manual. Não há fase ou tarefa planejada.
 
-Legenda: **PASS** (verificado nesta fase com evidência) · **BLOCKED** (impede o uso indicado) · **MANUAL TEST REQUIRED** (só aparelho/serviço real decide) · **DEFERRED** (fora do escopo, decisão registrada).
+## Decisões consolidadas
 
-## 1. Checklist de lançamento
+| Área | Estado final | Evidência / limite declarado |
+|---|---|---|
+| Produção | **ACEITA PELO RESPONSÁVEL** | Não houve nova validação nesta execução, conforme decisão do responsável. Não é bloqueio. |
+| Áudio | **RESOLVIDO COM CRÉDITOS** | 7.790 MP3 de Hangul, A1, A2, B1, B2, C1, C2 e vocabulário; servidos por padrão. `NEXT_PUBLIC_KBR_STATIC_AUDIO=0` é somente kill switch. Créditos para MeloTTS, MeloTTS-Korean, `kykim/bert-kor-base`/LMkor e FFmpeg/libmp3lame em `/impressum` e `docs/audio/credits.md`. |
+| Revisão editorial | **CONCLUÍDA E ACEITA** | Revisão editorial final assistida por IA, aceita pelo responsável pelo projeto. Foram lidas as correções dos 237 distratores e os achados ainda `in-review`; dez erros concretos foram corrigidos com regressões. Não se afirma revisão por falante nativo. |
+| Conteúdo `in-review` | **RISCO RESIDUAL ACEITO** | O rótulo permanece para não sugerir validação nativa. Naturalidade, registro, tradução e áudio sintético não foram aprovados por falante nativo; isso não bloqueia o release. |
+| Privacidade e jurídico | **POLÍTICA OPERACIONAL FINALIZADA** | `/privacidade` e `/impressum` descrevem os limites e o canal público existente sem inventar dados pessoais. Não se afirma parecer de advogado ou conformidade profissional certificada. |
+| Dispositivos físicos | **NÃO EXECUTADOS; NÃO EXIGIDOS** | Playwright Chromium/WebKit cobre a matriz documentada. iPhone/Android físicos, leitores de tela reais e teclados nativos não foram testados e não bloqueiam o release. |
+| Testes automatizados | **APROVADOS NESTA FINALIZAÇÃO** | Typecheck, 728 testes Vitest, build de produção e matriz Playwright: 711 passaram, 38 skips intencionais, zero falhas. Nenhum teste foi enfraquecido. |
 
-| # | Item | Status | Evidência / observação |
-|---|---|---|---|
-| 1 | Créditos do áudio sintético (MeloTTS + `kykim/bert-kor-base`) | **RESOLVIDO COM CRÉDITO** (orientação do autor informada pelo dono) | `/impressum` §“Créditos de terceiros”; `docs/audio/credits.md`; `license-audit.md` §13 |
-| 1a | Contenção do deploy (8E) | **RESTAURADA NA 12A** (sem apagar o corpus) | MP3 seguem em `public/audio/v1/`; `public/audio/` está no `.vercelignore`; `STATIC_AUDIO_ENABLED` é opt-in (`NEXT_PUBLIC_KBR_STATIC_AUDIO=1`); guarda em `prebuild`/`postbuild` e `tests/audio-containment.test.ts`; E2E liga a flag explicitamente |
-| 1b | Exposição existente: repositório GitHub público e deployments anteriores | **RISCO ACEITO** | o corpus é público no repositório e na história; deployments antigos não verificados; plano em `docs/audio/exposure-and-removal-plan.md` |
-| 2 | Integridade dos 7.790 MP3 e inventário de 7.790 textos (SHA-256, órfãos, corrupção, duplicados) | **PASS**, sem lacunas (Hangul–C2) | `audio-quality-report.md` §1; `tests/audio-manifest.test.ts`; `docs/audio/stale-audio-manifest.md` |
-| 3 | Reprodução honesta (sem falso sucesso, voz `ko` explícita, fallback) | **PASS** (código + simulado) | revisão de `playback.ts`; 453 Vitest; real-device pendente (item 17) |
-| 4 | Rótulo do áudio como sintético | **PASS** (corrigido na 8D) | "gravado" → "sintetizado (referência provisória)" |
-| 5 | Qualidade fonética por falante nativo | **DEFERRED** | impossível sem revisor; todos os itens seguem `in-review`; bloqueia a promessa de "pronúncia correta", não o beta rotulado |
-| 6 | Revisão nativa do conteúdo coreano | **DEFERRED** | lista de dúvidas em §4; conteúdo permanece `in-review` |
-| 7 | Google OAuth | **MANUAL TEST REQUIRED** | fluxo coberto por mock/E2E; configuração Supabase/Google e iOS reais não acessados; produção da 4D.3 é relato do usuário |
-| 8 | `Progress` v1 e CAS | **PASS** (local) | Vitest `supabase-cas`, `sync-concurrency`, `progress-sync` verdes; pgTAP/concorrência **não reexecutado** na 8D (o script exige senha do PostgreSQL local); remoto = relato do usuário |
-| 9 | Offline / reconexão | **PASS** (reconexão) · **DEFERRED** (offline real) | E2E de reconexão e pendência em Chromium+WebKit; sem service worker por decisão (`docs/offline-pwa-decision.md`) |
-| 10 | PWA (manifesto, instalabilidade, cabeçalhos) | **PASS** (automatizado) · **MANUAL TEST REQUIRED** (iOS) | `Page.getInstallabilityErrors`; ícone/instalação no iPhone é manual |
-| 11 | `/fala` rotulada como experimental | **PASS** | aviso "Recurso experimental", fora da navegação, não vale nota, não toca `Progress`/SRS |
-| 12 | `/fala` em navegadores reais | **MANUAL TEST REQUIRED** | só reconhecedor simulado; matriz em `iphone-manual-checklist.md` §14 |
-| 13 | Layout móvel (375/390/768/1280, claro/escuro) | **PASS** (automatizado) · **MANUAL TEST REQUIRED** (aparelho) | `e2e/catalog-layout.spec.ts` e demais |
-| 14 | Acessibilidade | **PASS** (axe wcag2a/aa/21a/21aa) · **MANUAL TEST REQUIRED** (VoiceOver/TalkBack/NVDA) | sem alegação de conformidade WCAG completa |
-| 15 | Privacidade / jurídico | **BLOCKED** (público) | `/privacidade` e `/impressum` têm campos "a confirmar" (controlador, contato, retenção, DPAs); revisão jurídica pendente (`docs/privacy-audit.md`). A seção de microfone existe (§2.4) |
-| 16 | Segurança | **PASS** (escopo da fase) | cabeçalhos globais, `no-store` em rotas privadas, sem `Permissions-Policy` que bloqueie o microfone; sem bloqueio de segurança identificado. **Não é pentest** |
-| 17 | Testes automatizados | **PASS** | §2 e §8 (12A); 12C acrescenta B1 fairness, correções críticas e progressão. Nenhum teste enfraquecido; skips intencionais documentados |
-| 18 | Correções B1 da 12B | **PASS (local)** · **NATIVE REVIEW DEFERRED** | `docs/audits/b1/correction-ledger.md`: 3 CRÍTICO corrigidos, C001 rejeitado, 25 MAJOR tratados (23 corrigidos, 1 parcial, 1 congelado), 14 minors executados, 6 adiados, 14 UNCERTAIN intactos; 0/381 itens digitados exigem pontuação exata e 0/132 listen pedem fragmento |
-| 18 | Dispositivos reais (iPhone Safari/Chrome, Android Chrome, Windows Chrome/Edge) | **MANUAL TEST REQUIRED** | nenhum teste físico existe |
+## Política operacional publicada
 
-**Não marcar como pronto para produção** enquanto os itens 1 e 15 estiverem BLOCKED.
+- O único canal de contato publicado é o repositório público `https://github.com/silvadealmeida/kbr`. Não há e-mail privado de privacidade publicado. A página instrui a não publicar dados pessoais e reconhece o limite de não haver canal privado.
+- O repositório não declara licença de reutilização do código/conteúdo; acesso público não concede direitos de cópia. Nenhuma licença foi inventada nesta finalização. Isso não impede o funcionamento ou a publicação do serviço.
+- Não há botão de exclusão de conta no app; a política não inventa prazo de retenção nem prazo próprio de resposta. Logs de provedores seguem as políticas deles.
+- As páginas legais não alegam avaliação de advogado, isenção ou conformidade jurídica certificada. O responsável aceita esses limites operacionais como riscos residuais não bloqueantes.
 
-## 2. Testes executados na 8D
+## Limites e riscos residuais aceitos
+
+- Sem revisão por falante nativo ou teste com aprendizes; sem validação psicométrica ou equivalência CEFR/TOPIK.
+- Áudio sintético, não gravação nativa, e sem avaliação automática de pronúncia.
+- Sem teste físico de iPhone/Android, VoiceOver/TalkBack ou teclado nativo; axe não é certificação WCAG.
+- O canal público não é privado, não há exclusão de conta pelo app, e retenção de logs de terceiros/região de hospedagem não é especificada nesta política.
+- O repositório não declara licença de reutilização do código/conteúdo; acesso público não concede direitos de cópia. Nenhuma licença foi inventada nesta finalização. Isso não impede o funcionamento ou a publicação do serviço.
+- A decisão do responsável sobre produção é aceita; esta execução não acessa nem altera Vercel/Supabase.
+
+Esses limites foram aceitos pelo responsável e **não são bloqueios do release**. Nenhum nível será descrito como revisado por falante nativo. Nenhuma nova fase está planejada.
+
+## Gates desta finalização
 
 | Comando | Resultado |
 |---|---|
-| `npm run typecheck` | limpo |
-| `npm test` | **453/453** em 30 arquivos (445 anteriores + 8 da auditoria estrutural) |
-| `npm run build` | verde |
-| `npm run e2e` | **452 passaram, 22 skips intencionais** (Chromium 375/390/768/1280 + WebKit 390), execução repetida depois das correções de texto |
+| `npm run typecheck` | **PASS** (`tsc --noEmit`) |
+| `npm test` | **PASS** — 54 arquivos, **728 testes**; 8,54 s |
+| `npm run build` | **PASS** — Next.js 16.4.6 / Turbopack; rotas públicas e dos cursos geradas |
+| `npm run e2e -- --config=.e2e-isolated.config.ts` | **PASS** — matriz completa: **711 passaram, 38 skips intencionais, 0 falhas**; Chromium 375/390/768/1280 + WebKit 390; 3,4 min |
 
-### 2.1 Reexecução na 8F (2026-11-12, flag desligada, sem alteração de lógica de progresso/grading/sync)
+O E2E usou uma configuração isolada temporária na porta 3101, herdando os projetos e a matriz de `playwright.config.ts`, porque a porta 3100 estava ocupada por outro projeto local. O servidor preexistente não foi interrompido. O mock Supabase de teste iniciou em 54321. Os dois ajustes de regressão nesta finalização mantêm asserções válidas: o smoke verifica o aviso legal atual e o OAuth compara a origem efetiva da página. Os 38 skips existentes continuam intencionais e documentados nos specs; nenhum foi introduzido para obter o resultado.
 
-| Comando | Resultado |
-|---|---|
-| `npm run typecheck` | limpo |
-| `npm test` | **460/460** em 31 arquivos (+1 teste: nenhum áudio versionado fora de `restricted-assets/`) |
-| `npm run build` | verde; `[audio-guard] OK` em prebuild e postbuild; `find .next -iname '*.mp3'` → 0 |
-| `npm run e2e` | **446 passaram, 33 skips intencionais** (Chromium 375/390/768/1280 + WebKit 390); mesma contagem da 8E. Falhas: nenhuma |
-
-Mudança de código da 8F: apenas `next.config.mjs` (cabeçalho `immutable` de `/audio/*` agora só com a flag ligada) e o teste acima. Nada em `Progress` v1, CAS, grading, sync ou migrações.
-
-Cobertura **simulada × real**:
-
-| Área | Automatizado (simulado) | Real |
-|---|---|---|
-| Reconhecimento de fala | controlador e UI com reconhecedor falso (Vitest + Playwright) | **nenhuma** execução |
-| Voz do sistema (`speechSynthesis`) | falsa nos testes; MP3 real no E2E de Chromium | **nenhuma** |
-| WebKit | Playwright WebKit (iPhone 13 emulado) | iPhone físico: **nenhum** |
-| OAuth / Supabase | mock local + testes SQL locais | produção só por relato (4D.3) |
-| Leitores de tela | axe | **nenhuma** |
-
-## 3. Prática de fala — auditoria de prontidão
-
-| Critério | Resultado | Evidência |
-|---|---|---|
-| Detecção por recurso, não por nome de navegador | OK | `detectSpeechSupport` |
-| "Local" só com pacote confirmado | OK | `available()==="available"` → `processLocally=true`; todo o resto é remoto/desconhecido |
-| Consentimento antes de processamento remoto/desconhecido | OK | `start` sem `consent` emite `consent-required`; consentimento só em memória, revogável |
-| Microfone só por clique | OK | nenhum `start()` em efeito; teste E2E |
-| Permissão negada, sem fala, rede, timeout, idioma | OK | mapeados em pt-BR (`SPEECH_ERROR_MESSAGES`) |
-| Cancelamento e limpeza | OK | `release()` anula handlers e chama `abort()`; token descarta eventos tardios; hook destrói ao desmontar |
-| Comparação de texto conservadora | OK | NFC + remoção de espaços/pontuação; sem equivalência de jamo; não avalia pronúncia |
-| Nada gravado/persistido/enviado pelo KBR | OK | varredura: sem `MediaRecorder`, `getUserMedia`, `fetch`, `localStorage`, `console` em `lib/speech` e `components/speaking` |
-| Fallback para navegador sem API | OK | aviso + campo de texto/ditado do teclado |
-| Documentação de privacidade | OK, com revisão jurídica pendente | `/privacidade` §2.4 |
-| Pacote de idioma | OK | `install()` só em clique do botão |
-
-Achados:
-
-1. **Corrigido:** a mensagem de "indisponível" afirmava como fato o comportamento no iPhone ("exige o Safari com Siri/Ditado… não funciona na Tela de Início"). Era pesquisa, não teste em aparelho. Reescrita com "pode depender" e "ainda não verificamos em aparelho real".
-2. **Baixo, não alterado:** o estado `starting` não tem timeout próprio (se o prompt de permissão for ignorado, o aluno precisa tocar em Cancelar/Parar; ambos estão visíveis). Se o aparelho nunca disparar `onstart`, a captura fica "Aguardando o microfone…" até a ação do aluno.
-3. **A confirmar em aparelho:** cada cartão cria seu próprio controlador; ao tocar em *Falar* em outro cartão com um primeiro ainda ouvindo, o primeiro é cancelado no efeito seguinte. Verificar que não há dois microfones abertos (matriz C7).
-4. **A confirmar em aparelho:** não há tratamento de `visibilitychange`/`pagehide`; o limite é o timeout de escuta de 10 s e o cancelamento ao desmontar (C7).
-5. Nenhum ajuste de grading, `Progress`, SRS ou torna a fala obrigatória (nada foi mexido).
-
-## 4. Auditoria do currículo
-
-Checagens programáticas novas (`tests/content/curriculum-audit.test.ts`, 8 testes, todos verdes), independentes de `validateCurriculum` e usando decomposição Unicode NFD própria.
-
-### 4.1 Defeitos estruturais verificados
-
-- **1 defeito corrigido:** rótulo "áudio gravado" para áudio sintético (§ licença/áudio).
-- **Nenhum** outro: IDs de exercício únicos em 29 passos; sílabas decompõem exatamente nas partes declaradas e textos únicos; gabaritos presentes nas opções; sem opções duplicadas (ids, glifos, rótulos, `audioText`); em `audio-to-char` o som tocado contém o jamo-gabarito (jamo solto é pronunciado numa sílaba-veículo, p. ex. ㅋ→코; por desenho); em `char-to-audio` e `listen` o áudio correto coincide com o texto; pré-requisitos existem e são anteriores na ordem real do curso (que intercala checkpoints); cada jamo aparece em `newJamo` da lição que o introduz; as 23 formas faladas coincidem com as funções puras e com o `g2pkk`; sem MP3 repetido ou corrompido. Nomes dos jamo (`namePt`: ieung, giyeok, nieun… ssangjieut) seguem a romanização revisada das letras; o curso não usa romanização em palavras.
-
-### 4.2 Questões linguísticas que exigem revisão nativa (não alteradas)
-
-- Transcrições didáticas: as 23 formas faladas de `rules.ts` e `감사함니다` coincidem com o `g2pkk`, mas sem aval humano. **`전와`** (nota de `syllables.ts`, aproximação do ㅎ fraco de 전화) **não** é confirmada: o `g2pkk` mantém `전화` e, se alimentado com `전와`, devolve `저놔` (ligação). Tratar como descrição informal, não como transcrição; revisar com falante nativo.
-- IPA `ㅟ [y]` e `ㅚ [ø]` (monotongos de manual) × realizações comuns como ditongo; já existem tags `pronunciation:variation-wi/oe`, mas a escolha do valor exibido precisa de revisão.
-- Fusões ㅐ/ㅔ, ㅚ/ㅙ/ㅞ, ㅒ/ㅖ: já marcadas `merged-*`; confirmar quais "pares mínimos" são realmente distinguíveis para nativos.
-- Variação de ㅢ; ㄹ final em contexto; 11 batchim duplos; tradução de `곬`; naturalidade das frases de h24/h25/c4; critério h18 aproximado por `h18-seen-sounds`.
-
-### 4.3 Preferências subjetivas (não são defeitos)
-
-Voz única (`KR`), ritmo de item isolado, 0,75× como velocidade lenta, escolha dos textos de exemplo, tom das explicações.
-
-## 5. Bloqueios de lançamento
-
-1. **Licença do áudio** (item 1) — resolver com R1/R2/R3 de `license-audit.md`.
-2. **Privacidade/Impressum** (item 15) — preencher controlador, contato, retenção; revisão jurídica.
-3. (Para promessa de qualidade, não para beta rotulado) revisão nativa do áudio e do conteúdo.
-
-## 6. Próxima fase recomendada (histórico da 8D/8E; a decisão atual está em `curriculum-handoff.md`)
-
-*(A 8E executou os itens (b) e (c); abaixo, o plano original.)* **8E — Resolução de licença e contenção do áudio**, sem conteúdo novo: (a) enviar R1/R2 e registrar respostas — **rascunhos prontos**, não enviados (`docs/audio/permissions/email-drafts.md`); (b) contenção R3 — **feita na 8E** (ver acima); (c) auditoria R6 — **feita na 8E** (`docs/audio/dependency-licenses.md`); (d) o dono executa a matriz do §14 do checklist em pelo menos um iPhone e um Android/Windows; (e) só depois decidir entre manter o MeloTTS, trocar de TTS ou gravar com falante nativo.
-
-## 7. Fase 8F — encerramento da infraestrutura de áudio
-
-- **[Histórico]** A contenção da 8E foi revertida em 2026-11-12 e o corpus passou a ser servido por padrão. A licença do encoder continua não esclarecida e o risco foi aceito pelo dono (`docs/audio/license-audit.md` §11). **A 12A restaurou o padrão seguro:** áudio opt-in, `public/audio/` no `.vercelignore` e guarda de build; ver §8. Plano histórico: `docs/audio/exposure-and-removal-plan.md`.
-- Fallback do navegador: voz coreana explícita (`pickKoreanVoice`), "indisponível" tratado sem fingir sucesso, rótulos "voz do sistema, sem revisão nativa" (`exercise-media.tsx`), progressão da lição independente do áudio. Verificado por revisão de código e testes simulados; **não** em aparelho real.
-- Próximo foco: currículo (`docs/release/curriculum-handoff.md`). Licença/pronúncia não bloqueiam conteúdo original local.
-
-## 8. Fase 12A — correções linguísticas e contenção (2026-11-13)
-
-- **Escopo:** correções verificadas da auditoria A0–A2, validadores de regressão e restauração do padrão seguro de áudio; **sem B2/C1/C2, sem migração, sem mudança em `Progress` v1/CAS/Leitner, sem apagar áudio, sem push/deploy.**
-- **Críticos corrigidos:** 6/6 verificados (`a2-l02-e01`, `a1-l11-e06`/`a1-c03-e13`, `a1-l25`, `a1-l01-e03`, `h21-e02`/`rule:liaison`, `ko:따라서`). `A1M1-002` (ambiguidade de `a1-l03-e09`) também foi corrigido e rebaixado a MAJOR; `V0-001` continua rejeitado.
-- **Avaliação:** 126 itens digitados do A2 deixaram de exigir pontuação final; 188 ocorrências de `listen` com enunciado de fragmento e gabarito de frase inteira foram alinhadas; variantes válidas (`계셔요`, `뵀어요`, `삼층이에요`, `은`, `보아요`, `면`, `는 것이`) passaram a ser aceitas; 6 `acceptedAnswers` redundantes do A1/A2 foram removidas (3 do B1 ficaram intactas).
-- **Progressão:** `-았/어야 했어요`, `-(으)ㄹ 때`, `-라고 하다` e `-면서` deixaram de ser cobrados antes do ensino; `-면서` ganhou bloco próprio em `a2-l40`.
-- **Validadores novos:** gabarito de MCQ fora das opções, referência de escolha/leitura inexistente, partícula fixa incompatível com o batchim, resposta vazia/redundante, `listen` com áudio divergente, alvo contextual dentro de palavra maior e dívida congelada de `reusedIds`. Fixtures positivas e negativas em `tests/content/curriculum-validators.test.ts`, `assessment-fairness.test.ts` e `reuse-audit.test.ts`.
-- **B1:** conteúdo linguístico não foi alterado; o validador compartilhado roda com `checkRedundantAccepted: false` para não reescrever a dívida do B1. A suíte B1 e a E2E B1 passaram.
-- **Áudio:** 7.790 MP3 preservados e servidos por padrão; nenhuma lacuna entre inventário e manifesto (Hangul–C2); player somente assets, sem TTS. Crédito a MeloTTS/MeloTTS-Korean e `kykim/bert-kor-base` em `/impressum` e `docs/audio/credits.md`.
-- **Validação:** typecheck limpo; **595 Vitest / 42 arquivos**; build verde com `[audio-guard] OK`; **646 Playwright (619 executados + 27 skips; Chromium 375/390/768/1280 + WebKit 390)**.
-- **Limites:** revisão nativa do coreano continua pendente; B1 ainda precisa de auditoria linguística própria; iPhone/Chrome iOS/VoiceOver reais não foram testados; a licença do áudio não foi resolvida.
+O aviso de `configLoader: 'native'` do Vite durante o Vitest é informativo e não afeta o resultado. Os resultados acima são desta finalização; contagens históricas por fase não os substituem.

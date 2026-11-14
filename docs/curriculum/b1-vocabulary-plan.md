@@ -31,7 +31,7 @@ O B1 adiciona **320 identidades novas** e **320 frases contextuais**, 8 por liç
 
 ## Contexto obrigatório
 
-Antes da resposta: frase com lacuna, dica em português, tradução opcional, campo de digitação. Depois: feedback com texto (não só cor), resposta, frase completa, tradução completa e áudio do navegador. Acerto com tradução/pista aberta repete a caixa Leitner.
+Antes da resposta: frase com lacuna, dica em português, tradução opcional, campo de digitação. Depois: feedback com texto (não só cor), resposta, frase completa, tradução completa e MP3 estático do corpus. Acerto com tradução/pista aberta repete a caixa Leitner.
 
 ## Contagens verificadas
 
@@ -44,4 +44,4 @@ Antes da resposta: frase com lacuna, dica em português, tradução opcional, ca
 
 ## Limites
 
-Naturalidade, glosas e traduções não foram validadas por falante nativo. Uma frase contextual não esgota todos os sentidos; o reencontro ao longo dos módulos e a revisão espaçada ajudam, mas não garantem domínio. Áudio é a voz do navegador; os MP3 existentes cobrem o corpus Hangul, e textos sem MP3 usam TTS.
+Naturalidade, glosas e traduções não foram validadas por falante nativo. Uma frase contextual não esgota todos os sentidos; o reencontro ao longo dos módulos e a revisão espaçada ajudam, mas não garantem domínio. O B1 usa os MP3 estáticos do corpus completo; sem asset, o player informa indisponibilidade e mantém a dica textual. Os riscos residuais são aceitos e não bloqueiam o release.

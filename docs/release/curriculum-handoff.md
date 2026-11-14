@@ -1,6 +1,8 @@
-# Transição para o A1 — handoff após as Fases 9A–9H
+# Transição para o A1 — handoff histórico (superado)
 
-**Decisão vigente (atualizada na Fase 14):** os cursos **A1, A2, B1, B2, C1 e C2 estão completos no currículo interno do KBR**, cada um com suas lições, checkpoints e passos jogáveis. `a1-l01` foi preservada. A entrada do A2 exige `a1-c08`; a do B1 exige `a2-c08`. A próxima frente é **B2 — planejamento editorial e primeira fatia**, ou uma correção/native review explicitamente pedida; **o B1 ainda precisa de auditoria linguística própria**. A infraestrutura de áudio está **completa e servida por padrão**: 7.790 MP3 de Hangul, A1, A2, B1, B2, C1, C2 e vocabulário em `public/audio/v1/`, `NEXT_PUBLIC_KBR_STATIC_AUDIO` ligado (`=0` é kill switch), `public/audio/` publicado e **sem TTS** no player. Crédito a MeloTTS/MeloTTS-Korean e `kykim/bert-kor-base` em `/impressum` e `docs/audio/credits.md`.
+> **Arquivo histórico; não é o handoff atual.** O projeto está concluído para release público, a produção foi aceita pelo responsável, não há próximo curso ou fase planejada, e o áudio está resolvido com créditos: 7.790 MP3 servidos por padrão; `NEXT_PUBLIC_KBR_STATIC_AUDIO=0` é apenas kill switch. As recomendações e bloqueios abaixo refletem o estado à época e foram superados. Ver `docs/roadmap.md` e `docs/release/beta-readiness.md`.
+
+**Estado registrado na época:** os cursos A1–C2 foram concluídos após este handoff. A revisão editorial final assistida por IA foi aceita pelo responsável; não houve revisão nativa, e esse risco é aceito e não bloqueia o release.
 
 ## 1. Pronto para desenvolvimento contínuo
 
@@ -10,7 +12,7 @@
 | Curso A1 completo (`a1-l01`–`a1-l40`, `a1-c01`–`a1-c08`) | 48 passos, `in-review`, disponível | `src/content/curriculum/a1`, `/a1/[lessonId]` |
 | Curso A2 completo (`a2-l01`–`a2-l40`, `a2-c01`–`a2-c08`) | 48 passos, `in-review`, disponível após `a1-c08` | `src/content/curriculum/a2`, `/a2/[lessonId]` |
 | Curso B1 completo (`b1-l01`–`b1-l40`, `b1-c01`–`b1-c08`) | 48 passos, `in-review`, disponível após `a2-c08`, produção independente opcional | `src/content/curriculum/b1`, `/b1/[lessonId]` |
-| Registro multi-curso (Hangul, A1, A2 e B1 disponíveis; B2–C2 planejados) | tipado e validado, com `entryPrerequisites` | `src/content/courses/{types,registry,a1,a2,b1,planned,hangul}.ts` |
+| Registro multi-curso (Hangul e A1–C2 disponíveis) | tipado e validado, com `entryPrerequisites` | `src/content/courses/` |
 | Blueprint A1 | 8 módulos, 40 lições, 8 checkpoints; tipado e validado | `src/content/curriculum/a1`, `docs/curriculum/` |
 | Vocabulário A1 | 443 identidades novas, 443 frases; 52 reusos do Hangul (495 distintas) | `src/content/vocabulary/{a1,a1-course}.ts` |
 | Vocabulário A2 | 400 identidades novas, 400 frases; 115 reusos distintos (515 ensinadas/retomadas) | `src/content/vocabulary/a2-*.ts` |
@@ -20,7 +22,7 @@
 | Progresso e SRS | `Progress` v1 + Leitner por erro, cartões `v:` opt-in, CAS multi-dispositivo | `src/lib/{storage,srs,progress,supabase}` |
 | Conclusão A1/A2 | relatório derivado compartilhado + painel interno, sem CEFR/TOPIK | `src/lib/courses/completion.ts`, `A1CompletionPanel` |
 | Revisão, painel, catálogo, PWA | funcionais | `/revisao`, `/dashboard`, `/cursos` |
-| Reprodução de áudio | asset (desligado) → voz coreana explícita → dica textual | `src/lib/audio/playback.ts` |
+| Reprodução de áudio (estado atual) | 7.790 MP3 servidos por padrão; sem TTS; kill switch `=0` | `src/lib/audio/playback.ts` |
 | Testes | typecheck, Vitest, Playwright (Chromium 4 larguras + WebKit) | `AGENTS.md` |
 
 ## 2. Interfaces reutilizáveis por B1–C2
@@ -30,27 +32,27 @@
 - **Conteúdo**: `content/` sem lógica, com `ReviewMeta` (`in-review`). O A1 já tem contratos próprios e validadores; um curso novo deve criar contrato/validador equivalentes, não reutilizar IDs de lição.
 - **IDs leves**: importe `A1_LESSON_IDS` de `@/content/curriculum/a1/ids` em código de cliente/registro; o índice `@/content/curriculum/a1` carrega o blueprint e os datasets, sendo apropriado a servidor e testes. O A2 tem `A2_LESSON_IDS`/`A2_STEP_IDS` em `src/content/curriculum/a2/ids.ts`; um curso novo deve criar o equivalente.
 - **Progresso**: `Progress` v1 guarda tentativas por ID global de exercício/passo; IDs novos não exigem migração. **Não alterar o formato nem o CAS** sem fase explícita.
-- **Áudio**: `audioText` por exercício; `resolveAudioAsset(text)` devolve `null` com a flag desligada, então a voz do sistema cobre texto coreano novo **sem novos MP3**.
-- **Guardas**: `audio-containment.test.ts` e `verify-no-restricted-audio.mjs` continuam valendo para qualquer áudio novo.
+- **Áudio (estado vigente)**: o corpus de 7.790 MP3 é servido por padrão; `=0` é apenas kill switch; o player não usa TTS de navegador.
+- **Guardas (registro da fase)**: os controles da antiga contenção não representam a configuração vigente; ver `docs/audio/license-audit.md` §13.
 
-## 3. Bloqueado para lançamento público (não bloqueia desenvolvimento local)
+## 3. Bloqueios registrados no handoff original (superados)
 
-1. Créditos do áudio sintético (MeloTTS + `kykim/bert-kor-base`): **resolvido**; crédito visível em `/impressum` e `docs/audio/credits.md`.
-2. Exposição histórica do corpus de áudio no repositório público e em deployments antigos da Vercel (ações do dono).
-3. Privacidade/Impressum com campos "a confirmar" e revisão jurídica.
-4. Revisão nativa de todo o conteúdo coreano A1/Hangul; teste em dispositivos reais.
+1. Créditos do áudio sintético: **resolvido com créditos**; ver `/impressum` e `docs/audio/credits.md`.
+2. Exposição do corpus: risco de distribuição aceito pelo responsável; não exige ação de remoção para este release.
+3. Privacidade/Impressum: política operacional publicada, sem alegação de parecer profissional ou dados pessoais inventados.
+4. Revisão editorial: final assistida por IA e aceita pelo responsável, sem revisão nativa. Testes físicos não foram feitos e não são requisito; os riscos são aceitos e não bloqueiam o release.
 
 ## 4. Opcional / experimental
 
-`/fala` (reconhecimento de fala; **não expandir**), avaliação de TTS alternativo (`docs/audio/tts-alternatives.md`), flashcards ilustrados, export/import JSON.
+`/fala` permanece experimental. Avaliação de TTS alternativo, flashcards ilustrados e export/import JSON são anotações históricas de ideias, não trabalho planejado.
 
 ## 5. Tarefas de áudio/pronúncia que podem ser retomadas depois
 
-R1/R2 (e-mails em `docs/audio/permissions/email-drafts.md`, **não enviados**), piloto de TTS alternativo (~20 clipes), gravação com falante nativo (`audio-quality-roadmap.md`), matriz manual §14 do checklist de iPhone, decisão formal sobre manter ou substituir o MeloTTS. Nenhuma depende de código novo agora.
+Os e-mails e alternativas de TTS são históricos e não precisam ser enviados ou avaliados: o áudio atual está resolvido com créditos. Gravação nativa e checklist físico não são tarefas planejadas nem requisitos de release.
 
 ## 5b. Vocabulário (Fase 9A-V + A1)
 
-Infraestrutura pronta: registro `src/content/vocabulary` (cada curso entrega `VocabEntry[]` + frases; passos em `docs/vocabulary/content-schema.md`), `/vocabulario` (busca, filtros, salvar/remover, detalhes), revisão diária contextual (frase com lacuna + dica de sentido + tradução opcional antes e obrigatória depois), cartões simples e Leitner reaproveitado em `Progress.cards["v:<id>"]` (sem migração). Há 133 IDs legados imutáveis; homógrafos **novos** podem usar `ko:<forma>#<sentido>`, desde que todas as entradas da forma sejam qualificadas. O A1 adiciona 443 itens e 443 frases, todos `in-review`, e reusa 52 identidades do Hangul sem duplicar cartões. `VocabSentence.target` pode ser a forma polida usada na frase; o cartão canônico continua no dicionário. Limites: revisão nativa pendente; sincronização remota não verificada em Supabase real.
+Infraestrutura pronta: registro `src/content/vocabulary` (cada curso entrega `VocabEntry[]` + frases; passos em `docs/vocabulary/content-schema.md`), `/vocabulario` (busca, filtros, salvar/remover, detalhes), revisão diária contextual, cartões simples e Leitner reaproveitado em `Progress.cards["v:<id>"]` (sem migração). Há 133 IDs legados imutáveis; homógrafos novos podem usar `ko:<forma>#<sentido>`. O A1 adiciona 443 itens e 443 frases e reusa 52 identidades do Hangul. O metadado `in-review` é mantido sem alegação de revisão nativa; o responsável aceitou o risco editorial e a produção. O trecho sobre sincronização real é um registro histórico.
 
 ## 6. Escopo fechado da implementação A1 (9B–9H)
 
@@ -63,11 +65,11 @@ Infraestrutura pronta: registro `src/content/vocabulary` (cada curso entrega `Vo
 7. **Sem mudanças** em `Progress` v1, CAS, SQL, RLS, SRS do Hangul ou cartões `v:` existentes. Nenhum MP3 novo, nenhum microfone obrigatório.
 8. **Testes** unitários cobrem 40+8 datasets, gabaritos, IDs, contagens, thresholds, progressão, conclusão, opt-in e isolamento. Playwright cobre catálogo, bloqueio por URL, lição, checkpoints, conclusão, áudio, 320–1280 e axe claro/escuro.
 
-Critério cumprido: o curso está jogável em `/a1`, a conclusão só aparece com 48/48, o Hangul e o vocabulário existente permanecem intactos e nenhum áudio restrito foi reativado. **Limite:** revisão nativa e licença de áudio continuam pendentes.
+Critério da fase cumprido: o curso está jogável em `/a1` e a conclusão só aparece com 48/48. O estado atual do áudio é resolvido com créditos; a revisão editorial assistida por IA foi aceita pelo responsável e os riscos residuais não bloqueiam o release.
 
 ## 7. A2 e B1 concluídos
 
-O A2 está implementado em `src/content/curriculum/a2` com 40 lições, 8 checkpoints, 400 identidades novas e 400 frases. O B1 está em `src/content/curriculum/b1`, com 40 lições, 8 checkpoints, 320 identidades novas e uma produção independente opcional por lição. Os documentos estão em `docs/curriculum/b1-*.md`; a revisão nativa de A1, A2, B1 e Hangul continua pendente. As rotas `/a2` e `/b1` reutilizam os componentes do A1 parametrizados por `CourseClientView`; as entradas exigem `a1-c08` e `a2-c08`. Os documentos `docs/curriculum/a2-*.md` registram pesquisa, resultados, syllabus, vocabulário e exercícios. A revisão nativa de todo o conteúdo A2/B1 continua pendente.
+O A2 está implementado com 40 lições, 8 checkpoints, 400 identidades novas e 400 frases; o B1 tem 40 lições e 8 checkpoints. Os cursos foram posteriormente seguidos por B2–C2. A revisão editorial final assistida por IA foi aceita pelo responsável, sem alegação de revisão nativa; esse risco não bloqueia o release.
 
 ## 8. Padrão para B2
 

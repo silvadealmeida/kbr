@@ -28,7 +28,7 @@ Toda transcrição IPA é uma **aproximação de referência**. A pronúncia rea
 | Medial (중성) | vogal no centro/direita/base | “vogal do meio” |
 | Final (종성) | consoante no pé do bloco; pode estar vazia | “última letra” |
 | Batchim (받침) | nome tradicional do final consonantal | “consoante muda” |
-| Som representativo | um dos 7 sons finais que resumem 28 grafias | “fonema final” |
+| Som representativo | um dos 7 sons de batchim que resumem 27 grafias consonantais; há também a coda vazia | “fonema final” |
 | Ligação (연음) | pronúncia do batchim como início da sílaba seguinte | “sandhi” no texto do aluno |
 | Nasalização | assimilação para [ŋ]/[n]/[m] antes de nasal | “transformação” genérica |
 | Aspiração | fusão com ㅎ produzindo ㅋ/ㅌ/ㅍ/ㅊ | “sopro” como termo técnico |
@@ -237,9 +237,10 @@ O código existente em `src/lib/hangul/index.ts` já implementa `composeSyllable
 
 Batchim é a consoante final do bloco. Ele **não** é uma sílaba separada e **não** é pronunciado com uma vogal depois. Na fala natural, pode se ligar à sílaba seguinte (ver §9.1).
 
-### 8.2 Os 28 finais escritos
+### 8.2 As 27 grafias de batchim e a coda vazia
 
-O coreano moderno tem 28 finais: vazio + 16 simples + 11 duplos.
+O coreano moderno tem 27 grafias consonantais de batchim: 16 simples + 11 duplas. Contando a
+ausência de batchim como uma possibilidade de coda, são 28 estados: vazio + 16 simples + 11 duplos.
 
 **16 simples:**
 

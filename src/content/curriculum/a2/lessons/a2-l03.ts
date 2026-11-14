@@ -97,7 +97,7 @@ export const A2_L03 = defineA2Lesson({
     ),
     reading(
       "지우의 동생은 지우보다 키가 커요. 얼굴은 비슷하지만 성격은 달라요.",
-      "No que os irmãos são diferentes?",
+      "Além da diferença de altura, no que os irmãos são diferentes?",
       ["Na personalidade.", "Na altura dos dois irmãos.", "No rosto e no cabelo."],
       "Na personalidade.",
       "성격은 달라요: a personalidade é diferente.",

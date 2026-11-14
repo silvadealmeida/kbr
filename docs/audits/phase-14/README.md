@@ -5,6 +5,10 @@
 **Branch de trabalho:** `phase-14/quality-hardening`  
 **Natureza:** correção editorial assistida por IA, auditoria visual em navegador real e validação completa. **Não é revisão por falante nativo**, não certifica CEFR/TOPIK e não substitui teste com aprendizes.
 
+> **Decisão de release posterior:** o responsável aceitou a revisão editorial final assistida por
+> IA. Os limites desta auditoria são riscos residuais aceitos, não bloqueios. Produção aceita pelo
+> responsável; testes físicos não são requisito. Ver `docs/release/beta-readiness.md`.
+
 ## 1. Entregas
 
 ### 1.1 Fairness de comprimento (F13-012)
@@ -45,7 +49,8 @@
 - Revisão nativa de naturalidade, honoríficos, registro, ironia, focalização ou tradução.
 - Validade psicométrica, calibração de dificuldade ou eficácia pedagógica.
 - Acessibilidade completa WCAG, iPhone físico, VoiceOver/TalkBack ou voz do sistema em aparelho real.
-- Licença do encoder de áudio; a decisão de risco do dono continua sem ser licença.
+- A auditoria não era parecer jurídico profissional. A decisão operacional posterior do
+  responsável é áudio resolvido com créditos; ver `docs/audio/license-audit.md` §13.
 
 ## 3. Arquivos de referência
 

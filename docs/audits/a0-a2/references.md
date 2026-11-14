@@ -1,5 +1,13 @@
 # Referências consultadas
 
+> **Registro histórico, superado como decisão de release.** Este arquivo preserva evidência e
+> estado da auditoria na época. O veredito atual é projeto concluído, áudio resolvido com
+> créditos (7.790 MP3 servidos por padrão) e revisão editorial final assistida por IA aceita
+> pelo responsável. Não houve revisão nativa nem teste físico; esses riscos são aceitos e não
+> bloqueiam release. Pendências, bloqueios e contagens antigas abaixo não controlam o estado
+> atual. Ver `docs/release/beta-readiness.md`.
+
+
 Regra desta auditoria: **ou a afirmação vem do repositório (código/validador/motor),
 ou vem de norma coreana consultada de fato, ou fica `INCERTO`.** Nada de "parece
 errado". Nenhuma fonte foi citada de memória: as que exigem citação foram abertas

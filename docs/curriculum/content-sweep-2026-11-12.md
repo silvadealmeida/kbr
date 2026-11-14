@@ -1,6 +1,11 @@
 # Varredura de conteúdo — lições, exercícios, inconsistências e referências
 
-**Data:** 2026-11-12 · **Escopo:** todo o conteúdo jogável em `src/content/` (Hangul, A1, A2 e o B1 em andamento na árvore), vocabulário, áudio, registro de cursos e referências em `docs/`.
+> **Relatório histórico, atualizado quanto ao estado de release.** A varredura ocorreu antes da
+> conclusão do conteúdo C1/C2 e do corpus completo. O estado atual é: Hangul–C2 concluído; áudio
+> resolvido com créditos, 7.790 MP3 servidos por padrão; revisão editorial final assistida por IA
+> aceita pelo responsável, sem revisão nativa. Riscos residuais são aceitos e não bloqueiam release.
+
+**Data:** 2026-11-12 · **Escopo à época:** conteúdo jogável disponível então em `src/content/` (Hangul, A1, A2 e B1), vocabulário, áudio, registro de cursos e referências em `docs/`.
 **Método:** varredura automatizada única (script temporário, removido após a execução) somada aos validadores estruturais já existentes (`validateCurriculum`, `validateA1Content`, `validateA2Content`, `validateB1Content`, `validateVocabulary`, `validateCourseRegistry`). Nenhum código de produto foi alterado.
 
 ## 1. Inventário
@@ -56,13 +61,13 @@
 
 | # | Tema | Achado |
 |---|---|---|
-| 4 | Áudio estático | **Resolvido para Hangul, A1 e A2 em 2026-11-13:** o corpus passou a **2.907 MP3** e cobre exercícios, diálogos, exemplos de gramática, introduções e vocabulário (palavras e frases) desses cursos. O B1 continua no fallback de TTS do navegador até uma fase própria de áudio. Relatório original: 287 MP3 cobriam 678 ocorrências e nenhum dos 396 `listen` tinha MP3. |
+| 4 | Áudio estático | **Estado histórico:** nesta data a auditoria descreveu as primeiras ampliações. **Estado atual:** resolvido com créditos; 7.790 MP3 cobrem Hangul, A1, A2, B1, B2, C1, C2 e vocabulário e são servidos por padrão. `=0` é apenas kill switch. |
 | 5 | Esquemas de ID de frase | Convivem dois formatos: `sent:<forma>:<n>` (Hangul) e `sent:<curso>-…` (A1–B1). Ambos validam; padronizar seria cosmético. |
 | 6 | Vocabulário do Hangul | 108 das 133 entradas não têm frase de contexto (nos cursos de língua há 1 frase por item novo). |
 | 7 | Assimetria de dados | `completion.minCorrect` é opcional no Hangul e sempre explícito nos cursos de língua; `passingScore`/`minScore` convivem com regras extras (`rules`, `diagnosticTags`). Documentado nos tipos, mas é uma forma de dados mista. |
 | 8 | Diálogos A1 | 11 linhas de diálogo repetidas entre lições ("네, 좋아요." ×5, "감사합니다." ×3 etc.) — fórmulas de cortesia plausíveis, mas registradas para revisão nativa. |
-| 9 | Revisão humana | 100% dos passos estão `in-review` (29 Hangul + 48 por curso de língua); nada `draft` nem `reviewed`. Coerente com o bloqueio de revisão nativa, que continua aberto. |
-| 10 | Estado do B1 | A árvore traz trabalho B1 substancial **não commitado e em andamento** (40 lições + 8 checkpoints, vocabulário 320/320, rotas `/b1`, `e2e/b1.spec.ts`, registro `ko-b1` como `available` com `entryPrerequisites: ["a2-c08"]`). O `docs/roadmap.md` ainda diz "B1 — não iniciar sem pedido"; esta varredura cobriu o B1 como está na árvore. Quem encerrar a fase deve atualizar o roadmap. |
+| 9 | Revisão editorial | Na fotografia da varredura, os passos estavam `in-review`, sem `draft` nem `reviewed`. Não houve revisão nativa. O estado final posterior é revisão editorial assistida por IA, aceita pelo responsável; riscos de qualidade aceitos e não bloqueantes. |
+| 10 | Estado do B1 | Esta linha descrevia trabalho em andamento na árvore da varredura de 2026-11-12. O B1 e os níveis seguintes foram concluídos depois; não há trabalho em andamento. O roadmap final, não esta fotografia, define o estado atual. |
 
 ### Duplicação lição↔checkpoint (esperada)
 
@@ -99,7 +104,7 @@ Limpo no restante: nenhuma resposta vazia, nenhuma `acceptedAnswer` vazia, nenhu
   - "저는 브라질 사람이에요." → "Eu sou brasileiro." na maioria dos lugares, mas "Eu sou brasileiro; eu sou brasileira." em `a1-l02/g:a1-l02-origin` e na frase `sent:a1-l01:브라질` (glosa com gênero num lugar só).
   - "갑자기 일이 생겨서 못 갔어요." → "Surgiu um imprevisto de repente e não pude ir." (`a2-l04/e09`) × "Surgiu um imprevisto de trabalho…" (`a2-l04/g3`) — sentido de 일이 생기다 divergente **dentro da mesma lição**.
 
-### Escopo explícito da revisão nativa (pendente)
+### Escopo explícito da revisão nativa considerada pela varredura (histórico; não é bloqueio atual)
 
 A revisão nativa de todo o conteúdo coreano (Hangul, A1, A2, B1 — status `in-review`) deve cobrir, além do coreano em si:
 
@@ -110,7 +115,7 @@ A revisão nativa de todo o conteúdo coreano (Hangul, A1, A2, B1 — status `in
 ## 6. O que esta varredura **não** prova
 
 - Naturalidade ou correção do coreano (continua `in-review`; exige falante nativo).
-- Qualidade da síntese de voz (o MP3 é sintético; licença do encoder segue bloqueada para distribuição).
+- Qualidade da síntese de voz (MP3 sintético; decisão atual resolvida com créditos; risco residual de naturalidade aceito e não bloqueante).
 - Comportamento em iPhone/Chrome iOS/VoiceOver reais e conformidade WCAG completa.
 - Experiência didática (sequenciamento, carga cognitiva) — só estrutura e referências.
 
@@ -120,6 +125,6 @@ A revisão nativa de todo o conteúdo coreano (Hangul, A1, A2, B1 — status `in
 2. Apagar os 4 `*.tmp.mjs` da raiz (item 2 da §3).
 3. Decidir editorialmente sobre o exercício duplicado A1 (item 1 da §3) e as retomadas do Hangul (item 3 da §3).
 4. Harmonizar as 29 traduções divergentes e limpar as 9 `acceptedAnswers` redundantes (§5).
-5. Quando houver budget de TTS/MP3 novo, priorizar os 396 `listen` e as falas de diálogo (item 4 da §3).
+5. Recomendação da varredura na época: ampliar a cobertura de áudio. Essa recomendação foi concluída pela geração do corpus completo na Fase 14; não há nova tarefa de áudio planejada.
 6. Padronizar IDs de frase, marcadores de cloze e `minCorrect` numa migração de conteúdo futura (itens 5 e 7 da §3, §5), sem tocar em `Progress`.
 7. Revisão nativa com o escopo da §5 (gabaritos, partículas e traduções); reexecutar esta varredura depois dela e depois do fechamento do B1.

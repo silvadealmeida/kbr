@@ -71,7 +71,7 @@ Cada dataset de lição A1 deverá declarar:
 4. Resposta coreana digitada e validação exata após NFC.
 5. Feedback com texto/ícone/cor.
 6. Frase coreana e tradução completas sempre após responder.
-7. Voz coreana do navegador para a frase.
+7. MP3 do corpus estático para a frase.
 8. Reagendamento no Leitner apenas se a palavra estiver salva; ajuda não avança a caixa.
 
 A frase não deve exigir dedução enciclopédica, aceitar vários sinônimos naturais não cadastrados nem esconder partícula/flexão de forma enganosa. Para gramática recém-introduzida, a estrutura aparece antes em contexto compreensível e a lacuna continua lexical.
@@ -109,7 +109,7 @@ Pendências herdadas: relógio do dispositivo influencia remoção/salvamento co
 - **Frases:** 11 `VocabSentence` originais, uma por item novo, com tradução completa, alvo canônico, dica de sentido e revisão `in-review`; o reuso usa a frase existente `sent:학생:5` quando adequada.
 - **Integração:** `VOCAB_ENTRIES`/`VOCAB_SENTENCES` incluem o array A1; `/vocabulario` mostra “Coreano A1” e permite filtrar por `a1-l01`; a revisão contextual usa o mesmo `buildVocabQueue` e os mesmos cartões `Progress.cards["v:<id>"]`.
 - **Opt-in:** nenhuma palavra é salva automaticamente. A conclusão da lição oferece salvar cada palavra ou todas as 17 da lição; salvar/remover não altera a nota da lição nem o progresso do curso.
-- **Áudio:** voz coreana do navegador por clique, inclusive no vocabulário; nenhum MP3 novo. A revisão nativa continua pendente.
+- **Áudio:** MP3 estático do corpus completo por clique, inclusive no vocabulário. Não houve revisão nativa; o risco residual de qualidade foi aceito e não bloqueia o release.
 - **Validação:** o dataset e as frases passam por `validateA1LessonContent`/`validateVocabulary`; testes cobrem cobertura de cada item novo, IDs únicos, reuso do Hangul, frases e opt-in. A validação é estrutural, não prova naturalidade nem tradução.
 
 ## 10. Estado 9C–9H — curso A1 completo

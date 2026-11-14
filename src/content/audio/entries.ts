@@ -4039,7 +4039,7 @@ export const AUDIO_ENTRIES: Readonly<Record<string, string>> = {
   "아마도": "/audio/v1/ko-69026bae.mp3",
   "아마도 내일 비가 올 거예요.": "/audio/v1/ko-95c86d7d.mp3",
   "아마도 반대를 최소화하려는 선택이었을 거예요.": "/audio/v1/ko-a2315a46.mp3",
-  "아무 일도 없다고 체했지만, 목소리가 떨렸어요.": "/audio/v1/ko-567bb809.mp3",
+  "아무 일도 없는 척했지만, 목소리가 떨렸어요.": "/audio/v1/ko-633375ea.mp3",
   "아무 잘못도 없이 비난을 받아서 억울해요.": "/audio/v1/ko-37fe2f4f.mp3",
   "아무 조치도 하지 않을 수는 없으므로, 우선 제한 조치부터 시행할 수밖에 없다.": "/audio/v1/ko-9c80e0bc.mp3",
   "아무리 바쁘더라도 식사는 해야 해요.": "/audio/v1/ko-33b63aec.mp3",

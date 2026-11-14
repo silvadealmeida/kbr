@@ -19,7 +19,7 @@ Convenções:
 - **Vocabulário:** 443 identidades novas do A1 + 443 frases contextuais próprias; 52 identidades do Hangul foram retomadas (495 identidades distintas ensinadas). Todo o conteúdo segue `in-review`.
 - **Exercícios:** 615 no total (400 de lição + 215 de checkpoint), usando somente tipos implementados: 79 `mcq`, 183 `cloze`, 132 `listen`, 97 `translate` e 124 `reading`. Nenhum `order-words`, `short-answer` ou `dialogue-choice` foi usado como item avaliado.
 - **Progressão:** `a1-l01` é o único passo inicial; cada lição seguinte depende da anterior; cada checkpoint depende das cinco lições do módulo e dos checkpoints anteriores; `a1-c08` depende de `a1-l36`–`a1-l40` e de `a1-c01`–`a1-c07`. A conclusão A1 exige os 48 passos.
-- **Limites:** a revisão nativa continua pendente; os critérios de produção aberta/fala não são automáticos; a conclusão é interna do KBR, sem certificação CEFR/TOPIK.
+- **Limites:** não houve revisão por falante nativo nem validação com aprendizes; a revisão editorial assistida por IA foi aceita pelo responsável e o risco residual não bloqueia o release. Produção aberta/fala não são avaliadas automaticamente; a conclusão é interna do KBR, sem certificação CEFR/TOPIK.
 
 ## Módulo 1 — Primeiro contato (`a1-m01`)
 

@@ -1,5 +1,9 @@
 # Fase 13C — achados granulares da revisão assistida por IA
 
+> **Ledger histórico.** Os achados e estados abaixo descrevem a auditoria 13C. A revisão editorial
+> final assistida por IA foi aceita pelo responsável pelo projeto; não houve revisão nativa. O
+> risco sistêmico remanescente é aceito e não bloqueia o release.
+
 Este documento complementa `findings.json` com os IDs usados na revisão módulo a módulo. **Nenhum item foi validado por falante nativo.** Status:
 
 - `fixed` — correção aplicada e testes verdes.

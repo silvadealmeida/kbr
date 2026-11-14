@@ -1,5 +1,10 @@
 # Sumário executivo — auditoria de conteúdo educacional A0–A2
 
+> **Registro histórico, não veredito de release.** As correções confirmadas na auditoria foram
+> aplicadas depois. O estado atual do áudio é resolvido com créditos, 7.790 MP3 servidos por padrão.
+> A revisão editorial final assistida por IA foi aceita pelo responsável; não houve revisão nativa,
+> e o risco residual é aceito e não bloqueia o release.
+
 **Baseline auditado:** `3103ce3` (ponta do A2 concluído), em worktree isolado
 `/root/estudos/kbr-audit-a0a2`, branch `audit/a0-a2-linguistic`.
 **B1 não foi lido nem alterado.** **Nenhum conteúdo, schema, registro, `Progress`,
@@ -86,8 +91,9 @@ Detalhes e números em `cross-level-findings.md`; resumo:
 - Nada substitui **falante nativo**: 100% do coreano continua `in-review`, e assim
   fica registrado. Nenhuma frase desta auditoria afirma pronúncia correta,
   naturalidade certificada ou equivalência CEFR/TOPIK.
-- Áudio não foi ouvido (corpus sintético, licença bloqueada) — os achados de
-  pronúncia são sobre **texto explicativo**, não sobre som real.
+- Na data da auditoria, áudio não foi ouvido e a decisão de distribuição ainda estava bloqueada.
+  O veredito atual é resolvido com créditos; os achados de pronúncia da auditoria são sobre
+  **texto explicativo**, não sobre som real.
 - Onde faltou evidência normativa, o item está marcado `INCERTO` (13), não "corrigido".
 
 ## 7. Provas
@@ -121,7 +127,7 @@ O relatório acima descreve a auditoria read-only na baseline `3103ce3`. A fase 
 - **Avaliação:** 126 itens digitados do A2 não exigem mais pontuação final; 188 ocorrências de `listen` foram alinhadas; variantes válidas passaram a ser aceitas; 6 `acceptedAnswers` redundantes do A1/A2 foram removidas (3 do B1 ficaram intactas).
 - **Sistêmico:** 3 alvos contextuais dentro de palavra maior corrigidos; 297 referências de `reusedIds` sem ocorrência medida e congelada (o número 76 não se reproduziu); validador novo para gabarito fora das opções, referência de escolha, partícula, resposta vazia/redundante, `listen` divergente e fronteira de alvo.
 - **Progressão:** `-았/어야 했어요`, `-(으)ㄹ 때`, `-라고 하다` e `-면서` deixaram de ser cobrados antes do ensino; `-면서` ganhou bloco em `a2-l40`.
-- **Áudio:** 2.907 MP3 preservados; 12 textos corrigidos sem MP3 e 10 MP3 antigos órfãos documentados em `docs/audio/stale-audio-manifest.md`; `public/audio/` fora do deploy e áudio estático opt-in.
-- **Limites:** revisão nativa continua necessária; **B1 ainda precisa de auditoria linguística própria**; os 84 MAJOR e 191 MINOR restantes não foram corrigidos em massa.
+- **Áudio (estado na fase 12A):** 2.907 MP3, com então 12 textos sem asset e áudio opt-in; esses dados foram superados pela Fase 14, que concluiu 7.790 MP3 servidos por padrão e resolveu o uso com créditos.
+- **Limites desta auditoria histórica:** não houve revisão nativa; o B1 ainda não fazia parte do escopo; os MAJOR/MINOR restantes não foram corrigidos em massa naquela fase. A decisão final aceita os riscos residuais e não bloqueia o release.
 
 Validação da 12A: typecheck + **595 Vitest** + build (`[audio-guard] OK`) + **646 Playwright (619 executados + 27 skips)**.

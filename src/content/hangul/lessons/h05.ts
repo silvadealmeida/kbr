@@ -183,7 +183,7 @@ export const H05: Lesson = {
       options: [
         { id: "meori", jamo: "머리" },
         { id: "meoni", jamo: "머니" },
-        { id: "beori", jamo: "버리" },
+        { id: "dari", jamo: "다리" },
       ],
       correctOptionId: "meori",
       explanation: "머리 usa ㅁ no primeiro bloco e ㄹ no segundo.",

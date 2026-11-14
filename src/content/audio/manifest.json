@@ -25,8 +25,8 @@
     "trimEndMs": 80
   },
   "count": 7790,
-  "totalBytes": 168163353,
-  "totalDurationSeconds": 20493.296,
+  "totalBytes": 168163562,
+  "totalDurationSeconds": 20493.317,
   "items": [
     {
       "text": "‘20분씩 복습하는 사람은 누구나 상위 1%가 된다’는 전제요. 그런데 광고는 그걸 말하지 않아요.",
@@ -124438,22 +124438,22 @@
       "priority": 1
     },
     {
-      "text": "아무 일도 없다고 체했지만, 목소리가 떨렸어요.",
-      "key": "ko-567bb809",
-      "src": "/audio/v1/ko-567bb809.mp3",
-      "sha256": "e7e92335a778f7fed5ece9c6bf33c68ff220ef99c4e4bc4bd1cadd442f001fda",
-      "bytes": 36590,
-      "durationSeconds": 4.507,
+      "text": "아무 일도 없는 척했지만, 목소리가 떨렸어요.",
+      "key": "ko-633375ea",
+      "src": "/audio/v1/ko-633375ea.mp3",
+      "sha256": "5b3f48cdb48f1acbed569070a741f330349f4a3d9d3cff38de0d94e8be7726ae",
+      "bytes": 36799,
+      "durationSeconds": 4.528,
       "sampleRate": 44100,
       "channels": 1,
       "bitrateKbps": 64,
-      "trimStartMs": 75.6,
-      "trimEndMs": 777.0,
-      "rmsBeforeDb": -17.48,
-      "peakBeforeDb": -3.87,
-      "gainDb": -0.52,
+      "trimStartMs": 74.3,
+      "trimEndMs": 792.3,
+      "rmsBeforeDb": -17.05,
+      "peakBeforeDb": -3.9,
+      "gainDb": -0.95,
       "rmsDb": -18.0,
-      "peakDb": -4.4,
+      "peakDb": -4.84,
       "sources": [
         "course:ko-b2:b2-l35:dialogue:b2-l35-d2"
       ],

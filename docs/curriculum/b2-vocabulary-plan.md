@@ -37,7 +37,7 @@ Cada identidade nova tem uma `VocabSentence` com:
 
 O validador B2 acrescenta `targetBoundaryIssue` para substantivos: o alvo não pode estar embutido em uma palavra maior (`감기약`, `해외여행`). Verbos e adjetivos são verificados pela posição e pela unicidade.
 
-Não há áudio estático novo. `audioText` é a própria forma coreana e o navegador usa TTS `ko-KR`.
+`audioText` é a própria forma coreana e resolve para MP3 no corpus estático completo. O player não usa TTS `ko-KR` do navegador.
 
 ## 4. Reuso
 
@@ -70,4 +70,4 @@ A auditoria `findUnusedReusedRefs` verifica se a forma reaparece no texto da li�
 
 ## 7. Limites
 
-A planilha não prova naturalidade, colocação, registro ou adequação ao nível. As glosas em pt-BR são autorais e não foram validadas por falante nativo. Não há áudio gravado, MP3 novo ou aprovação de pronúncia. A contagem de 320 é uma decisão editorial interna, não um padrão oficial.
+A planilha não prova naturalidade, colocação, registro ou adequação ao nível. As glosas em pt-BR são autorais e não foram validadas por falante nativo. O áudio é sintético, não gravação nativa, e não avalia pronúncia; esses riscos são aceitos e não bloqueiam o release. A contagem de 320 é uma decisão editorial interna, não um padrão oficial.

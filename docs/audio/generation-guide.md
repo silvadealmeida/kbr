@@ -1,15 +1,16 @@
 # Geração do áudio estático — MeloTTS-Korean
 
-**Fase:** 8B (corpus Hangul) e ampliação A1/A2  
-**Data:** 2026-11-12  
+**Fases:** 8B e ampliação até a Fase 14
+**Data:** 2026-11-14
 **Status:** pipeline reproduzível. Os MP3 ficam em `public/audio/v1/`, são versionados e **servidos por padrão** desde a Fase 14 (2026-11-13).  
-**Natureza do áudio:** síntese neural, **não** gravação nativa. Todo o conteúdo coreano continua `in-review`; estes arquivos são a referência estável provisória e ainda precisam de escuta e aprovação de falante nativo.
+**Estado:** áudio **resolvido com créditos**. O corpus contém **7.790 MP3** de Hangul, A1, A2, B1, B2, C1, C2 e vocabulário. O responsável informa que a orientação do autor do encoder é creditar o autor e o repositório; os créditos estão publicados. Esta decisão operacional não é parecer jurídico profissional.
+**Natureza do áudio:** síntese neural, **não** gravação nativa. Não avalia pronúncia; a revisão editorial final assistida por IA foi aceita pelo responsável pelo projeto, sem alegação de revisão por falante nativo. Os riscos residuais de qualidade são aceitos e não bloqueiam o release.
 
 ## Uso e desligamento
 
 - O áudio estático é o caminho principal: `STATIC_AUDIO_ENABLED` é `true` por padrão.
-  `NEXT_PUBLIC_KBR_STATIC_AUDIO=0` é o kill switch: o player ignora os MP3 e cai para a voz
-  coreana do sistema (ou para a dica textual).
+  `NEXT_PUBLIC_KBR_STATIC_AUDIO=0` é somente o kill switch: o player ignora os MP3 e informa
+  indisponibilidade, mantendo a dica textual. Não há fallback de TTS no navegador.
 - `public/audio/` é publicado normalmente; `/audio/:path*` recebe cache imutável enquanto o kill
   switch não estiver ativo.
 - `encode-audio.py` grava direto em `public/audio/v1/`; os arquivos são preservados e órfãos são
@@ -27,20 +28,20 @@ npm run build && npx playwright test e2e/audio.spec.ts
 
 | Métrica | Valor |
 |---|---|
-| Textos únicos | **2.907** (Hangul + A1 + A2 + vocabulário: palavras e frases contextuais) |
-| Prioridade 1 / 2 | **1.949 / 958** |
-| Arquivos MP3 | **2.907** |
-| Tamanho total | **38.464.973 bytes** (~36,7 MiB) |
-| Duração total | **4.611,21 s** (~76,9 min) |
-| Duração por clipe | **0,298–8,676 s** |
+| Textos únicos | **7.790** (Hangul, A1, A2, B1, B2, C1, C2 e vocabulário) |
+| Prioridade 1 / 2 | **5.552 / 2.238** |
+| Arquivos MP3 | **7.790** |
+| Tamanho total | **168.163.562 bytes** (~160,4 MiB) |
+| Duração total | **20.493,317 s** (~5 h 42 min) |
+| Duração por clipe | **0,298–16,301 s** |
 | Formato | MP3, **64 kbps**, mono, **44,1 kHz** |
 | Loudness | RMS **−19,57 a −18,0 dBFS**; pico **−9,43 a −1,0 dBFS** |
-| Ganho aplicado | **−4,76 a +6,44 dB** |
-| Avisos de QC | **17** (frases completas acima de 6 s; nenhum erro) |
+| Ganho aplicado | **−4,94 a +6,44 dB** |
+| Avisos de QC | **671** (clipes acima de 6 s; 0 curtos demais; nenhum erro de encode) |
 | Áudio no carregamento inicial | **0 bytes** (sob demanda) |
 | Cache HTTP | `public, max-age=31536000, immutable` em `/audio/:path*` |
 
-O corpus cobre `audioText` de exercícios, alternativas, leituras, diálogos, exemplos de gramática e painéis de introdução, sílabas, palavras, alvos de montagem, as formas `spoken` das três regras, a sílaba `한` da anatomia e o vocabulário (palavras e frases contextuais) de Hangul, A1, A2 e B1. O construtor livre de sílabas é dinâmico e não tem asset para toda combinação; nesses casos o player **não usa TTS**: mostra a prévia visual e a dica de pronúncia.
+O corpus cobre `audioText` de exercícios, alternativas, leituras, diálogos, exemplos de gramática e painéis de introdução, sílabas, palavras, alvos de montagem, as formas `spoken` das três regras, a sílaba `한` da anatomia e o vocabulário (palavras e frases contextuais) de Hangul e A1–C2. O construtor livre de sílabas é dinâmico e não tem asset para toda combinação; nesses casos o player **não usa TTS**: mostra a prévia visual e a dica de pronúncia.
 
 ## Decisão: Python oficial, não imagem Docker
 
@@ -74,7 +75,7 @@ O diretório `.audio/` é local e está no `.gitignore`; **nenhum peso, venv, WA
 | Papel | Repositório | Revisão | Licença |
 |---|---|---|---|
 | Voz coreana | `myshell-ai/MeloTTS-Korean` | `0207e5adfc90129a51b6b03d89be6d84360ed323` | **MIT** declarada no model card |
-| Encoder BERT | `kykim/bert-kor-base` | `1779cc0982ada0216dd6de0dd4e86fb78201926d` | **não declarada** — ver caveat abaixo |
+| Encoder BERT | `kykim/bert-kor-base` | `1779cc0982ada0216dd6de0dd4e86fb78201926d` | O repositório HF não informa licença; ver a decisão operacional de crédito abaixo |
 | Código MeloTTS | `myshell-ai/MeloTTS` | `209145371cff8fc3bd60d7be902ea69cbdb7965a` | MIT |
 
 SHA-256 dos arquivos baixados:
@@ -86,15 +87,9 @@ ae43a392e533ccb9fd38e5c65130aeee50381b87e81e795f9d90469accd78236  bert-kor-base/
 c37ae92c39e3600e7c9645148e406286d44c9863cb8a237196ac6ad35bc47749  bert-kor-base/config.json
 ```
 
-### Caveat de licença do encoder
+### Decisão atual de uso e crédito
 
-O `kykim/bert-kor-base` **não declara licença** no repositório do Hugging Face. O MeloTTS-Korean o usa para converter texto em fonemas. Isso é um risco material para distribuição pública/comercial: a licença MIT do modelo de voz não cobre automaticamente o encoder. Antes de lançamento público, é preciso:
-
-1. obter uma declaração de licença do autor do encoder;
-2. substituir o encoder por um modelo com licença clara; ou
-3. migrar a referência principal para gravação nativa.
-
-Este documento não é parecer jurídico e não afirma que o pipeline esteja liberado para uso comercial. **A auditoria da 8D (`docs/audio/license-audit.md`) confirmou que o encoder é necessário na geração e manteve a distribuição pública/comercial como BLOQUEADA.**
+Embora o repositório do Hugging Face não declare uma licença, o responsável pelo KBR informa que perguntou ao autor sobre o uso e recebeu a orientação de que o uso exige crédito ao autor e ao repositório. O KBR segue essa orientação e publica os créditos listados em [`credits.md`](credits.md) e em `/impressum`. O estado do produto é **resolvido com créditos**. Esta decisão não é parecer jurídico profissional nem afirma uma licença que o repositório não declara.
 
 ## Preparação do ambiente
 
@@ -141,7 +136,7 @@ PY
 node scripts/audio/build-inventory.mjs
 ```
 
-Lê o currículo real via Vite SSR e grava `.audio/inventory.json` com texto NFC, chave FNV-1a, referências de origem, passos, tags e prioridade. O script cobre Hangul, A1, A2, B1, B2, C1, C2 e o vocabulário desses cursos e falha em colisão de chave. Saída observada na Fase 14: **7.790 itens**, 5.551 de prioridade 1 e 2.238 de prioridade 2.
+Lê o currículo real via Vite SSR e grava `.audio/inventory.json` com texto NFC, chave FNV-1a, referências de origem, passos, tags e prioridade. O script cobre Hangul, A1, A2, B1, B2, C1, C2 e o vocabulário desses cursos e falha em colisão de chave. Saída observada: **7.790 itens**, 5.552 de prioridade 1 e 2.238 de prioridade 2.
 
 ### 2. Síntese
 
@@ -185,18 +180,17 @@ O encode é determinístico para a mesma versão de FFmpeg/LAME e o mesmo WAV de
 - `src/content/audio/manifest.json`: manifesto completo com hash, bytes, duração, loudness, fontes, passos, tags e prioridade; não entra no bundle do cliente.
 - `src/lib/audio/manifest.ts`: resolve o asset por texto normalizado.
 - `src/lib/audio/playback.ts`: controlador sem React, **somente MP3 do corpus** (sem voz sintética do navegador), com timeout de início, erros, cancelamento e limpeza.
-- `src/lib/audio/browser.ts`: adapta `Audio`, `speechSynthesis` e `SpeechSynthesisUtterance` reais.
-- `src/components/hangul/exercise-media.tsx`: `AudioControl` com botão, status `role="status"`, replay, alternância **0,75×** com preservação de pitch e dica textual.
+- `src/lib/audio/browser.ts`: adapta o elemento `Audio`; o player não usa `speechSynthesis` nem TTS do navegador.
+- `src/components/hangul/exercise-media.tsx`: `AudioControl` com botão, status `role="status"`, replay, taxas **0,5×, 0,75× e 1×** com preservação de pitch e dica textual.
 
 Comportamento:
 
 1. Se há `audioSrc` explícito no conteúdo, ele tem prioridade; senão, o mapa estático é consultado.
 2. O MP3 é tocado sob demanda (`preload="auto"` no elemento criado no clique; nenhum áudio no carregamento da página).
 3. Se o asset não existir, não iniciar em **4 s** ou falhar, o estado vira indisponibilidade (`missing-asset`/`playback-error`). **Não há fallback para voz sintética do navegador.**
-4. Com `NEXT_PUBLIC_KBR_STATIC_AUDIO=0`, o app não resolve assets e o controle apenas informa a indisponibilidade.
-5. A espera por `voiceschanged` é de **1,5 s**; se a fala não começar em **2 s**, o estado vira erro.
-6. Um novo play cancela o anterior; `destroy()` remove listeners e timers. O replay reinicia o mesmo asset.
-7. O status só vira “Reproduzindo” quando `play()` resolve ou `onstart` dispara.
+4. Com `NEXT_PUBLIC_KBR_STATIC_AUDIO=0`, o app não resolve assets e o controle informa indisponibilidade com dica textual.
+5. Um novo play cancela o anterior; `destroy()` remove listeners e timers. O replay reinicia o mesmo asset.
+6. O status só vira “Reproduzindo” quando a promessa de `play()` resolve.
 
 ## Verificação
 
@@ -216,7 +210,7 @@ Os testes de manifesto verificam:
 - duração, pico e RMS dentro dos limites;
 - modelo, revisões e parâmetros de codificação.
 
-Os testes de playback cobrem asset, `audioSrc` explícito, 0,75×, fallback por erro, asset que não responde, espera por `voiceschanged`, ausência de voz coreana, erro de síntese, cancelamento, replay e limpeza. O E2E cobre MP3 real, repetição, 0,75× e o cenário sem MP3 e sem voz coreana.
+Os testes de playback cobrem asset, `audioSrc` explícito, taxas disponíveis, falhas e timeout, cancelamento, replay e limpeza. O E2E cobre MP3 real, repetição e indisponibilidade sem asset.
 
 ## Limpeza e ambiente retido
 

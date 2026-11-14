@@ -3,6 +3,9 @@
 **Escopo:** `c2-l26`, `c2-l27`, `c2-l28`, `c2-l29`, `c2-c06` e o vocabulário de `c2-m06`.  
 **Natureza:** correção editorial assistida por IA, com teste de regressão. **Não é revisão nativa.**
 
+> A decisão final do responsável aceita a revisão editorial assistida por IA. A revisão nativa não
+> foi feita e não é bloqueio de release; o risco residual de naturalidade/tradução está aceito.
+
 ## 1. `폐항` não rege `노선`
 
 **Achado:** C2R-113. `폐항` significa o fechamento/desativação de um **porto**, não o fim de uma linha de transporte. As frases `마지막 정기 노선이 폐항되었다` e `정기 여객선 노선이 폐항되었고` misturavam o sujeito (linha) com o predicado (fechamento do porto).

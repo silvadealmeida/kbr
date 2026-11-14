@@ -28,7 +28,7 @@ export const H18: Lesson = {
     {
       title: "Sete sons no total",
       body:
-        "Somando [n], [m] e [ŋ] de h17 e [l] de h19, os 28 finais escritos se resumem a sete sons: [k̚], [n], [t̚], [l], [m], [p̚] e [ŋ]. Nesta lição entram [k̚], [t̚] e [p̚].",
+        "Somando [n], [m] e [ŋ] de h17 e [l] de h19, os 27 batchim consonantais escritos se resumem a sete sons: [k̚], [n], [t̚], [l], [m], [p̚] e [ŋ]. Nesta lição entram [k̚], [t̚] e [p̚].",
       ko: "국 · 눈 · 곧 · 물 · 밤 · 밥 · 강",
     },
     {

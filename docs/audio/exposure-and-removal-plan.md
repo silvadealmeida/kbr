@@ -1,5 +1,11 @@
 # Exposição do áudio restrito e plano de remoção — Fase 8F
 
+> **Plano histórico, superado pela decisão da Fase 14.** O responsável aceitou a distribuição do
+> corpus com os créditos publicados. O estado atual é **resolvido com créditos**, com 7.790 MP3
+> servidos por padrão; `NEXT_PUBLIC_KBR_STATIC_AUDIO=0` é apenas kill switch. As verificações e
+> opções de remoção abaixo não são ações ou bloqueios atuais. A produção foi aceita pelo
+> responsável; este documento não a revalida nem exige nova validação.
+
 **Verificado em 2026-11-12** (somente leitura: `curl -I`, `git ls-remote`, API pública do GitHub e `gh api` autenticado como o dono). Nada foi enviado, apagado, reescrito ou alterado na Vercel/GitHub nesta fase.
 
 > **Decisão posterior (2026-11-12):** o dono do projeto optou por **manter o corpus público e usá-lo no app**. A contenção foi revertida, os MP3 voltaram para `public/audio/v1/` e a licença não esclarecida foi registrada como risco aceito em `license-audit.md` §11. Este documento permanece como registro histórico do plano de remoção.
@@ -52,7 +58,7 @@ Objetivo: parar de distribuir no HEAD público **mantendo** o corpus, o manifest
 |---|---|---|
 | A. Tornar o repositório **privado** | para a distribuição pública de HEAD **e** de histórico imediatamente; reversível (Settings → Danger Zone); não exige reescrever nada | perde visibilidade pública e o stargazer; se a Vercel usa a integração GitHub, ela continua funcionando para o dono; **a mais barata e a mais reversível** |
 | B. `git filter-repo --path restricted-assets --path public/audio --invert-paths` + force-push | remove o corpus de **todos** os commits | reescreve todos os SHAs (de `f0b2f43` em diante); invalida clones, referências em docs (`f0b2f43`, `a8a7fb0`…) e o status da Vercel; exige o backup do §2.1 e acordo explícito do dono; commits antigos podem continuar acessíveis por SHA no GitHub até o GC (precisa pedir ao suporte do GitHub a remoção de visões em cache/"dangling") |
-| C. Manter público | nenhuma | redistribui sem licença resolvida; **não recomendado** enquanto o §7/§10 de `license-audit.md` disser BLOQUEADO |
+| C. Manter público | decisão aceita na Fase 14, com créditos publicados | **Estado vigente:** resolvido com créditos; ver `license-audit.md` §13 |
 
 **Recomendação:** A agora (reversível, minutos) + passos 1–4 do §2; só considerar B se o repositório precisar voltar a ser público antes da resolução da licença. Se escolher B, trabalhar num clone espelho novo (`git clone --mirror`), validar, e só então force-push, com backup do §2.1 intacto.
 

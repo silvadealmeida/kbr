@@ -1,8 +1,13 @@
 # Fase 13C — itens que exigem revisão humana
 
+> **Lista histórica de riscos, não checklist bloqueante.** A revisão editorial final assistida por
+> IA foi aceita pelo responsável pelo projeto. Não houve revisão por falante nativo; os riscos de
+> qualidade permanecem aceitos e não bloqueiam o release. Nenhum item foi falsamente marcado como
+> `reviewed`.
+
 **Nada nesta lista foi aprovado por falante nativo.** A auditoria 13C é assistida por IA; os itens abaixo permanecem abertos e não devem ser apresentados como resolvidos.
 
-## 1. Revisão linguística nativa (bloqueante para lançamento público)
+## 1. Áreas sem validação por falante nativo (risco residual aceito)
 
 | Área | O que revisar | Por que |
 |---|---|---|
@@ -16,7 +21,7 @@
 
 ## 2. Revisão editorial e pedagógica
 
-- **Pistas de comprimento (resolvido na Fase 14):** os 237 itens detectados acima de 1,7× foram reescritos com distratores plausíveis; resta 0 acima do limite. O teste `tests/content/phase14-fairness.test.ts` cobre 1.381 itens. A revisão nativa das escolhas editoriais continua pendente.
+- **Pistas de comprimento (resolvido na Fase 14):** os 237 itens detectados acima de 1,7× foram reescritos com distratores plausíveis; resta 0 acima do limite. O teste `tests/content/phase14-fairness.test.ts` cobre 1.381 itens. A revisão editorial assistida por IA foi aceita pelo responsável; não houve revisão nativa e esse risco é aceito, não bloqueante.
 - **Carga cognitiva:** 80–110 min por lição é estimativa de desenho, não medida com aprendizes.
 - **Dificuldade:** não há calibração psicométrica nem estudo de validade.
 - **Escuta:** o motor transcreve uma frase; não avalia compreensão de discurso longo.
@@ -33,16 +38,14 @@
 - axe não prova conformidade WCAG completa.
 - Performance de C1/C2 não foi medida com field data.
 
-## 4. Jurídico e áudio
+## 4. Jurídico e áudio (fotografia histórica da auditoria)
 
-- Licença do encoder `kykim/bert-kor-base`/MeloTTS continua não esclarecida; a decisão de risco do dono não é licença.
-- `public/audio/` está fora do deploy e o áudio estático é opt-in; a distribuição pública/comercial segue bloqueada.
-- Revisão jurídica da política de privacidade e do Impressum continua pendente.
+- Na data da auditoria, o estado de licença e distribuição era descrito como não resolvido. A decisão vigente posterior é áudio **resolvido com créditos**, documentada em `docs/audio/license-audit.md` §13.
+- Na fotografia da auditoria, `public/audio/` estava fora do deploy e o player era opt-in. Isso foi revertido: 7.790 MP3 são servidos por padrão, com `=0` apenas como kill switch.
+- A auditoria registrava revisão jurídica não realizada. O produto adotou política operacional final, sem alegação de parecer profissional; o limite é aceito e não bloqueia o release.
 
-## 5. Como fechar estes itens
+## 5. Recomendações da auditoria histórica (não são tarefas planejadas)
 
-1. Revisão por falante nativo com registro de revisor/data em `ReviewMeta` (`reviewedBy`, `reviewedAt`).
-2. Correção editorial das traduções e das pistas de comprimento.
-3. Teste com aprendizes e calibração dos limiares.
-4. Teste manual em iPhone/Chrome iOS e leitor de tela.
-5. Decisão jurídica sobre o áudio antes de qualquer distribuição.
+1. A auditoria sugeria revisão por falante nativo e teste com aprendizes como trabalho futuro.
+2. A Fase 14 fechou as pistas de comprimento e as correções confirmadas registradas.
+3. O responsável aceitou os riscos restantes; não há tarefa ou fase planejada para este encerramento.

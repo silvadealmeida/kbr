@@ -121,7 +121,7 @@
 
 ## Limites declarados
 
-O syllabus é um desenho interno. Não há alegação de equivalência CEFR/TOPIK, revisão nativa, validade psicométrica ou avaliação de fala espontânea. O áudio do B2 é TTS do navegador; nenhum MP3 novo foi gerado.
+O syllabus é um desenho interno. Não há alegação de equivalência CEFR/TOPIK, revisão nativa, validade psicométrica ou avaliação de fala espontânea. O B2 usa MP3 do corpus estático completo; o player não usa TTS do navegador.
 
 ## Implementação entregue
 

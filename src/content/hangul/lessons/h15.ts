@@ -16,7 +16,7 @@ export const H15: Lesson = {
     {
       title: "ㅢ: início, meio e partícula",
       body:
-        "No início de palavra, ㅢ tende a [ɰi]: 의사, 의자. Depois de consoante, pode soar [i]: 주의. Na partícula possessiva 의, a fala costuma usar [e]: 나의 → [나에]. A escrita permanece 의 em todos os casos.",
+        "No início de palavra, ㅢ tende a [ɰi]: 의사, 의자. Em posição não inicial, pode soar [i]; 주의 é um exemplo. Na partícula possessiva 의, a fala costuma usar [e]: 나의 → [나에]. A escrita permanece 의 em todos os casos.",
       ko: "ㅢ · 의사 의자 주의 나의",
     },
     {
@@ -108,7 +108,7 @@ export const H15: Lesson = {
       ],
       correctOptionId: "attention",
       explanation:
-        "주의 significa 'atenção; cuidado'. Depois de consoante, ㅢ pode soar [i], mas a grafia permanece 의.",
+        "주의 significa 'atenção; cuidado'. Em posição não inicial, ㅢ também pode soar [i], mas a grafia permanece 의.",
       audioText: "주의",
       tags: ["diag:reading", "ㅢ", "pronunciation:variation-ui", "reading", "word"],
       srsCards: ["h:word:주의", "h:syl:주", "h:syl:의"],

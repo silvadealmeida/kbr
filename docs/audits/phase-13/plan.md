@@ -1,5 +1,9 @@
 # Fase 13C — plano de auditoria editorial e técnica A1–C2
 
+> **Plano executado, mantido como histórico.** A finalização do produto foi aceita pelo
+> responsável após revisão editorial assistida por IA. Não houve revisão nativa; esse risco é
+> aceito e não é bloqueio de release. Não há nova fase planejada.
+
 **Status:** auditoria assistida por IA com verificação de referências externas. **Não é revisão nativa.** Nenhum conteúdo será marcado como `reviewed` sem revisor humano identificável.
 
 ## Escopo

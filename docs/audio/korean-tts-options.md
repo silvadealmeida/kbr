@@ -1,5 +1,10 @@
 # Opções de TTS coreano — comparação para o KBR
 
+> **Comparação histórica (Fase 7G), sem decisão pendente.** O produto usa os MP3 de MeloTTS-Korean
+> já gerados: áudio resolvido com créditos, **7.790 MP3** servidos por padrão, e sem TTS de
+> navegador no player. Os riscos residuais de naturalidade foram aceitos e não bloqueiam release.
+> As recomendações abaixo não constituem plano atual de troca de engine ou gravação nativa.
+
 **Data:** 2026-11-12  
 **Pergunta:** qual caminho dá áudio coreano confiável, revisável e sustentável para um app web mobile-first, sem transformar pronúncia em dependência de nuvem?  
 **Natureza:** pesquisa e recomendação da 7G. A 8B instalou o MeloTTS-Korean em ambiente local e publicou assets sintéticos provisórios; a recomendação de gravação nativa como fonte principal continua válida. Ver `docs/audio/generation-guide.md`.

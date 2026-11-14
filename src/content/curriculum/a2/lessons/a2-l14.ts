@@ -35,7 +35,7 @@ export const A2_L14 = defineA2Lesson({
   dialogue: [
     ["수진", "안녕하세요, 윗집에 사는 수진이에요.", "Olá, sou Sujin, moro no andar de cima."],
     ["이웃", "아, 네. 무슨 일이세요?", "Ah, sim. O que aconteceu?"],
-    ["수진", "요즘 밤에 소리가 들리는데요, 조금 시끄러워서 잠을 못 자요.", "Ultimamente ouço barulho à noite, e é um pouco barulhento demais; não consigo dormir."],
+    ["수진", "요즘 밤에 소리가 들리는데요, 조금 시끄러워서 잠을 못 자요.", "Ultimamente ouço barulho à noite; está um pouco barulhento e não consigo dormir."],
     ["이웃", "아이고, 죄송해요. 아이가 늦게까지 뛰어서요.", "Ah, desculpe. Meu filho fica correndo até tarde."],
     ["수진", "이해해요. 그런데 밤 열한 시 이후에는 조금 조용히 해 주시면 좋겠어요.", "Eu entendo. Mas seria bom fazer um pouco de silêncio depois das onze da noite."],
     ["이웃", "알겠습니다. 오늘부터 조심할게요.", "Entendido. A partir de hoje, vou tomar cuidado."],

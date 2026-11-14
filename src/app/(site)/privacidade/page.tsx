@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     "Como o KBR trata dados de conta, progresso de aprendizagem, cookies e armazenamento local.",
 };
 
-const updated = "10 de novembro de 2026";
+const updated = "14 de novembro de 2026";
 
 const storageRows = [
   {
@@ -100,14 +100,6 @@ function Section({
   );
 }
 
-function Pending({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="rounded-md bg-surface-2 px-2 py-0.5 text-xs font-semibold text-accent">
-      {children}
-    </span>
-  );
-}
-
 export default function PrivacyPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-12 pb-20 sm:px-6 sm:py-16">
@@ -122,15 +114,15 @@ export default function PrivacyPage() {
         e como você pode exercer seus direitos.
       </p>
       <p className="mt-4 text-sm text-muted">
-        Última atualização: {updated}. Documento em revisão antes do lançamento público.
+        Última atualização: {updated}. Política operacional do produto.
       </p>
 
       <div className="mt-8 rounded-[var(--radius-plate)] border border-line bg-surface p-5 text-sm leading-relaxed">
-        <p className="font-semibold">O KBR está em desenvolvimento.</p>
-        <p className="mt-2 text-muted">
-          Esta política descreve o que o aplicativo faz hoje. Informações que ainda dependem de
-          definição — como identidade legal, contato e prazos de retenção — estão marcadas como
-          pendentes e não foram inventadas. Elas serão publicadas antes do lançamento público.
+          <p className="font-semibold">Política operacional de privacidade</p>
+          <p className="mt-2 text-muted">
+            Esta página descreve o tratamento atual e as decisões operacionais aceitas pelo
+            responsável pelo projeto. Não é parecer jurídico profissional. Quando um dado pessoal
+            ou prazo não está publicado, não o inventamos nem o substituímos por um placeholder.
         </p>
       </div>
 
@@ -161,29 +153,36 @@ export default function PrivacyPage() {
         <Section id="responsavel" title="1. Quem é o responsável">
           <p>
             O KBR é um projeto independente de aprendizagem de coreano para pessoas que falam
-            português. O responsável pelo tratamento (controlador) será identificado aqui antes
-            do lançamento público.
+            português. O repositório não publica intencionalmente nome civil ou razão social nem
+            endereço postal do responsável. Esta página não inventa esses dados nem afirma uma
+            conclusão profissional sobre a identificação legal exigida.
           </p>
           <dl className="grid gap-3 rounded-[var(--radius-plate)] border border-line bg-surface p-5 text-sm">
             <div>
               <dt className="font-semibold text-fg">Controlador</dt>
               <dd>
-                <Pending>a confirmar</Pending> — nome ou razão social, endereço e forma de
-                contato.
+                Nome civil/razão social e endereço postal não são publicados pelo projeto.
               </dd>
             </div>
             <div>
               <dt className="font-semibold text-fg">Contato de privacidade</dt>
               <dd>
-                <Pending>a confirmar</Pending> — endereço de e-mail dedicado a pedidos de
-                privacidade.
+                Não há e-mail dedicado publicado. O canal público disponível é o repositório{" "}
+                <a
+                  href="https://github.com/silvadealmeida/kbr"
+                  className="text-accent underline underline-offset-2"
+                  rel="noreferrer"
+                >
+                  silvadealmeida/kbr no GitHub
+                </a>
+                . Não publique dados pessoais ali; não há canal privado publicado.
               </dd>
             </div>
             <div>
               <dt className="font-semibold text-fg">Encarregado (DPO)</dt>
               <dd>
-                <Pending>a confirmar</Pending> — a necessidade de indicação depende da avaliação
-                jurídica.
+                Nenhuma pessoa encarregada/DPO é identificada nesta página. A necessidade legal de
+                indicação não foi objeto de parecer profissional.
               </dd>
             </div>
           </dl>
@@ -326,9 +325,9 @@ export default function PrivacyPage() {
             </table>
           </div>
           <p>
-            A avaliação definitiva das bases legais faz parte da revisão jurídica antes do
-            lançamento. O KBR não usa seus dados para publicidade e não toma decisões
-            automatizadas com efeitos jurídicos sobre você.
+            Estas bases refletem a política operacional do produto, não um parecer profissional.
+            O KBR não usa seus dados para publicidade e não toma decisões automatizadas com efeitos
+            jurídicos sobre você.
           </p>
         </Section>
 
@@ -357,24 +356,27 @@ export default function PrivacyPage() {
           </ul>
           <p>
             Esses provedores podem processar dados fora do Brasil ou do Espaço Econômico Europeu.
-            A região do projeto Supabase e os instrumentos contratuais de transferência
-            internacional estão <Pending>a confirmar</Pending> na revisão jurídica.
+            A política não declara uma região específica do projeto Supabase nem detalha
+            instrumentos contratuais de transferência que não estejam publicados.
           </p>
         </Section>
 
         <Section id="retencao" title="6. Retenção e exclusão">
           <p>
-            Ainda não há um prazo de retenção definido. Enquanto sua conta existir, o progresso
-            sincronizado permanece armazenado para que você possa continuar estudando em outros
-            dispositivos. Os dados locais permanecem no navegador até você limpar os dados do
-            site.
+            O produto não define um prazo fixo de retenção. O progresso sincronizado permanece
+            enquanto a conta existir, até que uma exclusão seja solicitada e processada ou uma
+            obrigação aplicável exija conservação. Os dados locais permanecem no navegador até
+            você limpar os dados do site. Os prazos de logs dos provedores seguem as políticas
+            próprias deles e não são especificados pelo KBR.
           </p>
           <p>
-            Também não existe, nesta fase, um botão de exclusão de conta dentro do aplicativo.
-            Pedidos de exclusão serão atendidos pelo contato de privacidade assim que ele for
-            publicado (<Pending>a confirmar</Pending>). A exclusão remove o progresso sincronizado
-            e o registro de autenticação, ressalvadas obrigações legais de conservação. O prazo
-            para concluir a exclusão será definido na política final.
+            Não há botão de exclusão de conta no app. O único canal de contato publicado é o
+            repositório público do projeto no GitHub. Use-o apenas para pedir um meio privado de
+            contato; não publique e-mail, identificadores de conta, progresso ou outros dados
+            pessoais. Atualmente não há endereço de e-mail de privacidade nem canal privado
+            publicado, o que limita pedidos que exigem troca de dados de identificação. A exclusão
+            pode remover o progresso sincronizado e o registro de autenticação, ressalvadas
+            obrigações legais de conservação; não é prometido prazo próprio.
           </p>
           <p>
             Para apagar apenas a cópia local, limpe os dados do site no navegador. Isso não remove
@@ -390,8 +392,11 @@ export default function PrivacyPage() {
             também pode retirar um consentimento já dado, quando essa for a base legal.
           </p>
           <p>
-            Para exercer seus direitos, use o contato de privacidade (<Pending>a confirmar</Pending>
-            ). Responderemos dentro do prazo legal aplicável. Você tem direito de reclamar à
+            Para iniciar um pedido, use a página pública do repositório do KBR, sem incluir dados
+            pessoais. Peça um meio privado de contato para tratar detalhes de identificação. Não há
+            e-mail de privacidade ou canal privado publicado. Os pedidos serão tratados conforme
+            os prazos legais aplicáveis, sem prazo adicional prometido pelo projeto. Você tem
+            direito de reclamar à
             autoridade de proteção de dados competente no seu país — na Alemanha, a autoridade
             estadual de proteção de dados; no Brasil, a ANPD.
           </p>
@@ -418,8 +423,9 @@ export default function PrivacyPage() {
             vigor.
           </p>
           <p>
-            Contato de privacidade: <Pending>a confirmar</Pending>. Aviso legal e informações
-            exigidas na Alemanha: consulte a página de{" "}
+            Canal público: repositório do KBR no GitHub. Não publique dados pessoais ou detalhes
+            da conta nesse canal; no momento não há meio privado de contato publicado. Aviso legal
+            e informações sobre a política operacional: consulte a página de{" "}
             <Link href="/impressum" className="text-accent underline underline-offset-2">
               Aviso legal / Impressum
             </Link>
@@ -428,14 +434,13 @@ export default function PrivacyPage() {
         </Section>
 
         <section className="rounded-[var(--radius-plate)] border border-line bg-surface p-5">
-          <h2 className="text-lg font-semibold">Pendências para revisão jurídica</h2>
+          <h2 className="text-lg font-semibold">Limites declarados</h2>
           <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-muted">
-            <li>Identidade legal do controlador e endereço.</li>
-            <li>E-mail de contato de privacidade e eventual encarregado (DPO).</li>
-            <li>Prazos de retenção e de resposta a pedidos de exclusão.</li>
-            <li>Região do projeto Supabase e instrumentos de transferência internacional.</li>
-            <li>Contratos de processamento (DPA) e revisão das bases legais.</li>
-            <li>Definição sobre a necessidade de Impressum separado.</li>
+            <li>Esta política é operacional e não foi apresentada como parecer de advogado.</li>
+            <li>O projeto não publica nome civil, endereço postal ou e-mail de privacidade.</li>
+            <li>O repositório público não é um canal privado para solicitações com dados pessoais.</li>
+            <li>Não há botão de exclusão de conta nem prazo próprio de resposta ou retenção de logs de provedores.</li>
+            <li>Esses limites são aceitos pelo responsável e não bloqueiam o release.</li>
           </ul>
         </section>
       </div>

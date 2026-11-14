@@ -1,5 +1,9 @@
 # Registro de cobertura da auditoria A0–A2
 
+> **Ledger histórico.** O corpus de áudio e as decisões de release mudaram depois desta baseline:
+> o estado atual é áudio resolvido com créditos, 7.790 MP3 servidos por padrão. Nenhuma pendência
+> de falante nativo deste registro é bloqueio atual; ver `docs/release/beta-readiness.md`.
+
 Baseline `3103ce3`. Gerado por `tools/render-coverage.cjs`; as fichas de leitura são
 regeneráveis (`tools/make-sheets.cjs`), por isso não estão versionadas — os totais
 medidos nelas estão aqui.
@@ -74,9 +78,10 @@ não itens novos).
    mesma ficha): interseção de itens citados ≈ 0,12–0,31. Isso significa cobertura
    complementar, não redundância confirmatória: dois passes do mesmo modelo acham
    conjuntos diferentes de problemas, o que reforça a necessidade de revisor humano.
-5. **Fora de escopo**: qualquer arquivo B1 (`src/content/curriculum/b1`,
-   `src/content/vocabulary/b1-*`), o corpus MP3 (licença bloqueada, ~287 arquivos) e a
-   camada de UI. Áudio não foi ouvido; nenhuma afirmação sobre pronúncia real foi feita.
+ 5. **Fora de escopo naquela baseline**: qualquer arquivo B1 (`src/content/curriculum/b1`,
+    `src/content/vocabulary/b1-*`), o corpus MP3 (então cerca de 287 arquivos) e a camada de UI.
+    Áudio não foi ouvido; nenhuma afirmação sobre pronúncia real foi feita. O estado atual do
+    corpus está em `docs/audio/generation-guide.md`.
 6. **Testes**: nesta baseline, `npm run typecheck` e a suíte Vitest (543 testes em 35
    arquivos) passam, e o build de produção passa. Isso é integridade de dados e de
    compilação — não é evidência linguística.

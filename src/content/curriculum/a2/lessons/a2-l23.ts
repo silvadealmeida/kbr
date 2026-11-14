@@ -92,7 +92,6 @@ export const A2_L23 = defineA2Lesson({
       "Traduza para o coreano formal: “Tenho experiência em suporte ao cliente.”",
       "고객 지원 경험이 있습니다.",
       "있습니다 é a forma formal de 있어요.",
-      ["고객 지원 경험이 있어요."],
     ),
   ],
   independent: [

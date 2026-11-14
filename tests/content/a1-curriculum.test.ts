@@ -197,6 +197,18 @@ describe("blueprint curricular A1", () => {
     });
   });
 
+  test("a1-l36 traduz a recusa pessoal como restrição do falante", () => {
+    const lesson = A1_IMPLEMENTED_LESSONS.find((item) => item.id === "a1-l36");
+    const line = lesson?.dialogue.find((item) => item.id === "a1-l36-d4");
+    const note = lesson?.grammar.find((item) => item.id === "g:a1-l36-repair");
+
+    expect(line?.ko).toBe("아니요, 돼지고기는 안 돼요.");
+    expect(line?.pt).toBe("Não, não posso comer carne de porco.");
+    expect(note?.examples.map((example) => example.pt)).toContain(
+      "Não posso comer carne de porco.",
+    );
+  });
+
   test("o dataset completo é válido, cobre os 48 passos e tem gabaritos únicos", () => {
     expect(validateA1Content()).toEqual([]);
     expect(validateCourseRegistry()).toEqual([]);

@@ -52,7 +52,7 @@ Depois da resposta, a tela mostra:
 - resposta esperada;
 - frase coreana completa;
 - tradução brasileira completa;
-- áudio sob clique pela voz coreana do navegador.
+- MP3 estático do corpus sob clique.
 
 O acerto com tradução ou pista aberta repete a caixa Leitner; não avança. O agendamento continua no mesmo estado `v:<id>`.
 
@@ -77,4 +77,4 @@ O acerto com tradução ou pista aberta repete a caixa Leitner; não avança. O 
 - A naturalidade das 400 frases e das glosas ainda não foi validada por falante nativo.
 - A tradução pode ter mais de uma leitura; o `accepted` cobre variantes lexicais registradas, não todas as paráfrases possíveis.
 - Uma frase contextual não esgota o sentido de uma palavra; a revisão espaçada e os reencontros ao longo do curso ajudam, mas não garantem domínio.
-- O áudio é a voz do navegador; não há MP3 novo e a qualidade depende do dispositivo.
+- O curso usa MP3 estáticos do corpus completo; não há TTS do navegador no player.

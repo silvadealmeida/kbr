@@ -1,4 +1,10 @@
-# Roadmap de qualidade de áudio — Fase 8B
+# Roadmap de qualidade de áudio — Fase 8B (histórico, encerrado)
+
+> **Arquivo histórico, superado pela Fase 14.** O áudio está **resolvido com créditos**: 7.790 MP3
+> de Hangul, A1–C2 e vocabulário são servidos por padrão; `=0` é apenas kill switch. Gravação ou
+> aprovação por falante nativo não são tarefas pendentes nem bloqueios do release. O áudio sintético
+> não avalia pronúncia; o risco residual de qualidade foi aceito pelo responsável. Este roadmap
+> registra o plano antigo e não representa trabalho atual.
 
 **Data:** 2026-11-12  
 **Status:** **parcialmente implementado na 8B local**. A camada de assets, o player e o fallback estão prontos com TTS neural provisório; gravação e QA por falante nativo continuam pendentes.  

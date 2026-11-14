@@ -1,5 +1,13 @@
 # B1 — achados de desenho/avaliação de exercícios (Fase 12B)
 
+> **Registro histórico, superado como decisão de release.** Este arquivo preserva evidência e
+> estado da auditoria na época. O veredito atual é projeto concluído, áudio resolvido com
+> créditos (7.790 MP3 servidos por padrão) e revisão editorial final assistida por IA aceita
+> pelo responsável. Não houve revisão nativa nem teste físico; esses riscos são aceitos e não
+> bloqueiam release. Pendências, bloqueios e contagens antigas abaixo não controlam o estado
+> atual. Ver `docs/release/beta-readiness.md`.
+
+
 Cobre fairness de itens, unicidade de gabarito, coerência enunciado×resposta e higiene de dados dos 615 itens. Severidades em `data/findings.json`; casos linguísticos puros estão em `linguistic-findings.md`.
 
 ## CRÍTICO

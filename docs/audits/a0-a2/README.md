@@ -1,5 +1,11 @@
 # README — auditoria A0–A2 (read-only)
 
+> **Arquivo histórico de auditoria.** O estado atual é definido por `docs/roadmap.md` e
+> `docs/release/beta-readiness.md`. O áudio está resolvido com créditos (7.790 MP3 servidos por
+> padrão). A revisão editorial final assistida por IA foi aceita pelo responsável; não houve revisão
+> nativa e o risco residual não bloqueia o release. Qualquer estado anterior de opt-in/bloqueio é
+> histórico e não controla a decisão atual.
+
 > **Fase 12A (2026-11-13):** as correções verificadas foram aplicadas fora deste
 > worktree, em commits focados no `main`. O estado final está em
 > [`correction-ledger.md`](correction-ledger.md); `executive-summary.md` §9,

@@ -1,5 +1,9 @@
 # Auditoria 13C — resumo executivo
 
+> **Resumo histórico, superado como decisão de release.** A revisão editorial final assistida
+> por IA foi aceita pelo responsável pelo projeto. Não houve revisão por falante nativo; o risco
+> residual de qualidade foi aceito e não bloqueia o release. Consulte `docs/release/beta-readiness.md`.
+
 **Escopo:** Hangul, A1, A2, B1, B2, C1 e C2.
 **Natureza:** auditoria assistida por IA com verificação de referências externas e testes automatizados. **Não é revisão por falante nativo**, não certifica CEFR/TOPIK e não mede eficácia pedagógica com aprendizes.
 
@@ -40,6 +44,6 @@ O ledger canônico é `findings.json`: **3 Critical, 19 High, 8 Medium, 3 Low** 
 - Acessibilidade completa WCAG ou teste em iPhone/VoiceOver reais.
 - Que a conclusão de 48 passos equivale a um nível de proficiência.
 
-## 5. Recomendação
+## 5. Recomendação histórica (não é requisito atual)
 
-Antes de qualquer lançamento público: revisão por falante nativo de todo o coreano, revisão editorial das traduções pt-BR, teste com aprendizes e decisão jurídica sobre o áudio. Os cursos C1/C2 podem ser usados como percurso interno de estudo, com as limitações acima explícitas.
+Na data da auditoria 13C, recomendou-se revisão por falante nativo, edição de traduções, teste com aprendizes e decisão de áudio. A decisão posterior do responsável aceita os riscos residuais e encerra o produto para release sem alegar revisão nativa ou parecer profissional. Esta recomendação não controla o estado atual.

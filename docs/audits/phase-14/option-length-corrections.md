@@ -1,5 +1,10 @@
 # Correção das pistas de comprimento (F13-012)
 
+> **Decisão final:** a correção editorial está concluída e aceita pelo responsável. Os 237 casos
+> acima de 1,7× foram tratados, restam zero acima do limite, e a revisão final assistida por IA
+> não é apresentada como revisão nativa. Itens perto do limite são risco aceito, sem tarefa ou
+> bloqueio de release.
+
 ## 1. O problema
 
 A auditoria 13C detectou que, em itens de múltipla escolha e leitura, o gabarito podia ser identificado por ser muito mais longo que os distratores. O censo usava o comprimento bruto da string (incluindo espaços e pontuação) e o limite de **1,7×** o maior distrator.

@@ -278,7 +278,7 @@ export const B2_L35 = defineB2Lesson({
   ],
   dialogue: [
     ["아나", "지민이가 “괜찮아”라고 했는데 표정이 안 좋았어요.", "A Jimin disse “estou bem”, mas a expressão não estava boa."],
-    ["민수", "아무 일도 없다고 체했지만, 목소리가 떨렸어요.", "Ela fingiu que não havia nada, mas a voz tremia."],
+    ["민수", "아무 일도 없는 척했지만, 목소리가 떨렸어요.", "Ela fingiu que não havia nada, mas a voz tremia."],
     ["아나", "속마음을 드러내지 않는 편이죠?", "Ela costuma não revelar o que sente, né?"],
     ["민수", "네. 억누른 감정은 사라지지 않아요. 슬픔을 숨기고 웃어도 대화가 어색하게 끝나요.", "Sim. Emoção reprimida não desaparece. Mesmo escondendo a tristeza e sorrindo, a conversa termina de forma estranha."],
     ["아나", "그럼 어떻게 물어봐야 해요?", "Então como devo perguntar?"],
@@ -289,7 +289,7 @@ export const B2_L35 = defineB2Lesson({
   readingText: {
     titlePt: "Quando o “está tudo bem” não é bem",
     paragraphs: [
-      "친구가 “괜찮아”라고 했지만, 표정은 밝지 않았다. 그는 아무 일도 없다고 체했지만, 목소리는 떨렸다. 나는 속마음을 드러내지 않는 친구를 오래 봐 왔다.",
+      "친구가 “괜찮아”라고 했지만, 표정은 밝지 않았다. 친구는 아무 일도 없는 척했지만, 목소리는 떨렸다. 나는 속마음을 드러내지 않는 친구를 오래 봐 왔다.",
       "억누른 감정은 사라지지 않는다. 슬픔을 숨기고 웃어도, 대화는 어색하게 끝난다. 그때 나는 “정말 괜찮아?”라고 물었고, 친구는 잠시 망설이다 속마음을 털어놓았다.",
       "거짓말이 결국 들켰지만, 친구는 나를 속이고 싶지 않았던 것이다. 서로 솔직해지자 분위기가 풀렸다. 괜찮은 척하는 마음은 이해할 수 있지만, 혼자 감당할 필요는 없다. 그날 우리는 오래 이야기했고, 다음부터는 괜찮지 않을 때 먼저 말하기로 했다. 솔직함이 관계를 더 편하게 만든다.",
     ],
@@ -305,7 +305,7 @@ export const B2_L35 = defineB2Lesson({
     mcq("O que Jimin estava fazendo?", ["Fingindo que estava tudo bem.", "Contando toda a verdade.", "Pedindo desculpas."], "Fingindo que estava tudo bem.", "아무 일도 없는 척했어요."),
     cloze("Complete a aparência fingida: 그는 아무 일도 없___ 척했어요.", "는", "없는 척했어요 = fingiu que não havia nada."),
     listen("Ouça e escreva a convicção.", "그가 화난 걸 모를 리가 없어요.", "그가 화난 걸 모를 리가 없어요.", "Não há como ele não saber que ela está irritada."),
-    reading("친구가 “괜찮아”라고 했지만, 표정은 밝지 않았다. 그는 아무 일도 없다고 체했지만, 목소리는 떨렸다. 나는 속마음을 드러내지 않는 친구를 오래 봐 왔다.", "Qual pista revelava o desconforto?", ["A voz tremia, apesar do “estou bem”.", "Ela estava rindo alto.", "Ela não disse nada."], "A voz tremia, apesar do “estou bem”.", "목소리가 떨렸어요."),
+    reading("친구가 “괜찮아”라고 했지만, 표정은 밝지 않았다. 친구는 아무 일도 없는 척했지만, 목소리는 떨렸다. 나는 속마음을 드러내지 않는 친구를 오래 봐 왔다.", "Qual pista revelava o desconforto?", ["A voz tremia, apesar do “estou bem”.", "Ela estava rindo alto.", "Ela não disse nada."], "A voz tremia, apesar do “estou bem”.", "목소리가 떨렸어요."),
     translate("pt-ko", "Traduza: “Não há como ele não saber que ela está irritada.”", "그가 화난 걸 모를 리가 없어요.", "-ㄹ 리가 없다 expressa forte convicção negativa.", ["그가 화난 걸 모를 리가 없습니다."]),
   ],
   independent: [

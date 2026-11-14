@@ -87,7 +87,7 @@ Fontes de pesquisa:
 5. reuso em novo cenário posterior;
 6. checkpoint cumulativo com transferência moderada.
 
-Romanização não é uma trilha permanente. Como o pré-requisito é o Hangul, nenhum campo do blueprint exige romanização; apoio fonológico futuro usa áudio do sistema, Hangul, explicações articulatórias e repetição opcional.
+Romanização não é uma trilha permanente. Como o pré-requisito é o Hangul, nenhum campo do blueprint exige romanização; apoio fonológico usa MP3 do corpus, Hangul, explicações articulatórias e repetição opcional. O player não usa TTS do navegador.
 
 ## 4. Derivação do tamanho do curso
 
@@ -100,13 +100,13 @@ Romanização não é uma trilha permanente. Como o pré-requisito é o Hangul, 
 - revisão distribuída e tarefas de desempenho acrescentam cerca de 31–39 horas, totalizando **65–85 horas**;
 - a faixa toca o limite inferior de 72 horas do referencial coreano, mas o KBR continuará avaliando pelos resultados mensuráveis, não apenas por tempo.
 
-O número não é promessa de que qualquer lista de 40 lições “certifica A1”. Conteúdo, avaliações, revisão nativa e validação com aprendizes foram implementados nas fases 9B–9H, mas a revisão nativa e a validação com aprendizes continuam pendentes.
+O número não é promessa de que qualquer lista de 40 lições “certifica A1”. O curso completo foi implementado nas fases 9B–9H. Não houve revisão por falante nativo nem validação com aprendizes; a revisão editorial assistida por IA foi aceita pelo responsável e os riscos residuais não bloqueiam o release.
 
 ## 5. Limites conhecidos
 
-- O corpus A1 ainda não existe; todos os títulos e cenários são blueprint original, não lições.
+- Este documento descreve a pesquisa e o blueprint original. O curso A1 completo existe em `src/content/curriculum/a1/` e está disponível no app.
 - Não houve revisão de linguista/falante nativo deste mapa.
 - Não houve estudo com alunos brasileiros nem calibração de dificuldade/tempo.
 - TOPIK, CEFR e currículo coreano foram triangulados, não convertidos por tabela.
-- Voz do sistema não prova pronúncia correta; MP3 sintético continua bloqueado por licença.
+- O corpus de MP3 sintético está resolvido com créditos e é servido por padrão; isso não prova pronúncia correta nem equivale a gravação nativa.
 - Testes automatizados futuros provarão estrutura, nunca naturalidade, adequação cultural ou correção linguística.

@@ -1,7 +1,7 @@
 # Rascunhos de pedido de esclarecimento de licença — RESOLVIDO (Fase 14)
 
-**Status:** **não é necessário enviar.** O dono do projeto perguntou diretamente ao autor do
-`kykim/bert-kor-base` sobre o uso do checkpoint e recebeu a orientação de que **basta dar crédito**
+**Status:** **não é necessário enviar.** O responsável pelo projeto perguntou diretamente ao autor do
+`kykim/bert-kor-base` sobre o uso do checkpoint e recebeu a orientação de que o uso **exige crédito**
 ao autor e ao repositório. O KBR publica esse crédito em `/impressum` e em `docs/audio/credits.md`.
 Os rascunhos abaixo ficam apenas como registro histórico de como a pergunta foi preparada.
 

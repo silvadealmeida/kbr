@@ -1,7 +1,7 @@
 {
   "e2e/smoke.spec.ts": {
-    "mtime": 1794615544.931471,
-    "seen": 1794615820.650596,
+    "mtime": 1794616049.1665123,
+    "seen": 1794616060.692101,
     "ast_hash": "863878be5d50111ba5700c46cfe18f24",
     "semantic_hash": ""
   },
@@ -96,8 +96,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1794614581.1990304,
-    "seen": 1794615820.6510732,
+    "mtime": 1794616049.158918,
+    "seen": 1794616060.7044246,
     "ast_hash": "c3904d12307f004db513882cd18054eb",
     "semantic_hash": ""
   },
@@ -108,20 +108,20 @@
     "semantic_hash": ""
   },
   "docs/architecture.md": {
-    "mtime": 1794614004.0846288,
-    "seen": 1794615820.651076,
+    "mtime": 1794616049.158918,
+    "seen": 1794616060.7044427,
     "ast_hash": "b801d6839203b9f8e51c4b44123602f2",
     "semantic_hash": ""
   },
   "docs/research.md": {
-    "mtime": 1794613530.8478727,
-    "seen": 1794615820.6511939,
+    "mtime": 1794616049.1665123,
+    "seen": 1794616060.7058856,
     "ast_hash": "0d7359a48b3934d53ab5109c5bdf55e4",
     "semantic_hash": ""
   },
   "docs/roadmap.md": {
-    "mtime": 1794615804.92133,
-    "seen": 1794615820.6511943,
+    "mtime": 1794616049.1665123,
+    "seen": 1794616060.7058864,
     "ast_hash": "36e6a652027c79d168daee4ca83f9641",
     "semantic_hash": ""
   },
@@ -320,13 +320,13 @@
   "supabase/migrations/20261110120000_create_user_progress.sql": {
     "mtime": 1794307613.1113913,
     "seen": 1794615902.7955055,
-    "ast_hash": "b6c73ece2803ac68d4afbb9bcbf3adb1",
+    "ast_hash": "",
     "semantic_hash": ""
   },
   "supabase/tests/user_progress_rls.test.sql": {
     "mtime": 1794307628.261156,
     "seen": 1794615902.7955565,
-    "ast_hash": "54c660b727a6e7d93693694b00ec2cf1",
+    "ast_hash": "",
     "semantic_hash": ""
   },
   "docs/supabase-setup.md": {
@@ -336,8 +336,8 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1794614058.145493,
-    "seen": 1794615820.6510751,
+    "mtime": 1794616049.158918,
+    "seen": 1794616060.7044415,
     "ast_hash": "4ef564fee59daae42ce7107c7bc2745c",
     "semantic_hash": ""
   },
@@ -384,8 +384,8 @@
     "semantic_hash": ""
   },
   "src/app/(site)/impressum/page.tsx": {
-    "mtime": 1794612400.362358,
-    "seen": 1794615820.6506455,
+    "mtime": 1794616050.1003976,
+    "seen": 1794616060.6928866,
     "ast_hash": "667c60eed7785444b13a990ef30665ee",
     "semantic_hash": ""
   },
@@ -396,14 +396,14 @@
     "semantic_hash": ""
   },
   "src/app/(site)/page.tsx": {
-    "mtime": 1794614559.3066752,
-    "seen": 1794615820.6506467,
+    "mtime": 1794616050.1003976,
+    "seen": 1794616060.6929138,
     "ast_hash": "518505af2041d7b827b3946a48580c59",
     "semantic_hash": ""
   },
   "src/app/(site)/privacidade/page.tsx": {
-    "mtime": 1794612386.1766555,
-    "seen": 1794615820.6506476,
+    "mtime": 1794616050.1003976,
+    "seen": 1794616060.692917,
     "ast_hash": "b93f9ded38565f830ccf8579547cecd9",
     "semantic_hash": ""
   },
@@ -432,8 +432,8 @@
     "semantic_hash": ""
   },
   "src/components/site/SiteFooter.tsx": {
-    "mtime": 1794614559.3066752,
-    "seen": 1794615820.6506858,
+    "mtime": 1794616050.1003976,
+    "seen": 1794616060.6939027,
     "ast_hash": "62df06c2d72695a3b9dc9b72f6e33dcf",
     "semantic_hash": ""
   },
@@ -456,14 +456,14 @@
     "semantic_hash": ""
   },
   "tests/site.test.ts": {
-    "mtime": 1794615020.8443356,
-    "seen": 1794615820.6510608,
+    "mtime": 1794616050.1193833,
+    "seen": 1794616060.7042296,
     "ast_hash": "8a87fb9cd4bb6ae92569cfbf45e9bf94",
     "semantic_hash": ""
   },
   "docs/privacy-audit.md": {
-    "mtime": 1794613756.2283108,
-    "seen": 1794615820.6511912,
+    "mtime": 1794616049.1665123,
+    "seen": 1794616060.7058814,
     "ast_hash": "cce9c34d961d60c9c14f097bb4fd43ab",
     "semantic_hash": ""
   },
@@ -492,8 +492,8 @@
     "semantic_hash": ""
   },
   "docs/pedagogy/curriculum.md": {
-    "mtime": 1794613482.8250566,
-    "seen": 1794615820.651189,
+    "mtime": 1794616049.1665123,
+    "seen": 1794616060.705841,
     "ast_hash": "42b2f59747f12c4517ab592b9d645996",
     "semantic_hash": ""
   },
@@ -504,8 +504,8 @@
     "semantic_hash": ""
   },
   "docs/pedagogy/hangul.md": {
-    "mtime": 1794613482.8250566,
-    "seen": 1794615820.65119,
+    "mtime": 1794616049.1665123,
+    "seen": 1794616060.705862,
     "ast_hash": "f3696f7360f83490fd7ba51b57e79303",
     "semantic_hash": ""
   },
@@ -618,8 +618,8 @@
     "semantic_hash": ""
   },
   "tests/content/hangul.test.ts": {
-    "mtime": 1794613945.7668307,
-    "seen": 1794615820.6510417,
+    "mtime": 1794616050.1193833,
+    "seen": 1794616060.7038548,
     "ast_hash": "3b6beaa66dd87c93fa97f8e0b31dbd15",
     "semantic_hash": ""
   },
@@ -666,8 +666,8 @@
     "semantic_hash": ""
   },
   "src/content/hangul/lessons/h05.ts": {
-    "mtime": 1794613411.1430702,
-    "seen": 1794615820.6509073,
+    "mtime": 1794616050.1193833,
+    "seen": 1794616060.7006438,
     "ast_hash": "878feeb3b0a754cbf05fc7e6d8ffa6a9",
     "semantic_hash": ""
   },
@@ -732,8 +732,8 @@
     "semantic_hash": ""
   },
   "src/content/hangul/lessons/h13.ts": {
-    "mtime": 1794613226.485229,
-    "seen": 1794615820.6509128,
+    "mtime": 1794616050.1193833,
+    "seen": 1794616060.7007952,
     "ast_hash": "7313626783812d7a4d486cc829a06169",
     "semantic_hash": ""
   },
@@ -744,8 +744,8 @@
     "semantic_hash": ""
   },
   "src/content/hangul/lessons/h15.ts": {
-    "mtime": 1794613207.6108198,
-    "seen": 1794615820.650915,
+    "mtime": 1794616050.1193833,
+    "seen": 1794616060.7008176,
     "ast_hash": "e920887f5b3a7f9b36c5da484b671732",
     "semantic_hash": ""
   },
@@ -768,8 +768,8 @@
     "semantic_hash": ""
   },
   "src/content/hangul/lessons/h18.ts": {
-    "mtime": 1794613207.6108198,
-    "seen": 1794615820.650917,
+    "mtime": 1794616050.1193833,
+    "seen": 1794616060.7008598,
     "ast_hash": "91be287178705db3af16fab52583ad9e",
     "semantic_hash": ""
   },
@@ -968,19 +968,19 @@
   "supabase/migrations/20261110180000_add_save_user_progress_rpc.sql": {
     "mtime": 1794342744.0068913,
     "seen": 1794615902.7955067,
-    "ast_hash": "c9b6f848e6f2e7af9901943ab5c3fd3f",
+    "ast_hash": "",
     "semantic_hash": ""
   },
   "supabase/tests/local/bootstrap.sql": {
     "mtime": 1794342684.7452528,
     "seen": 1794615902.7955081,
-    "ast_hash": "0d630d1da3bd24a1749a6654f08ff21c",
+    "ast_hash": "",
     "semantic_hash": ""
   },
   "supabase/tests/save_user_progress_rpc.test.sql": {
     "mtime": 1794387272.0560353,
     "seen": 1794615902.7955556,
-    "ast_hash": "78857e182968fd3773cbffaa033e27c8",
+    "ast_hash": "",
     "semantic_hash": ""
   },
   "docs/sync/deployment-runbook.md": {
@@ -1098,8 +1098,8 @@
     "semantic_hash": ""
   },
   "e2e/webkit.spec.ts": {
-    "mtime": 1794615544.931471,
-    "seen": 1794615820.6506097,
+    "mtime": 1794616049.1665123,
+    "seen": 1794616060.692169,
     "ast_hash": "36d899d70b1453730b453f78d5989491",
     "semantic_hash": ""
   },
@@ -1116,8 +1116,8 @@
     "semantic_hash": ""
   },
   "docs/iphone-manual-checklist.md": {
-    "mtime": 1794612666.1729045,
-    "seen": 1794615820.6511867,
+    "mtime": 1794616049.1665123,
+    "seen": 1794616060.7058036,
     "ast_hash": "6866f9cee1dc86b3ce30c1ffba264846",
     "semantic_hash": ""
   },
@@ -1254,8 +1254,8 @@
     "semantic_hash": ""
   },
   "docs/feedback/feedback-igo.md": {
-    "mtime": 1794612666.1729045,
-    "seen": 1794615820.651186,
+    "mtime": 1794616049.1665123,
+    "seen": 1794616060.7058024,
     "ast_hash": "2003398347b5958b1b533262354c1637",
     "semantic_hash": ""
   },
@@ -1278,20 +1278,20 @@
     "semantic_hash": ""
   },
   "docs/audio/audio-quality-roadmap.md": {
-    "mtime": 1794612177.1967158,
-    "seen": 1794615820.6510773,
+    "mtime": 1794616049.158918,
+    "seen": 1794616060.7044446,
     "ast_hash": "a2c33331ab6554afe6b119ecbc205f53",
     "semantic_hash": ""
   },
   "docs/audio/current-audio-audit.md": {
-    "mtime": 1794614800.1417656,
-    "seen": 1794615820.6510792,
+    "mtime": 1794616049.158918,
+    "seen": 1794616060.7044468,
     "ast_hash": "c1133931ce10d00713d391ab1b092b0a",
     "semantic_hash": ""
   },
   "docs/audio/korean-tts-options.md": {
-    "mtime": 1794612177.1967158,
-    "seen": 1794615820.6510825,
+    "mtime": 1794616049.158918,
+    "seen": 1794616060.7044508,
     "ast_hash": "0d97d55d8bc6c7908b5fe4b4e7658a15",
     "semantic_hash": ""
   },
@@ -1338,8 +1338,8 @@
     "semantic_hash": ""
   },
   "src/content/audio/entries.ts": {
-    "mtime": 1794612791.1765466,
-    "seen": 1794615820.6507032,
+    "mtime": 1794616050.1041949,
+    "seen": 1794616060.6944807,
     "ast_hash": "b776a4f736f2453df753874e03ac1169",
     "semantic_hash": ""
   },
@@ -1392,8 +1392,8 @@
     "semantic_hash": ""
   },
   "docs/audio/generation-guide.md": {
-    "mtime": 1794615375.4339454,
-    "seen": 1794615820.6510816,
+    "mtime": 1794616049.158918,
+    "seen": 1794616060.7044501,
     "ast_hash": "dc6a3a883352264d7264bc302bab27b9",
     "semantic_hash": ""
   },
@@ -1482,20 +1482,20 @@
     "semantic_hash": ""
   },
   "docs/audio/audio-quality-report.md": {
-    "mtime": 1794612177.1929126,
-    "seen": 1794615820.6510766,
+    "mtime": 1794616049.158918,
+    "seen": 1794616060.7044437,
     "ast_hash": "fb8f116924aafd9f187ddf38b4bf7b02",
     "semantic_hash": ""
   },
   "docs/audio/license-audit.md": {
-    "mtime": 1794612126.0326648,
-    "seen": 1794615820.651083,
+    "mtime": 1794616049.158918,
+    "seen": 1794616060.7044516,
     "ast_hash": "1f6dfd52d84014a71644ae7182e4c2b7",
     "semantic_hash": ""
   },
   "docs/release/beta-readiness.md": {
-    "mtime": 1794615804.92133,
-    "seen": 1794615820.651192,
+    "mtime": 1794616049.1665123,
+    "seen": 1794616060.705883,
     "ast_hash": "b097d1bc428233e9b322fd9329c53d73",
     "semantic_hash": ""
   },
@@ -1506,32 +1506,32 @@
     "semantic_hash": ""
   },
   "docs/audio/dependency-licenses.md": {
-    "mtime": 1794612177.1967158,
-    "seen": 1794615820.6510801,
+    "mtime": 1794616049.158918,
+    "seen": 1794616060.704448,
     "ast_hash": "2ffd95a3abe1391ecb7beb87c1e64b83",
     "semantic_hash": ""
   },
   "docs/audio/permissions/email-drafts.md": {
-    "mtime": 1794612177.1967158,
-    "seen": 1794615820.651084,
+    "mtime": 1794616049.158918,
+    "seen": 1794616060.7044525,
     "ast_hash": "5e37d12288fd512911fff730b8a91397",
     "semantic_hash": ""
   },
   "docs/audio/tts-alternatives.md": {
-    "mtime": 1794612177.1967158,
-    "seen": 1794615820.6510851,
+    "mtime": 1794616049.158918,
+    "seen": 1794616060.704456,
     "ast_hash": "7b4b19e298144d07b33af35581a0f039",
     "semantic_hash": ""
   },
   "docs/audio/exposure-and-removal-plan.md": {
-    "mtime": 1794612177.1967158,
-    "seen": 1794615820.6510808,
+    "mtime": 1794616049.158918,
+    "seen": 1794616060.7044492,
     "ast_hash": "a1158c622cbc4d95e3a9b3002e3e6628",
     "semantic_hash": ""
   },
   "docs/release/curriculum-handoff.md": {
-    "mtime": 1794612776.2166219,
-    "seen": 1794615820.6511931,
+    "mtime": 1794616049.1665123,
+    "seen": 1794616060.7058845,
     "ast_hash": "a135ba747667e1ffad980bb6294f315a",
     "semantic_hash": ""
   },
@@ -1680,20 +1680,20 @@
     "semantic_hash": ""
   },
   "docs/curriculum/a1-research.md": {
-    "mtime": 1794612862.6098385,
-    "seen": 1794615820.651149,
+    "mtime": 1794616049.1627152,
+    "seen": 1794616060.7052276,
     "ast_hash": "808abfd1202c5207b8308a0b43ed8a26",
     "semantic_hash": ""
   },
   "docs/curriculum/a1-syllabus.md": {
-    "mtime": 1794612909.7064044,
-    "seen": 1794615820.6511497,
+    "mtime": 1794616049.1627152,
+    "seen": 1794616060.7052286,
     "ast_hash": "1b1d04211391885c70d2aaa14b49e128",
     "semantic_hash": ""
   },
   "docs/curriculum/a1-vocabulary-plan.md": {
-    "mtime": 1794612862.6098385,
-    "seen": 1794615820.651151,
+    "mtime": 1794616049.1627152,
+    "seen": 1794616060.7052293,
     "ast_hash": "38d1da04d6fcefaf3d011f39917c61ca",
     "semantic_hash": ""
   },
@@ -1722,8 +1722,8 @@
     "semantic_hash": ""
   },
   "tests/content/a1-curriculum.test.ts": {
-    "mtime": 1794613694.7169971,
-    "seen": 1794615820.651029,
+    "mtime": 1794616050.1193833,
+    "seen": 1794616060.703653,
     "ast_hash": "a2fa1a7de644357777883664a25f0629",
     "semantic_hash": ""
   },
@@ -2070,8 +2070,8 @@
     "semantic_hash": ""
   },
   "src/content/curriculum/a1/lessons/a1-l36.ts": {
-    "mtime": 1794613710.8609838,
-    "seen": 1794615820.6507509,
+    "mtime": 1794616050.1193833,
+    "seen": 1794616060.696063,
     "ast_hash": "078b0227cb6dfd41acac901836af5cac",
     "semantic_hash": ""
   },
@@ -2172,8 +2172,8 @@
     "semantic_hash": ""
   },
   "src/content/curriculum/a2/lessons/a2-l03.ts": {
-    "mtime": 1794611822.4378395,
-    "seen": 1794615820.6507726,
+    "mtime": 1794616050.1193833,
+    "seen": 1794616060.696584,
     "ast_hash": "f93de37a21bec66f7702b4739c913ace",
     "semantic_hash": ""
   },
@@ -2238,8 +2238,8 @@
     "semantic_hash": ""
   },
   "src/content/curriculum/a2/lessons/a2-l14.ts": {
-    "mtime": 1794613710.8609838,
-    "seen": 1794615820.6507814,
+    "mtime": 1794616050.1193833,
+    "seen": 1794616060.6969373,
     "ast_hash": "123e04fe1cddc9fb136e419c96d10a69",
     "semantic_hash": ""
   },
@@ -2340,8 +2340,8 @@
     "semantic_hash": ""
   },
   "tests/content/a2-curriculum.test.ts": {
-    "mtime": 1794614086.8554592,
-    "seen": 1794615820.6510296,
+    "mtime": 1794616050.1193833,
+    "seen": 1794616060.7036548,
     "ast_hash": "c8e709b3e8308d11e874b2a2b33ef3ad",
     "semantic_hash": ""
   },
@@ -2400,8 +2400,8 @@
     "semantic_hash": ""
   },
   "src/content/curriculum/a2/lessons/a2-l23.ts": {
-    "mtime": 1794613341.857192,
-    "seen": 1794615820.6507876,
+    "mtime": 1794616050.1193833,
+    "seen": 1794616060.6971307,
     "ast_hash": "ea3b9721ac2f08d5fc39520ae8b1deca",
     "semantic_hash": ""
   },
@@ -2448,8 +2448,8 @@
     "semantic_hash": ""
   },
   "src/content/curriculum/a2/lessons/a2-l30.ts": {
-    "mtime": 1794613341.857192,
-    "seen": 1794615820.650794,
+    "mtime": 1794616050.1193833,
+    "seen": 1794616060.697266,
     "ast_hash": "ecc9bf4a9878ee104325cdc93a1453d3",
     "semantic_hash": ""
   },
@@ -2568,8 +2568,8 @@
     "semantic_hash": ""
   },
   "docs/curriculum/a2-exercise-plan.md": {
-    "mtime": 1794612909.7064044,
-    "seen": 1794615820.651152,
+    "mtime": 1794616049.1627152,
+    "seen": 1794616060.705231,
     "ast_hash": "74dd30203c045f216f5e0f61bc099b90",
     "semantic_hash": ""
   },
@@ -2580,20 +2580,20 @@
     "semantic_hash": ""
   },
   "docs/curriculum/a2-research.md": {
-    "mtime": 1794612683.3545182,
-    "seen": 1794615820.6511533,
+    "mtime": 1794616049.1627152,
+    "seen": 1794616060.705249,
     "ast_hash": "3325e58ae3f4d3dec934976663028b5e",
     "semantic_hash": ""
   },
   "docs/curriculum/a2-syllabus.md": {
-    "mtime": 1794612683.3507166,
-    "seen": 1794615820.6511538,
+    "mtime": 1794616049.1627152,
+    "seen": 1794616060.70525,
     "ast_hash": "047fc15acb1328652592b33c47ba0791",
     "semantic_hash": ""
   },
   "docs/curriculum/a2-vocabulary-plan.md": {
-    "mtime": 1794612683.3545182,
-    "seen": 1794615820.6511548,
+    "mtime": 1794616049.1627152,
+    "seen": 1794616060.7052507,
     "ast_hash": "09f55301301637929d6cbdd872e55546",
     "semantic_hash": ""
   },
@@ -4572,8 +4572,8 @@
     "semantic_hash": ""
   },
   "docs/curriculum/b1-exercise-plan.md": {
-    "mtime": 1794612909.7064044,
-    "seen": 1794615820.6511552,
+    "mtime": 1794616049.1627152,
+    "seen": 1794616060.705252,
     "ast_hash": "89116601f4ece3ccbc7aa3fa0b8bfaed",
     "semantic_hash": ""
   },
@@ -4596,14 +4596,14 @@
     "semantic_hash": ""
   },
   "docs/curriculum/b1-vocabulary-plan.md": {
-    "mtime": 1794612683.3545182,
-    "seen": 1794615820.6511583,
+    "mtime": 1794616049.1627152,
+    "seen": 1794616060.705306,
     "ast_hash": "e2cbdeb2f44fdba02970b249c3efc90a",
     "semantic_hash": ""
   },
   "docs/curriculum/content-sweep-2026-11-12.md": {
-    "mtime": 1794613022.6123848,
-    "seen": 1794615820.6511755,
+    "mtime": 1794616049.1665123,
+    "seen": 1794616060.7055864,
     "ast_hash": "74a72f840699cd8ad23bea79a6b11931",
     "semantic_hash": ""
   },
@@ -4866,50 +4866,50 @@
     "semantic_hash": ""
   },
   "docs/audio/stale-audio-manifest.md": {
-    "mtime": 1794612151.129965,
-    "seen": 1794615820.6510847,
+    "mtime": 1794616049.158918,
+    "seen": 1794616060.7044551,
     "ast_hash": "21884dc8f1469218533d16246ed9eada",
     "semantic_hash": ""
   },
   "docs/audits/a0-a2/README.md": {
-    "mtime": 1794612752.8008664,
-    "seen": 1794615820.651086,
+    "mtime": 1794616049.158918,
+    "seen": 1794616060.7044575,
     "ast_hash": "2085c02fb88b6214882d11f5af38d016",
     "semantic_hash": ""
   },
   "docs/audits/a0-a2/a1-findings.md": {
-    "mtime": 1794613873.485775,
-    "seen": 1794615820.651087,
+    "mtime": 1794616049.158918,
+    "seen": 1794616060.7044582,
     "ast_hash": "9137baa48b1f48bfac54f4d612da1b91",
     "semantic_hash": ""
   },
   "docs/audits/a0-a2/a2-findings.md": {
-    "mtime": 1794613873.485775,
-    "seen": 1794615820.6510875,
+    "mtime": 1794616049.158918,
+    "seen": 1794616060.704459,
     "ast_hash": "e3dfb6bf17c1c37f233113b3f80e56f5",
     "semantic_hash": ""
   },
   "docs/audits/a0-a2/correction-ledger.md": {
-    "mtime": 1794613873.485775,
-    "seen": 1794615820.6510892,
+    "mtime": 1794616049.158918,
+    "seen": 1794616060.7044606,
     "ast_hash": "c8b2993dcf88ca4825ab8868c2767c81",
     "semantic_hash": ""
   },
   "docs/audits/a0-a2/correction-proposals.md": {
-    "mtime": 1794614247.7245612,
-    "seen": 1794615820.6510913,
+    "mtime": 1794616049.158918,
+    "seen": 1794616060.7044616,
     "ast_hash": "6110db7e864334da306f3155a3364163",
     "semantic_hash": ""
   },
   "docs/audits/a0-a2/coverage-ledger.md": {
-    "mtime": 1794612752.8008664,
-    "seen": 1794615820.6510923,
+    "mtime": 1794616049.158918,
+    "seen": 1794616060.7044623,
     "ast_hash": "aa3052e5244194911b8bda2db26c5ff8",
     "semantic_hash": ""
   },
   "docs/audits/a0-a2/cross-level-findings.md": {
-    "mtime": 1794613873.485775,
-    "seen": 1794615820.6510932,
+    "mtime": 1794616049.1627152,
+    "seen": 1794616060.7044637,
     "ast_hash": "1cb6456ddf2eca715775d431913f9e16",
     "semantic_hash": ""
   },
@@ -5076,26 +5076,26 @@
     "semantic_hash": ""
   },
   "docs/audits/a0-a2/executive-summary.md": {
-    "mtime": 1794612752.8008664,
-    "seen": 1794615820.6511147,
+    "mtime": 1794616049.1627152,
+    "seen": 1794616060.7050912,
     "ast_hash": "fa323b86e3bed2421627682e3191d53c",
     "semantic_hash": ""
   },
   "docs/audits/a0-a2/hangul-findings.md": {
-    "mtime": 1794613873.485775,
-    "seen": 1794615820.6511154,
+    "mtime": 1794616049.1627152,
+    "seen": 1794616060.705092,
     "ast_hash": "984cb1b39693759060b93735527c1382",
     "semantic_hash": ""
   },
   "docs/audits/a0-a2/inventory.md": {
-    "mtime": 1794613873.485775,
-    "seen": 1794615820.6511164,
+    "mtime": 1794616049.1627152,
+    "seen": 1794616060.705093,
     "ast_hash": "e846e857c278b70764ac40a6b9fa8014",
     "semantic_hash": ""
   },
   "docs/audits/a0-a2/references.md": {
-    "mtime": 1794613873.485775,
-    "seen": 1794615820.6511173,
+    "mtime": 1794616049.1627152,
+    "seen": 1794616060.7050939,
     "ast_hash": "6d21b8d500450c605257d827b3f91add",
     "semantic_hash": ""
   },
@@ -20898,20 +20898,20 @@
     "semantic_hash": ""
   },
   "docs/audits/b1/README.md": {
-    "mtime": 1794612752.8008664,
-    "seen": 1794615820.6511188,
+    "mtime": 1794616049.1627152,
+    "seen": 1794616060.705118,
     "ast_hash": "d0c7cc35276bd6a3a31106475c46b7de",
     "semantic_hash": ""
   },
   "docs/audits/b1/correction-proposals.md": {
-    "mtime": 1794613873.4895751,
-    "seen": 1794615820.6511207,
+    "mtime": 1794616049.1627152,
+    "seen": 1794616060.70512,
     "ast_hash": "22d50191cbdb0db490b9f34e0be8e29a",
     "semantic_hash": ""
   },
   "docs/audits/b1/coverage-ledger.md": {
-    "mtime": 1794613873.485775,
-    "seen": 1794615820.6511216,
+    "mtime": 1794616049.1627152,
+    "seen": 1794616060.7051215,
     "ast_hash": "2920dedb646bfff7c82159026893a89d",
     "semantic_hash": ""
   },
@@ -20922,51 +20922,51 @@
     "semantic_hash": ""
   },
   "docs/audits/b1/executive-summary.md": {
-    "mtime": 1794612752.8008664,
-    "seen": 1794615820.6511233,
+    "mtime": 1794616049.1627152,
+    "seen": 1794616060.7051456,
     "ast_hash": "5e8aa7f668556ada9c5835f64ef51f3c",
     "semantic_hash": ""
   },
   "docs/audits/b1/exercise-findings.md": {
-    "mtime": 1794613873.485775,
-    "seen": 1794615820.651124,
+    "mtime": 1794616049.1627152,
+    "seen": 1794616060.7051463,
     "ast_hash": "200e9b771615125d59e54861d4392c75",
     "semantic_hash": ""
   },
   "docs/audits/b1/inventory.md": {
-    "mtime": 1794613873.4895751,
-    "seen": 1794615820.6511254,
+    "mtime": 1794616049.1627152,
+    "seen": 1794616060.7051482,
     "ast_hash": "1ae6c073dedebdf2bc0a7af87e1f9d97",
     "semantic_hash": ""
   },
   "docs/audits/b1/linguistic-findings.md": {
-    "mtime": 1794613873.485775,
-    "seen": 1794615820.6511264,
+    "mtime": 1794616049.1627152,
+    "seen": 1794616060.705149,
     "ast_hash": "26f3bec9c2236a6a6082ee2874392dfe",
     "semantic_hash": ""
   },
   "docs/audits/b1/production-task-findings.md": {
-    "mtime": 1794613873.4895751,
-    "seen": 1794615820.651127,
+    "mtime": 1794616049.1627152,
+    "seen": 1794616060.70515,
     "ast_hash": "76e8643cebf3d253d1ef9669177711bf",
     "semantic_hash": ""
   },
   "docs/audits/b1/progression-findings.md": {
-    "mtime": 1794613873.485775,
-    "seen": 1794615820.651128,
+    "mtime": 1794616049.1627152,
+    "seen": 1794616060.7051506,
     "ast_hash": "d718f241b091b665ecf6e240c634fb77",
     "semantic_hash": ""
   },
   "docs/audits/b1/vocabulary-findings.md": {
-    "mtime": 1794613873.485775,
-    "seen": 1794615820.651129,
+    "mtime": 1794616049.1627152,
+    "seen": 1794616060.7051518,
     "ast_hash": "c48c0d16a81b1011883eab63f1a4834e",
     "semantic_hash": ""
   },
   "docs/audits/b1/data/content-dump.json": {
     "mtime": 1794570617.9179983,
     "seen": 1794615902.7831306,
-    "ast_hash": "ad161905dd6f5caf370982258c184a76",
+    "ast_hash": "",
     "semantic_hash": ""
   },
   "tests/content/b1-corrections.test.ts": {
@@ -20976,8 +20976,8 @@
     "semantic_hash": ""
   },
   "docs/audits/b1/correction-ledger.md": {
-    "mtime": 1794613873.4895751,
-    "seen": 1794615820.6511197,
+    "mtime": 1794616049.1627152,
+    "seen": 1794616060.7051191,
     "ast_hash": "e0a9ed501717051372e185ee18d10dda",
     "semantic_hash": ""
   },
@@ -20988,8 +20988,8 @@
     "semantic_hash": ""
   },
   "docs/audits/b1/final-editorial-decisions.md": {
-    "mtime": 1794613873.4895751,
-    "seen": 1794615820.6511247,
+    "mtime": 1794616049.1627152,
+    "seen": 1794616060.705147,
     "ast_hash": "3e0e0656d709ca0d5335af1e350af313",
     "semantic_hash": ""
   },
@@ -21138,8 +21138,8 @@
     "semantic_hash": ""
   },
   "docs/curriculum/b2-exercise-plan.md": {
-    "mtime": 1794612909.7064044,
-    "seen": 1794615820.651159,
+    "mtime": 1794616049.1627152,
+    "seen": 1794616060.705331,
     "ast_hash": "cf40c98911d1c13fc1c9cfc98cd8d3d0",
     "semantic_hash": ""
   },
@@ -21156,14 +21156,14 @@
     "semantic_hash": ""
   },
   "docs/curriculum/b2-syllabus.md": {
-    "mtime": 1794612683.3507166,
-    "seen": 1794615820.6511633,
+    "mtime": 1794616049.1665123,
+    "seen": 1794616060.705382,
     "ast_hash": "420e34fab3b0d60c96585bb91241c36a",
     "semantic_hash": ""
   },
   "docs/curriculum/b2-vocabulary-plan.md": {
-    "mtime": 1794612683.3545182,
-    "seen": 1794615820.6511645,
+    "mtime": 1794616049.1665123,
+    "seen": 1794616060.7053835,
     "ast_hash": "da42fad9e0eb8c279195449b7f6960ff",
     "semantic_hash": ""
   },
@@ -21234,8 +21234,8 @@
     "semantic_hash": ""
   },
   "src/content/curriculum/b2/lessons/module7.ts": {
-    "mtime": 1794614842.0040758,
-    "seen": 1794615820.6508472,
+    "mtime": 1794616050.1193833,
+    "seen": 1794616060.6989737,
     "ast_hash": "edf54374155b3052de63920a37a275f0",
     "semantic_hash": ""
   },
@@ -21258,8 +21258,8 @@
     "semantic_hash": ""
   },
   "tests/b2-lesson.test.ts": {
-    "mtime": 1794611797.6086872,
-    "seen": 1794615820.6510258,
+    "mtime": 1794616050.1193833,
+    "seen": 1794616060.7036023,
     "ast_hash": "f8cb7c20ab51d79eb6384957258b51e1",
     "semantic_hash": ""
   },
@@ -21792,50 +21792,50 @@
     "semantic_hash": ""
   },
   "docs/audits/phase-13/README.md": {
-    "mtime": 1794612472.8343272,
-    "seen": 1794615820.6511295,
+    "mtime": 1794616049.1627152,
+    "seen": 1794616060.7051528,
     "ast_hash": "0a892caa7ba4bf192426e9e4989e24b5",
     "semantic_hash": ""
   },
   "docs/audits/phase-13/executive-summary.md": {
-    "mtime": 1794612472.8343272,
-    "seen": 1794615820.6511307,
+    "mtime": 1794616049.1627152,
+    "seen": 1794616060.7051537,
     "ast_hash": "0b45ad5f160f0097a7714b450d494005",
     "semantic_hash": ""
   },
   "docs/audits/phase-13/human-review-required.md": {
-    "mtime": 1794612909.7064044,
-    "seen": 1794615820.6511314,
+    "mtime": 1794616049.1627152,
+    "seen": 1794616060.7051551,
     "ast_hash": "be0278917d6bc6656a3015a7f8d36dd3",
     "semantic_hash": ""
   },
   "docs/audits/phase-13/plan.md": {
-    "mtime": 1794612472.8343272,
-    "seen": 1794615820.6511323,
+    "mtime": 1794616049.1627152,
+    "seen": 1794616060.7051558,
     "ast_hash": "c74c95a240c282a7cac393f521c86f96",
     "semantic_hash": ""
   },
   "docs/audits/phase-13/progression-matrix.md": {
-    "mtime": 1794613873.4895751,
-    "seen": 1794615820.6511335,
+    "mtime": 1794616049.1627152,
+    "seen": 1794616060.7051568,
     "ast_hash": "6d6bf8aa694d73b800a1283205fc096b",
     "semantic_hash": ""
   },
   "docs/audits/phase-13/references.md": {
-    "mtime": 1794613873.4895751,
-    "seen": 1794615820.6511343,
+    "mtime": 1794616049.1627152,
+    "seen": 1794616060.7051575,
     "ast_hash": "2fcaea27b8b473e3fd02c8a5539cc1d1",
     "semantic_hash": ""
   },
   "docs/audits/phase-13/reviewer-findings.md": {
-    "mtime": 1794612472.8343272,
-    "seen": 1794615820.6511352,
+    "mtime": 1794616049.1627152,
+    "seen": 1794616060.7051592,
     "ast_hash": "9c000175f400bbd20d60f1ef339ff411",
     "semantic_hash": ""
   },
   "docs/audits/phase-13/technical-audit.md": {
-    "mtime": 1794613873.4895751,
-    "seen": 1794615820.6511362,
+    "mtime": 1794616049.1627152,
+    "seen": 1794616060.7051601,
     "ast_hash": "a232826bf3df426a0db4be5701875838",
     "semantic_hash": ""
   },
@@ -21864,8 +21864,8 @@
     "semantic_hash": ""
   },
   "docs/curriculum/c1-vocabulary-plan.md": {
-    "mtime": 1794612683.3507166,
-    "seen": 1794615820.651171,
+    "mtime": 1794616049.1665123,
+    "seen": 1794616060.7054567,
     "ast_hash": "e4475b494570cad6d6724fffa1f06d3e",
     "semantic_hash": ""
   },
@@ -21894,8 +21894,8 @@
     "semantic_hash": ""
   },
   "docs/curriculum/c2-vocabulary-plan.md": {
-    "mtime": 1794612683.3507166,
-    "seen": 1794615820.6511745,
+    "mtime": 1794616049.1665123,
+    "seen": 1794616060.705585,
     "ast_hash": "930ef5441ddf3f322d7f370f37bb839b",
     "semantic_hash": ""
   },
@@ -21930,20 +21930,20 @@
     "semantic_hash": ""
   },
   "docs/audits/phase-14/README.md": {
-    "mtime": 1794612472.8343272,
-    "seen": 1794615820.6511374,
+    "mtime": 1794616049.1627152,
+    "seen": 1794616060.705163,
     "ast_hash": "25665e7bbfccb4bf99d90eeb6ce64bb8",
     "semantic_hash": ""
   },
   "docs/audits/phase-14/c2-linguistic-fixes.md": {
-    "mtime": 1794612594.404651,
-    "seen": 1794615820.6511383,
+    "mtime": 1794616049.1627152,
+    "seen": 1794616060.705164,
     "ast_hash": "fc585c2cabf3b03d1771c96832f8bd8d",
     "semantic_hash": ""
   },
   "docs/audits/phase-14/option-length-corrections.md": {
-    "mtime": 1794612594.404651,
-    "seen": 1794615820.6511395,
+    "mtime": 1794616049.1627152,
+    "seen": 1794616060.705165,
     "ast_hash": "91960d8acae5dc91bbd076f2c0bfa1ff",
     "semantic_hash": ""
   },
@@ -21972,8 +21972,8 @@
     "semantic_hash": ""
   },
   "docs/audio/credits.md": {
-    "mtime": 1794613756.2283108,
-    "seen": 1794615820.6510785,
+    "mtime": 1794616049.158918,
+    "seen": 1794616060.7044456,
     "ast_hash": "9d9adef6e8131de9800a51bb9d5832c9",
     "semantic_hash": ""
   },
@@ -51342,14 +51342,14 @@
     "semantic_hash": ""
   },
   "docs/audits/release-final-review.md": {
-    "mtime": 1794615883.8017426,
-    "seen": 1794615902.7985792,
+    "mtime": 1794616049.1627152,
+    "seen": 1794616060.7051888,
     "ast_hash": "51d41a52c486b880309be4b8fd9c13c0",
     "semantic_hash": ""
   },
   "public/audio/v1/ko-633375ea.mp3": {
-    "mtime": 1794612436.2194278,
-    "seen": 1794615820.6541607,
+    "mtime": 1794616050.1003976,
+    "seen": 1794616060.766659,
     "ast_hash": "a3064bc13f545d6a6fc3ec17aae9cac8",
     "semantic_hash": ""
   },
